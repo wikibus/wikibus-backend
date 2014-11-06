@@ -17,7 +17,7 @@ namespace wikibus.purl.nancy
 
         private object RedirectRdfRequest()
         {
-            string documentLocation = string.Format("http://wikibus.org/{0}.ttl", Request.Path.Trim('/'));
+            string documentLocation = string.Format("http://wikibus.org/data/{0}", Request.Path.Trim('/'));
             return Response.AsRedirect(documentLocation);
         }
     }

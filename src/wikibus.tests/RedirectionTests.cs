@@ -11,7 +11,7 @@ namespace wikibus.tests
     [TestFixture]
     public class RedirectionTests
     {
-        private readonly Uri _baseUri = new Uri("http://wikibus.org/");
+        private const string BaseUri = "http://wikibus.org/data/";
         private Browser _browser;
 
         [SetUp]
@@ -26,7 +26,7 @@ namespace wikibus.tests
             [ValueSource("RdfMediaTypes")] RdfMediaType media)
         {
             // given
-            var expectedReditectLocation = new Uri(_baseUri, string.Format("{0}.{1}", path.Item2, media.Extension));
+            var expectedReditectLocation = new Uri(BaseUri + string.Format("{0}", path.Item2));
 
             // when
             var response = _browser.Get(path.Item1, context => context.Accept(media.MediaType));
@@ -38,14 +38,18 @@ namespace wikibus.tests
 
         private IEnumerable<Tuple<string, string>> PathsToRedirect()
         {
-            yield return Tuple.Create("/brochure/", "/brochure");
-            yield return Tuple.Create("/brochure/x/y/z", "/brochure/x/y/z");
-            yield return Tuple.Create("brochure/x/y/z", "/brochure/x/y/z");
+            yield return Tuple.Create("/brochure/", "brochure");
+            yield return Tuple.Create("/brochure/x/y/z", "brochure/x/y/z");
+            yield return Tuple.Create("brochure/x/y/z", "brochure/x/y/z");
         }
 
         private IEnumerable<RdfMediaType> RdfMediaTypes()
         {
             yield return RdfMediaType.Turtle;
+            yield return RdfMediaType.RdfXml;
+            yield return RdfMediaType.JsonLd;
+            yield return RdfMediaType.Ntriples;
+            yield return RdfMediaType.N3;
         }
     }
 }

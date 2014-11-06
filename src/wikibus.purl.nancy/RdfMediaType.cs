@@ -15,13 +15,57 @@
         }
 
         /// <summary>
-        /// Gets the turtle type.
+        /// Gets the turtle mime type.
         /// </summary>
         public static RdfMediaType Turtle
         {
             get
             {
                 return new RdfMediaType("text/turtle", "ttl");
+            }
+        }
+
+        /// <summary>
+        /// Gets the RDF/XML mime type.
+        /// </summary>
+        public static RdfMediaType RdfXml
+        {
+            get
+            {
+                return new RdfMediaType("application/rdf+xml", "rdf");
+            }
+        }
+
+        /// <summary>
+        /// Gets the JSON LD media type.
+        /// </summary>
+        public static RdfMediaType JsonLd
+        {
+            get
+            {
+                return new RdfMediaType("application/ld+json", "jsonld");
+            }
+        }
+
+        /// <summary>
+        /// Gets the n3 media type.
+        /// </summary>
+        public static RdfMediaType N3
+        {
+            get
+            {
+                return new RdfMediaType("text/rdf+n3", "n3");
+            }
+        }
+
+        /// <summary>
+        /// Gets the NTriples media type.
+        /// </summary>
+        public static RdfMediaType Ntriples
+        {
+            get
+            {
+                return new RdfMediaType("text/plain", "nt");
             }
         }
 
