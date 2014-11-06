@@ -4,3 +4,4 @@ src/packages
 [Oo]bj
 *.user
 *.Cache
+VersionAssemblyInfo.cs

@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using NUnit.Framework;
 using Nancy;
-using Nancy.Responses.Negotiation;
 using Nancy.Testing;
+using NUnit.Framework;
+using wikibus.purl.nancy;
 
 namespace wikibus.tests
 {
     [TestFixture]
     public class RedirectionTests
     {
+        private readonly Uri _baseUri = new Uri("http://wikibus.org/");
         private Browser _browser;
 
         [SetUp]
@@ -22,14 +23,17 @@ namespace wikibus.tests
         [Test]
         public void Should_redirect_rdf_requests_to_document(
             [ValueSource("PathsToRedirect")] string path,
-            [ValueSource("RdfMediaTypes")] MediaRange media)
+            [ValueSource("RdfMediaTypes")] RdfMediaType media)
         {
+            // given
+            var expectedReditectLocation = new Uri(_baseUri, path + media.Extension);
+
             // when
-            var response = _browser.Get(path, context => context.Accept(media));
+            var response = _browser.Get(path, context => context.Accept(media.MediaType));
 
             // then
             response.StatusCode.Should().Be(HttpStatusCode.SeeOther);
-            response.Headers["Location"].Should().Be(new Uri(new Uri("http://wikibus.org/"), path).ToString());
+            response.Headers["Location"].Should().Be(expectedReditectLocation.ToString());
         }
 
         private IEnumerable<string> PathsToRedirect()
@@ -37,9 +41,9 @@ namespace wikibus.tests
             yield return "/brochure/";
         }
 
-        private IEnumerable<MediaRange> RdfMediaTypes()
+        private IEnumerable<RdfMediaType> RdfMediaTypes()
         {
-            yield return new MediaRange("text/turtle");
+            yield return RdfMediaType.Turtle;
         }
     }
 }
