@@ -1,1 +1,6 @@
 *.suo
+src/packages
+[Bb]in
+[Oo]bj
+*.user
+*.Cache
