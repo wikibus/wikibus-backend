@@ -17,28 +17,30 @@ namespace wikibus.tests
         [SetUp]
         public void Setup()
         {
-            _browser = new Browser(c => c.Assembly("wikibus.purl.nancy"));
+            _browser = new Browser(c => c.Assembly("wikibus.purl.nancy").Module<RedirectModule>());
         }
 
         [Test]
         public void Should_redirect_rdf_requests_to_document(
-            [ValueSource("PathsToRedirect")] string path,
+            [ValueSource("PathsToRedirect")] Tuple<string, string> path,
             [ValueSource("RdfMediaTypes")] RdfMediaType media)
         {
             // given
-            var expectedReditectLocation = new Uri(_baseUri, path + media.Extension);
+            var expectedReditectLocation = new Uri(_baseUri, string.Format("{0}.{1}", path.Item2, media.Extension));
 
             // when
-            var response = _browser.Get(path, context => context.Accept(media.MediaType));
+            var response = _browser.Get(path.Item1, context => context.Accept(media.MediaType));
 
             // then
             response.StatusCode.Should().Be(HttpStatusCode.SeeOther);
             response.Headers["Location"].Should().Be(expectedReditectLocation.ToString());
         }
 
-        private IEnumerable<string> PathsToRedirect()
+        private IEnumerable<Tuple<string, string>> PathsToRedirect()
         {
-            yield return "/brochure/";
+            yield return Tuple.Create("/brochure/", "/brochure");
+            yield return Tuple.Create("/brochure/x/y/z", "/brochure/x/y/z");
+            yield return Tuple.Create("brochure/x/y/z", "/brochure/x/y/z");
         }
 
         private IEnumerable<RdfMediaType> RdfMediaTypes()

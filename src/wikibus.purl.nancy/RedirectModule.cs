@@ -12,12 +12,12 @@ namespace wikibus.purl.nancy
         /// </summary>
         public RedirectModule()
         {
-            Get["/brochure/{path*}"] = rqst => RedirectRdfRequest();
+            Get["/{path*}"] = rqst => RedirectRdfRequest();
         }
 
         private object RedirectRdfRequest()
         {
-            string documentLocation = string.Format("http://wikibus.org/{0}.ttl", Request.Path);
+            string documentLocation = string.Format("http://wikibus.org/{0}.ttl", Request.Path.Trim('/'));
             return Response.AsRedirect(documentLocation);
         }
     }
