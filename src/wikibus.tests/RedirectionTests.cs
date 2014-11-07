@@ -23,7 +23,7 @@ namespace wikibus.tests
         [Test]
         public void Should_redirect_rdf_requests_to_document(
             [ValueSource("PathsToRedirect")] Tuple<string, string> path,
-            [ValueSource("RdfMediaTypes")] RdfMediaType media)
+            [ValueSource("RdfMediaTypes")] RdfSerialization media)
         {
             // given
             var expectedReditectLocation = new Uri(BaseUri + string.Format("{0}", path.Item2));
@@ -43,13 +43,13 @@ namespace wikibus.tests
             yield return Tuple.Create("brochure/x/y/z", "brochure/x/y/z");
         }
 
-        private IEnumerable<RdfMediaType> RdfMediaTypes()
+        private IEnumerable<RdfSerialization> RdfMediaTypes()
         {
-            yield return RdfMediaType.Turtle;
-            yield return RdfMediaType.RdfXml;
-            yield return RdfMediaType.JsonLd;
-            yield return RdfMediaType.Ntriples;
-            yield return RdfMediaType.N3;
+            yield return RdfSerialization.Turtle;
+            yield return RdfSerialization.RdfXml;
+            yield return RdfSerialization.JsonLd;
+            yield return RdfSerialization.Ntriples;
+            yield return RdfSerialization.N3;
         }
     }
 }

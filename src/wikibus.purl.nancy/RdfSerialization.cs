@@ -3,12 +3,12 @@
     /// <summary>
     /// Represents an RDF media type
     /// </summary>
-    public class RdfMediaType
+    public class RdfSerialization
     {
         private readonly string _mediaType;
         private readonly string _extension;
 
-        private RdfMediaType(string mediaType, string extension)
+        private RdfSerialization(string mediaType, string extension)
         {
             _mediaType = mediaType;
             _extension = extension;
@@ -17,55 +17,55 @@
         /// <summary>
         /// Gets the turtle mime type.
         /// </summary>
-        public static RdfMediaType Turtle
+        public static RdfSerialization Turtle
         {
             get
             {
-                return new RdfMediaType("text/turtle", "ttl");
+                return new RdfSerialization("text/turtle", "ttl");
             }
         }
 
         /// <summary>
         /// Gets the RDF/XML mime type.
         /// </summary>
-        public static RdfMediaType RdfXml
+        public static RdfSerialization RdfXml
         {
             get
             {
-                return new RdfMediaType("application/rdf+xml", "rdf");
+                return new RdfSerialization("application/rdf+xml", "rdf");
             }
         }
 
         /// <summary>
         /// Gets the JSON LD media type.
         /// </summary>
-        public static RdfMediaType JsonLd
+        public static RdfSerialization JsonLd
         {
             get
             {
-                return new RdfMediaType("application/ld+json", "jsonld");
+                return new RdfSerialization("application/ld+json", "jsonld");
             }
         }
 
         /// <summary>
         /// Gets the n3 media type.
         /// </summary>
-        public static RdfMediaType N3
+        public static RdfSerialization N3
         {
             get
             {
-                return new RdfMediaType("text/rdf+n3", "n3");
+                return new RdfSerialization("text/rdf+n3", "n3");
             }
         }
 
         /// <summary>
         /// Gets the NTriples media type.
         /// </summary>
-        public static RdfMediaType Ntriples
+        public static RdfSerialization Ntriples
         {
             get
             {
-                return new RdfMediaType("text/plain", "nt");
+                return new RdfSerialization("text/plain", "nt");
             }
         }
 
