@@ -24,7 +24,7 @@ namespace wikibus.tests
         }
 
         [Test]
-        public void Should_query_for_correct()
+        public void Should_query_for_correct_resource()
         {
             // given
             const string path = "/data/brochure/12345";
