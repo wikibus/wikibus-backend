@@ -46,9 +46,16 @@
   <ItemGroup>
     <Compile Include="SourcesModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wikibus.sources\wikibus.sources.csproj">
+      <Project>{39B74ABD-895F-44BD-A0B9-80DFA6DC4D1E}</Project>
+      <Name>wikibus.sources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

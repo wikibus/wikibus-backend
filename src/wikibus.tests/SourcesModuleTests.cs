@@ -31,10 +31,9 @@ namespace wikibus.tests
             Uri expectedIdentifier = new Uri("http://wikibus.org/brochure/12345");
 
             // when
-            var response = _browser.Get(path, with => with.Accept(RdfSerialization.Turtle.MediaType));
+            _browser.Get(path, with => with.Accept(RdfSerialization.Turtle.MediaType));
 
             // then
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
             A.CallTo(() => _sources.Get<Source>(expectedIdentifier)).MustHaveHappened(Repeated.Exactly.Once);
         }
     }
