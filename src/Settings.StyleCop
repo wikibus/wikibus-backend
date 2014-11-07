@@ -107,6 +107,16 @@
             <BooleanProperty Name="Enabled">False</BooleanProperty>
           </RuleSettings>
         </Rule>
+        <Rule Name="ElementParametersMustBeDocumented">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">False</BooleanProperty>
+          </RuleSettings>
+        </Rule>
+        <Rule Name="ElementReturnValueMustBeDocumented">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">False</BooleanProperty>
+          </RuleSettings>
+        </Rule>
       </Rules>
       <AnalyzerSettings>
         <BooleanProperty Name="IgnorePrivates">True</BooleanProperty>
@@ -118,12 +128,12 @@
         <StringProperty Name="AdvancedNaming_ProtectedInstanceField">_$(aaBb)</StringProperty>
         <StringProperty Name="AdvancedNaming_PrivateInstanceField">_$(aaBb)</StringProperty>
         <StringProperty Name="AdvancedNaming_ProtectedStaticField">_$(aaBb)</StringProperty>
-        <StringProperty Name="AdvancedNaming_PrivateStaticField">_$(aaBb)</StringProperty>
+        <StringProperty Name="AdvancedNaming_PrivateStaticField">$(AaBb)</StringProperty>
         <StringProperty Name="AdvancedNaming_ProtectedConst">$(AaBb)</StringProperty>
         <StringProperty Name="AdvancedNaming_PrivateConst">$(AaBb):$(AA_BB)</StringProperty>
         <StringProperty Name="AdvancedNaming_MethodTest">$(AaBb):$(Aa_Bb):$(aa_bb):$(A)$(*)</StringProperty>
         <StringProperty Name="SP2001_Mode">Spaces:False</StringProperty>
-        <StringProperty Name="AdvancedNaming_Namespace">$(aabb)</StringProperty>
+        <StringProperty Name="AdvancedNaming_Namespace">$(*)</StringProperty>
       </AnalyzerSettings>
     </Analyzer>
   </Analyzers>
