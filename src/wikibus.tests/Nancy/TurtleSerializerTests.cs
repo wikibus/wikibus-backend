@@ -1,9 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using FluentAssertions;
 using NUnit.Framework;
+using VDS.RDF.Query.Builder;
 using wikibus.nancy;
 using wikibus.purl.nancy;
 using wikibus.sources;
+using wikibus.tests.FluentAssertions;
 
 namespace wikibus.tests.Nancy
 {
@@ -23,16 +26,33 @@ namespace wikibus.tests.Nancy
         {
             // given
             Stream output = new MemoryStream();
+            const string title = "Jelcz 123";
+            var model = new Brochure
+                {
+                    Title = title
+                };
 
             // when
-            _serializer.Serialize(RdfSerialization.Turtle.MediaType, new Source(), output);
+            _serializer.Serialize(RdfSerialization.Turtle.MediaType, model, output);
 
             // then
             output.Seek(0, SeekOrigin.Begin);
-            using (var reader = new StreamReader(output))
-            {
-                reader.ReadToEnd().Should().Be("12345");
-            }
+            output.AsRdf().Should().MatchAsk(
+                  tpb => tpb.Subject("s").PredicateUri(new Uri("http://purl.org/dc/terms/title")).Object("title"),
+                  exb => exb.Str(exb.Variable("title")) == title);
+        }
+
+        [Test]
+        public void Should_acccept_turtle()
+        {
+            // given
+            string mime = RdfSerialization.Turtle.MediaType;
+
+            // when
+            var canSerialize = _serializer.CanSerialize(mime);
+
+            // then
+            canSerialize.Should().BeTrue();
         }
     }
 }
