@@ -4,6 +4,7 @@ using FluentAssertions;
 using Nancy;
 using Nancy.Testing;
 using NUnit.Framework;
+using wikibus.nancy;
 using wikibus.purl.nancy;
 
 namespace wikibus.tests

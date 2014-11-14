@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoggerFactory.cs" />
+    <Compile Include="RdfSerialization.cs" />
     <Compile Include="RdfSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
