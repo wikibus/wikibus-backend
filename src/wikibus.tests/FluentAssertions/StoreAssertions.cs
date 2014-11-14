@@ -5,6 +5,7 @@ using VDS.RDF;
 using VDS.RDF.Query;
 using VDS.RDF.Query.Builder;
 using VDS.RDF.Query.Builder.Expressions;
+using VDS.RDF.Query.Datasets;
 
 namespace wikibus.tests.FluentAssertions
 {
@@ -15,6 +16,11 @@ namespace wikibus.tests.FluentAssertions
         public StoreAssertions(IInMemoryQueryableStore tripleStore)
         {
             _queryProcessor = new LeviathanQueryProcessor(tripleStore);
+        }
+
+        public StoreAssertions(IGraph graph)
+        {
+            _queryProcessor = new LeviathanQueryProcessor(new InMemoryDataset(graph));
         }
 
         protected override string Context

@@ -48,8 +48,8 @@ namespace wikibus.tests
             yield return RdfSerialization.Turtle;
             yield return RdfSerialization.RdfXml;
             yield return RdfSerialization.JsonLd;
-            yield return RdfSerialization.Ntriples;
-            yield return RdfSerialization.N3;
+            yield return RdfSerialization.NTriples;
+            yield return RdfSerialization.Notation3;
         }
     }
 }

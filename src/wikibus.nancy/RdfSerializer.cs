@@ -18,7 +18,7 @@ namespace wikibus.nancy
     /// <summary>
     /// Serializer for RDF data types
     /// </summary>
-    public class TurtleSerializer : ISerializer
+    public class RdfSerializer : ISerializer
     {
         /// <inheritdoc />
         public IEnumerable<string> Extensions { get; private set; }
@@ -67,6 +67,17 @@ namespace wikibus.nancy
                 }
 
                 h.EndRdf(true);
+            }
+
+            Anotar.Custom.LogTo.Trace("Serialized model {0}", GetRdfString(outputStream));
+        }
+
+        private string GetRdfString(Stream outputStream)
+        {
+            outputStream.Seek(0, SeekOrigin.Begin);
+            using (var rdr = new StreamReader(new UnclosableStreamWrapper(outputStream)))
+            {
+                return rdr.ReadToEnd();
             }
         }
 

@@ -1,9 +1,11 @@
-﻿namespace wikibus.purl.nancy
+﻿using System.Collections.Generic;
+
+namespace wikibus.nancy
 {
     /// <summary>
     /// Represents an RDF media type
     /// </summary>
-    public class RdfSerialization
+    public struct RdfSerialization
     {
         private readonly string _mediaType;
         private readonly string _extension;
@@ -12,6 +14,21 @@
         {
             _mediaType = mediaType;
             _extension = extension;
+        }
+
+        /// <summary>
+        /// Gets all RDF serializations
+        /// </summary>
+        public static IEnumerable<RdfSerialization> All
+        {
+            get
+            {
+                yield return Turtle;
+                yield return RdfXml;
+                yield return JsonLd;
+                yield return Notation3;
+                yield return NTriples;
+            }
         }
 
         /// <summary>
@@ -50,7 +67,7 @@
         /// <summary>
         /// Gets the n3 media type.
         /// </summary>
-        public static RdfSerialization N3
+        public static RdfSerialization Notation3
         {
             get
             {
@@ -61,7 +78,7 @@
         /// <summary>
         /// Gets the NTriples media type.
         /// </summary>
-        public static RdfSerialization Ntriples
+        public static RdfSerialization NTriples
         {
             get
             {
@@ -83,6 +100,14 @@
         public string Extension
         {
             get { return _extension; }
+        }
+
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        public override string ToString()
+        {
+            return MediaType;
         }
     }
 }
