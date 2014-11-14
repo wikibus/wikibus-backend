@@ -5,6 +5,7 @@ using Nancy;
 using Nancy.Testing;
 using NUnit.Framework;
 using wikibus.nancy;
+using wikibus.nancy.Responses;
 using wikibus.purl.nancy;
 using wikibus.sources;
 using wikibus.sources.nancy;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace wikibus.tests
+namespace wikibus.nancy
 {
     /// <summary>
     /// Logger Factory

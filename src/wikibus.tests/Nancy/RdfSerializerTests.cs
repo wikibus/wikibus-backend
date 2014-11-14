@@ -1,31 +1,32 @@
 ﻿using System;
-using System.Collections;
 using System.IO;
+using FakeItEasy;
 using FluentAssertions;
+using Nancy;
 using NUnit.Framework;
 using VDS.RDF;
-using VDS.RDF.Parsing;
-using VDS.RDF.Query.Builder;
-using wikibus.nancy;
+using VDS.RDF.Writing.Formatting;
+using wikibus.nancy.Responses;
 using wikibus.sources;
-using wikibus.tests.FluentAssertions;
 
 namespace wikibus.tests.Nancy
 {
     [TestFixture]
     public class RdfSerializerTests
     {
-        private global::Nancy.ISerializer _serializer;
+        private static readonly RdfSerialization Serialization = RdfSerialization.Turtle;
+        private IRdfHandler _handler;
+        private ISerializer _serializer;
 
         [SetUp]
         public void Setup()
         {
-            _serializer = new RdfSerializer();
+            _handler = A.Fake<IRdfHandler>();
+            _serializer = new RdfSerializerTestable(_handler);
         }
 
         [Test]
-        [TestCaseSource("RdfSerializations")]
-        public void Should_serialize_source_to_rdf(RdfSerialization serialization, IRdfReader reader)
+        public void Should_serialize_simple_property_to_triple()
         {
             // given
             Stream output = new MemoryStream();
@@ -36,20 +37,20 @@ namespace wikibus.tests.Nancy
                 };
 
             // when
-            _serializer.Serialize(RdfSerialization.Turtle.MediaType, model, output);
+            _serializer.Serialize(Serialization.MediaType, model, output);
 
             // then
-            output.Seek(0, SeekOrigin.Begin);
-            output.AsGraph(reader).Should().MatchAsk(
-                  tpb => tpb.Subject("s").PredicateUri(new Uri("http://purl.org/dc/terms/title")).Object("title"),
-                  exb => exb.Str(exb.Variable("title")) == title);
+            A.CallTo(() => _handler.HandleTriple(A<Triple>.That.Matches(t =>
+                                                                        t.Subject is IBlankNode &&
+                                                                        t.Predicate.ToString() == "http://purl.org/dc/terms/title" &&
+                                                                        ((ILiteralNode)t.Object).Value == "Jelcz 123"))).MustHaveHappened();
         }
 
         [Test]
-        public void Should_acccept_turtle()
+        public void Should_acccept_given_mime()
         {
             // given
-            string mime = RdfSerialization.Turtle.MediaType;
+            string mime = Serialization.MediaType;
 
             // when
             var canSerialize = _serializer.CanSerialize(mime);
@@ -58,12 +59,25 @@ namespace wikibus.tests.Nancy
             canSerialize.Should().BeTrue();
         }
 
-        private IEnumerable RdfSerializations()
+        public class RdfSerializerTestable : RdfSerializer
         {
-            yield return new TestCaseData(RdfSerialization.Turtle, new TurtleParser());
-            yield return new TestCaseData(RdfSerialization.NTriples, new NTriplesParser());
-            yield return new TestCaseData(RdfSerialization.Notation3, new Notation3Parser());
-            yield return new TestCaseData(RdfSerialization.RdfXml, new RdfXmlParser());
+            private readonly IRdfHandler _handler;
+
+            public RdfSerializerTestable(IRdfHandler handler)
+                : base(Serialization)
+            {
+                _handler = handler;
+            }
+
+            protected override IRdfHandler CreateHandler<TModel>(StreamWriter writer)
+            {
+                return _handler;
+            }
+
+            protected override ITripleFormatter CreateFormatter()
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
