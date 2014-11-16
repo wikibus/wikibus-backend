@@ -1,0 +1,5 @@
+﻿@base <http://wikibus.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/>.
+
+<brochure/12345> a <ontology#Brochure> ;
+	dcterms:title "Jelcz M11 - nowość" .
