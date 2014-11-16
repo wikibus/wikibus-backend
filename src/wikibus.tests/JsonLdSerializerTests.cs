@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using FakeItEasy;
+using Nancy.RDF.Responses;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
-using wikibus.nancy.Responses;
 using wikibus.sources;
 using wikibus.tests.Helpers;
 

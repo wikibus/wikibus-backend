@@ -9,8 +9,8 @@
     <ProjectGuid>{529620CA-3D1A-44C1-86BD-C0ABE4371DF6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>wikibus.nancy</RootNamespace>
-    <AssemblyName>wikibus.nancy</AssemblyName>
+    <RootNamespace>Nancy.RDF</RootNamespace>
+    <AssemblyName>Nancy.RDF</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

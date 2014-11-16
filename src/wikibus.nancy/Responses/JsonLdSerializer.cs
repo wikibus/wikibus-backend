@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Nancy;
 using Nancy.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
-namespace wikibus.nancy.Responses
+namespace Nancy.RDF.Responses
 {
     /// <summary>
     /// Serializer of JSON-LD

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using JsonLD.Core;
-using Nancy;
 using Nancy.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -11,7 +10,7 @@ using VDS.RDF;
 using VDS.RDF.Parsing.Handlers;
 using VDS.RDF.Writing.Formatting;
 
-namespace wikibus.nancy.Responses
+namespace Nancy.RDF.Responses
 {
     /// <summary>
     /// Serializer for RDF data types (other than JSON-LD)

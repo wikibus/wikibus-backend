@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace wikibus.nancy.Responses
+namespace Nancy.RDF.Responses
 {
     /// <summary>
     /// Contract for classes, which provide JSON-LD @context for given types

@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Common.props = Common.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.nancy", "wikibus.nancy\wikibus.nancy.csproj", "{529620CA-3D1A-44C1-86BD-C0ABE4371DF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.RDF", "wikibus.nancy\Nancy.RDF.csproj", "{529620CA-3D1A-44C1-86BD-C0ABE4371DF6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.purl.web", "wikibus.purl.web\wikibus.purl.web.csproj", "{44AF921E-6E2B-488D-99F2-EE97A557E8BB}"
 EndProject

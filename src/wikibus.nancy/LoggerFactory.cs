@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace wikibus.nancy
+namespace Nancy.RDF
 {
     /// <summary>
     /// Logger Factory

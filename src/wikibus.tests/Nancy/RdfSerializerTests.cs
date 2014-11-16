@@ -3,10 +3,10 @@ using System.IO;
 using FakeItEasy;
 using FluentAssertions;
 using Nancy;
+using Nancy.RDF.Responses;
 using NUnit.Framework;
 using VDS.RDF;
 using VDS.RDF.Writing.Formatting;
-using wikibus.nancy.Responses;
 using wikibus.sources;
 
 namespace wikibus.tests.Nancy

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace wikibus.nancy.Responses
+namespace Nancy.RDF.Responses
 {
     /// <summary>
     /// Represents an RDF media type
