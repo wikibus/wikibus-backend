@@ -19,7 +19,7 @@ namespace wikibus.tests
         [SetUp]
         public void Setup()
         {
-            _browser = new Browser(c => c.Assembly("wikibus.purl.nancy").Module<RedirectModule>());
+            _browser = new Browser(c => c.Assembly("wikibus.purl.nancy").Module<RedirectModule>().DisableAutoRegistrations());
         }
 
         [Test]

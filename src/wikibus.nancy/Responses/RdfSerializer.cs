@@ -41,12 +41,7 @@ namespace wikibus.nancy.Responses
         /// <inheritdoc />
         public virtual bool CanSerialize(string contentType)
         {
-            if (string.IsNullOrWhiteSpace(contentType))
-            {
-                return false;
-            }
-
-            return contentType.Equals(_serialization.MediaType, StringComparison.InvariantCultureIgnoreCase);
+            return _serialization.MediaType.Equals(contentType, StringComparison.InvariantCultureIgnoreCase);
         }
 
         /// <inheritdoc />
@@ -56,7 +51,7 @@ namespace wikibus.nancy.Responses
             {
                 var json = JsonConvert.SerializeObject(
                     model,
-                    Formatting.Indented,
+                    Formatting.None,
                     new JsonSerializerSettings
                         {
                             ContractResolver = new CamelCasePropertyNamesContractResolver()

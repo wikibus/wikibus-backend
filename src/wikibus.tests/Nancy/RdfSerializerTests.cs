@@ -59,7 +59,7 @@ namespace wikibus.tests.Nancy
             canSerialize.Should().BeTrue();
         }
 
-        public class RdfSerializerTestable : RdfSerializer
+        private class RdfSerializerTestable : RdfSerializer
         {
             private readonly IRdfHandler _handler;
 
