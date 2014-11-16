@@ -65,17 +65,38 @@ namespace wikibus.tests.SourcesRepository
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get brochure from repository")]
-        public virtual void GetBrochureFromRepository()
+        [NUnit.Framework.DescriptionAttribute("Get brochure \'VanHool T8\' from repository")]
+        public virtual void GetBrochureVanHoolT8FromRepository()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get brochure from repository", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get brochure \'VanHool T8\' from repository", ((string[])(null)));
 #line 3
 this.ScenarioSetup(scenarioInfo);
 #line 4
- testRunner.Given("Rdf from \'samplebrochure.ttl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 5
- testRunner.When("brochure <http://wikibus.org/brochure/12345> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Rdf from \'samplebrochure.ttl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 6
+ testRunner.When("brochure <http://wikibus.org/brochure/VanHool+T8> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 7
+ testRunner.Then("the brochure should have title \'VanHool T8 - New Look\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get brochure \'12345\' from repository")]
+        public virtual void GetBrochure12345FromRepository()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get brochure \'12345\' from repository", ((string[])(null)));
+#line 9
+this.ScenarioSetup(scenarioInfo);
+#line 10
+ testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 11
+ testRunner.And("Rdf from \'samplebrochure.ttl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.When("brochure <http://wikibus.org/brochure/12345> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
  testRunner.Then("the brochure should have title \'Jelcz M11 - nowość\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

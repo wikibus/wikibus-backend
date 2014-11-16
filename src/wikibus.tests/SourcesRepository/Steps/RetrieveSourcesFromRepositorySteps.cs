@@ -3,6 +3,7 @@ using FluentAssertions;
 using Newtonsoft.Json.Linq;
 using TechTalk.SpecFlow;
 using VDS.RDF;
+using VDS.RDF.Query;
 using wikibus.sources;
 
 namespace wikibus.tests.SourcesRepository.Steps
@@ -12,6 +13,13 @@ namespace wikibus.tests.SourcesRepository.Steps
     {
         private readonly TripleStore _store = new TripleStore();
         private Brochure _brochure;
+        private ISparqlQueryProcessor _queryProcessor;
+
+        [Given(@"In-memory query processor")]
+        public void GivenInMemoryQueryProcessor()
+        {
+            _queryProcessor = new LeviathanQueryProcessor(_store);
+        }
 
         [Given(@"Rdf from '(.*)'")]
         public void GivenRdfFrom(string datasetToLoad)
@@ -28,7 +36,7 @@ namespace wikibus.tests.SourcesRepository.Steps
         [When(@"brochure <(.*)> is fetched")]
         public void WhenBrochureIsFetched(string uri)
         {
-            ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository();
+            ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository(_queryProcessor);
 
             _brochure = repository.Get<Brochure>(new Uri(uri));
         }
