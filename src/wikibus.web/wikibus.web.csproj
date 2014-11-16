@@ -73,6 +73,10 @@
       <Project>{529620CA-3D1A-44C1-86BD-C0ABE4371DF6}</Project>
       <Name>Nancy.RDF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\wikibus.sources.nancy\wikibus.sources.nancy.csproj">
+      <Project>{320672E5-DEFE-441C-A4DB-3830E2AE19C9}</Project>
+      <Name>wikibus.sources.nancy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wikibus.sources\wikibus.sources.csproj">
       <Project>{39B74ABD-895F-44BD-A0B9-80DFA6DC4D1E}</Project>
       <Name>wikibus.sources</Name>

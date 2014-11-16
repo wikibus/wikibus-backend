@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoggerFactory.cs" />
+    <Compile Include="Responses\ContextNotFoundException.cs" />
     <Compile Include="Responses\IContextProvider.cs" />
     <Compile Include="Responses\JsonLdSerializer.cs" />
     <Compile Include="Responses\RdfSerialization.cs" />
