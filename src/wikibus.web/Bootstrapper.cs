@@ -1,4 +1,5 @@
-﻿using VDS.RDF;
+﻿using System;
+using VDS.RDF;
 using VDS.RDF.Query;
 
 namespace wikibus.web
@@ -16,7 +17,8 @@ namespace wikibus.web
         {
             base.ConfigureApplicationContainer(container);
 
-            container.Register<ISparqlQueryProcessor>(new LeviathanQueryProcessor(new TripleStore()));
+            var endpoint = new SparqlRemoteEndpoint(new Uri("http://localhost:29701/sparql"));
+            container.Register<ISparqlQueryProcessor>(new RemoteQueryProcessor(endpoint));
         }
     }
 }

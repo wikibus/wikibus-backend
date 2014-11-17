@@ -18,6 +18,7 @@ namespace wikibus.sources.nancy
         public SourcesContextProvider()
         {
             _contexts[typeof(Brochure)] = new JValue("http://wikibus.org/contexts/brochure.jsonld");
+            _contexts[typeof(Source)] = new JValue("http://wikibus.org/contexts/source.jsonld");
         }
 
         /// <summary>

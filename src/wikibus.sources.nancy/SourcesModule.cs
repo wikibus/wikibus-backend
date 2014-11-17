@@ -14,16 +14,16 @@ namespace wikibus.sources.nancy
         /// Initializes a new instance of the <see cref="SourcesModule" /> class.
         /// </summary>
         /// <param name="repository">The source repository.</param>
-        public SourcesModule(ISourcesRepository repository) : base("data")
+        public SourcesModule(ISourcesRepository repository)
         {
             _repository = repository;
 
-            Get["{path*}"] = GetResource;
+            Get["brochure/{path*}"] = GetResource<Brochure>;
         }
 
-        private dynamic GetResource(dynamic route)
+        private dynamic GetResource<T>(dynamic route) where T : Source
         {
-            return _repository.Get<Source>(new Uri("http://wikibus.org/" + Request.Path.StripFirstSegment()));
+            return _repository.Get<T>(new Uri("http://wikibus.org" + Request.Path));
         }
     }
 }

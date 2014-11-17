@@ -28,12 +28,12 @@ namespace wikibus.sources.dotNetRDF
         /// <inheritdoc />
         public T Get<T>(Uri uri) where T : Source
         {
-            var construct = "CONSTRUCT { @s ?p ?o } WHERE { @s ?p ?o . @s a <http://wikibus.org/ontology#Brochure> . }";
+            var construct = "CONSTRUCT { @s ?p ?o } WHERE { @s ?p ?o . @s a <http://wikibus.org/ontology#folder> . }";
             var query = new SparqlParameterizedString(construct);
             query.SetUri("s", uri);
             var triples = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));
 
-            var dataset = System.Text.RegularExpressions.Regex.Unescape(StringWriter.Write(triples, new NTriplesWriter()));
+            var dataset = StringWriter.Write(triples, new NTriplesWriter(NTriplesSyntax.Rdf11));
             var result = JsonLdProcessor.FromRDF(dataset);
             var context = JObject.Parse("{ 'title': 'http://purl.org/dc/terms/title' }");
             result = JsonLdProcessor.Compact(result, context, new JsonLdOptions("http://wikibus.org/"));
