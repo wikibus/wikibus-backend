@@ -8,7 +8,7 @@ namespace wikibus.web
         protected override void ConfigureApplicationContainer(Nancy.TinyIoc.TinyIoCContainer container)
         {
             base.ConfigureApplicationContainer(container);
-
+            
             container.Register<ISparqlQueryProcessor>(new LeviathanQueryProcessor(new TripleStore()));
         }
     }

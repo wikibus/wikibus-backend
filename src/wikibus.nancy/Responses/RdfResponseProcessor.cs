@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using Nancy;
 using Nancy.Responses.Negotiation;
 
-namespace wikibus.nancy
+namespace Nancy.RDF.Responses
 {
     public class RdfResponseProcessor : IResponseProcessor
     {
         public ProcessorMatch CanProcess(MediaRange requestedMediaRange, dynamic model, NancyContext context)
         {
-            throw new NotImplementedException();
+            return new ProcessorMatch();
         }
 
         public Response Process(MediaRange requestedMediaRange, dynamic model, NancyContext context)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public IEnumerable<Tuple<string, MediaRange>> ExtensionMappings
@@ -23,7 +22,6 @@ namespace wikibus.nancy
             {
                 yield return Tuple.Create("ttl", new MediaRange(RdfSerialization.Turtle.MediaType));
                 yield return Tuple.Create("rdf", new MediaRange(RdfSerialization.RdfXml.MediaType));
-                yield return Tuple.Create("jsonld", new MediaRange(RdfSerialization.JsonLd.MediaType));
                 yield return Tuple.Create("n3", new MediaRange(RdfSerialization.Notation3.MediaType));
                 yield return Tuple.Create("nt", new MediaRange(RdfSerialization.NTriples.MediaType));
             }
