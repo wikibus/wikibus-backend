@@ -1,6 +1,10 @@
 <StyleCopSettings Version="105">
   <GlobalSettings>
     <BooleanProperty Name="ViolationsAsErrors">True</BooleanProperty>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>bootstrapper</Value>
+      <Value>wikibus</Value>
+    </CollectionProperty>
   </GlobalSettings>
   <Parsers>
     <Parser ParserId="StyleCop.CSharp.CsParser">
