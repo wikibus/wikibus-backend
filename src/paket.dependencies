@@ -6,7 +6,6 @@ nuget FakeItEasy 1.24.0
 nuget json-ld.net 1.0.3
 nuget Nancy.Hosting.Aspnet 0.23.2
 nuget Nancy.Testing 0.23.2
-nuget Paket 0.14.6
 nuget r2rml4net 0.4.0.0-pre01
 nuget Resourcer.Fody 1.2.0.0
 nuget SpecFlow.NUnit 1.1.1
