@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.web", "wikibus.web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.sources.dotNetRDF", "wikibus.sources.dotNetRDF\wikibus.sources.dotNetRDF.csproj", "{DCD4B6E3-EB86-41B0-819A-C47E1B4B6D78}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A3FA8BFF-97CA-4070-AD51-8EEF4AB8A1F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

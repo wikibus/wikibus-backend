@@ -28,7 +28,7 @@ namespace wikibus.sources.dotNetRDF
         /// <inheritdoc />
         public T Get<T>(Uri uri) where T : Source
         {
-            var construct = "CONSTRUCT { @s ?p ?o } WHERE { @s ?p ?o . @s a <http://wikibus.org/ontology#folder> . }";
+            var construct = "CONSTRUCT { @s ?p ?o } WHERE { @s ?p ?o . @s a <http://wikibus.org/ontology#Brochure> . }";
             var query = new SparqlParameterizedString(construct);
             query.SetUri("s", uri);
             var triples = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));

@@ -1,6 +1,14 @@
 ﻿using System;
-using VDS.RDF;
+using System.Configuration;
+using Nancy.TinyIoc;
+using Resourcer;
+using Slp.r2rml4net.Storage;
+using Slp.r2rml4net.Storage.Sql;
+using Slp.r2rml4net.Storage.Sql.Vendor;
+using TCode.r2rml4net;
+using VDS.RDF.Parsing;
 using VDS.RDF.Query;
+using VDS.RDF.Storage;
 
 namespace wikibus.web
 {
@@ -13,12 +21,37 @@ namespace wikibus.web
         /// Configures the container using AutoRegister followed by registration
         /// of default INancyModuleCatalog and IRouteResolver.
         /// </summary>
-        protected override void ConfigureApplicationContainer(Nancy.TinyIoc.TinyIoCContainer container)
+        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             base.ConfigureApplicationContainer(container);
 
-            var endpoint = new SparqlRemoteEndpoint(new Uri("http://localhost:29701/sparql"));
-            container.Register<ISparqlQueryProcessor>(new RemoteQueryProcessor(endpoint));
+            container.Register<ISparqlQueryProcessor, GenericQueryProcessor>();
+            container.Register<IQueryableStorage, R2RMLStorage>();
+            container.Register<ISqlDb>(CreateDbConnection);
+            container.Register(CreateRdbMappings);
+        }
+
+        private ISqlDb CreateDbConnection(TinyIoCContainer tinyIoCContainer, NamedParameterOverloads namedParameterOverloads)
+        {
+            return new MSSQLDb(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
+        }
+
+        private IR2RML CreateRdbMappings(TinyIoCContainer tinyIoCContainer, NamedParameterOverloads namedParameterOverloads)
+        {
+            var rml = new FluentR2RML();
+
+            var brochureMap = rml.CreateTriplesMapFromR2RMLView(Resource.AsString("Queries.SelectSources.sql"));
+            brochureMap.SubjectMap.IsTemplateValued("http://wikibus.org/brochure/{Id}");
+
+            var titleMap = brochureMap.CreatePropertyObjectMap();
+            titleMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/title"));
+            titleMap.CreateObjectMap().IsColumnValued("FolderName");
+
+            var typeMap = brochureMap.CreatePropertyObjectMap();
+            typeMap.CreatePredicateMap().IsConstantValued(new Uri(RdfSpecsHelper.RdfType));
+            typeMap.CreateObjectMap().IsTemplateValued("http://wikibus.org/ontology#{Type}");
+
+            return rml;
         }
     }
 }
