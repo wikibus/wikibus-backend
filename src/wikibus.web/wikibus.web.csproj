@@ -921,9 +921,6 @@
     <Content Include="FodyWeavers.xml">
       <Paket>True</Paket>
     </Content>
-    <Content Include="deleteme.txt">
-      <Paket>True</Paket>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -273,9 +273,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Content Include="deleteme.txt">
-      <Paket>True</Paket>
-    </Content>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
