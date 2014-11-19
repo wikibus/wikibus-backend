@@ -1,13 +1,11 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.purl.nancy", "wikibus.purl.nancy\wikibus.purl.nancy.csproj", "{0E27E46A-84C4-4180-8628-22C57442EE30}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.tests", "wikibus.tests\wikibus.tests.csproj", "{63F90B57-D3BD-475F-ABD9-BFA575B0125A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.sources.nancy", "wikibus.sources.nancy\wikibus.sources.nancy.csproj", "{320672E5-DEFE-441C-A4DB-3830E2AE19C9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.sources", "wikibus.sources\wikibus.sources.csproj", "{39B74ABD-895F-44BD-A0B9-80DFA6DC4D1E}"
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{9D85EA14-70CE-4990-A146-0DE83E307E2F}"
+	ProjectSection(SolutionItems) = preProject
+		c:\Users\tomasz.pluskiewicz\Projekty\data-backend\src\paket.dependencies = c:\Users\tomasz.pluskiewicz\Projekty\data-backend\src\paket.dependencies
+		..\src\paket.lock = ..\src\paket.lock
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{39200A1F-0928-40CE-8EC2-06F2AC3CD732}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,17 +14,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{EF30ED7D-DC26-4317-A8E2-57B3CF7A1998}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A3FA8BFF-97CA-4070-AD51-8EEF4AB8A1F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.purl.nancy", "wikibus.purl.nancy\wikibus.purl.nancy.csproj", "{0E27E46A-84C4-4180-8628-22C57442EE30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.tests", "wikibus.tests\wikibus.tests.csproj", "{63F90B57-D3BD-475F-ABD9-BFA575B0125A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.sources.nancy", "wikibus.sources.nancy\wikibus.sources.nancy.csproj", "{320672E5-DEFE-441C-A4DB-3830E2AE19C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.sources", "wikibus.sources\wikibus.sources.csproj", "{39B74ABD-895F-44BD-A0B9-80DFA6DC4D1E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.RDF", "wikibus.nancy\Nancy.RDF.csproj", "{529620CA-3D1A-44C1-86BD-C0ABE4371DF6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.purl.web", "wikibus.purl.web\wikibus.purl.web.csproj", "{44AF921E-6E2B-488D-99F2-EE97A557E8BB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{EF30ED7D-DC26-4317-A8E2-57B3CF7A1998}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.web", "wikibus.web\wikibus.web.csproj", "{6FA27B24-800D-4E76-8228-6F26E7B87FBB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.sources.dotNetRDF", "wikibus.sources.dotNetRDF\wikibus.sources.dotNetRDF.csproj", "{DCD4B6E3-EB86-41B0-819A-C47E1B4B6D78}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A3FA8BFF-97CA-4070-AD51-8EEF4AB8A1F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
