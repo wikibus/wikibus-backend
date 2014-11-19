@@ -1,8 +1,9 @@
 Common.props
 dotNetRDF
 FakeItEasy
-FluentAssertions
 Nancy.Testing
 SpecFlow.NUnit
 StyleCopPlus.MSBuild
 Zoltu.Versioning
+
+FluentAssertions
