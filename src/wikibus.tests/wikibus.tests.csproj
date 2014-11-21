@@ -42,6 +42,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </When>
         <When Condition="$(TargetFrameworkVersion) == 'v1.1'">
@@ -49,6 +55,12 @@
             <Reference Include="nunit.framework">
               <HintPath>..\packages\NUnit\lib\nunit.framework.dll</HintPath>
               <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
               <Paket>True</Paket>
             </Reference>
           </ItemGroup>
@@ -68,6 +80,12 @@
             <Reference Include="Newtonsoft.Json">
               <HintPath>..\packages\Newtonsoft.Json\lib\net20\Newtonsoft.Json.dll</HintPath>
               <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
               <Paket>True</Paket>
             </Reference>
           </ItemGroup>
@@ -104,6 +122,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </When>
         <When Condition="$(TargetFrameworkVersion) == 'v4.0' And $(TargetFrameworkProfile) == 'Client'">
@@ -135,6 +159,11 @@
             </Reference>
             <Reference Include="HtmlAgilityPack">
               <HintPath>..\packages\HtmlAgilityPack\lib\Net40\HtmlAgilityPack.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
@@ -176,6 +205,12 @@
             <Reference Include="dotNetRDF">
               <HintPath>..\packages\dotNetRDF\lib\net40\dotNetRDF.dll</HintPath>
               <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
               <Paket>True</Paket>
             </Reference>
           </ItemGroup>
@@ -212,6 +247,11 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
             <Reference Include="nunit.framework">
               <HintPath>..\packages\NUnit\lib\nunit.framework.dll</HintPath>
               <Private>True</Private>
@@ -252,6 +292,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </When>
         <Otherwise>
@@ -278,6 +324,11 @@
             </Reference>
             <Reference Include="HtmlAgilityPack">
               <HintPath>..\packages\HtmlAgilityPack\lib\Net45\HtmlAgilityPack.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
@@ -321,6 +372,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </Otherwise>
       </Choose>
@@ -334,6 +391,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </When>
         <When Condition="$(TargetFrameworkProfile) == 'net4+sl4+netcore45+wp8+monoandroid1+monotouch1' And $(TargetPlatformIdentifier) == 'Portable' And $(TargetPlatformVersion) == '7.0'">
@@ -345,6 +408,15 @@
             </Reference>
             <Reference Include="dotNetRDF">
               <HintPath>..\packages\dotNetRDF\lib\portable-net4+sl4+netcore45+wp8+MonoAndroid1+MonoTouch1\dotNetRDF.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+          </ItemGroup>
+        </When>
+        <When Condition="$(TargetFrameworkProfile) == 'net4+sl4+wp7+win8+monoandroid16+monotouch40' And $(TargetPlatformIdentifier) == 'Portable' And $(TargetPlatformVersion) == '7.0'">
+          <ItemGroup>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
@@ -369,6 +441,12 @@
             <Reference Include="FluentAssertions">
               <HintPath>..\packages\FluentAssertions\lib\portable-net40+sl5+win8+wp8+wpa81\FluentAssertions.dll</HintPath>
               <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
               <Paket>True</Paket>
             </Reference>
           </ItemGroup>
@@ -403,6 +481,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </When>
         <Otherwise>
@@ -414,6 +498,11 @@
             </Reference>
             <Reference Include="FluentAssertions">
               <HintPath>..\packages\FluentAssertions\lib\portable-win81+wpa81\FluentAssertions.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
@@ -435,6 +524,12 @@
             <Reference Include="dotNetRDF">
               <HintPath>..\packages\dotNetRDF\lib\portable-net4+sl4+netcore45+wp8+MonoAndroid1+MonoTouch1\dotNetRDF.dll</HintPath>
               <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
               <Paket>True</Paket>
             </Reference>
           </ItemGroup>
@@ -463,6 +558,11 @@
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
+        <Reference Include="InfoOf">
+          <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
         <Reference Include="nunit.framework">
           <HintPath>..\packages\NUnit\lib\nunit.framework.dll</HintPath>
           <Private>True</Private>
@@ -501,6 +601,12 @@
         <Reference Include="dotNetRDF">
           <HintPath>..\packages\dotNetRDF\lib\net40\dotNetRDF.dll</HintPath>
           <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Xml">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Xml.Linq">
           <Paket>True</Paket>
         </Reference>
       </ItemGroup>
@@ -527,6 +633,11 @@
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
+        <Reference Include="InfoOf">
+          <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
         <Reference Include="nunit.framework">
           <HintPath>..\packages\NUnit\lib\nunit.framework.dll</HintPath>
           <Private>True</Private>
@@ -565,6 +676,12 @@
         <Reference Include="dotNetRDF">
           <HintPath>..\packages\dotNetRDF\lib\net40\dotNetRDF.dll</HintPath>
           <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Xml">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Xml.Linq">
           <Paket>True</Paket>
         </Reference>
       </ItemGroup>
@@ -595,6 +712,11 @@
             </Reference>
             <Reference Include="HtmlAgilityPack">
               <HintPath>..\packages\HtmlAgilityPack\lib\Net45\HtmlAgilityPack.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
@@ -638,6 +760,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </When>
         <When Condition="$(SilverlightVersion) == 'v4.0'">
@@ -664,6 +792,11 @@
             </Reference>
             <Reference Include="HtmlAgilityPack">
               <HintPath>..\packages\HtmlAgilityPack\lib\sl4\HtmlAgilityPack.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
@@ -705,6 +838,12 @@
             <Reference Include="dotNetRDF">
               <HintPath>..\packages\dotNetRDF\lib\portable-net4+sl4+netcore45+wp8+MonoAndroid1+MonoTouch1\dotNetRDF.dll</HintPath>
               <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
               <Paket>True</Paket>
             </Reference>
           </ItemGroup>
@@ -751,6 +890,11 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
             <Reference Include="nunit.framework">
               <HintPath>..\packages\NUnit\lib\nunit.framework.dll</HintPath>
               <Private>True</Private>
@@ -791,6 +935,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </Otherwise>
       </Choose>
@@ -819,6 +969,11 @@
         </Reference>
         <Reference Include="HtmlAgilityPack">
           <HintPath>..\packages\HtmlAgilityPack\lib\Net45\HtmlAgilityPack.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="InfoOf">
+          <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -862,6 +1017,12 @@
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
+        <Reference Include="System.Xml">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Xml.Linq">
+          <Paket>True</Paket>
+        </Reference>
       </ItemGroup>
     </When>
     <When Condition="$(TargetFrameworkIdentifier) == 'WindowsPhoneApp'">
@@ -890,6 +1051,11 @@
             </Reference>
             <Reference Include="HtmlAgilityPack">
               <HintPath>..\packages\HtmlAgilityPack\lib\sl4-windowsphone71\HtmlAgilityPack.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
@@ -933,6 +1099,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </When>
         <When Condition="$(TargetPlatformVersion) == 'v8.0'">
@@ -959,6 +1131,11 @@
             </Reference>
             <Reference Include="HtmlAgilityPack">
               <HintPath>..\packages\HtmlAgilityPack\lib\Net45\HtmlAgilityPack.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
@@ -1002,6 +1179,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </When>
         <Otherwise>
@@ -1028,6 +1211,11 @@
             </Reference>
             <Reference Include="HtmlAgilityPack">
               <HintPath>..\packages\HtmlAgilityPack\lib\Net45\HtmlAgilityPack.dll</HintPath>
+              <Private>True</Private>
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="InfoOf">
+              <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
@@ -1071,6 +1259,12 @@
               <Private>True</Private>
               <Paket>True</Paket>
             </Reference>
+            <Reference Include="System.Xml">
+              <Paket>True</Paket>
+            </Reference>
+            <Reference Include="System.Xml.Linq">
+              <Paket>True</Paket>
+            </Reference>
           </ItemGroup>
         </Otherwise>
       </Choose>
@@ -1099,6 +1293,11 @@
         </Reference>
         <Reference Include="HtmlAgilityPack">
           <HintPath>..\packages\HtmlAgilityPack\lib\Net45\HtmlAgilityPack.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="InfoOf">
+          <HintPath>..\packages\InfoOf.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\InfoOf.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -1142,17 +1341,23 @@
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
+        <Reference Include="System.Xml">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="System.Xml.Linq">
+          <Paket>True</Paket>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
+    <Content Include="FodyWeavers.xml">
+      <Paket>True</Paket>
+    </Content>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
