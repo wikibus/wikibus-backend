@@ -1,0 +1,15 @@
+source https://www.nuget.org/api/v2
+
+nuget Anotar.Custom.Fody 2.12.0
+nuget Common.props 1.0
+nuget FakeItEasy 1.24.0
+nuget json-ld.net 1.0.3
+nuget Nancy.Hosting.Aspnet 0.23.2
+nuget Nancy.Testing 0.23.2
+nuget r2rml4net 0.4.0.0-pre01
+nuget Resourcer.Fody 1.2.0.0
+nuget SpecFlow.NUnit 1.1.1
+nuget StyleCopPlus.MSBuild 4.7.49.4
+nuget Zoltu.Versioning 1.1.29.0
+nuget HtmlAgilityPack == 1.4.6
+nuget FluentAssertions
