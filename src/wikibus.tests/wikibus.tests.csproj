@@ -1354,6 +1354,7 @@
     <Content Include="FodyWeavers.xml">
       <Paket>True</Paket>
     </Content>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -1368,7 +1369,7 @@
     <Compile Include="Helpers\StreamExtensions.cs" />
     <Compile Include="JsonLdSerializerTests.cs" />
     <Compile Include="Nancy\RdfSerializerTests.cs" />
-    <Compile Include="Nancy\Serializing1.feature.cs">
+    <Compile Include="Nancy\Serializing.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Serializing.feature</DependentUpon>
@@ -1388,7 +1389,7 @@
     <None Include="app.config" />
     <None Include="Nancy\Serializing.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Serializing1.feature.cs</LastGenOutput>
+      <LastGenOutput>Serializing.feature.cs</LastGenOutput>
     </None>
     <None Include="paket.references" />
     <None Include="SourcesRepository\RetrieveSources.feature">
@@ -1422,6 +1423,7 @@
     <EmbeddedResource Include="Graphs\samplebrochure.ttl" />
   </ItemGroup>
   <Import Project="..\.build\CommonTargets.targets" />
+  <Import Project="..\.build\Fody.targets" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
