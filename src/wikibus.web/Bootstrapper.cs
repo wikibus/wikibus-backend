@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
+using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
 using Resourcer;
 using Slp.r2rml4net.Storage;
@@ -17,6 +20,14 @@ namespace wikibus.web
     /// </summary>
     public class Bootstrapper : Nancy.DefaultNancyBootstrapper
     {
+        /// <summary>
+        /// Gets overridden configuration
+        /// </summary>
+        protected override NancyInternalConfiguration InternalConfiguration
+        {
+            get { return NancyInternalConfiguration.WithOverrides(c => c.ResponseProcessors = GetProcessors().ToList()); }
+        }
+
         /// <summary>
         /// Configures the container using AutoRegister followed by registration
         /// of default INancyModuleCatalog and IRouteResolver.
@@ -52,6 +63,12 @@ namespace wikibus.web
             typeMap.CreateObjectMap().IsTemplateValued("http://wikibus.org/ontology#{Type}");
 
             return rml;
+        }
+
+        private IEnumerable<Type> GetProcessors()
+        {
+            yield return typeof(Nancy.RDF.Responses.RdfResponseProcessor);
+            yield return typeof(Nancy.RDF.Responses.JsonLdResponseProcessor);
         }
     }
 }
