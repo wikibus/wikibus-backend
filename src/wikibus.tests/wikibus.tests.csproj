@@ -1368,6 +1368,7 @@
     <Compile Include="FluentAssertions\StoreAssertions.cs" />
     <Compile Include="Helpers\StreamExtensions.cs" />
     <Compile Include="JsonLdSerializerTests.cs" />
+    <Compile Include="Nancy\Models\Brochure.cs" />
     <Compile Include="Nancy\RdfSerializerTests.cs" />
     <Compile Include="Nancy\Serializing.feature.cs">
       <AutoGen>True</AutoGen>
@@ -1422,6 +1423,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Graphs\samplebrochure.ttl" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\.build\CommonTargets.targets" />
   <Import Project="..\.build\Fody.targets" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
