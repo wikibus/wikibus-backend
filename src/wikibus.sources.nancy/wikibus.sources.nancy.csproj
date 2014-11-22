@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Common.props\build\Common.props.props" Condition="Exists('..\packages\Common.props\build\Common.props.props')" />
+  <Import Project="..\packages\Common.props.1.0\build\Common.props.props" Condition="Exists('..\packages\Common.props.1.0\build\Common.props.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -295,10 +295,6 @@
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\wikibus.nancy\Nancy.RDF.csproj">
-      <Project>{529620CA-3D1A-44C1-86BD-C0ABE4371DF6}</Project>
-      <Name>Nancy.RDF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\wikibus.sources\wikibus.sources.csproj">
       <Project>{39B74ABD-895F-44BD-A0B9-80DFA6DC4D1E}</Project>
       <Name>wikibus.sources</Name>

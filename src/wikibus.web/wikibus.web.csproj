@@ -14,7 +14,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
-  <Import Project="..\packages\Common.props\build\Common.props.props" Condition="Exists('..\packages\Common.props\build\Common.props.props')" />
+  <Import Project="..\packages\Common.props.1.0\build\Common.props.props" Condition="Exists('..\packages\Common.props.1.0\build\Common.props.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -941,10 +941,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\wikibus.nancy\Nancy.RDF.csproj">
-      <Project>{529620CA-3D1A-44C1-86BD-C0ABE4371DF6}</Project>
-      <Name>Nancy.RDF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\wikibus.sources.dotNetRDF\wikibus.sources.dotNetRDF.csproj">
       <Project>{DCD4B6E3-EB86-41B0-819A-C47E1B4B6D78}</Project>
       <Name>wikibus.sources.dotNetRDF</Name>
