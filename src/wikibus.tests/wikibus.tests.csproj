@@ -1367,6 +1367,13 @@
     <Compile Include="FluentAssertions\AssertionsExtensions.cs" />
     <Compile Include="FluentAssertions\StoreAssertions.cs" />
     <Compile Include="Helpers\StreamExtensions.cs" />
+    <Compile Include="Modules\Bindings\GettingSourcesSteps.cs" />
+    <Compile Include="Modules\Bindings\NancyDependencies.cs" />
+    <Compile Include="Modules\GettingSources.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GettingSources.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Modules\RedirectionTests.cs" />
     <Compile Include="Modules\SourcesModuleTests.cs" />
@@ -1379,6 +1386,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Modules\GettingSources.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GettingSources.feature.cs</LastGenOutput>
+    </None>
     <None Include="paket.references" />
     <None Include="SourcesRepository\RetrieveSources.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
