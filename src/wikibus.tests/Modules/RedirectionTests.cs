@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using FakeItEasy;
 using FluentAssertions;
 using Nancy;
+using Nancy.RDF;
 using Nancy.RDF.Responses;
+using Nancy.Responses.Negotiation;
 using Nancy.Testing;
 using NUnit.Framework;
 using wikibus.purl.nancy;
@@ -18,7 +21,11 @@ namespace wikibus.tests.Modules
         [SetUp]
         public void Setup()
         {
-            _browser = new Browser(c => c.Assembly("wikibus.purl.nancy").Module<RedirectModule>().DisableAutoRegistrations());
+            IResponseProcessor p = new ResponseProcessor();
+            _browser = new Browser(c => c.Assembly("wikibus.purl.nancy")
+                                         .Module<RedirectModule>()
+                                         .DisableAutoRegistrations()
+                                         .Dependency(A.Dummy<IContextProvider>()));
         }
 
         [Test]

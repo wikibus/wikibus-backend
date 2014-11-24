@@ -1,5 +1,6 @@
 ﻿using System;
 using FakeItEasy;
+using Nancy.RDF;
 using Nancy.RDF.Responses;
 using Nancy.Testing;
 using NUnit.Framework;
@@ -18,7 +19,9 @@ namespace wikibus.tests.Modules
         public void Setup()
         {
             _sources = A.Fake<ISourcesRepository>();
-            _browser = new Browser(with => with.Module<SourcesModule>().Dependency(_sources));
+            _browser = new Browser(with => with.Module<SourcesModule>()
+                                               .Dependency(_sources)
+                                               .Dependency(A.Dummy<IContextProvider>()));
         }
 
         [Test]
