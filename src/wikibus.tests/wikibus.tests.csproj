@@ -1376,7 +1376,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Modules\RedirectionTests.cs" />
-    <Compile Include="Modules\SourcesModuleTests.cs" />
     <Compile Include="SourcesRepository\RetrieveSources.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1417,9 +1416,6 @@
       <Project>{39B74ABD-895F-44BD-A0B9-80DFA6DC4D1E}</Project>
       <Name>wikibus.sources</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Graphs\samplebrochure.ttl" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\.build\CommonTargets.targets" />

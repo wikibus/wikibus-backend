@@ -32,7 +32,7 @@ namespace wikibus.tests.SourcesRepository
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Retrieve sources from repository", "", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Retrieve sources from repository", "Verify that models are correctly deserialized from RDF", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,38 +65,44 @@ namespace wikibus.tests.SourcesRepository
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get brochure \'VanHool T8\' from repository")]
-        public virtual void GetBrochureVanHoolT8FromRepository()
+        [NUnit.Framework.DescriptionAttribute("Get simple brochure")]
+        public virtual void GetSimpleBrochure()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get brochure \'VanHool T8\' from repository", ((string[])(null)));
-#line 3
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get simple brochure", ((string[])(null)));
 #line 4
- testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 5
- testRunner.And("Rdf from \'samplebrochure.ttl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 6
+ testRunner.And("RDF data:", "@base <http://wikibus.org/> .\r\n@prefix dcterms: <http://purl.org/dc/terms/>.\r\n\r\n{" +
+                    "\r\n\t<brochure/VanHool+T8> a <ontology#Brochure> ;\r\n\t\tdcterms:title \"VanHool T8 - " +
+                    "New Look\" .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
  testRunner.When("brochure <http://wikibus.org/brochure/VanHool+T8> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 7
+#line 17
  testRunner.Then("the brochure should have title \'VanHool T8 - New Look\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get brochure \'12345\' from repository")]
-        public virtual void GetBrochure12345FromRepository()
+        [NUnit.Framework.DescriptionAttribute("Get brochure with Polish diacritics")]
+        public virtual void GetBrochureWithPolishDiacritics()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get brochure \'12345\' from repository", ((string[])(null)));
-#line 9
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get brochure with Polish diacritics", ((string[])(null)));
+#line 19
 this.ScenarioSetup(scenarioInfo);
-#line 10
+#line 20
  testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 11
- testRunner.And("Rdf from \'samplebrochure.ttl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
+#line hidden
+#line 21
+ testRunner.And("RDF data:", "@base <http://wikibus.org/> .\r\n@prefix dcterms: <http://purl.org/dc/terms/>.\r\n\r\n{" +
+                    "\r\n\t<brochure/12345> a <ontology#Brochure> ;\r\n\t\tdcterms:title \"Jelcz M11 - nowość" +
+                    "\" .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 31
  testRunner.When("brochure <http://wikibus.org/brochure/12345> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
+#line 32
  testRunner.Then("the brochure should have title \'Jelcz M11 - nowość\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
