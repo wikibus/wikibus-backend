@@ -1367,10 +1367,9 @@
     <Compile Include="FluentAssertions\AssertionsExtensions.cs" />
     <Compile Include="FluentAssertions\StoreAssertions.cs" />
     <Compile Include="Helpers\StreamExtensions.cs" />
-    <Compile Include="JsonLdSerializerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Nancy\Modules\RedirectionTests.cs" />
-    <Compile Include="Nancy\Modules\SourcesModuleTests.cs" />
+    <Compile Include="Modules\RedirectionTests.cs" />
+    <Compile Include="Modules\SourcesModuleTests.cs" />
     <Compile Include="SourcesRepository\RetrieveSources.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1387,6 +1386,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\paket-files\wikibus\Nancy.RDF\src\Nancy.RDF\Nancy.RDF.csproj">
+      <Project>{D789D63C-821B-410B-A953-DFEBCBFC9D40}</Project>
+      <Name>Nancy.RDF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wikibus.purl.nancy\wikibus.purl.nancy.csproj">
       <Project>{0E27E46A-84C4-4180-8628-22C57442EE30}</Project>
       <Name>wikibus.purl.nancy</Name>
@@ -1418,5 +1421,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Import Project="..\.paket\paket.targets" />
 </Project>

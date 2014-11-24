@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using Nancy.Bootstrapper;
+using Nancy.RDF.Responses;
 using Nancy.TinyIoc;
 using Resourcer;
 using Slp.r2rml4net.Storage;
@@ -67,8 +68,8 @@ namespace wikibus.web
 
         private IEnumerable<Type> GetProcessors()
         {
-            yield return typeof(Nancy.RDF.Responses.RdfResponseProcessor);
-            yield return typeof(Nancy.RDF.Responses.JsonLdResponseProcessor);
+            yield return typeof(RdfResponseProcessor);
+            yield return typeof(JsonLdResponseProcessor);
         }
     }
 }

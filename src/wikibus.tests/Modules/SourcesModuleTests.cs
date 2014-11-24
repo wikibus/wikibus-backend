@@ -1,15 +1,12 @@
 ﻿using System;
 using FakeItEasy;
-using FluentAssertions;
-using Nancy;
 using Nancy.RDF.Responses;
 using Nancy.Testing;
 using NUnit.Framework;
-using wikibus.purl.nancy;
 using wikibus.sources;
 using wikibus.sources.nancy;
 
-namespace wikibus.tests
+namespace wikibus.tests.Modules
 {
     [TestFixture]
     public class SourcesModuleTests

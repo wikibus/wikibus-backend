@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Nancy.RDF.Responses;
+using Nancy.RDF;
 using Newtonsoft.Json.Linq;
 
 namespace wikibus.sources.nancy
@@ -21,19 +21,19 @@ namespace wikibus.sources.nancy
             _contexts[typeof(Source)] = new JValue("http://wikibus.org/contexts/source.jsonld");
         }
 
-        /// <summary>
-        /// Gets the @context.
-        /// </summary>
-        /// <typeparam name="T">serialized type</typeparam>
-        /// <exception cref="ContextNotFoundException{T}">when context not found for <typeparamref name="T"/></exception>
-        public JToken GetContext<T>()
+        public JToken GetContext(Type modelType)
         {
-            if (_contexts.ContainsKey(typeof(T)))
+            if (_contexts.ContainsKey(modelType))
             {
-                return _contexts[typeof(T)];
+                return _contexts[modelType];
             }
 
-            throw new ContextNotFoundException<T>();
+            throw new ContextNotFoundException<object>();
+        }
+
+        public JObject GetExpandedContext(Type modelType)
+        {
+            throw new NotImplementedException();
         }
     }
 }

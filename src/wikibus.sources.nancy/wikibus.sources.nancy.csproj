@@ -295,6 +295,10 @@
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\paket-files\wikibus\Nancy.RDF\src\Nancy.RDF\Nancy.RDF.csproj">
+      <Project>{D789D63C-821B-410B-A953-DFEBCBFC9D40}</Project>
+      <Name>Nancy.RDF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wikibus.sources\wikibus.sources.csproj">
       <Project>{39B74ABD-895F-44BD-A0B9-80DFA6DC4D1E}</Project>
       <Name>wikibus.sources</Name>
@@ -309,5 +313,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Import Project="..\.paket\paket.targets" />
 </Project>

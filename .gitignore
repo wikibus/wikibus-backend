@@ -5,3 +5,4 @@ src/packages
 *.user
 *.Cache
 VersionAssemblyInfo.cs
+src/paket-files

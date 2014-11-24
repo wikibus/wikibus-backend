@@ -48,3 +48,7 @@ NUGET
       StyleCop.MSBuild (>= 4.7.49.0)
     VDS.Common (1.3.0)
     Zoltu.Versioning (1.1.29.0)
+GITHUB
+  remote: wikibus/Nancy.RDF
+    specs:
+        FULLPROJECT (c99d75afbd4063523367664fd474be90e9d3bc57)

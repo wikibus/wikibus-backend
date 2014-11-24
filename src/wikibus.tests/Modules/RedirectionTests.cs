@@ -7,7 +7,7 @@ using Nancy.Testing;
 using NUnit.Framework;
 using wikibus.purl.nancy;
 
-namespace wikibus.tests
+namespace wikibus.tests.Modules
 {
     [TestFixture]
     public class RedirectionTests

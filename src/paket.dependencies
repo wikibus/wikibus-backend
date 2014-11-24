@@ -15,3 +15,4 @@ nuget HtmlAgilityPack == 1.4.6
 nuget FluentAssertions
 nuget dotNetRDF >= 1.0.3
 nuget infoof.fody
+github wikibus/Nancy.RDF
