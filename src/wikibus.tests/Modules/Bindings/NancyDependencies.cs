@@ -1,5 +1,5 @@
 ﻿using FakeItEasy;
-using Nancy.RDF;
+using JsonLD.Entities;
 using Nancy.Testing;
 using wikibus.sources;
 using wikibus.sources.nancy;

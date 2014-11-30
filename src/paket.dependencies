@@ -1,4 +1,6 @@
 source https://www.nuget.org/api/v2
+source https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
+source https://ci.appveyor.com/nuget/nancy-rdf-iewr45jar12a
 
 nuget Anotar.Custom.Fody 2.12.0
 nuget Common.props 1.0
@@ -15,4 +17,5 @@ nuget HtmlAgilityPack == 1.4.6
 nuget FluentAssertions
 nuget dotNetRDF >= 1.0.3
 nuget infoof.fody
-github wikibus/Nancy.RDF
+nuget JsonLd.Entities
+nuget Nancy.RDF

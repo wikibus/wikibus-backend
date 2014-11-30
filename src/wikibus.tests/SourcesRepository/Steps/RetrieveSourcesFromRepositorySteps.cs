@@ -1,5 +1,7 @@
 ﻿using System;
+using FakeItEasy;
 using FluentAssertions;
+using JsonLD.Entities;
 using TechTalk.SpecFlow;
 using VDS.RDF;
 using VDS.RDF.Query;
@@ -28,7 +30,7 @@ namespace wikibus.tests.SourcesRepository.Steps
         [When(@"brochure <(.*)> is fetched")]
         public void WhenBrochureIsFetched(string uri)
         {
-            ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository(_queryProcessor);
+            ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository(_queryProcessor, A.Fake<IEntitySerializer>());
 
             ScenarioContext.Current.Set(repository.Get<Brochure>(new Uri(uri)));
         }

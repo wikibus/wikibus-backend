@@ -1,6 +1,6 @@
 ﻿using System;
 using JsonLD.Core;
-using Newtonsoft.Json.Linq;
+using JsonLD.Entities;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
@@ -14,15 +14,18 @@ namespace wikibus.sources.dotNetRDF
     public class SourcesRepository : ISourcesRepository
     {
         private readonly ISparqlQueryProcessor _queryProcessor;
+        private readonly IEntitySerializer _serializer;
         private readonly SparqlQueryParser _parser = new SparqlQueryParser();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourcesRepository"/> class.
         /// </summary>
         /// <param name="queryProcessor">The query processor.</param>
-        public SourcesRepository(ISparqlQueryProcessor queryProcessor)
+        /// <param name="serializer">JSON-LD serializer</param>
+        public SourcesRepository(ISparqlQueryProcessor queryProcessor, IEntitySerializer serializer)
         {
             _queryProcessor = queryProcessor;
+            _serializer = serializer;
         }
 
         /// <inheritdoc />
@@ -35,10 +38,8 @@ namespace wikibus.sources.dotNetRDF
 
             var dataset = StringWriter.Write(triples, new NTriplesWriter(NTriplesSyntax.Rdf11));
             var result = JsonLdProcessor.FromRDF(dataset);
-            var context = JObject.Parse("{ 'title': 'http://purl.org/dc/terms/title' }");
-            result = JsonLdProcessor.Compact(result, context, new JsonLdOptions("http://wikibus.org/"));
 
-            return result.ToObject<T>();
+            return _serializer.Deserialize<T>(result.ToString());
         }
     }
 }

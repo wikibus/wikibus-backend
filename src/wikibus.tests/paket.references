@@ -6,3 +6,4 @@ SpecFlow.NUnit
 Zoltu.Versioning
 InfoOf.Fody
 FluentAssertions
+Nancy.RDF
