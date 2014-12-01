@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using JsonLD.Entities;
 using Nancy.Bootstrapper;
 using Nancy.RDF.Responses;
 using Nancy.TinyIoc;
+using Newtonsoft.Json.Linq;
 using Resourcer;
 using Slp.r2rml4net.Storage;
 using Slp.r2rml4net.Storage.Sql;
@@ -13,6 +15,7 @@ using TCode.r2rml4net;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Storage;
+using wikibus.sources;
 
 namespace wikibus.web
 {
@@ -41,6 +44,10 @@ namespace wikibus.web
             container.Register<IQueryableStorage, R2RMLStorage>();
             container.Register<ISqlDb>(CreateDbConnection);
             container.Register(CreateRdbMappings);
+
+            var contextProvider = new StaticContextProvider();
+            contextProvider.SetContext(typeof(Brochure), JObject.Parse("{ 'title': 'http://purl.org/dc/terms/title' }"));
+            container.Register<IContextProvider>(contextProvider);
         }
 
         private ISqlDb CreateDbConnection(TinyIoCContainer tinyIoCContainer, NamedParameterOverloads namedParameterOverloads)
@@ -68,7 +75,8 @@ namespace wikibus.web
 
         private IEnumerable<Type> GetProcessors()
         {
-            yield return typeof(RdfResponseProcessor);
+            yield return typeof(TurtleResponseProcessor);
+            yield return typeof(RdfXmlResponseProcessor);
             yield return typeof(JsonLdResponseProcessor);
         }
     }

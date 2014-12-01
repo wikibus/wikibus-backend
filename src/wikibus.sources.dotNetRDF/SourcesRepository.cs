@@ -1,6 +1,7 @@
 ﻿using System;
 using JsonLD.Core;
 using JsonLD.Entities;
+using Newtonsoft.Json.Linq;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
@@ -37,9 +38,8 @@ namespace wikibus.sources.dotNetRDF
             var triples = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));
 
             var dataset = StringWriter.Write(triples, new NTriplesWriter(NTriplesSyntax.Rdf11));
-            var result = JsonLdProcessor.FromRDF(dataset);
 
-            return _serializer.Deserialize<T>(result.ToString());
+            return _serializer.Deserialize<T>(dataset);
         }
     }
 }

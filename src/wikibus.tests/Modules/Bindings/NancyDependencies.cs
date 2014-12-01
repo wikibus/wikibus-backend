@@ -10,7 +10,7 @@ namespace wikibus.tests.Modules.Bindings
     {
         public NancyDependencies()
         {
-            Sources = A.Fake<ISourcesRepository>();
+            Sources = A.Fake<ISourcesRepository>(mock => mock.Strict());
             Browser = new Browser(with => with.Module<SourcesModule>()
                                               .Dependencies(Sources, A.Dummy<IContextProvider>()));
         }
