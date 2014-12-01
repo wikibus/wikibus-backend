@@ -1,8 +1,11 @@
-﻿namespace wikibus.sources
+﻿using JsonLD.Entities;
+
+namespace wikibus.sources
 {
     /// <summary>
     /// A brochure about buses, trams, etc.
     /// </summary>
+    [Class("http://wikibus.org/ontology#Brochure")]
     public class Brochure : Source
     {
         /// <summary>

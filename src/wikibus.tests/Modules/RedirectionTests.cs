@@ -25,7 +25,7 @@ namespace wikibus.tests.Modules
             _browser = new Browser(c => c.Assembly("wikibus.purl.nancy")
                                          .Module<RedirectModule>()
                                          .DisableAutoRegistrations()
-                                         .Dependency(A.Dummy<IContextProvider>()));
+                                         .Dependency(A.Dummy<IEntitySerializer>()));
         }
 
         [Test]

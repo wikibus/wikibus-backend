@@ -74,10 +74,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
  testRunner.Given("Accept header is \'text/turtle\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 5
- testRunner.When("I GET resource \'/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("existing brochure \'http://wikibus.org/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 6
- testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I GET resource \'/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 7
+ testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 8
  testRunner.And("brochure \'http://wikibus.org/brochure/12345\' should have been retrieved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -88,13 +90,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GETInexistentBrochure()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET inexistent brochure", ((string[])(null)));
-#line 9
-this.ScenarioSetup(scenarioInfo);
 #line 10
- testRunner.Given("brochure \'http://wikibus.org/brochure/12345\' doesn\'t exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 11
- testRunner.When("I GET resource \'/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("brochure \'http://wikibus.org/brochure/12345\' doesn\'t exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 12
+ testRunner.When("I GET resource \'/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
  testRunner.Then("response should have status 404", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

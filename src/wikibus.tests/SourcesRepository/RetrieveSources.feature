@@ -1,4 +1,4 @@
-﻿Feature: Retrieve sources from repository
+﻿	Feature: Retrieve sources from repository
 	Verify that models are correctly deserialized from RDF
 
 Scenario: Get simple brochure

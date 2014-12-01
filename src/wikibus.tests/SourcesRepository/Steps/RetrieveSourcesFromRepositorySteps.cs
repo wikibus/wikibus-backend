@@ -13,7 +13,15 @@ namespace wikibus.tests.SourcesRepository.Steps
     public class RetrieveSourcesFromRepositorySteps
     {
         private readonly TripleStore _store = new TripleStore();
+        private readonly IEntitySerializer _serializer;
         private ISparqlQueryProcessor _queryProcessor;
+
+        public RetrieveSourcesFromRepositorySteps()
+        {
+            var contextProvider = new StaticContextProvider();
+            contextProvider.SetupSourcesContexts();
+            _serializer = new EntitySerializer(contextProvider);
+        }
 
         [Given(@"In-memory query processor")]
         public void GivenInMemoryQueryProcessor()
@@ -30,7 +38,7 @@ namespace wikibus.tests.SourcesRepository.Steps
         [When(@"brochure <(.*)> is fetched")]
         public void WhenBrochureIsFetched(string uri)
         {
-            ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository(_queryProcessor, A.Fake<IEntitySerializer>());
+            ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository(_queryProcessor, _serializer);
 
             ScenarioContext.Current.Set(repository.Get<Brochure>(new Uri(uri)));
         }

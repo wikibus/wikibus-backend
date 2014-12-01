@@ -46,7 +46,7 @@ namespace wikibus.web
             container.Register(CreateRdbMappings);
 
             var contextProvider = new StaticContextProvider();
-            contextProvider.SetContext(typeof(Brochure), JObject.Parse("{ 'title': 'http://purl.org/dc/terms/title' }"));
+            contextProvider.SetupSourcesContexts();
             container.Register<IContextProvider>(contextProvider);
         }
 

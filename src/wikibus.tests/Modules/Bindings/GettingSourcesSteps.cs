@@ -2,6 +2,7 @@
 using FakeItEasy;
 using FluentAssertions;
 using Nancy;
+using Nancy.RDF.Responses;
 using Nancy.Responses.Negotiation;
 using Nancy.Testing;
 using TechTalk.SpecFlow;
@@ -13,7 +14,7 @@ namespace wikibus.tests.Modules.Bindings
     public class NancyTestingSteps
     {
         private readonly NancyDependencies _dep;
-        private string _mimeType;
+        private string _mimeType = RdfSerialization.Turtle.MediaType;
 
         public NancyTestingSteps(NancyDependencies dep)
         {
@@ -30,6 +31,12 @@ namespace wikibus.tests.Modules.Bindings
         public void GivenBrochureDoesnTExist(string resourceUri)
         {
             A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).Returns(null);
+        }
+
+        [Given(@"existing brochure '(.*)'")]
+        public void GivenExistingBrochure(string resourceUri)
+        {
+            A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).Returns(new Brochure());
         }
 
         [When(@"I GET resource '(.*)'")]

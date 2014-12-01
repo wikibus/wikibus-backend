@@ -12,7 +12,7 @@ namespace wikibus.tests.Modules.Bindings
         {
             Sources = A.Fake<ISourcesRepository>(mock => mock.Strict());
             Browser = new Browser(with => with.Module<SourcesModule>()
-                                              .Dependencies(Sources, A.Dummy<IContextProvider>()));
+                                              .Dependencies(Sources, A.Dummy<IEntitySerializer>()));
         }
 
         public Browser Browser { get; private set; }

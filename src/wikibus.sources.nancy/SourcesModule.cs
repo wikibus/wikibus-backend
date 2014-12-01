@@ -23,7 +23,8 @@ namespace wikibus.sources.nancy
 
         private dynamic GetResource<T>(dynamic route) where T : Source
         {
-            return _repository.Get<T>(new Uri("http://wikibus.org" + Request.Path));
+            var resource = _repository.Get<T>(new Uri("http://wikibus.org" + Request.Path));
+            return resource;
         }
     }
 }
