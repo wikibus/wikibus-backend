@@ -2,3 +2,4 @@ Common.props
 Nancy
 Newtonsoft.Json
 Zoltu.Versioning
+Nancy.ModelPostprocess.Fody

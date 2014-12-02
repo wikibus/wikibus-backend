@@ -19,3 +19,4 @@ nuget dotNetRDF < 1.0.7
 nuget infoof.fody
 nuget JsonLd.Entities
 nuget Nancy.RDF
+nuget Nancy.ModelPostprocess.Fody
