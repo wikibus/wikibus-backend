@@ -3,7 +3,6 @@ source https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
 source https://ci.appveyor.com/nuget/nancy-rdf-iewr45jar12a
 
 nuget Anotar.Custom.Fody 2.12.0
-nuget Common.props 1.0
 nuget FakeItEasy 1.24.0
 nuget json-ld.net 1.0.3
 nuget Nancy.Hosting.Aspnet 0.23.2
