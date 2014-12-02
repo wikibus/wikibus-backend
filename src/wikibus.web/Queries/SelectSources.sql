@@ -12,8 +12,6 @@
       ,[Month]
       ,[Day]
       ,[Notes]
-      ,[FileCabinet]
-      ,[FileOffset]
       ,[FolderCode]
       ,[FolderName]
       ,[BookTitle]

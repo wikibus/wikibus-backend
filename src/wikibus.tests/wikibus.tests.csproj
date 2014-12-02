@@ -36,6 +36,9 @@
     <Content Include="FodyWeavers.xml">
       <Paket>True</Paket>
     </Content>
+    <Reference Include="Slp.r2rml4net.Storage">
+      <HintPath>..\..\lib\Slp.r2rml4net.Storage.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,6 +51,12 @@
     <Compile Include="FluentAssertions\AssertionsExtensions.cs" />
     <Compile Include="FluentAssertions\StoreAssertions.cs" />
     <Compile Include="Helpers\StreamExtensions.cs" />
+    <Compile Include="Mappings\MappingBrochures.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MappingBrochures.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Mappings\MappingSourcesSteps.cs" />
     <Compile Include="Modules\Bindings\GettingSourcesSteps.cs" />
     <Compile Include="Modules\Bindings\NancyDependencies.cs" />
     <Compile Include="Modules\GettingSources.feature.cs">
@@ -67,6 +76,10 @@
   <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Mappings\MappingBrochures.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MappingBrochures.feature.cs</LastGenOutput>
     </None>
     <None Include="Modules\GettingSources.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -116,6 +129,26 @@
       <ItemGroup>
         <Reference Include="CsQuery">
           <HintPath>..\packages\CsQuery\lib\net40\CsQuery.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="DatabaseSchemaReader">
+          <HintPath>..\packages\DatabaseSchemaReader\lib\net35\DatabaseSchemaReader.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="($(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3')) Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch')">
+      <ItemGroup>
+        <Reference Include="DatabaseSchemaReader">
+          <HintPath>..\packages\DatabaseSchemaReader\lib\net40\DatabaseSchemaReader.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -653,6 +686,17 @@
       <Paket>True</Paket>
     </Reference>
   </ItemGroup>
+  <Choose>
+    <When Condition="($(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3')) Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch')">
+      <ItemGroup>
+        <Reference Include="TCode.r2rml4net">
+          <HintPath>..\packages\r2rml4net\lib\net40\TCode.r2rml4net.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == 'Silverlight'">
       <ItemGroup>
