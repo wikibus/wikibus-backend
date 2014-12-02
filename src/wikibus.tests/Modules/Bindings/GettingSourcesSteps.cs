@@ -28,7 +28,7 @@ namespace wikibus.tests.Modules.Bindings
         }
 
         [Given(@"brochure '(.*)' doesn't exist")]
-        public void GivenBrochureDoesnTExist(string resourceUri)
+        public void GivenBrochureDoesntExist(string resourceUri)
         {
             A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).Returns(null);
         }
@@ -52,7 +52,7 @@ namespace wikibus.tests.Modules.Bindings
             ScenarioContext.Current.Get<BrowserResponse>().StatusCode
                 .Should().Be((HttpStatusCode)statusCode);
         }
-        
+
         [Then(@"brochure '(.*)' should have been retrieved")]
         public void ThenBrochureShouldHaveBeenRetrieved(string resourceUri)
         {

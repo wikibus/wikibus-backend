@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using JsonLD.Entities;
+using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.RDF.Responses;
 using Nancy.TinyIoc;
@@ -16,6 +17,7 @@ using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Storage;
 using wikibus.sources;
+using wikibus.sources.nancy;
 
 namespace wikibus.web
 {

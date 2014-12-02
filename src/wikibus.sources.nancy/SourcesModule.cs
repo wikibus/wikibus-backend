@@ -16,6 +16,8 @@ namespace wikibus.sources.nancy
         /// <param name="repository">The source repository.</param>
         public SourcesModule(ISourcesRepository repository)
         {
+            this.EnsureNotFoundStatusCodes();
+
             _repository = repository;
 
             Get["brochure/{path*}"] = GetResource<Brochure>;

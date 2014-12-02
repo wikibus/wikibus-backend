@@ -35,11 +35,16 @@ namespace wikibus.sources.dotNetRDF
             var construct = "CONSTRUCT { @s ?p ?o } WHERE { @s ?p ?o . @s a <http://wikibus.org/ontology#Brochure> . }";
             var query = new SparqlParameterizedString(construct);
             query.SetUri("s", uri);
-            var triples = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));
+            var graph = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));
 
-            var dataset = StringWriter.Write(triples, new NTriplesWriter(NTriplesSyntax.Rdf11));
+            if (graph.Triples.Count > 0)
+            {
+                var dataset = StringWriter.Write(graph, new NTriplesWriter(NTriplesSyntax.Rdf11));
 
-            return _serializer.Deserialize<T>(dataset);
+                return _serializer.Deserialize<T>(dataset);
+            }
+
+            return null;
         }
     }
 }
