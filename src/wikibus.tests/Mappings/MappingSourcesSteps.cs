@@ -1,9 +1,11 @@
 ﻿using System;
 using FakeItEasy;
 using NUnit.Framework;
-using Nancy.TinyIoc;
 using Slp.r2rml4net.Storage;
+using Slp.r2rml4net.Storage.Query;
 using Slp.r2rml4net.Storage.Sql;
+using Slp.r2rml4net.Storage.Sql.Algebra;
+using Slp.r2rml4net.Storage.Sql.Vendor;
 using TCode.r2rml4net;
 using TechTalk.SpecFlow;
 using VDS.RDF;
@@ -16,19 +18,25 @@ namespace wikibus.tests.Mappings
     public class MappingSourcesSteps
     {
         private readonly IQueryableStorage _storage;
+        private readonly ISqlDb _sqlDb;
         private IGraph _result;
 
         public MappingSourcesSteps()
         {
-            _storage = new R2RMLStorage(CreateRdbMappings(), A.Fake<ISqlDb>(mock => mock.Strict()));
+            _sqlDb = A.Fake<BaseSqlDb>(mock => mock.Strict());
+
+            _storage = new R2RMLStorage(CreateRdbMappings(), _sqlDb);
         }
 
         [Given(@"source table with data:")]
         public void GivenSourceTableWithData(Table table)
         {
-            ScenarioContext.Current.Pending();
+            IQueryResultReader resultWrapper = table.ToStaticDataReader();
+
+            A.CallTo(() => _sqlDb.ExecuteQuery(A<string>.Ignored, A<QueryContext>.Ignored))
+             .Returns(resultWrapper);
         }
-        
+
         [When(@"retrieve all triples")]
         public void WhenRetrieveAllTriples()
         {

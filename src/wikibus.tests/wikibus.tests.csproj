@@ -57,6 +57,7 @@
       <DependentUpon>MappingBrochures.feature</DependentUpon>
     </Compile>
     <Compile Include="Mappings\MappingSourcesSteps.cs" />
+    <Compile Include="Mappings\TableExtensions.cs" />
     <Compile Include="Modules\Bindings\GettingSourcesSteps.cs" />
     <Compile Include="Modules\Bindings\NancyDependencies.cs" />
     <Compile Include="Modules\GettingSources.feature.cs">
