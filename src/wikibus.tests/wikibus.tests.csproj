@@ -81,9 +81,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="app.release.config">
-      <DependentUpon>app.config</DependentUpon>
-    </None>
     <None Include="Mappings\MappingBrochures.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MappingBrochures.feature.cs</LastGenOutput>

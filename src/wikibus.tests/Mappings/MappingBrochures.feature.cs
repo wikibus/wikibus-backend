@@ -32,7 +32,7 @@ namespace wikibus.tests.Mappings
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Mapping Brochures from SQL to RDF", "Make sure that correct RDF is returned for SQL rows", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Mapping Brochures from SQL to RDF", " Make sure that correct RDF is returned for SQL rows", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -66,12 +66,10 @@ namespace wikibus.tests.Mappings
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Mapping brochure row")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void MappingBrochureRow()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping brochure row", new string[] {
-                        "mytag"});
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping brochure row", ((string[])(null)));
+#line 4
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -114,26 +112,27 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "NULL",
                         "NULL"});
-#line 6
- testRunner.Given("table \'[Sources].[Source]\' with data:", ((string)(null)), table1, "Given ");
+#line 5
+   testRunner.Given("table \'[Sources].[Source]\' with data:", ((string)(null)), table1, "Given ");
+#line 8
+   testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
- testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
- testRunner.Then("resulting dataset should contain \'5\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+   testRunner.Then("resulting dataset should contain \'5\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 11
- testRunner.And("resulting dataset should match query:", @"base <http://wikibus.org/> .
+#line 10
+   testRunner.And("resulting dataset should match query:", @"base <http://wikibus.org/> .
 prefix wbo: <http://wikibus.org/ontology#> .
 prefix bibo: <http://purl.org/ontology/bibo/> .
 prefix dcterms: <http://purl.org/dc/terms/> .
 
 ASK
 {
-	<brochure/1> 
-		a wbo:Brochure ;
-		bibo:pages 2 ;
-		dcterms:title ""Türkkar City Angel E.D."" ;
-		dcterms:language <http://www.lexvo.org/page/iso639-1/tr>, <http://www.lexvo.org/page/iso639-1/en> .
+   <brochure/1> 
+      a wbo:Brochure ;
+      bibo:pages 2 ;
+      dcterms:title ""Türkkar City Angel E.D."" ;
+      dcterms:language <http://www.lexvo.org/page/iso639-1/tr>, 
+                       <http://www.lexvo.org/page/iso639-1/en> .
 }", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

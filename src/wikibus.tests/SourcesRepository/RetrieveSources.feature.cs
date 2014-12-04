@@ -76,7 +76,7 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
 #line 6
  testRunner.And("RDF data:", "@base <http://wikibus.org/> .\r\n@prefix dcterms: <http://purl.org/dc/terms/>.\r\n\r\n{" +
-                    "\r\n\t<brochure/VanHool+T8> a <ontology#Brochure> ;\r\n\t\tdcterms:title \"VanHool T8 - " +
+                    "\r\n   <brochure/VanHool+T8> a <ontology#Brochure> ;\r\n      dcterms:title \"VanHool T8 - " +
                     "New Look\" .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
  testRunner.When("brochure <http://wikibus.org/brochure/VanHool+T8> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -98,7 +98,7 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
 #line 21
  testRunner.And("RDF data:", "@base <http://wikibus.org/> .\r\n@prefix dcterms: <http://purl.org/dc/terms/>.\r\n\r\n{" +
-                    "\r\n\t<brochure/12345> a <ontology#Brochure> ;\r\n\t\tdcterms:title \"Jelcz M11 - nowość" +
+                    "\r\n   <brochure/12345> a <ontology#Brochure> ;\r\n      dcterms:title \"Jelcz M11 - nowość" +
                     "\" .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
  testRunner.When("brochure <http://wikibus.org/brochure/12345> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
