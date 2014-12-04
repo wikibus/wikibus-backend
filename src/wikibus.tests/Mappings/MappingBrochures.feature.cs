@@ -120,10 +120,10 @@ this.ScenarioSetup(scenarioInfo);
    testRunner.Then("resulting dataset should contain \'5\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 10
-   testRunner.And("resulting dataset should match query:", @"base <http://wikibus.org/> .
-prefix wbo: <http://wikibus.org/ontology#> .
-prefix bibo: <http://purl.org/ontology/bibo/> .
-prefix dcterms: <http://purl.org/dc/terms/> .
+   testRunner.And("resulting dataset should match query:", @"base <http://wikibus.org/>
+prefix wbo: <http://wikibus.org/ontology#>
+prefix bibo: <http://purl.org/ontology/bibo/>
+prefix dcterms: <http://purl.org/dc/terms/>
 
 ASK
 {

@@ -93,6 +93,19 @@ namespace wikibus.tests.Mappings
          typeMap.CreatePredicateMap().IsConstantValued(new Uri(RdfSpecsHelper.RdfType));
          typeMap.CreateObjectMap().IsTemplateValued("http://wikibus.org/ontology#{Type}");
 
+         var langMap = brochureMap.CreatePropertyObjectMap();
+         langMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/language"));
+         langMap.CreateObjectMap().IsTemplateValued("http://www.lexvo.org/page/iso639-1/{Language}");
+
+         var lang1Map = brochureMap.CreatePropertyObjectMap();
+         lang1Map.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/language"));
+         lang1Map.CreateObjectMap().IsTemplateValued("http://www.lexvo.org/page/iso639-1/{Language2}");
+
+         var pagesMap = brochureMap.CreatePropertyObjectMap();
+         pagesMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/ontology/bibo/pages"));
+         pagesMap.CreateObjectMap().IsColumnValued("Pages")
+                                   .HasDataType(new Uri(XmlSpecsHelper.XmlSchemaDataTypeInteger));
+
          return rml;
       }
    }

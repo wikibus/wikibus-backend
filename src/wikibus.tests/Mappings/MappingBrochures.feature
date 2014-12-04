@@ -9,10 +9,10 @@ Scenario: Mapping brochure row
    Then resulting dataset should contain '5' triples
    And resulting dataset should match query:
       """
-      base <http://wikibus.org/> .
-      prefix wbo: <http://wikibus.org/ontology#> .
-      prefix bibo: <http://purl.org/ontology/bibo/> .
-      prefix dcterms: <http://purl.org/dc/terms/> .
+      base <http://wikibus.org/>
+      prefix wbo: <http://wikibus.org/ontology#>
+      prefix bibo: <http://purl.org/ontology/bibo/>
+      prefix dcterms: <http://purl.org/dc/terms/>
 
       ASK
       {
