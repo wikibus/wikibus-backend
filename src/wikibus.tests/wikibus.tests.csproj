@@ -40,6 +40,7 @@
       <HintPath>..\..\lib\Slp.r2rml4net.Storage.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -51,13 +52,15 @@
     <Compile Include="FluentAssertions\AssertionsExtensions.cs" />
     <Compile Include="FluentAssertions\StoreAssertions.cs" />
     <Compile Include="Helpers\StreamExtensions.cs" />
+    <Compile Include="Mappings\FakeCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Mappings\MappingBrochures.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MappingBrochures.feature</DependentUpon>
     </Compile>
     <Compile Include="Mappings\MappingSourcesSteps.cs" />
-    <Compile Include="Mappings\TableExtensions.cs" />
     <Compile Include="Modules\Bindings\GettingSourcesSteps.cs" />
     <Compile Include="Modules\Bindings\NancyDependencies.cs" />
     <Compile Include="Modules\GettingSources.feature.cs">
@@ -77,6 +80,9 @@
   <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="app.release.config">
+      <DependentUpon>app.config</DependentUpon>
     </None>
     <None Include="Mappings\MappingBrochures.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

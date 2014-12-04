@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Linq;
 using FakeItEasy;
 using NUnit.Framework;
 using Slp.r2rml4net.Storage;
@@ -7,9 +10,11 @@ using Slp.r2rml4net.Storage.Sql;
 using Slp.r2rml4net.Storage.Sql.Algebra;
 using Slp.r2rml4net.Storage.Sql.Vendor;
 using TCode.r2rml4net;
+using TCode.r2rml4net.Log;
 using TechTalk.SpecFlow;
 using VDS.RDF;
 using VDS.RDF.Parsing;
+using VDS.RDF.Query;
 using VDS.RDF.Storage;
 
 namespace wikibus.tests.Mappings
@@ -17,39 +22,43 @@ namespace wikibus.tests.Mappings
     [Binding]
     public class MappingSourcesSteps
     {
-        private readonly IQueryableStorage _storage;
-        private readonly ISqlDb _sqlDb;
-        private IGraph _result;
+        private readonly IDbConnection _conn;
+        private readonly IR2RMLProcessor _rmlProc;
+        private ITripleStore _result;
 
         public MappingSourcesSteps()
         {
-            _sqlDb = A.Fake<BaseSqlDb>(mock => mock.Strict());
-
-            _storage = new R2RMLStorage(CreateRdbMappings(), _sqlDb);
+            _conn = A.Fake<IDbConnection>(mock => mock.Strict());
+            A.CallTo(() => _conn.State).Returns(ConnectionState.Open);
+            _rmlProc = new W3CR2RMLProcessor(_conn) { Log = new TextWriterLog(Console.Out) };
         }
 
-        [Given(@"source table with data:")]
-        public void GivenSourceTableWithData(Table table)
+        [Given(@"table '(.*)' with data:")]
+        public void GivenTableWithData(string tableName, Table table)
         {
-            IQueryResultReader resultWrapper = table.ToStaticDataReader();
-
-            A.CallTo(() => _sqlDb.ExecuteQuery(A<string>.Ignored, A<QueryContext>.Ignored))
-             .Returns(resultWrapper);
+            A.CallTo(() => _conn.CreateCommand()).Returns(new FakeCommand(tableName, table));
         }
 
         [When(@"retrieve all triples")]
         public void WhenRetrieveAllTriples()
         {
-            _result = (IGraph)_storage.Query("construct { ?s ?p ?o } where { ?s ?p ?o }");
+            _result = _rmlProc.GenerateTriples(CreateRdbMappings());
         }
 
-        [Then(@"resulting graph should be equal to:")]
-        public void ThenResultingGraphShouldBeEqualTo(string expectedGraph)
+        [Then(@"resulting dataset should match query:")]
+        public void ThenResultingShouldBeEqualTo(string query)
         {
-            var expected = new Graph();
-            expected.LoadFromString(expectedGraph);
+            ISparqlQueryProcessor processor = new LeviathanQueryProcessor((IInMemoryQueryableStore)_result);
 
-            Assert.That(_result.Difference(expected).AreEqual);
+            var queryResult = (SparqlResultSet)processor.ProcessQuery(new SparqlQueryParser().ParseFromString(query));
+
+            Assert.That(queryResult.Result);
+        }
+
+        [Then(@"resulting dataset should contain '(\d*)' triples")]
+        public void ThenResultingDatasetShouldContainTriples(int expectedCount)
+        {
+            Assert.That(_result.Triples.Count(), Is.EqualTo(expectedCount));
         }
 
         private IR2RML CreateRdbMappings()

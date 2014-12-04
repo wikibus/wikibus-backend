@@ -115,21 +115,26 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "NULL"});
 #line 6
- testRunner.Given("source table with data:", ((string)(null)), table1, "Given ");
+ testRunner.Given("table \'[Sources].[Source]\' with data:", ((string)(null)), table1, "Given ");
 #line 9
  testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
 #line 10
- testRunner.Then("resulting graph should be equal to:", @"@base <http://wikibus.org/> .
-@prefix wbo: <http://wikibus.org/ontology#> .
-@prefix bibo: <http://purl.org/ontology/bibo/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+ testRunner.Then("resulting dataset should contain \'5\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 11
+ testRunner.And("resulting dataset should match query:", @"base <http://wikibus.org/> .
+prefix wbo: <http://wikibus.org/ontology#> .
+prefix bibo: <http://purl.org/ontology/bibo/> .
+prefix dcterms: <http://purl.org/dc/terms/> .
 
-<brochure/1> 
-	a wbo:Brochure ;
-	bibo:pages 2 ;
-	dcterms:title ""Türkkar City Angel E.D."" ;
-	dcterms:language <http://www.lexvo.org/page/iso639-1/tr>, <http://www.lexvo.org/page/iso639-1/en> .", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ASK
+{
+	<brochure/1> 
+		a wbo:Brochure ;
+		bibo:pages 2 ;
+		dcterms:title ""Türkkar City Angel E.D."" ;
+		dcterms:language <http://www.lexvo.org/page/iso639-1/tr>, <http://www.lexvo.org/page/iso639-1/en> .
+}", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
