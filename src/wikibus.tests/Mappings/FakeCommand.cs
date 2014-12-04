@@ -71,7 +71,11 @@ namespace wikibus.tests.Mappings
 
             foreach (var row in _table.Rows)
             {
-                dataTable.LoadDataRow(row.Values.Cast<object>().ToArray(), true);
+                var values = from value in row.Values
+                             let val = value == "NULL" ? null : value
+                             select (object)val;
+
+                dataTable.LoadDataRow(values.ToArray(), true);
             }
 
             return new DataTableReader(dataTable);

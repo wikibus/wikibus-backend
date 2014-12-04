@@ -5,6 +5,8 @@ using FakeItEasy;
 using NUnit.Framework;
 using TCode.r2rml4net;
 using TCode.r2rml4net.Log;
+using TCode.r2rml4net.Mapping;
+using TCode.r2rml4net.Mapping.Fluent;
 using TechTalk.SpecFlow;
 using VDS.RDF;
 using VDS.RDF.Parsing;
@@ -105,6 +107,26 @@ namespace wikibus.tests.Mappings
          pagesMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/ontology/bibo/pages"));
          pagesMap.CreateObjectMap().IsColumnValued("Pages")
                                    .HasDataType(new Uri(XmlSpecsHelper.XmlSchemaDataTypeInteger));
+
+         var codeMap = brochureMap.CreatePropertyObjectMap();
+         codeMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/identifier"));
+         codeMap.CreateObjectMap().IsColumnValued("FolderCode");
+
+         var yearMap = brochureMap.CreatePropertyObjectMap();
+         yearMap.CreatePredicateMap().IsConstantValued(new Uri("http://lsdis.cs.uga.edu/projects/semdis/opus#year"));
+         yearMap.CreateObjectMap().IsColumnValued("Year")
+                                  .HasDataType(new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gYear"));
+
+         var monthMap = brochureMap.CreatePropertyObjectMap();
+         monthMap.CreatePredicateMap().IsConstantValued(new Uri("http://lsdis.cs.uga.edu/projects/semdis/opus#month"));
+         monthMap.CreateObjectMap().IsColumnValued("Month")
+                                   .HasDataType(new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gMonth"));
+
+         var dateMap = brochureMap.CreatePropertyObjectMap();
+         dateMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/date"));
+         ((ILiteralTermMapConfiguration)dateMap.CreateObjectMap().IsTemplateValued("{Year}-{Month}-{Day}")
+                                  .IsLiteral())
+                                  .HasDataType(new Uri(XmlSpecsHelper.XmlSchemaDataTypeDate));
 
          return rml;
       }

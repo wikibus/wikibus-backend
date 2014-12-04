@@ -101,8 +101,8 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "NULL",
                         "NULL",
-                        "",
-                        "",
+                        "NULL",
+                        "NULL",
                         "Türkkar City Angel E.D.",
                         "NULL",
                         "NULL",
@@ -133,6 +133,86 @@ ASK
       dcterms:title ""Türkkar City Angel E.D."" ;
       dcterms:language <http://www.lexvo.org/page/iso639-1/tr>, 
                        <http://www.lexvo.org/page/iso639-1/en> .
+}", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Mapping brochure row with date")]
+        public virtual void MappingBrochureRowWithDate()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping brochure row with date", ((string[])(null)));
+#line 28
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "Language",
+                        "Language2",
+                        "Pages",
+                        "Year",
+                        "Month",
+                        "Day",
+                        "Notes",
+                        "FolderCode",
+                        "FolderName",
+                        "BookTitle",
+                        "BookAuthor",
+                        "BookISBN",
+                        "MagIssueMagazine",
+                        "MagIssueNumber",
+                        "FileMimeType",
+                        "Url",
+                        "FileName"});
+            table2.AddRow(new string[] {
+                        "6",
+                        "Brochure",
+                        "pl",
+                        "NULL",
+                        "2",
+                        "2006",
+                        "9",
+                        "21",
+                        "NULL",
+                        "BED 81419 2006-09-21 POL Version 2",
+                        "Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL"});
+#line 29
+   testRunner.Given("table \'[Sources].[Source]\' with data:", ((string)(null)), table2, "Given ");
+#line 32
+   testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 33
+   testRunner.Then("resulting dataset should contain \'8\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 34
+   testRunner.And("resulting dataset should match query:", @"base <http://wikibus.org/>
+prefix wbo: <http://wikibus.org/ontology#>
+prefix bibo: <http://purl.org/ontology/bibo/>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+prefix langIso: <http://www.lexvo.org/page/iso639-1/>
+
+ASK
+{
+   <brochure/6> 
+      a wbo:Brochure ;
+      bibo:pages 2 ;
+      dcterms:title ""Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance"" ;
+      opus:year ""2006""^^xsd:gYear ;
+      opus:month ""9""^^xsd:gMonth ;
+      dcterms:date ""2006-9-21""^^xsd:date ;
+      dcterms:language langIso:pl ;
+      dcterms:identifier ""BED 81419 2006-09-21 POL Version 2"" .
 }", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
