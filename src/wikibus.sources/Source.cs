@@ -1,4 +1,5 @@
 ﻿using System;
+using NullGuard;
 
 namespace wikibus.sources
 {
@@ -13,6 +14,7 @@ namespace wikibus.sources
         /// <value>
         /// The identifier.
         /// </value>
-        public Uri Id { get; set; }
+        [AllowNull]
+        public Uri Id { [return: AllowNull] get; set; }
     }
 }
