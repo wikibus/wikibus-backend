@@ -54,3 +54,20 @@ Scenario: Mapping brochure row with date
             dcterms:identifier "BED 81419 2006-09-21 POL Version 2" .
       }
       """
+
+Scenario: Mapping brochure row with incomplete date
+   Given table '[Sources].[Source]' with data:
+      | Id | Type     | Language | Language2 | Pages | Year | Month | Day  | Notes | FolderCode                         | FolderName                                                | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
+      | 6  | Brochure | pl       | NULL      | 2     | 2006 | NULL  | NULL | NULL  | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance | NULL      | NULL       | NULL     | NULL             | NULL           | NULL         | NULL | NULL     |
+   When retrieve all triples
+   Then resulting dataset should contain '6' triples
+   And resulting dataset should not match query:
+      """
+      base <http://wikibus.org/>
+      prefix dcterms: <http://purl.org/dc/terms/>
+
+      ASK
+      {
+         <brochure/6> dcterms:date ?date
+      }
+      """

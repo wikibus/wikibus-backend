@@ -217,6 +217,68 @@ ASK
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Mapping brochure row with incomplete date")]
+        public virtual void MappingBrochureRowWithIncompleteDate()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping brochure row with incomplete date", ((string[])(null)));
+#line 58
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "Language",
+                        "Language2",
+                        "Pages",
+                        "Year",
+                        "Month",
+                        "Day",
+                        "Notes",
+                        "FolderCode",
+                        "FolderName",
+                        "BookTitle",
+                        "BookAuthor",
+                        "BookISBN",
+                        "MagIssueMagazine",
+                        "MagIssueNumber",
+                        "FileMimeType",
+                        "Url",
+                        "FileName"});
+            table3.AddRow(new string[] {
+                        "6",
+                        "Brochure",
+                        "pl",
+                        "NULL",
+                        "2",
+                        "2006",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "BED 81419 2006-09-21 POL Version 2",
+                        "Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL"});
+#line 59
+   testRunner.Given("table \'[Sources].[Source]\' with data:", ((string)(null)), table3, "Given ");
+#line 62
+   testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 63
+   testRunner.Then("resulting dataset should contain \'6\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 64
+   testRunner.And("resulting dataset should not match query:", "base <http://wikibus.org/>\r\nprefix dcterms: <http://purl.org/dc/terms/>\r\n\r\nASK\r\n{" +
+                    "\r\n   <brochure/6> dcterms:date ?date\r\n}", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
