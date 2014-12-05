@@ -138,7 +138,7 @@
         <StringProperty Name="AdvancedNaming_MethodTest">$(AaBb):$(Aa_Bb):$(aa_bb):$(A)$(*)</StringProperty>
         <StringProperty Name="SP2001_Mode">Spaces:False</StringProperty>
         <StringProperty Name="AdvancedNaming_Namespace">$(*)</StringProperty>
-        <StringProperty Name="AdvancedNaming_Words">3D A B C FxCop ID IDs N OK StyleCop X GET</StringProperty>
+        <StringProperty Name="AdvancedNaming_Words">3D A B C FxCop ID IDs N OK StyleCop X GET R2RML</StringProperty>
       </AnalyzerSettings>
     </Analyzer>
   </Analyzers>

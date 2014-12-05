@@ -11,6 +11,7 @@ using TechTalk.SpecFlow;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
+using wikibus.sources.dotNetRDF;
 
 namespace wikibus.tests.Mappings
 {
@@ -37,7 +38,7 @@ namespace wikibus.tests.Mappings
       [When(@"retrieve all triples")]
       public void WhenRetrieveAllTriples()
       {
-         _result = _rmlProc.GenerateTriples(CreateRdbMappings());
+         _result = _rmlProc.GenerateTriples(new WikibusR2RML());
       }
 
       [Then(@"resulting dataset should match query:")]
@@ -54,81 +55,6 @@ namespace wikibus.tests.Mappings
       public void ThenResultingDatasetShouldContainTriples(int expectedCount)
       {
          Assert.That(_result.Triples.Count(), Is.EqualTo(expectedCount));
-      }
-
-      private IR2RML CreateRdbMappings()
-      {
-         var rml = new FluentR2RML();
-
-         var brochureMap = rml.CreateTriplesMapFromR2RMLView(@"SELECT [Id]
-      ,CASE [SourceType]
-        WHEN 'folder' THEN 'Brochure'
-        WHEN 'book' THEN 'Book'
-        WHEN 'file' THEN 'File'
-        WHEN 'magissue' THEN 'Issue'
-       END as [Type]
-      ,[Language]
-      ,[Language2]
-      ,[Pages]
-      ,[Year]
-      ,[Month]
-      ,[Day]
-      ,[Notes]
-      ,[FolderCode]
-      ,[FolderName]
-      ,[BookTitle]
-      ,[BookAuthor]
-      ,[BookISBN]
-      ,[MagIssueMagazine]
-      ,[MagIssueNumber]
-      ,[FileMimeType]
-      ,[Url]
-      ,[FileName]
-  FROM [Sources].[Source]");
-         brochureMap.SubjectMap.IsTemplateValued("http://wikibus.org/brochure/{Id}");
-
-         var titleMap = brochureMap.CreatePropertyObjectMap();
-         titleMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/title"));
-         titleMap.CreateObjectMap().IsColumnValued("FolderName");
-
-         var typeMap = brochureMap.CreatePropertyObjectMap();
-         typeMap.CreatePredicateMap().IsConstantValued(new Uri(RdfSpecsHelper.RdfType));
-         typeMap.CreateObjectMap().IsTemplateValued("http://wikibus.org/ontology#{Type}");
-
-         var langMap = brochureMap.CreatePropertyObjectMap();
-         langMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/language"));
-         langMap.CreateObjectMap().IsTemplateValued("http://www.lexvo.org/page/iso639-1/{Language}");
-
-         var lang1Map = brochureMap.CreatePropertyObjectMap();
-         lang1Map.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/language"));
-         lang1Map.CreateObjectMap().IsTemplateValued("http://www.lexvo.org/page/iso639-1/{Language2}");
-
-         var pagesMap = brochureMap.CreatePropertyObjectMap();
-         pagesMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/ontology/bibo/pages"));
-         pagesMap.CreateObjectMap().IsColumnValued("Pages")
-                                   .HasDataType(new Uri(XmlSpecsHelper.XmlSchemaDataTypeInteger));
-
-         var codeMap = brochureMap.CreatePropertyObjectMap();
-         codeMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/identifier"));
-         codeMap.CreateObjectMap().IsColumnValued("FolderCode");
-
-         var yearMap = brochureMap.CreatePropertyObjectMap();
-         yearMap.CreatePredicateMap().IsConstantValued(new Uri("http://lsdis.cs.uga.edu/projects/semdis/opus#year"));
-         yearMap.CreateObjectMap().IsColumnValued("Year")
-                                  .HasDataType(new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gYear"));
-
-         var monthMap = brochureMap.CreatePropertyObjectMap();
-         monthMap.CreatePredicateMap().IsConstantValued(new Uri("http://lsdis.cs.uga.edu/projects/semdis/opus#month"));
-         monthMap.CreateObjectMap().IsColumnValued("Month")
-                                   .HasDataType(new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gMonth"));
-
-         var dateMap = brochureMap.CreatePropertyObjectMap();
-         dateMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/date"));
-         ((ILiteralTermMapConfiguration)dateMap.CreateObjectMap().IsTemplateValued("{Year}-{Month}-{Day}")
-                                  .IsLiteral())
-                                  .HasDataType(new Uri(XmlSpecsHelper.XmlSchemaDataTypeDate));
-
-         return rml;
       }
    }
 }

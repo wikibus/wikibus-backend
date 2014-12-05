@@ -47,6 +47,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourcesRepository.cs" />
+    <Compile Include="WikibusR2RML.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\wikibus.sources\wikibus.sources.csproj">
@@ -67,6 +68,26 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="DatabaseSchemaReader">
+          <HintPath>..\packages\DatabaseSchemaReader\lib\net35\DatabaseSchemaReader.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="($(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3')) Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch')">
+      <ItemGroup>
+        <Reference Include="DatabaseSchemaReader">
+          <HintPath>..\packages\DatabaseSchemaReader\lib\net40\DatabaseSchemaReader.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v3.5'">
       <ItemGroup>
@@ -256,6 +277,17 @@
       <ItemGroup>
         <Reference Include="Newtonsoft.Json">
           <HintPath>..\packages\Newtonsoft.Json\lib\portable-net45+wp80+win8+wpa81+aspnetcore50\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="($(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3')) Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch')">
+      <ItemGroup>
+        <Reference Include="TCode.r2rml4net">
+          <HintPath>..\packages\r2rml4net\lib\net40\TCode.r2rml4net.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
