@@ -113,7 +113,7 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "NULL"});
 #line 5
-   testRunner.Given("table \'[Sources].[Source]\' with data:", ((string)(null)), table1, "Given ");
+   testRunner.Given("table source with data:", ((string)(null)), table1, "Given ");
 #line 8
    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
@@ -187,7 +187,7 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "NULL"});
 #line 29
-   testRunner.Given("table \'[Sources].[Source]\' with data:", ((string)(null)), table2, "Given ");
+   testRunner.Given("table source with data:", ((string)(null)), table2, "Given ");
 #line 32
    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 33
@@ -267,7 +267,7 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "NULL"});
 #line 59
-   testRunner.Given("table \'[Sources].[Source]\' with data:", ((string)(null)), table3, "Given ");
+   testRunner.Given("table source with data:", ((string)(null)), table3, "Given ");
 #line 62
    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 63

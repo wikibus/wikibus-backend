@@ -8,12 +8,10 @@ namespace wikibus.tests.Mappings
 {
     public class FakeCommand : DbCommand
     {
-        private readonly string _tableName;
         private readonly Table _table;
 
-        public FakeCommand(string tableName, Table table)
+        public FakeCommand(Table table)
         {
-            _tableName = tableName;
             _table = table;
         }
 
@@ -63,7 +61,7 @@ namespace wikibus.tests.Mappings
 
         protected override DbDataReader ExecuteDbDataReader(CommandBehavior behavior)
         {
-            var dataTable = new DataTable(_tableName);
+            var dataTable = new DataTable();
             foreach (var column in _table.Header)
             {
                 dataTable.Columns.Add(column);

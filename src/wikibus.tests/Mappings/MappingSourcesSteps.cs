@@ -27,10 +27,10 @@ namespace wikibus.tests.Mappings
             _rmlProc = new W3CR2RMLProcessor(_conn) { Log = new TextWriterLog(Console.Out) };
         }
 
-        [Given(@"table '(.*)' with data:")]
-        public void GivenTableWithData(string tableName, Table table)
+        [Given(@"table source with data:")]
+        public void GivenTableWithData(Table table)
         {
-            A.CallTo(() => _conn.CreateCommand()).Returns(new FakeCommand(tableName, table));
+            A.CallTo(() => _conn.CreateCommand()).Returns(new FakeCommand(table));
         }
 
         [When(@"retrieve all triples")]
