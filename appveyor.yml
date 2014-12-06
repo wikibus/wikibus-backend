@@ -16,6 +16,7 @@ deploy:
     ntlm: false
     remove_files: true
     app_offline: false
+    artifact: wikibus.web.zip
     on:
       branch: master
       platform: x86
