@@ -1,6 +1,6 @@
 ﻿   Feature: Retrieve sources from repository
    Verify that models are correctly deserialized from RDF
-
+   
 Scenario: Get simple brochure
    Given In-memory query processor
    And RDF data:
@@ -14,7 +14,7 @@ Scenario: Get simple brochure
       }
       """
    When brochure <http://wikibus.org/brochure/VanHool+T8> is fetched
-   Then the brochure should have title 'VanHool T8 - New Look'
+   Then 'Title' should be string equal to 'VanHool T8 - New Look'
    
 Scenario: Get brochure with Polish diacritics
    Given In-memory query processor
@@ -29,4 +29,39 @@ Scenario: Get brochure with Polish diacritics
       }
       """
    When brochure <http://wikibus.org/brochure/12345> is fetched
-   Then the brochure should have title 'Jelcz M11 - nowość'
+   Then 'Title' should be string equal to 'Jelcz M11 - nowość'
+
+Scenario: Get complete brochure
+    Given In-memory query processor
+    And RDF data:
+        """
+        @base <http://wikibus.org/>.
+        @prefix wbo: <http://wikibus.org/ontology#>.
+        @prefix bibo: <http://purl.org/ontology/bibo/>.
+        @prefix dcterms: <http://purl.org/dc/terms/>.
+        @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+        @prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>.
+        @prefix langIso: <http://www.lexvo.org/page/iso639-1/>.
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+        {
+            <brochure/6> 
+                a wbo:Brochure ;
+                bibo:pages 2 ;
+                dcterms:title "Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance" ;
+                opus:year "2006"^^xsd:gYear ;
+                opus:month "9"^^xsd:gMonth ;
+                dcterms:date "2006-9-21"^^xsd:date ;
+                dcterms:language langIso:pl ;
+                dcterms:identifier "BED 81419 2006-09-21 POL Version 2" ;
+                rdfs:comment "Some description about brochure".
+        }
+        """
+    When brochure <http://wikibus.org/brochure/6> is fetched
+    Then 'Title' should be string equal to 'Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance'
+     And 'Pages' should be integer equal to '2'
+     And 'Date' should be DateTime equal to '2006-09-21'
+     And 'Month' should be integer equal to '9'
+     And 'Code' should be string equal to 'BED 81419 2006-09-21 POL Version 2'
+     And Language should contain 'pl'
+     And 'description' should be string equal to 'Some description about brochure'

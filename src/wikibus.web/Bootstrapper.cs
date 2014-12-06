@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using JsonLD.Entities;
 using Nancy.Bootstrapper;
+using Nancy.Diagnostics;
 using Nancy.RDF.Responses;
 using Nancy.TinyIoc;
 using Slp.r2rml4net.Storage;
@@ -28,6 +29,17 @@ namespace wikibus.web
         protected override NancyInternalConfiguration InternalConfiguration
         {
             get { return NancyInternalConfiguration.WithOverrides(c => c.ResponseProcessors = GetProcessors().ToList()); }
+        }
+
+        /// <summary>
+        /// Gets the diagnostics configuration.
+        /// </summary>
+        /// <value>
+        /// The diagnostics configuration.
+        /// </value>
+        protected override DiagnosticsConfiguration DiagnosticsConfiguration
+        {
+            get { return new DiagnosticsConfiguration { Password = @"wb" }; }
         }
 
         /// <summary>

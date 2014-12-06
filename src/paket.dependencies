@@ -19,3 +19,4 @@ nuget infoof.fody
 nuget JsonLd.Entities
 nuget Nancy.RDF
 nuget NullGuard.Fody
+nuget ImpromptuInterface

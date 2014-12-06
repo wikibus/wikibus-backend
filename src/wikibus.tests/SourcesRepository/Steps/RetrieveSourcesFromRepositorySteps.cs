@@ -1,7 +1,8 @@
 ﻿using System;
-using FakeItEasy;
+using System.Globalization;
 using FluentAssertions;
 using JsonLD.Entities;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 using VDS.RDF;
 using VDS.RDF.Query;
@@ -40,13 +41,41 @@ namespace wikibus.tests.SourcesRepository.Steps
         {
             ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository(_queryProcessor, _serializer);
 
-            ScenarioContext.Current.Set(repository.Get<Brochure>(new Uri(uri)));
+            ScenarioContext.Current.Set(repository.Get<Brochure>(new Uri(uri)), "Model");
         }
 
-        [Then(@"the brochure should have title '(.*)'")]
-        public void ThenTheBrochureShouldHaveName(string title)
+        [Then(@"'(.*)' should be string equal to '(.*)'")]
+        public void PropertyShouldBeStrigWithValueEqual(string propName, string expectedValue)
         {
-            ScenarioContext.Current.Get<Brochure>().Title.Should().Be(title);
+            AssertPropertyValue(propName, expectedValue);
+        }
+
+        [Then(@"'(.*)' should be integer equal to '(.*)'")]
+        public void PropertyShouldBeIntegerWithValueEqual(string propName, string expectedValue)
+        {
+            AssertPropertyValue(propName, int.Parse(expectedValue));
+        }
+
+        [Then(@"'(.*)' should be DateTime equal to '(.*)'")]
+        public void PropertyShouldBeDateTimeWithValueEqual(string propName, string expectedValue)
+        {
+            AssertPropertyValue(propName, DateTime.Parse(expectedValue));
+        }
+
+        [Then(@"Language should contain '(.*)'")]
+        public void ThenLanguageShouldContain(string langCode)
+        {
+            var model = (Source)ScenarioContext.Current["Model"];
+
+            model.Langauges.Should().Contain(CultureInfo.GetCultureInfo(langCode));
+        }
+
+        private void AssertPropertyValue(string propName, object expected)
+        {
+            var model = ScenarioContext.Current["Model"];
+            var value = ImpromptuInterface.Impromptu.InvokeGet(model, propName);
+
+            Assert.That(value, Is.EqualTo(expected));
         }
     }
 }
