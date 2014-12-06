@@ -15,3 +15,7 @@ deploy:
       branch: master
       platform: x86
       configuration: release
+  - provider: Environment
+    name: staging
+	on:
+	  branch: master
