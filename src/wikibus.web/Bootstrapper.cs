@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using JsonLD.Entities;
-using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.RDF.Responses;
 using Nancy.TinyIoc;
-using Newtonsoft.Json.Linq;
-using Resourcer;
 using Slp.r2rml4net.Storage;
 using Slp.r2rml4net.Storage.Sql;
 using Slp.r2rml4net.Storage.Sql.Vendor;
 using TCode.r2rml4net;
-using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Storage;
 using wikibus.sources;
-using wikibus.sources.nancy;
+using wikibus.sources.dotNetRDF;
 
 namespace wikibus.web
 {
@@ -44,40 +40,19 @@ namespace wikibus.web
 
             container.Register<ISparqlQueryProcessor, GenericQueryProcessor>();
             container.Register<IQueryableStorage, R2RMLStorage>();
-            container.Register<ISqlDb>(CreateDbConnection);
-            container.Register(CreateRdbMappings);
+            container.Register<ISqlDb>(new MSSQLDb(ConfigurationManager.ConnectionStrings["sql"].ConnectionString));
+            container.Register<IR2RML, WikibusR2RML>();
 
             var contextProvider = new StaticContextProvider();
             contextProvider.SetupSourcesContexts();
             container.Register<IContextProvider>(contextProvider);
         }
 
-        private ISqlDb CreateDbConnection(TinyIoCContainer tinyIoCContainer, NamedParameterOverloads namedParameterOverloads)
-        {
-            return new MSSQLDb(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
-        }
-
-        private IR2RML CreateRdbMappings(TinyIoCContainer tinyIoCContainer, NamedParameterOverloads namedParameterOverloads)
-        {
-            var rml = new FluentR2RML();
-
-            var brochureMap = rml.CreateTriplesMapFromR2RMLView(Resource.AsString("Queries.SelectSources.sql"));
-            brochureMap.SubjectMap.IsTemplateValued("http://wikibus.org/brochure/{Id}");
-
-            var titleMap = brochureMap.CreatePropertyObjectMap();
-            titleMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/title"));
-            titleMap.CreateObjectMap().IsColumnValued("FolderName");
-
-            var typeMap = brochureMap.CreatePropertyObjectMap();
-            typeMap.CreatePredicateMap().IsConstantValued(new Uri(RdfSpecsHelper.RdfType));
-            typeMap.CreateObjectMap().IsTemplateValued("http://wikibus.org/ontology#{Type}");
-
-            return rml;
-        }
-
         private IEnumerable<Type> GetProcessors()
         {
             yield return typeof(TurtleResponseProcessor);
+            yield return typeof(Notation3ResponseProcessor);
+            yield return typeof(NTriplesResponseProcessor);
             yield return typeof(RdfXmlResponseProcessor);
             yield return typeof(JsonLdResponseProcessor);
         }
