@@ -17,5 +17,5 @@ deploy:
       configuration: release
   - provider: Environment
     name: staging
-	on:
-	  branch: master
+    on:
+      branch: master
