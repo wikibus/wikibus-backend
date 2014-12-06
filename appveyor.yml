@@ -16,3 +16,4 @@ deploy:
     ntlm: false
     remove_files: true
     artifact: wikibus.web.zip
+    skip_files: paket.references; FodyWeavers.xml
