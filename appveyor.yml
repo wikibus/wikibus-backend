@@ -8,16 +8,11 @@ configuration: Release
 
 deploy:
   - provider: WebDeploy
-    server: http://t-code.com.pl
+    server: https://46.163.66.159:8172/msdeploy.axd
     website: api.test.wikibus.org
     username: deploy
     password: 
       secure: ckU8LWLgCV94A6K92I9scA==
     ntlm: false
     remove_files: true
-    app_offline: false
     artifact: wikibus.web.zip
-    on:
-      branch: master
-      platform: x86
-      configuration: Release
