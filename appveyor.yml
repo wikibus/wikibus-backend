@@ -8,7 +8,7 @@ configuration: Release
 
 deploy:
   - provider: WebDeploy
-    server: https://46.163.66.159:8172/msdeploy.axd
+    server: https://46.163.66.159:8172/msdeploy.axd?site=api.test.wikibus.org
     website: api.test.wikibus.org
     username: wikibus
     password: 
