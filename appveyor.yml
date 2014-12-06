@@ -1,6 +1,9 @@
 before_build:
   - restore_packages.bat
 
+build:
+  publish_wap: true  
+
 configuration: Release  
 
 deploy:
