@@ -10,7 +10,7 @@ deploy:
   - provider: WebDeploy
     server: https://46.163.66.159:8172/msdeploy.axd
     website: api.test.wikibus.org
-    username: deploy
+    username: wikibus
     password: 
       secure: ckU8LWLgCV94A6K92I9scA==
     ntlm: false
