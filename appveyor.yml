@@ -5,8 +5,8 @@ deploy:
   - provider: WebDeploy
     server: http://t-code.com.pl
     website: api.test.wikibus.org
-    username: user
-    password: deploy
+    username: deploy
+    password: 
       secure: ckU8LWLgCV94A6K92I9scA==
     ntlm: false
     remove_files: false
