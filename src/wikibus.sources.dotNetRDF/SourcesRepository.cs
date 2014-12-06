@@ -1,7 +1,6 @@
 ﻿using System;
-using JsonLD.Core;
 using JsonLD.Entities;
-using Newtonsoft.Json.Linq;
+using NullGuard;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
@@ -30,6 +29,7 @@ namespace wikibus.sources.dotNetRDF
         }
 
         /// <inheritdoc />
+        [return: AllowNull]
         public T Get<T>(Uri uri) where T : Source
         {
             var construct = "CONSTRUCT { @s ?p ?o } WHERE { @s ?p ?o . @s a <http://wikibus.org/ontology#Brochure> . }";
