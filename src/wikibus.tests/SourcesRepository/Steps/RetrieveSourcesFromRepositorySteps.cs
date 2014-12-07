@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Globalization;
 using FluentAssertions;
 using JsonLD.Entities;
@@ -63,12 +64,30 @@ namespace wikibus.tests.SourcesRepository.Steps
             AssertPropertyValue(propName, DateTime.Parse(expectedValue));
         }
 
-        [Then(@"Language should contain '(.*)'")]
+        [Then(@"Languages should contain '(.*)'")]
         public void ThenLanguageShouldContain(string langCode)
         {
             var model = (Source)ScenarioContext.Current["Model"];
 
-            model.Langauges.Should().Contain(CultureInfo.GetCultureInfo(langCode));
+            model.Languages.Should().Contain(CultureInfo.GetCultureInfo(langCode));
+        }
+
+        [Then(@"'(.*)' should be null")]
+        public void ThenShouldBeNull(string propName)
+        {
+            var model = ScenarioContext.Current["Model"];
+            object value = ImpromptuInterface.Impromptu.InvokeGet(model, propName);
+
+            value.Should().Be(model.GetType().GetProperty(propName).PropertyType.GetDefaultValue());
+        }
+
+        [Then(@"'(.*)' should be empty")]
+        public void ThenLanguageShouldBeEmpty(string propName)
+        {
+            var model = ScenarioContext.Current["Model"];
+            var value = ImpromptuInterface.Impromptu.InvokeGet(model, propName);
+
+            ((IEnumerable)value).Should().BeEmpty();
         }
 
         private void AssertPropertyValue(string propName, object expected)

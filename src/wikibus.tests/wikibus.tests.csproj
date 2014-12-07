@@ -76,6 +76,7 @@
       <DependentUpon>RetrieveSources.feature</DependentUpon>
     </Compile>
     <Compile Include="SourcesRepository\Steps\RetrieveSourcesFromRepositorySteps.cs" />
+    <Compile Include="SourcesRepository\Steps\TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

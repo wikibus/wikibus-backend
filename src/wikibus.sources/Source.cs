@@ -9,6 +9,8 @@ namespace wikibus.sources
     /// </summary>
     public class Source
     {
+        private CultureInfo[] _languages = new CultureInfo[0];
+
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
@@ -17,7 +19,11 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the languages.
         /// </summary>
-        public CultureInfo[] Langauges { [return: AllowNull] get; set; }
+        public CultureInfo[] Languages
+        {
+            [return: AllowNull] get { return _languages; }
+            set { _languages = value; }
+        }
 
         /// <summary>
         /// Gets or sets the pages count.
@@ -27,16 +33,16 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the publication date date.
         /// </summary>
-        public DateTime Date { [return: AllowNull] get; set; }
+        public DateTime? Date { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication  year.
         /// </summary>
-        public int Year { [return: AllowNull] get; set; }
+        public int? Year { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication month.
         /// </summary>
-        public int Month { [return: AllowNull] get; set; }
+        public int? Month { [return: AllowNull] get; set; }
     }
 }

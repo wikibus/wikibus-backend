@@ -63,5 +63,32 @@ Scenario: Get complete brochure
      And 'Date' should be DateTime equal to '2006-09-21'
      And 'Month' should be integer equal to '9'
      And 'Code' should be string equal to 'BED 81419 2006-09-21 POL Version 2'
-     And Language should contain 'pl'
+     And Languages should contain 'pl'
      And 'description' should be string equal to 'Some description about brochure'
+
+Scenario: Get brochure without data
+    Given In-memory query processor
+    And RDF data:
+        """
+        @base <http://wikibus.org/>.
+        @prefix wbo: <http://wikibus.org/ontology#>.
+        @prefix bibo: <http://purl.org/ontology/bibo/>.
+        @prefix dcterms: <http://purl.org/dc/terms/>.
+        @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+        @prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>.
+        @prefix langIso: <http://www.lexvo.org/page/iso639-1/>.
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+        {
+            <brochure/6> 
+                a wbo:Brochure ;
+        }
+        """
+    When brochure <http://wikibus.org/brochure/6> is fetched
+    Then 'Title' should be null
+     And 'Pages' should be null
+     And 'Date' should be null
+     And 'Month' should be null
+     And 'Code' should be null
+     And 'Languages' should be empty
+     And 'Description' should be null

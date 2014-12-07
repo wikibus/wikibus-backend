@@ -154,9 +154,53 @@ this.ScenarioSetup(scenarioInfo);
 #line 65
      testRunner.And("\'Code\' should be string equal to \'BED 81419 2006-09-21 POL Version 2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 66
-     testRunner.And("Language should contain \'pl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("Languages should contain \'pl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 67
      testRunner.And("\'description\' should be string equal to \'Some description about brochure\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get brochure without data")]
+        public virtual void GetBrochureWithoutData()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get brochure without data", ((string[])(null)));
+#line 69
+this.ScenarioSetup(scenarioInfo);
+#line 70
+    testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 71
+    testRunner.And("RDF data:", @"@base <http://wikibus.org/>.
+@prefix wbo: <http://wikibus.org/ontology#>.
+@prefix bibo: <http://purl.org/ontology/bibo/>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>.
+@prefix langIso: <http://www.lexvo.org/page/iso639-1/>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+{
+    <brochure/6> 
+        a wbo:Brochure ;
+}", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 87
+    testRunner.When("brochure <http://wikibus.org/brochure/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 88
+    testRunner.Then("\'Title\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 89
+     testRunner.And("\'Pages\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 90
+     testRunner.And("\'Date\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 91
+     testRunner.And("\'Month\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 92
+     testRunner.And("\'Code\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 93
+     testRunner.And("\'Languages\' should be empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 94
+     testRunner.And("\'Description\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
