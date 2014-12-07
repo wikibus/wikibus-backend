@@ -1,7 +1,8 @@
 ﻿using JsonLD.Entities;
 using Newtonsoft.Json.Linq;
+using Resourcer;
 
-namespace wikibus.sources
+namespace wikibus.sources.dotNetRDF
 {
     /// <summary>
     /// Extension to set up @context for source models
@@ -13,7 +14,7 @@ namespace wikibus.sources
         /// </summary>
         public static void SetupSourcesContexts(this StaticContextProvider contextProvider)
         {
-            contextProvider.SetContext(typeof(Brochure), JObject.Parse("{ 'title': 'http://purl.org/dc/terms/title' }"));
+            contextProvider.SetContext(typeof(Brochure), JObject.Parse(Resource.AsString("Contexts.Brochure.json")));
         }
     }
 }

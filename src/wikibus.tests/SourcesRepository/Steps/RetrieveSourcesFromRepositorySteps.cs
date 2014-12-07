@@ -7,6 +7,7 @@ using TechTalk.SpecFlow;
 using VDS.RDF;
 using VDS.RDF.Query;
 using wikibus.sources;
+using wikibus.sources.dotNetRDF;
 
 namespace wikibus.tests.SourcesRepository.Steps
 {
