@@ -10,5 +10,5 @@
     "pages": { "@id": "bibo:pages", "@type": "xsd:integer" },
     "title": "dcterms:title",
     "code": "dcterms:identifier",
-    "language": "dcterms:language"
+    "languages": "dcterms:language"
 }
