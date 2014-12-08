@@ -69,7 +69,7 @@ namespace wikibus.tests.SourcesRepository.Steps
         {
             var model = (Source)ScenarioContext.Current["Model"];
 
-            model.Languages.Should().Contain(CultureInfo.GetCultureInfo(langCode));
+            model.Languages.Should().Contain(new Language(langCode));
         }
 
         [Then(@"'(.*)' should be null")]

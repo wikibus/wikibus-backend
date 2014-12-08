@@ -156,7 +156,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 66
      testRunner.And("Languages should contain \'pl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 67
-     testRunner.And("\'description\' should be string equal to \'Some description about brochure\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("\'Description\' should be string equal to \'Some description about brochure\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

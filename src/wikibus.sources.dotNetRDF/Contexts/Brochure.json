@@ -4,11 +4,13 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "langIso": "http://www.lexvo.org/page/iso639-1/",
     "opus": "http://lsdis.cs.uga.edu/projects/semdis/opus#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "year": { "@id": "opus:year", "@type": "xsd:gYear" },
     "month": { "@id": "opus:month", "@type": "xsd:gMonth" },
     "date": { "@id": "dcterms:date", "@type": "xsd:date" },
     "pages": { "@id": "bibo:pages", "@type": "xsd:integer" },
     "title": "dcterms:title",
     "code": "dcterms:identifier",
-    "languages": "dcterms:language"
+    "description": "rdfs:comment",
+    "languages": {"@id": "dcterms:language", "@container": "@set" }
 }

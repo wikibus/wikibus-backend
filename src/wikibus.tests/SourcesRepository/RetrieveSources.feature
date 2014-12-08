@@ -64,7 +64,7 @@ Scenario: Get complete brochure
      And 'Month' should be integer equal to '9'
      And 'Code' should be string equal to 'BED 81419 2006-09-21 POL Version 2'
      And Languages should contain 'pl'
-     And 'description' should be string equal to 'Some description about brochure'
+     And 'Description' should be string equal to 'Some description about brochure'
 
 Scenario: Get brochure without data
     Given In-memory query processor

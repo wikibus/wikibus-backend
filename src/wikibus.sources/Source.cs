@@ -9,7 +9,7 @@ namespace wikibus.sources
     /// </summary>
     public class Source
     {
-        private CultureInfo[] _languages = new CultureInfo[0];
+        private Language[] _languages = new Language[0];
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -19,7 +19,7 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the languages.
         /// </summary>
-        public CultureInfo[] Languages
+        public Language[] Languages
         {
             [return: AllowNull] get { return _languages; }
             set { _languages = value; }
