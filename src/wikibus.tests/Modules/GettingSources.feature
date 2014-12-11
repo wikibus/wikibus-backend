@@ -1,11 +1,15 @@
 ﻿Feature: Getting Sources
 
-Scenario: GET brochure
+Scenario Outline: GETting sources
    Given Accept header is 'text/turtle'
-   And existing brochure 'http://wikibus.org/brochure/12345'
-   When I GET resource '/brochure/12345' 
+   And existing <type> 'http://wikibus.org<path>'
+   When I GET resource '<path>' 
    Then response should have status 200
-   And brochure 'http://wikibus.org/brochure/12345' should have been retrieved
+   And <type> 'http://wikibus.org<path>' should have been retrieved
+   Examples:
+   | type     | path            |
+   | brochure | /brochure/12345 |
+   | book     | /book/123456abc |
 
 Scenario: GET inexistent brochure
    Given brochure 'http://wikibus.org/brochure/12345' doesn't exist

@@ -20,13 +20,13 @@ namespace wikibus.sources.nancy
 
             _repository = repository;
 
-            Get["brochure/{path*}"] = GetResource<Brochure>;
+            Get["brochure/{id}"] = GetResource<Brochure>;
+            Get["book/{id}"] = GetResource<Book>;
         }
 
         private dynamic GetResource<T>(dynamic route) where T : Source
         {
-            var resource = _repository.Get<T>(new Uri("http://wikibus.org" + Request.Path));
-            return resource;
+            return _repository.Get<T>(new Uri("http://wikibus.org" + Request.Path));
         }
     }
 }

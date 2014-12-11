@@ -39,6 +39,12 @@ namespace wikibus.tests.Modules.Bindings
             A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).Returns(new Brochure());
         }
 
+        [Given(@"existing book '(.*)'")]
+        public void GivenExistingBook(string resourceUri)
+        {
+            A.CallTo(() => _dep.Sources.Get<Book>(new Uri(resourceUri))).Returns(new Book());
+        }
+
         [When(@"I GET resource '(.*)'")]
         public void WhenGETResourceWithAccept(string path)
         {
@@ -57,6 +63,12 @@ namespace wikibus.tests.Modules.Bindings
         public void ThenBrochureShouldHaveBeenRetrieved(string resourceUri)
         {
             A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).MustHaveHappened();
+        }
+
+        [Then(@"book '(.*)' should have been retrieved")]
+        public void ThenBookShouldHaveBeenRetrieved(string resourceUri)
+        {
+            A.CallTo(() => _dep.Sources.Get<Book>(new Uri(resourceUri))).MustHaveHappened();
         }
     }
 }

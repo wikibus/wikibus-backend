@@ -65,22 +65,24 @@ namespace wikibus.tests.Modules
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("GET brochure")]
-        public virtual void GETBrochure()
+        [NUnit.Framework.DescriptionAttribute("GETting sources")]
+        [NUnit.Framework.TestCaseAttribute("brochure", "/brochure/12345", null)]
+        [NUnit.Framework.TestCaseAttribute("book", "/book/123456abc", null)]
+        public virtual void GETtingSources(string type, string path, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET brochure", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GETting sources", exampleTags);
 #line 3
 this.ScenarioSetup(scenarioInfo);
 #line 4
    testRunner.Given("Accept header is \'text/turtle\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 5
-   testRunner.And("existing brochure \'http://wikibus.org/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.And(string.Format("existing {0} \'http://wikibus.org{1}\'", type, path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 6
-   testRunner.When("I GET resource \'/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When(string.Format("I GET resource \'{0}\'", path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 7
    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 8
-   testRunner.And("brochure \'http://wikibus.org/brochure/12345\' should have been retrieved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.And(string.Format("{0} \'http://wikibus.org{1}\' should have been retrieved", type, path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -90,13 +92,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GETInexistentBrochure()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET inexistent brochure", ((string[])(null)));
-#line 10
+#line 14
 this.ScenarioSetup(scenarioInfo);
-#line 11
+#line 15
    testRunner.Given("brochure \'http://wikibus.org/brochure/12345\' doesn\'t exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 12
+#line 16
    testRunner.When("I GET resource \'/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
+#line 17
    testRunner.Then("response should have status 404", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
