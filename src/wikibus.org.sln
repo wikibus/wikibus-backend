@@ -19,11 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.purl.web", "wikibus.purl.web\wikibus.purl.web.csproj", "{44AF921E-6E2B-488D-99F2-EE97A557E8BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.org", "wikibus.org\wikibus.org.csproj", "{44AF921E-6E2B-488D-99F2-EE97A557E8BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{EF30ED7D-DC26-4317-A8E2-57B3CF7A1998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.web", "wikibus.web\wikibus.web.csproj", "{6FA27B24-800D-4E76-8228-6F26E7B87FBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data.wikibus.org", "data.wikibus.org\data.wikibus.org.csproj", "{6FA27B24-800D-4E76-8228-6F26E7B87FBB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.sources.dotNetRDF", "wikibus.sources.dotNetRDF\wikibus.sources.dotNetRDF.csproj", "{DCD4B6E3-EB86-41B0-819A-C47E1B4B6D78}"
 EndProject
