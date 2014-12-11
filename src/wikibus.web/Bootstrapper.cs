@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using JsonLD.Entities;
+using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Diagnostics;
 using Nancy.RDF.Responses;
@@ -58,6 +59,17 @@ namespace wikibus.web
             var contextProvider = new StaticContextProvider();
             contextProvider.SetupSourcesContexts();
             container.Register<IContextProvider>(contextProvider);
+        }
+
+        /// <summary>
+        /// Applications the startup.
+        /// </summary>
+        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
+        {
+            base.ApplicationStartup(container, pipelines);
+#if DEBUG
+            StaticConfiguration.DisableErrorTraces = false;
+#endif
         }
 
         private IEnumerable<Type> GetProcessors()

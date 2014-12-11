@@ -12,5 +12,5 @@
     "title": "dcterms:title",
     "code": "dcterms:identifier",
     "description": "rdfs:comment",
-    "languages": {"@id": "dcterms:language", "@container": "@set" }
+    "languages": {"@id": "dcterms:language", "@container": "@set", "@type": "@id" }
 }

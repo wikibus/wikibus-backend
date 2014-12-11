@@ -15,7 +15,8 @@ namespace wikibus.sources
         /// </summary>
         public override void WriteJson(JsonWriter writer, [AllowNull] object value, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            var lang = (Language)value;
+            writer.WriteValue("langIso:" + lang.Name);
         }
 
         /// <summary>
@@ -33,6 +34,11 @@ namespace wikibus.sources
                 var language = new Language(GetLangName(reader.ReadAsString()));
                 reader.Read();
                 return language;
+            }
+
+            if (reader.ValueType == typeof(string))
+            {
+                return new Language(GetLangName((string)reader.Value));
             }
 
             throw new InvalidOperationException(string.Format("Cannot deserialize value {0} as CultureInfo", reader.Value));
