@@ -225,7 +225,7 @@ this.ScenarioSetup(scenarioInfo);
     <book/6> 
         a wbo:Book ;
         dcterms:title ""Strassenbahnen in Schlesien"" ;
-        sch:author [ sch:givenName ""Siegfried Bufe"" ] .
+        sch:author [ sch:name ""Siegfried Bufe"" ] .
     <book/6>
         sch:isbn ""3879434247""
 }", ((TechTalk.SpecFlow.Table)(null)), "And ");
