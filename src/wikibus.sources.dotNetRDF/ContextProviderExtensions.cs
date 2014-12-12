@@ -15,6 +15,15 @@ namespace wikibus.sources.dotNetRDF
         public static void SetupSourcesContexts(this StaticContextProvider contextProvider)
         {
             contextProvider.SetContext(typeof(Brochure), JObject.Parse(Resource.AsString("Contexts.Brochure.json")));
+            contextProvider.SetContext(typeof(Book), JObject.Parse(Resource.AsString("Contexts.Brochure.json")));
+        }
+
+        /// <summary>
+        /// Setups the sources frames.
+        /// </summary>
+        public static void SetupSourcesFrames(this StaticFrameProvider frameProvider)
+        {
+            frameProvider.SetFrame(typeof(Book), JObject.Parse("{ '@type': 'http://wikibus.org/ontology#Book' }"));
         }
     }
 }

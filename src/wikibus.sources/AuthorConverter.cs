@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Globalization;
 using Newtonsoft.Json;
 using NullGuard;
 
 namespace wikibus.sources
 {
     /// <summary>
-    /// Convert Lexvo ISO two-letter language Uri to <see cref="Language"/>
+    /// Converts author resource to string using it's name
     /// </summary>
-    internal class LexvoIso639LanguageConverter : JsonConverter
+    public class AuthorConverter : JsonConverter
     {
         /// <summary>
         /// Writes the JSON representation of the object.
         /// </summary>
         public override void WriteJson(JsonWriter writer, [AllowNull] object value, JsonSerializer serializer)
         {
-            var lang = (Language)value;
-            writer.WriteValue("langIso:" + lang.Name);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -26,22 +24,18 @@ namespace wikibus.sources
         {
             if (reader.TokenType == JsonToken.StartObject)
             {
-                while ((reader.TokenType == JsonToken.PropertyName && Equals(reader.Value, "@id")) == false)
+                while ((reader.TokenType == JsonToken.PropertyName && Equals(reader.Value, "sch:givenName")) == false)
                 {
                     reader.Read();
                 }
 
-                var language = new Language(GetLangName(reader.ReadAsString()));
                 reader.Read();
-                return language;
+                var authorName = reader.Value;
+                reader.Read();
+                return authorName;
             }
 
-            if (reader.ValueType == typeof(string))
-            {
-                return new Language(GetLangName((string)reader.Value));
-            }
-
-            throw new InvalidOperationException(string.Format("Cannot deserialize value {0} as CultureInfo", reader.Value));
+            throw new InvalidOperationException("Cannot deserialize author - must be a JObject");
         }
 
         /// <summary>
@@ -49,12 +43,7 @@ namespace wikibus.sources
         /// </summary>
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(CultureInfo);
-        }
-
-        private static string GetLangName(string value)
-        {
-            return value.Replace("langIso:", string.Empty);
+            return objectType == typeof(string);
         }
     }
 }

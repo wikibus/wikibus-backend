@@ -48,7 +48,7 @@ namespace wikibus.sources.dotNetRDF
             var rml = new FluentR2RML();
 
             var sourceMap = rml.CreateTriplesMapFromR2RMLView(Resource.AsString("SqlQueries.SelectSources.sql"));
-            sourceMap.SubjectMap.IsTemplateValued("http://wikibus.org/brochure/{Id}");
+            sourceMap.SubjectMap.IsTemplateValued("http://wikibus.org/{TypeLower}/{Id}");
 
             MapFolderName(sourceMap);
             MapType(sourceMap);

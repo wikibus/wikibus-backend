@@ -23,7 +23,9 @@ namespace wikibus.tests.SourcesRepository.Steps
         {
             var contextProvider = new StaticContextProvider();
             contextProvider.SetupSourcesContexts();
-            _serializer = new EntitySerializer(contextProvider);
+            var frameProvider = new StaticFrameProvider();
+            frameProvider.SetupSourcesFrames();
+            _serializer = new EntitySerializer(contextProvider, frameProvider);
         }
 
         [Given(@"In-memory query processor")]
@@ -44,6 +46,14 @@ namespace wikibus.tests.SourcesRepository.Steps
             ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository(_queryProcessor, _serializer);
 
             ScenarioContext.Current.Set(repository.Get<Brochure>(new Uri(uri)), "Model");
+        }
+
+        [When(@"book <(.*)> is fetched")]
+        public void WhenBookIsFetched(string uri)
+        {
+            ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository(_queryProcessor, _serializer);
+
+            ScenarioContext.Current.Set(repository.Get<Book>(new Uri(uri)), "Model");
         }
 
         [Then(@"'(.*)' should be string equal to '(.*)'")]

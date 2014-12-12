@@ -5,6 +5,12 @@
         WHEN 'file' THEN 'File'
         WHEN 'magissue' THEN 'Issue'
        END as [Type]
+      ,CASE [SourceType]
+        WHEN 'folder' THEN 'brochure'
+        WHEN 'book' THEN 'book'
+        WHEN 'file' THEN 'file'
+        WHEN 'magissue' THEN 'issue'
+       END as [TypeLower]
       ,[Language]
       ,[Language2]
       ,[Pages]

@@ -3,8 +3,8 @@
 
 Scenario: Mapping brochure row
    Given table source with data:
-      | Id | Type     | Language | Language2 | Pages | Year | Month | Day  | Notes | FolderCode | FolderName              | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
-      | 1  | Brochure | tr       | en        | 2     | NULL | NULL  | NULL | NULL  | NULL       | Türkkar City Angel E.D. | NULL      | NULL       | NULL     | NULL             | NULL           | NULL         | NULL | NULL     |
+      | Id | Type     | TypeLower | Language | Language2 | Pages | Year | Month | Day  | Notes | FolderCode | FolderName              | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
+      | 1  | Brochure | brochure  | tr       | en        | 2     | NULL | NULL  | NULL | NULL  | NULL       | Türkkar City Angel E.D. | NULL      | NULL       | NULL     | NULL             | NULL           | NULL         | NULL | NULL     |
    When retrieve all triples
    Then resulting dataset should contain '5' triples
    And resulting dataset should match query:
@@ -27,8 +27,8 @@ Scenario: Mapping brochure row
 
 Scenario: Mapping brochure row with date
    Given table source with data:
-      | Id | Type     | Language | Language2 | Pages | Year | Month | Day | Notes | FolderCode                         | FolderName                                                | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
-      | 6  | Brochure | pl       | NULL      | 2     | 2006 | 9     | 21  | NULL  | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance | NULL      | NULL       | NULL     | NULL             | NULL           | NULL         | NULL | NULL     |
+      | Id | Type     | TypeLower | Language | Language2 | Pages | Year | Month | Day | Notes | FolderCode                         | FolderName                                                | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
+      | 6  | Brochure | brochure  | pl       | NULL      | 2     | 2006 | 9     | 21  | NULL  | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance | NULL      | NULL       | NULL     | NULL             | NULL           | NULL         | NULL | NULL     |
    When retrieve all triples
    Then resulting dataset should contain '8' triples
    And resulting dataset should match query:
@@ -57,8 +57,8 @@ Scenario: Mapping brochure row with date
 
 Scenario: Mapping brochure row with incomplete date
    Given table source with data:
-      | Id | Type     | Language | Language2 | Pages | Year | Month | Day  | Notes | FolderCode                         | FolderName                                                | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
-      | 6  | Brochure | pl       | NULL      | 2     | 2006 | NULL  | NULL | NULL  | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance | NULL      | NULL       | NULL     | NULL             | NULL           | NULL         | NULL | NULL     |
+      | Id | Type     | TypeLower | Language | Language2 | Pages | Year | Month | Day  | Notes | FolderCode                         | FolderName                                                | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
+      | 6  | Brochure | brochure  | pl       | NULL      | 2     | 2006 | NULL  | NULL | NULL  | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance | NULL      | NULL       | NULL     | NULL             | NULL           | NULL         | NULL | NULL     |
    When retrieve all triples
    Then resulting dataset should contain '6' triples
    And resulting dataset should not match query:

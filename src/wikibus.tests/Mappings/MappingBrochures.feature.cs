@@ -75,6 +75,7 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
                         "Type",
+                        "TypeLower",
                         "Language",
                         "Language2",
                         "Pages",
@@ -95,6 +96,7 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "1",
                         "Brochure",
+                        "brochure",
                         "tr",
                         "en",
                         "2",
@@ -149,6 +151,7 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
                         "Type",
+                        "TypeLower",
                         "Language",
                         "Language2",
                         "Pages",
@@ -169,6 +172,7 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "6",
                         "Brochure",
+                        "brochure",
                         "pl",
                         "NULL",
                         "2",
@@ -229,6 +233,7 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
                         "Type",
+                        "TypeLower",
                         "Language",
                         "Language2",
                         "Pages",
@@ -249,6 +254,7 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "6",
                         "Brochure",
+                        "brochure",
                         "pl",
                         "NULL",
                         "2",

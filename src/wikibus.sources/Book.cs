@@ -1,4 +1,6 @@
 ﻿using JsonLD.Entities;
+using Newtonsoft.Json;
+using NullGuard;
 
 namespace wikibus.sources
 {
@@ -11,16 +13,17 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the ISBN.
         /// </summary>
-        public string ISBN { get; set; }
+        public string ISBN { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the author.
         /// </summary>
-        public string Author { get; set; }
+        [JsonConverter(typeof(AuthorConverter))]
+        public string Author { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        public string Title { get; set; }
+        public string Title { [return: AllowNull] get; set; }
     }
 }

@@ -32,9 +32,10 @@ namespace wikibus.sources.dotNetRDF
         [return: AllowNull]
         public T Get<T>(Uri uri) where T : Source
         {
-            var construct = "CONSTRUCT { @s ?p ?o } WHERE { @s ?p ?o . @s a <http://wikibus.org/ontology#Brochure> . }";
+            var construct = "CONSTRUCT { @source ?p ?o. ?o ?p1 ?o1 } WHERE { @source ?p ?o . OPTIONAL { ?o ?p1 ?o1 } . @source a @type . }";
             var query = new SparqlParameterizedString(construct);
-            query.SetUri("s", uri);
+            query.SetUri("source", uri);
+            query.SetUri("type", GetTypeUri(typeof(T)));
             var graph = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));
 
             if (graph.Triples.Count > 0)
@@ -45,6 +46,11 @@ namespace wikibus.sources.dotNetRDF
             }
 
             return null;
+        }
+
+        private Uri GetTypeUri(Type type)
+        {
+            return new Uri(string.Format("http://wikibus.org/ontology#{0}", type.Name));
         }
     }
 }

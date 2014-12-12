@@ -48,6 +48,7 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AuthorConverter.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Brochure.cs" />
     <Compile Include="Language.cs" />

@@ -204,6 +204,42 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get complete book")]
+        public virtual void GetCompleteBook()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get complete book", ((string[])(null)));
+#line 96
+this.ScenarioSetup(scenarioInfo);
+#line 97
+    testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 98
+    testRunner.And("RDF data:", @"@base <http://wikibus.org/>.
+@prefix wbo: <http://wikibus.org/ontology#>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix sch: <http://schema.org/>.
+
+{
+    <book/6> 
+        a wbo:Book ;
+        dcterms:title ""Strassenbahnen in Schlesien"" ;
+        sch:author [ sch:givenName ""Siegfried Bufe"" ] .
+    <book/6>
+        sch:isbn ""3879434247""
+}", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 114
+    testRunner.When("book <http://wikibus.org/book/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 115
+    testRunner.Then("\'Title\' should be string equal to \'Strassenbahnen in Schlesien\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 116
+     testRunner.And("\'Author\' should be string equal to \'Siegfried Bufe\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 117
+     testRunner.And("\'ISBN\' should be string equal to \'3879434247\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
