@@ -1,8 +1,7 @@
 ﻿using JsonLD.Entities;
 using Newtonsoft.Json.Linq;
-using Resourcer;
 
-namespace wikibus.sources.dotNetRDF
+namespace wikibus.sources
 {
     /// <summary>
     /// Extension to set up @context for source models

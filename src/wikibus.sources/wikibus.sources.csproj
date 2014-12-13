@@ -51,6 +51,7 @@
     <Compile Include="AuthorConverter.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Brochure.cs" />
+    <Compile Include="ContextProviderExtensions.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="LexvoIso639LanguageConverter.cs" />
     <Compile Include="ISourcesRepository.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Source.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Contexts\Brochure.json" />
     <None Include="paket.references" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

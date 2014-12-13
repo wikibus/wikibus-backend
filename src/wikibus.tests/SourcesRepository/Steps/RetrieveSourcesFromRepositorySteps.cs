@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Globalization;
 using FluentAssertions;
 using JsonLD.Entities;
 using NUnit.Framework;
@@ -8,7 +7,6 @@ using TechTalk.SpecFlow;
 using VDS.RDF;
 using VDS.RDF.Query;
 using wikibus.sources;
-using wikibus.sources.dotNetRDF;
 
 namespace wikibus.tests.SourcesRepository.Steps
 {
