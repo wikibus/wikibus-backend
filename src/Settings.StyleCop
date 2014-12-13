@@ -6,6 +6,7 @@
       <Value>wikibus</Value>
       <Value>Lexvo</Value>
       <Value>ISBN</Value>
+      <Value>RDF</Value>
     </CollectionProperty>
   </GlobalSettings>
   <Parsers>
@@ -140,7 +141,7 @@
         <StringProperty Name="AdvancedNaming_MethodTest">$(AaBb):$(Aa_Bb):$(aa_bb):$(A)$(*)</StringProperty>
         <StringProperty Name="SP2001_Mode">Spaces:False</StringProperty>
         <StringProperty Name="AdvancedNaming_Namespace">$(*)</StringProperty>
-        <StringProperty Name="AdvancedNaming_Words">3D A B C FxCop ID IDs N OK StyleCop X GET R2RML ISBN</StringProperty>
+        <StringProperty Name="AdvancedNaming_Words">3D A B C FxCop ID IDs N OK StyleCop X GET R2RML ISBN RDF</StringProperty>
       </AnalyzerSettings>
     </Analyzer>
   </Analyzers>

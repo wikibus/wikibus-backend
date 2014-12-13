@@ -8,7 +8,7 @@ using wikibus.sources.dotNetRDF;
 namespace wikibus.nancy
 {
     /// <summary>
-    /// Loades sources store
+    /// Loads sources store
     /// </summary>
     public class StoreLoader : IObjectFactory
     {
