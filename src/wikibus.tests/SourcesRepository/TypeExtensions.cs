@@ -1,6 +1,6 @@
 using System;
 
-namespace wikibus.tests.SourcesRepository.Steps
+namespace wikibus.tests.SourcesRepository
 {
     internal static class TypeExtensions
     {

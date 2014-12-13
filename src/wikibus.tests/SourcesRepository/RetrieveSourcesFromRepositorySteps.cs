@@ -8,7 +8,7 @@ using VDS.RDF;
 using VDS.RDF.Query;
 using wikibus.sources;
 
-namespace wikibus.tests.SourcesRepository.Steps
+namespace wikibus.tests.SourcesRepository
 {
     [Binding]
     public class RetrieveSourcesFromRepositorySteps

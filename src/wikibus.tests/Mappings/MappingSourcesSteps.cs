@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using FakeItEasy;
+using NDbUnit.Core;
 using NUnit.Framework;
 using TCode.r2rml4net;
 using TCode.r2rml4net.Log;
@@ -18,6 +20,7 @@ namespace wikibus.tests.Mappings
     {
         private readonly IDbConnection _conn;
         private readonly IR2RMLProcessor _rmlProc;
+        private readonly INDbUnitTest _database;
         private ITripleStore _result;
 
         public MappingSourcesSteps()
@@ -25,12 +28,19 @@ namespace wikibus.tests.Mappings
             _conn = A.Fake<IDbConnection>(mock => mock.Strict());
             A.CallTo(() => _conn.State).Returns(ConnectionState.Open);
             _rmlProc = new W3CR2RMLProcessor(_conn) { Log = new TextWriterLog(Console.Out) };
+
+            string connectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            _database = new NDbUnit.Core.SqlClient.SqlDbUnitTest(connectionString);
+            _database.ReadXmlSchema(Resource.AsStream("Wikibus.xsd"));
+            _database.PerformDbOperation(DbOperationFlag.DeleteAll);
         }
 
-        [Given(@"table source with data:")]
-        public void GivenTableWithData(Table table)
+        [Given(@"table (.*) with data:")]
+        public void GivenTableWithData(string tableName, Table table)
         {
-            A.CallTo(() => _conn.CreateCommand()).Returns(new FakeCommand(table));
+            var ds = table.ToDataSet(tableName);
+            ds.WriteXml("TestData.xml");
+            _database.ReadXml("TestData.xml");
         }
 
         [When(@"retrieve all triples")]

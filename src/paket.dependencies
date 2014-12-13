@@ -20,3 +20,4 @@ nuget JsonLd.Entities
 nuget Nancy.RDF
 nuget NullGuard.Fody
 nuget ImpromptuInterface
+nuget NDbUnit.SqlClient

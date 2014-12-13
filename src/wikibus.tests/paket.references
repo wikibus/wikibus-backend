@@ -8,3 +8,5 @@ FluentAssertions
 Nancy.RDF
 r2rml4net
 ImpromptuInterface
+Resourcer.Fody
+NDbUnit.SqlClient
