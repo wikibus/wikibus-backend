@@ -22,7 +22,7 @@
       ,[FolderName]
       ,[BookTitle]
       ,[BookAuthor]
-      ,[BookISBN]
+      ,RTRIM([BookISBN]) as [BookISBN]
       ,[MagIssueMagazine]
       ,[MagIssueNumber]
       ,[FileMimeType]

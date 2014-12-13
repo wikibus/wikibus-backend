@@ -36,6 +36,7 @@
     <Content Include="FodyWeavers.xml">
       <Paket>True</Paket>
     </Content>
+    <EmbeddedResource Include="SqlQueries\SelectBookAuthor.sql" />
     <EmbeddedResource Include="SqlQueries\SelectSources.sql" />
     <Reference Include="System" />
     <Reference Include="System.Core" />

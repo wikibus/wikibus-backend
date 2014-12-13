@@ -285,6 +285,147 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Mapping complete book row")]
+        public virtual void MappingCompleteBookRow()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping complete book row", ((string[])(null)));
+#line 75
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "TypeLower",
+                        "Language",
+                        "Language2",
+                        "Pages",
+                        "Year",
+                        "Month",
+                        "Day",
+                        "Notes",
+                        "FolderCode",
+                        "FolderName",
+                        "BookTitle",
+                        "BookAuthor",
+                        "BookISBN",
+                        "MagIssueMagazine",
+                        "MagIssueNumber",
+                        "FileMimeType",
+                        "Url",
+                        "FileName"});
+            table4.AddRow(new string[] {
+                        "407",
+                        "Book",
+                        "book",
+                        "pl",
+                        "NULL",
+                        "140",
+                        "2010",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "Pojazdy samochodowe i przyczepy Jelcz 1952-1970",
+                        "Wojciech Polomski",
+                        "9788320617412",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL"});
+#line 76
+   testRunner.Given("table source with data:", ((string)(null)), table4, "Given ");
+#line 79
+    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 80
+    testRunner.Then("resulting dataset should contain \'8\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 81
+     testRunner.And("resulting dataset should match query:", @" base <http://wikibus.org/>
+ prefix wbo: <http://wikibus.org/ontology#>
+ prefix bibo: <http://purl.org/ontology/bibo/>
+ prefix dcterms: <http://purl.org/dc/terms/>
+ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+ prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+ prefix langIso: <http://www.lexvo.org/page/iso639-1/>
+ prefix sch: <http://schema.org/>
+
+ ASK
+ {
+    <book/407> a wbo:Book ;
+       dcterms:title ""Pojazdy samochodowe i przyczepy Jelcz 1952-1970"" ;
+       sch:isbn ""9788320617412"" ;
+       sch:author [ sch:name ""Wojciech Polomski"" ] ;
+       bibo:pages 140 ;
+       opus:year ""2010""^^xsd:gYear ;
+       dcterms:language langIso:pl .
+ }", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Mapping complete magazine issue row")]
+        public virtual void MappingCompleteMagazineIssueRow()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping complete magazine issue row", ((string[])(null)));
+#line 104
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Type",
+                        "TypeLower",
+                        "Language",
+                        "Language2",
+                        "Pages",
+                        "Year",
+                        "Month",
+                        "Day",
+                        "Notes",
+                        "FolderCode",
+                        "FolderName",
+                        "BookTitle",
+                        "BookAuthor",
+                        "BookISBN",
+                        "MagIssueMagazine",
+                        "MagIssueNumber",
+                        "FileMimeType",
+                        "Url",
+                        "FileName"});
+            table5.AddRow(new string[] {
+                        "324",
+                        "Issue",
+                        "issue",
+                        "pl",
+                        "NULL",
+                        "16",
+                        "2007",
+                        "3",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        "1",
+                        "13",
+                        "NULL",
+                        "NULL",
+                        "NULL",
+                        ""});
+#line 105
+   testRunner.Given("table source with data:", ((string)(null)), table5, "Given ");
+#line 108
+    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 109
+    testRunner.Then("resulting dataset should contain \'6\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -15,5 +15,6 @@
     "description": "rdfs:comment",
     "languages": {"@id": "dcterms:language", "@container": "@set", "@type": "@id" },
     "isbn": "sch:isbn",
-    "author": "sch:author"
+    "author": "sch:author",
+    "name": "sch:name"
 }

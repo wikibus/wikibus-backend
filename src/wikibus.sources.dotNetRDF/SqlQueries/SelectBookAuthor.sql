@@ -1,0 +1,1 @@
+﻿SELECT Id, BookAuthor from [Sources].[Source]

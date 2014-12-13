@@ -15,6 +15,7 @@ namespace wikibus.sources.dotNetRDF
     /// </summary>
     public class WikibusR2RML : IR2RML
     {
+        private static readonly string SelectBookAuthorSql = Resource.AsString("SqlQueries.SelectBookAuthor.sql");
         private readonly Lazy<IR2RML> _rml = new Lazy<IR2RML>(CreateMappings);
 
         /// <summary>
@@ -56,8 +57,32 @@ namespace wikibus.sources.dotNetRDF
             MapPagesCount(sourceMap);
             MapFolderCode(sourceMap);
             MapDate(sourceMap);
+            MapBookAuthor(sourceMap);
+            MapBookISBN(sourceMap);
 
             return rml;
+        }
+
+        private static void MapBookISBN(ITriplesMapFromR2RMLViewConfiguration sourceMap)
+        {
+            var isbnMap = sourceMap.CreatePropertyObjectMap();
+            isbnMap.CreatePredicateMap().IsConstantValued(new Uri("http://schema.org/isbn"));
+            isbnMap.CreateObjectMap().IsColumnValued("BookISBN");
+        }
+
+        private static void MapBookAuthor(ITriplesMapFromR2RMLViewConfiguration sourceMap)
+        {
+            var authorTriplesMap = sourceMap.R2RMLConfiguration.CreateTriplesMapFromR2RMLView(SelectBookAuthorSql);
+            authorTriplesMap.SubjectMap.TermType.IsBlankNode()
+                .IsTemplateValued("author_{Id}");
+
+            var authorName = authorTriplesMap.CreatePropertyObjectMap();
+            authorName.CreatePredicateMap().IsConstantValued(new Uri("http://schema.org/name"));
+            authorName.CreateObjectMap().IsColumnValued("BookAuthor");
+
+            var authorMap = sourceMap.CreatePropertyObjectMap();
+            authorMap.CreatePredicateMap().IsConstantValued(new Uri("http://schema.org/author"));
+            authorMap.CreateRefObjectMap(authorTriplesMap).AddJoinCondition("Id", "Id");
         }
 
         private static void MapPagesCount(ITriplesMapFromR2RMLViewConfiguration sourceMap)
@@ -117,6 +142,7 @@ namespace wikibus.sources.dotNetRDF
             var titleMap = sourceMap.CreatePropertyObjectMap();
             titleMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/title"));
             titleMap.CreateObjectMap().IsColumnValued("FolderName");
+            titleMap.CreateObjectMap().IsColumnValued("BookTitle");
         }
     }
 }

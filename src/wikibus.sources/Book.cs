@@ -18,8 +18,7 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the author.
         /// </summary>
-        [JsonConverter(typeof(AuthorConverter))]
-        public string Author { [return: AllowNull] get; set; }
+        public Author Author { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the title.
