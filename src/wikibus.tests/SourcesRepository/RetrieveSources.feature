@@ -112,7 +112,8 @@ Scenario: Get complete book
         """
     When book <http://wikibus.org/book/6> is fetched
     Then 'Title' should be string equal to 'Strassenbahnen in Schlesien'
-     And 'Author' should be string equal to 'Siegfried Bufe'
+     And 'Author' should be not null
+     And 'Author' should have string property 'Name' equal to 'Siegfried Bufe'
      And 'ISBN' should be string equal to '3879434247'
 
 Scenario: Get book without author

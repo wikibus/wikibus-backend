@@ -89,6 +89,26 @@ namespace wikibus.tests.SourcesRepository.Steps
             value.Should().Be(model.GetType().GetProperty(propName).PropertyType.GetDefaultValue());
         }
 
+        [Then(@"'(.*)' should be not null")]
+        public void ThenShouldBeNotNull(string propName)
+        {
+            var model = ScenarioContext.Current["Model"];
+            object value = ImpromptuInterface.Impromptu.InvokeGet(model, propName);
+
+            value.Should().NotBe(model.GetType().GetProperty(propName).PropertyType.GetDefaultValue());
+
+            ScenarioContext.Current.Set(value, propName);
+        }
+
+        [Then(@"'(.*)' should have string property '(.*)' equal to '(.*)'")]
+        public void ThenShouldHaveStringPropertyEqualTo(string objName, string propName, string expectedValue)
+        {
+            var model = ScenarioContext.Current[objName];
+            object value = ImpromptuInterface.Impromptu.InvokeGet(model, propName);
+
+            value.Should().Be(expectedValue);
+        }
+
         [Then(@"'(.*)' should be empty")]
         public void ThenLanguageShouldBeEmpty(string propName)
         {

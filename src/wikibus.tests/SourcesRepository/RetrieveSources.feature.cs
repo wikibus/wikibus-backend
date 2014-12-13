@@ -233,8 +233,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 114
     testRunner.Then("\'Title\' should be string equal to \'Strassenbahnen in Schlesien\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 115
-     testRunner.And("\'Author\' should be string equal to \'Siegfried Bufe\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("\'Author\' should be not null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 116
+     testRunner.And("\'Author\' should have string property \'Name\' equal to \'Siegfried Bufe\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 117
      testRunner.And("\'ISBN\' should be string equal to \'3879434247\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -245,12 +247,12 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetBookWithoutAuthor()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get book without author", ((string[])(null)));
-#line 118
-this.ScenarioSetup(scenarioInfo);
 #line 119
+this.ScenarioSetup(scenarioInfo);
+#line 120
     testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 120
+#line 121
     testRunner.And("RDF data:", @"@base <http://wikibus.org/>.
 @prefix wbo: <http://wikibus.org/ontology#>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
@@ -262,9 +264,9 @@ this.ScenarioSetup(scenarioInfo);
         dcterms:title ""Strassenbahnen in Schlesien"" ;
         sch:isbn ""3879434247"" .
 }", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 134
-    testRunner.When("book <http://wikibus.org/book/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 135
+    testRunner.When("book <http://wikibus.org/book/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 136
      testRunner.Then("\'Author\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
