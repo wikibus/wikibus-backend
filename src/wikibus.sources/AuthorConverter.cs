@@ -24,7 +24,7 @@ namespace wikibus.sources
         {
             if (reader.TokenType == JsonToken.StartObject)
             {
-                while ((reader.TokenType == JsonToken.PropertyName && Equals(reader.Value, "sch:givenName")) == false)
+                while ((reader.TokenType == JsonToken.PropertyName && Equals(reader.Value, "sch:name")) == false)
                 {
                     reader.Read();
                 }
