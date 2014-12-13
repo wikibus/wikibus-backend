@@ -29,7 +29,13 @@ namespace wikibus.web
         /// </summary>
         protected override NancyInternalConfiguration InternalConfiguration
         {
-            get { return NancyInternalConfiguration.WithOverrides(c => c.ResponseProcessors = GetProcessors().ToList()); }
+            get
+            {
+                return NancyInternalConfiguration.WithOverrides(c =>
+                {
+                    c.ResponseProcessors = c.ResponseProcessors.Where(IsNotNancyProcessor).ToList();
+                });
+            }
         }
 
         /// <summary>
@@ -72,13 +78,9 @@ namespace wikibus.web
 #endif
         }
 
-        private IEnumerable<Type> GetProcessors()
+        private static bool IsNotNancyProcessor(Type responseProcessor)
         {
-            yield return typeof(TurtleResponseProcessor);
-            yield return typeof(Notation3ResponseProcessor);
-            yield return typeof(NTriplesResponseProcessor);
-            yield return typeof(RdfXmlResponseProcessor);
-            yield return typeof(JsonLdResponseProcessor);
+            return responseProcessor.Assembly == typeof(INancyBootstrapper).Assembly;
         }
     }
 }
