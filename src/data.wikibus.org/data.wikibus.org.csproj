@@ -73,7 +73,9 @@
     <Content Include="FodyWeavers.xml">
       <Paket>True</Paket>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -85,10 +87,13 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\wikibus.nancy\wikibus.nancy.csproj">
+      <Project>{D2647469-3693-4756-A6D5-F8742572526D}</Project>
+      <Name>wikibus.nancy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wikibus.sources.dotNetRDF\wikibus.sources.dotNetRDF.csproj">
       <Project>{DCD4B6E3-EB86-41B0-819A-C47E1B4B6D78}</Project>
       <Name>wikibus.sources.dotNetRDF</Name>

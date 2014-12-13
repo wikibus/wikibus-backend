@@ -1,11 +1,11 @@
 ﻿using System.Configuration;
+using System.IO;
 using JsonLD.Entities;
+using Nancy;
 using Nancy.Bootstrapper;
-using Slp.r2rml4net.Storage;
-using Slp.r2rml4net.Storage.Sql;
-using Slp.r2rml4net.Storage.Sql.Vendor;
+using TCode.r2rml4net;
+using VDS.RDF.Configuration;
 using VDS.RDF.Query;
-using VDS.RDF.Storage;
 using wikibus.sources;
 using wikibus.sources.dotNetRDF;
 
@@ -16,13 +16,30 @@ namespace wikibus.nancy
     /// </summary>
     public class ComponentsInstaller : Registrations
     {
-        public ComponentsInstaller()
+        private static readonly string DotNetRDFConfiguration = ConfigurationManager.AppSettings["dotnetrdf-config"];
+        private static readonly string QueryProcessorName = ConfigurationManager.AppSettings["queryPorcessor"];
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ComponentsInstaller"/> class.
+        /// </summary>
+        /// <param name="pathProvider">The path provider.</param>
+        public ComponentsInstaller(IRootPathProvider pathProvider)
         {
-            Register<ISparqlQueryProcessor>(typeof(GenericQueryProcessor));
-            Register<IQueryableStorage>(typeof(R2RMLStorage));
-            Register<ISqlDb>(new MSSQLDb(ConfigurationManager.ConnectionStrings["sql"].ConnectionString));
-            Register(new InstanceRegistration(typeof(IContextProvider), CreateContextProvider()));
+            var path = Path.Combine(pathProvider.GetRootPath(), DotNetRDFConfiguration);
+            var configurationLoader = new ConfigurationLoader(path);
+            ConfigurationLoader.AddObjectFactory(new StoreLoader());
+
+            Register(configurationLoader.LoadObject<ISparqlQueryProcessor>(QueryProcessorName));
+            Register(CreateContextProvider());
+            Register(CreateFrameProvider());
             Register<IR2RML>(typeof(WikibusR2RML));
+        }
+
+        private static IFrameProvider CreateFrameProvider()
+        {
+            var frameProvider = new StaticFrameProvider();
+            frameProvider.SetupSourcesFrames();
+            return frameProvider;
         }
 
         private static IContextProvider CreateContextProvider()

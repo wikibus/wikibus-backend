@@ -1,0 +1,16 @@
+﻿@prefix dnr: <http://www.dotnetrdf.org/configuration#> .
+
+_:r2rmlQueryProcessor 
+    a dnr:SparqlQueryProcessor ;
+    dnr:type "VDS.RDF.Query.GenericQueryProcessor" ;
+    dnr:storageProvider [ 
+        a dnr:StorageProvider ;
+        dnr:type "Slp.r2rml4net.Storage.R2RMLStorage, Slp.r2rml4net.Storage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+    ] .
+
+_:memoryQueryProcessor
+    a dnr:SparqlQueryProcessor ;
+    dnr:type "VDS.RDF.Query.LeviathanQueryProcessor" ;
+    dnr:usingStore [
+        dnr:type "wikibus.sources.dotNetRDF.SourcesStore, wikibus.sources.dotNetRDF"
+    ] .

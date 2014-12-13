@@ -51,6 +51,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourcesRepository.cs" />
+    <Compile Include="SourcesStore.cs" />
     <Compile Include="WikibusR2RML.cs" />
   </ItemGroup>
   <ItemGroup>
