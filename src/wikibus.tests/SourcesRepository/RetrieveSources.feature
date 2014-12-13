@@ -106,12 +106,30 @@ Scenario: Get complete book
             <book/6> 
                 a wbo:Book ;
                 dcterms:title "Strassenbahnen in Schlesien" ;
+                sch:isbn "3879434247" ;
                 sch:author [ sch:name "Siegfried Bufe" ] .
-            <book/6>
-                sch:isbn "3879434247"
         }
         """
     When book <http://wikibus.org/book/6> is fetched
     Then 'Title' should be string equal to 'Strassenbahnen in Schlesien'
      And 'Author' should be string equal to 'Siegfried Bufe'
      And 'ISBN' should be string equal to '3879434247'
+
+Scenario: Get book without author
+    Given In-memory query processor
+    And RDF data:
+        """
+        @base <http://wikibus.org/>.
+        @prefix wbo: <http://wikibus.org/ontology#>.
+        @prefix dcterms: <http://purl.org/dc/terms/>.
+        @prefix sch: <http://schema.org/>.
+
+        {
+            <book/6> 
+                a wbo:Book ;
+                dcterms:title "Strassenbahnen in Schlesien" ;
+                sch:isbn "3879434247" .
+        }
+        """
+    When book <http://wikibus.org/book/6> is fetched
+     Then 'Author' should be null
