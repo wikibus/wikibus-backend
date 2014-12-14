@@ -1,11 +1,6 @@
-﻿using System;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
+﻿using System.Data;
 using TCode.r2rml4net;
 using VDS.RDF;
-using VDS.RDF.Configuration;
-using wikibus.sources.dotNetRDF;
 
 namespace wikibus.sources.dotNetRDF
 {

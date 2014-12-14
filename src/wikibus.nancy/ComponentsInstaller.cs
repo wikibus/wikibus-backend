@@ -25,9 +25,10 @@ namespace wikibus.nancy
         /// <param name="pathProvider">The path provider.</param>
         public ComponentsInstaller(IRootPathProvider pathProvider)
         {
-            var path = Path.Combine(pathProvider.GetRootPath(), DotNetRDFConfiguration);
-            var configurationLoader = new ConfigurationLoader(path);
-            ConfigurationLoader.AddObjectFactory(new StoreLoader());
+            var configPath = Path.Combine(pathProvider.GetRootPath(), DotNetRDFConfiguration);
+            var storePath = Path.Combine(pathProvider.GetRootPath(), @"App_Data\sources.trig");
+            var configurationLoader = new ConfigurationLoader(configPath);
+            ConfigurationLoader.AddObjectFactory(new StoreLoader(storePath));
 
             Register(configurationLoader.LoadObject<ISparqlQueryProcessor>(QueryProcessorName));
             Register(CreateContextProvider());
