@@ -23,3 +23,4 @@ nuget ImpromptuInterface
 nuget NDbUnit.SqlClient
 nuget Nancy.elmah
 nuget Nancy.metrics
+nuget CodeAssassin.ConfigTransform

@@ -6,3 +6,4 @@ src/packages
 *.Cache
 VersionAssemblyInfo.cs
 src/paket-files
+*.transformed
