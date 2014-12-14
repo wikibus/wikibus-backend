@@ -24,7 +24,9 @@ namespace wikibus.tests.Mappings {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class Wikibus : global::System.Data.DataSet {
         
-        private SourceDataTable tableSource;
+        private _Sources_SourceDataTable _tableSources_Source;
+        
+        private _Sources_MagazineDataTable _tableSources_Magazine;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +56,11 @@ namespace wikibus.tests.Mappings {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Source"] != null)) {
-                    base.Tables.Add(new SourceDataTable(ds.Tables["Source"]));
+                if ((ds.Tables["Sources.Source"] != null)) {
+                    base.Tables.Add(new _Sources_SourceDataTable(ds.Tables["Sources.Source"]));
+                }
+                if ((ds.Tables["Sources.Magazine"] != null)) {
+                    base.Tables.Add(new _Sources_MagazineDataTable(ds.Tables["Sources.Magazine"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +84,19 @@ namespace wikibus.tests.Mappings {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SourceDataTable Source {
+        public _Sources_SourceDataTable _Sources_Source {
             get {
-                return this.tableSource;
+                return this._tableSources_Source;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public _Sources_MagazineDataTable _Sources_Magazine {
+            get {
+                return this._tableSources_Magazine;
             }
         }
         
@@ -152,8 +167,11 @@ namespace wikibus.tests.Mappings {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Source"] != null)) {
-                    base.Tables.Add(new SourceDataTable(ds.Tables["Source"]));
+                if ((ds.Tables["Sources.Source"] != null)) {
+                    base.Tables.Add(new _Sources_SourceDataTable(ds.Tables["Sources.Source"]));
+                }
+                if ((ds.Tables["Sources.Magazine"] != null)) {
+                    base.Tables.Add(new _Sources_MagazineDataTable(ds.Tables["Sources.Magazine"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +206,16 @@ namespace wikibus.tests.Mappings {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableSource = ((SourceDataTable)(base.Tables["Source"]));
+            this._tableSources_Source = ((_Sources_SourceDataTable)(base.Tables["Sources.Source"]));
             if ((initTable == true)) {
-                if ((this.tableSource != null)) {
-                    this.tableSource.InitVars();
+                if ((this._tableSources_Source != null)) {
+                    this._tableSources_Source.InitVars();
+                }
+            }
+            this._tableSources_Magazine = ((_Sources_MagazineDataTable)(base.Tables["Sources.Magazine"]));
+            if ((initTable == true)) {
+                if ((this._tableSources_Magazine != null)) {
+                    this._tableSources_Magazine.InitVars();
                 }
             }
         }
@@ -204,13 +228,21 @@ namespace wikibus.tests.Mappings {
             this.Namespace = "http://tempuri.org/Wikibus.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableSource = new SourceDataTable();
-            base.Tables.Add(this.tableSource);
+            this._tableSources_Source = new _Sources_SourceDataTable();
+            base.Tables.Add(this._tableSources_Source);
+            this._tableSources_Magazine = new _Sources_MagazineDataTable();
+            base.Tables.Add(this._tableSources_Magazine);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeSource() {
+        private bool ShouldSerialize_Sources_Source() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerialize_Sources_Magazine() {
             return false;
         }
         
@@ -270,14 +302,17 @@ namespace wikibus.tests.Mappings {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void SourceRowChangeEventHandler(object sender, SourceRowChangeEvent e);
+        public delegate void _Sources_SourceRowChangeEventHandler(object sender, _Sources_SourceRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void _Sources_MagazineRowChangeEventHandler(object sender, _Sources_MagazineRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SourceDataTable : global::System.Data.TypedTableBase<SourceRow> {
+        public partial class _Sources_SourceDataTable : global::System.Data.TypedTableBase<_Sources_SourceRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -327,8 +362,8 @@ namespace wikibus.tests.Mappings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SourceDataTable() {
-                this.TableName = "Source";
+            public _Sources_SourceDataTable() {
+                this.TableName = "Sources.Source";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -336,7 +371,7 @@ namespace wikibus.tests.Mappings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal SourceDataTable(global::System.Data.DataTable table) {
+            internal _Sources_SourceDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -353,7 +388,7 @@ namespace wikibus.tests.Mappings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected SourceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected _Sources_SourceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -553,33 +588,33 @@ namespace wikibus.tests.Mappings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SourceRow this[int index] {
+            public _Sources_SourceRow this[int index] {
                 get {
-                    return ((SourceRow)(this.Rows[index]));
+                    return ((_Sources_SourceRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SourceRowChangeEventHandler SourceRowChanging;
+            public event _Sources_SourceRowChangeEventHandler _Sources_SourceRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SourceRowChangeEventHandler SourceRowChanged;
+            public event _Sources_SourceRowChangeEventHandler _Sources_SourceRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SourceRowChangeEventHandler SourceRowDeleting;
+            public event _Sources_SourceRowChangeEventHandler _Sources_SourceRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SourceRowChangeEventHandler SourceRowDeleted;
+            public event _Sources_SourceRowChangeEventHandler _Sources_SourceRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddSourceRow(SourceRow row) {
+            public void Add_Sources_SourceRow(_Sources_SourceRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SourceRow AddSourceRow(
+            public _Sources_SourceRow Add_Sources_SourceRow(
                         int Id, 
                         string SourceType, 
                         string Language, 
@@ -603,7 +638,7 @@ namespace wikibus.tests.Mappings {
                         byte[] FileContents, 
                         string Url, 
                         string FileName) {
-                SourceRow rowSourceRow = ((SourceRow)(this.NewRow()));
+                _Sources_SourceRow row_Sources_SourceRow = ((_Sources_SourceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         SourceType,
@@ -628,15 +663,15 @@ namespace wikibus.tests.Mappings {
                         FileContents,
                         Url,
                         FileName};
-                rowSourceRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSourceRow);
-                return rowSourceRow;
+                row_Sources_SourceRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_Sources_SourceRow);
+                return row_Sources_SourceRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                SourceDataTable cln = ((SourceDataTable)(base.Clone()));
+                _Sources_SourceDataTable cln = ((_Sources_SourceDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -644,7 +679,7 @@ namespace wikibus.tests.Mappings {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new SourceDataTable();
+                return new _Sources_SourceDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -738,32 +773,34 @@ namespace wikibus.tests.Mappings {
                 this.columnFileMimeType.MaxLength = 32;
                 this.columnUrl.MaxLength = 1024;
                 this.columnFileName.MaxLength = 256;
+                this.ExtendedProperties.Add("Generator_TableVarName", "_tableSources_Source");
+                this.ExtendedProperties.Add("Generator_UserTableName", "Sources.Source");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SourceRow NewSourceRow() {
-                return ((SourceRow)(this.NewRow()));
+            public _Sources_SourceRow New_Sources_SourceRow() {
+                return ((_Sources_SourceRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SourceRow(builder);
+                return new _Sources_SourceRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(SourceRow);
+                return typeof(_Sources_SourceRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.SourceRowChanged != null)) {
-                    this.SourceRowChanged(this, new SourceRowChangeEvent(((SourceRow)(e.Row)), e.Action));
+                if ((this._Sources_SourceRowChanged != null)) {
+                    this._Sources_SourceRowChanged(this, new _Sources_SourceRowChangeEvent(((_Sources_SourceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -771,8 +808,8 @@ namespace wikibus.tests.Mappings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.SourceRowChanging != null)) {
-                    this.SourceRowChanging(this, new SourceRowChangeEvent(((SourceRow)(e.Row)), e.Action));
+                if ((this._Sources_SourceRowChanging != null)) {
+                    this._Sources_SourceRowChanging(this, new _Sources_SourceRowChangeEvent(((_Sources_SourceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -780,8 +817,8 @@ namespace wikibus.tests.Mappings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.SourceRowDeleted != null)) {
-                    this.SourceRowDeleted(this, new SourceRowChangeEvent(((SourceRow)(e.Row)), e.Action));
+                if ((this._Sources_SourceRowDeleted != null)) {
+                    this._Sources_SourceRowDeleted(this, new _Sources_SourceRowChangeEvent(((_Sources_SourceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -789,14 +826,14 @@ namespace wikibus.tests.Mappings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.SourceRowDeleting != null)) {
-                    this.SourceRowDeleting(this, new SourceRowChangeEvent(((SourceRow)(e.Row)), e.Action));
+                if ((this._Sources_SourceRowDeleting != null)) {
+                    this._Sources_SourceRowDeleting(this, new _Sources_SourceRowChangeEvent(((_Sources_SourceRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveSourceRow(SourceRow row) {
+            public void Remove_Sources_SourceRow(_Sources_SourceRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -823,7 +860,288 @@ namespace wikibus.tests.Mappings {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SourceDataTable";
+                attribute2.FixedValue = "_Sources_SourceDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class _Sources_MagazineDataTable : global::System.Data.TypedTableBase<_Sources_MagazineRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnSubName;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Sources_MagazineDataTable() {
+                this.TableName = "Sources.Magazine";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal _Sources_MagazineDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected _Sources_MagazineDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SubNameColumn {
+                get {
+                    return this.columnSubName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Sources_MagazineRow this[int index] {
+                get {
+                    return ((_Sources_MagazineRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _Sources_MagazineRowChangeEventHandler _Sources_MagazineRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _Sources_MagazineRowChangeEventHandler _Sources_MagazineRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _Sources_MagazineRowChangeEventHandler _Sources_MagazineRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event _Sources_MagazineRowChangeEventHandler _Sources_MagazineRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Add_Sources_MagazineRow(_Sources_MagazineRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Sources_MagazineRow Add_Sources_MagazineRow(int Id, string Name, string SubName) {
+                _Sources_MagazineRow row_Sources_MagazineRow = ((_Sources_MagazineRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Id,
+                        Name,
+                        SubName};
+                row_Sources_MagazineRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_Sources_MagazineRow);
+                return row_Sources_MagazineRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                _Sources_MagazineDataTable cln = ((_Sources_MagazineDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new _Sources_MagazineDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnName = base.Columns["Name"];
+                this.columnSubName = base.Columns["SubName"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnSubName = new global::System.Data.DataColumn("SubName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubName);
+                this.columnId.AllowDBNull = false;
+                this.columnName.AllowDBNull = false;
+                this.columnName.MaxLength = 128;
+                this.columnSubName.MaxLength = 512;
+                this.ExtendedProperties.Add("Generator_TableVarName", "_tableSources_Magazine");
+                this.ExtendedProperties.Add("Generator_UserTableName", "Sources.Magazine");
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Sources_MagazineRow New_Sources_MagazineRow() {
+                return ((_Sources_MagazineRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new _Sources_MagazineRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(_Sources_MagazineRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this._Sources_MagazineRowChanged != null)) {
+                    this._Sources_MagazineRowChanged(this, new _Sources_MagazineRowChangeEvent(((_Sources_MagazineRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this._Sources_MagazineRowChanging != null)) {
+                    this._Sources_MagazineRowChanging(this, new _Sources_MagazineRowChangeEvent(((_Sources_MagazineRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this._Sources_MagazineRowDeleted != null)) {
+                    this._Sources_MagazineRowDeleted(this, new _Sources_MagazineRowChangeEvent(((_Sources_MagazineRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this._Sources_MagazineRowDeleting != null)) {
+                    this._Sources_MagazineRowDeleting(this, new _Sources_MagazineRowChangeEvent(((_Sources_MagazineRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Remove_Sources_MagazineRow(_Sources_MagazineRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Wikibus ds = new Wikibus();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "_Sources_MagazineDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -867,25 +1185,25 @@ namespace wikibus.tests.Mappings {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class SourceRow : global::System.Data.DataRow {
+        public partial class _Sources_SourceRow : global::System.Data.DataRow {
             
-            private SourceDataTable tableSource;
+            private _Sources_SourceDataTable _tableSources_Source;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal SourceRow(global::System.Data.DataRowBuilder rb) : 
+            internal _Sources_SourceRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableSource = ((SourceDataTable)(this.Table));
+                this._tableSources_Source = ((_Sources_SourceDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Id {
                 get {
-                    return ((int)(this[this.tableSource.IdColumn]));
+                    return ((int)(this[this._tableSources_Source.IdColumn]));
                 }
                 set {
-                    this[this.tableSource.IdColumn] = value;
+                    this[this._tableSources_Source.IdColumn] = value;
                 }
             }
             
@@ -893,10 +1211,10 @@ namespace wikibus.tests.Mappings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string SourceType {
                 get {
-                    return ((string)(this[this.tableSource.SourceTypeColumn]));
+                    return ((string)(this[this._tableSources_Source.SourceTypeColumn]));
                 }
                 set {
-                    this[this.tableSource.SourceTypeColumn] = value;
+                    this[this._tableSources_Source.SourceTypeColumn] = value;
                 }
             }
             
@@ -905,14 +1223,14 @@ namespace wikibus.tests.Mappings {
             public string Language {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.LanguageColumn]));
+                        return ((string)(this[this._tableSources_Source.LanguageColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Language\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Language\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.LanguageColumn] = value;
+                    this[this._tableSources_Source.LanguageColumn] = value;
                 }
             }
             
@@ -921,14 +1239,14 @@ namespace wikibus.tests.Mappings {
             public string Language2 {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.Language2Column]));
+                        return ((string)(this[this._tableSources_Source.Language2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Language2\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Language2\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.Language2Column] = value;
+                    this[this._tableSources_Source.Language2Column] = value;
                 }
             }
             
@@ -937,14 +1255,14 @@ namespace wikibus.tests.Mappings {
             public int Pages {
                 get {
                     try {
-                        return ((int)(this[this.tableSource.PagesColumn]));
+                        return ((int)(this[this._tableSources_Source.PagesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Pages\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pages\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.PagesColumn] = value;
+                    this[this._tableSources_Source.PagesColumn] = value;
                 }
             }
             
@@ -953,14 +1271,14 @@ namespace wikibus.tests.Mappings {
             public short Year {
                 get {
                     try {
-                        return ((short)(this[this.tableSource.YearColumn]));
+                        return ((short)(this[this._tableSources_Source.YearColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.YearColumn] = value;
+                    this[this._tableSources_Source.YearColumn] = value;
                 }
             }
             
@@ -969,14 +1287,14 @@ namespace wikibus.tests.Mappings {
             public byte Month {
                 get {
                     try {
-                        return ((byte)(this[this.tableSource.MonthColumn]));
+                        return ((byte)(this[this._tableSources_Source.MonthColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Month\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Month\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.MonthColumn] = value;
+                    this[this._tableSources_Source.MonthColumn] = value;
                 }
             }
             
@@ -985,14 +1303,14 @@ namespace wikibus.tests.Mappings {
             public byte Day {
                 get {
                     try {
-                        return ((byte)(this[this.tableSource.DayColumn]));
+                        return ((byte)(this[this._tableSources_Source.DayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Day\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Day\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.DayColumn] = value;
+                    this[this._tableSources_Source.DayColumn] = value;
                 }
             }
             
@@ -1001,14 +1319,14 @@ namespace wikibus.tests.Mappings {
             public string Notes {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.NotesColumn]));
+                        return ((string)(this[this._tableSources_Source.NotesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Notes\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Notes\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.NotesColumn] = value;
+                    this[this._tableSources_Source.NotesColumn] = value;
                 }
             }
             
@@ -1017,14 +1335,14 @@ namespace wikibus.tests.Mappings {
             public byte[] Image {
                 get {
                     try {
-                        return ((byte[])(this[this.tableSource.ImageColumn]));
+                        return ((byte[])(this[this._tableSources_Source.ImageColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Image\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Image\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.ImageColumn] = value;
+                    this[this._tableSources_Source.ImageColumn] = value;
                 }
             }
             
@@ -1033,14 +1351,14 @@ namespace wikibus.tests.Mappings {
             public int FileCabinet {
                 get {
                     try {
-                        return ((int)(this[this.tableSource.FileCabinetColumn]));
+                        return ((int)(this[this._tableSources_Source.FileCabinetColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FileCabinet\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FileCabinet\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.FileCabinetColumn] = value;
+                    this[this._tableSources_Source.FileCabinetColumn] = value;
                 }
             }
             
@@ -1049,14 +1367,14 @@ namespace wikibus.tests.Mappings {
             public int FileOffset {
                 get {
                     try {
-                        return ((int)(this[this.tableSource.FileOffsetColumn]));
+                        return ((int)(this[this._tableSources_Source.FileOffsetColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FileOffset\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FileOffset\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.FileOffsetColumn] = value;
+                    this[this._tableSources_Source.FileOffsetColumn] = value;
                 }
             }
             
@@ -1065,14 +1383,14 @@ namespace wikibus.tests.Mappings {
             public string FolderCode {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.FolderCodeColumn]));
+                        return ((string)(this[this._tableSources_Source.FolderCodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FolderCode\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FolderCode\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.FolderCodeColumn] = value;
+                    this[this._tableSources_Source.FolderCodeColumn] = value;
                 }
             }
             
@@ -1081,14 +1399,14 @@ namespace wikibus.tests.Mappings {
             public string FolderName {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.FolderNameColumn]));
+                        return ((string)(this[this._tableSources_Source.FolderNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FolderName\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FolderName\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.FolderNameColumn] = value;
+                    this[this._tableSources_Source.FolderNameColumn] = value;
                 }
             }
             
@@ -1097,14 +1415,14 @@ namespace wikibus.tests.Mappings {
             public string BookTitle {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.BookTitleColumn]));
+                        return ((string)(this[this._tableSources_Source.BookTitleColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BookTitle\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BookTitle\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.BookTitleColumn] = value;
+                    this[this._tableSources_Source.BookTitleColumn] = value;
                 }
             }
             
@@ -1113,14 +1431,14 @@ namespace wikibus.tests.Mappings {
             public string BookAuthor {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.BookAuthorColumn]));
+                        return ((string)(this[this._tableSources_Source.BookAuthorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BookAuthor\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BookAuthor\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.BookAuthorColumn] = value;
+                    this[this._tableSources_Source.BookAuthorColumn] = value;
                 }
             }
             
@@ -1129,14 +1447,14 @@ namespace wikibus.tests.Mappings {
             public string BookISBN {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.BookISBNColumn]));
+                        return ((string)(this[this._tableSources_Source.BookISBNColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BookISBN\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BookISBN\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.BookISBNColumn] = value;
+                    this[this._tableSources_Source.BookISBNColumn] = value;
                 }
             }
             
@@ -1145,14 +1463,14 @@ namespace wikibus.tests.Mappings {
             public int MagIssueMagazine {
                 get {
                     try {
-                        return ((int)(this[this.tableSource.MagIssueMagazineColumn]));
+                        return ((int)(this[this._tableSources_Source.MagIssueMagazineColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MagIssueMagazine\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MagIssueMagazine\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.MagIssueMagazineColumn] = value;
+                    this[this._tableSources_Source.MagIssueMagazineColumn] = value;
                 }
             }
             
@@ -1161,14 +1479,14 @@ namespace wikibus.tests.Mappings {
             public int MagIssueNumber {
                 get {
                     try {
-                        return ((int)(this[this.tableSource.MagIssueNumberColumn]));
+                        return ((int)(this[this._tableSources_Source.MagIssueNumberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MagIssueNumber\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MagIssueNumber\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.MagIssueNumberColumn] = value;
+                    this[this._tableSources_Source.MagIssueNumberColumn] = value;
                 }
             }
             
@@ -1177,14 +1495,14 @@ namespace wikibus.tests.Mappings {
             public string FileMimeType {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.FileMimeTypeColumn]));
+                        return ((string)(this[this._tableSources_Source.FileMimeTypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FileMimeType\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FileMimeType\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.FileMimeTypeColumn] = value;
+                    this[this._tableSources_Source.FileMimeTypeColumn] = value;
                 }
             }
             
@@ -1193,14 +1511,14 @@ namespace wikibus.tests.Mappings {
             public byte[] FileContents {
                 get {
                     try {
-                        return ((byte[])(this[this.tableSource.FileContentsColumn]));
+                        return ((byte[])(this[this._tableSources_Source.FileContentsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FileContents\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FileContents\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.FileContentsColumn] = value;
+                    this[this._tableSources_Source.FileContentsColumn] = value;
                 }
             }
             
@@ -1209,14 +1527,14 @@ namespace wikibus.tests.Mappings {
             public string Url {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.UrlColumn]));
+                        return ((string)(this[this._tableSources_Source.UrlColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Url\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Url\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.UrlColumn] = value;
+                    this[this._tableSources_Source.UrlColumn] = value;
                 }
             }
             
@@ -1225,267 +1543,332 @@ namespace wikibus.tests.Mappings {
             public string FileName {
                 get {
                     try {
-                        return ((string)(this[this.tableSource.FileNameColumn]));
+                        return ((string)(this[this._tableSources_Source.FileNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FileName\' in table \'Source\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FileName\' in table \'Sources.Source\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSource.FileNameColumn] = value;
+                    this[this._tableSources_Source.FileNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLanguageNull() {
-                return this.IsNull(this.tableSource.LanguageColumn);
+                return this.IsNull(this._tableSources_Source.LanguageColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLanguageNull() {
-                this[this.tableSource.LanguageColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.LanguageColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLanguage2Null() {
-                return this.IsNull(this.tableSource.Language2Column);
+                return this.IsNull(this._tableSources_Source.Language2Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLanguage2Null() {
-                this[this.tableSource.Language2Column] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.Language2Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPagesNull() {
-                return this.IsNull(this.tableSource.PagesColumn);
+                return this.IsNull(this._tableSources_Source.PagesColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPagesNull() {
-                this[this.tableSource.PagesColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.PagesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsYearNull() {
-                return this.IsNull(this.tableSource.YearColumn);
+                return this.IsNull(this._tableSources_Source.YearColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetYearNull() {
-                this[this.tableSource.YearColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.YearColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsMonthNull() {
-                return this.IsNull(this.tableSource.MonthColumn);
+                return this.IsNull(this._tableSources_Source.MonthColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMonthNull() {
-                this[this.tableSource.MonthColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.MonthColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDayNull() {
-                return this.IsNull(this.tableSource.DayColumn);
+                return this.IsNull(this._tableSources_Source.DayColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDayNull() {
-                this[this.tableSource.DayColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.DayColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNotesNull() {
-                return this.IsNull(this.tableSource.NotesColumn);
+                return this.IsNull(this._tableSources_Source.NotesColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNotesNull() {
-                this[this.tableSource.NotesColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.NotesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsImageNull() {
-                return this.IsNull(this.tableSource.ImageColumn);
+                return this.IsNull(this._tableSources_Source.ImageColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetImageNull() {
-                this[this.tableSource.ImageColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.ImageColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFileCabinetNull() {
-                return this.IsNull(this.tableSource.FileCabinetColumn);
+                return this.IsNull(this._tableSources_Source.FileCabinetColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFileCabinetNull() {
-                this[this.tableSource.FileCabinetColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.FileCabinetColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFileOffsetNull() {
-                return this.IsNull(this.tableSource.FileOffsetColumn);
+                return this.IsNull(this._tableSources_Source.FileOffsetColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFileOffsetNull() {
-                this[this.tableSource.FileOffsetColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.FileOffsetColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFolderCodeNull() {
-                return this.IsNull(this.tableSource.FolderCodeColumn);
+                return this.IsNull(this._tableSources_Source.FolderCodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFolderCodeNull() {
-                this[this.tableSource.FolderCodeColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.FolderCodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFolderNameNull() {
-                return this.IsNull(this.tableSource.FolderNameColumn);
+                return this.IsNull(this._tableSources_Source.FolderNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFolderNameNull() {
-                this[this.tableSource.FolderNameColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.FolderNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBookTitleNull() {
-                return this.IsNull(this.tableSource.BookTitleColumn);
+                return this.IsNull(this._tableSources_Source.BookTitleColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetBookTitleNull() {
-                this[this.tableSource.BookTitleColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.BookTitleColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBookAuthorNull() {
-                return this.IsNull(this.tableSource.BookAuthorColumn);
+                return this.IsNull(this._tableSources_Source.BookAuthorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetBookAuthorNull() {
-                this[this.tableSource.BookAuthorColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.BookAuthorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBookISBNNull() {
-                return this.IsNull(this.tableSource.BookISBNColumn);
+                return this.IsNull(this._tableSources_Source.BookISBNColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetBookISBNNull() {
-                this[this.tableSource.BookISBNColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.BookISBNColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsMagIssueMagazineNull() {
-                return this.IsNull(this.tableSource.MagIssueMagazineColumn);
+                return this.IsNull(this._tableSources_Source.MagIssueMagazineColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMagIssueMagazineNull() {
-                this[this.tableSource.MagIssueMagazineColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.MagIssueMagazineColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsMagIssueNumberNull() {
-                return this.IsNull(this.tableSource.MagIssueNumberColumn);
+                return this.IsNull(this._tableSources_Source.MagIssueNumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMagIssueNumberNull() {
-                this[this.tableSource.MagIssueNumberColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.MagIssueNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFileMimeTypeNull() {
-                return this.IsNull(this.tableSource.FileMimeTypeColumn);
+                return this.IsNull(this._tableSources_Source.FileMimeTypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFileMimeTypeNull() {
-                this[this.tableSource.FileMimeTypeColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.FileMimeTypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFileContentsNull() {
-                return this.IsNull(this.tableSource.FileContentsColumn);
+                return this.IsNull(this._tableSources_Source.FileContentsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFileContentsNull() {
-                this[this.tableSource.FileContentsColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.FileContentsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsUrlNull() {
-                return this.IsNull(this.tableSource.UrlColumn);
+                return this.IsNull(this._tableSources_Source.UrlColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetUrlNull() {
-                this[this.tableSource.UrlColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.UrlColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFileNameNull() {
-                return this.IsNull(this.tableSource.FileNameColumn);
+                return this.IsNull(this._tableSources_Source.FileNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFileNameNull() {
-                this[this.tableSource.FileNameColumn] = global::System.Convert.DBNull;
+                this[this._tableSources_Source.FileNameColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class _Sources_MagazineRow : global::System.Data.DataRow {
+            
+            private _Sources_MagazineDataTable _tableSources_Magazine;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal _Sources_MagazineRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this._tableSources_Magazine = ((_Sources_MagazineDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this._tableSources_Magazine.IdColumn]));
+                }
+                set {
+                    this[this._tableSources_Magazine.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Name {
+                get {
+                    return ((string)(this[this._tableSources_Magazine.NameColumn]));
+                }
+                set {
+                    this[this._tableSources_Magazine.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SubName {
+                get {
+                    try {
+                        return ((string)(this[this._tableSources_Magazine.SubNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubName\' in table \'Sources.Magazine\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this._tableSources_Magazine.SubNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSubNameNull() {
+                return this.IsNull(this._tableSources_Magazine.SubNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSubNameNull() {
+                this[this._tableSources_Magazine.SubNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1493,22 +1876,56 @@ namespace wikibus.tests.Mappings {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class SourceRowChangeEvent : global::System.EventArgs {
+        public class _Sources_SourceRowChangeEvent : global::System.EventArgs {
             
-            private SourceRow eventRow;
+            private _Sources_SourceRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SourceRowChangeEvent(SourceRow row, global::System.Data.DataRowAction action) {
+            public _Sources_SourceRowChangeEvent(_Sources_SourceRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SourceRow Row {
+            public _Sources_SourceRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class _Sources_MagazineRowChangeEvent : global::System.EventArgs {
+            
+            private _Sources_MagazineRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Sources_MagazineRowChangeEvent(_Sources_MagazineRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Sources_MagazineRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1536,7 +1953,7 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SourceTableAdapter : global::System.ComponentModel.Component {
+    public partial class Sources_SourceTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1550,7 +1967,7 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public SourceTableAdapter() {
+        public Sources_SourceTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1647,7 +2064,7 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Source";
+            tableMapping.DataSetTable = "Sources.Source";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("SourceType", "SourceType");
             tableMapping.ColumnMappings.Add("Language", "Language");
@@ -1705,7 +2122,7 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::wikibus.tests.Properties.Settings.Default.wikibusConnectionString;
+            this._connection.ConnectionString = global::wikibus.tests.Properties.Settings.Default.wikibus_testConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1722,7 +2139,7 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Wikibus.SourceDataTable dataTable) {
+        public virtual int Fill(Wikibus._Sources_SourceDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1735,9 +2152,9 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Wikibus.SourceDataTable GetData() {
+        public virtual Wikibus._Sources_SourceDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Wikibus.SourceDataTable dataTable = new Wikibus.SourceDataTable();
+            Wikibus._Sources_SourceDataTable dataTable = new Wikibus._Sources_SourceDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1745,7 +2162,7 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Wikibus.SourceDataTable dataTable) {
+        public virtual int Update(Wikibus._Sources_SourceDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -1753,7 +2170,7 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(Wikibus dataSet) {
-            return this.Adapter.Update(dataSet, "Source");
+            return this.Adapter.Update(dataSet, "Sources.Source");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1950,6 +2367,246 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Sources_MagazineTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Sources_MagazineTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Sources.Magazine";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("SubName", "SubName");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Sources].[Magazine] ([Id], [Name], [SubName]) VALUES (@Id, @Name, @S" +
+                "ubName)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::wikibus.tests.Properties.Settings.Default.wikibus_testConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT Id, Name, SubName FROM Sources.Magazine";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Wikibus._Sources_MagazineDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Wikibus._Sources_MagazineDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Wikibus._Sources_MagazineDataTable dataTable = new Wikibus._Sources_MagazineDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Wikibus._Sources_MagazineDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Wikibus dataSet) {
+            return this.Adapter.Update(dataSet, "Sources.Magazine");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int Id, string Name, string SubName) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Id));
+            if ((Name == null)) {
+                throw new global::System.ArgumentNullException("Name");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Name));
+            }
+            if ((SubName == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(SubName));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1961,7 +2618,9 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private SourceTableAdapter _sourceTableAdapter;
+        private Sources_SourceTableAdapter _sources_SourceTableAdapter;
+        
+        private Sources_MagazineTableAdapter _sources_MagazineTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1983,12 +2642,26 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public SourceTableAdapter SourceTableAdapter {
+        public Sources_SourceTableAdapter Sources_SourceTableAdapter {
             get {
-                return this._sourceTableAdapter;
+                return this._sources_SourceTableAdapter;
             }
             set {
-                this._sourceTableAdapter = value;
+                this._sources_SourceTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public Sources_MagazineTableAdapter Sources_MagazineTableAdapter {
+            get {
+                return this._sources_MagazineTableAdapter;
+            }
+            set {
+                this._sources_MagazineTableAdapter = value;
             }
         }
         
@@ -2011,9 +2684,13 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._sourceTableAdapter != null) 
-                            && (this._sourceTableAdapter.Connection != null))) {
-                    return this._sourceTableAdapter.Connection;
+                if (((this._sources_SourceTableAdapter != null) 
+                            && (this._sources_SourceTableAdapter.Connection != null))) {
+                    return this._sources_SourceTableAdapter.Connection;
+                }
+                if (((this._sources_MagazineTableAdapter != null) 
+                            && (this._sources_MagazineTableAdapter.Connection != null))) {
+                    return this._sources_MagazineTableAdapter.Connection;
                 }
                 return null;
             }
@@ -2028,7 +2705,10 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._sourceTableAdapter != null)) {
+                if ((this._sources_SourceTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._sources_MagazineTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -2042,12 +2722,21 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(Wikibus dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._sourceTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Source.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._sources_MagazineTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet._Sources_Magazine.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._sourceTableAdapter.Update(updatedRows));
+                    result = (result + this._sources_MagazineTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._sources_SourceTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet._Sources_Source.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._sources_SourceTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -2061,11 +2750,19 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(Wikibus dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._sourceTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Source.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._sources_MagazineTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet._Sources_Magazine.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._sourceTableAdapter.Update(addedRows));
+                    result = (result + this._sources_MagazineTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._sources_SourceTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet._Sources_Source.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._sources_SourceTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -2079,11 +2776,19 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(Wikibus dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._sourceTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Source.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._sources_SourceTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet._Sources_Source.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._sourceTableAdapter.Update(deletedRows));
+                    result = (result + this._sources_SourceTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._sources_MagazineTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet._Sources_Magazine.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._sources_MagazineTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -2126,8 +2831,13 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._sourceTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._sourceTableAdapter.Connection) == false))) {
+            if (((this._sources_SourceTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._sources_SourceTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._sources_MagazineTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._sources_MagazineTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -2163,13 +2873,22 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._sourceTableAdapter != null)) {
-                    revertConnections.Add(this._sourceTableAdapter, this._sourceTableAdapter.Connection);
-                    this._sourceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._sourceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._sourceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._sourceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._sourceTableAdapter.Adapter);
+                if ((this._sources_SourceTableAdapter != null)) {
+                    revertConnections.Add(this._sources_SourceTableAdapter, this._sources_SourceTableAdapter.Connection);
+                    this._sources_SourceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._sources_SourceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._sources_SourceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._sources_SourceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._sources_SourceTableAdapter.Adapter);
+                    }
+                }
+                if ((this._sources_MagazineTableAdapter != null)) {
+                    revertConnections.Add(this._sources_MagazineTableAdapter, this._sources_MagazineTableAdapter.Connection);
+                    this._sources_MagazineTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._sources_MagazineTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._sources_MagazineTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._sources_MagazineTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._sources_MagazineTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -2230,9 +2949,13 @@ namespace wikibus.tests.Mappings.WikibusTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._sourceTableAdapter != null)) {
-                    this._sourceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sourceTableAdapter]));
-                    this._sourceTableAdapter.Transaction = null;
+                if ((this._sources_SourceTableAdapter != null)) {
+                    this._sources_SourceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sources_SourceTableAdapter]));
+                    this._sources_SourceTableAdapter.Transaction = null;
+                }
+                if ((this._sources_MagazineTableAdapter != null)) {
+                    this._sources_MagazineTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sources_MagazineTableAdapter]));
+                    this._sources_MagazineTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

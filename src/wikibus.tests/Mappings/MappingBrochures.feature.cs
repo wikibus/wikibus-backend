@@ -74,8 +74,7 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
-                        "Type",
-                        "TypeLower",
+                        "SourceType",
                         "Language",
                         "Language2",
                         "Pages",
@@ -95,8 +94,7 @@ this.ScenarioSetup(scenarioInfo);
                         "FileName"});
             table1.AddRow(new string[] {
                         "1",
-                        "Brochure",
-                        "brochure",
+                        "folder",
                         "tr",
                         "en",
                         "2",
@@ -115,7 +113,7 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "NULL"});
 #line 5
-   testRunner.Given("table source with data:", ((string)(null)), table1, "Given ");
+   testRunner.Given("table Sources.Source with data:", ((string)(null)), table1, "Given ");
 #line 8
    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
@@ -150,8 +148,7 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
-                        "Type",
-                        "TypeLower",
+                        "SourceType",
                         "Language",
                         "Language2",
                         "Pages",
@@ -171,8 +168,7 @@ this.ScenarioSetup(scenarioInfo);
                         "FileName"});
             table2.AddRow(new string[] {
                         "6",
-                        "Brochure",
-                        "brochure",
+                        "folder",
                         "pl",
                         "NULL",
                         "2",
@@ -191,7 +187,7 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "NULL"});
 #line 29
-   testRunner.Given("table source with data:", ((string)(null)), table2, "Given ");
+   testRunner.Given("table Sources.Source with data:", ((string)(null)), table2, "Given ");
 #line 32
    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 33
@@ -232,8 +228,7 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
-                        "Type",
-                        "TypeLower",
+                        "SourceType",
                         "Language",
                         "Language2",
                         "Pages",
@@ -253,8 +248,7 @@ this.ScenarioSetup(scenarioInfo);
                         "FileName"});
             table3.AddRow(new string[] {
                         "6",
-                        "Brochure",
-                        "brochure",
+                        "folder",
                         "pl",
                         "NULL",
                         "2",
@@ -273,7 +267,7 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "NULL"});
 #line 59
-   testRunner.Given("table source with data:", ((string)(null)), table3, "Given ");
+   testRunner.Given("table Sources.Source with data:", ((string)(null)), table3, "Given ");
 #line 62
    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 63
@@ -296,8 +290,7 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
-                        "Type",
-                        "TypeLower",
+                        "SourceType",
                         "Language",
                         "Language2",
                         "Pages",
@@ -317,7 +310,6 @@ this.ScenarioSetup(scenarioInfo);
                         "FileName"});
             table4.AddRow(new string[] {
                         "407",
-                        "Book",
                         "book",
                         "pl",
                         "NULL",
@@ -337,7 +329,7 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "NULL"});
 #line 76
-   testRunner.Given("table source with data:", ((string)(null)), table4, "Given ");
+   testRunner.Given("table Sources.Source with data:", ((string)(null)), table4, "Given ");
 #line 79
     testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 80
@@ -377,8 +369,7 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
-                        "Type",
-                        "TypeLower",
+                        "SourceType",
                         "Language",
                         "Language2",
                         "Pages",
@@ -398,8 +389,7 @@ this.ScenarioSetup(scenarioInfo);
                         "FileName"});
             table5.AddRow(new string[] {
                         "324",
-                        "Issue",
-                        "issue",
+                        "magissue",
                         "pl",
                         "NULL",
                         "16",
@@ -418,7 +408,7 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         ""});
 #line 105
-   testRunner.Given("table source with data:", ((string)(null)), table5, "Given ");
+   testRunner.Given("table Sources.Source with data:", ((string)(null)), table5, "Given ");
 #line 108
     testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 109

@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace wikibus.tests.Mappings
@@ -14,24 +13,24 @@ namespace wikibus.tests.Mappings
         /// </summary>
         public static DataSet ToDataSet(this Table table, string name)
         {
-            var dataSet = new DataSet();
-            var dataTable = new DataTable(name);
-
-            foreach (var column in table.Header)
-            {
-                dataTable.Columns.Add(column);
-            }
+            DataSet dataSet = new Wikibus();
+            var dataTable = dataSet.Tables[name];
 
             foreach (var row in table.Rows)
             {
-                var values = from value in row.Values
-                             let val = value == "NULL" ? null : value
-                             select (object)val;
+                var sourcesSourceRow = dataTable.NewRow();
+                foreach (var cell in row)
+                {
+                    if (cell.Value != "NULL")
+                    {
+                        sourcesSourceRow[cell.Key] = cell.Value;
+                    }
+                }
 
-                dataTable.LoadDataRow(values.ToArray(), true);
+                dataTable.Rows.Add(sourcesSourceRow);
             }
 
-            dataSet.Tables.Add(dataTable);
+            dataSet.AcceptChanges();
             return dataSet;
         }
     }

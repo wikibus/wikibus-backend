@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="wikibusConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="wikibusConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.wikibus.tests.Properties.Settings.GlobalReference.Default.wikibusConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="wikibus_testConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="wikibus_testConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.wikibus.tests.Properties.Settings.GlobalReference.Default.wikibus_testConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SourceTableAdapter" GeneratorDataComponentClassName="SourceTableAdapter" Name="Source" UserDataComponentName="SourceTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Sources.SourceTableAdapter" GeneratorDataComponentClassName="Sources_SourceTableAdapter" Name="Sources.Source" UserDataComponentName="Sources.SourceTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="wikibusConnectionString (Settings)" DbObjectName="wikibus.Sources.Source" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="wikibus_testConnectionString (Settings)" DbObjectName="wikibus_test.Sources.Source" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>INSERT INTO [Sources].[Source] ([Id], [SourceType], [Language], [Language2], [Pages], [Year], [Month], [Day], [Notes], [Image], [FileCabinet], [FileOffset], [FolderCode], [FolderName], [BookTitle], [BookAuthor], [BookISBN], [MagIssueMagazine], [MagIssueNumber], [FileMimeType], [FileContents], [Url], [FileName]) VALUES (@Id, @SourceType, @Language, @Language2, @Pages, @Year, @Month, @Day, @Notes, @Image, @FileCabinet, @FileOffset, @FolderCode, @FolderName, @BookTitle, @BookAuthor, @BookISBN, @MagIssueMagazine, @MagIssueNumber, @FileMimeType, @FileContents, @Url, @FileName)</CommandText>
@@ -75,6 +75,34 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Sources.MagazineTableAdapter" GeneratorDataComponentClassName="Sources_MagazineTableAdapter" Name="Sources.Magazine" UserDataComponentName="Sources.MagazineTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="wikibus_testConnectionString (Settings)" DbObjectName="wikibus_test.Sources.Magazine" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Sources].[Magazine] ([Id], [Name], [SubName]) VALUES (@Id, @Name, @SubName)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SubName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SubName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Name, SubName FROM Sources.Magazine</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="SubName" DataSetColumn="SubName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -83,7 +111,7 @@
   <xs:element name="Wikibus" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Wikibus" msprop:Generator_UserDSName="Wikibus">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Source" msprop:Generator_TableClassName="SourceDataTable" msprop:Generator_TableVarName="tableSource" msprop:Generator_TablePropName="Source" msprop:Generator_RowDeletingName="SourceRowDeleting" msprop:Generator_RowChangingName="SourceRowChanging" msprop:Generator_RowEvHandlerName="SourceRowChangeEventHandler" msprop:Generator_RowDeletedName="SourceRowDeleted" msprop:Generator_UserTableName="Source" msprop:Generator_RowChangedName="SourceRowChanged" msprop:Generator_RowEvArgName="SourceRowChangeEvent" msprop:Generator_RowClassName="SourceRow">
+        <xs:element name="Sources.Source" msprop:Generator_TableClassName="_Sources_SourceDataTable" msprop:Generator_TableVarName="_tableSources_Source" msprop:Generator_TablePropName="_Sources_Source" msprop:Generator_RowDeletingName="_Sources_SourceRowDeleting" msprop:Generator_RowChangingName="_Sources_SourceRowChanging" msprop:Generator_RowEvHandlerName="_Sources_SourceRowChangeEventHandler" msprop:Generator_RowDeletedName="_Sources_SourceRowDeleted" msprop:Generator_UserTableName="Sources.Source" msprop:Generator_RowChangedName="_Sources_SourceRowChanged" msprop:Generator_RowEvArgName="_Sources_SourceRowChangeEvent" msprop:Generator_RowClassName="_Sources_SourceRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -178,6 +206,27 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="256" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Sources.Magazine" msprop:Generator_TableClassName="_Sources_MagazineDataTable" msprop:Generator_TableVarName="_tableSources_Magazine" msprop:Generator_TablePropName="_Sources_Magazine" msprop:Generator_RowDeletingName="_Sources_MagazineRowDeleting" msprop:Generator_RowChangingName="_Sources_MagazineRowChanging" msprop:Generator_RowEvHandlerName="_Sources_MagazineRowChangeEventHandler" msprop:Generator_RowDeletedName="_Sources_MagazineRowDeleted" msprop:Generator_UserTableName="Sources.Magazine" msprop:Generator_RowChangedName="_Sources_MagazineRowChanged" msprop:Generator_RowEvArgName="_Sources_MagazineRowChangeEvent" msprop:Generator_RowClassName="_Sources_MagazineRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SubName" msprop:Generator_ColumnVarNameInTable="columnSubName" msprop:Generator_ColumnPropNameInRow="SubName" msprop:Generator_ColumnPropNameInTable="SubNameColumn" msprop:Generator_UserColumnName="SubName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="512" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

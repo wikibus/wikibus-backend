@@ -1,1 +1,1 @@
-﻿SELECT Id, BookAuthor from [Sources].[Source]
+﻿SELECT Id, BookAuthor from [Sources].[Source] where BookAuthor is not null
