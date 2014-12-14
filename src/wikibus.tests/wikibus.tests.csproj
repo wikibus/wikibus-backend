@@ -72,11 +72,6 @@
     </Compile>
     <Compile Include="Mappings\MappingSourcesSteps.cs" />
     <Compile Include="Mappings\TableExtensions.cs" />
-    <Compile Include="Mappings\Wikibus.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Wikibus.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Modules\Bindings\GettingSourcesSteps.cs" />
     <Compile Include="Modules\Bindings\NancyDependencies.cs" />
     <Compile Include="Modules\GettingSources.feature.cs">
@@ -102,17 +97,11 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MappingBrochures.feature.cs</LastGenOutput>
     </None>
-    <None Include="Mappings\Wikibus.xsc">
-      <DependentUpon>Wikibus.xsd</DependentUpon>
-    </None>
     <EmbeddedResource Include="Mappings\Wikibus.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Wikibus.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Mappings\Wikibus.xss">
-      <DependentUpon>Wikibus.xsd</DependentUpon>
-    </None>
     <None Include="Modules\GettingSources.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GettingSources.feature.cs</LastGenOutput>

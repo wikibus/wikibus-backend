@@ -16,16 +16,18 @@ using wikibus.sources.dotNetRDF;
 namespace wikibus.tests.Mappings
 {
     [Binding]
-    public class MappingSourcesSteps
+    public class MappingSourcesSteps : IDisposable
     {
         private readonly IR2RMLProcessor _rmlProc;
         private readonly INDbUnitTest _database;
+        private readonly SqlConnection _sqlConnection;
         private ITripleStore _result;
 
         public MappingSourcesSteps()
         {
-            _database = Database.Initialize();
-            _rmlProc = new W3CR2RMLProcessor(new SqlConnection(Database.TestConnectionString))
+            _sqlConnection = new SqlConnection(Database.TestConnectionString);
+            _database = Database.Initialize(_sqlConnection);
+            _rmlProc = new W3CR2RMLProcessor(_sqlConnection)
             {
                 Log = new TextWriterLog(Console.Out)
             };
@@ -64,6 +66,11 @@ namespace wikibus.tests.Mappings
         public void ThenResultingDatasetShouldContainTriples(int expectedCount)
         {
             Assert.That(_result.Triples.Count(), Is.EqualTo(expectedCount));
+        }
+
+        public void Dispose()
+        {
+            _sqlConnection.Dispose();
         }
 
         private bool ExecuteAsk(string query)

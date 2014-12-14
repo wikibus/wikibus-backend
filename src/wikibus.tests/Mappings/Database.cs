@@ -1,5 +1,4 @@
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 using NDbUnit.Core;
 using NDbUnit.Core.SqlClient;
@@ -18,14 +17,19 @@ namespace wikibus.tests.Mappings
         /// <summary>
         /// Initializes the database.
         /// </summary>
-        public static INDbUnitTest Initialize()
+        /// <param name="connection"></param>
+        public static INDbUnitTest Initialize(SqlConnection connection)
         {
-            var database = new SqlDbUnitTest(new SqlConnection(MasterConnString));
-            database.Scripts.AddSingle("Scripts\\InitDatabase.sql");
-            database.ExecuteScripts();
-            database.Scripts.ClearAll();
+            SqlDbUnitTest database;
+            using (var sqlConnection = new SqlConnection(MasterConnString))
+            {
+                database = new SqlDbUnitTest(sqlConnection);
+                database.Scripts.AddSingle("Scripts\\InitDatabase.sql");
+                database.ExecuteScripts();
+                database.Scripts.ClearAll();
+            }
 
-            database = new SqlDbUnitTest(new SqlConnection(TestConnectionString));
+            database = new SqlDbUnitTest(connection);
             database.Scripts.AddSingle("Scripts\\InitSchema.sql");
             database.Scripts.AddWithWildcard("Scripts", "InitTable_*.sql");
             database.ExecuteScripts();

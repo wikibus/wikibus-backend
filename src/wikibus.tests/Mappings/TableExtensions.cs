@@ -13,8 +13,17 @@ namespace wikibus.tests.Mappings
         /// </summary>
         public static DataSet ToDataSet(this Table table, string name)
         {
-            DataSet dataSet = new Wikibus();
-            var dataTable = dataSet.Tables[name];
+            DataSet dataSet = new DataSet("Wikibus")
+            {
+                Namespace = "http://tempuri.org/Wikibus.xsd"
+            };
+            var dataTable = new DataTable(name);
+            dataSet.Tables.Add(dataTable);
+
+            foreach (var colname in table.Header)
+            {
+                dataTable.Columns.Add(colname);
+            }
 
             foreach (var row in table.Rows)
             {
