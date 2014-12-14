@@ -21,3 +21,5 @@ nuget Nancy.RDF
 nuget NullGuard.Fody
 nuget ImpromptuInterface
 nuget NDbUnit.SqlClient
+nuget Nancy.elmah
+nuget Nancy.metrics
