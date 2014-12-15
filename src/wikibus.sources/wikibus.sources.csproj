@@ -52,6 +52,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="Brochure.cs" />
     <Compile Include="ContextProviderExtensions.cs" />
+    <Compile Include="Hydra\PagedCollection.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="LexvoIso639LanguageConverter.cs" />
     <Compile Include="ISourcesRepository.cs" />

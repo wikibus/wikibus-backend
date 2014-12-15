@@ -7,3 +7,4 @@ src/packages
 VersionAssemblyInfo.cs
 src/paket-files
 *.transformed
+**/App_Data

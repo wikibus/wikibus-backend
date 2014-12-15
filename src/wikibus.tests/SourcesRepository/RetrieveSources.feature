@@ -134,3 +134,41 @@ Scenario: Get book without author
         """
     When book <http://wikibus.org/book/6> is fetched
      Then 'Author' should be null
+
+Scenario: Get first page of books
+    Given RDF data:
+        """
+        @base <http://wikibus.org/>.
+        @prefix wbo: <http://wikibus.org/ontology#>.
+        @prefix dcterms: <http://purl.org/dc/terms/>.
+        @prefix sch: <http://schema.org/>.
+
+        {
+            <book/1> a wbo:Book .
+            <book/2> a wbo:Book .
+            <book/3> a wbo:Book .
+            <book/4> a wbo:Book .
+            <book/5> a wbo:Book .
+            <book/6> a wbo:Book .
+            <book/7> a wbo:Book .
+            <book/8> a wbo:Book .
+            <book/9> a wbo:Book .
+            <book/10> a wbo:Book .
+            <book/11> a wbo:Book .
+            <book/12> a wbo:Book .
+            <book/13> a wbo:Book .
+            <book/14> a wbo:Book .
+            <book/15> a wbo:Book .
+            <book/16> a wbo:Book .
+            <book/17> a wbo:Book .
+            <book/18> a wbo:Book .
+            <book/19> a wbo:Book .
+            <book/20> a wbo:Book .
+        }
+        """
+      And page size equal to 1
+     When page 1 of books is fetched
+     Then 'TotalCount' should be 20
+      And 'ItemsPerPage' should be 1
+      And 'NextPage' should be Uri 'http://wikibus.org/books?page=2'
+      And 'LastPage' should be Uri 'http://wikibus.org/books?page=20'

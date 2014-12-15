@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections;
 using FluentAssertions;
-using JsonLD.Entities;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using VDS.RDF;
-using VDS.RDF.Query;
 using wikibus.sources;
 
 namespace wikibus.tests.SourcesRepository
@@ -13,45 +11,29 @@ namespace wikibus.tests.SourcesRepository
     [Binding]
     public class RetrieveSourcesFromRepositorySteps
     {
-        private readonly TripleStore _store = new TripleStore();
-        private readonly IEntitySerializer _serializer;
-        private ISparqlQueryProcessor _queryProcessor;
+        private readonly RepositoryScenarioContext _context;
 
-        public RetrieveSourcesFromRepositorySteps()
+        public RetrieveSourcesFromRepositorySteps(RepositoryScenarioContext context)
         {
-            var contextProvider = new StaticContextProvider();
-            contextProvider.SetupSourcesContexts();
-            var frameProvider = new StaticFrameProvider();
-            frameProvider.SetupSourcesFrames();
-            _serializer = new EntitySerializer(contextProvider, frameProvider);
-        }
-
-        [Given(@"In-memory query processor")]
-        public void GivenInMemoryQueryProcessor()
-        {
-            _queryProcessor = new LeviathanQueryProcessor(_store);
+            _context = context;
         }
 
         [Given(@"RDF data:")]
         public void GivenRdfFrom(string datasetToLoad)
         {
-            _store.LoadFromString(datasetToLoad);
+            _context.Store.LoadFromString(datasetToLoad);
         }
 
         [When(@"brochure <(.*)> is fetched")]
         public void WhenBrochureIsFetched(string uri)
         {
-            ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository(_queryProcessor, _serializer);
-
-            ScenarioContext.Current.Set(repository.Get<Brochure>(new Uri(uri)), "Model");
+            ScenarioContext.Current.Set(_context.Repository.Get<Brochure>(new Uri(uri)), "Model");
         }
 
         [When(@"book <(.*)> is fetched")]
         public void WhenBookIsFetched(string uri)
         {
-            ISourcesRepository repository = new sources.dotNetRDF.SourcesRepository(_queryProcessor, _serializer);
-
-            ScenarioContext.Current.Set(repository.Get<Book>(new Uri(uri)), "Model");
+            ScenarioContext.Current.Set(_context.Repository.Get<Book>(new Uri(uri)), "Model");
         }
 
         [Then(@"'(.*)' should be string equal to '(.*)'")]

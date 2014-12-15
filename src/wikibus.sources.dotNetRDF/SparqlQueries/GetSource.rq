@@ -1,0 +1,31 @@
+﻿prefix hydra: <http://www.w3.org/ns/hydra/core#>
+prefix dcterms: <http://purl.org/dc/terms/>
+
+construct
+{
+  @container 
+    a hydra:PagedCollection ;
+    hydra:member ?source ;
+    hydra:totalItems ?count.
+
+  ?source dcterms:title ?title
+}
+where
+{
+  {
+    select ?source ?title
+    {
+      ?source a @type .  
+    }
+    order by ?title
+    limit @limit
+    offset @offset
+  }
+
+  {
+    select count(*) as ?count
+    {
+      ?source a @type . 
+    }
+  }
+}

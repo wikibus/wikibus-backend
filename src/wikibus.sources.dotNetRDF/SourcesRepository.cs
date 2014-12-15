@@ -1,10 +1,12 @@
 ﻿using System;
 using JsonLD.Entities;
 using NullGuard;
+using Resourcer;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Writing;
+using wikibus.sources.Hydra;
 
 namespace wikibus.sources.dotNetRDF
 {
@@ -46,6 +48,32 @@ namespace wikibus.sources.dotNetRDF
             }
 
             return null;
+        }
+
+        /// <inheritdoc />
+        public PagedCollection<T> GetAll<T>(int page, int pageSize = 10) where T : Source
+        {
+            var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSource.rq"));
+            query.SetUri("type", GetTypeUri(typeof(T)));
+            query.SetUri("container", GetCollectionUri(typeof(T)));
+            query.SetLiteral("limit", pageSize);
+            query.SetLiteral("offset", (page - 1) * pageSize);
+            var graph = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));
+
+            if (graph.Triples.Count > 0)
+            {
+                var dataset = StringWriter.Write(graph, new NTriplesWriter(NTriplesSyntax.Rdf11));
+
+                return _serializer.Deserialize<PagedCollection<T>>(dataset);
+            }
+
+            return new PagedCollection<T>();
+        }
+
+        private Uri GetCollectionUri(Type type)
+        {
+            string collectionName = "books";
+            return new Uri(string.Format("http://wikibus.org/{0}", collectionName));
         }
 
         private Uri GetTypeUri(Type type)

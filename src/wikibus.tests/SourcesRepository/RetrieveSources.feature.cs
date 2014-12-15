@@ -271,6 +271,58 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get first page of books")]
+        public virtual void GetFirstPageOfBooks()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get first page of books", ((string[])(null)));
+#line 138
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+#line 139
+    testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
+@prefix wbo: <http://wikibus.org/ontology#>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix sch: <http://schema.org/>.
+
+{
+    <book/1> a wbo:Book .
+    <book/2> a wbo:Book .
+    <book/3> a wbo:Book .
+    <book/4> a wbo:Book .
+    <book/5> a wbo:Book .
+    <book/6> a wbo:Book .
+    <book/7> a wbo:Book .
+    <book/8> a wbo:Book .
+    <book/9> a wbo:Book .
+    <book/10> a wbo:Book .
+    <book/11> a wbo:Book .
+    <book/12> a wbo:Book .
+    <book/13> a wbo:Book .
+    <book/14> a wbo:Book .
+    <book/15> a wbo:Book .
+    <book/16> a wbo:Book .
+    <book/17> a wbo:Book .
+    <book/18> a wbo:Book .
+    <book/19> a wbo:Book .
+    <book/20> a wbo:Book .
+}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 169
+      testRunner.And("page size equal to 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 170
+     testRunner.When("page 1 of books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 171
+     testRunner.Then("\'TotalCount\' should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 172
+      testRunner.And("\'ItemsPerPage\' should be 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 173
+      testRunner.And("\'NextPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 174
+      testRunner.And("\'LastPage\' should be Uri \'http://wikibus.org/books?page=20\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
