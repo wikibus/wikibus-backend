@@ -17,12 +17,12 @@ namespace wikibus.sources
         {
             contextProvider.SetContext(typeof(Brochure), JObject.Parse(Resource.AsString("Contexts.Brochure.json")));
             contextProvider.SetContext(typeof(Book), JObject.Parse(Resource.AsString("Contexts.Brochure.json")));
-            contextProvider.SetContext(
-                typeof(PagedCollection<Book>), 
-                new JArray(
-                    JToken.Parse("http://www.w3.org/ns/hydra/context.jsonld"),
-                    contextProvider.GetContext(typeof(Book))
-                    ));
+            ////contextProvider.SetContext(
+            ////    typeof(PagedCollection<Book>),
+            ////    new JArray(
+            ////        JToken.Parse("http://www.w3.org/ns/hydra/context.jsonld"),
+            ////        contextProvider.GetContext(typeof(Book))
+            ////        ));
         }
 
         /// <summary>
