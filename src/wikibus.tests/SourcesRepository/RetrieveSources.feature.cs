@@ -71,16 +71,14 @@ namespace wikibus.tests.SourcesRepository
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get simple brochure", ((string[])(null)));
 #line 4
 this.ScenarioSetup(scenarioInfo);
-#line 5
-   testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 6
-   testRunner.And("RDF data:", "@base <http://wikibus.org/> .\r\n@prefix dcterms: <http://purl.org/dc/terms/>.\r\n\r\n{" +
+#line 5
+   testRunner.Given("RDF data:", "@base <http://wikibus.org/> .\r\n@prefix dcterms: <http://purl.org/dc/terms/>.\r\n\r\n{" +
                     "\r\n   <brochure/VanHool+T8> a <ontology#Brochure> ;\r\n      dcterms:title \"VanHool" +
-                    " T8 - New Look\" .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
+                    " T8 - New Look\" .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 15
    testRunner.When("brochure <http://wikibus.org/brochure/VanHool+T8> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
+#line 16
    testRunner.Then("\'Title\' should be string equal to \'VanHool T8 - New Look\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -91,18 +89,16 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetBrochureWithPolishDiacritics()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get brochure with Polish diacritics", ((string[])(null)));
-#line 19
+#line 18
 this.ScenarioSetup(scenarioInfo);
-#line 20
-   testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 21
-   testRunner.And("RDF data:", "@base <http://wikibus.org/> .\r\n@prefix dcterms: <http://purl.org/dc/terms/>.\r\n\r\n{" +
+#line 19
+   testRunner.Given("RDF data:", "@base <http://wikibus.org/> .\r\n@prefix dcterms: <http://purl.org/dc/terms/>.\r\n\r\n{" +
                     "\r\n   <brochure/12345> a <ontology#Brochure> ;\r\n      dcterms:title \"Jelcz M11 - " +
-                    "nowość\" .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 31
+                    "nowość\" .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 29
    testRunner.When("brochure <http://wikibus.org/brochure/12345> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 32
+#line 30
    testRunner.Then("\'Title\' should be string equal to \'Jelcz M11 - nowość\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -113,13 +109,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetCompleteBrochure()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get complete brochure", ((string[])(null)));
-#line 34
+#line 32
 this.ScenarioSetup(scenarioInfo);
-#line 35
-    testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 36
-    testRunner.And("RDF data:", @"@base <http://wikibus.org/>.
+#line 33
+    testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
 @prefix wbo: <http://wikibus.org/ontology#>.
 @prefix bibo: <http://purl.org/ontology/bibo/>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
@@ -139,23 +133,23 @@ this.ScenarioSetup(scenarioInfo);
         dcterms:language langIso:pl ;
         dcterms:identifier ""BED 81419 2006-09-21 POL Version 2"" ;
         rdfs:comment ""Some description about brochure"".
-}", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 60
+}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 57
     testRunner.When("brochure <http://wikibus.org/brochure/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 61
+#line 58
     testRunner.Then("\'Title\' should be string equal to \'Fakty: Autobus turystyczny Volvo B9r/Sunsundeg" +
                     "ui Elegance\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 62
+#line 59
      testRunner.And("\'Pages\' should be integer equal to \'2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 63
+#line 60
      testRunner.And("\'Date\' should be DateTime equal to \'2006-09-21\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 64
+#line 61
      testRunner.And("\'Month\' should be integer equal to \'9\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 65
+#line 62
      testRunner.And("\'Code\' should be string equal to \'BED 81419 2006-09-21 POL Version 2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 66
+#line 63
      testRunner.And("Languages should contain \'pl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 67
+#line 64
      testRunner.And("\'Description\' should be string equal to \'Some description about brochure\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -166,13 +160,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetBrochureWithoutData()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get brochure without data", ((string[])(null)));
-#line 69
+#line 66
 this.ScenarioSetup(scenarioInfo);
-#line 70
-    testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 71
-    testRunner.And("RDF data:", @"@base <http://wikibus.org/>.
+#line 67
+    testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
 @prefix wbo: <http://wikibus.org/ontology#>.
 @prefix bibo: <http://purl.org/ontology/bibo/>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
@@ -184,22 +176,22 @@ this.ScenarioSetup(scenarioInfo);
 {
     <brochure/6> 
         a wbo:Brochure ;
-}", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 87
+}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 83
     testRunner.When("brochure <http://wikibus.org/brochure/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 88
+#line 84
     testRunner.Then("\'Title\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 89
+#line 85
      testRunner.And("\'Pages\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 90
+#line 86
      testRunner.And("\'Date\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 91
+#line 87
      testRunner.And("\'Month\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 92
+#line 88
      testRunner.And("\'Code\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 93
+#line 89
      testRunner.And("\'Languages\' should be empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 94
+#line 90
      testRunner.And("\'Description\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -210,13 +202,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetCompleteBook()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get complete book", ((string[])(null)));
-#line 96
+#line 92
 this.ScenarioSetup(scenarioInfo);
-#line 97
-    testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 98
-    testRunner.And("RDF data:", @"@base <http://wikibus.org/>.
+#line 93
+    testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
 @prefix wbo: <http://wikibus.org/ontology#>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
 @prefix sch: <http://schema.org/>.
@@ -227,16 +217,16 @@ this.ScenarioSetup(scenarioInfo);
         dcterms:title ""Strassenbahnen in Schlesien"" ;
         sch:isbn ""3879434247"" ;
         sch:author [ sch:name ""Siegfried Bufe"" ] .
-}", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 113
+}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 108
     testRunner.When("book <http://wikibus.org/book/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 114
+#line 109
     testRunner.Then("\'Title\' should be string equal to \'Strassenbahnen in Schlesien\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 115
+#line 110
      testRunner.And("\'Author\' should be not null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 116
+#line 111
      testRunner.And("\'Author\' should have string property \'Name\' equal to \'Siegfried Bufe\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 117
+#line 112
      testRunner.And("\'ISBN\' should be string equal to \'3879434247\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -247,13 +237,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetBookWithoutAuthor()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get book without author", ((string[])(null)));
-#line 119
+#line 114
 this.ScenarioSetup(scenarioInfo);
-#line 120
-    testRunner.Given("In-memory query processor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 121
-    testRunner.And("RDF data:", @"@base <http://wikibus.org/>.
+#line 115
+    testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
 @prefix wbo: <http://wikibus.org/ontology#>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
 @prefix sch: <http://schema.org/>.
@@ -263,10 +251,10 @@ this.ScenarioSetup(scenarioInfo);
         a wbo:Book ;
         dcterms:title ""Strassenbahnen in Schlesien"" ;
         sch:isbn ""3879434247"" .
-}", ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 135
+}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 129
     testRunner.When("book <http://wikibus.org/book/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 136
+#line 130
      testRunner.Then("\'Author\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -277,10 +265,10 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetFirstPageOfBooks()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get first page of books", ((string[])(null)));
-#line 138
+#line 132
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-#line 139
+#line 133
     testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
 @prefix wbo: <http://wikibus.org/ontology#>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
@@ -308,17 +296,17 @@ this.ScenarioSetup(scenarioInfo);
     <book/19> a wbo:Book .
     <book/20> a wbo:Book .
 }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 169
+#line 163
       testRunner.And("page size equal to 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 170
+#line 164
      testRunner.When("page 1 of books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 171
+#line 165
      testRunner.Then("\'TotalCount\' should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 172
+#line 166
       testRunner.And("\'ItemsPerPage\' should be 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 173
+#line 167
       testRunner.And("\'NextPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 174
+#line 168
       testRunner.And("\'LastPage\' should be Uri \'http://wikibus.org/books?page=20\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

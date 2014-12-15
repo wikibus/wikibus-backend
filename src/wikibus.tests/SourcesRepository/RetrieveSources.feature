@@ -2,8 +2,7 @@
    Verify that models are correctly deserialized from RDF
    
 Scenario: Get simple brochure
-   Given In-memory query processor
-   And RDF data:
+   Given RDF data:
       """
       @base <http://wikibus.org/> .
       @prefix dcterms: <http://purl.org/dc/terms/>.
@@ -17,8 +16,7 @@ Scenario: Get simple brochure
    Then 'Title' should be string equal to 'VanHool T8 - New Look'
    
 Scenario: Get brochure with Polish diacritics
-   Given In-memory query processor
-   And RDF data:
+   Given RDF data:
       """
       @base <http://wikibus.org/> .
       @prefix dcterms: <http://purl.org/dc/terms/>.
@@ -32,8 +30,7 @@ Scenario: Get brochure with Polish diacritics
    Then 'Title' should be string equal to 'Jelcz M11 - nowość'
 
 Scenario: Get complete brochure
-    Given In-memory query processor
-    And RDF data:
+    Given RDF data:
         """
         @base <http://wikibus.org/>.
         @prefix wbo: <http://wikibus.org/ontology#>.
@@ -67,8 +64,7 @@ Scenario: Get complete brochure
      And 'Description' should be string equal to 'Some description about brochure'
 
 Scenario: Get brochure without data
-    Given In-memory query processor
-    And RDF data:
+    Given RDF data:
         """
         @base <http://wikibus.org/>.
         @prefix wbo: <http://wikibus.org/ontology#>.
@@ -94,8 +90,7 @@ Scenario: Get brochure without data
      And 'Description' should be null
 
 Scenario: Get complete book
-    Given In-memory query processor
-    And RDF data:
+    Given RDF data:
         """
         @base <http://wikibus.org/>.
         @prefix wbo: <http://wikibus.org/ontology#>.
@@ -117,8 +112,7 @@ Scenario: Get complete book
      And 'ISBN' should be string equal to '3879434247'
 
 Scenario: Get book without author
-    Given In-memory query processor
-    And RDF data:
+    Given RDF data:
         """
         @base <http://wikibus.org/>.
         @prefix wbo: <http://wikibus.org/ontology#>.
