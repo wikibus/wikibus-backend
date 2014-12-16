@@ -41,7 +41,7 @@ namespace wikibus.sources
                 return new Language(GetLangName((string)reader.Value));
             }
 
-            throw new InvalidOperationException(string.Format("Cannot deserialize value {0} as CultureInfo", reader.Value));
+            throw new InvalidOperationException(string.Format("Cannot deserialize value {0} as Language", reader.Value));
         }
 
         /// <summary>
