@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Globalization;
+using System.Linq;
 using NullGuard;
 
 namespace wikibus.sources
@@ -21,14 +21,14 @@ namespace wikibus.sources
         /// </summary>
         public Language[] Languages
         {
-            [return: AllowNull] get { return _languages; }
+            [return: AllowNull] get { return _languages.Any() ? _languages : null; }
             set { _languages = value; }
         }
 
         /// <summary>
         /// Gets or sets the pages count.
         /// </summary>
-        public int Pages { [return: AllowNull] get; set; }
+        public int? Pages { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication date date.
