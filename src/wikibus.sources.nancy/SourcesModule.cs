@@ -22,13 +22,25 @@ namespace wikibus.sources.nancy
 
             Get["brochure/{id}"] = GetResource<Brochure>;
             Get["book/{id}"] = GetResource<Book>;
-            Get["books"] = request => _repository.GetAll<Book>(Request.Query.page.Value ?? 1);
-            Get["brochures"] = request => _repository.GetAll<Brochure>(Request.Query.page.Value ?? 1);
+            Get["books"] = GetPagedCollection<Book>;
+            Get["brochures"] = GetPagedCollection<Brochure>;
         }
 
         private dynamic GetResource<T>(dynamic route) where T : Source
         {
             return _repository.Get<T>(new Uri("http://wikibus.org" + Request.Path));
+        }
+
+        private dynamic GetPagedCollection<T>(dynamic route) where T : Source
+        {
+            int page;
+
+            if (!int.TryParse(Request.Query.page.Value, out page))
+            {
+                page = 1;
+            }
+
+            return _repository.GetAll<T>(page);
         }
     }
 }

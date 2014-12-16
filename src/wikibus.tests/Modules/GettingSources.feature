@@ -26,6 +26,9 @@ Scenario: GET books collection first page
 Scenario: GET books collection Nth page
    Given Accept header is 'text/turtle'
      And exisiting book collection
-    When I GET resource '/books?page=25'
+	 And query string is
+		| key  | value |
+		| page | 25    |
+    When I GET resource '/books'
     Then response should have status 200
      And page 25 of book collection should have been retrieved

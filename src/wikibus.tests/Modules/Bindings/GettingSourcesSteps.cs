@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using FakeItEasy;
 using FluentAssertions;
 using Nancy;
@@ -15,6 +17,7 @@ namespace wikibus.tests.Modules.Bindings
     public class NancyTestingSteps
     {
         private readonly NancyDependencies _dep;
+        private readonly IList<KeyValuePair<string, string>> _queryString = new List<KeyValuePair<string, string>>();
         private string _mimeType = RdfSerialization.Turtle.MediaType;
 
         public NancyTestingSteps(NancyDependencies dep)
@@ -52,10 +55,19 @@ namespace wikibus.tests.Modules.Bindings
             A.CallTo(() => _dep.Sources.Get<Book>(new Uri(resourceUri))).Returns(new Book());
         }
 
+        [Given(@"query string is")]
+        public void GivenQueryStringIs(Table queryString)
+        {
+            foreach (var query in queryString.Rows)
+            {
+                _queryString.Add(new KeyValuePair<string, string>(query.Values.ElementAt(0), query.Values.ElementAt(1)));
+            }
+        }
+
         [When(@"I GET resource '(.*)'")]
         public void WhenGETResourceWithAccept(string path)
         {
-            var response = _dep.Browser.Get(path, context => context.Accept(new MediaRange(_mimeType)));
+            var response = _dep.Browser.Get(path, SetupRequest);
             ScenarioContext.Current.Set(response);
         }
 
@@ -82,6 +94,19 @@ namespace wikibus.tests.Modules.Bindings
         public void ThenBookShouldHaveBeenRetrieved(string resourceUri)
         {
             A.CallTo(() => _dep.Sources.Get<Book>(new Uri(resourceUri))).MustHaveHappened();
+        }
+
+        private void SetupRequest(BrowserContext context)
+        {
+            if (!string.IsNullOrWhiteSpace(_mimeType))
+            {
+                context.Accept(new MediaRange(_mimeType));
+            }
+
+            foreach (var query in _queryString)
+            {
+                context.Query(query.Key, query.Value);
+            }
         }
     }
 }
