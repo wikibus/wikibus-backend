@@ -21,7 +21,7 @@ namespace wikibus.sources
         /// </summary>
         public Language[] Languages
         {
-            [return: AllowNull] get { return _languages.Any() ? _languages : null; }
+            get { return _languages; }
             set { _languages = value; }
         }
 
