@@ -1,8 +1,6 @@
 ﻿using System;
 using FakeItEasy;
 using FluentAssertions;
-using ImpromptuInterface;
-using ImpromptuInterface.InvokeExt;
 using Nancy;
 using Nancy.RDF.Responses;
 using Nancy.Responses.Negotiation;
@@ -57,7 +55,7 @@ namespace wikibus.tests.Modules.Bindings
         [Then(@"page (.*) of (.*) collection should have been retrieved")]
         public void ThenPageOfBookCollectionShouldHaveBeenRetrieved(int pageSize, string type)
         {
-            A.CallTo(() => Impromptu.InvokeMember(_dep.Sources, "GetAll".WithGenericArgs(GetType(type)), pageSize, 10)).MustHaveHappened();
+            A.CallTo(() => _dep.Sources.GetAll<Book>(pageSize, 10)).MustHaveHappened();
         }
 
         [Then(@"response should have status (.*)")]
@@ -73,22 +71,10 @@ namespace wikibus.tests.Modules.Bindings
             A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).MustHaveHappened();
         }
 
-        [Then(@"(.*) '(.*)' should have been retrieved")]
+        [Then(@"book '(.*)' should have been retrieved")]
         public void ThenBookShouldHaveBeenRetrieved(string type, string resourceUri)
         {
-            Uri uri = new Uri(resourceUri);
-            A.CallTo(() => Impromptu.InvokeMember(_dep.Sources, "Get".WithGenericArgs(GetType(type)), uri)).MustHaveHappened();
-        }
-
-        private Type GetType(string typeName)
-        {
-            switch (typeName.ToLower())
-            {
-                case "book":
-                    return typeof(Book);
-                default:
-                    throw new ArgumentException(string.Format("Unrecognized type {0}", typeName), typeName);
-            }
+            A.CallTo(() => _dep.Sources.Get<Book>(new Uri(resourceUri))).MustHaveHappened();
         }
     }
 }

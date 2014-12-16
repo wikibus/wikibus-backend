@@ -1,5 +1,7 @@
 using System;
+using JsonLD.Entities;
 using Newtonsoft.Json;
+using NullGuard;
 
 namespace wikibus.sources.Hydra
 {
@@ -7,6 +9,8 @@ namespace wikibus.sources.Hydra
     /// Hydra paged collection
     /// </summary>
     /// <typeparam name="T">collection element type</typeparam>
+    [Class("http://www.w3.org/ns/hydra/core#PagedCollection")]
+    [NullGuard(ValidationFlags.ReturnValues)]
     public class PagedCollection<T>
     {
         /// <summary>

@@ -17,12 +17,12 @@ namespace wikibus.sources
         {
             contextProvider.SetContext(typeof(Brochure), JObject.Parse(Resource.AsString("Contexts.Brochure.json")));
             contextProvider.SetContext(typeof(Book), JObject.Parse(Resource.AsString("Contexts.Brochure.json")));
-            ////contextProvider.SetContext(
-            ////    typeof(PagedCollection<Book>),
-            ////    new JArray(
-            ////        JToken.Parse("http://www.w3.org/ns/hydra/context.jsonld"),
-            ////        contextProvider.GetContext(typeof(Book))
-            ////        ));
+            contextProvider.SetContext(
+                typeof(PagedCollection<Book>),
+                new JArray(
+                    "http://www.w3.org/ns/hydra/context.jsonld",
+                    contextProvider.GetContext(typeof(Book)),
+                    JObject.Parse(Resource.AsString("Contexts.PagedCollection.json"))));
         }
 
         /// <summary>
@@ -31,6 +31,9 @@ namespace wikibus.sources
         public static void SetupSourcesFrames(this StaticFrameProvider frameProvider)
         {
             frameProvider.SetFrame(typeof(Book), JObject.Parse("{ '@type': 'http://wikibus.org/ontology#Book' }"));
+            frameProvider.SetFrame(
+                typeof(PagedCollection<Book>),
+                JObject.Parse("{ '@type': 'http://www.w3.org/ns/hydra/core#PagedCollection' }"));
         }
     }
 }
