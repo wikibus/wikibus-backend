@@ -22,8 +22,8 @@ namespace wikibus.sources.nancy
 
             Get["brochure/{id}"] = GetResource<Brochure>;
             Get["book/{id}"] = GetResource<Book>;
-            Get["books"] = request => _repository.GetAll<Book>(Request.Query.page);
-            Get["brochures"] = request => _repository.GetAll<Brochure>(Request.Query.page);
+            Get["books"] = request => _repository.GetAll<Book>(Request.Query.page.Value ?? 1);
+            Get["brochures"] = request => _repository.GetAll<Brochure>(Request.Query.page.Value ?? 1);
         }
 
         private dynamic GetResource<T>(dynamic route) where T : Source

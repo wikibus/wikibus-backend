@@ -18,12 +18,14 @@ Scenario: GET inexistent brochure
 
 Scenario: GET books collection first page
    Given Accept header is 'text/turtle'
+     And exisiting book collection
     When I GET resource '/books'
     Then response should have status 200
      And page 1 of book collection should have been retrieved
 
 Scenario: GET books collection Nth page
    Given Accept header is 'text/turtle'
+     And exisiting book collection
     When I GET resource '/books?page=25'
     Then response should have status 200
      And page 25 of book collection should have been retrieved

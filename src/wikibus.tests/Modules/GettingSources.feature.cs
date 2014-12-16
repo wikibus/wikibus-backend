@@ -114,10 +114,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
    testRunner.Given("Accept header is \'text/turtle\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 21
-    testRunner.When("I GET resource \'/books\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.And("exisiting book collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
-    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.When("I GET resource \'/books\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
+    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 24
      testRunner.And("page 1 of book collection should have been retrieved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -128,15 +130,17 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GETBooksCollectionNthPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET books collection Nth page", ((string[])(null)));
-#line 25
-this.ScenarioSetup(scenarioInfo);
 #line 26
-   testRunner.Given("Accept header is \'text/turtle\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 27
-    testRunner.When("I GET resource \'/books?page=25\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.Given("Accept header is \'text/turtle\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 28
-    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.And("exisiting book collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
+    testRunner.When("I GET resource \'/books?page=25\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 30
+    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
      testRunner.And("page 25 of book collection should have been retrieved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

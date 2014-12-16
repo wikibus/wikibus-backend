@@ -7,6 +7,7 @@ using Nancy.Responses.Negotiation;
 using Nancy.Testing;
 using TechTalk.SpecFlow;
 using wikibus.sources;
+using wikibus.sources.Hydra;
 
 namespace wikibus.tests.Modules.Bindings
 {
@@ -39,6 +40,12 @@ namespace wikibus.tests.Modules.Bindings
             A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).Returns(new Brochure());
         }
 
+        [Given(@"exisiting book collection")]
+        public void GivenExisitingBookCollection()
+        {
+            A.CallTo(() => _dep.Sources.GetAll<Book>(A<int>.Ignored, A<int>.Ignored)).Returns(new PagedCollection<Book>());
+        }
+
         [Given(@"existing book '(.*)'")]
         public void GivenExistingBook(string resourceUri)
         {
@@ -52,8 +59,8 @@ namespace wikibus.tests.Modules.Bindings
             ScenarioContext.Current.Set(response);
         }
 
-        [Then(@"page (.*) of (.*) collection should have been retrieved")]
-        public void ThenPageOfBookCollectionShouldHaveBeenRetrieved(int pageSize, string type)
+        [Then(@"page (.*) of book collection should have been retrieved")]
+        public void ThenPageOfBookCollectionShouldHaveBeenRetrieved(int pageSize)
         {
             A.CallTo(() => _dep.Sources.GetAll<Book>(pageSize, 10)).MustHaveHappened();
         }
@@ -72,7 +79,7 @@ namespace wikibus.tests.Modules.Bindings
         }
 
         [Then(@"book '(.*)' should have been retrieved")]
-        public void ThenBookShouldHaveBeenRetrieved(string type, string resourceUri)
+        public void ThenBookShouldHaveBeenRetrieved(string resourceUri)
         {
             A.CallTo(() => _dep.Sources.Get<Book>(new Uri(resourceUri))).MustHaveHappened();
         }
