@@ -71,9 +71,7 @@ namespace wikibus.sources.dotNetRDF
             _magazineMap = rml.CreateTriplesMapFromR2RMLView("select * from [Sources].[Magazine]");
             _magazineMap.SubjectMap.IsTemplateValued("http://wikibus.org/magazine/{Name}");
 
-            var typeMap = _magazineMap.CreatePropertyObjectMap();
-            typeMap.CreatePredicateMap().IsConstantValued(new Uri(RdfSpecsHelper.RdfType));
-            typeMap.CreateObjectMap().IsConstantValued(new Uri("http://schema.org/Periodical"));
+            _magazineMap.MapConstant(new Uri("http://schema.org/Periodical"), new Uri(RdfSpecsHelper.RdfType));
 
             MapMagazineTitle(_magazineMap);
         }
@@ -91,13 +89,11 @@ namespace wikibus.sources.dotNetRDF
             MapIssueParent(magIssueMap);
             MapPagesCount(magIssueMap);
 
-            var typeMap = magIssueMap.CreatePropertyObjectMap();
-            typeMap.CreatePredicateMap().IsConstantValued(new Uri(RdfSpecsHelper.RdfType));
-            typeMap.CreateObjectMap().IsConstantValued(new Uri("http://schema.org/PublicationIssue"));
-
-            var numberMap = magIssueMap.CreatePropertyObjectMap();
-            numberMap.CreatePredicateMap().IsConstantValued(new Uri("http://schema.org/issueNumber"));
-            numberMap.CreateObjectMap().IsColumnValued("MagIssueNumber").HasDataType(XmlSpecsHelper.XmlSchemaDataTypeString);
+            magIssueMap.MapConstant(new Uri("http://schema.org/PublicationIssue"), new Uri(RdfSpecsHelper.RdfType))
+                       .MapColumn(
+                            "MagIssueNumber",
+                            new Uri("http://schema.org/issueNumber"),
+                            new Uri(XmlSpecsHelper.XmlSchemaDataTypeString));
         }
 
         private void MapIssueParent(ITriplesMapFromR2RMLViewConfiguration sourceMap)
@@ -125,27 +121,20 @@ namespace wikibus.sources.dotNetRDF
 
         private void MapImage(ITriplesMapFromR2RMLViewConfiguration sourceMap, string template)
         {
-            var imageMap = sourceMap.CreatePropertyObjectMap();
-            imageMap.CreatePredicateMap().IsConstantValued(new Uri("http://schema.org/image"));
-            imageMap.CreateObjectMap().IsTemplateValued(template + "/{HasImage}");
+            sourceMap.MapTemplate(template + "/{HasImage}", new Uri("http://schema.org/image"));
         }
 
         private void MapBookISBN(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            var isbnMap = sourceMap.CreatePropertyObjectMap();
-            isbnMap.CreatePredicateMap().IsConstantValued(new Uri("http://schema.org/isbn"));
-            isbnMap.CreateObjectMap().IsColumnValued("BookISBN");
+            sourceMap.MapColumn("BookISBN", new Uri("http://schema.org/isbn"));
         }
 
         private void MapBookAuthor(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
             var authorTriplesMap = sourceMap.R2RMLConfiguration.CreateTriplesMapFromR2RMLView(SelectBookAuthorSql);
-            authorTriplesMap.SubjectMap.TermType.IsBlankNode()
-                .IsTemplateValued("author_{Id}");
+            authorTriplesMap.SubjectMap.TermType.IsBlankNode().IsTemplateValued("author_{Id}");
 
-            var authorName = authorTriplesMap.CreatePropertyObjectMap();
-            authorName.CreatePredicateMap().IsConstantValued(new Uri("http://schema.org/name"));
-            authorName.CreateObjectMap().IsColumnValued("BookAuthor");
+            authorTriplesMap.MapColumn("BookAuthor", new Uri("http://schema.org/name"));
 
             var authorMap = sourceMap.CreatePropertyObjectMap();
             authorMap.CreatePredicateMap().IsConstantValued(new Uri("http://schema.org/author"));
@@ -154,69 +143,52 @@ namespace wikibus.sources.dotNetRDF
 
         private void MapPagesCount(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            var pagesMap = sourceMap.CreatePropertyObjectMap();
-            pagesMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/ontology/bibo/pages"));
-            pagesMap.CreateObjectMap().IsColumnValued("Pages")
-                .HasDataType(new Uri(XmlSpecsHelper.XmlSchemaDataTypeInteger));
+            sourceMap.MapColumn("Pages", new Uri("http://purl.org/ontology/bibo/pages"), new Uri(XmlSpecsHelper.XmlSchemaDataTypeInteger));
         }
 
         private void MapFolderCode(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            var codeMap = sourceMap.CreatePropertyObjectMap();
-            codeMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/identifier"));
-            codeMap.CreateObjectMap().IsColumnValued("FolderCode");
+            sourceMap.MapColumn("FolderCode", new Uri("http://purl.org/dc/terms/identifier"));
         }
 
         private void MapDate(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            var yearMap = sourceMap.CreatePropertyObjectMap();
-            yearMap.CreatePredicateMap().IsConstantValued(new Uri("http://lsdis.cs.uga.edu/projects/semdis/opus#year"));
-            yearMap.CreateObjectMap().IsColumnValued("Year")
-                .HasDataType(new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gYear"));
-
-            var monthMap = sourceMap.CreatePropertyObjectMap();
-            monthMap.CreatePredicateMap().IsConstantValued(new Uri("http://lsdis.cs.uga.edu/projects/semdis/opus#month"));
-            monthMap.CreateObjectMap().IsColumnValued("Month")
-                .HasDataType(new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gMonth"));
-
-            var dateMap = sourceMap.CreatePropertyObjectMap();
-            dateMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/date"));
-            ((ILiteralTermMapConfiguration)dateMap.CreateObjectMap().IsTemplateValued("{Year}-{Month}-{Day}")
-                .IsLiteral())
-                .HasDataType(new Uri(XmlSpecsHelper.XmlSchemaDataTypeDate));
+            sourceMap
+                .MapColumn(
+                    "Year",
+                    new Uri("http://lsdis.cs.uga.edu/projects/semdis/opus#year"),
+                    new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gYear"))
+                .MapColumn(
+                    "month",
+                    new Uri("http://lsdis.cs.uga.edu/projects/semdis/opus#month"),
+                    new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gMonth"))
+                .MapTemplate(
+                    "{Year}-{Month}-{Day}",
+                    new Uri("http://purl.org/dc/terms/date"),
+                    new Uri(XmlSpecsHelper.XmlSchemaDataTypeDate));
         }
 
         private void MapLanguages(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            var langMap = sourceMap.CreatePropertyObjectMap();
-            langMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/language"));
-            langMap.CreateObjectMap().IsTemplateValued("http://www.lexvo.org/page/iso639-1/{Language}");
-
-            var lang1Map = sourceMap.CreatePropertyObjectMap();
-            lang1Map.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/language"));
-            lang1Map.CreateObjectMap().IsTemplateValued("http://www.lexvo.org/page/iso639-1/{Language2}");
+            sourceMap
+                .MapTemplate("http://www.lexvo.org/page/iso639-1/{Language}", new Uri("http://purl.org/dc/terms/language"))
+                .MapTemplate("http://www.lexvo.org/page/iso639-1/{Language2}", new Uri("http://purl.org/dc/terms/language"));
         }
 
         private void MapType(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            var typeMap = sourceMap.CreatePropertyObjectMap();
-            typeMap.CreatePredicateMap().IsConstantValued(new Uri(RdfSpecsHelper.RdfType));
-            typeMap.CreateObjectMap().IsTemplateValued("http://wikibus.org/ontology#{Type}");
+            sourceMap.MapTemplate("http://wikibus.org/ontology#{Type}", new Uri(RdfSpecsHelper.RdfType));
         }
 
         private void MapFolderName(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            var titleMap = sourceMap.CreatePropertyObjectMap();
-            titleMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/title"));
-            titleMap.CreateObjectMap().IsColumnValued("FolderName");
-            titleMap.CreateObjectMap().IsColumnValued("BookTitle");
+            sourceMap.MapColumn("FolderName", new Uri("http://purl.org/dc/terms/title"));
+            sourceMap.MapColumn("BookTitle", new Uri("http://purl.org/dc/terms/title"));
         }
 
         private void MapMagazineTitle(ITriplesMapConfiguration sourceMap)
         {
-            var titleMap = sourceMap.CreatePropertyObjectMap();
-            titleMap.CreatePredicateMap().IsConstantValued(new Uri("http://purl.org/dc/terms/title"));
-            titleMap.CreateObjectMap().IsColumnValued("Name");
+            sourceMap.MapColumn("Name", new Uri("http://purl.org/dc/terms/title"));
         }
     }
 }
