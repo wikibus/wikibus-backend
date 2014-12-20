@@ -78,40 +78,14 @@ this.ScenarioSetup(scenarioInfo);
                         "Language",
                         "Language2",
                         "Pages",
-                        "Year",
-                        "Month",
-                        "Day",
-                        "Notes",
-                        "FolderCode",
-                        "FolderName",
-                        "BookTitle",
-                        "BookAuthor",
-                        "BookISBN",
-                        "MagIssueMagazine",
-                        "MagIssueNumber",
-                        "FileMimeType",
-                        "Url",
-                        "FileName"});
+                        "FolderName"});
             table1.AddRow(new string[] {
                         "1",
                         "folder",
                         "tr",
                         "en",
                         "2",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "Türkkar City Angel E.D.",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL"});
+                        "Türkkar City Angel E.D."});
 #line 5
    testRunner.Given("table Sources.Source with data:", ((string)(null)), table1, "Given ");
 #line 8
@@ -155,17 +129,8 @@ this.ScenarioSetup(scenarioInfo);
                         "Year",
                         "Month",
                         "Day",
-                        "Notes",
                         "FolderCode",
-                        "FolderName",
-                        "BookTitle",
-                        "BookAuthor",
-                        "BookISBN",
-                        "MagIssueMagazine",
-                        "MagIssueNumber",
-                        "FileMimeType",
-                        "Url",
-                        "FileName"});
+                        "FolderName"});
             table2.AddRow(new string[] {
                         "6",
                         "folder",
@@ -175,17 +140,8 @@ this.ScenarioSetup(scenarioInfo);
                         "2006",
                         "9",
                         "21",
-                        "NULL",
                         "BED 81419 2006-09-21 POL Version 2",
-                        "Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL"});
+                        "Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance"});
 #line 29
    testRunner.Given("table Sources.Source with data:", ((string)(null)), table2, "Given ");
 #line 32
@@ -233,19 +189,8 @@ this.ScenarioSetup(scenarioInfo);
                         "Language2",
                         "Pages",
                         "Year",
-                        "Month",
-                        "Day",
-                        "Notes",
                         "FolderCode",
-                        "FolderName",
-                        "BookTitle",
-                        "BookAuthor",
-                        "BookISBN",
-                        "MagIssueMagazine",
-                        "MagIssueNumber",
-                        "FileMimeType",
-                        "Url",
-                        "FileName"});
+                        "FolderName"});
             table3.AddRow(new string[] {
                         "6",
                         "folder",
@@ -253,19 +198,8 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "2",
                         "2006",
-                        "NULL",
-                        "NULL",
-                        "NULL",
                         "BED 81419 2006-09-21 POL Version 2",
-                        "Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL"});
+                        "Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance"});
 #line 59
    testRunner.Given("table Sources.Source with data:", ((string)(null)), table3, "Given ");
 #line 62
@@ -295,19 +229,9 @@ this.ScenarioSetup(scenarioInfo);
                         "Language2",
                         "Pages",
                         "Year",
-                        "Month",
-                        "Day",
-                        "Notes",
-                        "FolderCode",
-                        "FolderName",
                         "BookTitle",
                         "BookAuthor",
-                        "BookISBN",
-                        "MagIssueMagazine",
-                        "MagIssueNumber",
-                        "FileMimeType",
-                        "Url",
-                        "FileName"});
+                        "BookISBN"});
             table4.AddRow(new string[] {
                         "407",
                         "book",
@@ -315,19 +239,9 @@ this.ScenarioSetup(scenarioInfo);
                         "NULL",
                         "140",
                         "2010",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
                         "Pojazdy samochodowe i przyczepy Jelcz 1952-1970",
                         "Wojciech Polomski",
-                        "9788320617412",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL"});
+                        "9788320617412"});
 #line 76
    testRunner.Given("table Sources.Source with data:", ((string)(null)), table4, "Given ");
 #line 79
@@ -360,10 +274,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Mapping complete magazine issue row")]
-        public virtual void MappingCompleteMagazineIssueRow()
+        [NUnit.Framework.DescriptionAttribute("Mapping complete magazine issue")]
+        public virtual void MappingCompleteMagazineIssue()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping complete magazine issue row", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping complete magazine issue", ((string[])(null)));
 #line 104
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -371,48 +285,61 @@ this.ScenarioSetup(scenarioInfo);
                         "Id",
                         "SourceType",
                         "Language",
-                        "Language2",
                         "Pages",
                         "Year",
                         "Month",
-                        "Day",
-                        "Notes",
-                        "FolderCode",
-                        "FolderName",
-                        "BookTitle",
-                        "BookAuthor",
-                        "BookISBN",
                         "MagIssueMagazine",
                         "MagIssueNumber",
-                        "FileMimeType",
-                        "Url",
-                        "FileName"});
+                        "Image"});
             table5.AddRow(new string[] {
                         "324",
                         "magissue",
                         "pl",
-                        "NULL",
                         "16",
                         "2007",
                         "3",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        "NULL",
                         "1",
                         "13",
-                        "NULL",
-                        "NULL",
-                        "NULL",
-                        ""});
+                        "3qAAAA=="});
 #line 105
    testRunner.Given("table Sources.Source with data:", ((string)(null)), table5, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Name"});
+            table6.AddRow(new string[] {
+                        "1",
+                        "Bus Kurier"});
 #line 108
+     testRunner.And("table Sources.Magazine with data:", ((string)(null)), table6, "And ");
+#line 111
     testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 109
-    testRunner.Then("resulting dataset should contain \'6\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 112
+    testRunner.Then("resulting dataset should contain \'10\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 113
+     testRunner.And("resulting dataset should match query:", @" base <http://wikibus.org/>
+ prefix wbo: <http://wikibus.org/ontology#>
+ prefix bibo: <http://purl.org/ontology/bibo/>
+ prefix dcterms: <http://purl.org/dc/terms/>
+ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+ prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+ prefix langIso: <http://www.lexvo.org/page/iso639-1/>
+ prefix sch: <http://schema.org/>
+
+ ASK
+ {
+    <magazine/Bus Kurier/issue/13> a sch:PublicationIssue ;
+       sch:image <magazine/BusKurier/issue/13/image> ;
+       sch:issueNumber ""13""
+       sch:isPartOf <magazine/BusKurier> ;
+       bibo:pages 16 ;
+       opus:year ""2007""^^xsd:gYear ;
+       dcterms:language langIso:pl .
+
+    <magazine/BusKurier> a sch:Periodical ;
+       dcterms:title ""Bus Kurier"" .
+ }", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

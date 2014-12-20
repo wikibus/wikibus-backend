@@ -3,8 +3,8 @@
 
 Scenario: Mapping brochure row
    Given table Sources.Source with data:
-      | Id | SourceType | Language | Language2 | Pages | Year | Month | Day  | Notes | FolderCode | FolderName              | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
-      | 1  | folder     | tr       | en        | 2     | NULL | NULL  | NULL | NULL  | NULL       | Türkkar City Angel E.D. | NULL      | NULL       | NULL     | NULL             | NULL           | NULL         | NULL | NULL     |
+      | Id | SourceType | Language | Language2 | Pages | FolderName              |
+      | 1  | folder     | tr       | en        | 2     | Türkkar City Angel E.D. |
    When retrieve all triples
    Then resulting dataset should contain '5' triples
    And resulting dataset should match query:
@@ -27,8 +27,8 @@ Scenario: Mapping brochure row
 
 Scenario: Mapping brochure row with date
    Given table Sources.Source with data:
-      | Id | SourceType | Language | Language2 | Pages | Year | Month | Day | Notes | FolderCode                         | FolderName                                                | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
-      | 6  | folder     | pl       | NULL      | 2     | 2006 | 9     | 21  | NULL  | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance | NULL      | NULL       | NULL     | NULL             | NULL           | NULL         | NULL | NULL     |
+      | Id | SourceType | Language | Language2 | Pages | Year | Month | Day | FolderCode                         | FolderName                                                |
+      | 6  | folder     | pl       | NULL      | 2     | 2006 | 9     | 21  | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance |
    When retrieve all triples
    Then resulting dataset should contain '8' triples
    And resulting dataset should match query:
@@ -57,8 +57,8 @@ Scenario: Mapping brochure row with date
 
 Scenario: Mapping brochure row with incomplete date
    Given table Sources.Source with data:
-      | Id | SourceType | Language | Language2 | Pages | Year | Month | Day  | Notes | FolderCode                         | FolderName                                                | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
-      | 6  | folder     | pl       | NULL      | 2     | 2006 | NULL  | NULL | NULL  | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance | NULL      | NULL       | NULL     | NULL             | NULL           | NULL         | NULL | NULL     |
+      | Id | SourceType | Language | Language2 | Pages | Year | FolderCode                         | FolderName                                                |
+      | 6  | folder     | pl       | NULL      | 2     | 2006 | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance |
    When retrieve all triples
    Then resulting dataset should contain '6' triples
    And resulting dataset should not match query:
@@ -74,8 +74,8 @@ Scenario: Mapping brochure row with incomplete date
 
 Scenario: Mapping complete book row
    Given table Sources.Source with data:
-         | Id  | SourceType | Language | Language2 | Pages | Year | Month | Day  | Notes | FolderCode | FolderName | BookTitle                                       | BookAuthor        | BookISBN      | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
-         | 407 | book       | pl       | NULL      | 140   | 2010 | NULL  | NULL | NULL  | NULL       | NULL       | Pojazdy samochodowe i przyczepy Jelcz 1952-1970 | Wojciech Polomski | 9788320617412 | NULL             | NULL           | NULL         | NULL | NULL     |
+         | Id  | SourceType | Language | Language2 | Pages | Year | BookTitle                                       | BookAuthor        | BookISBN      | 
+         | 407 | book       | pl       | NULL      | 140   | 2010 | Pojazdy samochodowe i przyczepy Jelcz 1952-1970 | Wojciech Polomski | 9788320617412 |
     When retrieve all triples
     Then resulting dataset should contain '8' triples
      And resulting dataset should match query:
@@ -101,9 +101,37 @@ Scenario: Mapping complete book row
           }
          """
 
-Scenario: Mapping complete magazine issue row
+Scenario: Mapping complete magazine issue
    Given table Sources.Source with data:
-         | Id  | SourceType | Language | Language2 | Pages | Year | Month | Day  | Notes | FolderCode | FolderName | BookTitle | BookAuthor | BookISBN | MagIssueMagazine | MagIssueNumber | FileMimeType | Url  | FileName |
-         | 324 | magissue   | pl       | NULL      | 16    | 2007 | 3     | NULL | NULL  | NULL       | NULL       | NULL      | NULL       | 1        | 13               | NULL           | NULL         | NULL |          |
+         | Id  | SourceType | Language | Pages | Year | Month | MagIssueMagazine | MagIssueNumber | Image    |
+         | 324 | magissue   | pl       | 16    | 2007 | 3     | 1                | 13             | 3qAAAA== |
+     And table Sources.Magazine with data:
+         | Id | Name      |
+         | 1  | Bus Kurier |
     When retrieve all triples
-    Then resulting dataset should contain '6' triples
+    Then resulting dataset should contain '10' triples
+     And resulting dataset should match query:
+         """
+          base <http://wikibus.org/>
+          prefix wbo: <http://wikibus.org/ontology#>
+          prefix bibo: <http://purl.org/ontology/bibo/>
+          prefix dcterms: <http://purl.org/dc/terms/>
+          prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+          prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+          prefix langIso: <http://www.lexvo.org/page/iso639-1/>
+          prefix sch: <http://schema.org/>
+
+          ASK
+          {
+             <magazine/Bus Kurier/issue/13> a sch:PublicationIssue ;
+                sch:image <magazine/BusKurier/issue/13/image> ;
+                sch:issueNumber "13"
+                sch:isPartOf <magazine/BusKurier> ;
+                bibo:pages 16 ;
+                opus:year "2007"^^xsd:gYear ;
+                dcterms:language langIso:pl .
+
+             <magazine/BusKurier> a sch:Periodical ;
+                dcterms:title "Bus Kurier" .
+          }
+         """
