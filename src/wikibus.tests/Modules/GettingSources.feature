@@ -32,3 +32,17 @@ Scenario: GET books collection Nth page
     When I GET resource '/books'
     Then response should have status 200
      And page 25 of book collection should have been retrieved
+
+
+Scenario Outline: GET large image
+   Given Accept header is '*/*'
+     And exisiting book collection
+    When I GET resource '<url>'
+    Then response should have status 200
+     And content type should be 'image/jpeg'
+     And image <id> should have been retrieved
+Examples: 
+     | url                                  | id |
+     | /book/10/image/large                 | 10 |
+     | /brochure/15/image/large             | 15 |
+     | /magazine/Buses/issue/66/image/large | 66 |

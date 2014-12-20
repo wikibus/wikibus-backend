@@ -71,6 +71,18 @@ namespace wikibus.tests.Modules.Bindings
             ScenarioContext.Current.Set(response);
         }
 
+        [Then(@"content type should be '(.*)'")]
+        public void ThenContentTypeShouldBe(string contentType)
+        {
+            ScenarioContext.Current.Get<BrowserResponse>().ContentType.Should().Be(contentType);
+        }
+
+        [Then(@"image (.*) should have been retrieved")]
+        public void ThenImageShouldHaveBeenRetrieved(int id)
+        {
+            A.CallTo(() => _dep.SourceImages.GetImageBytes(id)).MustHaveHappened();
+        }
+
         [Then(@"page (.*) of book collection should have been retrieved")]
         public void ThenPageOfBookCollectionShouldHaveBeenRetrieved(int pageSize)
         {
