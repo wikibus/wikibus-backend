@@ -107,7 +107,8 @@ namespace wikibus.sources.dotNetRDF
         private void MapBooksAndBrochures(FluentR2RML rml)
         {
             var sourceMap = rml.CreateTriplesMapFromR2RMLView(SelectBrochureAndBook);
-            sourceMap.SubjectMap.IsTemplateValued("http://wikibus.org/{TypeLower}/{Id}");
+            const string template = "http://wikibus.org/{TypeLower}/{Id}";
+            sourceMap.SubjectMap.IsTemplateValued(template);
 
             MapFolderName(sourceMap);
             MapType(sourceMap);
@@ -117,6 +118,7 @@ namespace wikibus.sources.dotNetRDF
             MapDate(sourceMap);
             MapBookAuthor(sourceMap);
             MapBookISBN(sourceMap);
+            MapImage(sourceMap, template);
         }
 
         private void MapImage(ITriplesMapFromR2RMLViewConfiguration sourceMap, string template)

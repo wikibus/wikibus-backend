@@ -1,6 +1,6 @@
 ﻿Feature: Mapping Brochures from SQL to RDF
    Make sure that correct RDF is returned for SQL rows
-
+   
 Scenario: Mapping brochure row
    Given table Sources.Source with data:
       | Id | SourceType | Language | Language2 | Pages | FolderName              |
@@ -22,6 +22,28 @@ Scenario: Mapping brochure row
             dcterms:title "Türkkar City Angel E.D." ;
             dcterms:language <http://www.lexvo.org/page/iso639-1/tr>, 
                              <http://www.lexvo.org/page/iso639-1/en> .
+      }
+      """
+
+Scenario: Mapping brochure and book with image
+   Given table Sources.Source with data:
+      | Id  | SourceType | Image    |
+      | 1   | folder     | 3qAAAA== |
+      | 407 | book       | 3qAAAA== |
+   When retrieve all triples
+   Then resulting dataset should contain '4' triples
+   And resulting dataset should match query:
+      """
+      base <http://wikibus.org/>
+      prefix sch: <http://schema.org/>
+
+      ASK
+      {
+         <brochure/1> 
+            sch:image <brochure/1/image> .
+            
+         <book/407> 
+            sch:image <book/407/image> .
       }
       """
 

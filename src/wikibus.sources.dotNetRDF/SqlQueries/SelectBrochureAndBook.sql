@@ -25,7 +25,7 @@
       ,[Url]
       ,[FileName]
       ,CASE 
-        WHEN [Image] is null THEN 'image'
+        WHEN [Image] is not null THEN 'image'
        END as [HasImage]
   FROM [Sources].[Source]
   WHERE [SourceType] <> 'magissue'
