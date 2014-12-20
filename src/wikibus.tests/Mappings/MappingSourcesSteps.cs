@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using NDbUnit.Core;
 using NUnit.Framework;
@@ -36,15 +37,16 @@ namespace wikibus.tests.Mappings
         [Given(@"table (.*) with data:")]
         public void GivenTableWithData(string tableName, Table table)
         {
+            var datasetFile = Path.GetTempFileName();
             DataSet ds = table.ToDataSet(tableName);
-            ds.WriteXml("TestData.xml");
-            _database.ReadXml("TestData.xml");
-            _database.PerformDbOperation(DbOperationFlag.InsertIdentity);
+            ds.WriteXml(datasetFile);
+            _database.AppendXml(datasetFile);
         }
 
         [When(@"retrieve all triples")]
         public void WhenRetrieveAllTriples()
         {
+            _database.PerformDbOperation(DbOperationFlag.Insert);
             _result = _rmlProc.GenerateTriples(new WikibusR2RML());
         }
 

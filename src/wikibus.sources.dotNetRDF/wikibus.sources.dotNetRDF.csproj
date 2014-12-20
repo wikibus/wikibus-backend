@@ -36,9 +36,10 @@
     <Content Include="FodyWeavers.xml">
       <Paket>True</Paket>
     </Content>
+    <EmbeddedResource Include="SqlQueries\SelectMagazineIssue.sql" />
     <EmbeddedResource Include="SparqlQueries\GetSource.rq" />
     <EmbeddedResource Include="SqlQueries\SelectBookAuthor.sql" />
-    <EmbeddedResource Include="SqlQueries\SelectSources.sql" />
+    <EmbeddedResource Include="SqlQueries\SelectBrochureAndBook.sql" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

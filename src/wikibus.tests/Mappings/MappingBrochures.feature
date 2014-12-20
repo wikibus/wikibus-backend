@@ -123,15 +123,16 @@ Scenario: Mapping complete magazine issue
 
           ASK
           {
-             <magazine/Bus Kurier/issue/13> a sch:PublicationIssue ;
-                sch:image <magazine/BusKurier/issue/13/image> ;
-                sch:issueNumber "13"
-                sch:isPartOf <magazine/BusKurier> ;
+             <magazine/Bus%20Kurier/issue/13> a sch:PublicationIssue ;
+                sch:image <magazine/Bus%20Kurier/issue/13/image> ;
+                sch:issueNumber "13"^^xsd:string ;
+                sch:isPartOf <magazine/Bus%20Kurier> ;
                 bibo:pages 16 ;
                 opus:year "2007"^^xsd:gYear ;
+                opus:month "3"^^xsd:gMonth ;
                 dcterms:language langIso:pl .
 
-             <magazine/BusKurier> a sch:Periodical ;
+             <magazine/Bus%20Kurier> a sch:Periodical ;
                 dcterms:title "Bus Kurier" .
           }
          """
