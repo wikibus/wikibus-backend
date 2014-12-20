@@ -35,7 +35,6 @@
   <ItemGroup>
     <Content Include="FodyWeavers.xml">
       <Paket>True</Paket>
-      <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\InitSchema.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
