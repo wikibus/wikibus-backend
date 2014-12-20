@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.purl.nancy", "wikibus.purl.nancy\wikibus.purl.nancy.csproj", "{0E27E46A-84C4-4180-8628-22C57442EE30}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.tests", "wikibus.tests\wikibus.tests.csproj", "{63F90B57-D3BD-475F-ABD9-BFA575B0125A}"
