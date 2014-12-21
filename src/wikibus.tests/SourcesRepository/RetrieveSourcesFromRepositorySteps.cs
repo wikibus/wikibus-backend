@@ -35,6 +35,12 @@ namespace wikibus.tests.SourcesRepository
             ScenarioContext.Current.Set(_context.Repository.Get<Book>(new Uri(uri)), "Model");
         }
 
+        [When(@"magazine <(.*)> is fetched")]
+        public void WhenMagazineIsFetched(string uri)
+        {
+            ScenarioContext.Current.Set(_context.Repository.Get<Magazine>(new Uri(uri)), "Model");
+        }
+
         [Then(@"'(.*)' should be string equal to '(.*)'")]
         public void PropertyShouldBeStrigWithValueEqual(string propName, string expectedValue)
         {

@@ -13,7 +13,7 @@ namespace wikibus.sources
         /// </summary>
         /// <param name="uri">The source identifier.</param>
         /// <typeparam name="T">type of source</typeparam>
-        T Get<T>(Uri uri) where T : Source;
+        T Get<T>(Uri uri) where T : class;
 
         /// <summary>
         /// Gets all resources of type <typeparamref name="T" />

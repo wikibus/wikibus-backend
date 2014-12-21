@@ -83,6 +83,11 @@
     <Compile Include="Modules\RedirectionTests.cs" />
     <Compile Include="SourcesRepository\AssertionExtensions.cs" />
     <Compile Include="SourcesRepository\RepositoryScenarioContext.cs" />
+    <Compile Include="SourcesRepository\RetrieveMagazines.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RetrieveMagazines.feature</DependentUpon>
+    </Compile>
     <Compile Include="SourcesRepository\RetrieveSources.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +119,10 @@
       <LastGenOutput>GettingSources.feature.cs</LastGenOutput>
     </None>
     <None Include="paket.references" />
+    <None Include="SourcesRepository\RetrieveMagazines.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RetrieveMagazines.feature.cs</LastGenOutput>
+    </None>
     <None Include="SourcesRepository\RetrieveSources.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RetrieveSources.feature.cs</LastGenOutput>

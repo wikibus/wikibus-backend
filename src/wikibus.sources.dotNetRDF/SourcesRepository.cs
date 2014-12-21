@@ -32,7 +32,7 @@ namespace wikibus.sources.dotNetRDF
 
         /// <inheritdoc />
         [return: AllowNull]
-        public T Get<T>(Uri uri) where T : Source
+        public T Get<T>(Uri uri) where T : class
         {
             var construct = "CONSTRUCT { @source ?p ?o. ?o ?p1 ?o1 } WHERE { @source ?p ?o . OPTIONAL { ?o ?p1 ?o1 } . @source a @type . }";
             var query = new SparqlParameterizedString(construct);
@@ -53,7 +53,7 @@ namespace wikibus.sources.dotNetRDF
         /// <inheritdoc />
         public PagedCollection<T> GetAll<T>(int page, int pageSize = 10) where T : Source
         {
-            var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSource.rq"));
+            var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSourcesPage.rq"));
             query.SetUri("type", GetTypeUri(typeof(T)));
             query.SetUri("container", GetCollectionUri(typeof(T)));
             query.SetLiteral("limit", pageSize);
@@ -74,13 +74,25 @@ namespace wikibus.sources.dotNetRDF
             return new PagedCollection<T>();
         }
 
-        private Uri GetCollectionUri(Type type)
+        private static Uri GetCollectionUri(Type type)
         {
-            string collectionName = "books";
+            string collectionName;
+            switch (type.Name)
+            {
+                case "Book":
+                    collectionName = "books";
+                    break;
+                case "brochure":
+                    collectionName = "brochures";
+                    break;
+                default:
+                    throw new ArgumentException("Unrecognized type", "type");
+            }
+
             return new Uri(string.Format("http://wikibus.org/{0}", collectionName));
         }
 
-        private Uri GetTypeUri(Type type)
+        private static Uri GetTypeUri(Type type)
         {
             return new Uri(string.Format("http://wikibus.org/ontology#{0}", type.Name));
         }

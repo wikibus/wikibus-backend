@@ -38,7 +38,7 @@
     </Content>
     <EmbeddedResource Include="SqlQueries\SelectImages.sql" />
     <EmbeddedResource Include="SqlQueries\SelectMagazineIssue.sql" />
-    <EmbeddedResource Include="SparqlQueries\GetSource.rq" />
+    <EmbeddedResource Include="SparqlQueries\GetSourcesPage.rq" />
     <EmbeddedResource Include="SqlQueries\SelectBookAuthor.sql" />
     <EmbeddedResource Include="SqlQueries\SelectBrochureAndBook.sql" />
     <Reference Include="System" />
