@@ -13,3 +13,4 @@ Scenario: Get simple brochure
       """
    When magazine <http://wikibus.org/magazine/Bus Kurier> is fetched
    Then 'Title' should be string equal to 'Bus Kurier'
+    And 'Issues' should be Uri 'http://wikibus.org/magazine/Bus%20Kurier/issues'

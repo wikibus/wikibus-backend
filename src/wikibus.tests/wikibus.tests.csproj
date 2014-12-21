@@ -70,6 +70,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MappingBrochures.feature</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\MappingMagazines.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MappingMagazines.feature</DependentUpon>
+    </Compile>
     <Compile Include="Mappings\MappingSourcesSteps.cs" />
     <Compile Include="Mappings\TableExtensions.cs" />
     <Compile Include="Modules\Bindings\GettingSourcesSteps.cs" />
@@ -114,6 +119,10 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Wikibus.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Mappings\MappingMagazines.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MappingMagazines.feature.cs</LastGenOutput>
+    </None>
     <None Include="Modules\GettingSources.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GettingSources.feature.cs</LastGenOutput>

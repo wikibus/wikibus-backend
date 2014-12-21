@@ -389,9 +389,6 @@ this.ScenarioSetup(scenarioInfo);
        opus:year ""2007""^^xsd:gYear ;
        opus:month ""3""^^xsd:gMonth ;
        dcterms:language langIso:pl .
-
-    <magazine/Bus%20Kurier> a sch:Periodical ;
-       dcterms:title ""Bus Kurier"" .
  }", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

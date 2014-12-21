@@ -26,20 +26,20 @@ namespace wikibus.tests.SourcesRepository
         public void WhenPageOfBooksIsFetched(int expectedPageIndex)
         {
             var books = _context.Repository.GetAll<Book>(expectedPageIndex, _pageSize);
-            ScenarioContext.Current.Set(books);
+            ScenarioContext.Current.Set(books, "Model");
         }
 
         [Then(@"'(.*)' should be (.*)")]
         public void ThenShouldBe(string propName, int expectedValue)
         {
-            ScenarioContext.Current.Get<PagedCollection<Book>>()
+            ScenarioContext.Current["Model"]
                 .AssertPropertyValue(propName, expectedValue);
         }
 
         [Then(@"'(.*)' should be Uri '(.*)'")]
         public void ThenShouldBeUri(string propName, string expectedUri)
         {
-            ScenarioContext.Current.Get<PagedCollection<Book>>()
+            ScenarioContext.Current["Model"]
                 .AssertPropertyValue(propName, new Uri(expectedUri));
         }
     }

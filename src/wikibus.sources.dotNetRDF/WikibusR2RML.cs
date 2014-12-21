@@ -71,8 +71,8 @@ namespace wikibus.sources.dotNetRDF
         {
             _magazineMap = rml.CreateTriplesMapFromR2RMLView("select * from [Sources].[Magazine]");
             _magazineMap.SubjectMap.IsTemplateValued("http://wikibus.org/magazine/{Name}");
-
-            _magazineMap.MapConstant(new Uri("http://schema.org/Periodical"), new Uri(RdfSpecsHelper.RdfType));
+            _magazineMap.SubjectMap.AddClass(new Uri("http://schema.org/Periodical"));
+            _magazineMap.SubjectMap.AddClass(new Uri("http://wikibus.org/ontology#Magazine"));
 
             MapMagazineTitle(_magazineMap);
         }

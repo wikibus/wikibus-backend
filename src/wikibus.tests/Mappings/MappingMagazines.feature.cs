@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace wikibus.tests.SourcesRepository
+namespace wikibus.tests.Mappings
 {
     using TechTalk.SpecFlow;
     
@@ -19,20 +19,20 @@ namespace wikibus.tests.SourcesRepository
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Retrieve magazines from repository")]
-    public partial class RetrieveMagazinesFromRepositoryFeature
+    [NUnit.Framework.DescriptionAttribute("Mapping Magazines from SQL to RDF")]
+    public partial class MappingMagazinesFromSQLToRDFFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "RetrieveMagazines.feature"
+#line 1 "MappingMagazines.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Retrieve magazines from repository", "", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Mapping Magazines from SQL to RDF", " Make sure that correct RDF is returned for SQL rows", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,23 +65,41 @@ namespace wikibus.tests.SourcesRepository
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get simple brochure")]
-        public virtual void GetSimpleBrochure()
+        [NUnit.Framework.DescriptionAttribute("Mapping complete magazine")]
+        public virtual void MappingCompleteMagazine()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get simple brochure", ((string[])(null)));
-#line 3
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping complete magazine", ((string[])(null)));
+#line 4
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-#line 4
-   testRunner.Given("RDF data:", "@base <http://wikibus.org/> .\r\n@prefix dcterms: <http://purl.org/dc/terms/>.\r\n\r\n{" +
-                    "\r\n   <magazine/Bus Kurier> a <ontology#Magazine> ;\r\n      dcterms:title \"Bus Kur" +
-                    "ier\" .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 14
-   testRunner.When("magazine <http://wikibus.org/magazine/Bus Kurier> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 15
-   testRunner.Then("\'Title\' should be string equal to \'Bus Kurier\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 16
-    testRunner.And("\'Issues\' should be Uri \'http://wikibus.org/magazine/Bus%20Kurier/issues\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Name"});
+            table1.AddRow(new string[] {
+                        "1",
+                        "Bus Kurier"});
+#line 5
+   testRunner.Given("table Sources.Magazine with data:", ((string)(null)), table1, "Given ");
+#line 8
+    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 9
+    testRunner.Then("resulting dataset should contain \'3\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 10
+     testRunner.And("resulting dataset should match query:", @" base <http://wikibus.org/>
+ prefix wbo: <http://wikibus.org/ontology#>
+ prefix bibo: <http://purl.org/ontology/bibo/>
+ prefix dcterms: <http://purl.org/dc/terms/>
+ prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+ prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
+ prefix langIso: <http://www.lexvo.org/page/iso639-1/>
+ prefix sch: <http://schema.org/>
+
+ ASK
+ {
+    <magazine/Bus%20Kurier> a sch:Periodical, wbo:Magazine ;
+       dcterms:title ""Bus Kurier"" .
+ }", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
