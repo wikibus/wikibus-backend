@@ -22,9 +22,9 @@ namespace wikibus.sources.nancy
             _repository = repository;
             _resizer = resizer;
 
-            Get["/book/{id}/image/large"] = request => GetImage((int)request.id);
-            Get["/brochure/{id}/image/large"] = request => GetImage((int)request.id);
-            Get["/magazine/{mag}/issue/{issue}/image/large"] = request => GetImage((string)request.mag, (string)request.issue);
+            Get["/book/{id}/image"] = request => GetImage((int)request.id);
+            Get["/brochure/{id}/image"] = request => GetImage((int)request.id);
+            Get["/magazine/{mag}/issue/{issue}/image"] = request => GetImage((string)request.mag, (string)request.issue);
             Get["/book/{id}/image/small"] = request => GetImage((int)request.id, resize: true);
             Get["/brochure/{id}/image/small"] = request => GetImage((int)request.id, resize: true);
             Get["/magazine/{mag}/issue/{issue}/image/small"] = request => GetImage((string)request.mag, (string)request.issue, true);

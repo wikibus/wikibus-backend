@@ -1,4 +1,5 @@
-﻿using JsonLD.Entities;
+﻿using System;
+using JsonLD.Entities;
 using Newtonsoft.Json.Linq;
 using Resourcer;
 using wikibus.sources.Hydra;
@@ -10,19 +11,19 @@ namespace wikibus.sources
     /// </summary>
     public static class ContextProviderExtensions
     {
+        private static readonly JObject BrochureContext = JObject.Parse(Resource.AsString("Contexts.Brochure.json"));
+        private static readonly JObject PagedCollectionContext = JObject.Parse(Resource.AsString("Contexts.PagedCollection.json"));
+        private static readonly JObject PagedCollectionFrame = JObject.Parse(Resource.AsString("Frames.PagedCollection.json"));
+
         /// <summary>
         /// Setups the sources contexts.
         /// </summary>
         public static void SetupSourcesContexts(this StaticContextProvider contextProvider)
         {
-            contextProvider.SetContext(typeof(Brochure), JObject.Parse(Resource.AsString("Contexts.Brochure.json")));
-            contextProvider.SetContext(typeof(Book), JObject.Parse(Resource.AsString("Contexts.Brochure.json")));
-            contextProvider.SetContext(
-                typeof(PagedCollection<Book>),
-                new JArray(
-                    "http://www.w3.org/ns/hydra/context.jsonld",
-                    contextProvider.GetContext(typeof(Book)),
-                    JObject.Parse(Resource.AsString("Contexts.PagedCollection.json"))));
+            contextProvider.SetContext(typeof(Brochure), BrochureContext);
+            contextProvider.SetContext(typeof(Book), BrochureContext);
+            contextProvider.SetContext(typeof(PagedCollection<Book>), contextProvider.CreateCollectionContext(typeof(Book)));
+            contextProvider.SetContext(typeof(PagedCollection<Brochure>), contextProvider.CreateCollectionContext(typeof(Brochure)));
         }
 
         /// <summary>
@@ -32,9 +33,13 @@ namespace wikibus.sources
         {
             frameProvider.SetFrame(typeof(Book), JObject.Parse("{ '@type': 'http://wikibus.org/ontology#Book' }"));
             frameProvider.SetFrame(typeof(Brochure), JObject.Parse("{ '@type': 'http://wikibus.org/ontology#Brochure' }"));
-            frameProvider.SetFrame(
-                typeof(PagedCollection<Book>),
-                JObject.Parse("{ '@type': 'http://www.w3.org/ns/hydra/core#PagedCollection' }"));
+            frameProvider.SetFrame(typeof(PagedCollection<Book>), PagedCollectionFrame);
+            frameProvider.SetFrame(typeof(PagedCollection<Brochure>), PagedCollectionFrame);
+        }
+
+        private static JArray CreateCollectionContext(this IContextProvider contextProvider, Type modelType)
+        {
+            return new JArray("http://www.w3.org/ns/hydra/context.jsonld", contextProvider.GetContext(modelType), PagedCollectionContext);
         }
     }
 }

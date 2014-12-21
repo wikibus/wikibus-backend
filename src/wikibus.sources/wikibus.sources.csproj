@@ -64,6 +64,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Contexts\Brochure.json" />
     <EmbeddedResource Include="Contexts\PagedCollection.json" />
+    <EmbeddedResource Include="Frames\PagedCollection.json" />
     <None Include="paket.references" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
