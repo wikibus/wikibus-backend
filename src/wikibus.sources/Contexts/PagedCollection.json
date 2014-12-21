@@ -8,5 +8,13 @@
   "totalItems": {
     "@id": "hydra:totalItems",
     "@type": "xsd:integer"
+  },
+  "nextPage": {
+    "@id": "hydra:nextPage",
+    "@type": "xsd:integer"
+  },
+  "previousPage": {
+    "@id": "hydra:previousPage",
+    "@type": "xsd:integer"
   }
 }

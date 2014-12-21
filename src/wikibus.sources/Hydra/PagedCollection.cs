@@ -31,7 +31,8 @@ namespace wikibus.sources.Hydra
         /// <summary>
         /// Gets or sets the page.
         /// </summary>
-        public int Page { get; set; }
+        [JsonIgnore]
+        public int CurrentPage { get; set; }
 
         /// <summary>
         /// Gets the next page URI.
@@ -40,8 +41,32 @@ namespace wikibus.sources.Hydra
         {
             get
             {
+                if (IsLastPage)
+                {
+                    return null;
+                }
+
                 var builder = new UriBuilder(Id);
-                builder.Query = "page=" + (Page + 1);
+                builder.Query = "page=" + (CurrentPage + 1);
+                return builder.Uri;
+            }
+        }
+
+        /// <summary>
+        /// Gets the last page URI.
+        /// </summary>
+        public Uri PreviousPage
+        {
+            get
+            {
+                if (CurrentPage == 1)
+                {
+                    return null;
+                }
+
+                var builder = new UriBuilder(Id);
+                builder.Query = "page=" + (CurrentPage - 1);
+
                 return builder.Uri;
             }
         }
@@ -54,7 +79,7 @@ namespace wikibus.sources.Hydra
             get
             {
                 var builder = new UriBuilder(Id);
-                builder.Query = "page=" + Math.Ceiling((decimal)TotalItems / ItemsPerPage);
+                builder.Query = "page=" + LastPageIndex;
 
                 return builder.Uri;
             }
@@ -65,5 +90,15 @@ namespace wikibus.sources.Hydra
         /// </summary>
         [JsonProperty("member")]
         public T[] Members { get; set; }
+
+        private bool IsLastPage
+        {
+            get { return CurrentPage == LastPageIndex; }
+        }
+
+        private int LastPageIndex
+        {
+            get { return (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage); }
+        }
     }
 }

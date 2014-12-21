@@ -66,7 +66,7 @@ namespace wikibus.sources.dotNetRDF
 
                 var collection = _serializer.Deserialize<PagedCollection<T>>(dataset);
                 collection.ItemsPerPage = pageSize;
-                collection.Page = page;
+                collection.CurrentPage = page;
 
                 return collection;
             }
