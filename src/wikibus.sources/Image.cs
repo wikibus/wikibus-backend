@@ -16,8 +16,25 @@ namespace wikibus.sources
         public string ContentUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the thumbnail image.
+        /// Gets the thumbnail image.
         /// </summary>
-        public Image Thumbnail { get; set; }
+        public Image Thumbnail
+        {
+            get
+            {
+                return new Image
+                {
+                    ContentUrl = ContentUrl + "/small"
+                };
+            }
+        }
+
+        /// <summary>
+        /// Determines whether image should be serialized
+        /// </summary>
+        public bool ShouldSerializeThumbnail()
+        {
+            return ContentUrl.EndsWith("small") == false;
+        }
     }
 }
