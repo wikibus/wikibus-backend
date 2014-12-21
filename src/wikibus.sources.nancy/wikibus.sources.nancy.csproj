@@ -38,7 +38,6 @@
     </Content>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,7 +48,6 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ImageResizerExtensions.cs" />
     <Compile Include="Responses\ByteArrayProcessor.cs" />
     <Compile Include="NullModelModuleExtensions.cs" />
     <Compile Include="SourceImagesModule.cs" />
@@ -62,6 +60,10 @@
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\wikibus.common\wikibus.common.csproj">
+      <Project>{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}</Project>
+      <Name>wikibus.common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wikibus.sources\wikibus.sources.csproj">
       <Project>{39B74ABD-895F-44BD-A0B9-80DFA6DC4D1E}</Project>
       <Name>wikibus.sources</Name>
@@ -76,13 +78,6 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Reference Include="ImageResizer">
-      <HintPath>..\packages\ImageResizer\lib\ImageResizer.dll</HintPath>
-      <Private>True</Private>
-      <Paket>True</Paket>
-    </Reference>
-  </ItemGroup>
   <Choose>
     <When Condition="($(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3')) Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch')">
       <ItemGroup>

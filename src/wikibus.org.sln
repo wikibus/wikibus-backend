@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.sources.dotNetRDF",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.nancy", "wikibus.nancy\wikibus.nancy.csproj", "{D2647469-3693-4756-A6D5-F8742572526D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.common", "wikibus.common\wikibus.common.csproj", "{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{D2647469-3693-4756-A6D5-F8742572526D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2647469-3693-4756-A6D5-F8742572526D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2647469-3693-4756-A6D5-F8742572526D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,6 +6,7 @@ using Nancy.Bootstrapper;
 using TCode.r2rml4net;
 using VDS.RDF.Configuration;
 using VDS.RDF.Query;
+using wikibus.common;
 using wikibus.sources;
 using wikibus.sources.dotNetRDF;
 
@@ -35,6 +36,7 @@ namespace wikibus.nancy
             Register(CreateFrameProvider());
             Register<IR2RML>(typeof(WikibusR2RML));
             Register<ISourceImagesRepository>(new SourceImagesRepository(ConfigurationManager.ConnectionStrings["sql"].ConnectionString));
+            Register<IImageResizer>(new ImageResizer());
         }
 
         private static IFrameProvider CreateFrameProvider()

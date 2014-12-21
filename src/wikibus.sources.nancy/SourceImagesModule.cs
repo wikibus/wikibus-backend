@@ -1,4 +1,5 @@
 ﻿using Nancy;
+using wikibus.common;
 
 namespace wikibus.sources.nancy
 {
@@ -7,33 +8,48 @@ namespace wikibus.sources.nancy
     /// </summary>
     public class SourceImagesModule : NancyModule
     {
+        private const int SmallImageSize = 200;
         private readonly ISourceImagesRepository _repository;
+        private readonly IImageResizer _resizer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceImagesModule"/> class.
         /// </summary>
-        public SourceImagesModule(ISourceImagesRepository repository)
+        public SourceImagesModule(ISourceImagesRepository repository, IImageResizer resizer)
         {
             this.ReturnNotFoundWhenModelIsNullOr(model => model.Length == 0);
 
             _repository = repository;
+            _resizer = resizer;
 
             Get["/book/{id}/image/large"] = request => GetImage((int)request.id);
             Get["/brochure/{id}/image/large"] = request => GetImage((int)request.id);
             Get["/magazine/{mag}/issue/{issue}/image/large"] = request => GetImage((string)request.mag, (string)request.issue);
-            Get["/book/{id}/image/small"] = request => GetImage((int)request.id).Resized();
-            Get["/brochure/{id}/image/small"] = request => GetImage((int)request.id).Resized();
-            Get["/magazine/{mag}/issue/{issue}/image/small"] = request => GetImage((string)request.mag, (string)request.issue).Resized();
+            Get["/book/{id}/image/small"] = request => GetImage((int)request.id, resize: true);
+            Get["/brochure/{id}/image/small"] = request => GetImage((int)request.id, resize: true);
+            Get["/magazine/{mag}/issue/{issue}/image/small"] = request => GetImage((string)request.mag, (string)request.issue, true);
         }
 
-        private byte[] GetImage(string magazineName, string issueNumber)
+        private byte[] GetImage(string magazineName, string issueNumber, bool resize = false)
         {
-            return _repository.GetImageBytes(magazineName, issueNumber);
+            var imageBytes = _repository.GetImageBytes(magazineName, issueNumber);
+            if (resize)
+            {
+                return _resizer.Resize(imageBytes, SmallImageSize);
+            }
+
+            return imageBytes;
         }
 
-        private byte[] GetImage(int sourceId)
+        private byte[] GetImage(int sourceId, bool resize = false)
         {
-            return _repository.GetImageBytes(sourceId);
+            var imageBytes = _repository.GetImageBytes(sourceId);
+            if (resize)
+            {
+                return _resizer.Resize(imageBytes, SmallImageSize);
+            }
+
+            return imageBytes;
         }
     }
 }

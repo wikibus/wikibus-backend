@@ -1,17 +1,18 @@
-using System.IO;
+﻿using System.IO;
 using ImageResizer;
+using wikibus.common;
 
-namespace wikibus.sources.nancy
+namespace wikibus.nancy
 {
     /// <summary>
-    /// Simplify image manipulation
+    /// Uses ImageResizer to resize images
     /// </summary>
-    public static class ImageResizerExtensions
+    internal class ImageResizer : IImageResizer
     {
         /// <summary>
         /// Resizes the specified image bytes.
         /// </summary>
-        public static byte[] Resized(this byte[] imageBytes)
+        public byte[] Resize(byte[] imageBytes, int maxSize)
         {
             if (imageBytes.Length == 0)
             {
@@ -20,7 +21,7 @@ namespace wikibus.sources.nancy
 
             using (var stream = new MemoryStream())
             {
-                ImageBuilder.Current.Build(imageBytes, stream, new ResizeSettings(200, 200, FitMode.Max, "jpg"));
+                ImageBuilder.Current.Build(imageBytes, stream, new ResizeSettings(maxSize, maxSize, FitMode.Max, "jpg"));
 
                 return stream.GetBuffer();
             }

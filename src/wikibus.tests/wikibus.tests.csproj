@@ -119,6 +119,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\wikibus.common\wikibus.common.csproj">
+      <Project>{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}</Project>
+      <Name>wikibus.common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wikibus.purl.nancy\wikibus.purl.nancy.csproj">
       <Project>{0E27E46A-84C4-4180-8628-22C57442EE30}</Project>
       <Name>wikibus.purl.nancy</Name>
