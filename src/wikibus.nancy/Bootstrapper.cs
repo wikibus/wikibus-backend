@@ -44,7 +44,6 @@ namespace wikibus.nancy
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
-            pipelines.UseHydra(new Uri("http://localhost:17899/doc"));
 #if DEBUG
             StaticConfiguration.DisableErrorTraces = false;
 #endif

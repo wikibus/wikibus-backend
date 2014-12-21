@@ -7,7 +7,7 @@ namespace wikibus.nancy.Hydra
     /// <summary>
     /// Wires Hydra with the application
     /// </summary>
-    public static class HydraStartup
+    public static class PipelinesExtensions
     {
         private const string HydraHeaderFormat = "{0}; rel=\"http://www.w3.org/ns/hydra/core#apiDocumentation\"";
 
