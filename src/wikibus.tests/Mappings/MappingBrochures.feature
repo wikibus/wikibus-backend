@@ -31,7 +31,7 @@ Scenario: Mapping brochure and book with image
       | 1   | folder     | 3qAAAA== |
       | 407 | book       | 3qAAAA== |
    When retrieve all triples
-   Then resulting dataset should contain '4' triples
+   Then resulting dataset should contain '8' triples
    And resulting dataset should match query:
       """
       base <http://wikibus.org/>
@@ -42,21 +42,13 @@ Scenario: Mapping brochure and book with image
          <brochure/1> 
             sch:image [
                 a sch:ImageObject ;
-                sch:contentUrl "http://wikibus.org/brochure/1/image"^^sch:URL ;
-                sch:thumbnail [
-                    a sch:ImageObject ;
-                    sch:contentUrl "http://wikibus.org/brochure/1/image/small"^^sch:URL 
-                ]
-            ]..
+                sch:contentUrl "http://wikibus.org/brochure/1/image"^^sch:URL
+            ].
             
          <book/407> 
             sch:image [
                 a sch:ImageObject ;
-                sch:contentUrl "http://wikibus.org/book/407/image"^^sch:URL ;
-                sch:thumbnail [
-                    a sch:ImageObject ;
-                    sch:contentUrl "http://wikibus.org/book/407/image/small"^^sch:URL 
-                ]
+                sch:contentUrl "http://wikibus.org/book/407/image"^^sch:URL
             ].
       }
       """
@@ -145,7 +137,7 @@ Scenario: Mapping complete magazine issue
          | Id | Name      |
          | 1  | Bus Kurier |
     When retrieve all triples
-    Then resulting dataset should contain '10' triples
+    Then resulting dataset should contain '12' triples
      And resulting dataset should match query:
          """
           base <http://wikibus.org/>
@@ -162,12 +154,8 @@ Scenario: Mapping complete magazine issue
              <magazine/Bus%20Kurier/issue/13> a sch:PublicationIssue ;
                 sch:image [
                     a sch:ImageObject ;
-                    sch:contentUrl "http://wikibus.org/magazine/Bus%20Kurier/issue/13/image"^^sch:URL ;
-                    sch:thumbnail [
-                        a sch:ImageObject ;
-                        sch:contentUrl "http://wikibus.org/magazine/Bus%20Kurier/issue/13/image/small"^^sch:URL 
-                    ]
-                ]
+                    sch:contentUrl "http://wikibus.org/magazine/Bus Kurier/issue/13/image"^^sch:URL 
+                ] ;
                 sch:issueNumber "13"^^xsd:string ;
                 sch:isPartOf <magazine/Bus%20Kurier> ;
                 bibo:pages 16 ;

@@ -1,13 +1,11 @@
-﻿SELECT [Language]
+﻿SELECT i.[Id]
+      ,[Language]
       ,[Language2]
       ,[Pages]
       ,[Year]
       ,[Month]
       ,[Day]
       ,[Notes]
-      ,CASE 
-        WHEN [Image] is not null THEN 'image'
-       END as [HasImage]
       ,[MagIssueMagazine]
       ,[MagIssueNumber]
       ,m.[Name] as [Magazine]

@@ -18,6 +18,7 @@ namespace wikibus.sources.dotNetRDF
         private static readonly string SelectBookAuthorSql = Resource.AsString("SqlQueries.SelectBookAuthor.sql");
         private static readonly string SelectBrochureAndBook = Resource.AsString("SqlQueries.SelectBrochureAndBook.sql");
         private static readonly string SelectMagIssues = Resource.AsString("SqlQueries.SelectMagazineIssue.sql");
+        private static readonly string SelectImages = Resource.AsString("SqlQueries.SelectImages.sql");
         private readonly Lazy<IR2RML> _rml;
         private ITriplesMapConfiguration _magazineMap;
 
@@ -123,7 +124,18 @@ namespace wikibus.sources.dotNetRDF
 
         private void MapImage(ITriplesMapFromR2RMLViewConfiguration sourceMap, string template)
         {
-            sourceMap.MapTemplate(template + "/{HasImage}", new Uri("http://schema.org/image"));
+            var imageObjectMap = sourceMap.R2RMLConfiguration.CreateTriplesMapFromR2RMLView(SelectImages);
+            imageObjectMap.SubjectMap.TermType.IsBlankNode().IsTemplateValued("image_{Id}");
+            imageObjectMap.SubjectMap.AddClass(new Uri("http://schema.org/ImageObject"));
+
+            imageObjectMap.MapTemplate(
+                template + "/image",
+                new Uri("http://schema.org/contentUrl"),
+                new Uri("http://schema.org/URL"));
+
+            var imageMap = sourceMap.CreatePropertyObjectMap();
+            imageMap.CreatePredicateMap().IsConstantValued(new Uri("http://schema.org/image"));
+            imageMap.CreateRefObjectMap(imageObjectMap).AddJoinCondition("Id", "Id");
         }
 
         private void MapBookISBN(ITriplesMapFromR2RMLViewConfiguration sourceMap)

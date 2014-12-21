@@ -48,6 +48,7 @@ namespace wikibus.tests.Mappings
         {
             _database.PerformDbOperation(DbOperationFlag.Insert);
             _result = _rmlProc.GenerateTriples(new WikibusR2RML());
+            _result.SaveToFile("out.trig");
         }
 
         [Then(@"resulting dataset should match query:")]
