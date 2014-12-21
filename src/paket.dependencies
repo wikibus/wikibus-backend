@@ -24,3 +24,4 @@ nuget NDbUnit.SqlClient
 nuget Nancy.elmah
 nuget Nancy.metrics
 nuget CodeAssassin.ConfigTransform
+nuget ImageResizer

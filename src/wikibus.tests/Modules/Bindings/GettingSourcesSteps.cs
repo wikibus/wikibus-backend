@@ -58,13 +58,13 @@ namespace wikibus.tests.Modules.Bindings
         [Given(@"exisiting image (.*)")]
         public void GivenExisitingImageForSource(int id)
         {
-            A.CallTo(() => _dep.SourceImages.GetImageBytes(id)).Returns(new byte[0]);
+            A.CallTo(() => _dep.SourceImages.GetImageBytes(id)).Returns(new byte[] { 10 });
         }
 
         [Given(@"exisiting image for (.*) (.*)")]
         public void GivenExisitingImageForMag(string mag, string issue)
         {
-            A.CallTo(() => _dep.SourceImages.GetImageBytes(mag, issue)).Returns(new byte[0]);
+            A.CallTo(() => _dep.SourceImages.GetImageBytes(mag, issue)).Returns(new byte[] { 10 });
         }
 
         [Given(@"query string is")]

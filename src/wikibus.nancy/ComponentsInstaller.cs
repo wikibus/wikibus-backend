@@ -34,6 +34,7 @@ namespace wikibus.nancy
             Register(CreateContextProvider());
             Register(CreateFrameProvider());
             Register<IR2RML>(typeof(WikibusR2RML));
+            Register<ISourceImagesRepository>(new SourceImagesRepository(ConfigurationManager.ConnectionStrings["sql"].ConnectionString));
         }
 
         private static IFrameProvider CreateFrameProvider()

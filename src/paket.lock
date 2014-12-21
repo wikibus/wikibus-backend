@@ -23,6 +23,7 @@ NUGET
     FluentAssertions (3.2.1)
     Fody (1.26.2)
     HtmlAgilityPack (1.4.6)
+    ImageResizer (3.4.3)
     ImpromptuInterface (6.2.2)
     InfoOf.Fody (0.11.2.0)
       Fody (>= 0)

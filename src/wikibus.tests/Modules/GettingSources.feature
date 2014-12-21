@@ -38,20 +38,26 @@ Scenario Outline: GET large image
      And exisiting image <id>
     When I GET resource '<url>'
     Then response should have status 200
-     And content type should be 'application/octet-stream'
+     And content type should be 'image/jpeg'
      And image <id> should have been retrieved
 Examples: 
      | url                      | id |
      | /book/10/image/large     | 10 |
      | /brochure/15/image/large | 15 |
+     | /book/10/image/small     | 10 |
+     | /brochure/15/image/small | 15 |
 
-Scenario: GET issue image
+Scenario Outline: GET issue image
    Given Accept header is '*/*'
      And exisiting image for Buses 66
-    When I GET resource '/magazine/Buses/issue/66/image/large'
+    When I GET resource '<url>'
     Then response should have status 200
-     And content type should be 'application/octet-stream'
+     And content type should be 'image/jpeg'
      And image Buses 66 should have been retrieved
+Examples: 
+     | url                                  |
+     | /magazine/Buses/issue/66/image/large |
+     | /magazine/Buses/issue/66/image/small |
 
 Scenario Outline: GET missing image
    Given Accept header is '*/*'

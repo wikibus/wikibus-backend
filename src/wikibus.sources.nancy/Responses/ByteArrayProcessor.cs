@@ -38,7 +38,7 @@ namespace wikibus.sources.nancy.Responses
             return new Response
             {
                 Contents = str => str.Write(model, 0, model.Length),
-                ContentType = "application/octet-stream"
+                ContentType = "image/jpeg"
             };
         }
     }

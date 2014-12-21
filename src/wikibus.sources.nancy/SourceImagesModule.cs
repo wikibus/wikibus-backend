@@ -21,6 +21,9 @@ namespace wikibus.sources.nancy
             Get["/book/{id}/image/large"] = request => GetImage((int)request.id);
             Get["/brochure/{id}/image/large"] = request => GetImage((int)request.id);
             Get["/magazine/{mag}/issue/{issue}/image/large"] = request => GetImage((string)request.mag, (string)request.issue);
+            Get["/book/{id}/image/small"] = request => GetImage((int)request.id).Resized();
+            Get["/brochure/{id}/image/small"] = request => GetImage((int)request.id).Resized();
+            Get["/magazine/{mag}/issue/{issue}/image/small"] = request => GetImage((string)request.mag, (string)request.issue).Resized();
         }
 
         private byte[] GetImage(string magazineName, string issueNumber)
