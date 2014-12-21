@@ -33,16 +33,35 @@ Scenario: GET books collection Nth page
     Then response should have status 200
      And page 25 of book collection should have been retrieved
 
-
 Scenario Outline: GET large image
    Given Accept header is '*/*'
-     And exisiting book collection
+     And exisiting image <id>
     When I GET resource '<url>'
     Then response should have status 200
-     And content type should be 'image/jpeg'
+     And content type should be 'application/octet-stream'
      And image <id> should have been retrieved
 Examples: 
-     | url                                  | id |
-     | /book/10/image/large                 | 10 |
-     | /brochure/15/image/large             | 15 |
-     | /magazine/Buses/issue/66/image/large | 66 |
+     | url                      | id |
+     | /book/10/image/large     | 10 |
+     | /brochure/15/image/large | 15 |
+
+Scenario: GET issue image
+   Given Accept header is '*/*'
+     And exisiting image for Buses 66
+    When I GET resource '/magazine/Buses/issue/66/image/large'
+    Then response should have status 200
+     And content type should be 'application/octet-stream'
+     And image Buses 66 should have been retrieved
+
+Scenario Outline: GET missing image
+   Given Accept header is '*/*'
+    When I GET resource '<url>'
+    Then response should have status 404
+Examples: 
+     | url                                  |
+     | /book/10/image/large                 |
+     | /brochure/15/image/large             |
+     | /magazine/Buses/issue/66/image/large |
+     | /book/10/image/small                 |
+     | /brochure/15/image/small             |
+     | /magazine/Buses/issue/66/image/small |

@@ -16,7 +16,7 @@ namespace wikibus.sources.nancy
         /// <param name="repository">The source repository.</param>
         public SourcesModule(ISourcesRepository repository)
         {
-            this.EnsureNotFoundStatusCodes();
+            this.ReturnNotFoundWhenModelIsNull();
 
             _repository = repository;
 

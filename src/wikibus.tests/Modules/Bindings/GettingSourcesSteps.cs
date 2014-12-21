@@ -55,6 +55,18 @@ namespace wikibus.tests.Modules.Bindings
             A.CallTo(() => _dep.Sources.Get<Book>(new Uri(resourceUri))).Returns(new Book());
         }
 
+        [Given(@"exisiting image (.*)")]
+        public void GivenExisitingImageForSource(int id)
+        {
+            A.CallTo(() => _dep.SourceImages.GetImageBytes(id)).Returns(new byte[0]);
+        }
+
+        [Given(@"exisiting image for (.*) (.*)")]
+        public void GivenExisitingImageForMag(string mag, string issue)
+        {
+            A.CallTo(() => _dep.SourceImages.GetImageBytes(mag, issue)).Returns(new byte[0]);
+        }
+
         [Given(@"query string is")]
         public void GivenQueryStringIs(Table queryString)
         {
@@ -81,6 +93,12 @@ namespace wikibus.tests.Modules.Bindings
         public void ThenImageShouldHaveBeenRetrieved(int id)
         {
             A.CallTo(() => _dep.SourceImages.GetImageBytes(id)).MustHaveHappened();
+        }
+
+        [Then(@"image (.*) (.*) should have been retrieved")]
+        public void ThenIssueImageShouldHaveBeenRetrieved(string name, string issueNumber)
+        {
+            A.CallTo(() => _dep.SourceImages.GetImageBytes(name, issueNumber)).MustHaveHappened();
         }
 
         [Then(@"page (.*) of book collection should have been retrieved")]

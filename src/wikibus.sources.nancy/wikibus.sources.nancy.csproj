@@ -48,7 +48,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Responses\ByteArrayProcessor.cs" />
     <Compile Include="NullModelModuleExtensions.cs" />
+    <Compile Include="SourceImagesModule.cs" />
     <Compile Include="SourcesModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />

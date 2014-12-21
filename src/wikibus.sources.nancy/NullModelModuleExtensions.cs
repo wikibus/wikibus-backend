@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Nancy;
 
 namespace wikibus.sources.nancy
@@ -11,19 +12,30 @@ namespace wikibus.sources.nancy
         /// <summary>
         /// Ensures 404 status codes for null model.
         /// </summary>
-        public static void EnsureNotFoundStatusCodes(this NancyModule module)
+        public static void ReturnNotFoundWhenModelIsNull(this NancyModule module)
         {
-            module.After += EnsureNotFoundStatus;
+            module.After += Ensure404When(model => model == null);
         }
 
-        private static void EnsureNotFoundStatus(NancyContext context)
+        /// <summary>
+        /// Ensures 404 status codes for null model or model matching given predicate.
+        /// </summary>
+        public static void ReturnNotFoundWhenModelIsNullOr(this NancyModule module, Func<dynamic, bool> modelIsInvalid)
         {
-            var conneg = context.NegotiationContext;
-            if (conneg.DefaultModel == null &&
-                conneg.MediaRangeModelMappings.Any() == false)
+            module.After += Ensure404When(model => model == null || modelIsInvalid(model));
+        }
+
+        private static Action<NancyContext> Ensure404When(Func<object, bool> modelIsInvalid)
+        {
+            return context =>
             {
-                context.Response.StatusCode = HttpStatusCode.NotFound;
-            }
+                var conneg = context.NegotiationContext;
+                if (modelIsInvalid(conneg.DefaultModel) &&
+                    conneg.MediaRangeModelMappings.Any() == false)
+                {
+                    context.Response.StatusCode = HttpStatusCode.NotFound;
+                }
+            };
         }
     }
 }

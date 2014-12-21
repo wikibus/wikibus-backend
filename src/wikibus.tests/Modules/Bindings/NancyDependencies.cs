@@ -11,8 +11,9 @@ namespace wikibus.tests.Modules.Bindings
         public NancyDependencies()
         {
             Sources = A.Fake<ISourcesRepository>(mock => mock.Strict());
-            SourceImages = A.Fake<ISourceImagesRepository>(mock => mock.Strict());
+            SourceImages = A.Fake<ISourceImagesRepository>();
             Browser = new Browser(with => with.Module<SourcesModule>()
+                                              .Module<SourceImagesModule>()
                                               .Dependencies(Sources, A.Dummy<IEntitySerializer>(), SourceImages));
         }
 

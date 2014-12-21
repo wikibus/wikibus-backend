@@ -159,24 +159,69 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("GET large image")]
         [NUnit.Framework.TestCaseAttribute("/book/10/image/large", "10", null)]
         [NUnit.Framework.TestCaseAttribute("/brochure/15/image/large", "15", null)]
-        [NUnit.Framework.TestCaseAttribute("/magazine/Buses/issue/66/image/large", "66", null)]
         public virtual void GETLargeImage(string url, string id, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET large image", exampleTags);
-#line 37
+#line 36
 this.ScenarioSetup(scenarioInfo);
-#line 38
+#line 37
    testRunner.Given("Accept header is \'*/*\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 38
+     testRunner.And(string.Format("exisiting image {0}", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 39
-     testRunner.And("exisiting book collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
     testRunner.When(string.Format("I GET resource \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 41
+#line 40
     testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
+     testRunner.And("content type should be \'application/octet-stream\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 42
-     testRunner.And("content type should be \'image/jpeg\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 43
      testRunner.And(string.Format("image {0} should have been retrieved", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("GET issue image")]
+        public virtual void GETIssueImage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET issue image", ((string[])(null)));
+#line 48
+this.ScenarioSetup(scenarioInfo);
+#line 49
+   testRunner.Given("Accept header is \'*/*\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 50
+     testRunner.And("exisiting image for Buses 66", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+    testRunner.When("I GET resource \'/magazine/Buses/issue/66/image/large\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 52
+    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 53
+     testRunner.And("content type should be \'application/octet-stream\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
+     testRunner.And("image Buses 66 should have been retrieved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("GET missing image")]
+        [NUnit.Framework.TestCaseAttribute("/book/10/image/large", null)]
+        [NUnit.Framework.TestCaseAttribute("/brochure/15/image/large", null)]
+        [NUnit.Framework.TestCaseAttribute("/magazine/Buses/issue/66/image/large", null)]
+        [NUnit.Framework.TestCaseAttribute("/book/10/image/small", null)]
+        [NUnit.Framework.TestCaseAttribute("/brochure/15/image/small", null)]
+        [NUnit.Framework.TestCaseAttribute("/magazine/Buses/issue/66/image/small", null)]
+        public virtual void GETMissingImage(string url, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET missing image", exampleTags);
+#line 56
+this.ScenarioSetup(scenarioInfo);
+#line 57
+   testRunner.Given("Accept header is \'*/*\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 58
+    testRunner.When(string.Format("I GET resource \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 59
+    testRunner.Then("response should have status 404", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
