@@ -1,3 +1,91 @@
-﻿{ 
-
+﻿{
+    "@context": [
+        "http://www.w3.org/ns/hydra/context.jsonld",
+        {
+            "wb": "http://wikibus.org/ontology#",
+            "sch": "http://schema.org/"
+        }
+    ],
+    "@id": "http://data.wikibus.org/doc/",
+    "@type": "ApiDocumentation",
+    "title": "wikibus.org API documentation",
+    "entrypoint": "http://data.wikibus.org/",
+    "supportedClass": [
+        {
+            "@type": "http://data.wikibus.org/",
+            "description": "wikibus.org API entrypoint",
+            "supportedProperty": [
+                {
+                    "@id": "wb:brochures",
+                    "@type": "hydra:Link",
+                    "label": "brochures",
+                    "description": "Paged collection of brochures",
+                    "range": "hydra:PagedCollection",
+                    "supportedOperation": [
+                        {
+                            "@id": "_:get_brochures",
+                            "@type": "hydra:Operation",
+                            "method": "GET",
+                            "label": "retrieves first page of brochures",
+                            "returns": "hydra:PagedCollection"
+                        }
+                    ]
+                },
+                {
+                    "@id": "wb:books",
+                    "@type": "hydra:Link",
+                    "label": "books",
+                    "description": "Paged collection of books",
+                    "range": "hydra:PagedCollection",
+                    "supportedOperation": [
+                        {
+                            "@id": "_:get_books",
+                            "@type": "hydra:Operation",
+                            "method": "GET",
+                            "label": "retrieves first page of books",
+                            "returns": "hydra:PagedCollection"
+                        }
+                    ]
+                },
+                {
+                    "@id": "wb:magazines",
+                    "@type": "hydra:Link",
+                    "label": "magazines",
+                    "description": "Paged collection of magazines",
+                    "range": "hydra:PagedCollection",
+                    "supportedOperation": [
+                        {
+                            "@id": "_:get_mags",
+                            "@type": "hydra:Operation",
+                            "method": "GET",
+                            "label": "retrieves first page of magazines",
+                            "returns": "hydra:PagedCollection"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "@type": "wb:Magazine",
+            "description": "A periodical about public transport",
+            "supportedProperty": [
+                {
+                    "@id": "wb:Magazine/issues",
+                    "@type": "hydra:Link",
+                    "label": "issues",
+                    "description": "issues of a magazine",
+                    "range": "hydra:PagedCollection",
+                    "supportedOperation": [
+                        {
+                            "@id": "_:get_issues",
+                            "@type": "hydra:Operation",
+                            "method": "GET",
+                            "label": "retrieves first page of magazine issues",
+                            "returns": "hydra:PagedCollection"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
