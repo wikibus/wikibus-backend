@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using FluentAssertions;
-using NUnit.Framework;
 using TechTalk.SpecFlow;
 using VDS.RDF;
 using wikibus.sources;
@@ -39,19 +38,19 @@ namespace wikibus.tests.SourcesRepository
         [Then(@"'(.*)' should be string equal to '(.*)'")]
         public void PropertyShouldBeStrigWithValueEqual(string propName, string expectedValue)
         {
-            AssertPropertyValue(propName, expectedValue);
+            ScenarioContext.Current["Model"].AssertPropertyValue(propName, expectedValue);
         }
 
         [Then(@"'(.*)' should be integer equal to '(.*)'")]
         public void PropertyShouldBeIntegerWithValueEqual(string propName, string expectedValue)
         {
-            AssertPropertyValue(propName, int.Parse(expectedValue));
+            ScenarioContext.Current["Model"].AssertPropertyValue(propName, int.Parse(expectedValue));
         }
 
         [Then(@"'(.*)' should be DateTime equal to '(.*)'")]
         public void PropertyShouldBeDateTimeWithValueEqual(string propName, string expectedValue)
         {
-            AssertPropertyValue(propName, DateTime.Parse(expectedValue));
+            ScenarioContext.Current["Model"].AssertPropertyValue(propName, DateTime.Parse(expectedValue));
         }
 
         [Then(@"Languages should contain '(.*)'")]
@@ -98,14 +97,6 @@ namespace wikibus.tests.SourcesRepository
             var value = ImpromptuInterface.Impromptu.InvokeGet(model, propName);
 
             ((IEnumerable)value).Should().BeEmpty();
-        }
-
-        private void AssertPropertyValue(string propName, object expected)
-        {
-            var model = ScenarioContext.Current["Model"];
-            var value = ImpromptuInterface.Impromptu.InvokeGet(model, propName);
-
-            Assert.That(value, Is.EqualTo(expected));
         }
     }
 }

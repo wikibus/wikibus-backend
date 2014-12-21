@@ -40,6 +40,7 @@ Scenario: Get complete brochure
         @prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>.
         @prefix langIso: <http://www.lexvo.org/page/iso639-1/>.
         @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+        @prefix sch: <http://schema.org/>.
 
         {
             <brochure/6> 
@@ -51,7 +52,8 @@ Scenario: Get complete brochure
                 dcterms:date "2006-9-21"^^xsd:date ;
                 dcterms:language langIso:pl ;
                 dcterms:identifier "BED 81419 2006-09-21 POL Version 2" ;
-                rdfs:comment "Some description about brochure".
+                rdfs:comment "Some description about brochure" ;
+                sch:image [ sch:contentUrl "http://wikibus.org/brochure/6/image"^^sch:URL ] .
         }
         """
     When brochure <http://wikibus.org/brochure/6> is fetched
@@ -62,6 +64,8 @@ Scenario: Get complete brochure
      And 'Code' should be string equal to 'BED 81419 2006-09-21 POL Version 2'
      And Languages should contain 'pl'
      And 'Description' should be string equal to 'Some description about brochure'
+     And 'Image' should be not null
+     And 'Image' should have string property 'ContentUrl' equal to 'http://wikibus.org/brochure/6/image'
 
 Scenario: Get brochure without data
     Given RDF data:
@@ -101,8 +105,9 @@ Scenario: Get complete book
             <book/6> 
                 a wbo:Book ;
                 dcterms:title "Strassenbahnen in Schlesien" ;
-                sch:isbn "3879434247" ;
-                sch:author [ sch:name "Siegfried Bufe" ] .
+                sch:isbn "3879434247" .
+            <book/6> sch:image [ sch:contentUrl "http://wikibus.org/book/6/image"^^sch:URL ] .
+            <book/6> sch:author [ sch:name "Siegfried Bufe" ].
         }
         """
     When book <http://wikibus.org/book/6> is fetched
@@ -110,6 +115,8 @@ Scenario: Get complete book
      And 'Author' should be not null
      And 'Author' should have string property 'Name' equal to 'Siegfried Bufe'
      And 'ISBN' should be string equal to '3879434247'
+     And 'Image' should be not null
+     And 'Image' should have string property 'ContentUrl' equal to 'http://wikibus.org/book/6/image'
 
 Scenario: Get book without author
     Given RDF data:
@@ -162,7 +169,7 @@ Scenario: Get first page of books
         """
       And page size equal to 1
      When page 1 of books is fetched
-     Then 'TotalCount' should be 20
+     Then 'TotalItems' should be 20
       And 'ItemsPerPage' should be 1
       And 'NextPage' should be Uri 'http://wikibus.org/books?page=2'
       And 'LastPage' should be Uri 'http://wikibus.org/books?page=20'

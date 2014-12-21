@@ -140,9 +140,31 @@ this.ScenarioSetup(scenarioInfo);
    testRunner.Then("resulting dataset should contain \'4\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 35
-   testRunner.And("resulting dataset should match query:", "base <http://wikibus.org/>\r\nprefix sch: <http://schema.org/>\r\n\r\nASK\r\n{\r\n   <broch" +
-                    "ure/1> \r\n      sch:image <brochure/1/image> .\r\n      \r\n   <book/407> \r\n      sch" +
-                    ":image <book/407/image> .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.And("resulting dataset should match query:", @"base <http://wikibus.org/>
+prefix sch: <http://schema.org/>
+
+ASK
+{
+   <brochure/1> 
+      sch:image [
+          a sch:ImageObject ;
+          sch:contentUrl ""http://wikibus.org/brochure/1/image""^^sch:URL ;
+          sch:thumbnail [
+              a sch:ImageObject ;
+              sch:contentUrl ""http://wikibus.org/brochure/1/image/small""^^sch:URL 
+          ]
+      ]..
+      
+   <book/407> 
+      sch:image [
+          a sch:ImageObject ;
+          sch:contentUrl ""http://wikibus.org/book/407/image""^^sch:URL ;
+          sch:thumbnail [
+              a sch:ImageObject ;
+              sch:contentUrl ""http://wikibus.org/book/407/image/small""^^sch:URL 
+          ]
+      ].
+}", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -152,7 +174,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void MappingBrochureRowWithDate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping brochure row with date", ((string[])(null)));
-#line 50
+#line 64
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -177,14 +199,14 @@ this.ScenarioSetup(scenarioInfo);
                         "21",
                         "BED 81419 2006-09-21 POL Version 2",
                         "Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance"});
-#line 51
+#line 65
    testRunner.Given("table Sources.Source with data:", ((string)(null)), table3, "Given ");
-#line 54
+#line 68
    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 55
+#line 69
    testRunner.Then("resulting dataset should contain \'8\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 56
+#line 70
    testRunner.And("resulting dataset should match query:", @"base <http://wikibus.org/>
 prefix wbo: <http://wikibus.org/ontology#>
 prefix bibo: <http://purl.org/ontology/bibo/>
@@ -214,7 +236,7 @@ ASK
         public virtual void MappingBrochureRowWithIncompleteDate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping brochure row with incomplete date", ((string[])(null)));
-#line 80
+#line 94
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -235,14 +257,14 @@ this.ScenarioSetup(scenarioInfo);
                         "2006",
                         "BED 81419 2006-09-21 POL Version 2",
                         "Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance"});
-#line 81
+#line 95
    testRunner.Given("table Sources.Source with data:", ((string)(null)), table4, "Given ");
-#line 84
+#line 98
    testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 85
+#line 99
    testRunner.Then("resulting dataset should contain \'6\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 86
+#line 100
    testRunner.And("resulting dataset should not match query:", "base <http://wikibus.org/>\r\nprefix dcterms: <http://purl.org/dc/terms/>\r\n\r\nASK\r\n{" +
                     "\r\n   <brochure/6> dcterms:date ?date\r\n}", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -254,7 +276,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void MappingCompleteBookRow()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping complete book row", ((string[])(null)));
-#line 97
+#line 111
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -277,14 +299,14 @@ this.ScenarioSetup(scenarioInfo);
                         "Pojazdy samochodowe i przyczepy Jelcz 1952-1970",
                         "Wojciech Polomski",
                         "9788320617412"});
-#line 98
+#line 112
    testRunner.Given("table Sources.Source with data:", ((string)(null)), table5, "Given ");
-#line 101
+#line 115
     testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 102
+#line 116
     testRunner.Then("resulting dataset should contain \'8\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 103
+#line 117
      testRunner.And("resulting dataset should match query:", @" base <http://wikibus.org/>
  prefix wbo: <http://wikibus.org/ontology#>
  prefix bibo: <http://purl.org/ontology/bibo/>
@@ -313,7 +335,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void MappingCompleteMagazineIssue()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping complete magazine issue", ((string[])(null)));
-#line 126
+#line 140
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -336,7 +358,7 @@ this.ScenarioSetup(scenarioInfo);
                         "1",
                         "13",
                         "3qAAAA=="});
-#line 127
+#line 141
    testRunner.Given("table Sources.Source with data:", ((string)(null)), table6, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -345,14 +367,14 @@ this.ScenarioSetup(scenarioInfo);
             table7.AddRow(new string[] {
                         "1",
                         "Bus Kurier"});
-#line 130
+#line 144
      testRunner.And("table Sources.Magazine with data:", ((string)(null)), table7, "And ");
-#line 133
+#line 147
     testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 134
+#line 148
     testRunner.Then("resulting dataset should contain \'10\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 135
+#line 149
      testRunner.And("resulting dataset should match query:", @" base <http://wikibus.org/>
  prefix wbo: <http://wikibus.org/ontology#>
  prefix bibo: <http://purl.org/ontology/bibo/>
@@ -365,7 +387,14 @@ this.ScenarioSetup(scenarioInfo);
  ASK
  {
     <magazine/Bus%20Kurier/issue/13> a sch:PublicationIssue ;
-       sch:image <magazine/Bus%20Kurier/issue/13/image> ;
+       sch:image [
+           a sch:ImageObject ;
+           sch:contentUrl ""http://wikibus.org/magazine/Bus%20Kurier/issue/13/image""^^sch:URL ;
+           sch:thumbnail [
+               a sch:ImageObject ;
+               sch:contentUrl ""http://wikibus.org/magazine/Bus%20Kurier/issue/13/image/small""^^sch:URL 
+           ]
+       ]
        sch:issueNumber ""13""^^xsd:string ;
        sch:isPartOf <magazine/Bus%20Kurier> ;
        bibo:pages 16 ;

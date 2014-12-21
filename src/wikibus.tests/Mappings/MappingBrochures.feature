@@ -40,10 +40,24 @@ Scenario: Mapping brochure and book with image
       ASK
       {
          <brochure/1> 
-            sch:image <brochure/1/image> .
+            sch:image [
+                a sch:ImageObject ;
+                sch:contentUrl "http://wikibus.org/brochure/1/image"^^sch:URL ;
+                sch:thumbnail [
+                    a sch:ImageObject ;
+                    sch:contentUrl "http://wikibus.org/brochure/1/image/small"^^sch:URL 
+                ]
+            ]..
             
          <book/407> 
-            sch:image <book/407/image> .
+            sch:image [
+                a sch:ImageObject ;
+                sch:contentUrl "http://wikibus.org/book/407/image"^^sch:URL ;
+                sch:thumbnail [
+                    a sch:ImageObject ;
+                    sch:contentUrl "http://wikibus.org/book/407/image/small"^^sch:URL 
+                ]
+            ].
       }
       """
 
@@ -146,7 +160,14 @@ Scenario: Mapping complete magazine issue
           ASK
           {
              <magazine/Bus%20Kurier/issue/13> a sch:PublicationIssue ;
-                sch:image <magazine/Bus%20Kurier/issue/13/image> ;
+                sch:image [
+                    a sch:ImageObject ;
+                    sch:contentUrl "http://wikibus.org/magazine/Bus%20Kurier/issue/13/image"^^sch:URL ;
+                    sch:thumbnail [
+                        a sch:ImageObject ;
+                        sch:contentUrl "http://wikibus.org/magazine/Bus%20Kurier/issue/13/image/small"^^sch:URL 
+                    ]
+                ]
                 sch:issueNumber "13"^^xsd:string ;
                 sch:isPartOf <magazine/Bus%20Kurier> ;
                 bibo:pages 16 ;

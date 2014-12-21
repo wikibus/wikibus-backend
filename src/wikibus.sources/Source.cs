@@ -44,5 +44,10 @@ namespace wikibus.sources
         /// Gets or sets the publication month.
         /// </summary>
         public int? Month { [return: AllowNull] get; set; }
+
+        /// <summary>
+        /// Gets or sets the image.
+        /// </summary>
+        public Image Image { [return: AllowNull] get; set; }
     }
 }

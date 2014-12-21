@@ -1,5 +1,7 @@
-﻿using TechTalk.SpecFlow;
+﻿using System;
+using TechTalk.SpecFlow;
 using wikibus.sources;
+using wikibus.sources.Hydra;
 
 namespace wikibus.tests.SourcesRepository
 {
@@ -30,13 +32,15 @@ namespace wikibus.tests.SourcesRepository
         [Then(@"'(.*)' should be (.*)")]
         public void ThenShouldBe(string propName, int expectedValue)
         {
-            ScenarioContext.Current.Pending();
+            ScenarioContext.Current.Get<PagedCollection<Book>>()
+                .AssertPropertyValue(propName, expectedValue);
         }
 
         [Then(@"'(.*)' should be Uri '(.*)'")]
         public void ThenShouldBeUri(string propName, string expectedUri)
         {
-            ScenarioContext.Current.Pending();
+            ScenarioContext.Current.Get<PagedCollection<Book>>()
+                .AssertPropertyValue(propName, new Uri(expectedUri));
         }
     }
 }

@@ -121,6 +121,7 @@ this.ScenarioSetup(scenarioInfo);
 @prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>.
 @prefix langIso: <http://www.lexvo.org/page/iso639-1/>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix sch: <http://schema.org/>.
 
 {
     <brochure/6> 
@@ -132,25 +133,31 @@ this.ScenarioSetup(scenarioInfo);
         dcterms:date ""2006-9-21""^^xsd:date ;
         dcterms:language langIso:pl ;
         dcterms:identifier ""BED 81419 2006-09-21 POL Version 2"" ;
-        rdfs:comment ""Some description about brochure"".
+        rdfs:comment ""Some description about brochure"" ;
+        sch:image [ sch:contentUrl ""http://wikibus.org/brochure/6/image""^^sch:URL ] .
 }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 57
+#line 59
     testRunner.When("brochure <http://wikibus.org/brochure/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 58
+#line 60
     testRunner.Then("\'Title\' should be string equal to \'Fakty: Autobus turystyczny Volvo B9r/Sunsundeg" +
                     "ui Elegance\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 59
-     testRunner.And("\'Pages\' should be integer equal to \'2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 60
-     testRunner.And("\'Date\' should be DateTime equal to \'2006-09-21\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 61
-     testRunner.And("\'Month\' should be integer equal to \'9\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("\'Pages\' should be integer equal to \'2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 62
-     testRunner.And("\'Code\' should be string equal to \'BED 81419 2006-09-21 POL Version 2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("\'Date\' should be DateTime equal to \'2006-09-21\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 63
-     testRunner.And("Languages should contain \'pl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("\'Month\' should be integer equal to \'9\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 64
+     testRunner.And("\'Code\' should be string equal to \'BED 81419 2006-09-21 POL Version 2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 65
+     testRunner.And("Languages should contain \'pl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 66
      testRunner.And("\'Description\' should be string equal to \'Some description about brochure\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+     testRunner.And("\'Image\' should be not null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
+     testRunner.And("\'Image\' should have string property \'ContentUrl\' equal to \'http://wikibus.org/bro" +
+                    "chure/6/image\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -160,10 +167,10 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetBrochureWithoutData()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get brochure without data", ((string[])(null)));
-#line 66
+#line 70
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-#line 67
+#line 71
     testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
 @prefix wbo: <http://wikibus.org/ontology#>.
 @prefix bibo: <http://purl.org/ontology/bibo/>.
@@ -177,21 +184,21 @@ this.ScenarioSetup(scenarioInfo);
     <brochure/6> 
         a wbo:Brochure ;
 }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 83
-    testRunner.When("brochure <http://wikibus.org/brochure/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 84
-    testRunner.Then("\'Title\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 85
-     testRunner.And("\'Pages\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 86
-     testRunner.And("\'Date\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 87
-     testRunner.And("\'Month\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("brochure <http://wikibus.org/brochure/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 88
-     testRunner.And("\'Code\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("\'Title\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 89
-     testRunner.And("\'Languages\' should be empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("\'Pages\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 90
+     testRunner.And("\'Date\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 91
+     testRunner.And("\'Month\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 92
+     testRunner.And("\'Code\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 93
+     testRunner.And("\'Languages\' should be empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 94
      testRunner.And("\'Description\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -202,10 +209,10 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetCompleteBook()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get complete book", ((string[])(null)));
-#line 92
+#line 96
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-#line 93
+#line 97
     testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
 @prefix wbo: <http://wikibus.org/ontology#>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
@@ -215,19 +222,25 @@ this.ScenarioSetup(scenarioInfo);
     <book/6> 
         a wbo:Book ;
         dcterms:title ""Strassenbahnen in Schlesien"" ;
-        sch:isbn ""3879434247"" ;
-        sch:author [ sch:name ""Siegfried Bufe"" ] .
+        sch:isbn ""3879434247"" .
+    <book/6> sch:image [ sch:contentUrl ""http://wikibus.org/book/6/image""^^sch:URL ] .
+    <book/6> sch:author [ sch:name ""Siegfried Bufe"" ].
 }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 108
+#line 113
     testRunner.When("book <http://wikibus.org/book/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 109
+#line 114
     testRunner.Then("\'Title\' should be string equal to \'Strassenbahnen in Schlesien\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 110
+#line 115
      testRunner.And("\'Author\' should be not null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 111
+#line 116
      testRunner.And("\'Author\' should have string property \'Name\' equal to \'Siegfried Bufe\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 112
+#line 117
      testRunner.And("\'ISBN\' should be string equal to \'3879434247\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 118
+     testRunner.And("\'Image\' should be not null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 119
+     testRunner.And("\'Image\' should have string property \'ContentUrl\' equal to \'http://wikibus.org/boo" +
+                    "k/6/image\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -237,10 +250,10 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetBookWithoutAuthor()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get book without author", ((string[])(null)));
-#line 114
+#line 121
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-#line 115
+#line 122
     testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
 @prefix wbo: <http://wikibus.org/ontology#>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
@@ -252,9 +265,9 @@ this.ScenarioSetup(scenarioInfo);
         dcterms:title ""Strassenbahnen in Schlesien"" ;
         sch:isbn ""3879434247"" .
 }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 129
+#line 136
     testRunner.When("book <http://wikibus.org/book/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 130
+#line 137
      testRunner.Then("\'Author\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -265,10 +278,10 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetFirstPageOfBooks()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get first page of books", ((string[])(null)));
-#line 132
+#line 139
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-#line 133
+#line 140
     testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
 @prefix wbo: <http://wikibus.org/ontology#>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
@@ -296,17 +309,17 @@ this.ScenarioSetup(scenarioInfo);
     <book/19> a wbo:Book .
     <book/20> a wbo:Book .
 }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 163
+#line 170
       testRunner.And("page size equal to 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 164
+#line 171
      testRunner.When("page 1 of books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 165
-     testRunner.Then("\'TotalCount\' should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 166
+#line 172
+     testRunner.Then("\'TotalItems\' should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 173
       testRunner.And("\'ItemsPerPage\' should be 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 167
+#line 174
       testRunner.And("\'NextPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 168
+#line 175
       testRunner.And("\'LastPage\' should be Uri \'http://wikibus.org/books?page=20\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

@@ -24,6 +24,43 @@ namespace wikibus.sources.Hydra
         public long TotalItems { get; set; }
 
         /// <summary>
+        /// Gets or sets the page size.
+        /// </summary>
+        public int ItemsPerPage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the page.
+        /// </summary>
+        public int Page { get; set; }
+
+        /// <summary>
+        /// Gets the next page URI.
+        /// </summary>
+        public Uri NextPage
+        {
+            get
+            {
+                var builder = new UriBuilder(Id);
+                builder.Query = "page=" + (Page + 1);
+                return builder.Uri;
+            }
+        }
+
+        /// <summary>
+        /// Gets the last page URI.
+        /// </summary>
+        public Uri LastPage
+        {
+            get
+            {
+                var builder = new UriBuilder(Id);
+                builder.Query = "page=" + Math.Ceiling((decimal)TotalItems / ItemsPerPage);
+
+                return builder.Uri;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the members.
         /// </summary>
         [JsonProperty("member")]

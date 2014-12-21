@@ -64,7 +64,11 @@ namespace wikibus.sources.dotNetRDF
             {
                 var dataset = StringWriter.Write(graph, new NTriplesWriter(NTriplesSyntax.Rdf11));
 
-                return _serializer.Deserialize<PagedCollection<T>>(dataset);
+                var collection = _serializer.Deserialize<PagedCollection<T>>(dataset);
+                collection.ItemsPerPage = pageSize;
+                collection.Page = page;
+
+                return collection;
             }
 
             return new PagedCollection<T>();
