@@ -12,7 +12,9 @@ using TechTalk.SpecFlow;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
+using VDS.RDF.Writing;
 using wikibus.sources.dotNetRDF;
+using StringWriter = VDS.RDF.Writing.StringWriter;
 
 namespace wikibus.tests.Mappings
 {
@@ -55,20 +57,24 @@ namespace wikibus.tests.Mappings
         public void ThenResultingShouldMatchQuery(string query)
         {
             var querySuccess = ExecuteAsk(query);
-            Assert.That(querySuccess);
+            Assert.That(querySuccess, "Actual triples were: {0}", StringWriter.Write(_result, new TriGWriter()));
         }
 
         [Then(@"resulting dataset should not match query:")]
         public void ThenResultingDatasetShouldNotMatchQuery(string query)
         {
             var querySuccess = ExecuteAsk(query);
-            Assert.That(querySuccess, Is.False);
+            Assert.That(querySuccess, Is.False, "Actual triples were: {0}", StringWriter.Write(_result, new TriGWriter()));
         }
 
         [Then(@"resulting dataset should contain '(\d*)' triples")]
         public void ThenResultingDatasetShouldContainTriples(int expectedCount)
         {
-            Assert.That(_result.Triples.Count(), Is.EqualTo(expectedCount));
+            Assert.That(
+                _result.Triples.Count(),
+                Is.EqualTo(expectedCount),
+                "Actual triples were: {0}",
+                StringWriter.Write(_result, new TriGWriter()));
         }
 
         public void Dispose()

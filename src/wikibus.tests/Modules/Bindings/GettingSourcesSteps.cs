@@ -43,6 +43,12 @@ namespace wikibus.tests.Modules.Bindings
             A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).Returns(new Brochure());
         }
 
+        [Given(@"existing magazine '(.*)'")]
+        public void GivenExistingMagazine(string resourceUri)
+        {
+            A.CallTo(() => _dep.Sources.Get<Magazine>(new Uri(resourceUri))).Returns(new Magazine());
+        }
+
         [Given(@"exisiting book collection")]
         public void GivenExisitingBookCollection()
         {
@@ -124,6 +130,12 @@ namespace wikibus.tests.Modules.Bindings
         public void ThenBookShouldHaveBeenRetrieved(string resourceUri)
         {
             A.CallTo(() => _dep.Sources.Get<Book>(new Uri(resourceUri))).MustHaveHappened();
+        }
+
+        [Then(@"magazine '(.*)' should have been retrieved")]
+        public void ThenMagazineShouldHaveBeenRetrieved(string resourceUri)
+        {
+            A.CallTo(() => _dep.Sources.Get<Magazine>(new Uri(resourceUri))).MustHaveHappened();
         }
 
         private void SetupRequest(BrowserContext context)

@@ -7,33 +7,57 @@ Scenario Outline: GETting sources
    Then response should have status 200
    And <type> 'http://wikibus.org<path>' should have been retrieved
    Examples:
-   | type     | path            |
-   | brochure | /brochure/12345 |
-   | book     | /book/123456abc |
+   | type     | path                   |
+   | brochure | /brochure/12345        |
+   | book     | /book/123456abc        |
+   | magazine | /magazine/Bus%20Kurier |
 
 Scenario: GET inexistent brochure
    Given brochure 'http://wikibus.org/brochure/12345' doesn't exist
    When I GET resource '/brochure/12345'
    Then response should have status 404
 
-Scenario: GET books collection first page
+Scenario Outline: GET collection first page
    Given Accept header is 'text/turtle'
-     And exisiting book collection
-    When I GET resource '/books'
+     And exisiting <type> collection
+    When I GET resource '<path>'
     Then response should have status 200
      And page 1 of book collection should have been retrieved
+Examples: 
+    | type     | path       |
+    | book     | /books     |
+    | brochure | /brochures |
+    | magazine | /magazines |
 
-Scenario: GET books collection Nth page
+Scenario Outline: GET collection negative page
    Given Accept header is 'text/turtle'
-     And exisiting book collection
+	 And query string is
+		| key  | value |
+		| page | -1    |
+    When I GET resource '<path>'
+    Then response should have status 400
+Examples: 
+    | type     | path       |
+    | book     | /books     |
+    | brochure | /brochures |
+    | magazine | /magazines |
+
+Scenario Outline: GET source collection Nth page
+   Given Accept header is 'text/turtle'
+     And exisiting <type> collection
 	 And query string is
 		| key  | value |
 		| page | 25    |
-    When I GET resource '/books'
+    When I GET resource '<path>'
     Then response should have status 200
      And page 25 of book collection should have been retrieved
+Examples: 
+    | type     | path       |
+    | book     | /books     |
+    | brochure | /brocures  |
+    | magazine | /magazines |
 
-Scenario Outline: GET large image
+Scenario Outline: GET images
    Given Accept header is '*/*'
      And exisiting image <id>
     When I GET resource '<url>'
@@ -42,8 +66,8 @@ Scenario Outline: GET large image
      And image <id> should have been retrieved
 Examples: 
      | url                      | id |
-     | /book/10/image/large     | 10 |
-     | /brochure/15/image/large | 15 |
+     | /book/10/image           | 10 |
+     | /brochure/15/image       | 15 |
      | /book/10/image/small     | 10 |
      | /brochure/15/image/small | 15 |
 
@@ -56,7 +80,7 @@ Scenario Outline: GET issue image
      And image Buses 66 should have been retrieved
 Examples: 
      | url                                  |
-     | /magazine/Buses/issue/66/image/large |
+     | /magazine/Buses/issue/66/image       |
      | /magazine/Buses/issue/66/image/small |
 
 Scenario Outline: GET missing image

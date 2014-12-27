@@ -31,11 +31,17 @@ namespace wikibus.sources.nancy
             {
                 var conneg = context.NegotiationContext;
                 if (modelIsInvalid(conneg.DefaultModel) &&
-                    conneg.MediaRangeModelMappings.Any() == false)
+                    conneg.MediaRangeModelMappings.Any() == false &&
+                    IsSuccessStatusCode(context))
                 {
                     context.Response.StatusCode = HttpStatusCode.NotFound;
                 }
             };
+        }
+
+        private static bool IsSuccessStatusCode(NancyContext context)
+        {
+            return ((int)context.Response.StatusCode & 200) == 200;
         }
     }
 }

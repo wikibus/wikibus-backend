@@ -364,7 +364,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 139
     testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 140
-    testRunner.Then("resulting dataset should contain \'12\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("resulting dataset should contain \'13\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 141
      testRunner.And("resulting dataset should match query:", @" base <http://wikibus.org/>

@@ -68,6 +68,7 @@ namespace wikibus.tests.Modules
         [NUnit.Framework.DescriptionAttribute("GETting sources")]
         [NUnit.Framework.TestCaseAttribute("brochure", "/brochure/12345", null)]
         [NUnit.Framework.TestCaseAttribute("book", "/book/123456abc", null)]
+        [NUnit.Framework.TestCaseAttribute("magazine", "/magazine/Bus%20Kurier", null)]
         public virtual void GETtingSources(string type, string path, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GETting sources", exampleTags);
@@ -92,91 +93,126 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GETInexistentBrochure()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET inexistent brochure", ((string[])(null)));
-#line 14
-this.ScenarioSetup(scenarioInfo);
 #line 15
-   testRunner.Given("brochure \'http://wikibus.org/brochure/12345\' doesn\'t exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 16
-   testRunner.When("I GET resource \'/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.Given("brochure \'http://wikibus.org/brochure/12345\' doesn\'t exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 17
+   testRunner.When("I GET resource \'/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
    testRunner.Then("response should have status 404", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("GET books collection first page")]
-        public virtual void GETBooksCollectionFirstPage()
+        [NUnit.Framework.DescriptionAttribute("GET collection first page")]
+        [NUnit.Framework.TestCaseAttribute("book", "/books", null)]
+        [NUnit.Framework.TestCaseAttribute("brochure", "/brochures", null)]
+        [NUnit.Framework.TestCaseAttribute("magazine", "/magazines", null)]
+        public virtual void GETCollectionFirstPage(string type, string path, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET books collection first page", ((string[])(null)));
-#line 19
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET collection first page", exampleTags);
 #line 20
-   testRunner.Given("Accept header is \'text/turtle\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 21
-     testRunner.And("exisiting book collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.Given("Accept header is \'text/turtle\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 22
-    testRunner.When("I GET resource \'/books\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.And(string.Format("exisiting {0} collection", type), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
-    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.When(string.Format("I GET resource \'{0}\'", path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 24
+    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
      testRunner.And("page 1 of book collection should have been retrieved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("GET books collection Nth page")]
-        public virtual void GETBooksCollectionNthPage()
+        [NUnit.Framework.DescriptionAttribute("GET collection negative page")]
+        [NUnit.Framework.TestCaseAttribute("book", "/books", null)]
+        [NUnit.Framework.TestCaseAttribute("brochure", "/brochures", null)]
+        [NUnit.Framework.TestCaseAttribute("magazine", "/magazines", null)]
+        public virtual void GETCollectionNegativePage(string type, string path, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET books collection Nth page", ((string[])(null)));
-#line 26
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET collection negative page", exampleTags);
+#line 32
 this.ScenarioSetup(scenarioInfo);
-#line 27
+#line 33
    testRunner.Given("Accept header is \'text/turtle\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
-     testRunner.And("exisiting book collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "key",
                         "value"});
             table1.AddRow(new string[] {
                         "page",
-                        "25"});
-#line 29
-  testRunner.And("query string is", ((string)(null)), table1, "And ");
-#line 32
-    testRunner.When("I GET resource \'/books\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 33
-    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                        "-1"});
 #line 34
+  testRunner.And("query string is", ((string)(null)), table1, "And ");
+#line 37
+    testRunner.When(string.Format("I GET resource \'{0}\'", path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 38
+    testRunner.Then("response should have status 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("GET source collection Nth page")]
+        [NUnit.Framework.TestCaseAttribute("book", "/books", null)]
+        [NUnit.Framework.TestCaseAttribute("brochure", "/brocures", null)]
+        [NUnit.Framework.TestCaseAttribute("magazine", "/magazines", null)]
+        public virtual void GETSourceCollectionNthPage(string type, string path, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET source collection Nth page", exampleTags);
+#line 45
+this.ScenarioSetup(scenarioInfo);
+#line 46
+   testRunner.Given("Accept header is \'text/turtle\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 47
+     testRunner.And(string.Format("exisiting {0} collection", type), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "key",
+                        "value"});
+            table2.AddRow(new string[] {
+                        "page",
+                        "25"});
+#line 48
+  testRunner.And("query string is", ((string)(null)), table2, "And ");
+#line 51
+    testRunner.When(string.Format("I GET resource \'{0}\'", path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 52
+    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 53
      testRunner.And("page 25 of book collection should have been retrieved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("GET large image")]
-        [NUnit.Framework.TestCaseAttribute("/book/10/image/large", "10", null)]
-        [NUnit.Framework.TestCaseAttribute("/brochure/15/image/large", "15", null)]
+        [NUnit.Framework.DescriptionAttribute("GET images")]
+        [NUnit.Framework.TestCaseAttribute("/book/10/image", "10", null)]
+        [NUnit.Framework.TestCaseAttribute("/brochure/15/image", "15", null)]
         [NUnit.Framework.TestCaseAttribute("/book/10/image/small", "10", null)]
         [NUnit.Framework.TestCaseAttribute("/brochure/15/image/small", "15", null)]
-        public virtual void GETLargeImage(string url, string id, string[] exampleTags)
+        public virtual void GETImages(string url, string id, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET large image", exampleTags);
-#line 36
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET images", exampleTags);
+#line 60
 this.ScenarioSetup(scenarioInfo);
-#line 37
+#line 61
    testRunner.Given("Accept header is \'*/*\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 38
+#line 62
      testRunner.And(string.Format("exisiting image {0}", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 39
+#line 63
     testRunner.When(string.Format("I GET resource \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
+#line 64
     testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 41
+#line 65
      testRunner.And("content type should be \'image/jpeg\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 42
+#line 66
      testRunner.And(string.Format("image {0} should have been retrieved", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -184,24 +220,24 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("GET issue image")]
-        [NUnit.Framework.TestCaseAttribute("/magazine/Buses/issue/66/image/large", null)]
+        [NUnit.Framework.TestCaseAttribute("/magazine/Buses/issue/66/image", null)]
         [NUnit.Framework.TestCaseAttribute("/magazine/Buses/issue/66/image/small", null)]
         public virtual void GETIssueImage(string url, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET issue image", exampleTags);
-#line 50
+#line 74
 this.ScenarioSetup(scenarioInfo);
-#line 51
+#line 75
    testRunner.Given("Accept header is \'*/*\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 52
+#line 76
      testRunner.And("exisiting image for Buses 66", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 53
+#line 77
     testRunner.When(string.Format("I GET resource \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 54
+#line 78
     testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 55
+#line 79
      testRunner.And("content type should be \'image/jpeg\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 56
+#line 80
      testRunner.And("image Buses 66 should have been retrieved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -218,13 +254,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GETMissingImage(string url, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GET missing image", exampleTags);
-#line 62
+#line 86
 this.ScenarioSetup(scenarioInfo);
-#line 63
+#line 87
    testRunner.Given("Accept header is \'*/*\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 64
+#line 88
     testRunner.When(string.Format("I GET resource \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 65
+#line 89
     testRunner.Then("response should have status 404", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

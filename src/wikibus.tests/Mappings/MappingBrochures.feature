@@ -137,7 +137,7 @@ Scenario: Mapping complete magazine issue
          | Id | Name      |
          | 1  | Bus Kurier |
     When retrieve all triples
-    Then resulting dataset should contain '12' triples
+    Then resulting dataset should contain '13' triples
      And resulting dataset should match query:
          """
           base <http://wikibus.org/>

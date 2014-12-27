@@ -51,7 +51,7 @@ namespace wikibus.sources.dotNetRDF
         }
 
         /// <inheritdoc />
-        public PagedCollection<T> GetAll<T>(int page, int pageSize = 10) where T : Source
+        public PagedCollection<T> GetAll<T>(int page, int pageSize = 10) where T : class
         {
             var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSourcesPage.rq"));
             query.SetUri("type", GetTypeUri(typeof(T)));

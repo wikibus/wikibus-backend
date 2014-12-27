@@ -19,6 +19,6 @@ namespace wikibus.sources
         /// Gets all resources of type <typeparamref name="T" />
         /// </summary>
         /// <typeparam name="T">Source type</typeparam>
-        PagedCollection<T> GetAll<T>(int page, int pageSize = 10) where T : Source;
+        PagedCollection<T> GetAll<T>(int page, int pageSize = 10) where T : class;
     }
 }
