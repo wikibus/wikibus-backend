@@ -26,6 +26,7 @@ namespace wikibus.sources
             contextProvider.SetContext(typeof(Magazine), MagazineContext);
             contextProvider.SetContext(typeof(PagedCollection<Book>), contextProvider.CreateCollectionContext(typeof(Book)));
             contextProvider.SetContext(typeof(PagedCollection<Brochure>), contextProvider.CreateCollectionContext(typeof(Brochure)));
+            contextProvider.SetContext(typeof(PagedCollection<Magazine>), contextProvider.CreateCollectionContext(typeof(Magazine)));
         }
 
         /// <summary>
@@ -37,6 +38,7 @@ namespace wikibus.sources
             frameProvider.SetFrame(typeof(Brochure), JObject.Parse("{ '@type': 'http://wikibus.org/ontology#Brochure' }"));
             frameProvider.SetFrame(typeof(PagedCollection<Book>), PagedCollectionFrame);
             frameProvider.SetFrame(typeof(PagedCollection<Brochure>), PagedCollectionFrame);
+            frameProvider.SetFrame(typeof(PagedCollection<Magazine>), PagedCollectionFrame);
         }
 
         private static JArray CreateCollectionContext(this IContextProvider contextProvider, Type modelType)

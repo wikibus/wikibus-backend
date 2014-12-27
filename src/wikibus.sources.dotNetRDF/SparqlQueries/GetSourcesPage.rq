@@ -12,7 +12,7 @@ construct
 }
 where
 {
-  {
+  optional {
     select ?source ?title
     {
       ?source a @type .  

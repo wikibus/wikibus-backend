@@ -64,10 +64,12 @@ namespace wikibus.sources.Hydra
                     return null;
                 }
 
-                var builder = new UriBuilder(Id);
-                builder.Query = "page=" + (CurrentPage - 1);
+                if (IsLastPage)
+                {
+                    return LastPage;
+                }
 
-                return builder.Uri;
+                return GetUriForPage(CurrentPage - 1);
             }
         }
 
@@ -78,10 +80,12 @@ namespace wikibus.sources.Hydra
         {
             get
             {
-                var builder = new UriBuilder(Id);
-                builder.Query = "page=" + LastPageIndex;
+                if (TotalItems == 0)
+                {
+                    return null;
+                }
 
-                return builder.Uri;
+                return GetUriForPage(LastPageIndex);
             }
         }
 
@@ -93,12 +97,20 @@ namespace wikibus.sources.Hydra
 
         private bool IsLastPage
         {
-            get { return CurrentPage == LastPageIndex; }
+            get { return CurrentPage >= LastPageIndex; }
         }
 
         private int LastPageIndex
         {
             get { return (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage); }
+        }
+
+        private Uri GetUriForPage(int i)
+        {
+            var builder = new UriBuilder(Id);
+            builder.Query = "page=" + i;
+
+            return builder.Uri;
         }
     }
 }

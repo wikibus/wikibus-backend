@@ -324,6 +324,114 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get last page of books")]
+        public virtual void GetLastPageOfBooks()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get last page of books", ((string[])(null)));
+#line 177
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+#line 178
+    testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
+@prefix wbo: <http://wikibus.org/ontology#>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix sch: <http://schema.org/>.
+
+{
+    <book/1> a wbo:Book .
+    <book/2> a wbo:Book .
+    <book/3> a wbo:Book .
+    <book/4> a wbo:Book .
+    <book/5> a wbo:Book .
+    <book/6> a wbo:Book .
+    <book/7> a wbo:Book .
+    <book/8> a wbo:Book .
+    <book/9> a wbo:Book .
+    <book/10> a wbo:Book .
+    <book/11> a wbo:Book .
+    <book/12> a wbo:Book .
+    <book/13> a wbo:Book .
+    <book/14> a wbo:Book .
+    <book/15> a wbo:Book .
+    <book/16> a wbo:Book .
+    <book/17> a wbo:Book .
+    <book/18> a wbo:Book .
+    <book/19> a wbo:Book .
+    <book/20> a wbo:Book .
+}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 208
+      testRunner.And("page size equal to 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 209
+     testRunner.When("page 2 of books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 210
+     testRunner.Then("\'TotalItems\' should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 211
+      testRunner.And("\'ItemsPerPage\' should be 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 212
+      testRunner.And("\'NextPage\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 213
+      testRunner.And("\'PreviousPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 214
+      testRunner.And("\'LastPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get invalid page of books")]
+        public virtual void GetInvalidPageOfBooks()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get invalid page of books", ((string[])(null)));
+#line 216
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+#line 217
+    testRunner.Given("RDF data:", @"@base <http://wikibus.org/>.
+@prefix wbo: <http://wikibus.org/ontology#>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix sch: <http://schema.org/>.
+
+{
+    <book/1> a wbo:Book .
+    <book/2> a wbo:Book .
+    <book/3> a wbo:Book .
+    <book/4> a wbo:Book .
+    <book/5> a wbo:Book .
+    <book/6> a wbo:Book .
+    <book/7> a wbo:Book .
+    <book/8> a wbo:Book .
+    <book/9> a wbo:Book .
+    <book/10> a wbo:Book .
+    <book/11> a wbo:Book .
+    <book/12> a wbo:Book .
+    <book/13> a wbo:Book .
+    <book/14> a wbo:Book .
+    <book/15> a wbo:Book .
+    <book/16> a wbo:Book .
+    <book/17> a wbo:Book .
+    <book/18> a wbo:Book .
+    <book/19> a wbo:Book .
+    <book/20> a wbo:Book .
+}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 247
+      testRunner.And("page size equal to 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 248
+     testRunner.When("page 20 of books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 249
+     testRunner.Then("\'TotalItems\' should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 250
+      testRunner.And("\'ItemsPerPage\' should be 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 251
+      testRunner.And("\'NextPage\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 252
+      testRunner.And("\'PreviousPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 253
+      testRunner.And("\'LastPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

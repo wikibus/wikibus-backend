@@ -82,11 +82,14 @@ namespace wikibus.sources.dotNetRDF
                 case "Book":
                     collectionName = "books";
                     break;
-                case "brochure":
+                case "Brochure":
                     collectionName = "brochures";
                     break;
+                case "Magazine":
+                    collectionName = "magazines";
+                    break;
                 default:
-                    throw new ArgumentException("Unrecognized type", "type");
+                    throw new ArgumentException(string.Format("Unrecognized entity type {0}", type), "type");
             }
 
             return new Uri(string.Format("http://wikibus.org/{0}", collectionName));

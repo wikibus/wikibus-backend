@@ -173,3 +173,81 @@ Scenario: Get first page of books
       And 'ItemsPerPage' should be 1
       And 'NextPage' should be Uri 'http://wikibus.org/books?page=2'
       And 'LastPage' should be Uri 'http://wikibus.org/books?page=20'
+
+Scenario: Get last page of books
+    Given RDF data:
+        """
+        @base <http://wikibus.org/>.
+        @prefix wbo: <http://wikibus.org/ontology#>.
+        @prefix dcterms: <http://purl.org/dc/terms/>.
+        @prefix sch: <http://schema.org/>.
+
+        {
+            <book/1> a wbo:Book .
+            <book/2> a wbo:Book .
+            <book/3> a wbo:Book .
+            <book/4> a wbo:Book .
+            <book/5> a wbo:Book .
+            <book/6> a wbo:Book .
+            <book/7> a wbo:Book .
+            <book/8> a wbo:Book .
+            <book/9> a wbo:Book .
+            <book/10> a wbo:Book .
+            <book/11> a wbo:Book .
+            <book/12> a wbo:Book .
+            <book/13> a wbo:Book .
+            <book/14> a wbo:Book .
+            <book/15> a wbo:Book .
+            <book/16> a wbo:Book .
+            <book/17> a wbo:Book .
+            <book/18> a wbo:Book .
+            <book/19> a wbo:Book .
+            <book/20> a wbo:Book .
+        }
+        """
+      And page size equal to 10
+     When page 2 of books is fetched
+     Then 'TotalItems' should be 20
+      And 'ItemsPerPage' should be 10
+      And 'NextPage' should be null
+      And 'PreviousPage' should be Uri 'http://wikibus.org/books?page=2'
+      And 'LastPage' should be Uri 'http://wikibus.org/books?page=2'
+
+Scenario: Get invalid page of books
+    Given RDF data:
+        """
+        @base <http://wikibus.org/>.
+        @prefix wbo: <http://wikibus.org/ontology#>.
+        @prefix dcterms: <http://purl.org/dc/terms/>.
+        @prefix sch: <http://schema.org/>.
+
+        {
+            <book/1> a wbo:Book .
+            <book/2> a wbo:Book .
+            <book/3> a wbo:Book .
+            <book/4> a wbo:Book .
+            <book/5> a wbo:Book .
+            <book/6> a wbo:Book .
+            <book/7> a wbo:Book .
+            <book/8> a wbo:Book .
+            <book/9> a wbo:Book .
+            <book/10> a wbo:Book .
+            <book/11> a wbo:Book .
+            <book/12> a wbo:Book .
+            <book/13> a wbo:Book .
+            <book/14> a wbo:Book .
+            <book/15> a wbo:Book .
+            <book/16> a wbo:Book .
+            <book/17> a wbo:Book .
+            <book/18> a wbo:Book .
+            <book/19> a wbo:Book .
+            <book/20> a wbo:Book .
+        }
+        """
+      And page size equal to 10
+     When page 20 of books is fetched
+     Then 'TotalItems' should be 20
+      And 'ItemsPerPage' should be 10
+      And 'NextPage' should be null
+      And 'PreviousPage' should be Uri 'http://wikibus.org/books?page=2'
+      And 'LastPage' should be Uri 'http://wikibus.org/books?page=2'
