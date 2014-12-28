@@ -41,7 +41,10 @@ namespace wikibus.nancy
                 return new[]
                 {
                     typeof(EntryPoint).ToClass(),
-                    typeof(Book).ToClass()
+                    typeof(Book).ToClass(),
+                    typeof(Brochure).ToClass(),
+                    typeof(Magazine).ToClass(),
+                    typeof(Issue).ToClass()
                 };
             }
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Hydra.Annotations;
 using JsonLD.Entities;
 using NullGuard;
 
@@ -20,11 +21,14 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
+        [SupportedProperty("dcterms:title")]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets the issues Uri.
         /// </summary>
+        [SupportedProperty("wbo:issues")]
+        [AllowGet]
         public Uri Issues
         {
             get { return new Uri(Id + "/issues"); }
