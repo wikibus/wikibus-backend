@@ -1,7 +1,6 @@
 ﻿using System;
-using NullGuard;
 
-namespace wikibus.nancy.Hydra
+namespace Hydra.Annotations
 {
     /// <summary>
     /// Marks a Hydra supported property

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JsonLD.Entities;
 using wikibus.nancy.Hydra;
+using wikibus.sources;
 
 namespace wikibus.nancy
 {
@@ -39,7 +40,8 @@ namespace wikibus.nancy
             {
                 return new[]
                 {
-                    typeof(EntryPoint).ToClass()
+                    typeof(EntryPoint).ToClass(),
+                    typeof(Book).ToClass()
                 };
             }
         }

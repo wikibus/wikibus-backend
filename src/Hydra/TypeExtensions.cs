@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using Hydra.Annotations;
 
-namespace wikibus.nancy.Hydra
+namespace Hydra
 {
     /// <summary>
     /// Helpers to build API Documentation

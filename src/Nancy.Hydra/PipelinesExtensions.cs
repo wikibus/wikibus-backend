@@ -1,8 +1,6 @@
 ﻿using System;
-using Nancy;
-using Nancy.Bootstrapper;
 
-namespace wikibus.nancy.Hydra
+namespace Nancy.Hydra
 {
     /// <summary>
     /// Wires Hydra with the application

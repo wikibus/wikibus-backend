@@ -60,18 +60,10 @@
     <Compile Include="EntrypointModule.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Hydra\ApiDocumentation.cs" />
-    <Compile Include="Hydra\Class.cs" />
-    <Compile Include="Hydra\HydraModule.cs" />
-    <Compile Include="Hydra\Operation.cs" />
-    <Compile Include="Hydra\PipelinesExtensions.cs" />
     <Compile Include="Components\ImageResizer.cs" />
-    <Compile Include="Hydra\Property.cs" />
     <EmbeddedResource Include="WikibusApi.json">
       <DependentUpon>WikibusApi.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Hydra\SupportedOperationAttribute.cs" />
-    <Compile Include="Hydra\SupportedPropertyAttribute.cs" />
     <Compile Include="Hydra\TypeExtensions.cs" />
     <Compile Include="WikibusApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,7 +1,6 @@
 ﻿using System;
-using NullGuard;
 
-namespace wikibus.nancy.Hydra
+namespace Hydra.Annotations
 {
     /// <summary>
     /// Marks a property available for invoking GET
@@ -10,5 +9,9 @@ namespace wikibus.nancy.Hydra
     [NullGuard(ValidationFlags.ReturnValues)]
     public class AllowGetAttribute : Attribute
     {
+        /// <summary>
+        /// Gets or sets the range.
+        /// </summary>
+        public string Range { get; set; }
     }
 }

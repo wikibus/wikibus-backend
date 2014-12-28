@@ -1,6 +1,4 @@
-using NullGuard;
-
-namespace wikibus.nancy.Hydra
+namespace Hydra
 {
     /// <summary>
     /// A Hydra operation

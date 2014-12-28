@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using NullGuard;
 
-namespace wikibus.nancy.Hydra
+namespace Hydra
 {
     /// <summary>
     /// A Hydra property

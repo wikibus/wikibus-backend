@@ -1,9 +1,6 @@
 using System;
-using JsonLD.Entities;
-using Newtonsoft.Json;
-using NullGuard;
 
-namespace wikibus.sources.Hydra
+namespace Hydra
 {
     /// <summary>
     /// Hydra paged collection

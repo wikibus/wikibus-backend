@@ -24,8 +24,8 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the brochures Uri.
         /// </summary>
-        [SupportedProperty("wb:brochures", Range = "hydra:PagedCollection")]
-        [AllowGet]
+        [SupportedProperty("wb:brochures")]
+        [AllowGet(Range = "hydra:PagedCollection")]
         public string Brochures
         {
             get { return "brochures"; }

@@ -1,6 +1,4 @@
-﻿using Nancy;
-
-namespace wikibus.nancy.Hydra
+﻿namespace Nancy.Hydra
 {
     /// <summary>
     /// Server Hydra API documentation

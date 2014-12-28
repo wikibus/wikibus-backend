@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
-namespace wikibus.nancy.Hydra
+namespace Hydra
 {
     /// <summary>
     /// Base class for Hydra API documentation

@@ -32,6 +32,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.nancy", "wikibus.na
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.common", "wikibus.common\wikibus.common.csproj", "{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Hydra", "Nancy.Hydra\Nancy.Hydra.csproj", "{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hydra", "Hydra\Hydra.csproj", "{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +78,14 @@ Global
 		{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
