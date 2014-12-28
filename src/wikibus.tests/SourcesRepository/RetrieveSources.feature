@@ -165,14 +165,14 @@ Scenario: Get first page of books
             <book/18> a wbo:Book .
             <book/19> a wbo:Book .
             <book/20> a wbo:Book .
+            <book/21> a wbo:Book .
         }
         """
-      And page size equal to 1
      When page 1 of books is fetched
-     Then 'TotalItems' should be 20
-      And 'ItemsPerPage' should be 1
+     Then 'TotalItems' should be 21
+      And 'ItemsPerPage' should be 10
       And 'NextPage' should be Uri 'http://wikibus.org/books?page=2'
-      And 'LastPage' should be Uri 'http://wikibus.org/books?page=20'
+      And 'LastPage' should be Uri 'http://wikibus.org/books?page=3'
 
 Scenario: Get last page of books
     Given RDF data:
@@ -205,7 +205,6 @@ Scenario: Get last page of books
             <book/20> a wbo:Book .
         }
         """
-      And page size equal to 10
      When page 2 of books is fetched
      Then 'TotalItems' should be 20
       And 'ItemsPerPage' should be 10
@@ -244,7 +243,6 @@ Scenario: Get invalid page of books
             <book/20> a wbo:Book .
         }
         """
-      And page size equal to 10
      When page 20 of books is fetched
      Then 'TotalItems' should be 20
       And 'ItemsPerPage' should be 10
