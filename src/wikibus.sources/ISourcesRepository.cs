@@ -9,16 +9,39 @@ namespace wikibus.sources
     public interface ISourcesRepository
     {
         /// <summary>
-        /// Gets the specified resource.
+        /// Gets the magazine.
         /// </summary>
-        /// <param name="uri">The source identifier.</param>
-        /// <typeparam name="T">type of source</typeparam>
-        T Get<T>(Uri uri) where T : class;
+        /// <param name="identifier">The identifier.</param>
+        Magazine GetMagazine(Uri identifier);
 
         /// <summary>
-        /// Gets all resources of type <typeparamref name="T" />
+        /// Gets the brochure.
         /// </summary>
-        /// <typeparam name="T">Source type</typeparam>
-        PagedCollection<T> GetAll<T>(int page, int pageSize = 10) where T : class;
+        /// <param name="identifier">The identifier.</param>
+        Brochure GetBrochure(Uri identifier);
+
+        /// <summary>
+        /// Gets the book.
+        /// </summary>
+        /// <param name="identifier">The identifier.</param>
+        Book GetBook(Uri identifier);
+
+        /// <summary>
+        /// Gets the books.
+        /// </summary>
+        /// <param name="page">The page.</param>
+        PagedCollection<Book> GetBooks(int page);
+
+        /// <summary>
+        /// Gets the brochures.
+        /// </summary>
+        /// <param name="page">The page.</param>
+        PagedCollection<Brochure> GetBrochures(int page);
+
+        /// <summary>
+        /// Gets the magazines.
+        /// </summary>
+        /// <param name="page">The page.</param>
+        PagedCollection<Magazine> GetMagazines(int page);
     }
 }

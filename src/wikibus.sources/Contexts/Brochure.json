@@ -19,5 +19,7 @@
     "name": "sch:name",
     "image": "sch:image",
     "contentUrl": { "@id": "sch:contentUrl", "@type": "sch:URL" },
-    "thumbnail": "sch:thubmnail"
+    "thumbnail": "sch:thubmnail",
+    "number": "sch:issueNumber",
+    "magazine":  "sch:isPartOf"
 }

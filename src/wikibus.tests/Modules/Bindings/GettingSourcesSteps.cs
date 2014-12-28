@@ -34,31 +34,31 @@ namespace wikibus.tests.Modules.Bindings
         [Given(@"brochure '(.*)' doesn't exist")]
         public void GivenBrochureDoesntExist(string resourceUri)
         {
-            A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).Returns(null);
+            A.CallTo(() => _dep.Sources.GetBrochure(new Uri(resourceUri))).Returns(null);
         }
 
         [Given(@"existing brochure '(.*)'")]
         public void GivenExistingBrochure(string resourceUri)
         {
-            A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).Returns(new Brochure());
+            A.CallTo(() => _dep.Sources.GetBrochure(new Uri(resourceUri))).Returns(new Brochure());
         }
 
         [Given(@"existing magazine '(.*)'")]
         public void GivenExistingMagazine(string resourceUri)
         {
-            A.CallTo(() => _dep.Sources.Get<Magazine>(new Uri(resourceUri))).Returns(new Magazine());
+            A.CallTo(() => _dep.Sources.GetMagazine(new Uri(resourceUri))).Returns(new Magazine());
         }
 
         [Given(@"exisiting book collection")]
         public void GivenExisitingBookCollection()
         {
-            A.CallTo(() => _dep.Sources.GetAll<Book>(A<int>.Ignored, A<int>.Ignored)).Returns(new PagedCollection<Book>());
+            A.CallTo(() => _dep.Sources.GetBooks(A<int>.Ignored)).Returns(new PagedCollection<Book>());
         }
 
         [Given(@"existing book '(.*)'")]
         public void GivenExistingBook(string resourceUri)
         {
-            A.CallTo(() => _dep.Sources.Get<Book>(new Uri(resourceUri))).Returns(new Book());
+            A.CallTo(() => _dep.Sources.GetBook(new Uri(resourceUri))).Returns(new Book());
         }
 
         [Given(@"exisiting image (.*)")]
@@ -108,9 +108,9 @@ namespace wikibus.tests.Modules.Bindings
         }
 
         [Then(@"page (.*) of book collection should have been retrieved")]
-        public void ThenPageOfBookCollectionShouldHaveBeenRetrieved(int pageSize)
+        public void ThenPageOfBookCollectionShouldHaveBeenRetrieved(int page)
         {
-            A.CallTo(() => _dep.Sources.GetAll<Book>(pageSize, 10)).MustHaveHappened();
+            A.CallTo(() => _dep.Sources.GetBooks(page)).MustHaveHappened();
         }
 
         [Then(@"response should have status (.*)")]
@@ -123,19 +123,19 @@ namespace wikibus.tests.Modules.Bindings
         [Then(@"brochure '(.*)' should have been retrieved")]
         public void ThenBrochureShouldHaveBeenRetrieved(string resourceUri)
         {
-            A.CallTo(() => _dep.Sources.Get<Brochure>(new Uri(resourceUri))).MustHaveHappened();
+            A.CallTo(() => _dep.Sources.GetBrochure(new Uri(resourceUri))).MustHaveHappened();
         }
 
         [Then(@"book '(.*)' should have been retrieved")]
         public void ThenBookShouldHaveBeenRetrieved(string resourceUri)
         {
-            A.CallTo(() => _dep.Sources.Get<Book>(new Uri(resourceUri))).MustHaveHappened();
+            A.CallTo(() => _dep.Sources.GetBook(new Uri(resourceUri))).MustHaveHappened();
         }
 
         [Then(@"magazine '(.*)' should have been retrieved")]
         public void ThenMagazineShouldHaveBeenRetrieved(string resourceUri)
         {
-            A.CallTo(() => _dep.Sources.Get<Magazine>(new Uri(resourceUri))).MustHaveHappened();
+            A.CallTo(() => _dep.Sources.GetMagazine(new Uri(resourceUri))).MustHaveHappened();
         }
 
         private void SetupRequest(BrowserContext context)

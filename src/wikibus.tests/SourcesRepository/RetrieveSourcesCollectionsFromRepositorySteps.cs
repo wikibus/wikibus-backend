@@ -1,7 +1,5 @@
 ﻿using System;
 using TechTalk.SpecFlow;
-using wikibus.sources;
-using wikibus.sources.Hydra;
 
 namespace wikibus.tests.SourcesRepository
 {
@@ -9,23 +7,16 @@ namespace wikibus.tests.SourcesRepository
     public class RetrieveSourcesCollectionsFromRepositorySteps
     {
         private readonly RepositoryScenarioContext _context;
-        private int _pageSize;
 
         public RetrieveSourcesCollectionsFromRepositorySteps(RepositoryScenarioContext context)
         {
             _context = context;
         }
 
-        [Given(@"page size equal to (.*)")]
-        public void GivenPageSizeEqualTo(int pageSize)
-        {
-            _pageSize = pageSize;
-        }
-
         [When(@"page (.*) of books is fetched")]
         public void WhenPageOfBooksIsFetched(int expectedPageIndex)
         {
-            var books = _context.Repository.GetAll<Book>(expectedPageIndex, _pageSize);
+            var books = _context.Repository.GetBooks(expectedPageIndex);
             ScenarioContext.Current.Set(books, "Model");
         }
 

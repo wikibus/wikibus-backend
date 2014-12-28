@@ -26,19 +26,19 @@ namespace wikibus.tests.SourcesRepository
         [When(@"brochure <(.*)> is fetched")]
         public void WhenBrochureIsFetched(string uri)
         {
-            ScenarioContext.Current.Set(_context.Repository.Get<Brochure>(new Uri(uri)), "Model");
+            ScenarioContext.Current.Set(_context.Repository.GetBrochure(new Uri(uri)), "Model");
         }
 
         [When(@"book <(.*)> is fetched")]
         public void WhenBookIsFetched(string uri)
         {
-            ScenarioContext.Current.Set(_context.Repository.Get<Book>(new Uri(uri)), "Model");
+            ScenarioContext.Current.Set(_context.Repository.GetBook(new Uri(uri)), "Model");
         }
 
         [When(@"magazine <(.*)> is fetched")]
         public void WhenMagazineIsFetched(string uri)
         {
-            ScenarioContext.Current.Set(_context.Repository.Get<Magazine>(new Uri(uri)), "Model");
+            ScenarioContext.Current.Set(_context.Repository.GetMagazine(new Uri(uri)), "Model");
         }
 
         [Then(@"'(.*)' should be string equal to '(.*)'")]

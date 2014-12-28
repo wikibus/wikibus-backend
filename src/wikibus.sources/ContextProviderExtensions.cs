@@ -23,6 +23,7 @@ namespace wikibus.sources
         {
             contextProvider.SetContext(typeof(Brochure), BrochureContext);
             contextProvider.SetContext(typeof(Book), BrochureContext);
+            contextProvider.SetContext(typeof(Issue), BrochureContext);
             contextProvider.SetContext(typeof(Magazine), MagazineContext);
             contextProvider.SetContext(typeof(PagedCollection<Book>), contextProvider.CreateCollectionContext(typeof(Book)));
             contextProvider.SetContext(typeof(PagedCollection<Brochure>), contextProvider.CreateCollectionContext(typeof(Brochure)));

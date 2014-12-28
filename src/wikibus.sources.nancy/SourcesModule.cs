@@ -1,5 +1,6 @@
 ﻿using System;
 using Nancy;
+using wikibus.sources.Hydra;
 
 namespace wikibus.sources.nancy
 {
@@ -8,8 +9,6 @@ namespace wikibus.sources.nancy
     /// </summary>
     public class SourcesModule : NancyModule
     {
-        private readonly ISourcesRepository _repository;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SourcesModule" /> class.
         /// </summary>
@@ -18,22 +17,20 @@ namespace wikibus.sources.nancy
         {
             this.ReturnNotFoundWhenModelIsNull();
 
-            _repository = repository;
-
-            Get["brochure/{id}"] = GetResource<Brochure>;
-            Get["book/{id}"] = GetResource<Book>;
-            Get["magazine/{magName}"] = GetResource<Magazine>;
-            Get["books"] = GetPagedCollection<Book>;
-            Get["brochures"] = GetPagedCollection<Brochure>;
-            Get["magazines"] = GetPagedCollection<Magazine>;
+            Get["brochure/{id}"] = r => GetSingle(repository.GetBrochure);
+            Get["book/{id}"] = r => GetSingle(repository.GetBook);
+            Get["magazine/{magName}"] = r => GetSingle(repository.GetMagazine);
+            Get["books"] = r => GetPage(repository.GetBooks);
+            Get["brochures"] = r => GetPage(repository.GetBrochures);
+            Get["magazines"] = r => GetPage(repository.GetMagazines);
         }
 
-        private dynamic GetResource<T>(dynamic route) where T : class
+        private T GetSingle<T>(Func<Uri, T> getResource) where T : class
         {
-            return _repository.Get<T>(new Uri("http://wikibus.org" + Request.Path));
+            return getResource(new Uri("http://wikibus.org" + Request.Path));
         }
 
-        private dynamic GetPagedCollection<T>(dynamic route) where T : class
+        private dynamic GetPage<T>(Func<int, PagedCollection<T>> getPage) where T : class
         {
             int page;
             if (!int.TryParse(Request.Query.page.Value, out page))
@@ -46,7 +43,7 @@ namespace wikibus.sources.nancy
                 return 400;
             }
 
-            return _repository.GetAll<T>(page);
+            return getPage(page);
         }
     }
 }
