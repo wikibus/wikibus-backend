@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Elmah.txt">
-      <Paket>True</Paket>
-    </Content>
     <Reference Include="Slp.r2rml4net.Storage">
       <HintPath>..\..\lib\Slp.r2rml4net.Storage.dll</HintPath>
     </Reference>

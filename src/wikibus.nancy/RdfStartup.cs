@@ -1,5 +1,6 @@
 ﻿using Nancy.Bootstrapper;
 using Nancy.RDF;
+using Nancy.RDF.Responses;
 
 namespace wikibus.nancy
 {
@@ -13,7 +14,7 @@ namespace wikibus.nancy
         /// </summary>
         public void Initialize(IPipelines pipelines)
         {
-            ////Nancy.RDF.RdfResponses.SetDefaultSerialization(pipelines, RdfSerialization.Turtle);
+            RdfResponses.SetDefaultSerialization(pipelines, RdfSerialization.Turtle);
         }
     }
 }

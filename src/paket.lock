@@ -45,7 +45,7 @@ NUGET
     NDbUnit.Core (1.6.8.0)
     NDbUnit.SqlClient (1.6.8.0)
       NDbUnit.Core (>= 1.6.8.0)
-    Newtonsoft.Json (6.0.6)
+    Newtonsoft.Json (6.0.7)
     NullGuard.Fody (1.2.0.0)
       Fody (>= 0)
     NUnit (2.6.3)
@@ -68,8 +68,8 @@ NUGET
     JsonLd.Entities (0.2.28.0)
       dotNetRDF (>= 1.0.0)
       json-ld.net (>= 1.0)
-  remote: https://ci.appveyor.com/nuget/nancy-rdf-iewr45jar12a
+  remote: https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
   specs:
-    Nancy.RDF (1.0.28)
+    Nancy.RDF (0.1.0.0)
       JsonLd.Entities (>= 0)
       Nancy (>= 0.23)

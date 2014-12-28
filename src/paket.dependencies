@@ -1,6 +1,6 @@
 source https://www.nuget.org/api/v2
 source https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
-source https://ci.appveyor.com/nuget/nancy-rdf-iewr45jar12a
+source https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
 
 nuget Anotar.Custom.Fody 2.12.0
 nuget FakeItEasy 1.24.0
