@@ -1,6 +1,5 @@
 ﻿using System;
 using Hydra;
-using wikibus.sources.Hydra;
 
 namespace wikibus.sources
 {

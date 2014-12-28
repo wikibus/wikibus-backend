@@ -64,7 +64,7 @@
     <EmbeddedResource Include="WikibusApi.json">
       <DependentUpon>WikibusApi.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Hydra\TypeExtensions.cs" />
+    <Compile Include="HydraModule.cs" />
     <Compile Include="WikibusApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bootstrap\RdfStartup.cs" />
@@ -78,6 +78,10 @@
     <ProjectReference Include="..\Hydra\Hydra.csproj">
       <Project>{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}</Project>
       <Name>Hydra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nancy.Hydra\Nancy.Hydra.csproj">
+      <Project>{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}</Project>
+      <Name>Nancy.Hydra</Name>
     </ProjectReference>
     <ProjectReference Include="..\wikibus.common\wikibus.common.csproj">
       <Project>{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}</Project>

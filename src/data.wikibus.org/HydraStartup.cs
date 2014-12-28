@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using Nancy.Bootstrapper;
-using wikibus.nancy.Hydra;
+using Nancy.Hydra;
 
 namespace data.wikibus.org
 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Hydra.Annotations;
 using NullGuard;
 
 namespace wikibus.sources
@@ -38,6 +39,7 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the publication  year.
         /// </summary>
+        [SupportedProperty("opus:year")]
         public int? Year { [return: AllowNull] get; set; }
 
         /// <summary>

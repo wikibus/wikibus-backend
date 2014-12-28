@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Hydra;
 using JsonLD.Entities;
-using wikibus.nancy.Hydra;
 using wikibus.sources;
 
 namespace wikibus.nancy

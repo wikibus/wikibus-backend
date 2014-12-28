@@ -92,6 +92,10 @@
     <Compile Include="SparqlModule.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Nancy.Hydra\Nancy.Hydra.csproj">
+      <Project>{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}</Project>
+      <Name>Nancy.Hydra</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wikibus.nancy\wikibus.nancy.csproj">
       <Project>{D2647469-3693-4756-A6D5-F8742572526D}</Project>
       <Name>wikibus.nancy</Name>

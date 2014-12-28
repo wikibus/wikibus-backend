@@ -1,4 +1,5 @@
 ﻿using System;
+using Hydra;
 using JsonLD.Entities;
 using NullGuard;
 using Resourcer;
@@ -6,7 +7,6 @@ using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Writing;
-using wikibus.sources.Hydra;
 
 namespace wikibus.sources.dotNetRDF
 {

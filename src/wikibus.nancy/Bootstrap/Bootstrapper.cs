@@ -4,7 +4,6 @@ using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Diagnostics;
 using Nancy.TinyIoc;
-using wikibus.nancy.Hydra;
 
 namespace wikibus.nancy
 {

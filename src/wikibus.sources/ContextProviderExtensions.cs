@@ -1,8 +1,8 @@
 ﻿using System;
+using Hydra;
 using JsonLD.Entities;
 using Newtonsoft.Json.Linq;
 using Resourcer;
-using wikibus.sources.Hydra;
 
 namespace wikibus.sources
 {

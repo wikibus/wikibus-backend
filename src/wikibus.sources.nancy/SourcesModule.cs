@@ -1,6 +1,6 @@
 ﻿using System;
+using Hydra;
 using Nancy;
-using wikibus.sources.Hydra;
 
 namespace wikibus.sources.nancy
 {

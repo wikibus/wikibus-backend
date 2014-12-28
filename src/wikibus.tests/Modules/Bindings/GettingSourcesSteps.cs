@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using FakeItEasy;
 using FluentAssertions;
+using Hydra;
 using Nancy;
 using Nancy.RDF.Responses;
 using Nancy.Responses.Negotiation;
 using Nancy.Testing;
 using TechTalk.SpecFlow;
 using wikibus.sources;
-using wikibus.sources.Hydra;
 
 namespace wikibus.tests.Modules.Bindings
 {
