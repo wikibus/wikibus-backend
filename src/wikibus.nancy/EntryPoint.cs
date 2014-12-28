@@ -1,4 +1,5 @@
 ﻿using System;
+using Hydra.Annotations;
 using JsonLD.Entities;
 using wikibus.nancy.Hydra;
 
