@@ -53,6 +53,13 @@
     <Compile Include="Bootstrap\Bootstrapper.cs" />
     <Compile Include="Bootstrap\ComponentsInstaller.cs" />
     <Compile Include="Bootstrap\ElmahStartup.cs" />
+    <Compile Include="ContextProviderExtensions.cs" />
+    <Compile Include="EntryPoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EntrypointModule.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Hydra\HydraModule.cs" />
     <Compile Include="Hydra\PipelinesExtensions.cs" />
     <Compile Include="Components\ImageResizer.cs" />
