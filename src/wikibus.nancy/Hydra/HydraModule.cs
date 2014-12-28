@@ -1,6 +1,4 @@
 ﻿using Nancy;
-using Nancy.Responses;
-using Resourcer;
 
 namespace wikibus.nancy.Hydra
 {
@@ -12,9 +10,14 @@ namespace wikibus.nancy.Hydra
         /// <summary>
         /// Initializes a new instance of the <see cref="HydraModule"/> class.
         /// </summary>
-         public HydraModule() : base("doc")
-         {
-             Get["/"] = route => new StreamResponse(() => Resource.AsStream("ApiDocumentation.json"), "application/ld+json");
-         }
+        public HydraModule() : base("doc")
+        {
+            Get["/"] = route => CreateApiDocumentation();
+        }
+
+        private ApiDocumentation CreateApiDocumentation()
+        {
+            return new WikibusApi();
+        }
     }
 }

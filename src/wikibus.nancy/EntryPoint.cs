@@ -1,5 +1,6 @@
 ﻿using System;
 using JsonLD.Entities;
+using wikibus.nancy.Hydra;
 
 namespace wikibus.nancy
 {
@@ -23,6 +24,8 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the brochures Uri.
         /// </summary>
+        [SupportedProperty("wb:brochures", Range = "hydra:PagedCollection")]
+        [AllowGet]
         public string Brochures
         {
             get { return "brochures"; }
@@ -31,6 +34,8 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the books Uri.
         /// </summary>
+        [SupportedProperty("wb:books", Range = "hydra:PagedCollection")]
+        [AllowGet]
         public string Books
         {
             get { return "books"; }
@@ -39,6 +44,8 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the magazines Uri.
         /// </summary>
+        [SupportedProperty("wb:magazines", Range = "hydra:PagedCollection")]
+        [AllowGet]
         public string Magazines
         {
             get { return "magazines"; }

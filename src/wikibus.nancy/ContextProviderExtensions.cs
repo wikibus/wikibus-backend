@@ -1,5 +1,6 @@
 ﻿using JsonLD.Entities;
 using Newtonsoft.Json.Linq;
+using Resourcer;
 
 namespace wikibus.nancy
 {
@@ -22,6 +23,15 @@ namespace wikibus.nancy
         public static void SetupEntrypointContext(this StaticContextProvider contextProvider)
         {
             contextProvider.SetContext(typeof(EntryPoint), JObject.Parse(EntrypointContext));
+            contextProvider.SetContext(typeof(WikibusApi), JToken.Parse(Resource.AsString("WikibusApi")));
+        }
+
+        /// <summary>
+        /// Setups the <see cref="EntryPoint"/> context.
+        /// </summary>
+        public static void SetupEntrypointContext(this StaticFrameProvider frameProvider)
+        {
+            frameProvider.SetFrame(typeof(WikibusApi), JObject.Parse("{ '@type': 'ApiDocumentation' }"));
         }
     }
 }

@@ -12,7 +12,7 @@
     "entrypoint": "http://data.wikibus.org/",
     "supportedClass": [
         {
-            "@type": "http://data.wikibus.org/",
+            "@type": "http://data.wikibus.org/EntryPoint",
             "description": "wikibus.org API entrypoint",
             "supportedProperty": [
                 {

@@ -1,0 +1,8 @@
+﻿[
+    "http://www.w3.org/ns/hydra/context.jsonld",
+    {
+        "wb": "http://wikibus.org/ontology#",
+        "api": "http://wikibus.org/api#",
+        "sch": "http://schema.org/"
+    }
+]
