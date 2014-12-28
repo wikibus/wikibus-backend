@@ -50,15 +50,15 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="ComponentsInstaller.cs" />
-    <Compile Include="ElmahStartup.cs" />
+    <Compile Include="Bootstrap\Bootstrapper.cs" />
+    <Compile Include="Bootstrap\ComponentsInstaller.cs" />
+    <Compile Include="Bootstrap\ElmahStartup.cs" />
     <Compile Include="Hydra\HydraModule.cs" />
     <Compile Include="Hydra\PipelinesExtensions.cs" />
-    <Compile Include="ImageResizer.cs" />
+    <Compile Include="Components\ImageResizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RdfStartup.cs" />
-    <Compile Include="StoreLoader.cs" />
+    <Compile Include="Bootstrap\RdfStartup.cs" />
+    <Compile Include="Components\StoreLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Hydra\ApiDocumentation.json" />
