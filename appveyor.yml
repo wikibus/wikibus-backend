@@ -23,8 +23,6 @@ deploy:
     skip_files: paket.references; FodyWeavers.xml
     on:
       Configuration: Staging
-
-deploy:
   - provider: WebDeploy
     server: https://46.163.66.159:8172/msdeploy.axd?site=test.wikibus.org
     website: test.wikibus.org
