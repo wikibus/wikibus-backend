@@ -11,10 +11,10 @@
   },
   "nextPage": {
     "@id": "hydra:nextPage",
-    "@type": "xsd:integer"
+    "@type": "@id"
   },
   "previousPage": {
     "@id": "hydra:previousPage",
-    "@type": "xsd:integer"
+    "@type": "@id"
   }
 }
