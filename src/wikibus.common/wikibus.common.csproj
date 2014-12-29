@@ -36,6 +36,7 @@
       <Paket>True</Paket>
     </Content>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +48,7 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AppSettingsConfiguration.cs" />
     <Compile Include="IImageResizer.cs" />
     <Compile Include="IWikibusConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

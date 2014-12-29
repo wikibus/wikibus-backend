@@ -1,7 +1,6 @@
 ﻿using System.Configuration;
-using wikibus.common;
 
-namespace wikibus.nancy
+namespace wikibus.common
 {
     /// <summary>
     /// Retrieves settings from setting configuration section
