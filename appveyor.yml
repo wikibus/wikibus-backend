@@ -11,27 +11,11 @@ configuration:
   - Release 
 
 deploy:
-  - provider: WebDeploy
-    server: https://46.163.66.159:8172/msdeploy.axd?site=data.test.wikibus.org
-    website: data.test.wikibus.org
-    username: wikibus
-    password: 
-      secure: ckU8LWLgCV94A6K92I9scA==
-    ntlm: false
-    remove_files: true
-    artifact: data.wikibus.org.zip
-    skip_files: paket.references; FodyWeavers.xml
+  - provider: Environment
+    name: wikibus.org API test
     on:
       Configuration: Staging
-  - provider: WebDeploy
-    server: https://46.163.66.159:8172/msdeploy.axd?site=test.wikibus.org
-    website: test.wikibus.org
-    username: wikibus
-    password: 
-      secure: ckU8LWLgCV94A6K92I9scA==
-    ntlm: false
-    remove_files: true
-    artifact: wikibus.org.zip
-    skip_files: paket.references; FodyWeavers.xml
+  - provider: Environment
+    name: wikibus.org PURL test
     on:
       Configuration: Staging
