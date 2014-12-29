@@ -10,7 +10,7 @@ namespace wikibus.sources
     /// </summary>
     [Class("wbo:Magazine")]
     [Class("sch:Periodical")]
-    [NullGuard(ValidationFlags.ReturnValues)]
+    [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     public class Magazine
     {
         /// <summary>

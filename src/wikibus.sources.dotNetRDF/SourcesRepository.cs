@@ -14,7 +14,7 @@ namespace wikibus.sources.dotNetRDF
     /// <summary>
     /// dotNetRDF SPARQL repository of sources
     /// </summary>
-    [NullGuard(ValidationFlags.ReturnValues)]
+    [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.ReturnValues)]
     public class SourcesRepository : ISourcesRepository
     {
         private readonly ISparqlQueryProcessor _queryProcessor;

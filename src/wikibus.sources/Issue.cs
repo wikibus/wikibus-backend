@@ -9,7 +9,7 @@ namespace wikibus.sources
     /// A magazine issue
     /// </summary>
     [Class("http://schema.org/PublicationIssue")]
-    [NullGuard(ValidationFlags.ReturnValues)]
+    [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     public class Issue : Source
     {
         /// <summary>

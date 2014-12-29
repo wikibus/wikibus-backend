@@ -7,7 +7,7 @@ namespace wikibus.sources
     /// Represents a schema.org ImageObject
     /// </summary>
     [Class("http://schema.org/ImageObject")]
-    [NullGuard(ValidationFlags.ReturnValues)]
+    [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     public class Image
     {
         /// <summary>
