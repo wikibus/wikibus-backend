@@ -50,6 +50,7 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Bootstrap\AppSettingsConfiguration.cs" />
     <Compile Include="Bootstrap\Bootstrapper.cs" />
     <Compile Include="Bootstrap\ComponentsInstaller.cs" />
     <Compile Include="Bootstrap\ElmahStartup.cs" />

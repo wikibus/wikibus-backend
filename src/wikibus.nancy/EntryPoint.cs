@@ -1,5 +1,4 @@
-﻿using System;
-using Hydra.Annotations;
+﻿using Hydra.Annotations;
 using JsonLD.Entities;
 
 namespace wikibus.nancy
@@ -7,19 +6,22 @@ namespace wikibus.nancy
     /// <summary>
     /// The API entry point
     /// </summary>
-    [Class("http://data.wikibus.org/EntryPoint")]
+    [Class("api:EntryPoint")]
     public sealed class EntryPoint
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="EntryPoint"/> class.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        public EntryPoint(string id)
+        {
+            Id = id;
+        }
+
+        /// <summary>
         /// Gets the identifier.
         /// </summary>
-        public Uri Id
-        {
-            get
-            {
-                return new Uri("http://data.wikibus.org/");
-            }
-        }
+        public string Id { get; private set; }
 
         /// <summary>
         /// Gets the brochures Uri.

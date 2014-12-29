@@ -65,6 +65,10 @@
       <Project>{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}</Project>
       <Name>Hydra</Name>
     </ProjectReference>
+    <ProjectReference Include="..\wikibus.common\wikibus.common.csproj">
+      <Project>{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}</Project>
+      <Name>wikibus.common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wikibus.sources\wikibus.sources.csproj">
       <Project>{39B74ABD-895F-44BD-A0B9-80DFA6DC4D1E}</Project>
       <Name>wikibus.sources</Name>

@@ -35,8 +35,8 @@ namespace wikibus.sources
         /// </summary>
         public static void SetupSourcesFrames(this StaticFrameProvider frameProvider)
         {
-            frameProvider.SetFrame(typeof(Book), JObject.Parse("{ '@type': 'http://wikibus.org/ontology#Book' }"));
-            frameProvider.SetFrame(typeof(Brochure), JObject.Parse("{ '@type': 'http://wikibus.org/ontology#Brochure' }"));
+            frameProvider.SetFrame(typeof(Book), JObject.Parse("{ '@type': 'wbo:Book' }"));
+            frameProvider.SetFrame(typeof(Brochure), JObject.Parse("{ '@type': 'wbo:Brochure' }"));
             frameProvider.SetFrame(typeof(PagedCollection<Book>), PagedCollectionFrame);
             frameProvider.SetFrame(typeof(PagedCollection<Brochure>), PagedCollectionFrame);
             frameProvider.SetFrame(typeof(PagedCollection<Magazine>), PagedCollectionFrame);

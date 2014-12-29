@@ -14,6 +14,15 @@
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <Import Project="..\Common.props" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -96,6 +105,10 @@
       <Project>{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}</Project>
       <Name>Nancy.Hydra</Name>
     </ProjectReference>
+    <ProjectReference Include="..\wikibus.common\wikibus.common.csproj">
+      <Project>{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}</Project>
+      <Name>wikibus.common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wikibus.nancy\wikibus.nancy.csproj">
       <Project>{D2647469-3693-4756-A6D5-F8742572526D}</Project>
       <Name>wikibus.nancy</Name>
@@ -115,6 +128,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.Staging.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

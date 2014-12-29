@@ -6,7 +6,9 @@ services:
 build:
   publish_wap: true  
 
-configuration: Release  
+configuration: 
+  - Release  
+  - Staging
 
 deploy:
   - provider: WebDeploy
@@ -19,3 +21,5 @@ deploy:
     remove_files: true
     artifact: data.wikibus.org.zip
     skip_files: paket.references; FodyWeavers.xml
+    on:
+      Configuration: Staging

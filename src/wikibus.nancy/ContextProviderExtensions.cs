@@ -1,4 +1,5 @@
-﻿using JsonLD.Entities;
+﻿using System.Configuration;
+using JsonLD.Entities;
 using Newtonsoft.Json.Linq;
 using Resourcer;
 
@@ -10,8 +11,8 @@ namespace wikibus.nancy
     public static class ContextProviderExtensions
     {
         private const string EntrypointContext = @"{
-    '@base': 'http://wikibus.org/',
     'wb': 'http://wikibus.org/ontology#',
+    'api': 'http://data.wikibus.org/',
     'magazines': { '@id': 'wb:magazines', '@type': '@id' },
     'books': { '@id': 'wb:books', '@type': '@id' },
     'brochures': { '@id': 'wb:brochures', '@type': '@id' }
@@ -22,7 +23,9 @@ namespace wikibus.nancy
         /// </summary>
         public static void SetupEntrypointContext(this StaticContextProvider contextProvider)
         {
-            contextProvider.SetContext(typeof(EntryPoint), JObject.Parse(EntrypointContext));
+            JObject jObject = JObject.Parse(EntrypointContext);
+            jObject["@base"] = ConfigurationManager.AppSettings["baseUrl"];
+            contextProvider.SetContext(typeof(EntryPoint), jObject);
             contextProvider.SetContext(typeof(WikibusApi), JToken.Parse(Resource.AsString("WikibusApi")));
         }
 

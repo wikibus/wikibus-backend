@@ -7,6 +7,7 @@ using TCode.r2rml4net.Mapping.Fluent;
 using TCode.r2rml4net.RDB;
 using TCode.r2rml4net.Validation;
 using VDS.RDF.Parsing;
+using wikibus.common;
 
 namespace wikibus.sources.dotNetRDF
 {
@@ -20,13 +21,15 @@ namespace wikibus.sources.dotNetRDF
         private static readonly string SelectMagIssues = Resource.AsString("SqlQueries.SelectMagazineIssue.sql");
         private static readonly string SelectImages = Resource.AsString("SqlQueries.SelectImages.sql");
         private readonly Lazy<IR2RML> _rml;
+        private readonly IWikibusConfiguration _config;
         private ITriplesMapConfiguration _magazineMap;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WikibusR2RML" /> class
         /// </summary>
-        public WikibusR2RML()
+        public WikibusR2RML(IWikibusConfiguration config)
         {
+            _config = config;
             _rml = new Lazy<IR2RML>(CreateMappings);
         }
 
@@ -70,7 +73,7 @@ namespace wikibus.sources.dotNetRDF
         private void MapMagazines(FluentR2RML rml)
         {
             _magazineMap = rml.CreateTriplesMapFromR2RMLView("select * from [Sources].[Magazine]");
-            _magazineMap.SubjectMap.IsTemplateValued("http://wikibus.org/magazine/{Name}");
+            _magazineMap.SubjectMap.IsTemplateValued(_config.BaseResourceNamespace + "magazine/{Name}");
             _magazineMap.SubjectMap.AddClass(new Uri("http://schema.org/Periodical"));
             _magazineMap.SubjectMap.AddClass(new Uri("http://wikibus.org/ontology#Magazine"));
 
@@ -79,7 +82,7 @@ namespace wikibus.sources.dotNetRDF
 
         private void MapMagazineIssues(FluentR2RML rml)
         {
-            const string template = "http://wikibus.org/magazine/{Magazine}/issue/{MagIssueNumber}";
+            var template = _config.BaseResourceNamespace + "magazine/{Magazine}/issue/{MagIssueNumber}";
 
             var magIssueMap = rml.CreateTriplesMapFromR2RMLView(SelectMagIssues);
             magIssueMap.SubjectMap.IsTemplateValued(template);
@@ -108,7 +111,7 @@ namespace wikibus.sources.dotNetRDF
         private void MapBooksAndBrochures(FluentR2RML rml)
         {
             var sourceMap = rml.CreateTriplesMapFromR2RMLView(SelectBrochureAndBook);
-            const string template = "http://wikibus.org/{TypeLower}/{Id}";
+            var template = _config.BaseResourceNamespace + "{TypeLower}/{Id}";
             sourceMap.SubjectMap.IsTemplateValued(template);
 
             MapFolderName(sourceMap);

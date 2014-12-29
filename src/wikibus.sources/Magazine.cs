@@ -8,8 +8,8 @@ namespace wikibus.sources
     /// <summary>
     /// A periodical about public transport
     /// </summary>
-    [Class("http://wikibus.org/ontology#Magazine")]
-    [Class("http://schema.org/Periodical")]
+    [Class("wbo:Magazine")]
+    [Class("sch:Periodical")]
     [NullGuard(ValidationFlags.ReturnValues)]
     public class Magazine
     {

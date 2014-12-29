@@ -8,7 +8,7 @@ namespace wikibus.sources
     /// <summary>
     /// A book about public transport
     /// </summary>
-    [Class("http://wikibus.org/ontology#Book")]
+    [Class("wbo:Book")]
     public class Book : Source
     {
         /// <summary>

@@ -6,6 +6,7 @@
     "opus": "http://lsdis.cs.uga.edu/projects/semdis/opus#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "sch": "http://schema.org/",
+    "wbo": "http://wikibus.org/ontology#",
     "year": { "@id": "opus:year", "@type": "xsd:gYear" },
     "month": { "@id": "opus:month", "@type": "xsd:gMonth" },
     "date": { "@id": "dcterms:date", "@type": "xsd:date" },

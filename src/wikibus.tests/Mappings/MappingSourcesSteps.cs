@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -49,7 +48,7 @@ namespace wikibus.tests.Mappings
         public void WhenRetrieveAllTriples()
         {
             _database.PerformDbOperation(DbOperationFlag.Insert);
-            _result = _rmlProc.GenerateTriples(new WikibusR2RML());
+            _result = _rmlProc.GenerateTriples(new WikibusR2RML(new TestConfiguration()));
             _result.SaveToFile("out.trig");
         }
 

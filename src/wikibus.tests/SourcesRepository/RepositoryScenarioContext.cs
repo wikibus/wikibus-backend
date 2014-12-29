@@ -15,8 +15,9 @@ namespace wikibus.tests.SourcesRepository
             var frameProvider = new StaticFrameProvider();
             frameProvider.SetupSourcesFrames();
             var serializer = new EntitySerializer(contextProvider, frameProvider);
+            var config = new TestConfiguration();
 
-            Repository = new sources.dotNetRDF.SourcesRepository(new LeviathanQueryProcessor(Store), serializer);
+            Repository = new sources.dotNetRDF.SourcesRepository(new LeviathanQueryProcessor(Store), serializer, config);
         }
 
         public sources.dotNetRDF.SourcesRepository Repository { get; private set; }

@@ -38,6 +38,9 @@ namespace wikibus.tests.Modules.Bindings
             yield return A.Dummy<IEntitySerializer>();
             yield return SourceImages;
             yield return _resizer;
+
+            IWikibusConfiguration testConfiguration = new TestConfiguration();
+            yield return testConfiguration;
         }
     }
 }

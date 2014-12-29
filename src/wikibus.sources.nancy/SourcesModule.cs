@@ -1,6 +1,7 @@
 ﻿using System;
 using Hydra;
 using Nancy;
+using wikibus.common;
 
 namespace wikibus.sources.nancy
 {
@@ -9,12 +10,17 @@ namespace wikibus.sources.nancy
     /// </summary>
     public class SourcesModule : NancyModule
     {
+        private readonly IWikibusConfiguration _config;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SourcesModule" /> class.
         /// </summary>
         /// <param name="repository">The source repository.</param>
-        public SourcesModule(ISourcesRepository repository)
+        /// <param name="config">The configuration.</param>
+        public SourcesModule(ISourcesRepository repository, IWikibusConfiguration config)
         {
+            _config = config;
+
             this.ReturnNotFoundWhenModelIsNull();
 
             Get["brochure/{id}"] = r => GetSingle(repository.GetBrochure);
@@ -27,7 +33,7 @@ namespace wikibus.sources.nancy
 
         private T GetSingle<T>(Func<Uri, T> getResource) where T : class
         {
-            return getResource(new Uri("http://wikibus.org" + Request.Path));
+            return getResource(new Uri(new Uri(_config.BaseResourceNamespace), Request.Path));
         }
 
         private dynamic GetPage<T>(Func<int, PagedCollection<T>> getPage) where T : class

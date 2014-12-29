@@ -9,26 +9,23 @@ namespace wikibus.nancy
     /// <summary>
     /// The wikibus.org API Documentation
     /// </summary>
-    [Class("http://www.w3.org/ns/hydra/core#ApiDocumentation")]
+    [Class("hydra:ApiDocumentation")]
     internal class WikibusApi : ApiDocumentation
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WikibusApi"/> class.
         /// </summary>
-        public WikibusApi()
-            : base(new Uri("http://data.wikibus.org/"))
+        public WikibusApi(Uri entryPoint)
+            : base(entryPoint)
         {
         }
 
         /// <summary>
         /// Gets the identifier.
         /// </summary>
-        public Uri Id
+        public string Id
         {
-            get
-            {
-                return new Uri("http://data.wikibus.org/doc");
-            }
+            get { return new Uri(Entrypoint, "doc").ToString(); }
         }
 
         /// <summary>

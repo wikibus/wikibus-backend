@@ -7,7 +7,7 @@ namespace wikibus.sources
     /// <summary>
     /// A brochure about buses, trams, etc.
     /// </summary>
-    [Class("http://wikibus.org/ontology#Brochure")]
+    [Class("wbo:Brochure")]
     public class Brochure : Source
     {
         private string _description;

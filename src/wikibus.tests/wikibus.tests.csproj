@@ -101,6 +101,7 @@
     <Compile Include="SourcesRepository\RetrieveSourcesCollectionsFromRepositorySteps.cs" />
     <Compile Include="SourcesRepository\RetrieveSourcesFromRepositorySteps.cs" />
     <Compile Include="SourcesRepository\TypeExtensions.cs" />
+    <Compile Include="TestConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

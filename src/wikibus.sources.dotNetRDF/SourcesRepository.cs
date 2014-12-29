@@ -7,6 +7,7 @@ using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Writing;
+using wikibus.common;
 
 namespace wikibus.sources.dotNetRDF
 {
@@ -19,16 +20,19 @@ namespace wikibus.sources.dotNetRDF
         private readonly ISparqlQueryProcessor _queryProcessor;
         private readonly IEntitySerializer _serializer;
         private readonly SparqlQueryParser _parser = new SparqlQueryParser();
+        private readonly IWikibusConfiguration _configuration;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourcesRepository"/> class.
         /// </summary>
         /// <param name="queryProcessor">The query processor.</param>
         /// <param name="serializer">JSON-LD serializer</param>
-        public SourcesRepository(ISparqlQueryProcessor queryProcessor, IEntitySerializer serializer)
+        /// <param name="configuration">application configuration</param>
+        public SourcesRepository(ISparqlQueryProcessor queryProcessor, IEntitySerializer serializer, IWikibusConfiguration configuration)
         {
             _queryProcessor = queryProcessor;
             _serializer = serializer;
+            _configuration = configuration;
         }
 
         /// <inheritdoc />
@@ -67,7 +71,12 @@ namespace wikibus.sources.dotNetRDF
             return GetAll<Magazine>(page);
         }
 
-        private static Uri GetCollectionUri(Type type)
+        private static Uri GetTypeUri(Type type)
+        {
+            return new Uri(string.Format("http://wikibus.org/ontology#{0}", type.Name));
+        }
+
+        private Uri GetCollectionUri(Type type)
         {
             string collectionName;
             switch (type.Name)
@@ -85,12 +94,7 @@ namespace wikibus.sources.dotNetRDF
                     throw new ArgumentException(string.Format("Unrecognized entity type {0}", type), "type");
             }
 
-            return new Uri(string.Format("http://wikibus.org/{0}", collectionName));
-        }
-
-        private static Uri GetTypeUri(Type type)
-        {
-            return new Uri(string.Format("http://wikibus.org/ontology#{0}", type.Name));
+            return new Uri(string.Format("{0}{1}", _configuration.BaseResourceNamespace, collectionName));
         }
 
         private T Get<T>(Uri uri) where T : class

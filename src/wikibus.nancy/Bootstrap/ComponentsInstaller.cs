@@ -29,12 +29,13 @@ namespace wikibus.nancy
             var configPath = Path.Combine(pathProvider.GetRootPath(), DotNetRDFConfiguration);
             var storePath = Path.Combine(pathProvider.GetRootPath(), @"App_Data\sources.trig");
             var configurationLoader = new ConfigurationLoader(configPath);
-            ConfigurationLoader.AddObjectFactory(new StoreLoader(storePath));
+            IWikibusConfiguration configuration = new AppSettingsConfiguration();
+            ConfigurationLoader.AddObjectFactory(new StoreLoader(storePath, configuration));
 
+            Register(configuration);
             Register(configurationLoader.LoadObject<ISparqlQueryProcessor>(QueryProcessorName));
             Register(CreateContextProvider());
             Register(CreateFrameProvider());
-            Register<IR2RML>(typeof(WikibusR2RML));
             Register<ISourceImagesRepository>(new SourceImagesRepository(ConfigurationManager.ConnectionStrings["sql"].ConnectionString));
             Register<IImageResizer>(new ImageResizer());
         }

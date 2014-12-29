@@ -5,6 +5,7 @@ using System.IO;
 using VDS.RDF;
 using VDS.RDF.Configuration;
 using VDS.RDF.Writing;
+using wikibus.common;
 using wikibus.sources.dotNetRDF;
 
 namespace wikibus.nancy
@@ -16,14 +17,17 @@ namespace wikibus.nancy
     {
         private static readonly ConnectionStringSettings Sql = ConfigurationManager.ConnectionStrings["sql"];
         private readonly string _storePath;
+        private readonly IWikibusConfiguration _config;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StoreLoader"/> class.
         /// </summary>
         /// <param name="storePath">The store path.</param>
-        public StoreLoader(string storePath)
+        /// <param name="config">The configuration</param>
+        public StoreLoader(string storePath, IWikibusConfiguration config)
         {
             _storePath = storePath;
+            _config = config;
         }
 
         /// <summary>
@@ -34,7 +38,7 @@ namespace wikibus.nancy
             if (!File.Exists(_storePath))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(_storePath));
-                new SourcesStore(new SqlConnection(Sql.ConnectionString)).SaveToFile(_storePath, new TriGWriter());
+                new SourcesStore(new SqlConnection(Sql.ConnectionString), _config).SaveToFile(_storePath, new TriGWriter());
             }
 
             var tripleStore = new TripleStore();
