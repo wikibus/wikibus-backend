@@ -2,5 +2,6 @@
     "dcterms": "http://purl.org/dc/terms/",
     "wbo": "http://wikibus.org/ontology#",
     "title": "dcterms:title",
-    "sch": "http://schema.org/"
+    "sch": "http://schema.org/",
+    "issues": { "@id": "wbo:issues", "@type": "@id" }
 }
