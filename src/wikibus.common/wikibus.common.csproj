@@ -78,11 +78,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FOAF.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vocabularies\Hydra.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Hydra.tt</DependentUpon>
-    </Compile>
     <Compile Include="Vocabularies\RDF.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,12 +126,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>FOAF.cs</LastGenOutput>
       <DependentUpon>FOAF.owl</DependentUpon>
-    </None>
-    <None Include="Vocabularies\Hydra.rdf" />
-    <None Include="Vocabularies\Hydra.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Hydra.cs</LastGenOutput>
-      <DependentUpon>Hydra.rdf</DependentUpon>
     </None>
     <None Include="Vocabularies\Schema.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

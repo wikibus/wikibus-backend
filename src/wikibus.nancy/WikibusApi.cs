@@ -9,7 +9,7 @@ namespace wikibus.nancy
     /// <summary>
     /// The wikibus.org API Documentation
     /// </summary>
-    [Class(common.Vocabularies.Hydra.ApiDocumentation)]
+    [Class(Hydra.Hydra.ApiDocumentation)]
     internal class WikibusApi : ApiDocumentation
     {
         /// <summary>
