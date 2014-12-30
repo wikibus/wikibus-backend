@@ -2,6 +2,7 @@
 using Hydra.Annotations;
 using JsonLD.Entities;
 using NullGuard;
+using wikibus.common.Vocabularies;
 
 namespace wikibus.sources
 {
@@ -9,7 +10,7 @@ namespace wikibus.sources
     /// A periodical about public transport
     /// </summary>
     [Class("wbo:Magazine")]
-    [Class("sch:Periodical")]
+    [Class(Schema.Periodical)]
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     public class Magazine
     {
@@ -21,7 +22,7 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        [SupportedProperty("dcterms:title")]
+        [SupportedProperty(DCTerms.title)]
         public string Title { get; set; }
 
         /// <summary>

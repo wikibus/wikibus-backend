@@ -1,6 +1,7 @@
 ﻿using System;
 using Hydra.Annotations;
 using NullGuard;
+using wikibus.common.Vocabularies;
 
 namespace wikibus.sources
 {
@@ -19,7 +20,7 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the languages.
         /// </summary>
-        [SupportedProperty("dcterms:language")]
+        [SupportedProperty(DCTerms.language)]
         public Language[] Languages
         {
             get { return _languages; }
@@ -29,31 +30,31 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the pages count.
         /// </summary>
-        [SupportedProperty("bibo:pages")]
+        [SupportedProperty(Bibo.pages)]
         public int? Pages { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication date date.
         /// </summary>
-        [SupportedProperty("dcterms:date")]
+        [SupportedProperty(DCTerms.date)]
         public DateTime? Date { [return: AllowNull] get; set; }
 
         /// <summary>
-        /// Gets or sets the publication  year.
+        /// Gets or sets the publication year.
         /// </summary>
-        [SupportedProperty("opus:year")]
+        [SupportedProperty(Opus.year)]
         public int? Year { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication month.
         /// </summary>
-        [SupportedProperty("opus:month")]
+        [SupportedProperty(Opus.month)]
         public int? Month { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the image.
         /// </summary>
-        [SupportedProperty("sch:image")]
+        [SupportedProperty(Schema.image)]
         public Image Image { [return: AllowNull] get; set; }
     }
 }

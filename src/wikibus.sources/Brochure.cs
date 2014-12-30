@@ -1,6 +1,7 @@
 ﻿using Hydra.Annotations;
 using JsonLD.Entities;
 using NullGuard;
+using wikibus.common.Vocabularies;
 
 namespace wikibus.sources
 {
@@ -16,13 +17,13 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        [SupportedProperty("dcterms:title")]
+        [SupportedProperty(DCTerms.title)]
         public string Title { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
-        [SupportedProperty("rdfs:comment")]
+        [SupportedProperty(Rdfs.comment)]
         public string Description
         {
             [return: AllowNull]
@@ -45,7 +46,7 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the code.
         /// </summary>
-        [SupportedProperty("dcterms:identifier")]
+        [SupportedProperty(DCTerms.identifier)]
         public string Code
         {
             [return: AllowNull]

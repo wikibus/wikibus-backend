@@ -13,76 +13,76 @@ namespace wikibus.common.Vocabularies
         /// <summary>
         /// The class resource, everything.
         /// </summary>
-        public static readonly Uri Resource=new Uri(BaseUri+"Resource");
+        public const string Resource = BaseUri + "Resource";
         
         /// <summary>
         /// The class of classes.
         /// </summary>
-        public static readonly Uri Class=new Uri(BaseUri+"Class");
+        public const string Class = BaseUri + "Class";
         
         /// <summary>
         /// The class of literal values, eg. textual strings and integers.
         /// </summary>
-        public static readonly Uri Literal=new Uri(BaseUri+"Literal");
+        public const string Literal = BaseUri + "Literal";
         
         /// <summary>
         /// The class of RDF containers.
         /// </summary>
-        public static readonly Uri Container=new Uri(BaseUri+"Container");
+        public const string Container = BaseUri + "Container";
         
         /// <summary>
         /// The class of container membership properties, rdf:_1, rdf:_2, ..., all of which are sub-properties of 'member'.
         /// </summary>
-        public static readonly Uri ContainerMembershipProperty=new Uri(BaseUri+"ContainerMembershipProperty");
+        public const string ContainerMembershipProperty = BaseUri + "ContainerMembershipProperty";
         
         /// <summary>
         /// The class of RDF datatypes.
         /// </summary>
-        public static readonly Uri Datatype=new Uri(BaseUri+"Datatype");
+        public const string Datatype = BaseUri + "Datatype";
         
         /// <summary>
         /// The subject is a subclass of a class.
         /// </summary>
-        public static readonly Uri subClassOf=new Uri(BaseUri+"subClassOf");
+        public const string subClassOf = BaseUri + "subClassOf";
         
         /// <summary>
         /// The subject is a subproperty of a property.
         /// </summary>
-        public static readonly Uri subPropertyOf=new Uri(BaseUri+"subPropertyOf");
+        public const string subPropertyOf = BaseUri + "subPropertyOf";
         
         /// <summary>
         /// A description of the subject resource.
         /// </summary>
-        public static readonly Uri comment=new Uri(BaseUri+"comment");
+        public const string comment = BaseUri + "comment";
         
         /// <summary>
         /// A human-readable name for the subject.
         /// </summary>
-        public static readonly Uri label=new Uri(BaseUri+"label");
+        public const string label = BaseUri + "label";
         
         /// <summary>
         /// A domain of the subject property.
         /// </summary>
-        public static readonly Uri domain=new Uri(BaseUri+"domain");
+        public const string domain = BaseUri + "domain";
         
         /// <summary>
         /// A range of the subject property.
         /// </summary>
-        public static readonly Uri range=new Uri(BaseUri+"range");
+        public const string range = BaseUri + "range";
         
         /// <summary>
         /// Further information about the subject resource.
         /// </summary>
-        public static readonly Uri seeAlso=new Uri(BaseUri+"seeAlso");
+        public const string seeAlso = BaseUri + "seeAlso";
         
         /// <summary>
         /// The defininition of the subject resource.
         /// </summary>
-        public static readonly Uri isDefinedBy=new Uri(BaseUri+"isDefinedBy");
+        public const string isDefinedBy = BaseUri + "isDefinedBy";
         
         /// <summary>
         /// A member of the subject resource.
         /// </summary>
-        public static readonly Uri member=new Uri(BaseUri+"member");
+        public const string member = BaseUri + "member";
     }
 }

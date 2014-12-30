@@ -13,376 +13,376 @@ namespace wikibus.common.Vocabularies
         /// <summary>
         /// A foaf:LabelProperty is any RDF property with texual values that serve as labels.
         /// </summary>
-        public static readonly Uri LabelProperty=new Uri(BaseUri+"LabelProperty");
+        public const string LabelProperty = BaseUri + "LabelProperty";
         
         /// <summary>
         /// A person.
         /// </summary>
-        public static readonly Uri Person=new Uri(BaseUri+"Person");
+        public const string Person = BaseUri + "Person";
         
         /// <summary>
         /// A document.
         /// </summary>
-        public static readonly Uri Document=new Uri(BaseUri+"Document");
+        public const string Document = BaseUri + "Document";
         
         /// <summary>
         /// An organization.
         /// </summary>
-        public static readonly Uri Organization=new Uri(BaseUri+"Organization");
+        public const string Organization = BaseUri + "Organization";
         
         /// <summary>
         /// A class of Agents.
         /// </summary>
-        public static readonly Uri Group=new Uri(BaseUri+"Group");
+        public const string Group = BaseUri + "Group";
         
         /// <summary>
         /// An agent (eg. person, group, software or physical artifact).
         /// </summary>
-        public static readonly Uri Agent=new Uri(BaseUri+"Agent");
+        public const string Agent = BaseUri + "Agent";
         
         /// <summary>
         /// A project (a collective endeavour of some kind).
         /// </summary>
-        public static readonly Uri Project=new Uri(BaseUri+"Project");
+        public const string Project = BaseUri + "Project";
         
         /// <summary>
         /// An image.
         /// </summary>
-        public static readonly Uri Image=new Uri(BaseUri+"Image");
+        public const string Image = BaseUri + "Image";
         
         /// <summary>
         /// A personal profile RDF document.
         /// </summary>
-        public static readonly Uri PersonalProfileDocument=new Uri(BaseUri+"PersonalProfileDocument");
+        public const string PersonalProfileDocument = BaseUri + "PersonalProfileDocument";
         
         /// <summary>
         /// An online account.
         /// </summary>
-        public static readonly Uri OnlineAccount=new Uri(BaseUri+"OnlineAccount");
+        public const string OnlineAccount = BaseUri + "OnlineAccount";
         
         /// <summary>
         /// An online gaming account.
         /// </summary>
-        public static readonly Uri OnlineGamingAccount=new Uri(BaseUri+"OnlineGamingAccount");
+        public const string OnlineGamingAccount = BaseUri + "OnlineGamingAccount";
         
         /// <summary>
         /// An online e-commerce account.
         /// </summary>
-        public static readonly Uri OnlineEcommerceAccount=new Uri(BaseUri+"OnlineEcommerceAccount");
+        public const string OnlineEcommerceAccount = BaseUri + "OnlineEcommerceAccount";
         
         /// <summary>
         /// An online chat account.
         /// </summary>
-        public static readonly Uri OnlineChatAccount=new Uri(BaseUri+"OnlineChatAccount");
+        public const string OnlineChatAccount = BaseUri + "OnlineChatAccount";
         
         /// <summary>
         /// A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox.
         /// </summary>
-        public static readonly Uri mbox=new Uri(BaseUri+"mbox");
+        public const string mbox = BaseUri + "mbox";
         
         /// <summary>
         /// The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox.
         /// </summary>
-        public static readonly Uri mbox_sha1sum=new Uri(BaseUri+"mbox_sha1sum");
+        public const string mbox_sha1sum = BaseUri + "mbox_sha1sum";
         
         /// <summary>
         /// The gender of this Agent (typically but not necessarily 'male' or 'female').
         /// </summary>
-        public static readonly Uri gender=new Uri(BaseUri+"gender");
+        public const string gender = BaseUri + "gender";
         
         /// <summary>
         /// A textual geekcode for this person, see http://www.geekcode.com/geek.html
         /// </summary>
-        public static readonly Uri geekcode=new Uri(BaseUri+"geekcode");
+        public const string geekcode = BaseUri + "geekcode";
         
         /// <summary>
         /// A checksum for the DNA of some thing. Joke.
         /// </summary>
-        public static readonly Uri dnaChecksum=new Uri(BaseUri+"dnaChecksum");
+        public const string dnaChecksum = BaseUri + "dnaChecksum";
         
         /// <summary>
         /// A sha1sum hash, in hex.
         /// </summary>
-        public static readonly Uri sha1=new Uri(BaseUri+"sha1");
+        public const string sha1 = BaseUri + "sha1";
         
         /// <summary>
         /// A location that something is based near, for some broadly human notion of near.
         /// </summary>
-        public static readonly Uri based_near=new Uri(BaseUri+"based_near");
+        public const string based_near = BaseUri + "based_near";
         
         /// <summary>
         /// Title (Mr, Mrs, Ms, Dr. etc)
         /// </summary>
-        public static readonly Uri title=new Uri(BaseUri+"title");
+        public const string title = BaseUri + "title";
         
         /// <summary>
         /// A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).
         /// </summary>
-        public static readonly Uri nick=new Uri(BaseUri+"nick");
+        public const string nick = BaseUri + "nick";
         
         /// <summary>
         /// A jabber ID for something.
         /// </summary>
-        public static readonly Uri jabberID=new Uri(BaseUri+"jabberID");
+        public const string jabberID = BaseUri + "jabberID";
         
         /// <summary>
         /// An AIM chat ID
         /// </summary>
-        public static readonly Uri aimChatID=new Uri(BaseUri+"aimChatID");
+        public const string aimChatID = BaseUri + "aimChatID";
         
         /// <summary>
         /// A Skype ID
         /// </summary>
-        public static readonly Uri skypeID=new Uri(BaseUri+"skypeID");
+        public const string skypeID = BaseUri + "skypeID";
         
         /// <summary>
         /// An ICQ chat ID
         /// </summary>
-        public static readonly Uri icqChatID=new Uri(BaseUri+"icqChatID");
+        public const string icqChatID = BaseUri + "icqChatID";
         
         /// <summary>
         /// A Yahoo chat ID
         /// </summary>
-        public static readonly Uri yahooChatID=new Uri(BaseUri+"yahooChatID");
+        public const string yahooChatID = BaseUri + "yahooChatID";
         
         /// <summary>
         /// An MSN chat ID
         /// </summary>
-        public static readonly Uri msnChatID=new Uri(BaseUri+"msnChatID");
+        public const string msnChatID = BaseUri + "msnChatID";
         
         /// <summary>
         /// A name for some thing.
         /// </summary>
-        public static readonly Uri name=new Uri(BaseUri+"name");
+        public const string name = BaseUri + "name";
         
         /// <summary>
         /// The first name of a person.
         /// </summary>
-        public static readonly Uri firstName=new Uri(BaseUri+"firstName");
+        public const string firstName = BaseUri + "firstName";
         
         /// <summary>
         /// The last name of a person.
         /// </summary>
-        public static readonly Uri lastName=new Uri(BaseUri+"lastName");
+        public const string lastName = BaseUri + "lastName";
         
         /// <summary>
         /// The given name of some person.
         /// </summary>
-        public static readonly Uri givenName=new Uri(BaseUri+"givenName");
+        public const string givenName = BaseUri + "givenName";
         
         /// <summary>
         /// The given name of some person.
         /// </summary>
-        public static readonly Uri givenname=new Uri(BaseUri+"givenname");
+        public const string givenname = BaseUri + "givenname";
         
         /// <summary>
         /// The surname of some person.
         /// </summary>
-        public static readonly Uri surname=new Uri(BaseUri+"surname");
+        public const string surname = BaseUri + "surname";
         
         /// <summary>
         /// The family name of some person.
         /// </summary>
-        public static readonly Uri family_name=new Uri(BaseUri+"family_name");
+        public const string family_name = BaseUri + "family_name";
         
         /// <summary>
         /// The family name of some person.
         /// </summary>
-        public static readonly Uri familyName=new Uri(BaseUri+"familyName");
+        public const string familyName = BaseUri + "familyName";
         
         /// <summary>
         /// A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel).
         /// </summary>
-        public static readonly Uri phone=new Uri(BaseUri+"phone");
+        public const string phone = BaseUri + "phone";
         
         /// <summary>
         /// A homepage for some thing.
         /// </summary>
-        public static readonly Uri homepage=new Uri(BaseUri+"homepage");
+        public const string homepage = BaseUri + "homepage";
         
         /// <summary>
         /// A weblog of some thing (whether person, group, company etc.).
         /// </summary>
-        public static readonly Uri weblog=new Uri(BaseUri+"weblog");
+        public const string weblog = BaseUri + "weblog";
         
         /// <summary>
         /// An OpenID for an Agent.
         /// </summary>
-        public static readonly Uri openid=new Uri(BaseUri+"openid");
+        public const string openid = BaseUri + "openid";
         
         /// <summary>
         /// A tipjar document for this agent, describing means for payment and reward.
         /// </summary>
-        public static readonly Uri tipjar=new Uri(BaseUri+"tipjar");
+        public const string tipjar = BaseUri + "tipjar";
         
         /// <summary>
         /// A .plan comment, in the tradition of finger and '.plan' files.
         /// </summary>
-        public static readonly Uri plan=new Uri(BaseUri+"plan");
+        public const string plan = BaseUri + "plan";
         
         /// <summary>
         /// Something that was made by this agent.
         /// </summary>
-        public static readonly Uri made=new Uri(BaseUri+"made");
+        public const string made = BaseUri + "made";
         
         /// <summary>
         /// An agent that made this thing.
         /// </summary>
-        public static readonly Uri maker=new Uri(BaseUri+"maker");
+        public const string maker = BaseUri + "maker";
         
         /// <summary>
         /// An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage).
         /// </summary>
-        public static readonly Uri img=new Uri(BaseUri+"img");
+        public const string img = BaseUri + "img";
         
         /// <summary>
         /// A depiction of some thing.
         /// </summary>
-        public static readonly Uri depiction=new Uri(BaseUri+"depiction");
+        public const string depiction = BaseUri + "depiction";
         
         /// <summary>
         /// A thing depicted in this representation.
         /// </summary>
-        public static readonly Uri depicts=new Uri(BaseUri+"depicts");
+        public const string depicts = BaseUri + "depicts";
         
         /// <summary>
         /// A derived thumbnail image.
         /// </summary>
-        public static readonly Uri thumbnail=new Uri(BaseUri+"thumbnail");
+        public const string thumbnail = BaseUri + "thumbnail";
         
         /// <summary>
         /// A Myers Briggs (MBTI) personality classification.
         /// </summary>
-        public static readonly Uri myersBriggs=new Uri(BaseUri+"myersBriggs");
+        public const string myersBriggs = BaseUri + "myersBriggs";
         
         /// <summary>
         /// A workplace homepage of some person; the homepage of an organization they work for.
         /// </summary>
-        public static readonly Uri workplaceHomepage=new Uri(BaseUri+"workplaceHomepage");
+        public const string workplaceHomepage = BaseUri + "workplaceHomepage";
         
         /// <summary>
         /// A work info homepage of some person; a page about their work for some organization.
         /// </summary>
-        public static readonly Uri workInfoHomepage=new Uri(BaseUri+"workInfoHomepage");
+        public const string workInfoHomepage = BaseUri + "workInfoHomepage";
         
         /// <summary>
         /// A homepage of a school attended by the person.
         /// </summary>
-        public static readonly Uri schoolHomepage=new Uri(BaseUri+"schoolHomepage");
+        public const string schoolHomepage = BaseUri + "schoolHomepage";
         
         /// <summary>
         /// A person known by this person (indicating some level of reciprocated interaction between the parties).
         /// </summary>
-        public static readonly Uri knows=new Uri(BaseUri+"knows");
+        public const string knows = BaseUri + "knows";
         
         /// <summary>
         /// A page about a topic of interest to this person.
         /// </summary>
-        public static readonly Uri interest=new Uri(BaseUri+"interest");
+        public const string interest = BaseUri + "interest";
         
         /// <summary>
         /// A thing of interest to this person.
         /// </summary>
-        public static readonly Uri topic_interest=new Uri(BaseUri+"topic_interest");
+        public const string topic_interest = BaseUri + "topic_interest";
         
         /// <summary>
         /// A link to the publications of this person.
         /// </summary>
-        public static readonly Uri publications=new Uri(BaseUri+"publications");
+        public const string publications = BaseUri + "publications";
         
         /// <summary>
         /// A current project this person works on.
         /// </summary>
-        public static readonly Uri currentProject=new Uri(BaseUri+"currentProject");
+        public const string currentProject = BaseUri + "currentProject";
         
         /// <summary>
         /// A project this person has previously worked on.
         /// </summary>
-        public static readonly Uri pastProject=new Uri(BaseUri+"pastProject");
+        public const string pastProject = BaseUri + "pastProject";
         
         /// <summary>
         /// An organization funding a project or person.
         /// </summary>
-        public static readonly Uri fundedBy=new Uri(BaseUri+"fundedBy");
+        public const string fundedBy = BaseUri + "fundedBy";
         
         /// <summary>
         /// A logo representing some thing.
         /// </summary>
-        public static readonly Uri logo=new Uri(BaseUri+"logo");
+        public const string logo = BaseUri + "logo";
         
         /// <summary>
         /// A topic of some page or document.
         /// </summary>
-        public static readonly Uri topic=new Uri(BaseUri+"topic");
+        public const string topic = BaseUri + "topic";
         
         /// <summary>
         /// The primary topic of some page or document.
         /// </summary>
-        public static readonly Uri primaryTopic=new Uri(BaseUri+"primaryTopic");
+        public const string primaryTopic = BaseUri + "primaryTopic";
         
         /// <summary>
         /// The underlying or 'focal' entity associated with some SKOS-described concept.
         /// </summary>
-        public static readonly Uri focus=new Uri(BaseUri+"focus");
+        public const string focus = BaseUri + "focus";
         
         /// <summary>
         /// A document that this thing is the primary topic of.
         /// </summary>
-        public static readonly Uri isPrimaryTopicOf=new Uri(BaseUri+"isPrimaryTopicOf");
+        public const string isPrimaryTopicOf = BaseUri + "isPrimaryTopicOf";
         
         /// <summary>
         /// A page or document about this thing.
         /// </summary>
-        public static readonly Uri page=new Uri(BaseUri+"page");
+        public const string page = BaseUri + "page";
         
         /// <summary>
         /// A theme.
         /// </summary>
-        public static readonly Uri theme=new Uri(BaseUri+"theme");
+        public const string theme = BaseUri + "theme";
         
         /// <summary>
         /// Indicates an account held by this agent.
         /// </summary>
-        public static readonly Uri account=new Uri(BaseUri+"account");
+        public const string account = BaseUri + "account";
         
         /// <summary>
         /// Indicates an account held by this agent.
         /// </summary>
-        public static readonly Uri holdsAccount=new Uri(BaseUri+"holdsAccount");
+        public const string holdsAccount = BaseUri + "holdsAccount";
         
         /// <summary>
         /// Indicates a homepage of the service provide for this online account.
         /// </summary>
-        public static readonly Uri accountServiceHomepage=new Uri(BaseUri+"accountServiceHomepage");
+        public const string accountServiceHomepage = BaseUri + "accountServiceHomepage";
         
         /// <summary>
         /// Indicates the name (identifier) associated with this online account.
         /// </summary>
-        public static readonly Uri accountName=new Uri(BaseUri+"accountName");
+        public const string accountName = BaseUri + "accountName";
         
         /// <summary>
         /// Indicates a member of a Group
         /// </summary>
-        public static readonly Uri member=new Uri(BaseUri+"member");
+        public const string member = BaseUri + "member";
         
         /// <summary>
         /// Indicates the class of individuals that are a member of a Group
         /// </summary>
-        public static readonly Uri membershipClass=new Uri(BaseUri+"membershipClass");
+        public const string membershipClass = BaseUri + "membershipClass";
         
         /// <summary>
         /// The birthday of this Agent, represented in mm-dd string form, eg. '12-31'.
         /// </summary>
-        public static readonly Uri birthday=new Uri(BaseUri+"birthday");
+        public const string birthday = BaseUri + "birthday";
         
         /// <summary>
         /// The age in years of some agent.
         /// </summary>
-        public static readonly Uri age=new Uri(BaseUri+"age");
+        public const string age = BaseUri + "age";
         
         /// <summary>
         /// A string expressing what the user is happy for the general public (normally) to know about their current activity.
         /// </summary>
-        public static readonly Uri status=new Uri(BaseUri+"status");
+        public const string status = BaseUri + "status";
     }
 }

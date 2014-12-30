@@ -13,226 +13,226 @@ namespace wikibus.common.Vocabularies
         /// <summary>
         /// An article from a journal or magazine.
         /// </summary>
-        public static readonly Uri Article=new Uri(BaseUri+"Article");
+        public const string Article = BaseUri + "Article";
         
         /// <summary>
         /// An article in the proceedings of a meeting, such as a conference, workhshop and symposium.
         /// </summary>
-        public static readonly Uri Article_in_Proceedings=new Uri(BaseUri+"Article_in_Proceedings");
+        public const string Article_in_Proceedings = BaseUri + "Article_in_Proceedings";
         
         /// <summary>
         /// A book with an explicit publisher.
         /// </summary>
-        public static readonly Uri Book=new Uri(BaseUri+"Book");
+        public const string Book = BaseUri + "Book";
         
         /// <summary>
         /// A part of a book, such as a chapter (or section/preface) and/or a range of pages.
         /// </summary>
-        public static readonly Uri Book_Chapter=new Uri(BaseUri+"Book_Chapter");
+        public const string Book_Chapter = BaseUri + "Book_Chapter";
         
         /// <summary>
         /// A dissertation written to receive a PhD.
         /// </summary>
-        public static readonly Uri Doctoral_Dissertation=new Uri(BaseUri+"Doctoral_Dissertation");
+        public const string Doctoral_Dissertation = BaseUri + "Doctoral_Dissertation";
         
         /// <summary>
         /// An edited book with an explicit publisher.
         /// </summary>
-        public static readonly Uri Edited_Book=new Uri(BaseUri+"Edited_Book");
+        public const string Edited_Book = BaseUri + "Edited_Book";
         
         /// <summary>
         /// An edited publication, that is, it has one or more editors (edited books, etc)
         /// </summary>
-        public static readonly Uri Edited_Publication=new Uri(BaseUri+"Edited_Publication");
+        public const string Edited_Publication = BaseUri + "Edited_Publication";
         
         /// <summary>
         /// A periodical presenting articles on a particular subject.
         /// </summary>
-        public static readonly Uri Journal=new Uri(BaseUri+"Journal");
+        public const string Journal = BaseUri + "Journal";
         
         /// <summary>
         /// A thesis written to receive a Master's degree.
         /// </summary>
-        public static readonly Uri Masters_Thesis=new Uri(BaseUri+"Masters_Thesis");
+        public const string Masters_Thesis = BaseUri + "Masters_Thesis";
         
         /// <summary>
         /// A written account of what transpired at a meeting.
         /// </summary>
-        public static readonly Uri Proceedings=new Uri(BaseUri+"Proceedings");
+        public const string Proceedings = BaseUri + "Proceedings";
         
         /// <summary>
         /// Individual documents and collections of documents such as series, journals, etc.
         /// </summary>
-        public static readonly Uri Publication=new Uri(BaseUri+"Publication");
+        public const string Publication = BaseUri + "Publication";
         
         /// <summary>
         /// An organization that, among other things, creates publishing periodicals, books or music.
         /// </summary>
-        public static readonly Uri Publishing_Organization=new Uri(BaseUri+"Publishing_Organization");
+        public const string Publishing_Organization = BaseUri + "Publishing_Organization";
         
         /// <summary>
         /// An organization where individuals receive education.
         /// </summary>
-        public static readonly Uri School=new Uri(BaseUri+"School");
+        public const string School = BaseUri + "School";
         
         /// <summary>
         /// A periodical that appears at scheduled times.
         /// </summary>
-        public static readonly Uri Serial_Publication=new Uri(BaseUri+"Serial_Publication");
+        public const string Serial_Publication = BaseUri + "Serial_Publication";
         
         /// <summary>
         /// Publication Series, such as LNCS, WEUR Workshops, etc. (at this time debatable whether this should be subclassof Publication)
         /// </summary>
-        public static readonly Uri Series=new Uri(BaseUri+"Series");
+        public const string Series = BaseUri + "Series";
         
         /// <summary>
         /// A treatise advancing a new point of view resulting from research; usually a requirement for an advanced academic degree.
         /// </summary>
-        public static readonly Uri Thesis=new Uri(BaseUri+"Thesis");
+        public const string Thesis = BaseUri + "Thesis";
         
         /// <summary>
         /// An institution for higher learning with teaching and research facilities constituting a graduate school and professional schools that award master's degrees and doctorates and an undergraduate division that awards bachelor's degrees.
         /// </summary>
-        public static readonly Uri University=new Uri(BaseUri+"University");
+        public const string University = BaseUri + "University";
         
         /// <summary>
         /// A webpage, it is subclass of Document because we want to emphasize that the URL of the webpage is used the URI.
         /// </summary>
-        public static readonly Uri Webpage=new Uri(BaseUri+"Webpage");
+        public const string Webpage = BaseUri + "Webpage";
         
         /// <summary>
         /// An alternative Book Title or the Book Title where an article appears, such as title of proceedings.
         /// </summary>
-        public static readonly Uri book_title=new Uri(BaseUri+"book_title");
+        public const string book_title = BaseUri + "book_title";
         
         /// <summary>
         /// The CDROM location of a Publication, as used by the ACM SIGMOD Anthology.
         /// </summary>
-        public static readonly Uri cdrom=new Uri(BaseUri+"cdrom");
+        public const string cdrom = BaseUri + "cdrom";
         
         /// <summary>
         /// The chapter number of a publication
         /// </summary>
-        public static readonly Uri chapter=new Uri(BaseUri+"chapter");
+        public const string chapter = BaseUri + "chapter";
         
         /// <summary>
         /// The Electronic Edition of a publication
         /// </summary>
-        public static readonly Uri ee=new Uri(BaseUri+"ee");
+        public const string ee = BaseUri + "ee";
         
         /// <summary>
         /// The Electronic Edition of a Presentation of a publication
         /// </summary>
-        public static readonly Uri eepresentation=new Uri(BaseUri+"eepresentation");
+        public const string eepresentation = BaseUri + "eepresentation";
         
         /// <summary>
         /// The ISBN of a publication.
         /// </summary>
-        public static readonly Uri isbn=new Uri(BaseUri+"isbn");
+        public const string isbn = BaseUri + "isbn";
         
         /// <summary>
         /// The name of a Journal, such as where an article appears
         /// </summary>
-        public static readonly Uri journal_name=new Uri(BaseUri+"journal_name");
+        public const string journal_name = BaseUri + "journal_name";
         
         /// <summary>
         /// The last modified date of a document.
         /// </summary>
-        public static readonly Uri last_modified_date=new Uri(BaseUri+"last_modified_date");
+        public const string last_modified_date = BaseUri + "last_modified_date";
         
         /// <summary>
         /// The month part of the date of a foaf:Document.
         /// </summary>
-        public static readonly Uri month=new Uri(BaseUri+"month");
+        public const string month = BaseUri + "month";
         
         /// <summary>
         /// The month part of the date of a foaf:Document represented as xsd:gMonth value
         /// </summary>
-        public static readonly Uri gMonth=new Uri(BaseUri+"gMonth");
+        public const string gMonth = BaseUri + "gMonth";
         
         /// <summary>
         /// The Number part of citation of a publication.
         /// </summary>
-        public static readonly Uri number=new Uri(BaseUri+"number");
+        public const string number = BaseUri + "number";
         
         /// <summary>
         /// The Pages part of citation of a publication.
         /// </summary>
-        public static readonly Uri pages=new Uri(BaseUri+"pages");
+        public const string pages = BaseUri + "pages";
         
         /// <summary>
         /// The Volume part of citation of a publication.
         /// </summary>
-        public static readonly Uri volume=new Uri(BaseUri+"volume");
+        public const string volume = BaseUri + "volume";
         
         /// <summary>
         /// The year part of the date of a foaf:Document.
         /// </summary>
-        public static readonly Uri year=new Uri(BaseUri+"year");
+        public const string year = BaseUri + "year";
         
         /// <summary>
         /// The abstract of a document
         /// </summary>
-        public static readonly Uri @abstract=new Uri(BaseUri+"abstract");
+        public const string @abstract = BaseUri + "abstract";
         
         /// <summary>
         /// Indicates that a publication originates or is related to a specific Organization.
         /// </summary>
-        public static readonly Uri at_organization=new Uri(BaseUri+"at_organization");
+        public const string at_organization = BaseUri + "at_organization";
         
         /// <summary>
         /// Indicates that a publication originates or is related to a specific University.
         /// </summary>
-        public static readonly Uri at_university=new Uri(BaseUri+"at_university");
+        public const string at_university = BaseUri + "at_university";
         
         /// <summary>
         /// Indicates that a book chapter belongs to a specific book. It is debateable whether this should be subclass of Collection.
         /// </summary>
-        public static readonly Uri chapter_of=new Uri(BaseUri+"chapter_of");
+        public const string chapter_of = BaseUri + "chapter_of";
         
         /// <summary>
         /// Indicates that a publication cites another publication.
         /// </summary>
-        public static readonly Uri cites=new Uri(BaseUri+"cites");
+        public const string cites = BaseUri + "cites";
         
         /// <summary>
         /// Indicates that a publication is included in a specific proceedings publication.
         /// </summary>
-        public static readonly Uri isIncludedIn=new Uri(BaseUri+"isIncludedIn");
+        public const string isIncludedIn = BaseUri + "isIncludedIn";
         
         /// <summary>
         /// Indicates that a publication has a specific editor(s).
         /// </summary>
-        public static readonly Uri editor=new Uri(BaseUri+"editor");
+        public const string editor = BaseUri + "editor";
         
         /// <summary>
         /// Indicates that a person is affiliated to a specific organization.
         /// </summary>
-        public static readonly Uri affiliation=new Uri(BaseUri+"affiliation");
+        public const string affiliation = BaseUri + "affiliation";
         
         /// <summary>
         /// Indicates that a Publication is part of a Publication Series.
         /// </summary>
-        public static readonly Uri in_series=new Uri(BaseUri+"in_series");
+        public const string in_series = BaseUri + "in_series";
         
         /// <summary>
         /// Indicates that a publication is authored by a specific person(s).
         /// </summary>
-        public static readonly Uri author=new Uri(BaseUri+"author");
+        public const string author = BaseUri + "author";
         
         /// <summary>
         /// Indicates that a person is co-editor with another person
         /// </summary>
-        public static readonly Uri coeditor=new Uri(BaseUri+"coeditor");
+        public const string coeditor = BaseUri + "coeditor";
         
         /// <summary>
         /// Indicates that a person is co-author with another person
         /// </summary>
-        public static readonly Uri coauthor=new Uri(BaseUri+"coauthor");
+        public const string coauthor = BaseUri + "coauthor";
         
         /// <summary>
         /// Indicates that a person has same affiliation than another person (this is not necessarily transitive)
         /// </summary>
-        public static readonly Uri sameAffiliation=new Uri(BaseUri+"sameAffiliation");
+        public const string sameAffiliation = BaseUri + "sameAffiliation";
     }
 }

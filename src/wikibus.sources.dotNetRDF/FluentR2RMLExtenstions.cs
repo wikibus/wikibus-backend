@@ -14,11 +14,11 @@ namespace wikibus.sources.dotNetRDF
         public static ITriplesMapConfiguration MapColumn(
             this ITriplesMapConfiguration map,
             string columnName,
-            Uri predicate,
+            string predicate,
             Uri dataType = null)
         {
             var predicateObjectMap = map.CreatePropertyObjectMap();
-            predicateObjectMap.CreatePredicateMap().IsConstantValued(predicate);
+            predicateObjectMap.CreatePredicateMap().IsConstantValued(new Uri(predicate));
             var literalTermMapConfiguration = predicateObjectMap.CreateObjectMap().IsColumnValued(columnName);
 
             if (dataType != null)
@@ -35,11 +35,11 @@ namespace wikibus.sources.dotNetRDF
         public static ITriplesMapConfiguration MapTemplate(
             this ITriplesMapConfiguration map,
             string template,
-            Uri predicate,
-            Uri dataType = null)
+            string predicate,
+            string dataType = null)
         {
             var predicateObjectMap = map.CreatePropertyObjectMap();
-            predicateObjectMap.CreatePredicateMap().IsConstantValued(predicate);
+            predicateObjectMap.CreatePredicateMap().IsConstantValued(new Uri(predicate));
             var objectMap = predicateObjectMap.CreateObjectMap().IsTemplateValued(template);
 
             if (dataType != null)
@@ -55,7 +55,7 @@ namespace wikibus.sources.dotNetRDF
         /// </summary>
         public static ITriplesMapConfiguration MapConstant(
             this ITriplesMapConfiguration map,
-            Uri value,
+            string value,
             Uri predicate)
         {
             var predicateObjectMap = map.CreatePropertyObjectMap();

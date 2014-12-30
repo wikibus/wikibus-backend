@@ -27,7 +27,7 @@ namespace wikibus.nancy
         /// Gets the brochures Uri.
         /// </summary>
         [SupportedProperty("wb:brochures")]
-        [AllowGet(Range = "hydra:PagedCollection")]
+        [AllowGet(Range = common.Vocabularies.Hydra.PagedCollection)]
         public string Brochures
         {
             get { return "brochures"; }
@@ -36,7 +36,7 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the books Uri.
         /// </summary>
-        [SupportedProperty("wb:books", Range = "hydra:PagedCollection")]
+        [SupportedProperty("wb:books", Range = common.Vocabularies.Hydra.PagedCollection)]
         [AllowGet]
         public string Books
         {
@@ -46,7 +46,7 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the magazines Uri.
         /// </summary>
-        [SupportedProperty("wb:magazines", Range = "hydra:PagedCollection")]
+        [SupportedProperty("wb:magazines", Range = common.Vocabularies.Hydra.PagedCollection)]
         [AllowGet]
         public string Magazines
         {

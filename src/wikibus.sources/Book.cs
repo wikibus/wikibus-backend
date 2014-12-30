@@ -2,6 +2,7 @@
 using Hydra.Annotations;
 using JsonLD.Entities;
 using NullGuard;
+using wikibus.common.Vocabularies;
 
 namespace wikibus.sources
 {
@@ -14,20 +15,20 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the ISBN.
         /// </summary>
-        [SupportedProperty("sch:isbn")]
+        [SupportedProperty(Schema.isbn)]
         public string ISBN { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the author.
         /// </summary>
-        [SupportedProperty("sch:author")]
+        [SupportedProperty(Schema.author)]
         [AllowGet]
         public Author Author { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        [SupportedProperty("dcterms:title")]
+        [SupportedProperty(DCTerms.title)]
         [Required]
         public string Title { [return: AllowNull] get; set; }
     }

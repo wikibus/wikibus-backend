@@ -13,136 +13,136 @@ namespace wikibus.common.Vocabularies
         /// <summary>
         /// The class of Hydra classes. Hydra classes and their instances are dereferenceable resources.
         /// </summary>
-        public static readonly Uri Class=new Uri(BaseUri+"Class");
+        public const string Class = BaseUri + "Class";
         
         /// <summary>
         /// The HTTP status code
         /// </summary>
-        public static readonly Uri statusCode=new Uri(BaseUri+"statusCode");
+        public const string statusCode = BaseUri + "statusCode";
         
         /// <summary>
         /// True if the property is write-only, false otherwise.
         /// </summary>
-        public static readonly Uri writeonly=new Uri(BaseUri+"writeonly");
+        public const string writeonly = BaseUri + "writeonly";
         
         /// <summary>
         /// A variable-to-property mapping of the IRI template.
         /// </summary>
-        public static readonly Uri mapping=new Uri(BaseUri+"mapping");
+        public const string mapping = BaseUri + "mapping";
         
         /// <summary>
         /// A description.
         /// </summary>
-        public static readonly Uri description=new Uri(BaseUri+"description");
+        public const string description = BaseUri + "description";
         
         /// <summary>
         /// The maximum number of items referenced by each single PagedCollection in a set of interlinked PagedCollections.
         /// </summary>
-        public static readonly Uri itemsPerPage=new Uri(BaseUri+"itemsPerPage");
+        public const string itemsPerPage = BaseUri + "itemsPerPage";
         
         /// <summary>
         /// A property representing a freetext query.
         /// </summary>
-        public static readonly Uri freetextQuery=new Uri(BaseUri+"freetextQuery");
+        public const string freetextQuery = BaseUri + "freetextQuery";
         
         /// <summary>
         /// A property
         /// </summary>
-        public static readonly Uri property=new Uri(BaseUri+"property");
+        public const string property = BaseUri + "property";
         
         /// <summary>
         /// True if the property is read-only, false otherwise.
         /// </summary>
-        public static readonly Uri @readonly=new Uri(BaseUri+"readonly");
+        public const string @readonly = BaseUri + "readonly";
         
         /// <summary>
         /// The HTTP method.
         /// </summary>
-        public static readonly Uri method=new Uri(BaseUri+"method");
+        public const string method = BaseUri + "method";
         
         /// <summary>
         /// An IRI template as defined by RFC6570.
         /// </summary>
-        public static readonly Uri template=new Uri(BaseUri+"template");
+        public const string template = BaseUri + "template";
         
         /// <summary>
         /// True if the property is required, false otherwise.
         /// </summary>
-        public static readonly Uri required=new Uri(BaseUri+"required");
+        public const string required = BaseUri + "required";
         
         /// <summary>
         /// A title, often used along with a description.
         /// </summary>
-        public static readonly Uri title=new Uri(BaseUri+"title");
+        public const string title = BaseUri + "title";
         
         /// <summary>
         /// An IRI template variable
         /// </summary>
-        public static readonly Uri variable=new Uri(BaseUri+"variable");
+        public const string variable = BaseUri + "variable";
         
         /// <summary>
         /// The total number of items referenced by a collection or a set of interlinked PagedCollections.
         /// </summary>
-        public static readonly Uri totalItems=new Uri(BaseUri+"totalItems");
+        public const string totalItems = BaseUri + "totalItems";
         /// <summary>
         /// The Hydra API documentation class
         /// </summary>
-        public static readonly Uri ApiDocumentation=new Uri(BaseUri+"ApiDocumentation");
+        public const string ApiDocumentation = BaseUri + "ApiDocumentation";
         /// <summary>
         /// A collection holding references to a number of related resources.
         /// </summary>
-        public static readonly Uri Collection=new Uri(BaseUri+"Collection");
+        public const string Collection = BaseUri + "Collection";
         /// <summary>
         /// A PagedCollection is a subclass of Collection with the only difference that its members are sorted and only a subset of all members are returned in a single PagedCollection. To get the other members, the nextPage/previousPage properties have to be used.
         /// </summary>
-        public static readonly Uri PagedCollection=new Uri(BaseUri+"PagedCollection");
+        public const string PagedCollection = BaseUri + "PagedCollection";
         /// <summary>
         /// A templated link.
         /// </summary>
-        public static readonly Uri TemplatedLink=new Uri(BaseUri+"TemplatedLink");
+        public const string TemplatedLink = BaseUri + "TemplatedLink";
         /// <summary>
         /// The class of IRI templates.
         /// </summary>
-        public static readonly Uri IriTemplate=new Uri(BaseUri+"IriTemplate");
+        public const string IriTemplate = BaseUri + "IriTemplate";
         /// <summary>
         /// The class of dereferenceable resources.
         /// </summary>
-        public static readonly Uri Resource=new Uri(BaseUri+"Resource");
+        public const string Resource = BaseUri + "Resource";
         /// <summary>
         /// An operation.
         /// </summary>
-        public static readonly Uri Operation=new Uri(BaseUri+"Operation");
+        public const string Operation = BaseUri + "Operation";
         /// <summary>
         /// The class of properties representing links.
         /// </summary>
-        public static readonly Uri Link=new Uri(BaseUri+"Link");
+        public const string Link = BaseUri + "Link";
         /// <summary>
         /// Additional information about a status code that might be returned.
         /// </summary>
-        public static readonly Uri StatusCodeDescription=new Uri(BaseUri+"StatusCodeDescription");
+        public const string StatusCodeDescription = BaseUri + "StatusCodeDescription";
         /// <summary>
         /// A property known to be supported by a Hydra class.
         /// </summary>
-        public static readonly Uri SupportedProperty=new Uri(BaseUri+"SupportedProperty");
+        public const string SupportedProperty = BaseUri + "SupportedProperty";
         /// <summary>
         /// A runtime error, used to report information beyond the returned status code.
         /// </summary>
-        public static readonly Uri Error=new Uri(BaseUri+"Error");
+        public const string Error = BaseUri + "Error";
         /// <summary>
         /// A DeleteResourceOperation is a HTTP operation that deletes a resource.
         /// </summary>
-        public static readonly Uri DeleteResourceOperation=new Uri(BaseUri+"DeleteResourceOperation");
+        public const string DeleteResourceOperation = BaseUri + "DeleteResourceOperation";
         /// <summary>
         /// A CreateResourceOperation is a HTTP operation which expects an input of the type specified by hydra:expects and creates a resource of the type specified by hydra:returns.
         /// </summary>
-        public static readonly Uri CreateResourceOperation=new Uri(BaseUri+"CreateResourceOperation");
+        public const string CreateResourceOperation = BaseUri + "CreateResourceOperation";
         /// <summary>
         /// A mapping from an IRI template variable to a property.
         /// </summary>
-        public static readonly Uri IriTemplateMapping=new Uri(BaseUri+"IriTemplateMapping");
+        public const string IriTemplateMapping = BaseUri + "IriTemplateMapping";
         /// <summary>
         /// A ReplaceResourceOperation is a HTTP operation which overwrites a resource. It expects data of the type specified in hydra:expects and results in a resource of the type specified by hydra:returns.
         /// </summary>
-        public static readonly Uri ReplaceResourceOperation=new Uri(BaseUri+"ReplaceResourceOperation");
+        public const string ReplaceResourceOperation = BaseUri + "ReplaceResourceOperation";
     }
 }

@@ -13,70 +13,70 @@ namespace wikibus.common.Vocabularies
         /// <summary>
         /// The class of RDF properties.
         /// </summary>
-        public static readonly Uri Property=new Uri(BaseUri+"Property");
+        public const string Property = BaseUri + "Property";
         
         /// <summary>
         /// The class of RDF statements.
         /// </summary>
-        public static readonly Uri Statement=new Uri(BaseUri+"Statement");
+        public const string Statement = BaseUri + "Statement";
         
         /// <summary>
         /// The class of unordered containers.
         /// </summary>
-        public static readonly Uri Bag=new Uri(BaseUri+"Bag");
+        public const string Bag = BaseUri + "Bag";
         
         /// <summary>
         /// The class of ordered containers.
         /// </summary>
-        public static readonly Uri Seq=new Uri(BaseUri+"Seq");
+        public const string Seq = BaseUri + "Seq";
         
         /// <summary>
         /// The class of containers of alternatives.
         /// </summary>
-        public static readonly Uri Alt=new Uri(BaseUri+"Alt");
+        public const string Alt = BaseUri + "Alt";
         
         /// <summary>
         /// The class of RDF Lists.
         /// </summary>
-        public static readonly Uri List=new Uri(BaseUri+"List");
+        public const string List = BaseUri + "List";
         
         /// <summary>
         /// The subject is an instance of a class.
         /// </summary>
-        public static readonly Uri type=new Uri(BaseUri+"type");
+        public const string type = BaseUri + "type";
         
         /// <summary>
         /// The subject of the subject RDF statement.
         /// </summary>
-        public static readonly Uri subject=new Uri(BaseUri+"subject");
+        public const string subject = BaseUri + "subject";
         
         /// <summary>
         /// The predicate of the subject RDF statement.
         /// </summary>
-        public static readonly Uri predicate=new Uri(BaseUri+"predicate");
+        public const string predicate = BaseUri + "predicate";
         
         /// <summary>
         /// The object of the subject RDF statement.
         /// </summary>
-        public static readonly Uri @object=new Uri(BaseUri+"object");
+        public const string @object = BaseUri + "object";
         
         /// <summary>
         /// Idiomatic property used for structured values.
         /// </summary>
-        public static readonly Uri value=new Uri(BaseUri+"value");
+        public const string value = BaseUri + "value";
         
         /// <summary>
         /// The first item in the subject RDF list.
         /// </summary>
-        public static readonly Uri first=new Uri(BaseUri+"first");
+        public const string first = BaseUri + "first";
         
         /// <summary>
         /// The rest of the subject RDF list after the first item.
         /// </summary>
-        public static readonly Uri rest=new Uri(BaseUri+"rest");
+        public const string rest = BaseUri + "rest";
         /// <summary>
         /// The empty list, with no items in it. If the rest of a list is nil then the list has no more items in it.
         /// </summary>
-        public static readonly Uri nil=new Uri(BaseUri+"nil");
+        public const string nil = BaseUri + "nil";
     }
 }

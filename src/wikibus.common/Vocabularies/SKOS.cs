@@ -13,131 +13,131 @@ namespace wikibus.common.Vocabularies
         /// <summary>
         /// An idea or notion; a unit of thought.
         /// </summary>
-        public static readonly Uri Concept=new Uri(BaseUri+"Concept");
+        public const string Concept = BaseUri + "Concept";
         
         /// <summary>
         /// A set of concepts, optionally including statements about semantic relationships between those concepts.
         /// </summary>
-        public static readonly Uri ConceptScheme=new Uri(BaseUri+"ConceptScheme");
+        public const string ConceptScheme = BaseUri + "ConceptScheme";
         
         /// <summary>
         /// A meaningful collection of concepts.
         /// </summary>
-        public static readonly Uri Collection=new Uri(BaseUri+"Collection");
+        public const string Collection = BaseUri + "Collection";
         
         /// <summary>
         /// An ordered collection of concepts, where both the grouping and the ordering are meaningful.
         /// </summary>
-        public static readonly Uri OrderedCollection=new Uri(BaseUri+"OrderedCollection");
+        public const string OrderedCollection = BaseUri + "OrderedCollection";
         
         /// <summary>
         /// A notation, also known as classification code, is a string of characters such as "T58.5" or "303.4833" used to uniquely identify a concept within the scope of a given concept scheme.
         /// </summary>
-        public static readonly Uri notation=new Uri(BaseUri+"notation");
+        public const string notation = BaseUri + "notation";
         
         /// <summary>
         /// Relates a resource (for example a concept) to a concept scheme in which it is included.
         /// </summary>
-        public static readonly Uri inScheme=new Uri(BaseUri+"inScheme");
+        public const string inScheme = BaseUri + "inScheme";
         
         /// <summary>
         /// Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.
         /// </summary>
-        public static readonly Uri hasTopConcept=new Uri(BaseUri+"hasTopConcept");
+        public const string hasTopConcept = BaseUri + "hasTopConcept";
         
         /// <summary>
         /// Relates a concept to the concept scheme that it is a top level concept of.
         /// </summary>
-        public static readonly Uri topConceptOf=new Uri(BaseUri+"topConceptOf");
+        public const string topConceptOf = BaseUri + "topConceptOf";
         
         /// <summary>
         /// Links a concept to a concept related by meaning.
         /// </summary>
-        public static readonly Uri semanticRelation=new Uri(BaseUri+"semanticRelation");
+        public const string semanticRelation = BaseUri + "semanticRelation";
         
         /// <summary>
         /// Relates a concept to a concept that is more general in meaning.
         /// </summary>
-        public static readonly Uri broader=new Uri(BaseUri+"broader");
+        public const string broader = BaseUri + "broader";
         
         /// <summary>
         /// Relates a concept to a concept that is more specific in meaning.
         /// </summary>
-        public static readonly Uri narrower=new Uri(BaseUri+"narrower");
+        public const string narrower = BaseUri + "narrower";
         
         /// <summary>
         /// Relates a collection to one of its members.
         /// </summary>
-        public static readonly Uri member=new Uri(BaseUri+"member");
+        public const string member = BaseUri + "member";
         
         /// <summary>
         /// Relates an ordered collection to the RDF list containing its members.
         /// </summary>
-        public static readonly Uri memberList=new Uri(BaseUri+"memberList");
+        public const string memberList = BaseUri + "memberList";
         
         /// <summary>
         /// Relates two concepts coming, by convention, from different schemes, and that have comparable meanings
         /// </summary>
-        public static readonly Uri mappingRelation=new Uri(BaseUri+"mappingRelation");
+        public const string mappingRelation = BaseUri + "mappingRelation";
         
         /// <summary>
         /// skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.
         /// </summary>
-        public static readonly Uri broadMatch=new Uri(BaseUri+"broadMatch");
+        public const string broadMatch = BaseUri + "broadMatch";
         
         /// <summary>
         /// skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.
         /// </summary>
-        public static readonly Uri narrowMatch=new Uri(BaseUri+"narrowMatch");
+        public const string narrowMatch = BaseUri + "narrowMatch";
         
         /// <summary>
         /// The preferred lexical label for a resource, in a given language.
         /// </summary>
-        public static readonly Uri prefLabel=new Uri(BaseUri+"prefLabel");
+        public const string prefLabel = BaseUri + "prefLabel";
         
         /// <summary>
         /// An alternative lexical label for a resource.
         /// </summary>
-        public static readonly Uri altLabel=new Uri(BaseUri+"altLabel");
+        public const string altLabel = BaseUri + "altLabel";
         
         /// <summary>
         /// A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.
         /// </summary>
-        public static readonly Uri hiddenLabel=new Uri(BaseUri+"hiddenLabel");
+        public const string hiddenLabel = BaseUri + "hiddenLabel";
         
         /// <summary>
         /// A general note, for any purpose.
         /// </summary>
-        public static readonly Uri note=new Uri(BaseUri+"note");
+        public const string note = BaseUri + "note";
         
         /// <summary>
         /// A note about a modification to a concept.
         /// </summary>
-        public static readonly Uri changeNote=new Uri(BaseUri+"changeNote");
+        public const string changeNote = BaseUri + "changeNote";
         
         /// <summary>
         /// A statement or formal explanation of the meaning of a concept.
         /// </summary>
-        public static readonly Uri definition=new Uri(BaseUri+"definition");
+        public const string definition = BaseUri + "definition";
         
         /// <summary>
         /// A note for an editor, translator or maintainer of the vocabulary.
         /// </summary>
-        public static readonly Uri editorialNote=new Uri(BaseUri+"editorialNote");
+        public const string editorialNote = BaseUri + "editorialNote";
         
         /// <summary>
         /// An example of the use of a concept.
         /// </summary>
-        public static readonly Uri example=new Uri(BaseUri+"example");
+        public const string example = BaseUri + "example";
         
         /// <summary>
         /// A note about the past state/use/meaning of a concept.
         /// </summary>
-        public static readonly Uri historyNote=new Uri(BaseUri+"historyNote");
+        public const string historyNote = BaseUri + "historyNote";
         
         /// <summary>
         /// A note that helps to clarify the meaning and/or the use of a concept.
         /// </summary>
-        public static readonly Uri scopeNote=new Uri(BaseUri+"scopeNote");
+        public const string scopeNote = BaseUri + "scopeNote";
     }
 }

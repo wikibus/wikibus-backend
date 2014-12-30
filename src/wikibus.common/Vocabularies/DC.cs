@@ -13,76 +13,76 @@ namespace wikibus.common.Vocabularies
         /// <summary>
         /// An entity responsible for making contributions to the resource.
         /// </summary>
-        public static readonly Uri contributor=new Uri(BaseUri+"contributor");
+        public const string contributor = BaseUri + "contributor";
         
         /// <summary>
         /// The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.
         /// </summary>
-        public static readonly Uri coverage=new Uri(BaseUri+"coverage");
+        public const string coverage = BaseUri + "coverage";
         
         /// <summary>
         /// An entity primarily responsible for making the resource.
         /// </summary>
-        public static readonly Uri creator=new Uri(BaseUri+"creator");
+        public const string creator = BaseUri + "creator";
         
         /// <summary>
         /// A point or period of time associated with an event in the lifecycle of the resource.
         /// </summary>
-        public static readonly Uri date=new Uri(BaseUri+"date");
+        public const string date = BaseUri + "date";
         
         /// <summary>
         /// An account of the resource.
         /// </summary>
-        public static readonly Uri description=new Uri(BaseUri+"description");
+        public const string description = BaseUri + "description";
         
         /// <summary>
         /// The file format, physical medium, or dimensions of the resource.
         /// </summary>
-        public static readonly Uri format=new Uri(BaseUri+"format");
+        public const string format = BaseUri + "format";
         
         /// <summary>
         /// An unambiguous reference to the resource within a given context.
         /// </summary>
-        public static readonly Uri identifier=new Uri(BaseUri+"identifier");
+        public const string identifier = BaseUri + "identifier";
         
         /// <summary>
         /// A language of the resource.
         /// </summary>
-        public static readonly Uri language=new Uri(BaseUri+"language");
+        public const string language = BaseUri + "language";
         
         /// <summary>
         /// An entity responsible for making the resource available.
         /// </summary>
-        public static readonly Uri publisher=new Uri(BaseUri+"publisher");
+        public const string publisher = BaseUri + "publisher";
         
         /// <summary>
         /// A related resource.
         /// </summary>
-        public static readonly Uri relation=new Uri(BaseUri+"relation");
+        public const string relation = BaseUri + "relation";
         
         /// <summary>
         /// Information about rights held in and over the resource.
         /// </summary>
-        public static readonly Uri rights=new Uri(BaseUri+"rights");
+        public const string rights = BaseUri + "rights";
         
         /// <summary>
         /// A related resource from which the described resource is derived.
         /// </summary>
-        public static readonly Uri source=new Uri(BaseUri+"source");
+        public const string source = BaseUri + "source";
         
         /// <summary>
         /// The topic of the resource.
         /// </summary>
-        public static readonly Uri subject=new Uri(BaseUri+"subject");
+        public const string subject = BaseUri + "subject";
         
         /// <summary>
         /// A name given to the resource.
         /// </summary>
-        public static readonly Uri title=new Uri(BaseUri+"title");
+        public const string title = BaseUri + "title";
         
         /// <summary>
         /// The nature or genre of the resource.
         /// </summary>
-        public static readonly Uri type=new Uri(BaseUri+"type");
+        public const string type = BaseUri + "type";
     }
 }

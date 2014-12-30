@@ -1,12 +1,13 @@
 ﻿using JsonLD.Entities;
 using NullGuard;
+using wikibus.common.Vocabularies;
 
 namespace wikibus.sources
 {
     /// <summary>
     /// Book author
     /// </summary>
-    [Class("http://schema.org/Person")]
+    [Class(Schema.Person)]
     public class Author
     {
         /// <summary>

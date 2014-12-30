@@ -75,7 +75,7 @@ namespace wikibus.sources.dotNetRDF
         {
             _magazineMap = rml.CreateTriplesMapFromR2RMLView("select * from [Sources].[Magazine]");
             _magazineMap.SubjectMap.IsTemplateValued(_config.BaseResourceNamespace + "magazine/{Name}");
-            _magazineMap.SubjectMap.AddClass(Schema.Periodical);
+            _magazineMap.SubjectMap.AddClass(new Uri(Schema.Periodical));
             _magazineMap.SubjectMap.AddClass(new Uri("http://wikibus.org/ontology#Magazine"));
 
             MapMagazineTitle(_magazineMap);
@@ -104,7 +104,7 @@ namespace wikibus.sources.dotNetRDF
         private void MapIssueParent(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
             var magazineMap = sourceMap.CreatePropertyObjectMap();
-            magazineMap.CreatePredicateMap().IsConstantValued(Schema.isPartOf);
+            magazineMap.CreatePredicateMap().IsConstantValued(new Uri(Schema.isPartOf));
             magazineMap.CreateRefObjectMap(_magazineMap)
                 .AddJoinCondition("MagIssueMagazine", "Id");
         }
@@ -130,12 +130,12 @@ namespace wikibus.sources.dotNetRDF
         {
             var imageObjectMap = sourceMap.R2RMLConfiguration.CreateTriplesMapFromR2RMLView(SelectImages);
             imageObjectMap.SubjectMap.TermType.IsBlankNode().IsTemplateValued("image_{Id}");
-            imageObjectMap.SubjectMap.AddClass(Schema.ImageObject);
+            imageObjectMap.SubjectMap.AddClass(new Uri(Schema.ImageObject));
 
             imageObjectMap.MapTemplate(template + "/image", Schema.contentUrl, Schema.URL);
 
             var imageMap = sourceMap.CreatePropertyObjectMap();
-            imageMap.CreatePredicateMap().IsConstantValued(Schema.image);
+            imageMap.CreatePredicateMap().IsConstantValued(new Uri(Schema.image));
             imageMap.CreateRefObjectMap(imageObjectMap).AddJoinCondition("Id", "Id");
         }
 
@@ -149,10 +149,10 @@ namespace wikibus.sources.dotNetRDF
             var authorTriplesMap = sourceMap.R2RMLConfiguration.CreateTriplesMapFromR2RMLView(SelectBookAuthorSql);
             authorTriplesMap.SubjectMap.TermType.IsBlankNode().IsTemplateValued("author_{Id}");
 
-            authorTriplesMap.MapColumn("BookAuthor", new Uri(Schema.BaseUri + "name"));
+            authorTriplesMap.MapColumn("BookAuthor", Schema.BaseUri + "name");
 
             var authorMap = sourceMap.CreatePropertyObjectMap();
-            authorMap.CreatePredicateMap().IsConstantValued(Schema.author);
+            authorMap.CreatePredicateMap().IsConstantValued(new Uri(Schema.author));
             authorMap.CreateRefObjectMap(authorTriplesMap).AddJoinCondition("Id", "Id");
         }
 
@@ -171,7 +171,7 @@ namespace wikibus.sources.dotNetRDF
             sourceMap
                 .MapColumn("Year", Opus.year, new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gYear"))
                 .MapColumn("month", Opus.month, new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gMonth"))
-                .MapTemplate("{Year}-{Month}-{Day}", DCTerms.date, new Uri(XmlSpecsHelper.XmlSchemaDataTypeDate));
+                .MapTemplate("{Year}-{Month}-{Day}", DCTerms.date, XmlSpecsHelper.XmlSchemaDataTypeDate);
         }
 
         private void MapLanguages(ITriplesMapFromR2RMLViewConfiguration sourceMap)
@@ -183,7 +183,7 @@ namespace wikibus.sources.dotNetRDF
 
         private void MapType(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            sourceMap.MapTemplate("http://wikibus.org/ontology#{Type}", new Uri(RdfSpecsHelper.RdfType));
+            sourceMap.MapTemplate("http://wikibus.org/ontology#{Type}", RdfSpecsHelper.RdfType);
         }
 
         private void MapFolderName(ITriplesMapFromR2RMLViewConfiguration sourceMap)
