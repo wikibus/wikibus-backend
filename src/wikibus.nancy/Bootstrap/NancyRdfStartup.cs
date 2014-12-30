@@ -1,6 +1,6 @@
-﻿using Nancy.Bootstrapper;
+﻿using System;
+using Nancy.Bootstrapper;
 using Nancy.RDF;
-using Nancy.RDF.Responses;
 using VDS.RDF;
 
 namespace wikibus.nancy
@@ -16,7 +16,13 @@ namespace wikibus.nancy
         public NancyRdfStartup(INamespaceMapper mapper)
         {
             mapper.Import(new NamespaceMapper());
-            mapper.AddNamespace("");
+            mapper.AddNamespace(Vocabularies.Dc.Prefix, new Uri(Vocabularies.Dc.BaseUri));
+            mapper.AddNamespace(Vocabularies.DCTerms.Prefix, new Uri(Vocabularies.DCTerms.BaseUri));
+            mapper.AddNamespace(Vocabularies.Sch.Prefix, new Uri(Vocabularies.Sch.BaseUri));
+            mapper.AddNamespace(Vocabularies.Hydra.Prefix, new Uri(Vocabularies.Hydra.BaseUri));
+            mapper.AddNamespace(Vocabularies.Rdf.Prefix, new Uri(Vocabularies.Rdf.BaseUri));
+            mapper.AddNamespace(Vocabularies.Rdfs.Prefix, new Uri(Vocabularies.Rdfs.BaseUri));
+            mapper.AddNamespace("wbo", new Uri("http://wikibus.org/ontology#"));
         }
 
         /// <summary>
