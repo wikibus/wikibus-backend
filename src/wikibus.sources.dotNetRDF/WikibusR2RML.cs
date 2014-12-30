@@ -87,6 +87,7 @@ namespace wikibus.sources.dotNetRDF
 
             var magIssueMap = rml.CreateTriplesMapFromR2RMLView(SelectMagIssues);
             magIssueMap.SubjectMap.IsTemplateValued(template);
+            magIssueMap.SubjectMap.AddClass(new Uri(Schema.PublicationIssue));
 
             MapLanguages(magIssueMap);
             MapDate(magIssueMap);
@@ -94,8 +95,7 @@ namespace wikibus.sources.dotNetRDF
             MapIssueParent(magIssueMap);
             MapPagesCount(magIssueMap);
 
-            magIssueMap.MapConstant(Schema.PublicationIssue, new Uri(RdfSpecsHelper.RdfType))
-                       .MapColumn(
+            magIssueMap.MapColumn(
                             "MagIssueNumber",
                             Schema.issueNumber,
                             new Uri(XmlSpecsHelper.XmlSchemaDataTypeString));
