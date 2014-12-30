@@ -67,7 +67,7 @@
     <Compile Include="HydraModule.cs" />
     <Compile Include="WikibusApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Bootstrap\RdfStartup.cs" />
+    <Compile Include="Bootstrap\NancyRdfStartup.cs" />
     <Compile Include="Components\StoreLoader.cs" />
   </ItemGroup>
   <ItemGroup>
