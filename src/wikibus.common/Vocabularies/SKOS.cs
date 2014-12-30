@@ -6,8 +6,62 @@ namespace wikibus.common.Vocabularies
     /// <summary>SKOS Vocabulary (http://www.w3.org/2004/02/skos/core#).</summary>
     public static partial class Skos
     {
+#pragma warning disable 1591 // ReSharper disable InconsistentNaming
         public const string Prefix="skos";
 
         public const string BaseUri="http://www.w3.org/2004/02/skos/core#";
+
+        public static readonly Uri Concept=new Uri(BaseUri+"Concept");
+
+        public static readonly Uri ConceptScheme=new Uri(BaseUri+"ConceptScheme");
+
+        public static readonly Uri Collection=new Uri(BaseUri+"Collection");
+
+        public static readonly Uri OrderedCollection=new Uri(BaseUri+"OrderedCollection");
+
+        public static readonly Uri notation=new Uri(BaseUri+"notation");
+
+        public static readonly Uri inScheme=new Uri(BaseUri+"inScheme");
+
+        public static readonly Uri hasTopConcept=new Uri(BaseUri+"hasTopConcept");
+
+        public static readonly Uri topConceptOf=new Uri(BaseUri+"topConceptOf");
+
+        public static readonly Uri semanticRelation=new Uri(BaseUri+"semanticRelation");
+
+        public static readonly Uri broader=new Uri(BaseUri+"broader");
+
+        public static readonly Uri narrower=new Uri(BaseUri+"narrower");
+
+        public static readonly Uri member=new Uri(BaseUri+"member");
+
+        public static readonly Uri memberList=new Uri(BaseUri+"memberList");
+
+        public static readonly Uri mappingRelation=new Uri(BaseUri+"mappingRelation");
+
+        public static readonly Uri broadMatch=new Uri(BaseUri+"broadMatch");
+
+        public static readonly Uri narrowMatch=new Uri(BaseUri+"narrowMatch");
+
+        public static readonly Uri prefLabel=new Uri(BaseUri+"prefLabel");
+
+        public static readonly Uri altLabel=new Uri(BaseUri+"altLabel");
+
+        public static readonly Uri hiddenLabel=new Uri(BaseUri+"hiddenLabel");
+
+        public static readonly Uri note=new Uri(BaseUri+"note");
+
+        public static readonly Uri changeNote=new Uri(BaseUri+"changeNote");
+
+        public static readonly Uri definition=new Uri(BaseUri+"definition");
+
+        public static readonly Uri editorialNote=new Uri(BaseUri+"editorialNote");
+
+        public static readonly Uri example=new Uri(BaseUri+"example");
+
+        public static readonly Uri historyNote=new Uri(BaseUri+"historyNote");
+
+        public static readonly Uri scopeNote=new Uri(BaseUri+"scopeNote");
+#pragma warning restore 1591 // ReSharper restore InconsistentNaming
     }
 }

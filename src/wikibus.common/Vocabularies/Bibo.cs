@@ -10,6 +10,256 @@ namespace wikibus.common.Vocabularies
         public const string Prefix="bibo";
 
         public const string BaseUri="http://purl.org/ontology/bibo/";
+
+        public static readonly Uri AcademicArticle=new Uri(BaseUri+"AcademicArticle");
+
+        public static readonly Uri Article=new Uri(BaseUri+"Article");
+
+        public static readonly Uri AudioDocument=new Uri(BaseUri+"AudioDocument");
+
+        public static readonly Uri AudioVisualDocument=new Uri(BaseUri+"AudioVisualDocument");
+
+        public static readonly Uri Bill=new Uri(BaseUri+"Bill");
+
+        public static readonly Uri Book=new Uri(BaseUri+"Book");
+
+        public static readonly Uri BookSection=new Uri(BaseUri+"BookSection");
+
+        public static readonly Uri Brief=new Uri(BaseUri+"Brief");
+
+        public static readonly Uri Chapter=new Uri(BaseUri+"Chapter");
+
+        public static readonly Uri Code=new Uri(BaseUri+"Code");
+
+        public static readonly Uri CollectedDocument=new Uri(BaseUri+"CollectedDocument");
+
+        public static readonly Uri Collection=new Uri(BaseUri+"Collection");
+
+        public static readonly Uri Conference=new Uri(BaseUri+"Conference");
+
+        public static readonly Uri CourtReporter=new Uri(BaseUri+"CourtReporter");
+
+        public static readonly Uri Document=new Uri(BaseUri+"Document");
+
+        public static readonly Uri DocumentPart=new Uri(BaseUri+"DocumentPart");
+
+        public static readonly Uri DocumentStatus=new Uri(BaseUri+"DocumentStatus");
+
+        public static readonly Uri EditedBook=new Uri(BaseUri+"EditedBook");
+
+        public static readonly Uri Email=new Uri(BaseUri+"Email");
+
+        public static readonly Uri Event=new Uri(BaseUri+"Event");
+
+        public static readonly Uri Excerpt=new Uri(BaseUri+"Excerpt");
+
+        public static readonly Uri Film=new Uri(BaseUri+"Film");
+
+        public static readonly Uri Hearing=new Uri(BaseUri+"Hearing");
+
+        public static readonly Uri Image=new Uri(BaseUri+"Image");
+
+        public static readonly Uri Interview=new Uri(BaseUri+"Interview");
+
+        public static readonly Uri Issue=new Uri(BaseUri+"Issue");
+
+        public static readonly Uri Journal=new Uri(BaseUri+"Journal");
+
+        public static readonly Uri LegalCaseDocument=new Uri(BaseUri+"LegalCaseDocument");
+
+        public static readonly Uri LegalDecision=new Uri(BaseUri+"LegalDecision");
+
+        public static readonly Uri LegalDocument=new Uri(BaseUri+"LegalDocument");
+
+        public static readonly Uri Legislation=new Uri(BaseUri+"Legislation");
+
+        public static readonly Uri Letter=new Uri(BaseUri+"Letter");
+
+        public static readonly Uri Magazine=new Uri(BaseUri+"Magazine");
+
+        public static readonly Uri Manual=new Uri(BaseUri+"Manual");
+
+        public static readonly Uri Manuscript=new Uri(BaseUri+"Manuscript");
+
+        public static readonly Uri Map=new Uri(BaseUri+"Map");
+
+        public static readonly Uri MultiVolumeBook=new Uri(BaseUri+"MultiVolumeBook");
+
+        public static readonly Uri Newspaper=new Uri(BaseUri+"Newspaper");
+
+        public static readonly Uri Note=new Uri(BaseUri+"Note");
+
+        public static readonly Uri Patent=new Uri(BaseUri+"Patent");
+
+        public static readonly Uri Performance=new Uri(BaseUri+"Performance");
+
+        public static readonly Uri Periodical=new Uri(BaseUri+"Periodical");
+
+        public static readonly Uri PersonalCommunication=new Uri(BaseUri+"PersonalCommunication");
+
+        public static readonly Uri PersonalCommunicationDocument=new Uri(BaseUri+"PersonalCommunicationDocument");
+
+        public static readonly Uri Proceedings=new Uri(BaseUri+"Proceedings");
+
+        public static readonly Uri Quote=new Uri(BaseUri+"Quote");
+
+        public static readonly Uri ReferenceSource=new Uri(BaseUri+"ReferenceSource");
+
+        public static readonly Uri Report=new Uri(BaseUri+"Report");
+
+        public static readonly Uri Series=new Uri(BaseUri+"Series");
+
+        public static readonly Uri Slide=new Uri(BaseUri+"Slide");
+
+        public static readonly Uri Slideshow=new Uri(BaseUri+"Slideshow");
+
+        public static readonly Uri Standard=new Uri(BaseUri+"Standard");
+
+        public static readonly Uri Statute=new Uri(BaseUri+"Statute");
+
+        public static readonly Uri Thesis=new Uri(BaseUri+"Thesis");
+
+        public static readonly Uri ThesisDegree=new Uri(BaseUri+"ThesisDegree");
+
+        public static readonly Uri Webpage=new Uri(BaseUri+"Webpage");
+
+        public static readonly Uri Website=new Uri(BaseUri+"Website");
+
+        public static readonly Uri Workshop=new Uri(BaseUri+"Workshop");
+
+        public static readonly Uri @abstract=new Uri(BaseUri+"abstract");
+
+        public static readonly Uri argued=new Uri(BaseUri+"argued");
+
+        public static readonly Uri asin=new Uri(BaseUri+"asin");
+
+        public static readonly Uri chapter=new Uri(BaseUri+"chapter");
+
+        public static readonly Uri coden=new Uri(BaseUri+"coden");
+
+        public static readonly Uri content=new Uri(BaseUri+"content");
+
+        public static readonly Uri doi=new Uri(BaseUri+"doi");
+
+        public static readonly Uri eanucc13=new Uri(BaseUri+"eanucc13");
+
+        public static readonly Uri edition=new Uri(BaseUri+"edition");
+
+        public static readonly Uri eissn=new Uri(BaseUri+"eissn");
+
+        public static readonly Uri gtin14=new Uri(BaseUri+"gtin14");
+
+        public static readonly Uri handle=new Uri(BaseUri+"handle");
+
+        public static readonly Uri identifier=new Uri(BaseUri+"identifier");
+
+        public static readonly Uri isbn=new Uri(BaseUri+"isbn");
+
+        public static readonly Uri isbn10=new Uri(BaseUri+"isbn10");
+
+        public static readonly Uri isbn13=new Uri(BaseUri+"isbn13");
+
+        public static readonly Uri issn=new Uri(BaseUri+"issn");
+
+        public static readonly Uri issue=new Uri(BaseUri+"issue");
+
+        public static readonly Uri lccn=new Uri(BaseUri+"lccn");
+
+        public static readonly Uri locator=new Uri(BaseUri+"locator");
+
+        public static readonly Uri numPages=new Uri(BaseUri+"numPages");
+
+        public static readonly Uri numVolumes=new Uri(BaseUri+"numVolumes");
+
+        public static readonly Uri number=new Uri(BaseUri+"number");
+
+        public static readonly Uri oclcnum=new Uri(BaseUri+"oclcnum");
+
+        public static readonly Uri pageEnd=new Uri(BaseUri+"pageEnd");
+
+        public static readonly Uri pageStart=new Uri(BaseUri+"pageStart");
+
+        public static readonly Uri pages=new Uri(BaseUri+"pages");
+
+        public static readonly Uri pmid=new Uri(BaseUri+"pmid");
+
+        public static readonly Uri prefixName=new Uri(BaseUri+"prefixName");
+
+        public static readonly Uri section=new Uri(BaseUri+"section");
+
+        public static readonly Uri shortDescription=new Uri(BaseUri+"shortDescription");
+
+        public static readonly Uri shortTitle=new Uri(BaseUri+"shortTitle");
+
+        public static readonly Uri sici=new Uri(BaseUri+"sici");
+
+        public static readonly Uri suffixName=new Uri(BaseUri+"suffixName");
+
+        public static readonly Uri upc=new Uri(BaseUri+"upc");
+
+        public static readonly Uri uri=new Uri(BaseUri+"uri");
+
+        public static readonly Uri volume=new Uri(BaseUri+"volume");
+
+        public static readonly Uri affirmedBy=new Uri(BaseUri+"affirmedBy");
+
+        public static readonly Uri annotates=new Uri(BaseUri+"annotates");
+
+        public static readonly Uri authorList=new Uri(BaseUri+"authorList");
+
+        public static readonly Uri citedBy=new Uri(BaseUri+"citedBy");
+
+        public static readonly Uri cites=new Uri(BaseUri+"cites");
+
+        public static readonly Uri contributorList=new Uri(BaseUri+"contributorList");
+
+        public static readonly Uri court=new Uri(BaseUri+"court");
+
+        public static readonly Uri degree=new Uri(BaseUri+"degree");
+
+        public static readonly Uri director=new Uri(BaseUri+"director");
+
+        public static readonly Uri distributor=new Uri(BaseUri+"distributor");
+
+        public static readonly Uri editor=new Uri(BaseUri+"editor");
+
+        public static readonly Uri editorList=new Uri(BaseUri+"editorList");
+
+        public static readonly Uri interviewee=new Uri(BaseUri+"interviewee");
+
+        public static readonly Uri interviewer=new Uri(BaseUri+"interviewer");
+
+        public static readonly Uri issuer=new Uri(BaseUri+"issuer");
+
+        public static readonly Uri organizer=new Uri(BaseUri+"organizer");
+
+        public static readonly Uri owner=new Uri(BaseUri+"owner");
+
+        public static readonly Uri performer=new Uri(BaseUri+"performer");
+
+        public static readonly Uri presentedAt=new Uri(BaseUri+"presentedAt");
+
+        public static readonly Uri presents=new Uri(BaseUri+"presents");
+
+        public static readonly Uri producer=new Uri(BaseUri+"producer");
+
+        public static readonly Uri recipient=new Uri(BaseUri+"recipient");
+
+        public static readonly Uri reproducedIn=new Uri(BaseUri+"reproducedIn");
+
+        public static readonly Uri reversedBy=new Uri(BaseUri+"reversedBy");
+
+        public static readonly Uri reviewOf=new Uri(BaseUri+"reviewOf");
+
+        public static readonly Uri status=new Uri(BaseUri+"status");
+
+        public static readonly Uri subsequentLegalDecision=new Uri(BaseUri+"subsequentLegalDecision");
+
+        public static readonly Uri transcriptOf=new Uri(BaseUri+"transcriptOf");
+
+        public static readonly Uri translationOf=new Uri(BaseUri+"translationOf");
+
+        public static readonly Uri translator=new Uri(BaseUri+"translator");
 #pragma warning restore 1591 // ReSharper restore InconsistentNaming
     }
 }

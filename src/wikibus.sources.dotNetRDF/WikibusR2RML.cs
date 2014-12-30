@@ -158,7 +158,7 @@ namespace wikibus.sources.dotNetRDF
 
         private void MapPagesCount(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            sourceMap.MapColumn("Pages", new Uri(Bibo.BaseUri + "pages"), new Uri(XmlSpecsHelper.XmlSchemaDataTypeInteger));
+            sourceMap.MapColumn("Pages", Bibo.pages, new Uri(XmlSpecsHelper.XmlSchemaDataTypeInteger));
         }
 
         private void MapFolderCode(ITriplesMapFromR2RMLViewConfiguration sourceMap)
