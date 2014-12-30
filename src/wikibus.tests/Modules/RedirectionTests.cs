@@ -4,6 +4,7 @@ using FakeItEasy;
 using FluentAssertions;
 using JsonLD.Entities;
 using Nancy;
+using Nancy.RDF;
 using Nancy.RDF.Responses;
 using Nancy.Responses.Negotiation;
 using Nancy.Testing;

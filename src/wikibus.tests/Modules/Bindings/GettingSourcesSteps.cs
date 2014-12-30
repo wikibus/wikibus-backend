@@ -5,7 +5,7 @@ using FakeItEasy;
 using FluentAssertions;
 using Hydra;
 using Nancy;
-using Nancy.RDF.Responses;
+using Nancy.RDF;
 using Nancy.Responses.Negotiation;
 using Nancy.Testing;
 using TechTalk.SpecFlow;

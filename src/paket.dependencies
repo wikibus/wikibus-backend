@@ -25,3 +25,9 @@ nuget Nancy.elmah
 nuget Nancy.metrics
 nuget CodeAssassin.ConfigTransform
 nuget ImageResizer
+nuget Nancy.Rdf
+nuget Nancy.elmah
+nuget Nancy.metrics
+nuget jsonld.entities
+
+gist tpluscode/5d9c6983004c1c9ec91f
