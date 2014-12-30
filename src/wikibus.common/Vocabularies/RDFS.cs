@@ -6,40 +6,83 @@ namespace wikibus.common.Vocabularies
     /// <summary>The RDF Schema vocabulary (RDFS) (http://www.w3.org/2000/01/rdf-schema#).</summary>
     public static partial class Rdfs
     {
-#pragma warning disable 1591 // ReSharper disable InconsistentNaming
         public const string Prefix="rdfs";
 
         public const string BaseUri="http://www.w3.org/2000/01/rdf-schema#";
-
+        
+        /// <summary>
+        /// The class resource, everything.
+        /// </summary>
         public static readonly Uri Resource=new Uri(BaseUri+"Resource");
-
+        
+        /// <summary>
+        /// The class of classes.
+        /// </summary>
         public static readonly Uri Class=new Uri(BaseUri+"Class");
-
+        
+        /// <summary>
+        /// The class of literal values, eg. textual strings and integers.
+        /// </summary>
         public static readonly Uri Literal=new Uri(BaseUri+"Literal");
-
+        
+        /// <summary>
+        /// The class of RDF containers.
+        /// </summary>
         public static readonly Uri Container=new Uri(BaseUri+"Container");
-
+        
+        /// <summary>
+        /// The class of container membership properties, rdf:_1, rdf:_2, ..., all of which are sub-properties of 'member'.
+        /// </summary>
         public static readonly Uri ContainerMembershipProperty=new Uri(BaseUri+"ContainerMembershipProperty");
-
+        
+        /// <summary>
+        /// The class of RDF datatypes.
+        /// </summary>
         public static readonly Uri Datatype=new Uri(BaseUri+"Datatype");
-
+        
+        /// <summary>
+        /// The subject is a subclass of a class.
+        /// </summary>
         public static readonly Uri subClassOf=new Uri(BaseUri+"subClassOf");
-
+        
+        /// <summary>
+        /// The subject is a subproperty of a property.
+        /// </summary>
         public static readonly Uri subPropertyOf=new Uri(BaseUri+"subPropertyOf");
-
+        
+        /// <summary>
+        /// A description of the subject resource.
+        /// </summary>
         public static readonly Uri comment=new Uri(BaseUri+"comment");
-
+        
+        /// <summary>
+        /// A human-readable name for the subject.
+        /// </summary>
         public static readonly Uri label=new Uri(BaseUri+"label");
-
+        
+        /// <summary>
+        /// A domain of the subject property.
+        /// </summary>
         public static readonly Uri domain=new Uri(BaseUri+"domain");
-
+        
+        /// <summary>
+        /// A range of the subject property.
+        /// </summary>
         public static readonly Uri range=new Uri(BaseUri+"range");
-
+        
+        /// <summary>
+        /// Further information about the subject resource.
+        /// </summary>
         public static readonly Uri seeAlso=new Uri(BaseUri+"seeAlso");
-
+        
+        /// <summary>
+        /// The defininition of the subject resource.
+        /// </summary>
         public static readonly Uri isDefinedBy=new Uri(BaseUri+"isDefinedBy");
-
+        
+        /// <summary>
+        /// A member of the subject resource.
+        /// </summary>
         public static readonly Uri member=new Uri(BaseUri+"member");
-#pragma warning restore 1591 // ReSharper restore InconsistentNaming
     }
 }

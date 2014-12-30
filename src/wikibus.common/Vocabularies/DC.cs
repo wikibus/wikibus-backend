@@ -6,40 +6,83 @@ namespace wikibus.common.Vocabularies
     /// <summary>Dublin Core Metadata Element Set, Version 1.1 (http://purl.org/dc/elements/1.1/).</summary>
     public static partial class Dc
     {
-#pragma warning disable 1591 // ReSharper disable InconsistentNaming
         public const string Prefix="dc";
 
         public const string BaseUri="http://purl.org/dc/elements/1.1/";
-
+        
+        /// <summary>
+        /// An entity responsible for making contributions to the resource.
+        /// </summary>
         public static readonly Uri contributor=new Uri(BaseUri+"contributor");
-
+        
+        /// <summary>
+        /// The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.
+        /// </summary>
         public static readonly Uri coverage=new Uri(BaseUri+"coverage");
-
+        
+        /// <summary>
+        /// An entity primarily responsible for making the resource.
+        /// </summary>
         public static readonly Uri creator=new Uri(BaseUri+"creator");
-
+        
+        /// <summary>
+        /// A point or period of time associated with an event in the lifecycle of the resource.
+        /// </summary>
         public static readonly Uri date=new Uri(BaseUri+"date");
-
+        
+        /// <summary>
+        /// An account of the resource.
+        /// </summary>
         public static readonly Uri description=new Uri(BaseUri+"description");
-
+        
+        /// <summary>
+        /// The file format, physical medium, or dimensions of the resource.
+        /// </summary>
         public static readonly Uri format=new Uri(BaseUri+"format");
-
+        
+        /// <summary>
+        /// An unambiguous reference to the resource within a given context.
+        /// </summary>
         public static readonly Uri identifier=new Uri(BaseUri+"identifier");
-
+        
+        /// <summary>
+        /// A language of the resource.
+        /// </summary>
         public static readonly Uri language=new Uri(BaseUri+"language");
-
+        
+        /// <summary>
+        /// An entity responsible for making the resource available.
+        /// </summary>
         public static readonly Uri publisher=new Uri(BaseUri+"publisher");
-
+        
+        /// <summary>
+        /// A related resource.
+        /// </summary>
         public static readonly Uri relation=new Uri(BaseUri+"relation");
-
+        
+        /// <summary>
+        /// Information about rights held in and over the resource.
+        /// </summary>
         public static readonly Uri rights=new Uri(BaseUri+"rights");
-
+        
+        /// <summary>
+        /// A related resource from which the described resource is derived.
+        /// </summary>
         public static readonly Uri source=new Uri(BaseUri+"source");
-
+        
+        /// <summary>
+        /// The topic of the resource.
+        /// </summary>
         public static readonly Uri subject=new Uri(BaseUri+"subject");
-
+        
+        /// <summary>
+        /// A name given to the resource.
+        /// </summary>
         public static readonly Uri title=new Uri(BaseUri+"title");
-
+        
+        /// <summary>
+        /// The nature or genre of the resource.
+        /// </summary>
         public static readonly Uri type=new Uri(BaseUri+"type");
-#pragma warning restore 1591 // ReSharper restore InconsistentNaming
     }
 }

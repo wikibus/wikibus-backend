@@ -6,3104 +6,7573 @@ namespace wikibus.common.Vocabularies
     /// <summary>Schema.org (converted to OWL by TopQuadrant) (http://schema.org/).</summary>
     public static partial class Schema
     {
-#pragma warning disable 1591 // ReSharper disable InconsistentNaming
         public const string Prefix="schema";
 
         public const string BaseUri="http://schema.org/";
-
+        
+        /// <summary>
+        /// A museum.
+        /// </summary>
         public static readonly Uri Museum=new Uri(BaseUri+"Museum");
-
+        
+        /// <summary>
+        /// Provider of professional services.
+        /// </summary>
         public static readonly Uri ProfessionalService=new Uri(BaseUri+"ProfessionalService");
-
+        
+        /// <summary>
+        /// A car wash business.
+        /// </summary>
         public static readonly Uri AutoWash=new Uri(BaseUri+"AutoWash");
-
+        
+        /// <summary>
+        /// Place of worship, such as a church, synagogue, or mosque.
+        /// </summary>
         public static readonly Uri PlaceOfWorship=new Uri(BaseUri+"PlaceOfWorship");
-
+        
+        /// <summary>
+        /// A tennis complex.
+        /// </summary>
         public static readonly Uri TennisComplex=new Uri(BaseUri+"TennisComplex");
-
+        
+        /// <summary>
+        /// An offer to transfer some rights to an item or to provide a service&#x2014;for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, to repair a motorcycle, or to loan a book.       <br/><br/>       For <a href="http://www.gs1.org/barcodes/technical/idkeys/gtin">GTIN</a>-related fields, see       <a href="http://www.gs1.org/barcodes/support/check_digit_calculator">Check Digit calculator</a>       and <a href="http://www.gs1us.org/resources/standards/gtin-validation-guide">validation guide</a>       from <a href="http://www.gs1.org/">GS1</a>.       
+        /// </summary>
         public static readonly Uri Offer=new Uri(BaseUri+"Offer");
-
+        
+        /// <summary>
+        /// The act of searching for an object.<p>Related actions:</p><ul><li><a href="http://schema.org/FindAction">FindAction</a>: SearchAction generally leads to a FindAction, but not necessarily.</li></ul>
+        /// </summary>
         public static readonly Uri SearchAction=new Uri(BaseUri+"SearchAction");
-
+        
+        /// <summary>
+        /// A winery.
+        /// </summary>
         public static readonly Uri Winery=new Uri(BaseUri+"Winery");
-
+        
+        /// <summary>
+        /// The act of organizing tasks/objects/events by associating resources to it.
+        /// </summary>
         public static readonly Uri AllocateAction=new Uri(BaseUri+"AllocateAction");
-
+        
+        /// <summary>
+        /// The act of rejecting to/adopting an object.<p>Related actions:</p><ul><li><a href="http://schema.org/AcceptAction">AcceptAction</a>: The antagonym of RejectAction.</li></ul>
+        /// </summary>
         public static readonly Uri RejectAction=new Uri(BaseUri+"RejectAction");
-
+        
+        /// <summary>
+        /// A muscle is an anatomical structure consisting of a contractile form of tissue that animals use to effect movement.
+        /// </summary>
         public static readonly Uri Muscle=new Uri(BaseUri+"Muscle");
-
+        
+        /// <summary>
+        /// A public swimming pool.
+        /// </summary>
         public static readonly Uri PublicSwimmingPool=new Uri(BaseUri+"PublicSwimmingPool");
-
+        
+        /// <summary>
+        /// Data type: Integer.
+        /// </summary>
         public static readonly Uri Integer=new Uri(BaseUri+"Integer");
-
+        
+        /// <summary>
+        /// A clothing store.
+        /// </summary>
         public static readonly Uri ClothingStore=new Uri(BaseUri+"ClothingStore");
-
+        
+        /// <summary>
+        /// Event type: Festival.
+        /// </summary>
         public static readonly Uri Festival=new Uri(BaseUri+"Festival");
-
+        
+        /// <summary>
+        /// An organization that provides flights for passengers.
+        /// </summary>
         public static readonly Uri Airline=new Uri(BaseUri+"Airline");
-
+        
+        /// <summary>
+        /// The act of expressing a negative sentiment about the object. An agent dislikes an object (a proposition, topic or theme) with participants.
+        /// </summary>
         public static readonly Uri DislikeAction=new Uri(BaseUri+"DislikeAction");
-
+        
+        /// <summary>
+        /// Event type: Business event.
+        /// </summary>
         public static readonly Uri BusinessEvent=new Uri(BaseUri+"BusinessEvent");
-
+        
+        /// <summary>
+        /// A scholarly article.
+        /// </summary>
         public static readonly Uri ScholarlyArticle=new Uri(BaseUri+"ScholarlyArticle");
-
+        
+        /// <summary>
+        /// A home goods store.
+        /// </summary>
         public static readonly Uri HomeGoodsStore=new Uri(BaseUri+"HomeGoodsStore");
-
+        
+        /// <summary>
+        /// A reservation for a rental car.Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
+        /// </summary>
         public static readonly Uri RentalCarReservation=new Uri(BaseUri+"RentalCarReservation");
-
+        
+        /// <summary>
+        /// A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.
+        /// </summary>
         public static readonly Uri WarrantyPromise=new Uri(BaseUri+"WarrantyPromise");
-
+        
+        /// <summary>
+        /// A collection of music tracks in playlist form.
+        /// </summary>
         public static readonly Uri MusicPlaylist=new Uri(BaseUri+"MusicPlaylist");
-
+        
+        /// <summary>
+        /// A department store.
+        /// </summary>
         public static readonly Uri DepartmentStore=new Uri(BaseUri+"DepartmentStore");
-
+        
+        /// <summary>
+        /// A shop that will buy, or lend money against the security of, personal possessions.
+        /// </summary>
         public static readonly Uri PawnShop=new Uri(BaseUri+"PawnShop");
-
+        
+        /// <summary>
+        /// The act of manipulating/administering/supervising/controlling one or more objects.
+        /// </summary>
         public static readonly Uri OrganizeAction=new Uri(BaseUri+"OrganizeAction");
-
+        
+        /// <summary>
+        /// A recycling center.
+        /// </summary>
         public static readonly Uri RecyclingCenter=new Uri(BaseUri+"RecyclingCenter");
-
+        
+        /// <summary>
+        /// A nightclub or discotheque.
+        /// </summary>
         public static readonly Uri NightClub=new Uri(BaseUri+"NightClub");
-
+        
+        /// <summary>
+        /// A blog
+        /// </summary>
         public static readonly Uri Blog=new Uri(BaseUri+"Blog");
-
+        
+        /// <summary>
+        /// A recommended dosing schedule for a drug or supplement as prescribed or recommended by an authority or by the drug/supplement's manufacturer. Capture the recommending authority in the recognizingAuthority property of MedicalEntity.
+        /// </summary>
         public static readonly Uri RecommendedDoseSchedule=new Uri(BaseUri+"RecommendedDoseSchedule");
-
+        
+        /// <summary>
+        /// A movie.
+        /// </summary>
         public static readonly Uri Movie=new Uri(BaseUri+"Movie");
-
+        
+        /// <summary>
+        /// A restaurant.
+        /// </summary>
         public static readonly Uri Restaurant=new Uri(BaseUri+"Restaurant");
-
+        
+        /// <summary>
+        /// The act of being defeated in a competitive activity.
+        /// </summary>
         public static readonly Uri LoseAction=new Uri(BaseUri+"LoseAction");
-
+        
+        /// <summary>
+        /// A list of possible product availability options.
+        /// </summary>
         public static readonly Uri ItemAvailability=new Uri(BaseUri+"ItemAvailability");
-
+        
+        /// <summary>
+        /// A notary.
+        /// </summary>
         public static readonly Uri Notary=new Uri(BaseUri+"Notary");
-
+        
+        /// <summary>
+        /// A police station.
+        /// </summary>
         public static readonly Uri PoliceStation=new Uri(BaseUri+"PoliceStation");
-
+        
+        /// <summary>
+        /// A wholesale store.
+        /// </summary>
         public static readonly Uri WholesaleStore=new Uri(BaseUri+"WholesaleStore");
-
+        
+        /// <summary>
+        /// The act of authoring written creative content.
+        /// </summary>
         public static readonly Uri WriteAction=new Uri(BaseUri+"WriteAction");
-
+        
+        /// <summary>
+        /// A doctor's office.
+        /// </summary>
         public static readonly Uri Physician=new Uri(BaseUri+"Physician");
-
+        
+        /// <summary>
+        /// ATM/cash machine.
+        /// </summary>
         public static readonly Uri AutomatedTeller=new Uri(BaseUri+"AutomatedTeller");
-
+        
+        /// <summary>
+        /// A class of medical drugs, e.g., statins. Classes can represent general pharmacological class, common mechanisms of action, common physiological effects, etc.
+        /// </summary>
         public static readonly Uri DrugClass=new Uri(BaseUri+"DrugClass");
-
+        
+        /// <summary>
+        /// A store that sells reading glasses and similar devices for improving vision.
+        /// </summary>
         public static readonly Uri Optician=new Uri(BaseUri+"Optician");
-
+        
+        /// <summary>
+        /// A fire station. With firemen.
+        /// </summary>
         public static readonly Uri FireStation=new Uri(BaseUri+"FireStation");
-
+        
+        /// <summary>
+        /// A utility class that serves as the umbrella for a number of 'intangible' things in the medical space.
+        /// </summary>
         public static readonly Uri MedicalIntangible=new Uri(BaseUri+"MedicalIntangible");
-
+        
+        /// <summary>
+        /// An elementary school.
+        /// </summary>
         public static readonly Uri ElementarySchool=new Uri(BaseUri+"ElementarySchool");
-
+        
+        /// <summary>
+        /// A list of possible conditions for the item.
+        /// </summary>
         public static readonly Uri OfferItemCondition=new Uri(BaseUri+"OfferItemCondition");
-
+        
+        /// <summary>
+        /// A movie rental store.
+        /// </summary>
         public static readonly Uri MovieRentalStore=new Uri(BaseUri+"MovieRentalStore");
-
+        
+        /// <summary>
+        /// Any collection of tests commonly ordered together.
+        /// </summary>
         public static readonly Uri MedicalTestPanel=new Uri(BaseUri+"MedicalTestPanel");
-
+        
+        /// <summary>
+        /// A ski resort.
+        /// </summary>
         public static readonly Uri SkiResort=new Uri(BaseUri+"SkiResort");
-
+        
+        /// <summary>
+        /// The act of notifying an event organizer as to whether you expect to attend the event.
+        /// </summary>
         public static readonly Uri RsvpAction=new Uri(BaseUri+"RsvpAction");
-
+        
+        /// <summary>
+        /// A blog post.
+        /// </summary>
         public static readonly Uri BlogPosting=new Uri(BaseUri+"BlogPosting");
-
+        
+        /// <summary>
+        /// An anatomical system is a group of anatomical structures that work together to perform a certain task. Anatomical systems, such as organ systems, are one organizing principle of anatomy, and can includes circulatory, digestive, endocrine, integumentary, immune, lymphatic, muscular, nervous, reproductive, respiratory, skeletal, urinary, vestibular, and other systems.
+        /// </summary>
         public static readonly Uri AnatomicalSystem=new Uri(BaseUri+"AnatomicalSystem");
-
+        
+        /// <summary>
+        /// The act of physically/electronically taking delivery of an object thathas been transferred from an origin to a destination. Reciprocal of SendAction.<p>Related actions:</p><ul><li><a href="http://schema.org/SendAction">SendAction</a>: The reciprocal of ReceiveAction.</li><li><a href="http://schema.org/TakeAction">TakeAction</a>: Unlike TakeAction, ReceiveAction does not imply that the ownership has been transfered (e.g. I can receive a package, but it does not mean the package is now mine).</li></ul>
+        /// </summary>
         public static readonly Uri ReceiveAction=new Uri(BaseUri+"ReceiveAction");
-
+        
+        /// <summary>
+        /// A vehicle.
+        /// </summary>
         public static readonly Uri Vehicle=new Uri(BaseUri+"Vehicle");
-
+        
+        /// <summary>
+        /// An airport.
+        /// </summary>
         public static readonly Uri Airport=new Uri(BaseUri+"Airport");
-
+        
+        /// <summary>
+        /// An electrician.
+        /// </summary>
         public static readonly Uri Electrician=new Uri(BaseUri+"Electrician");
-
+        
+        /// <summary>
+        /// A part of a successively published publication such as a periodical or multi-volume work, often numbered. It may represent a time span, such as a year.
+        /// </summary>
         public static readonly Uri PublicationVolume=new Uri(BaseUri+"PublicationVolume");
-
+        
+        /// <summary>
+        /// A contact point&#x2014;for example, a Customer Complaints department.
+        /// </summary>
         public static readonly Uri ContactPoint=new Uri(BaseUri+"ContactPoint");
-
+        
+        /// <summary>
+        /// The act of playing/exercising/training/performing for enjoyment, leisure, recreation, Competition or exercise.<p>Related actions:</p><ul><li><a href="http://schema.org/ListenAction">ListenAction</a>: Unlike ListenAction (which is under ConsumeAction), PlayAction refers to performing for an audience or at an event, rather than consuming music.</li><li><a href="http://schema.org/WatchAction">WatchAction</a>: Unlike WatchAction (which is under ConsumeAction), PlayAction refers to showing/displaying for an audience or at an event, rather than consuming visual content.</li></ul>
+        /// </summary>
         public static readonly Uri PlayAction=new Uri(BaseUri+"PlayAction");
-
+        
+        /// <summary>
+        /// The average rating based on multiple ratings or reviews.
+        /// </summary>
         public static readonly Uri AggregateRating=new Uri(BaseUri+"AggregateRating");
-
+        
+        /// <summary>
+        /// A comment on an item - for example, a comment on a blog post. The comment's content is expressed via the "text" property, and its topic via "about", properties shared with all CreativeWorks.
+        /// </summary>
         public static readonly Uri Comment=new Uri(BaseUri+"Comment");
-
+        
+        /// <summary>
+        /// A Catholic church.
+        /// </summary>
         public static readonly Uri CatholicChurch=new Uri(BaseUri+"CatholicChurch");
-
+        
+        /// <summary>
+        /// The act of producing a visual/graphical representation of an object, typically with a pen/pencil and paper as instruments.
+        /// </summary>
         public static readonly Uri DrawAction=new Uri(BaseUri+"DrawAction");
-
+        
+        /// <summary>
+        /// User interaction: Visit to a web page.
+        /// </summary>
         public static readonly Uri UserPageVisits=new Uri(BaseUri+"UserPageVisits");
-
+        
+        /// <summary>
+        /// A specific dosing schedule for a drug or supplement.
+        /// </summary>
         public static readonly Uri DoseSchedule=new Uri(BaseUri+"DoseSchedule");
-
+        
+        /// <summary>
+        /// An event venue.
+        /// </summary>
         public static readonly Uri EventVenue=new Uri(BaseUri+"EventVenue");
-
+        
+        /// <summary>
+        /// A listing that describes a job opening in a certain organization.
+        /// </summary>
         public static readonly Uri JobPosting=new Uri(BaseUri+"JobPosting");
-
+        
+        /// <summary>
+        /// A public structure, such as a town hall or concert hall.
+        /// </summary>
         public static readonly Uri CivicStructure=new Uri(BaseUri+"CivicStructure");
-
+        
+        /// <summary>
+        /// The price asked for a given offer by the respective organization or person.
+        /// </summary>
         public static readonly Uri UnitPriceSpecification=new Uri(BaseUri+"UnitPriceSpecification");
-
+        
+        /// <summary>
+        /// A nail salon.
+        /// </summary>
         public static readonly Uri NailSalon=new Uri(BaseUri+"NailSalon");
-
+        
+        /// <summary>
+        /// An indication for preventing an underlying condition, symptom, etc.
+        /// </summary>
         public static readonly Uri PreventionIndication=new Uri(BaseUri+"PreventionIndication");
-
+        
+        /// <summary>
+        /// A complex mathematical calculation requiring an online calculator, used to assess prognosis. Note: use the url property of Thing to record any URLs for online calculators.
+        /// </summary>
         public static readonly Uri MedicalRiskCalculator=new Uri(BaseUri+"MedicalRiskCalculator");
-
+        
+        /// <summary>
+        /// User interaction: Download of an item.
+        /// </summary>
         public static readonly Uri UserDownloads=new Uri(BaseUri+"UserDownloads");
-
+        
+        /// <summary>
+        /// Any medical imaging modality typically used for diagnostic purposes.
+        /// </summary>
         public static readonly Uri ImagingTest=new Uri(BaseUri+"ImagingTest");
-
+        
+        /// <summary>
+        /// An agent quotes/estimates/appraises an object/product/service with a price at a location/store.
+        /// </summary>
         public static readonly Uri QuoteAction=new Uri(BaseUri+"QuoteAction");
-
+        
+        /// <summary>
+        /// A train station.
+        /// </summary>
         public static readonly Uri TrainStation=new Uri(BaseUri+"TrainStation");
-
+        
+        /// <summary>
+        /// Auto body shop.
+        /// </summary>
         public static readonly Uri AutoBodyShop=new Uri(BaseUri+"AutoBodyShop");
-
+        
+        /// <summary>
+        /// A medical laboratory that offers on-site or off-site diagnostic services.
+        /// </summary>
         public static readonly Uri DiagnosticLab=new Uri(BaseUri+"DiagnosticLab");
-
+        
+        /// <summary>
+        /// The act of producing a painting, typically with paint and canvas as instruments.
+        /// </summary>
         public static readonly Uri PaintAction=new Uri(BaseUri+"PaintAction");
-
+        
+        /// <summary>
+        /// The act of notifying someone that a future event/action is going to happen as expected.<p>Related actions:</p><ul><li><a href="http://schema.org/CancelAction">CancelAction</a>: The antagonym of ConfirmAction.</li></ul>
+        /// </summary>
         public static readonly Uri ConfirmAction=new Uri(BaseUri+"ConfirmAction");
-
+        
+        /// <summary>
+        /// An event involving the delivery of an item.
+        /// </summary>
         public static readonly Uri DeliveryEvent=new Uri(BaseUri+"DeliveryEvent");
-
+        
+        /// <summary>
+        /// The legal availability status of a medical drug.
+        /// </summary>
         public static readonly Uri DrugLegalStatus=new Uri(BaseUri+"DrugLegalStatus");
-
+        
+        /// <summary>
+        /// A crematorium.
+        /// </summary>
         public static readonly Uri Crematorium=new Uri(BaseUri+"Crematorium");
-
+        
+        /// <summary>
+        /// An image file.
+        /// </summary>
         public static readonly Uri ImageObject=new Uri(BaseUri+"ImageObject");
-
+        
+        /// <summary>
+        /// The act of consuming dynamic/moving visual content.
+        /// </summary>
         public static readonly Uri WatchAction=new Uri(BaseUri+"WatchAction");
-
+        
+        /// <summary>
+        /// A trip on a commercial train line.
+        /// </summary>
         public static readonly Uri TrainTrip=new Uri(BaseUri+"TrainTrip");
-
+        
+        /// <summary>
+        /// A reservoir of water, typically an artificially created lake, like the Lake Kariba reservoir.
+        /// </summary>
         public static readonly Uri Reservoir=new Uri(BaseUri+"Reservoir");
-
+        
+        /// <summary>
+        /// The act of providing an object under an agreement that it will be returned at a later date. Reciprocal of BorrowAction.<p>Related actions:</p><ul><li><a href="http://schema.org/BorrowAction">BorrowAction</a>: Reciprocal of LendAction.</li></ul>
+        /// </summary>
         public static readonly Uri LendAction=new Uri(BaseUri+"LendAction");
-
+        
+        /// <summary>
+        /// A government building.
+        /// </summary>
         public static readonly Uri GovernmentBuilding=new Uri(BaseUri+"GovernmentBuilding");
-
+        
+        /// <summary>
+        /// A motorcycle dealer.
+        /// </summary>
         public static readonly Uri MotorcycleDealer=new Uri(BaseUri+"MotorcycleDealer");
-
+        
+        /// <summary>
+        /// A medical procedure intended primarily for therapeutic purposes, aimed at improving a health condition.
+        /// </summary>
         public static readonly Uri TherapeuticProcedure=new Uri(BaseUri+"TherapeuticProcedure");
-
+        
+        /// <summary>
+        /// A body of water, such as a sea, ocean, or lake.
+        /// </summary>
         public static readonly Uri BodyOfWater=new Uri(BaseUri+"BodyOfWater");
-
+        
+        /// <summary>
+        /// Any physical manifestation of a person's medical condition discoverable by objective diagnostic tests or physical examination.
+        /// </summary>
         public static readonly Uri MedicalSign=new Uri(BaseUri+"MedicalSign");
-
+        
+        /// <summary>
+        /// The act of un-registering from a service.<p>Related actions:</p><ul><li><a href="http://schema.org/RegisterAction">RegisterAction</a>: Antagonym of UnRegisterAction.</li><li><a href="http://schema.org/Leave">Leave</a>: Unlike LeaveAction, UnRegisterAction implies that you are unregistering from a service you werer previously registered, rather than leaving a team/group of people.</li></ul>
+        /// </summary>
         public static readonly Uri UnRegisterAction=new Uri(BaseUri+"UnRegisterAction");
-
+        
+        /// <summary>
+        /// A map.
+        /// </summary>
         public static readonly Uri Map=new Uri(BaseUri+"Map");
-
+        
+        /// <summary>
+        /// The act of traveling from an fromLocation to a destination by a specified mode of transport, optionally with participants.
+        /// </summary>
         public static readonly Uri TravelAction=new Uri(BaseUri+"TravelAction");
-
+        
+        /// <summary>
+        /// The act of an agent communicating (service provider, social media, etc) their arrival by registering/confirming for a previously reserved service (e.g. flight check in) or at a place (e.g. hotel), possibly resulting in a result (boarding pass, etc).<p>Related actions:</p><ul><li><a href="http://schema.org/CheckOutAction">CheckOutAction</a>: The antagonym of CheckInAction.</li><li><a href="http://schema.org/ArriveAction">ArriveAction</a>: Unlike ArriveAction, CheckInAction implies that the agent is informing/confirming the start of a previously reserved service.</li><li><a href="http://schema.org/ConfirmAction">ConfirmAction</a>: Unlike ConfirmAction, CheckInAction implies that the agent is informing/confirming the *start* of a previously reserved service rather than its validity/existence.</li></ul>
+        /// </summary>
         public static readonly Uri CheckInAction=new Uri(BaseUri+"CheckInAction");
-
+        
+        /// <summary>
+        /// A TV or radio season.
+        /// </summary>
         public static readonly Uri Season=new Uri(BaseUri+"Season");
-
+        
+        /// <summary>
+        /// A sporting goods store.
+        /// </summary>
         public static readonly Uri SportingGoodsStore=new Uri(BaseUri+"SportingGoodsStore");
-
+        
+        /// <summary>
+        /// Event type: Comedy event.
+        /// </summary>
         public static readonly Uri ComedyEvent=new Uri(BaseUri+"ComedyEvent");
-
+        
+        /// <summary>
+        /// An airline flight.
+        /// </summary>
         public static readonly Uri Flight=new Uri(BaseUri+"Flight");
-
+        
+        /// <summary>
+        /// A retail good store.
+        /// </summary>
         public static readonly Uri Store=new Uri(BaseUri+"Store");
-
+        
+        /// <summary>
+        /// A moving company.
+        /// </summary>
         public static readonly Uri MovingCompany=new Uri(BaseUri+"MovingCompany");
-
+        
+        /// <summary>
+        /// A person (alive, dead, undead, or fictional).
+        /// </summary>
         public static readonly Uri Person=new Uri(BaseUri+"Person");
-
+        
+        /// <summary>
+        /// A WebSite is a set of related web pages and other items typically served from a single web domain and accessible via URLs.
+        /// </summary>
         public static readonly Uri WebSite=new Uri(BaseUri+"WebSite");
-
+        
+        /// <summary>
+        /// A motorcycle repair shop.
+        /// </summary>
         public static readonly Uri MotorcycleRepair=new Uri(BaseUri+"MotorcycleRepair");
-
+        
+        /// <summary>
+        /// A tourist attraction.
+        /// </summary>
         public static readonly Uri TouristAttraction=new Uri(BaseUri+"TouristAttraction");
-
+        
+        /// <summary>
+        /// A placeholder for multiple similar products of the same kind.
+        /// </summary>
         public static readonly Uri SomeProducts=new Uri(BaseUri+"SomeProducts");
-
+        
+        /// <summary>
+        /// A structured value providing information about the opening hours of a place or a certain service inside a place.
+        /// </summary>
         public static readonly Uri OpeningHoursSpecification=new Uri(BaseUri+"OpeningHoursSpecification");
-
+        
+        /// <summary>
+        /// The act of responding instinctively and emotionally to an object, expressing a sentiment.
+        /// </summary>
         public static readonly Uri ReactAction=new Uri(BaseUri+"ReactAction");
-
+        
+        /// <summary>
+        /// The act of inserting at the beginning if an ordered collection.
+        /// </summary>
         public static readonly Uri PrependAction=new Uri(BaseUri+"PrependAction");
-
+        
+        /// <summary>
+        /// A specific question - e.g. from a user seeking answers online, or collected in a Frequently Asked Questions (FAQ) document.
+        /// </summary>
         public static readonly Uri Question=new Uri(BaseUri+"Question");
-
+        
+        /// <summary>
+        /// A preschool.
+        /// </summary>
         public static readonly Uri Preschool=new Uri(BaseUri+"Preschool");
-
+        
+        /// <summary>
+        /// A scholarly article in the medical domain.
+        /// </summary>
         public static readonly Uri MedicalScholarlyArticle=new Uri(BaseUri+"MedicalScholarlyArticle");
-
+        
+        /// <summary>
+        /// A theater group or company, for example, the Royal Shakespeare Company or Druid Theatre.
+        /// </summary>
         public static readonly Uri TheaterGroup=new Uri(BaseUri+"TheaterGroup");
-
+        
+        /// <summary>
+        /// User interaction: Play count of an item, for example a video or a song.
+        /// </summary>
         public static readonly Uri UserPlays=new Uri(BaseUri+"UserPlays");
-
+        
+        /// <summary>
+        /// A bus stop.
+        /// </summary>
         public static readonly Uri BusStop=new Uri(BaseUri+"BusStop");
-
+        
+        /// <summary>
+        /// Describes a reservation for travel, dining or an event. Some reservations require tickets.Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, restaurant reservations, flights, or rental cars, use http://schema.org/Offer.
+        /// </summary>
         public static readonly Uri Reservation=new Uri(BaseUri+"Reservation");
-
+        
+        /// <summary>
+        /// An answer offered to a question; perhaps correct, perhaps opinionated or wrong.
+        /// </summary>
         public static readonly Uri Answer=new Uri(BaseUri+"Answer");
-
+        
+        /// <summary>
+        /// A place offering space for "Recreational Vehicles", Caravans, mobile homes and the like.
+        /// </summary>
         public static readonly Uri RVPark=new Uri(BaseUri+"RVPark");
-
+        
+        /// <summary>
+        /// The act of forming one's opinion, reaction or sentiment.
+        /// </summary>
         public static readonly Uri AssessAction=new Uri(BaseUri+"AssessAction");
-
+        
+        /// <summary>
+        /// Web page type: Video gallery page.
+        /// </summary>
         public static readonly Uri VideoGallery=new Uri(BaseUri+"VideoGallery");
-
+        
+        /// <summary>
+        /// The header section of the page.
+        /// </summary>
         public static readonly Uri WPHeader=new Uri(BaseUri+"WPHeader");
-
+        
+        /// <summary>
+        /// The act of dressing oneself in clothing.
+        /// </summary>
         public static readonly Uri WearAction=new Uri(BaseUri+"WearAction");
-
+        
+        /// <summary>
+        /// An agent approves/certifies/likes/supports/sanction an object.
+        /// </summary>
         public static readonly Uri EndorseAction=new Uri(BaseUri+"EndorseAction");
-
+        
+        /// <summary>
+        /// Series dedicated to radio broadcast and associated online delivery.
+        /// </summary>
         public static readonly Uri RadioSeries=new Uri(BaseUri+"RadioSeries");
-
+        
+        /// <summary>
+        /// Nutritional information about the recipe.
+        /// </summary>
         public static readonly Uri NutritionInformation=new Uri(BaseUri+"NutritionInformation");
-
+        
+        /// <summary>
+        /// Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online.
+        /// </summary>
         public static readonly Uri Product=new Uri(BaseUri+"Product");
-
+        
+        /// <summary>
+        /// The act of downloading an object.
+        /// </summary>
         public static readonly Uri DownloadAction=new Uri(BaseUri+"DownloadAction");
-
+        
+        /// <summary>
+        /// A mosque.
+        /// </summary>
         public static readonly Uri Mosque=new Uri(BaseUri+"Mosque");
-
+        
+        /// <summary>
+        /// The act of capturing still images of objects using a camera.
+        /// </summary>
         public static readonly Uri PhotographAction=new Uri(BaseUri+"PhotographAction");
-
+        
+        /// <summary>
+        /// A part of a successively published publication such as a periodical or publication volume, often numbered, usually containing a grouping of works such as articles.
+        /// </summary>
         public static readonly Uri PublicationIssue=new Uri(BaseUri+"PublicationIssue");
-
+        
+        /// <summary>
+        /// A city or town.
+        /// </summary>
         public static readonly Uri City=new Uri(BaseUri+"City");
-
+        
+        /// <summary>
+        /// A navigation element of the page.
+        /// </summary>
         public static readonly Uri SiteNavigationElement=new Uri(BaseUri+"SiteNavigationElement");
-
+        
+        /// <summary>
+        /// Any medical imaging modality typically used for diagnostic purposes. Enumerated type.
+        /// </summary>
         public static readonly Uri MedicalImagingTechnique=new Uri(BaseUri+"MedicalImagingTechnique");
-
+        
+        /// <summary>
+        /// A radio station.
+        /// </summary>
         public static readonly Uri RadioStation=new Uri(BaseUri+"RadioStation");
-
+        
+        /// <summary>
+        /// A chemical or biologic substance, used as a medical therapy, that has a physiological effect on an organism.
+        /// </summary>
         public static readonly Uri Drug=new Uri(BaseUri+"Drug");
-
+        
+        /// <summary>
+        /// A simple system that adds up the number of risk factors to yield a score that is associated with prognosis, e.g. CHAD score, TIMI risk score.
+        /// </summary>
         public static readonly Uri MedicalRiskScore=new Uri(BaseUri+"MedicalRiskScore");
-
+        
+        /// <summary>
+        /// The act of planning the execution of an event/task/action/reservation/plan to a future date.
+        /// </summary>
         public static readonly Uri PlanAction=new Uri(BaseUri+"PlanAction");
-
+        
+        /// <summary>
+        /// Level of evidence for a medical guideline. Enumerated type.
+        /// </summary>
         public static readonly Uri MedicalEvidenceLevel=new Uri(BaseUri+"MedicalEvidenceLevel");
-
+        
+        /// <summary>
+        /// The act of registering to be a user of a service, product or web page.<p>Related actions:</p><ul><li><a href="http://schema.org/JoinAction">JoinAction</a>: Unlike JoinAction, RegisterAction implies you are registering to be a user of a service, *not* a group/team of people.</li><li><a href="http://schema.org/FollowAction">FollowAction</a>: Unlike FollowAction, RegisterAction doesn't imply that the agent is expecting to poll for updates from the object.</li><li><a href="http://schema.org/SubscribeAction">SubscribeAction</a>: Unlike SubscribeAction, RegisterAction doesn't imply that the agent is expecting updates from the object.</li></ul>
+        /// </summary>
         public static readonly Uri RegisterAction=new Uri(BaseUri+"RegisterAction");
-
+        
+        /// <summary>
+        /// A hair salon.
+        /// </summary>
         public static readonly Uri HairSalon=new Uri(BaseUri+"HairSalon");
-
+        
+        /// <summary>
+        /// Design models for medical trials. Enumerated type.
+        /// </summary>
         public static readonly Uri MedicalTrialDesign=new Uri(BaseUri+"MedicalTrialDesign");
-
+        
+        /// <summary>
+        /// Enumerated options related to a ContactPoint
+        /// </summary>
         public static readonly Uri ContactPointOption=new Uri(BaseUri+"ContactPointOption");
-
+        
+        /// <summary>
+        /// Reference documentation for application programming interfaces (APIs).
+        /// </summary>
         public static readonly Uri APIReference=new Uri(BaseUri+"APIReference");
-
+        
+        /// <summary>
+        /// A video file.
+        /// </summary>
         public static readonly Uri VideoObject=new Uri(BaseUri+"VideoObject");
-
+        
+        /// <summary>
+        /// A stadium.
+        /// </summary>
         public static readonly Uri StadiumOrArena=new Uri(BaseUri+"StadiumOrArena");
-
+        
+        /// <summary>
+        /// A credit or debit card type as a standardized procedure for transferring the monetary amount for a purchase.      Commonly used values:      http://purl.org/goodrelations/v1#AmericanExpress     http://purl.org/goodrelations/v1#DinersClub     http://purl.org/goodrelations/v1#Discover     http://purl.org/goodrelations/v1#JCB     http://purl.org/goodrelations/v1#MasterCard     http://purl.org/goodrelations/v1#VISA     		
+        /// </summary>
         public static readonly Uri CreditCard=new Uri(BaseUri+"CreditCard");
-
+        
+        /// <summary>
+        /// Event type: Food event.
+        /// </summary>
         public static readonly Uri FoodEvent=new Uri(BaseUri+"FoodEvent");
-
+        
+        /// <summary>
+        /// A real-estate agent.
+        /// </summary>
         public static readonly Uri RealEstateAgent=new Uri(BaseUri+"RealEstateAgent");
-
+        
+        /// <summary>
+        /// A performance group, such as a band, an orchestra, or a circus.
+        /// </summary>
         public static readonly Uri PerformingGroup=new Uri(BaseUri+"PerformingGroup");
-
+        
+        /// <summary>
+        /// A mountain, like Mount Whitney or Mount Everest
+        /// </summary>
         public static readonly Uri Mountain=new Uri(BaseUri+"Mountain");
-
+        
+        /// <summary>
+        /// The act of intentionally disregarding the object. An agent ignores an object.
+        /// </summary>
         public static readonly Uri IgnoreAction=new Uri(BaseUri+"IgnoreAction");
-
+        
+        /// <summary>
+        /// A computer store.
+        /// </summary>
         public static readonly Uri ComputerStore=new Uri(BaseUri+"ComputerStore");
-
+        
+        /// <summary>
+        /// An electronics store.
+        /// </summary>
         public static readonly Uri ElectronicsStore=new Uri(BaseUri+"ElectronicsStore");
-
+        
+        /// <summary>
+        /// The act of gaining ownership of an object from an origin. Reciprocal of GiveAction.<p>Related actions:</p><ul><li><a href="http://schema.org/GiveAction">GiveAction</a>: The reciprocal of TakeAction.</li><li><a href="http://schema.org/ReceiveAction">ReceiveAction</a>: Unlike ReceiveAction, TakeAction implies that ownership has been transfered.</li></ul>
+        /// </summary>
         public static readonly Uri TakeAction=new Uri(BaseUri+"TakeAction");
-
+        
+        /// <summary>
+        /// Event type: Visual arts event.
+        /// </summary>
         public static readonly Uri VisualArtsEvent=new Uri(BaseUri+"VisualArtsEvent");
-
+        
+        /// <summary>
+        /// Categories of medical devices, organized by the purpose or intended use of the device.
+        /// </summary>
         public static readonly Uri MedicalDevicePurpose=new Uri(BaseUri+"MedicalDevicePurpose");
-
+        
+        /// <summary>
+        /// Organization: Non-governmental Organization.
+        /// </summary>
         public static readonly Uri NGO=new Uri(BaseUri+"NGO");
-
+        
+        /// <summary>
+        /// A gym.
+        /// </summary>
         public static readonly Uri ExerciseGym=new Uri(BaseUri+"ExerciseGym");
-
+        
+        /// <summary>
+        /// Data type: URL.
+        /// </summary>
         public static readonly Uri URL=new Uri(BaseUri+"URL");
-
+        
+        /// <summary>
+        /// A self-storage facility.
+        /// </summary>
         public static readonly Uri SelfStorage=new Uri(BaseUri+"SelfStorage");
-
+        
+        /// <summary>
+        /// A subway station.
+        /// </summary>
         public static readonly Uri SubwayStation=new Uri(BaseUri+"SubwayStation");
-
+        
+        /// <summary>
+        /// The act of participating in an exchange of goods and services for monetary compensation. An agent trades an object, product or service with a participant in exchange for a one time or periodic payment.
+        /// </summary>
         public static readonly Uri TradeAction=new Uri(BaseUri+"TradeAction");
-
+        
+        /// <summary>
+        /// A predefined value for a product characteristic, e.g. the the power cord plug type "US" or the garment sizes "S", "M", "L", and "XL"
+        /// </summary>
         public static readonly Uri QualitativeValue=new Uri(BaseUri+"QualitativeValue");
-
+        
+        /// <summary>
+        /// Used to describe a ticket to an event, a flight, a bus ride, etc.
+        /// </summary>
         public static readonly Uri Ticket=new Uri(BaseUri+"Ticket");
-
+        
+        /// <summary>
+        /// Used to describe a seat, such as a reserved seat in an event reservation.
+        /// </summary>
         public static readonly Uri Seat=new Uri(BaseUri+"Seat");
-
+        
+        /// <summary>
+        /// Event type: Literary event.
+        /// </summary>
         public static readonly Uri LiteraryEvent=new Uri(BaseUri+"LiteraryEvent");
-
+        
+        /// <summary>
+        /// Season dedicated to TV broadcast and associated online delivery.
+        /// </summary>
         public static readonly Uri TVSeason=new Uri(BaseUri+"TVSeason");
-
+        
+        /// <summary>
+        /// A process of care used in either a diagnostic, therapeutic, or palliative capacity that relies on invasive (surgical), non-invasive, or percutaneous techniques.
+        /// </summary>
         public static readonly Uri MedicalProcedure=new Uri(BaseUri+"MedicalProcedure");
-
+        
+        /// <summary>
+        /// Properties that take Distances as values are of the form '&lt;Number&gt; &lt;Length unit of measure&gt;'. E.g., '7 ft'
+        /// </summary>
         public static readonly Uri Distance=new Uri(BaseUri+"Distance");
-
+        
+        /// <summary>
+        /// A taxi stand.
+        /// </summary>
         public static readonly Uri TaxiStand=new Uri(BaseUri+"TaxiStand");
-
+        
+        /// <summary>
+        /// A delivery service through which content is provided via broadcast over the air or online.
+        /// </summary>
         public static readonly Uri BroadcastService=new Uri(BaseUri+"BroadcastService");
-
+        
+        /// <summary>
+        /// Any object used in a medical capacity, such as to diagnose or treat a patient.
+        /// </summary>
         public static readonly Uri MedicalDevice=new Uri(BaseUri+"MedicalDevice");
-
+        
+        /// <summary>
+        /// A PerformanceRole is a Role that some entity places with regard to a theatrical performance, e.g. in a Movie, TVSeries etc.
+        /// </summary>
         public static readonly Uri PerformanceRole=new Uri(BaseUri+"PerformanceRole");
-
+        
+        /// <summary>
+        /// A tourist information center.
+        /// </summary>
         public static readonly Uri TouristInformationCenter=new Uri(BaseUri+"TouristInformationCenter");
-
+        
+        /// <summary>
+        /// The cost per unit of a medical drug. Note that this type is not meant to represent the price in an offer of a drug for sale; see the Offer type for that. This type will typically be used to tag wholesale or average retail cost of a drug, or maximum reimbursable cost. Costs of medical drugs vary widely depending on how and where they are paid for, so while this type captures some of the variables, costs should be used with caution by consumers of this schema's markup.
+        /// </summary>
         public static readonly Uri DrugCost=new Uri(BaseUri+"DrugCost");
-
+        
+        /// <summary>
+        /// A jewelry store.
+        /// </summary>
         public static readonly Uri JewelryStore=new Uri(BaseUri+"JewelryStore");
-
+        
+        /// <summary>
+        /// A process of care relying upon counseling, dialogue, communication, verbalization aimed at improving a mental health condition.
+        /// </summary>
         public static readonly Uri PsychologicalTreatment=new Uri(BaseUri+"PsychologicalTreatment");
-
+        
+        /// <summary>
+        /// A medical organization, such as a doctor's office or clinic.
+        /// </summary>
         public static readonly Uri MedicalOrganization=new Uri(BaseUri+"MedicalOrganization");
-
+        
+        /// <summary>
+        /// The act of finding an object.<p>Related actions:</p><ul><li><a href="http://schema.org/SearchAction">SearchAction</a>: FindAction is generally lead by a SearchAction, but not necessarily.</li></ul>
+        /// </summary>
         public static readonly Uri FindAction=new Uri(BaseUri+"FindAction");
-
+        
+        /// <summary>
+        /// Systems of medical practice.
+        /// </summary>
         public static readonly Uri MedicineSystem=new Uri(BaseUri+"MedicineSystem");
-
+        
+        /// <summary>
+        /// A reservation for air travel.Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use http://schema.org/Offer.
+        /// </summary>
         public static readonly Uri FlightReservation=new Uri(BaseUri+"FlightReservation");
-
+        
+        /// <summary>
+        /// A music video file.
+        /// </summary>
         public static readonly Uri MusicVideoObject=new Uri(BaseUri+"MusicVideoObject");
-
+        
+        /// <summary>
+        /// Car repair, sales, or parts.
+        /// </summary>
         public static readonly Uri AutomotiveBusiness=new Uri(BaseUri+"AutomotiveBusiness");
-
+        
+        /// <summary>
+        /// One of the continents (for example, Europe or Africa).
+        /// </summary>
         public static readonly Uri Continent=new Uri(BaseUri+"Continent");
-
+        
+        /// <summary>
+        /// The act of capturing sound and moving images on film, video, or digitally.
+        /// </summary>
         public static readonly Uri FilmAction=new Uri(BaseUri+"FilmAction");
-
+        
+        /// <summary>
+        /// The delivery of a parcel either via the postal service or a commercial service.
+        /// </summary>
         public static readonly Uri ParcelDelivery=new Uri(BaseUri+"ParcelDelivery");
-
+        
+        /// <summary>
+        /// A music recording (track), usually a single song.
+        /// </summary>
         public static readonly Uri MusicRecording=new Uri(BaseUri+"MusicRecording");
-
+        
+        /// <summary>
+        /// A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc.
+        /// </summary>
         public static readonly Uri Intangible=new Uri(BaseUri+"Intangible");
-
+        
+        /// <summary>
+        /// The costs of settling the payment using a particular payment method.
+        /// </summary>
         public static readonly Uri PaymentChargeSpecification=new Uri(BaseUri+"PaymentChargeSpecification");
-
+        
+        /// <summary>
+        /// A health club.
+        /// </summary>
         public static readonly Uri HealthClub=new Uri(BaseUri+"HealthClub");
-
+        
+        /// <summary>
+        /// A TV or radio episode which can be part of a series or season.
+        /// </summary>
         public static readonly Uri Episode=new Uri(BaseUri+"Episode");
-
+        
+        /// <summary>
+        /// A medical procedure intended primarily for diagnostic, as opposed to therapeutic, purposes.
+        /// </summary>
         public static readonly Uri DiagnosticProcedure=new Uri(BaseUri+"DiagnosticProcedure");
-
+        
+        /// <summary>
+        /// EventStatusType is an enumeration type whose instances represent several states that an Event may be in.
+        /// </summary>
         public static readonly Uri EventStatusType=new Uri(BaseUri+"EventStatusType");
-
+        
+        /// <summary>
+        /// The act of obtaining an object under an agreement to return it at a later date. Reciprocal of LendAction.<p>Related actions:</p><ul><li><a href="http://schema.org/LendAction">LendAction</a>: Reciprocal of BorrowAction.</li></ul>
+        /// </summary>
         public static readonly Uri BorrowAction=new Uri(BaseUri+"BorrowAction");
-
+        
+        /// <summary>
+        /// The act of discovering/finding an object.
+        /// </summary>
         public static readonly Uri DiscoverAction=new Uri(BaseUri+"DiscoverAction");
-
+        
+        /// <summary>
+        /// An agent leaves an event / group with participants/friends at a location.<p>Related actions:</p><ul><li><a href="http://schema.org/JoinAction">JoinAction</a>: The antagonym of LeaveAction.</li><li><a href="http://schema.org/UnRegisterAction">UnRegisterAction</a>: Unlike UnRegisterAction, LeaveAction implies leaving a group/team of people rather than a service.</li></ul>
+        /// </summary>
         public static readonly Uri LeaveAction=new Uri(BaseUri+"LeaveAction");
-
+        
+        /// <summary>
+        /// Data type: Text.
+        /// </summary>
         public static readonly Uri Text=new Uri(BaseUri+"Text");
-
+        
+        /// <summary>
+        /// A construction business.
+        /// </summary>
         public static readonly Uri HomeAndConstructionBusiness=new Uri(BaseUri+"HomeAndConstructionBusiness");
-
+        
+        /// <summary>
+        /// A taxi.
+        /// </summary>
         public static readonly Uri Taxi=new Uri(BaseUri+"Taxi");
-
+        
+        /// <summary>
+        /// User interaction: Like an item.
+        /// </summary>
         public static readonly Uri UserLikes=new Uri(BaseUri+"UserLikes");
-
+        
+        /// <summary>
+        /// The act of returning to the origin that which was previously received (concrete objects) or taken (ownership).
+        /// </summary>
         public static readonly Uri ReturnAction=new Uri(BaseUri+"ReturnAction");
-
+        
+        /// <summary>
+        /// A library.
+        /// </summary>
         public static readonly Uri Library=new Uri(BaseUri+"Library");
-
+        
+        /// <summary>
+        /// A DeliveryMethod in which an item is made available via locker.
+        /// </summary>
         public static readonly Uri LockerDelivery=new Uri(BaseUri+"LockerDelivery");
-
+        
+        /// <summary>
+        /// Web page type: About page.
+        /// </summary>
         public static readonly Uri AboutPage=new Uri(BaseUri+"AboutPage");
-
+        
+        /// <summary>
+        /// The act of forming a personal connection with someone (object) mutually/bidirectionally/symmetrically.<p>Related actions:</p><ul><li><a href="http://schema.org/FollowAction">FollowAction</a>: Unlike FollowAction, BefriendAction implies that the connection is reciprocal.</li></ul>
+        /// </summary>
         public static readonly Uri BefriendAction=new Uri(BaseUri+"BefriendAction");
-
+        
+        /// <summary>
+        /// A web page element, like a table or an image
+        /// </summary>
         public static readonly Uri WebPageElement=new Uri(BaseUri+"WebPageElement");
-
+        
+        /// <summary>
+        /// The act of giving money voluntarily to a beneficiary in recognition of services rendered.
+        /// </summary>
         public static readonly Uri TipAction=new Uri(BaseUri+"TipAction");
-
+        
+        /// <summary>
+        /// The act of participating in performance arts.
+        /// </summary>
         public static readonly Uri PerformAction=new Uri(BaseUri+"PerformAction");
-
+        
+        /// <summary>
+        /// The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer.      Commonly used values:      http://purl.org/goodrelations/v1#Monday     http://purl.org/goodrelations/v1#Tuesday     http://purl.org/goodrelations/v1#Wednesday     http://purl.org/goodrelations/v1#Thursday     http://purl.org/goodrelations/v1#Friday     http://purl.org/goodrelations/v1#Saturday     http://purl.org/goodrelations/v1#Sunday     http://purl.org/goodrelations/v1#PublicHolidays     		
+        /// </summary>
         public static readonly Uri DayOfWeek=new Uri(BaseUri+"DayOfWeek");
-
+        
+        /// <summary>
+        /// Web page type: Checkout page.
+        /// </summary>
         public static readonly Uri CheckoutPage=new Uri(BaseUri+"CheckoutPage");
-
+        
+        /// <summary>
+        /// Beauty salon.
+        /// </summary>
         public static readonly Uri BeautySalon=new Uri(BaseUri+"BeautySalon");
-
+        
+        /// <summary>
+        /// A stage of a medical condition, such as 'Stage IIIa'.
+        /// </summary>
         public static readonly Uri MedicalConditionStage=new Uri(BaseUri+"MedicalConditionStage");
-
+        
+        /// <summary>
+        /// The act of registering to an organization/service without the guarantee to receive it. NOTE(goto): should this be under InteractAction instead?<p>Related actions:</p><ul><li><a href="http://schema.org/RegisterAction">RegisterAction</a>: Unlike RegisterAction, ApplyAction has no guarantees that the application will be accepted.</li></ul>
+        /// </summary>
         public static readonly Uri ApplyAction=new Uri(BaseUri+"ApplyAction");
-
+        
+        /// <summary>
+        /// Residence type: Gated community.
+        /// </summary>
         public static readonly Uri GatedResidenceCommunity=new Uri(BaseUri+"GatedResidenceCommunity");
-
+        
+        /// <summary>
+        /// A publication in any medium issued in successive parts bearing numerical or chronological designations and intended, such as a magazine, scholarly journal, or newspaper to continue indefinitely.
+        /// </summary>
         public static readonly Uri Periodical=new Uri(BaseUri+"Periodical");
-
+        
+        /// <summary>
+        /// The geographic shape of a place.
+        /// </summary>
         public static readonly Uri GeoShape=new Uri(BaseUri+"GeoShape");
-
+        
+        /// <summary>
+        /// A component of the human body circulatory system comprised of an intricate network of hollow tubes that transport blood throughout the entire body.
+        /// </summary>
         public static readonly Uri Vessel=new Uri(BaseUri+"Vessel");
-
+        
+        /// <summary>
+        /// The act of expressing a desire about the object. An agent wants an object.
+        /// </summary>
         public static readonly Uri WantAction=new Uri(BaseUri+"WantAction");
-
+        
+        /// <summary>
+        /// A plumbing service.
+        /// </summary>
         public static readonly Uri Plumber=new Uri(BaseUri+"Plumber");
-
+        
+        /// <summary>
+        /// The act of expressing a difference of opinion with the object. An agent disagrees to/about an object (a proposition, topic or theme) with participants.
+        /// </summary>
         public static readonly Uri DisagreeAction=new Uri(BaseUri+"DisagreeAction");
-
+        
+        /// <summary>
+        /// The act of managing by changing/editing the state of the object.
+        /// </summary>
         public static readonly Uri UpdateAction=new Uri(BaseUri+"UpdateAction");
-
+        
+        /// <summary>
+        /// A river (for example, the broad majestic Shannon).
+        /// </summary>
         public static readonly Uri RiverBodyOfWater=new Uri(BaseUri+"RiverBodyOfWater");
-
+        
+        /// <summary>
+        /// A graveyard.
+        /// </summary>
         public static readonly Uri Cemetery=new Uri(BaseUri+"Cemetery");
-
+        
+        /// <summary>
+        /// The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates polled from.<p>Related actions:</p><ul><li><a href="http://schema.org/BefriendAction">BefriendAction</a>: Unlike BefriendAction, FollowAction implies that the connection is *not* necessarily reciprocal.</li><li><a href="http://schema.org/SubscribeAction">SubscribeAction</a>: Unlike SubscribeAction, FollowAction implies that the follower acts as an active agent constantly/actively polling for updates.</li><li><a href="http://schema.org/RegisterAction">RegisterAction</a>: Unlike RegisterAction, FollowAction implies that the agent is interested in continuing receiving updates from the object.</li><li><a href="http://schema.org/JoinAction">JoinAction</a>: Unlike JoinAction, FollowAction implies that the agent is interested in getting updates from the object.</li><li><a href="http://schema.org/TrackAction">TrackAction</a>: Unlike TrackAction, FollowAction refers to the polling of updates of all aspects of animate objects rather than the location of inanimate objects (e.g. you track a package, but you don't follow it).</li></ul>
+        /// </summary>
         public static readonly Uri FollowAction=new Uri(BaseUri+"FollowAction");
-
+        
+        /// <summary>
+        /// An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.
+        /// </summary>
         public static readonly Uri Article=new Uri(BaseUri+"Article");
-
+        
+        /// <summary>
+        /// Event type: Social event.
+        /// </summary>
         public static readonly Uri SocialEvent=new Uri(BaseUri+"SocialEvent");
-
+        
+        /// <summary>
+        /// A set of characteristics belonging to people, e.g. who compose an item's target audience.
+        /// </summary>
         public static readonly Uri PeopleAudience=new Uri(BaseUri+"PeopleAudience");
-
+        
+        /// <summary>
+        /// A reservation for lodging at a hotel, motel, inn, etc.Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
+        /// </summary>
         public static readonly Uri LodgingReservation=new Uri(BaseUri+"LodgingReservation");
-
+        
+        /// <summary>
+        /// The act of expressing a preference from a fixed/finite/structured set of choices/options.
+        /// </summary>
         public static readonly Uri VoteAction=new Uri(BaseUri+"VoteAction");
-
+        
+        /// <summary>
+        /// An Insurance agency.
+        /// </summary>
         public static readonly Uri InsuranceAgency=new Uri(BaseUri+"InsuranceAgency");
-
+        
+        /// <summary>
+        /// The act of deliberately creating/producing/generating/building a result out of the agent.
+        /// </summary>
         public static readonly Uri CreateAction=new Uri(BaseUri+"CreateAction");
-
+        
+        /// <summary>
+        /// Any rule set or interactive tool for estimating the risk of developing a complication or condition.
+        /// </summary>
         public static readonly Uri MedicalRiskEstimator=new Uri(BaseUri+"MedicalRiskEstimator");
-
+        
+        /// <summary>
+        /// A type of blood vessel that specifically carries blood away from the heart.
+        /// </summary>
         public static readonly Uri Artery=new Uri(BaseUri+"Artery");
-
+        
+        /// <summary>
+        /// A locksmith.
+        /// </summary>
         public static readonly Uri Locksmith=new Uri(BaseUri+"Locksmith");
-
+        
+        /// <summary>
+        /// A strategy of regulating the intake of food to achieve or maintain a specific health-related goal.
+        /// </summary>
         public static readonly Uri Diet=new Uri(BaseUri+"Diet");
-
+        
+        /// <summary>
+        /// User interaction: Tweets.
+        /// </summary>
         public static readonly Uri UserTweets=new Uri(BaseUri+"UserTweets");
-
+        
+        /// <summary>
+        /// A Buddhist temple.
+        /// </summary>
         public static readonly Uri BuddhistTemple=new Uri(BaseUri+"BuddhistTemple");
-
+        
+        /// <summary>
+        /// A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as <code>breadcrumb</code> may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page
+        /// </summary>
         public static readonly Uri WebPage=new Uri(BaseUri+"WebPage");
-
+        
+        /// <summary>
+        /// A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601).
+        /// </summary>
         public static readonly Uri DateTime=new Uri(BaseUri+"DateTime");
-
+        
+        /// <summary>
+        /// The act of reaching a draw in a competitive activity.
+        /// </summary>
         public static readonly Uri TieAction=new Uri(BaseUri+"TieAction");
-
+        
+        /// <summary>
+        /// An employment agency.
+        /// </summary>
         public static readonly Uri EmploymentAgency=new Uri(BaseUri+"EmploymentAgency");
-
+        
+        /// <summary>
+        /// An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.
+        /// </summary>
         public static readonly Uri Order=new Uri(BaseUri+"Order");
-
+        
+        /// <summary>
+        /// A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician.
+        /// </summary>
         public static readonly Uri MusicGroup=new Uri(BaseUri+"MusicGroup");
-
+        
+        /// <summary>
+        /// The act of accomplishing something via     previous efforts. It is an instantaneous action rather than an ongoing     process.
+        /// </summary>
         public static readonly Uri AchieveAction=new Uri(BaseUri+"AchieveAction");
-
+        
+        /// <summary>
+        /// A business that provide Heating, Ventilation and Air Conditioning services.
+        /// </summary>
         public static readonly Uri HVACBusiness=new Uri(BaseUri+"HVACBusiness");
-
+        
+        /// <summary>
+        /// A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc.
+        /// </summary>
         public static readonly Uri LocalBusiness=new Uri(BaseUri+"LocalBusiness");
-
+        
+        /// <summary>
+        /// A medical test performed by a laboratory that typically involves examination of a tissue sample by a pathologist.
+        /// </summary>
         public static readonly Uri PathologyTest=new Uri(BaseUri+"PathologyTest");
-
+        
+        /// <summary>
+        /// The price for the delivery of an offer using a particular delivery method.
+        /// </summary>
         public static readonly Uri DeliveryChargeSpecification=new Uri(BaseUri+"DeliveryChargeSpecification");
-
+        
+        /// <summary>
+        /// The act of expressing a consistency of opinion with the object. An agent agrees to/about an object (a proposition, topic or theme) with participants.
+        /// </summary>
         public static readonly Uri AgreeAction=new Uri(BaseUri+"AgreeAction");
-
+        
+        /// <summary>
+        /// An organization such as a school, NGO, corporation, club, etc.
+        /// </summary>
         public static readonly Uri Organization=new Uri(BaseUri+"Organization");
-
+        
+        /// <summary>
+        /// A day spa.
+        /// </summary>
         public static readonly Uri DaySpa=new Uri(BaseUri+"DaySpa");
-
+        
+        /// <summary>
+        /// A tattoo parlor.
+        /// </summary>
         public static readonly Uri TattooParlor=new Uri(BaseUri+"TattooParlor");
-
+        
+        /// <summary>
+        /// The most generic type of entity related to health and the practice of medicine.
+        /// </summary>
         public static readonly Uri MedicalEntity=new Uri(BaseUri+"MedicalEntity");
-
+        
+        /// <summary>
+        /// An agent orders an object/product/service to be delivered/sent.
+        /// </summary>
         public static readonly Uri OrderAction=new Uri(BaseUri+"OrderAction");
-
+        
+        /// <summary>
+        /// An advertising section of the page.
+        /// </summary>
         public static readonly Uri WPAdBlock=new Uri(BaseUri+"WPAdBlock");
-
+        
+        /// <summary>
+        /// An agent joins an event/group with participants/friends at a location.<p>Related actions:</p><ul><li><a href="http://schema.org/RegisterAction">RegisterAction</a>: Unlike RegisterAction, JoinAction refers to joining a group/team of people.</li><li><a href="http://schema.org/SubscribeAction">SubscribeAction</a>: Unlike SubscribeAction, JoinAction does not imply that you'll be receiving updates.</li><li><a href="http://schema.org/FollowAction">FollowAction</a>: Unlike FollowAction, JoinAction does not imply that you'll be polling for updates.</li></ul>
+        /// </summary>
         public static readonly Uri JoinAction=new Uri(BaseUri+"JoinAction");
-
+        
+        /// <summary>
+        /// A Property value specification.
+        /// </summary>
         public static readonly Uri PropertyValueSpecification=new Uri(BaseUri+"PropertyValueSpecification");
-
+        
+        /// <summary>
+        /// Quantity: Duration (use  <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 duration format</a>).
+        /// </summary>
         public static readonly Uri Duration=new Uri(BaseUri+"Duration");
-
+        
+        /// <summary>
+        /// Boolean: True or False.
+        /// </summary>
         public static readonly Uri Boolean=new Uri(BaseUri+"Boolean");
-
+        
+        /// <summary>
+        /// An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the 'offers' property. Repeated events may be structured as separate Event objects.
+        /// </summary>
         public static readonly Uri Event=new Uri(BaseUri+"Event");
-
+        
+        /// <summary>
+        /// A volcano, like Fuji san.
+        /// </summary>
         public static readonly Uri Volcano=new Uri(BaseUri+"Volcano");
-
+        
+        /// <summary>
+        /// A governmental organization or agency.
+        /// </summary>
         public static readonly Uri GovernmentOrganization=new Uri(BaseUri+"GovernmentOrganization");
-
+        
+        /// <summary>
+        /// A QAPage is a WebPage focussed on a specific Question and its Answer(s), e.g. in a question answering site or documenting Frequently Asked Questions (FAQs).
+        /// </summary>
         public static readonly Uri QAPage=new Uri(BaseUri+"QAPage");
-
+        
+        /// <summary>
+        /// Categories that represent an assessment of the risk of fetal injury due to a drug or pharmaceutical used as directed by the mother during pregnancy.
+        /// </summary>
         public static readonly Uri DrugPregnancyCategory=new Uri(BaseUri+"DrugPregnancyCategory");
-
+        
+        /// <summary>
+        /// A medical clinic.
+        /// </summary>
         public static readonly Uri MedicalClinic=new Uri(BaseUri+"MedicalClinic");
-
+        
+        /// <summary>
+        /// Event type: Sales event.
+        /// </summary>
         public static readonly Uri SaleEvent=new Uri(BaseUri+"SaleEvent");
-
+        
+        /// <summary>
+        /// A short radio program or a segment/part of a radio program.
+        /// </summary>
         public static readonly Uri RadioClip=new Uri(BaseUri+"RadioClip");
-
+        
+        /// <summary>
+        /// User interaction: Block this content.
+        /// </summary>
         public static readonly Uri UserBlocks=new Uri(BaseUri+"UserBlocks");
-
+        
+        /// <summary>
+        /// The act of  departing from a place. An agent departs from an fromLocation for a destination, optionally with participants.
+        /// </summary>
         public static readonly Uri DepartAction=new Uri(BaseUri+"DepartAction");
-
+        
+        /// <summary>
+        /// A short TV or radio program or a segment/part of a program.
+        /// </summary>
         public static readonly Uri Clip=new Uri(BaseUri+"Clip");
-
+        
+        /// <summary>
+        /// A playground.
+        /// </summary>
         public static readonly Uri Playground=new Uri(BaseUri+"Playground");
-
+        
+        /// <summary>
+        /// A city hall.
+        /// </summary>
         public static readonly Uri CityHall=new Uri(BaseUri+"CityHall");
-
+        
+        /// <summary>
+        /// A church.
+        /// </summary>
         public static readonly Uri Church=new Uri(BaseUri+"Church");
-
+        
+        /// <summary>
+        /// The act of consuming written content.
+        /// </summary>
         public static readonly Uri ReadAction=new Uri(BaseUri+"ReadAction");
-
+        
+        /// <summary>
+        /// The act of arriving at a place. An agent arrives at a destination from an fromLocation, optionally with participants.
+        /// </summary>
         public static readonly Uri ArriveAction=new Uri(BaseUri+"ArriveAction");
-
+        
+        /// <summary>
+        /// A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media.
+        /// </summary>
         public static readonly Uri PublicationEvent=new Uri(BaseUri+"PublicationEvent");
-
+        
+        /// <summary>
+        /// A hostel - cheap accommodation, often in shared dormitories.
+        /// </summary>
         public static readonly Uri Hostel=new Uri(BaseUri+"Hostel");
-
+        
+        /// <summary>
+        /// Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.
+        /// </summary>
         public static readonly Uri Code=new Uri(BaseUri+"Code");
-
+        
+        /// <summary>
+        /// The act of an agent communicating (service provider, social media, etc) their departure of a previously reserved service (e.g. flight check in) or place (e.g. hotel).<p>Related actions:</p><ul><li><a href="http://schema.org/CheckInAction">CheckInAction</a>: The antagonym of CheckOutAction.</li><li><a href="http://schema.org/DepartAction">DepartAction</a>: Unlike DepartAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.</li><li><a href="http://schema.org/CancelAction">CancelAction</a>: Unlike CancelAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.</li></ul>
+        /// </summary>
         public static readonly Uri CheckOutAction=new Uri(BaseUri+"CheckOutAction");
-
+        
+        /// <summary>
+        /// Enumerated status values for Reservation.
+        /// </summary>
         public static readonly Uri ReservationStatusType=new Uri(BaseUri+"ReservationStatusType");
-
+        
+        /// <summary>
+        /// The act of asserting that a future event/action is no longer going to happen.<p>Related actions:</p><ul><li><a href="http://schema.org/ConfirmAction">ConfirmAction</a>: The antagonym of CancelAction.</li></ul>
+        /// </summary>
         public static readonly Uri CancelAction=new Uri(BaseUri+"CancelAction");
-
+        
+        /// <summary>
+        /// A motel.
+        /// </summary>
         public static readonly Uri Motel=new Uri(BaseUri+"Motel");
-
+        
+        /// <summary>
+        /// The act of achieving victory in a competitive activity.
+        /// </summary>
         public static readonly Uri WinAction=new Uri(BaseUri+"WinAction");
-
+        
+        /// <summary>
+        /// A bakery.
+        /// </summary>
         public static readonly Uri Bakery=new Uri(BaseUri+"Bakery");
-
+        
+        /// <summary>
+        /// The act of conveying information to another person via a communication medium (instrument) such as speech, email, or telephone conversation.
+        /// </summary>
         public static readonly Uri CommunicateAction=new Uri(BaseUri+"CommunicateAction");
-
+        
+        /// <summary>
+        /// An internet cafe.
+        /// </summary>
         public static readonly Uri InternetCafe=new Uri(BaseUri+"InternetCafe");
-
+        
+        /// <summary>
+        /// A piece of sculpture.
+        /// </summary>
         public static readonly Uri Sculpture=new Uri(BaseUri+"Sculpture");
-
+        
+        /// <summary>
+        /// A florist.
+        /// </summary>
         public static readonly Uri Florist=new Uri(BaseUri+"Florist");
-
+        
+        /// <summary>
+        /// A TV episode which can be part of a series or season.
+        /// </summary>
         public static readonly Uri TVEpisode=new Uri(BaseUri+"TVEpisode");
-
+        
+        /// <summary>
+        /// A men's clothing store.
+        /// </summary>
         public static readonly Uri MensClothingStore=new Uri(BaseUri+"MensClothingStore");
-
+        
+        /// <summary>
+        /// A dentist.
+        /// </summary>
         public static readonly Uri Dentist=new Uri(BaseUri+"Dentist");
-
+        
+        /// <summary>
+        /// A music venue.
+        /// </summary>
         public static readonly Uri MusicVenue=new Uri(BaseUri+"MusicVenue");
-
+        
+        /// <summary>
+        /// A page devoted to a single item, such as a particular product or hotel.
+        /// </summary>
         public static readonly Uri ItemPage=new Uri(BaseUri+"ItemPage");
-
+        
+        /// <summary>
+        /// Web page type: Search results page.
+        /// </summary>
         public static readonly Uri SearchResultsPage=new Uri(BaseUri+"SearchResultsPage");
-
+        
+        /// <summary>
+        /// Event type: Music event.
+        /// </summary>
         public static readonly Uri MusicEvent=new Uri(BaseUri+"MusicEvent");
-
+        
+        /// <summary>
+        /// An email message.
+        /// </summary>
         public static readonly Uri EmailMessage=new Uri(BaseUri+"EmailMessage");
-
+        
+        /// <summary>
+        /// A recipe.
+        /// </summary>
         public static readonly Uri Recipe=new Uri(BaseUri+"Recipe");
-
+        
+        /// <summary>
+        /// User interaction: Check-in at a place.
+        /// </summary>
         public static readonly Uri UserCheckins=new Uri(BaseUri+"UserCheckins");
-
+        
+        /// <summary>
+        /// The act of distributing content to people for their amusement or edification.
+        /// </summary>
         public static readonly Uri ShareAction=new Uri(BaseUri+"ShareAction");
-
+        
+        /// <summary>
+        /// The publication format of the book.
+        /// </summary>
         public static readonly Uri BookFormatType=new Uri(BaseUri+"BookFormatType");
-
+        
+        /// <summary>
+        /// A theater or other performing art center.
+        /// </summary>
         public static readonly Uri PerformingArtsTheater=new Uri(BaseUri+"PerformingArtsTheater");
-
+        
+        /// <summary>
+        /// The geographic coordinates of a place or event.
+        /// </summary>
         public static readonly Uri GeoCoordinates=new Uri(BaseUri+"GeoCoordinates");
-
+        
+        /// <summary>
+        /// A reservation for train travel.Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use http://schema.org/Offer.
+        /// </summary>
         public static readonly Uri TrainReservation=new Uri(BaseUri+"TrainReservation");
-
+        
+        /// <summary>
+        /// The act of taking money from a buyer in exchange for goods or services rendered. An agent sells an object, product, or service to a buyer for a price. Reciprocal of BuyAction.
+        /// </summary>
         public static readonly Uri SellAction=new Uri(BaseUri+"SellAction");
-
+        
+        /// <summary>
+        /// A dataset in downloadable form.
+        /// </summary>
         public static readonly Uri DataDownload=new Uri(BaseUri+"DataDownload");
-
+        
+        /// <summary>
+        /// A medical trial is a type of medical study that uses scientific process used to compare the safety and efficacy of medical therapies or medical procedures. In general, medical trials are controlled and subjects are allocated at random to the different treatment and/or control groups.
+        /// </summary>
         public static readonly Uri MedicalTrial=new Uri(BaseUri+"MedicalTrial");
-
+        
+        /// <summary>
+        /// Natural languages such as Spanish, Tamil, Hindi, English, etc. and programming languages such as Scheme and Lisp.
+        /// </summary>
         public static readonly Uri Language=new Uri(BaseUri+"Language");
-
+        
+        /// <summary>
+        /// The act of consuming static visual content.
+        /// </summary>
         public static readonly Uri ViewAction=new Uri(BaseUri+"ViewAction");
-
+        
+        /// <summary>
+        /// The act of expressing a preference from a set of options or a large or unbounded set of choices/options.
+        /// </summary>
         public static readonly Uri ChooseAction=new Uri(BaseUri+"ChooseAction");
-
+        
+        /// <summary>
+        /// A vet's office.
+        /// </summary>
         public static readonly Uri VeterinaryCare=new Uri(BaseUri+"VeterinaryCare");
-
+        
+        /// <summary>
+        /// The act of expressing a positive sentiment about the object. An agent likes an object (a proposition, topic or theme) with participants.
+        /// </summary>
         public static readonly Uri LikeAction=new Uri(BaseUri+"LikeAction");
-
+        
+        /// <summary>
+        /// Organization: Sports team.
+        /// </summary>
         public static readonly Uri SportsTeam=new Uri(BaseUri+"SportsTeam");
-
+        
+        /// <summary>
+        /// The act of consuming audio content.
+        /// </summary>
         public static readonly Uri ListenAction=new Uri(BaseUri+"ListenAction");
-
+        
+        /// <summary>
+        /// A business providing entertainment.
+        /// </summary>
         public static readonly Uri EntertainmentBusiness=new Uri(BaseUri+"EntertainmentBusiness");
-
+        
+        /// <summary>
+        /// A type of physical examination of a patient performed by a physician. Enumerated type.
+        /// </summary>
         public static readonly Uri PhysicalExam=new Uri(BaseUri+"PhysicalExam");
-
+        
+        /// <summary>
+        /// A condition or factor that serves as a reason to withhold a certain medical therapy. Contraindications can be absolute (there are no reasonable circumstances for undertaking a course of action) or relative (the patient is at higher risk of complications, but that these risks may be outweighed by other considerations or mitigated by other measures).
+        /// </summary>
         public static readonly Uri MedicalContraindication=new Uri(BaseUri+"MedicalContraindication");
-
+        
+        /// <summary>
+        /// The place where a person lives.
+        /// </summary>
         public static readonly Uri Residence=new Uri(BaseUri+"Residence");
-
+        
+        /// <summary>
+        /// A type of blood vessel that specifically carries lymph fluid unidirectionally toward the heart.
+        /// </summary>
         public static readonly Uri LymphaticVessel=new Uri(BaseUri+"LymphaticVessel");
-
+        
+        /// <summary>
+        /// A brand is a name used by an organization or business person for labeling a product, product group, or similar.
+        /// </summary>
         public static readonly Uri Brand=new Uri(BaseUri+"Brand");
-
+        
+        /// <summary>
+        /// An art gallery.
+        /// </summary>
         public static readonly Uri ArtGallery=new Uri(BaseUri+"ArtGallery");
-
+        
+        /// <summary>
+        /// A reservation for an event like a concert, sporting event, or lecture.Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use http://schema.org/Offer.
+        /// </summary>
         public static readonly Uri EventReservation=new Uri(BaseUri+"EventReservation");
-
+        
+        /// <summary>
+        /// Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
+        /// </summary>
         public static readonly Uri ProgramMembership=new Uri(BaseUri+"ProgramMembership");
-
+        
+        /// <summary>
+        /// A guideline recommendation that is regarded as efficacious and where quality of the data supporting the recommendation is sound.
+        /// </summary>
         public static readonly Uri MedicalGuidelineRecommendation=new Uri(BaseUri+"MedicalGuidelineRecommendation");
-
+        
+        /// <summary>
+        /// A legislative building&#x2014;for example, the state capitol.
+        /// </summary>
         public static readonly Uri LegislativeBuilding=new Uri(BaseUri+"LegislativeBuilding");
-
+        
+        /// <summary>
+        /// An indication for treating an underlying condition, symptom, etc.
+        /// </summary>
         public static readonly Uri TreatmentIndication=new Uri(BaseUri+"TreatmentIndication");
-
+        
+        /// <summary>
+        /// The act of generating a comment about a subject.
+        /// </summary>
         public static readonly Uri CommentAction=new Uri(BaseUri+"CommentAction");
-
+        
+        /// <summary>
+        /// Reserving a concrete object.<p>Related actions:</p><ul><li><a href="http://schema.org/ScheduleAction">ScheduleAction</a>: Unlike ScheduleAction, ReserveAction reserves concrete objects (e.g. a table, a hotel) towards a time slot / spatial allocation.</li></ul>
+        /// </summary>
         public static readonly Uri ReserveAction=new Uri(BaseUri+"ReserveAction");
-
+        
+        /// <summary>
+        /// An auto parts store.
+        /// </summary>
         public static readonly Uri AutoPartsStore=new Uri(BaseUri+"AutoPartsStore");
-
+        
+        /// <summary>
+        /// The basic data types such as Integers, Strings, etc.
+        /// </summary>
         public static readonly Uri DataType=new Uri(BaseUri+"DataType");
-
+        
+        /// <summary>
+        /// An agent bookmarks/flags/labels/tags/marks an object.
+        /// </summary>
         public static readonly Uri BookmarkAction=new Uri(BaseUri+"BookmarkAction");
-
+        
+        /// <summary>
+        /// The maximum dosing schedule considered safe for a drug or supplement as recommended by an authority or by the drug/supplement's manufacturer. Capture the recommending authority in the recognizingAuthority property of MedicalEntity.
+        /// </summary>
         public static readonly Uri MaximumDoseSchedule=new Uri(BaseUri+"MaximumDoseSchedule");
-
+        
+        /// <summary>
+        /// A reservation for bus travel.Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use http://schema.org/Offer.
+        /// </summary>
         public static readonly Uri BusReservation=new Uri(BaseUri+"BusReservation");
-
+        
+        /// <summary>
+        /// A toy store.
+        /// </summary>
         public static readonly Uri ToyStore=new Uri(BaseUri+"ToyStore");
-
+        
+        /// <summary>
+        /// An infectious disease is a clinically evident human disease resulting from the presence of pathogenic microbial agents, like pathogenic viruses, pathogenic bacteria, fungi, protozoa, multicellular parasites, and prions. To be considered an infectious disease, such pathogens are known to be able to cause this disease.
+        /// </summary>
         public static readonly Uri InfectiousDisease=new Uri(BaseUri+"InfectiousDisease");
-
+        
+        /// <summary>
+        /// A collection of music tracks.
+        /// </summary>
         public static readonly Uri MusicAlbum=new Uri(BaseUri+"MusicAlbum");
-
+        
+        /// <summary>
+        /// Accountancy business.
+        /// </summary>
         public static readonly Uri AccountingService=new Uri(BaseUri+"AccountingService");
-
+        
+        /// <summary>
+        /// A shopping center or mall.
+        /// </summary>
         public static readonly Uri ShoppingCenter=new Uri(BaseUri+"ShoppingCenter");
-
+        
+        /// <summary>
+        /// A television station.
+        /// </summary>
         public static readonly Uri TelevisionStation=new Uri(BaseUri+"TelevisionStation");
-
+        
+        /// <summary>
+        /// An EducationalAudience
+        /// </summary>
         public static readonly Uri EducationalAudience=new Uri(BaseUri+"EducationalAudience");
-
+        
+        /// <summary>
+        /// A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins.
+        /// </summary>
         public static readonly Uri Landform=new Uri(BaseUri+"Landform");
-
+        
+        /// <summary>
+        /// A state or province of a country.
+        /// </summary>
         public static readonly Uri State=new Uri(BaseUri+"State");
-
+        
+        /// <summary>
+        /// An embassy.
+        /// </summary>
         public static readonly Uri Embassy=new Uri(BaseUri+"Embassy");
-
+        
+        /// <summary>
+        /// A structured value providing information about when a certain organization or person owned a certain product.
+        /// </summary>
         public static readonly Uri OwnershipInfo=new Uri(BaseUri+"OwnershipInfo");
-
+        
+        /// <summary>
+        /// A sports club.
+        /// </summary>
         public static readonly Uri SportsClub=new Uri(BaseUri+"SportsClub");
-
+        
+        /// <summary>
+        /// A lodging business, such as a motel, hotel, or inn.
+        /// </summary>
         public static readonly Uri LodgingBusiness=new Uri(BaseUri+"LodgingBusiness");
-
+        
+        /// <summary>
+        /// Web applications.
+        /// </summary>
         public static readonly Uri WebApplication=new Uri(BaseUri+"WebApplication");
-
+        
+        /// <summary>
+        /// The act of editing a recipient by removing one of its objects.
+        /// </summary>
         public static readonly Uri DeleteAction=new Uri(BaseUri+"DeleteAction");
-
+        
+        /// <summary>
+        /// A book.
+        /// </summary>
         public static readonly Uri Book=new Uri(BaseUri+"Book");
-
+        
+        /// <summary>
+        /// A fast-food restaurant.
+        /// </summary>
         public static readonly Uri FastFoodRestaurant=new Uri(BaseUri+"FastFoodRestaurant");
-
+        
+        /// <summary>
+        /// A store that sells mobile phones and related accessories.
+        /// </summary>
         public static readonly Uri MobilePhoneStore=new Uri(BaseUri+"MobilePhoneStore");
-
+        
+        /// <summary>
+        /// A gas station.
+        /// </summary>
         public static readonly Uri GasStation=new Uri(BaseUri+"GasStation");
-
+        
+        /// <summary>
+        /// A government office&#x2014;for example, an IRS or DMV office.
+        /// </summary>
         public static readonly Uri GovernmentOffice=new Uri(BaseUri+"GovernmentOffice");
-
+        
+        /// <summary>
+        /// The mailing address.
+        /// </summary>
         public static readonly Uri PostalAddress=new Uri(BaseUri+"PostalAddress");
-
+        
+        /// <summary>
+        /// A Childcare center.
+        /// </summary>
         public static readonly Uri ChildCare=new Uri(BaseUri+"ChildCare");
-
+        
+        /// <summary>
+        /// The act of transferring ownership of an object to a destination. Reciprocal of TakeAction.<p>Related actions:</p><ul><li><a href="http://schema.org/TakeAction">TakeAction</a>: Reciprocal of GiveAction.</li><li><a href="http://schema.org/SendAction">SendAction</a>: Unlike SendAction, GiveAction implies that ownership is being transferred (e.g. I may send my laptop to you, but that doesn't mean I'm giving it to you).</li></ul>
+        /// </summary>
         public static readonly Uri GiveAction=new Uri(BaseUri+"GiveAction");
-
+        
+        /// <summary>
+        /// An agent pays a price to a participant.
+        /// </summary>
         public static readonly Uri PayAction=new Uri(BaseUri+"PayAction");
-
+        
+        /// <summary>
+        /// An indication for a medical therapy that has been formally specified or approved by a regulatory body that regulates use of the therapy; for example, the US FDA approves indications for most drugs in the US.
+        /// </summary>
         public static readonly Uri ApprovedIndication=new Uri(BaseUri+"ApprovedIndication");
-
+        
+        /// <summary>
+        /// An enumeration that describes different types of medical procedures.
+        /// </summary>
         public static readonly Uri MedicalProcedureType=new Uri(BaseUri+"MedicalProcedureType");
-
+        
+        /// <summary>
+        /// The act of giving money to a seller in exchange for goods or services rendered. An agent buys an object, product, or service from a seller for a price. Reciprocal of SellAction.
+        /// </summary>
         public static readonly Uri BuyAction=new Uri(BaseUri+"BuyAction");
-
+        
+        /// <summary>
+        /// Fitness-related activity designed for a specific health-related purpose, including defined exercise routines as well as activity prescribed by a clinician.
+        /// </summary>
         public static readonly Uri ExercisePlan=new Uri(BaseUri+"ExercisePlan");
-
+        
+        /// <summary>
+        /// Web page type: Contact page.
+        /// </summary>
         public static readonly Uri ContactPage=new Uri(BaseUri+"ContactPage");
-
+        
+        /// <summary>
+        /// An audio file.
+        /// </summary>
         public static readonly Uri AudioObject=new Uri(BaseUri+"AudioObject");
-
+        
+        /// <summary>
+        /// The causative agent(s) that are responsible for the pathophysiologic process that eventually results in a medical condition, symptom or sign. In this schema, unless otherwise specified this is meant to be the proximate cause of the medical condition, symptom or sign. The proximate cause is defined as the causative agent that most directly results in the medical condition, symptom or sign. For example, the HIV virus could be considered a cause of AIDS. Or in a diagnostic context, if a patient fell and sustained a hip fracture and two days later sustained a pulmonary embolism which eventuated in a cardiac arrest, the cause of the cardiac arrest (the proximate cause) would be the pulmonary embolism and not the fall. <p>Medical causes can include cardiovascular, chemical, dermatologic, endocrine, environmental, gastroenterologic, genetic, hematologic, gynecologic, iatrogenic, infectious, musculoskeletal, neurologic, nutritional, obstetric, oncologic, otolaryngologic, pharmacologic, psychiatric, pulmonary, renal, rheumatologic, toxic, traumatic, or urologic causes; medical conditions can be causes as well.
+        /// </summary>
         public static readonly Uri MedicalCause=new Uri(BaseUri+"MedicalCause");
-
+        
+        /// <summary>
+        /// A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc.
+        /// </summary>
         public static readonly Uri TechArticle=new Uri(BaseUri+"TechArticle");
-
+        
+        /// <summary>
+        /// A music store.
+        /// </summary>
         public static readonly Uri MusicStore=new Uri(BaseUri+"MusicStore");
-
+        
+        /// <summary>
+        /// The act of interacting with another person or organization.
+        /// </summary>
         public static readonly Uri InteractAction=new Uri(BaseUri+"InteractAction");
-
+        
+        /// <summary>
+        /// Indicates whether this drug is available by prescription or over-the-counter.
+        /// </summary>
         public static readonly Uri DrugPrescriptionStatus=new Uri(BaseUri+"DrugPrescriptionStatus");
-
+        
+        /// <summary>
+        /// Categories of physical activity, organized by physiologic classification.
+        /// </summary>
         public static readonly Uri PhysicalActivityCategory=new Uri(BaseUri+"PhysicalActivityCategory");
-
+        
+        /// <summary>
+        /// A Hindu temple.
+        /// </summary>
         public static readonly Uri HinduTemple=new Uri(BaseUri+"HinduTemple");
-
+        
+        /// <summary>
+        /// A hospital.
+        /// </summary>
         public static readonly Uri Hospital=new Uri(BaseUri+"Hospital");
-
+        
+        /// <summary>
+        /// Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort.
+        /// </summary>
         public static readonly Uri Specialty=new Uri(BaseUri+"Specialty");
-
+        
+        /// <summary>
+        /// A set of characteristics describing parents, who can be interested in viewing some content
+        /// </summary>
         public static readonly Uri ParentAudience=new Uri(BaseUri+"ParentAudience");
-
+        
+        /// <summary>
+        /// A short band of tough, flexible, fibrous connective tissue that functions to connect multiple bones, cartilages, and structurally support joints.
+        /// </summary>
         public static readonly Uri Ligament=new Uri(BaseUri+"Ligament");
-
+        
+        /// <summary>
+        /// An historical landmark or building.
+        /// </summary>
         public static readonly Uri LandmarksOrHistoricalBuildings=new Uri(BaseUri+"LandmarksOrHistoricalBuildings");
-
+        
+        /// <summary>
+        /// A permit issued by a government agency.
+        /// </summary>
         public static readonly Uri GovernmentPermit=new Uri(BaseUri+"GovernmentPermit");
-
+        
+        /// <summary>
+        /// A courthouse.
+        /// </summary>
         public static readonly Uri Courthouse=new Uri(BaseUri+"Courthouse");
-
+        
+        /// <summary>
+        /// A sports location, such as a playing field.
+        /// </summary>
         public static readonly Uri SportsActivityLocation=new Uri(BaseUri+"SportsActivityLocation");
-
+        
+        /// <summary>
+        /// A type of blood vessel that specifically carries blood to the heart.
+        /// </summary>
         public static readonly Uri Vein=new Uri(BaseUri+"Vein");
-
+        
+        /// <summary>
+        /// An educational organization.
+        /// </summary>
         public static readonly Uri EducationalOrganization=new Uri(BaseUri+"EducationalOrganization");
-
+        
+        /// <summary>
+        /// Any medical intervention designed to prevent, treat, and cure human diseases and medical conditions, including both curative and palliative therapies. Medical therapies are typically processes of care relying upon pharmacotherapy, behavioral therapy, supportive therapy (with fluid or nutrition for example), or detoxification (e.g. hemodialysis) aimed at improving or preventing a health condition.
+        /// </summary>
         public static readonly Uri MedicalTherapy=new Uri(BaseUri+"MedicalTherapy");
-
+        
+        /// <summary>
+        /// A pond
+        /// </summary>
         public static readonly Uri Pond=new Uri(BaseUri+"Pond");
-
+        
+        /// <summary>
+        /// A list of items of any sort&#x2014;for example, Top 10 Movies About Weathermen, or Top 100 Party Songs. Not to be confused with HTML lists, which are often used only for formatting.
+        /// </summary>
         public static readonly Uri ItemList=new Uri(BaseUri+"ItemList");
-
+        
+        /// <summary>
+        /// A golf course.
+        /// </summary>
         public static readonly Uri GolfCourse=new Uri(BaseUri+"GolfCourse");
-
+        
+        /// <summary>
+        /// A geographical region under the jurisdiction of a particular government.
+        /// </summary>
         public static readonly Uri AdministrativeArea=new Uri(BaseUri+"AdministrativeArea");
-
+        
+        /// <summary>
+        /// A movie theater.
+        /// </summary>
         public static readonly Uri MovieTheater=new Uri(BaseUri+"MovieTheater");
-
+        
+        /// <summary>
+        /// The act of applying an object to its intended purpose.
+        /// </summary>
         public static readonly Uri UseAction=new Uri(BaseUri+"UseAction");
-
+        
+        /// <summary>
+        /// A synagogue.
+        /// </summary>
         public static readonly Uri Synagogue=new Uri(BaseUri+"Synagogue");
-
+        
+        /// <summary>
+        /// Enumerated status values for Order.
+        /// </summary>
         public static readonly Uri OrderStatus=new Uri(BaseUri+"OrderStatus");
-
+        
+        /// <summary>
+        /// A bowling alley.
+        /// </summary>
         public static readonly Uri BowlingAlley=new Uri(BaseUri+"BowlingAlley");
-
+        
+        /// <summary>
+        /// Any anatomical structure which pertains to the soft nervous tissue functioning as the coordinating center of sensation and intellectual and nervous activity.
+        /// </summary>
         public static readonly Uri BrainStructure=new Uri(BaseUri+"BrainStructure");
-
+        
+        /// <summary>
+        /// A code for a medical entity.
+        /// </summary>
         public static readonly Uri MedicalCode=new Uri(BaseUri+"MedicalCode");
-
+        
+        /// <summary>
+        /// A short TV program or a segment/part of a TV program.
+        /// </summary>
         public static readonly Uri TVClip=new Uri(BaseUri+"TVClip");
-
+        
+        /// <summary>
+        /// The act of swallowing liquids.
+        /// </summary>
         public static readonly Uri DrinkAction=new Uri(BaseUri+"DrinkAction");
-
+        
+        /// <summary>
+        /// A bus station.
+        /// </summary>
         public static readonly Uri BusStation=new Uri(BaseUri+"BusStation");
-
+        
+        /// <summary>
+        /// The act of marrying a person.
+        /// </summary>
         public static readonly Uri MarryAction=new Uri(BaseUri+"MarryAction");
-
+        
+        /// <summary>
+        /// A body of structured information describing some topic(s) of interest.
+        /// </summary>
         public static readonly Uri Dataset=new Uri(BaseUri+"Dataset");
-
+        
+        /// <summary>
+        /// Event type: Education event.
+        /// </summary>
         public static readonly Uri EducationEvent=new Uri(BaseUri+"EducationEvent");
-
+        
+        /// <summary>
+        /// An entry point, within some Web-based protocol.
+        /// </summary>
         public static readonly Uri EntryPoint=new Uri(BaseUri+"EntryPoint");
-
+        
+        /// <summary>
+        /// An alternative, closely-related condition typically considered later in the differential diagnosis process along with the signs that are used to distinguish it.
+        /// </summary>
         public static readonly Uri DDxElement=new Uri(BaseUri+"DDxElement");
-
+        
+        /// <summary>
+        /// A private parcel service as the delivery mode available for a certain offer.      Commonly used values:      http://purl.org/goodrelations/v1#DHL     http://purl.org/goodrelations/v1#FederalExpress     http://purl.org/goodrelations/v1#UPS     	
+        /// </summary>
         public static readonly Uri ParcelService=new Uri(BaseUri+"ParcelService");
-
+        
+        /// <summary>
+        /// Aquarium.
+        /// </summary>
         public static readonly Uri Aquarium=new Uri(BaseUri+"Aquarium");
-
+        
+        /// <summary>
+        /// A campground.
+        /// </summary>
         public static readonly Uri Campground=new Uri(BaseUri+"Campground");
-
+        
+        /// <summary>
+        /// The act of installing an application.
+        /// </summary>
         public static readonly Uri InstallAction=new Uri(BaseUri+"InstallAction");
-
+        
+        /// <summary>
+        /// A post office.
+        /// </summary>
         public static readonly Uri PostOffice=new Uri(BaseUri+"PostOffice");
-
+        
+        /// <summary>
+        /// Financial services business.
+        /// </summary>
         public static readonly Uri FinancialService=new Uri(BaseUri+"FinancialService");
-
+        
+        /// <summary>
+        /// The act of physically/electronically dispatching an object for transfer from an origin to a destination.<p>Related actions:</p><ul><li><a href="http://schema.org/ReceiveAction">ReceiveAction</a>: The reciprocal of SendAction.</li><li><a href="http://schema.org/GiveAction">GiveAction</a>: Unlike GiveAction, SendAction does not imply the transfer of ownership (e.g. I can send you my laptop, but I'm not necessarily giving it to you).</li></ul>
+        /// </summary>
         public static readonly Uri SendAction=new Uri(BaseUri+"SendAction");
-
+        
+        /// <summary>
+        /// A general contractor.
+        /// </summary>
         public static readonly Uri GeneralContractor=new Uri(BaseUri+"GeneralContractor");
-
+        
+        /// <summary>
+        /// A publication event e.g. catch-up TV or radio podcast, during which a program is available on-demand.
+        /// </summary>
         public static readonly Uri OnDemandEvent=new Uri(BaseUri+"OnDemandEvent");
-
+        
+        /// <summary>
+        /// A lake (for example, Lake Pontrachain).
+        /// </summary>
         public static readonly Uri LakeBodyOfWater=new Uri(BaseUri+"LakeBodyOfWater");
-
+        
+        /// <summary>
+        /// Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type.
+        /// </summary>
         public static readonly Uri MedicalSpecialty=new Uri(BaseUri+"MedicalSpecialty");
-
+        
+        /// <summary>
+        /// An automobile.
+        /// </summary>
         public static readonly Uri Car=new Uri(BaseUri+"Car");
-
+        
+        /// <summary>
+        /// Web page type: Profile page.
+        /// </summary>
         public static readonly Uri ProfilePage=new Uri(BaseUri+"ProfilePage");
-
+        
+        /// <summary>
+        /// A medical procedure intended primarily for palliative purposes, aimed at relieving the symptoms of an underlying health condition.
+        /// </summary>
         public static readonly Uri PalliativeProcedure=new Uri(BaseUri+"PalliativeProcedure");
-
+        
+        /// <summary>
+        /// Residence type: Apartment complex.
+        /// </summary>
         public static readonly Uri ApartmentComplex=new Uri(BaseUri+"ApartmentComplex");
-
+        
+        /// <summary>
+        /// A radio episode which can be part of a series or season.
+        /// </summary>
         public static readonly Uri RadioEpisode=new Uri(BaseUri+"RadioEpisode");
-
+        
+        /// <summary>
+        /// A product taken by mouth that contains a dietary ingredient intended to supplement the diet. Dietary ingredients may include vitamins, minerals, herbs or other botanicals, amino acids, and substances such as enzymes, organ tissues, glandulars and metabolites.
+        /// </summary>
         public static readonly Uri DietarySupplement=new Uri(BaseUri+"DietarySupplement");
-
+        
+        /// <summary>
+        /// A comedy club.
+        /// </summary>
         public static readonly Uri ComedyClub=new Uri(BaseUri+"ComedyClub");
-
+        
+        /// <summary>
+        /// Bed and breakfast.
+        /// </summary>
         public static readonly Uri BedAndBreakfast=new Uri(BaseUri+"BedAndBreakfast");
-
+        
+        /// <summary>
+        /// A high school.
+        /// </summary>
         public static readonly Uri HighSchool=new Uri(BaseUri+"HighSchool");
-
+        
+        /// <summary>
+        /// An car dealership.
+        /// </summary>
         public static readonly Uri AutoDealer=new Uri(BaseUri+"AutoDealer");
-
+        
+        /// <summary>
+        /// A college, university, or other third-level educational institution.
+        /// </summary>
         public static readonly Uri CollegeOrUniversity=new Uri(BaseUri+"CollegeOrUniversity");
-
+        
+        /// <summary>
+        /// Event type: Children's event.
+        /// </summary>
         public static readonly Uri ChildrensEvent=new Uri(BaseUri+"ChildrensEvent");
-
+        
+        /// <summary>
+        /// A sea (for example, the Caspian sea).
+        /// </summary>
         public static readonly Uri SeaBodyOfWater=new Uri(BaseUri+"SeaBodyOfWater");
-
+        
+        /// <summary>
+        /// A travel agency.
+        /// </summary>
         public static readonly Uri TravelAgency=new Uri(BaseUri+"TravelAgency");
-
+        
+        /// <summary>
+        /// A dry-cleaning business.
+        /// </summary>
         public static readonly Uri DryCleaningOrLaundry=new Uri(BaseUri+"DryCleaningOrLaundry");
-
+        
+        /// <summary>
+        /// Event type: A social dance.
+        /// </summary>
         public static readonly Uri DanceEvent=new Uri(BaseUri+"DanceEvent");
-
+        
+        /// <summary>
+        /// A medical test performed on a sample of a patient's blood.
+        /// </summary>
         public static readonly Uri BloodTest=new Uri(BaseUri+"BloodTest");
-
+        
+        /// <summary>
+        /// Car repair business.
+        /// </summary>
         public static readonly Uri AutoRepair=new Uri(BaseUri+"AutoRepair");
-
+        
+        /// <summary>
+        /// A patient-reported or observed dosing schedule for a drug or supplement.
+        /// </summary>
         public static readonly Uri ReportedDoseSchedule=new Uri(BaseUri+"ReportedDoseSchedule");
-
+        
+        /// <summary>
+        /// A table on a Web page.
+        /// </summary>
         public static readonly Uri Table=new Uri(BaseUri+"Table");
-
+        
+        /// <summary>
+        /// Event type: Theater performance.
+        /// </summary>
         public static readonly Uri TheaterEvent=new Uri(BaseUri+"TheaterEvent");
-
+        
+        /// <summary>
+        /// Brewery.
+        /// </summary>
         public static readonly Uri Brewery=new Uri(BaseUri+"Brewery");
-
+        
+        /// <summary>
+        /// Properties that take Mass as values are of the form '&lt;Number&gt; &lt;Mass unit of measure&gt;'. E.g., '7 kg'
+        /// </summary>
         public static readonly Uri Mass=new Uri(BaseUri+"Mass");
-
+        
+        /// <summary>
+        /// A middle school (typically for children aged around 11-14, although this varies somewhat).
+        /// </summary>
         public static readonly Uri MiddleSchool=new Uri(BaseUri+"MiddleSchool");
-
+        
+        /// <summary>
+        /// The most generic kind of creative work, including books, movies, photographs, software programs, etc.
+        /// </summary>
         public static readonly Uri CreativeWork=new Uri(BaseUri+"CreativeWork");
-
+        
+        /// <summary>
+        /// Any indication of the existence of a medical condition or disease that is apparent to the patient.
+        /// </summary>
         public static readonly Uri MedicalSymptom=new Uri(BaseUri+"MedicalSymptom");
-
+        
+        /// <summary>
+        /// A store that sells materials useful or necessary for various hobbies.
+        /// </summary>
         public static readonly Uri HobbyShop=new Uri(BaseUri+"HobbyShop");
-
+        
+        /// <summary>
+        /// A group of multiple reservations with common values for all sub-reservations.
+        /// </summary>
         public static readonly Uri ReservationPackage=new Uri(BaseUri+"ReservationPackage");
-
+        
+        /// <summary>
+        /// Represents additional information about a relationship or property. For example a Role can be used to say that a 'member' role linking some SportsTeam to a player occurred during a particular time period. Or that a Person's 'actor' role in a Movie was for some particular characterName. Such properties can be attached to a Role entity, which is then associated with the main entities using ordinary properties like 'member' or 'actor'.     
+        /// </summary>
         public static readonly Uri Role=new Uri(BaseUri+"Role");
-
+        
+        /// <summary>
+        /// A reservation to dine at a food-related business.Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
+        /// </summary>
         public static readonly Uri FoodEstablishmentReservation=new Uri(BaseUri+"FoodEstablishmentReservation");
-
+        
+        /// <summary>
+        /// A means for accessing a service, e.g. a government office location, web site, or phone number.
+        /// </summary>
         public static readonly Uri ServiceChannel=new Uri(BaseUri+"ServiceChannel");
-
+        
+        /// <summary>
+        /// A hardware store.
+        /// </summary>
         public static readonly Uri HardwareStore=new Uri(BaseUri+"HardwareStore");
-
+        
+        /// <summary>
+        /// A grocery store.
+        /// </summary>
         public static readonly Uri GroceryStore=new Uri(BaseUri+"GroceryStore");
-
+        
+        /// <summary>
+        /// A set of characteristics belonging to businesses, e.g. who compose an item's target audience.
+        /// </summary>
         public static readonly Uri BusinessAudience=new Uri(BaseUri+"BusinessAudience");
-
+        
+        /// <summary>
+        /// A defence establishment, such as an army or navy base.
+        /// </summary>
         public static readonly Uri DefenceEstablishment=new Uri(BaseUri+"DefenceEstablishment");
-
+        
+        /// <summary>
+        /// An over the air or online broadcast event.
+        /// </summary>
         public static readonly Uri BroadcastEvent=new Uri(BaseUri+"BroadcastEvent");
-
+        
+        /// <summary>
+        /// A software application designed specifically to work well on a mobile device such as a telephone.
+        /// </summary>
         public static readonly Uri MobileApplication=new Uri(BaseUri+"MobileApplication");
-
+        
+        /// <summary>
+        /// A service provided by an organization, e.g. delivery service, print services, etc.
+        /// </summary>
         public static readonly Uri Service=new Uri(BaseUri+"Service");
-
+        
+        /// <summary>
+        /// Data type: Floating number.
+        /// </summary>
         public static readonly Uri Float=new Uri(BaseUri+"Float");
-
+        
+        /// <summary>
+        /// A park.
+        /// </summary>
         public static readonly Uri Park=new Uri(BaseUri+"Park");
-
+        
+        /// <summary>
+        /// An adult entertainment establishment.
+        /// </summary>
         public static readonly Uri AdultEntertainment=new Uri(BaseUri+"AdultEntertainment");
-
+        
+        /// <summary>
+        /// Series dedicated to TV broadcast and associated online delivery.
+        /// </summary>
         public static readonly Uri TVSeries=new Uri(BaseUri+"TVSeries");
-
+        
+        /// <summary>
+        /// An ice cream shop
+        /// </summary>
         public static readonly Uri IceCreamShop=new Uri(BaseUri+"IceCreamShop");
-
+        
+        /// <summary>
+        /// A process of care using radiation aimed at improving a health condition.
+        /// </summary>
         public static readonly Uri RadiationTherapy=new Uri(BaseUri+"RadiationTherapy");
-
+        
+        /// <summary>
+        /// A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply.
+        /// </summary>
         public static readonly Uri Demand=new Uri(BaseUri+"Demand");
-
+        
+        /// <summary>
+        /// A pharmacy or drugstore.
+        /// </summary>
         public static readonly Uri Pharmacy=new Uri(BaseUri+"Pharmacy");
-
+        
+        /// <summary>
+        /// Organization: A business corporation.
+        /// </summary>
         public static readonly Uri Corporation=new Uri(BaseUri+"Corporation");
-
+        
+        /// <summary>
+        /// A reservation for a taxi.Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use http://schema.org/Offer.
+        /// </summary>
         public static readonly Uri TaxiReservation=new Uri(BaseUri+"TaxiReservation");
-
+        
+        /// <summary>
+        /// A bookstore.
+        /// </summary>
         public static readonly Uri BookStore=new Uri(BaseUri+"BookStore");
-
+        
+        /// <summary>
+        /// A hotel.
+        /// </summary>
         public static readonly Uri Hotel=new Uri(BaseUri+"Hotel");
-
+        
+        /// <summary>
+        /// A common pathway for the electrochemical nerve impulses that are transmitted along each of the axons.
+        /// </summary>
         public static readonly Uri Nerve=new Uri(BaseUri+"Nerve");
-
+        
+        /// <summary>
+        /// A furniture store.
+        /// </summary>
         public static readonly Uri FurnitureStore=new Uri(BaseUri+"FurnitureStore");
-
+        
+        /// <summary>
+        /// Data type: Number.
+        /// </summary>
         public static readonly Uri Number=new Uri(BaseUri+"Number");
-
+        
+        /// <summary>
+        /// A food-related business.
+        /// </summary>
         public static readonly Uri FoodEstablishment=new Uri(BaseUri+"FoodEstablishment");
-
+        
+        /// <summary>
+        /// The act of adding at a specific location in an ordered collection.
+        /// </summary>
         public static readonly Uri InsertAction=new Uri(BaseUri+"InsertAction");
-
+        
+        /// <summary>
+        /// A single, identifiable product instance (e.g. a laptop with a particular serial number).
+        /// </summary>
         public static readonly Uri IndividualProduct=new Uri(BaseUri+"IndividualProduct");
-
+        
+        /// <summary>
+        /// The act of editing by adding an object to a collection.
+        /// </summary>
         public static readonly Uri AddAction=new Uri(BaseUri+"AddAction");
-
+        
+        /// <summary>
+        /// An office equipment store.
+        /// </summary>
         public static readonly Uri OfficeEquipmentStore=new Uri(BaseUri+"OfficeEquipmentStore");
-
+        
+        /// <summary>
+        /// Design models for observational medical studies. Enumerated type.
+        /// </summary>
         public static readonly Uri MedicalObservationalStudyDesign=new Uri(BaseUri+"MedicalObservationalStudyDesign");
-
+        
+        /// <summary>
+        /// A software application.
+        /// </summary>
         public static readonly Uri SoftwareApplication=new Uri(BaseUri+"SoftwareApplication");
-
+        
+        /// <summary>
+        /// A range of of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.      Commonly used values:      http://purl.org/goodrelations/v1#Labor-BringIn     http://purl.org/goodrelations/v1#PartsAndLabor-BringIn     http://purl.org/goodrelations/v1#PartsAndLabor-PickUp     	
+        /// </summary>
         public static readonly Uri WarrantyScope=new Uri(BaseUri+"WarrantyScope");
-
+        
+        /// <summary>
+        /// A payment method is a standardized procedure for transferring the monetary amount for a purchase. Payment methods are characterized by the legal and technical structures used, and by the organization or group carrying out the transaction.      Commonly used values:      http://purl.org/goodrelations/v1#ByBankTransferInAdvance     http://purl.org/goodrelations/v1#ByInvoice     http://purl.org/goodrelations/v1#Cash     http://purl.org/goodrelations/v1#CheckInAdvance     http://purl.org/goodrelations/v1#COD     http://purl.org/goodrelations/v1#DirectDebit     http://purl.org/goodrelations/v1#GoogleCheckout     http://purl.org/goodrelations/v1#PayPal     http://purl.org/goodrelations/v1#PaySwarm     		
+        /// </summary>
         public static readonly Uri PaymentMethod=new Uri(BaseUri+"PaymentMethod");
-
+        
+        /// <summary>
+        /// A sidebar section of the page.
+        /// </summary>
         public static readonly Uri WPSideBar=new Uri(BaseUri+"WPSideBar");
-
+        
+        /// <summary>
+        /// The anatomical location at which two or more bones make contact.
+        /// </summary>
         public static readonly Uri Joint=new Uri(BaseUri+"Joint");
-
+        
+        /// <summary>
+        /// The act of granting permission to an object.
+        /// </summary>
         public static readonly Uri AuthorizeAction=new Uri(BaseUri+"AuthorizeAction");
-
+        
+        /// <summary>
+        /// An outlet store.
+        /// </summary>
         public static readonly Uri OutletStore=new Uri(BaseUri+"OutletStore");
-
+        
+        /// <summary>
+        /// A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer.
+        /// </summary>
         public static readonly Uri TypeAndQuantityNode=new Uri(BaseUri+"TypeAndQuantityNode");
-
+        
+        /// <summary>
+        /// Intended audience for an item, i.e. the group for whom the item was created.
+        /// </summary>
         public static readonly Uri Audience=new Uri(BaseUri+"Audience");
-
+        
+        /// <summary>
+        /// Target audiences for medical web pages. Enumerated type.
+        /// </summary>
         public static readonly Uri MedicalAudience=new Uri(BaseUri+"MedicalAudience");
-
+        
+        /// <summary>
+        /// Event type: Sports event.
+        /// </summary>
         public static readonly Uri SportsEvent=new Uri(BaseUri+"SportsEvent");
-
+        
+        /// <summary>
+        /// A review of an item - for example, of a restaurant, movie, or store.
+        /// </summary>
         public static readonly Uri Review=new Uri(BaseUri+"Review");
-
+        
+        /// <summary>
+        /// Health and beauty.
+        /// </summary>
         public static readonly Uri HealthAndBeautyBusiness=new Uri(BaseUri+"HealthAndBeautyBusiness");
-
+        
+        /// <summary>
+        /// The business function specifies the type of activity or access (i.e., the bundle of rights) offered by the organization or business person through the offer. Typical are sell, rental or lease, maintenance or repair, manufacture / produce, recycle / dispose, engineering / construction, or installation. Proprietary specifications of access rights are also instances of this class.      Commonly used values:      http://purl.org/goodrelations/v1#ConstructionInstallation     http://purl.org/goodrelations/v1#Dispose     http://purl.org/goodrelations/v1#LeaseOut     http://purl.org/goodrelations/v1#Maintain     http://purl.org/goodrelations/v1#ProvideService     http://purl.org/goodrelations/v1#Repair     http://purl.org/goodrelations/v1#Sell     http://purl.org/goodrelations/v1#Buy     		
+        /// </summary>
         public static readonly Uri BusinessFunction=new Uri(BaseUri+"BusinessFunction");
-
+        
+        /// <summary>
+        /// A house painting service.
+        /// </summary>
         public static readonly Uri HousePainter=new Uri(BaseUri+"HousePainter");
-
+        
+        /// <summary>
+        /// Web page type: Collection page.
+        /// </summary>
         public static readonly Uri CollectionPage=new Uri(BaseUri+"CollectionPage");
-
+        
+        /// <summary>
+        /// Lists or enumerations&#x2014;for example, a list of cuisines or music genres, etc.
+        /// </summary>
         public static readonly Uri Enumeration=new Uri(BaseUri+"Enumeration");
-
+        
+        /// <summary>
+        /// A date value in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>.
+        /// </summary>
         public static readonly Uri Date=new Uri(BaseUri+"Date");
-
+        
+        /// <summary>
+        /// Animal shelter.
+        /// </summary>
         public static readonly Uri AnimalShelter=new Uri(BaseUri+"AnimalShelter");
-
+        
+        /// <summary>
+        /// A datasheet or vendor specification of a product (in the sense of a prototypical description).
+        /// </summary>
         public static readonly Uri ProductModel=new Uri(BaseUri+"ProductModel");
-
+        
+        /// <summary>
+        /// A news article
+        /// </summary>
         public static readonly Uri NewsArticle=new Uri(BaseUri+"NewsArticle");
-
+        
+        /// <summary>
+        /// A process of progressive physical care and rehabilitation aimed at improving a health condition.
+        /// </summary>
         public static readonly Uri PhysicalTherapy=new Uri(BaseUri+"PhysicalTherapy");
-
+        
+        /// <summary>
+        /// A condition or factor that indicates use of a medical therapy, including signs, symptoms, risk factors, anatomical states, etc.
+        /// </summary>
         public static readonly Uri MedicalIndication=new Uri(BaseUri+"MedicalIndication");
-
+        
+        /// <summary>
+        /// Quantities such as distance, time, mass, weight, etc. Particular instances of say Mass are entities like '3 Kg' or '4 milligrams'.
+        /// </summary>
         public static readonly Uri Quantity=new Uri(BaseUri+"Quantity");
-
+        
+        /// <summary>
+        /// A permit issued by an organization, e.g. a parking pass.
+        /// </summary>
         public static readonly Uri Permit=new Uri(BaseUri+"Permit");
-
+        
+        /// <summary>
+        /// The act of providing goods, services, or money without compensation, often for philanthropic reasons.
+        /// </summary>
         public static readonly Uri DonateAction=new Uri(BaseUri+"DonateAction");
-
+        
+        /// <summary>
+        /// A cafe or coffee shop.
+        /// </summary>
         public static readonly Uri CafeOrCoffeeShop=new Uri(BaseUri+"CafeOrCoffeeShop");
-
+        
+        /// <summary>
+        /// A web page that provides medical information.
+        /// </summary>
         public static readonly Uri MedicalWebPage=new Uri(BaseUri+"MedicalWebPage");
-
+        
+        /// <summary>
+        /// A tire shop.
+        /// </summary>
         public static readonly Uri TireShop=new Uri(BaseUri+"TireShop");
-
+        
+        /// <summary>
+        /// Enumerations related to health and the practice of medicine.
+        /// </summary>
         public static readonly Uri MedicalEnumeration=new Uri(BaseUri+"MedicalEnumeration");
-
+        
+        /// <summary>
+        /// A subclass of Role used to describe roles within organizations.
+        /// </summary>
         public static readonly Uri OrganizationRole=new Uri(BaseUri+"OrganizationRole");
-
+        
+        /// <summary>
+        /// The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates pushed to.<p>Related actions:</p><ul><li><a href="http://schema.org/FollowAction">FollowAction</a>: Unlike FollowAction, SubscribeAction implies that the subscriber acts as a passive agent being constantly/actively pushed for updates.</li><li><a href="http://schema.org/RegisterAction">RegisterAction</a>: Unlike RegisterAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.</li><li><a href="http://schema.org/JoinAction">JoinAction</a>: Unlike JoinAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.</li></ul>
+        /// </summary>
         public static readonly Uri SubscribeAction=new Uri(BaseUri+"SubscribeAction");
-
+        
+        /// <summary>
+        /// Any recommendation made by a standard society (e.g. ACC/AHA) or consensus statement that denotes how to diagnose and treat a particular condition. Note: this type should be used to tag the actual guideline recommendation; if the guideline recommendation occurs in a larger scholarly article, use MedicalScholarlyArticle to tag the overall article, not this type. Note also: the organization making the recommendation should be captured in the recognizingAuthority base property of MedicalEntity.
+        /// </summary>
         public static readonly Uri MedicalGuideline=new Uri(BaseUri+"MedicalGuideline");
-
+        
+        /// <summary>
+        /// A car rental business.
+        /// </summary>
         public static readonly Uri AutoRental=new Uri(BaseUri+"AutoRental");
-
+        
+        /// <summary>
+        /// A convenience store.
+        /// </summary>
         public static readonly Uri ConvenienceStore=new Uri(BaseUri+"ConvenienceStore");
-
+        
+        /// <summary>
+        /// Entities that have a somewhat fixed, physical extension.
+        /// </summary>
         public static readonly Uri Place=new Uri(BaseUri+"Place");
-
+        
+        /// <summary>
+        /// An amusement park.
+        /// </summary>
         public static readonly Uri AmusementPark=new Uri(BaseUri+"AmusementPark");
-
+        
+        /// <summary>
+        /// A canal, like the Panama Canal
+        /// </summary>
         public static readonly Uri Canal=new Uri(BaseUri+"Canal");
-
+        
+        /// <summary>
+        /// A point in time recurring on multiple days in the form hh:mm:ss[Z|(+|-)hh:mm] (see <a href="http://www.w3.org/TR/xmlschema-2/#time">XML schema for details</a>).
+        /// </summary>
         public static readonly Uri Time=new Uri(BaseUri+"Time");
-
+        
+        /// <summary>
+        /// The act of swallowing solid objects.
+        /// </summary>
         public static readonly Uri EatAction=new Uri(BaseUri+"EatAction");
-
+        
+        /// <summary>
+        /// A delivery method is a standardized procedure for transferring the product or service to the destination of fulfillment chosen by the customer. Delivery methods are characterized by the means of transportation used, and by the organization or group that is the contracting party for the sending organization or person.      Commonly used values:      http://purl.org/goodrelations/v1#DeliveryModeDirectDownload     http://purl.org/goodrelations/v1#DeliveryModeFreight     http://purl.org/goodrelations/v1#DeliveryModeMail     http://purl.org/goodrelations/v1#DeliveryModeOwnFleet     http://purl.org/goodrelations/v1#DeliveryModePickUp     http://purl.org/goodrelations/v1#DHL     http://purl.org/goodrelations/v1#FederalExpress     http://purl.org/goodrelations/v1#UPS     		
+        /// </summary>
         public static readonly Uri DeliveryMethod=new Uri(BaseUri+"DeliveryMethod");
-
+        
+        /// <summary>
+        /// A business entity type is a conceptual entity representing the legal form, the size, the main line of business, the position in the value chain, or any combination thereof, of an organization or business person.      Commonly used values:      http://purl.org/goodrelations/v1#Business     http://purl.org/goodrelations/v1#Enduser     http://purl.org/goodrelations/v1#PublicInstitution     http://purl.org/goodrelations/v1#Reseller      		
+        /// </summary>
         public static readonly Uri BusinessEntityType=new Uri(BaseUri+"BusinessEntityType");
-
+        
+        /// <summary>
+        /// A process of care involving exercise, changes to diet, fitness routines, and other lifestyle changes aimed at improving a health condition.
+        /// </summary>
         public static readonly Uri LifestyleModification=new Uri(BaseUri+"LifestyleModification");
-
+        
+        /// <summary>
+        /// A pet store.
+        /// </summary>
         public static readonly Uri PetStore=new Uri(BaseUri+"PetStore");
-
+        
+        /// <summary>
+        /// The status of an Action.
+        /// </summary>
         public static readonly Uri ActionStatusType=new Uri(BaseUri+"ActionStatusType");
-
+        
+        /// <summary>
+        /// Any part of the human body, typically a component of an anatomical system. Organs, tissues, and cells are all anatomical structures.
+        /// </summary>
         public static readonly Uri AnatomicalStructure=new Uri(BaseUri+"AnatomicalStructure");
-
+        
+        /// <summary>
+        /// A user interacting with a page
+        /// </summary>
         public static readonly Uri UserInteraction=new Uri(BaseUri+"UserInteraction");
-
+        
+        /// <summary>
+        /// Any bodily activity that enhances or maintains physical fitness and overall health and wellness. Includes activity that is part of daily living and routine, structured exercise, and exercise prescribed as part of a medical treatment or recovery plan.
+        /// </summary>
         public static readonly Uri PhysicalActivity=new Uri(BaseUri+"PhysicalActivity");
-
+        
+        /// <summary>
+        /// An action performed by a direct agent and indirect     participants upon a direct object. Optionally happens at a location     with the help of an inanimate instrument. The execution of the action     may produce a result. Specific action sub-type documentation specifies     the exact expectation of each argument/role.
+        /// </summary>
         public static readonly Uri Action=new Uri(BaseUri+"Action");
-
+        
+        /// <summary>
+        /// An ocean (for example, the Pacific).
+        /// </summary>
         public static readonly Uri OceanBodyOfWater=new Uri(BaseUri+"OceanBodyOfWater");
-
+        
+        /// <summary>
+        /// A zoo.
+        /// </summary>
         public static readonly Uri Zoo=new Uri(BaseUri+"Zoo");
-
+        
+        /// <summary>
+        /// The act of notifying someone of information pertinent to them, with no expectation of a response.
+        /// </summary>
         public static readonly Uri InformAction=new Uri(BaseUri+"InformAction");
-
+        
+        /// <summary>
+        /// A parking lot or other parking facility.
+        /// </summary>
         public static readonly Uri ParkingFacility=new Uri(BaseUri+"ParkingFacility");
-
+        
+        /// <summary>
+        /// Bank or credit union.
+        /// </summary>
         public static readonly Uri BankOrCreditUnion=new Uri(BaseUri+"BankOrCreditUnion");
-
+        
+        /// <summary>
+        /// The UserInteraction event in which a user comments on an item.
+        /// </summary>
         public static readonly Uri UserComments=new Uri(BaseUri+"UserComments");
-
+        
+        /// <summary>
+        /// Residence type: Single-family home.
+        /// </summary>
         public static readonly Uri SingleFamilyResidence=new Uri(BaseUri+"SingleFamilyResidence");
-
+        
+        /// <summary>
+        /// A country.
+        /// </summary>
         public static readonly Uri Country=new Uri(BaseUri+"Country");
-
+        
+        /// <summary>
+        /// The act of an agent relocating to a place.<p>Related actions:</p><ul><li><a href="http://schema.org/TransferAction">TransferAction</a>: Unlike TransferAction, the subject of the move is a living Person or Organization rather than an inanimate object.</li></ul>
+        /// </summary>
         public static readonly Uri MoveAction=new Uri(BaseUri+"MoveAction");
-
+        
+        /// <summary>
+        /// A service provided by a government organization, e.g. food stamps, veterans benefits, etc.
+        /// </summary>
         public static readonly Uri GovernmentService=new Uri(BaseUri+"GovernmentService");
-
+        
+        /// <summary>
+        /// Scheduling future actions, events, or tasks.<p>Related actions:</p><ul><li><a href="http://schema.org/ReserveAction">ReserveAction</a>: Unlike ReserveAction, ScheduleAction allocates future actions (e.g. an event, a task, etc) towards a time slot / spatial allocation.</li></ul>
+        /// </summary>
         public static readonly Uri ScheduleAction=new Uri(BaseUri+"ScheduleAction");
-
+        
+        /// <summary>
+        /// The act of giving money in return for temporary use, but not ownership, of an object such as a vehicle or property. For example, an agent rents a property from a landlord in exchange for a periodic payment.
+        /// </summary>
         public static readonly Uri RentAction=new Uri(BaseUri+"RentAction");
-
+        
+        /// <summary>
+        /// The act of transferring/moving (abstract or concrete) animate or inanimate objects from one place to another.
+        /// </summary>
         public static readonly Uri TransferAction=new Uri(BaseUri+"TransferAction");
-
+        
+        /// <summary>
+        /// Enumerated categories of medical drug costs.
+        /// </summary>
         public static readonly Uri DrugCostCategory=new Uri(BaseUri+"DrugCostCategory");
-
+        
+        /// <summary>
+        /// The act of ingesting information/resources/food.
+        /// </summary>
         public static readonly Uri ConsumeAction=new Uri(BaseUri+"ConsumeAction");
-
+        
+        /// <summary>
+        /// The act of asking someone to attend an event. Reciprocal of RsvpAction.
+        /// </summary>
         public static readonly Uri InviteAction=new Uri(BaseUri+"InviteAction");
-
+        
+        /// <summary>
+        /// A collection of datasets.
+        /// </summary>
         public static readonly Uri DataCatalog=new Uri(BaseUri+"DataCatalog");
-
+        
+        /// <summary>
+        /// The act of producing a balanced opinion about the object for an audience. An agent reviews an object with participants resulting in a review.
+        /// </summary>
         public static readonly Uri ReviewAction=new Uri(BaseUri+"ReviewAction");
-
+        
+        /// <summary>
+        /// A shoe store.
+        /// </summary>
         public static readonly Uri ShoeStore=new Uri(BaseUri+"ShoeStore");
-
+        
+        /// <summary>
+        /// A dance group&#x2014;for example, the Alvin Ailey Dance Theater or Riverdance.
+        /// </summary>
         public static readonly Uri DanceGroup=new Uri(BaseUri+"DanceGroup");
-
+        
+        /// <summary>
+        /// The act of posing a question / favor to someone.<p>Related actions:</p><ul><li><a href="http://schema.org/ReplyAction">ReplyAction</a>: Appears generally as a response to AskAction.</li></ul>
+        /// </summary>
         public static readonly Uri AskAction=new Uri(BaseUri+"AskAction");
-
+        
+        /// <summary>
+        /// A bike store.
+        /// </summary>
         public static readonly Uri BikeStore=new Uri(BaseUri+"BikeStore");
-
+        
+        /// <summary>
+        /// The act of responding to a question/message asked/sent by the object. Related to <a href="AskAction">AskAction</a>.<p>Related actions:</p><ul><li><a href="http://schema.org/AskAction">AskAction</a>: Appears generally as an origin of a ReplyAction.</li></ul>
+        /// </summary>
         public static readonly Uri ReplyAction=new Uri(BaseUri+"ReplyAction");
-
+        
+        /// <summary>
+        /// Classes of agents or pathogens that transmit infectious diseases. Enumerated type.
+        /// </summary>
         public static readonly Uri InfectiousAgentClass=new Uri(BaseUri+"InfectiousAgentClass");
-
+        
+        /// <summary>
+        /// When a single product is associated with multiple offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.
+        /// </summary>
         public static readonly Uri AggregateOffer=new Uri(BaseUri+"AggregateOffer");
-
+        
+        /// <summary>
+        /// A risk factor is anything that increases a person's likelihood of developing or contracting a disease, medical condition, or complication.
+        /// </summary>
         public static readonly Uri MedicalRiskFactor=new Uri(BaseUri+"MedicalRiskFactor");
-
+        
+        /// <summary>
+        /// An intangible item that describes an alignment between a learning resource and a node in an educational framework.
+        /// </summary>
         public static readonly Uri AlignmentObject=new Uri(BaseUri+"AlignmentObject");
-
+        
+        /// <summary>
+        /// An emergency service, such as a fire station or ER.
+        /// </summary>
         public static readonly Uri EmergencyService=new Uri(BaseUri+"EmergencyService");
-
+        
+        /// <summary>
+        /// A structured value representing a monetary amount. Typically, only the subclasses of this type are used for markup.
+        /// </summary>
         public static readonly Uri PriceSpecification=new Uri(BaseUri+"PriceSpecification");
-
+        
+        /// <summary>
+        /// A garden store.
+        /// </summary>
         public static readonly Uri GardenStore=new Uri(BaseUri+"GardenStore");
-
+        
+        /// <summary>
+        /// Rigid connective tissue that comprises up the skeletal structure of the human body.
+        /// </summary>
         public static readonly Uri Bone=new Uri(BaseUri+"Bone");
-
+        
+        /// <summary>
+        /// A roofing contractor.
+        /// </summary>
         public static readonly Uri RoofingContractor=new Uri(BaseUri+"RoofingContractor");
-
+        
+        /// <summary>
+        /// A painting.
+        /// </summary>
         public static readonly Uri Painting=new Uri(BaseUri+"Painting");
-
+        
+        /// <summary>
+        /// The rating of the video.
+        /// </summary>
         public static readonly Uri Rating=new Uri(BaseUri+"Rating");
-
+        
+        /// <summary>
+        /// An enumeration of several kinds of Map.
+        /// </summary>
         public static readonly Uri MapCategoryType=new Uri(BaseUri+"MapCategoryType");
-
+        
+        /// <summary>
+        /// A bar or pub.
+        /// </summary>
         public static readonly Uri BarOrPub=new Uri(BaseUri+"BarOrPub");
-
+        
+        /// <summary>
+        /// Web page type: Image gallery page.
+        /// </summary>
         public static readonly Uri ImageGallery=new Uri(BaseUri+"ImageGallery");
-
+        
+        /// <summary>
+        /// An observational study is a type of medical study that attempts to infer the possible effect of a treatment through observation of a cohort of subjects over a period of time. In an observational study, the assignment of subjects into treatment groups versus control groups is outside the control of the investigator. This is in contrast with controlled studies, such as the randomized controlled trials represented by MedicalTrial, where each subject is randomly assigned to a treatment group or a control group before the start of the treatment.
+        /// </summary>
         public static readonly Uri MedicalObservationalStudy=new Uri(BaseUri+"MedicalObservationalStudy");
-
+        
+        /// <summary>
+        /// A casino.
+        /// </summary>
         public static readonly Uri Casino=new Uri(BaseUri+"Casino");
-
+        
+        /// <summary>
+        /// An agent inspects/determines/investigates/inquire or examine an object's accuracy/quality/condition or state.
+        /// </summary>
         public static readonly Uri CheckAction=new Uri(BaseUri+"CheckAction");
-
+        
+        /// <summary>
+        /// The act of participating in exertive activity for the purposes of improving health and fitness
+        /// </summary>
         public static readonly Uri ExerciseAction=new Uri(BaseUri+"ExerciseAction");
-
+        
+        /// <summary>
+        /// A specific strength in which a medical drug is available in a specific country.
+        /// </summary>
         public static readonly Uri DrugStrength=new Uri(BaseUri+"DrugStrength");
-
+        
+        /// <summary>
+        /// An image, video, or audio object embedded in a web page. Note that a creative work may have many media objects associated with it on the same web page. For example, a page about a single song (MusicRecording) may have a music video (VideoObject), and a high and low bandwidth audio stream (2 AudioObject's).
+        /// </summary>
         public static readonly Uri MediaObject=new Uri(BaseUri+"MediaObject");
-
+        
+        /// <summary>
+        /// Structured values are strings&#x2014;for example, addresses&#x2014;that have certain constraints on their structure.
+        /// </summary>
         public static readonly Uri StructuredValue=new Uri(BaseUri+"StructuredValue");
-
+        
+        /// <summary>
+        /// The act of inserting at the end if an ordered collection.
+        /// </summary>
         public static readonly Uri AppendAction=new Uri(BaseUri+"AppendAction");
-
+        
+        /// <summary>
+        ///  A point value or interval for product characteristics and other purposes.
+        /// </summary>
         public static readonly Uri QuantitativeValue=new Uri(BaseUri+"QuantitativeValue");
-
+        
+        /// <summary>
+        /// The footer section of the page.
+        /// </summary>
         public static readonly Uri WPFooter=new Uri(BaseUri+"WPFooter");
-
+        
+        /// <summary>
+        /// Properties that take Energy as values are of the form '&lt;Number&gt; &lt;Energy unit of measure&gt;'
+        /// </summary>
         public static readonly Uri Energy=new Uri(BaseUri+"Energy");
-
+        
+        /// <summary>
+        /// Any medical test, typically performed for diagnostic purposes.
+        /// </summary>
         public static readonly Uri MedicalTest=new Uri(BaseUri+"MedicalTest");
-
+        
+        /// <summary>
+        /// User interaction: +1.
+        /// </summary>
         public static readonly Uri UserPlusOnes=new Uri(BaseUri+"UserPlusOnes");
-
+        
+        /// <summary>
+        /// A shop that sells alcoholic drinks such as wine, beer, whisky and other spirits.
+        /// </summary>
         public static readonly Uri LiquorStore=new Uri(BaseUri+"LiquorStore");
-
+        
+        /// <summary>
+        /// A TV or radio series.
+        /// </summary>
         public static readonly Uri Series=new Uri(BaseUri+"Series");
-
+        
+        /// <summary>
+        /// A waterfall, like Niagara
+        /// </summary>
         public static readonly Uri Waterfall=new Uri(BaseUri+"Waterfall");
-
+        
+        /// <summary>
+        /// Any indication of the existence of a medical condition or disease.
+        /// </summary>
         public static readonly Uri MedicalSignOrSymptom=new Uri(BaseUri+"MedicalSignOrSymptom");
-
+        
+        /// <summary>
+        /// The act of editing a recipient by replacing an old object with a new object.
+        /// </summary>
         public static readonly Uri ReplaceAction=new Uri(BaseUri+"ReplaceAction");
-
+        
+        /// <summary>
+        /// Beach.
+        /// </summary>
         public static readonly Uri Beach=new Uri(BaseUri+"Beach");
-
+        
+        /// <summary>
+        /// Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc.
+        /// </summary>
         public static readonly Uri MedicalCondition=new Uri(BaseUri+"MedicalCondition");
-
+        
+        /// <summary>
+        /// A medical study is an umbrella type covering all kinds of research studies relating to human medicine or health, including observational studies and interventional trials and registries, randomized, controlled or not. When the specific type of study is known, use one of the extensions of this type, such as MedicalTrial or MedicalObservationalStudy. Also, note that this type should be used to mark up data that describes the study itself; to tag an article that publishes the results of a study, use MedicalScholarlyArticle. Note: use the code property of MedicalEntity to store study IDs, e.g. clinicaltrials.gov ID.
+        /// </summary>
         public static readonly Uri MedicalStudy=new Uri(BaseUri+"MedicalStudy");
-
+        
+        /// <summary>
+        /// The act of producing/preparing food.
+        /// </summary>
         public static readonly Uri CookAction=new Uri(BaseUri+"CookAction");
-
+        
+        /// <summary>
+        /// A photograph.
+        /// </summary>
         public static readonly Uri Photograph=new Uri(BaseUri+"Photograph");
-
+        
+        /// <summary>
+        /// Professional service: Attorney.
+        /// </summary>
         public static readonly Uri Attorney=new Uri(BaseUri+"Attorney");
-
+        
+        /// <summary>
+        /// Anatomical features that can be observed by sight (without dissection), including the form and proportions of the human body as well as surface landmarks that correspond to deeper subcutaneous structures. Superficial anatomy plays an important role in sports medicine, phlebotomy, and other medical specialties as underlying anatomical structures can be identified through surface palpation. For example, during back surgery, superficial anatomy can be used to palpate and count vertebrae to find the site of incision. Or in phlebotomy, superficial anatomy can be used to locate an underlying vein; for example, the median cubital vein can be located by palpating the borders of the cubital fossa (such as the epicondyles of the humerus) and then looking for the superficial signs of the vein, such as size, prominence, ability to refill after depression, and feel of surrounding tissue support. As another example, in a subluxation (dislocation) of the glenohumeral joint, the bony structure becomes pronounced with the deltoid muscle failing to cover the glenohumeral joint allowing the edges of the scapula to be superficially visible. Here, the superficial anatomy is the visible edges of the scapula, implying the underlying dislocation of the joint (the related anatomical structure).
+        /// </summary>
         public static readonly Uri SuperficialAnatomy=new Uri(BaseUri+"SuperficialAnatomy");
-
+        
+        /// <summary>
+        /// The act of committing to/adopting an object.<p>Related actions:</p><ul><li><a href="http://schema.org/RejectAction">RejectAction</a>: The antagonym of AcceptAction.</li></ul>
+        /// </summary>
         public static readonly Uri AcceptAction=new Uri(BaseUri+"AcceptAction");
-
+        
+        /// <summary>
+        /// A school.
+        /// </summary>
         public static readonly Uri School=new Uri(BaseUri+"School");
-
+        
+        /// <summary>
+        /// A guideline contraindication that designates a process as harmful and where quality of the data supporting the contraindication is sound.
+        /// </summary>
         public static readonly Uri MedicalGuidelineContraindication=new Uri(BaseUri+"MedicalGuidelineContraindication");
-
+        
+        /// <summary>
+        /// A trip on a commercial bus line.
+        /// </summary>
         public static readonly Uri BusTrip=new Uri(BaseUri+"BusTrip");
-
+        
+        /// <summary>
+        /// Season dedicated to radio broadcast and associated online delivery.
+        /// </summary>
         public static readonly Uri RadioSeason=new Uri(BaseUri+"RadioSeason");
-
+        
+        /// <summary>
+        /// An agent tracks an object for updates.<p>Related actions:</p><ul><li><a href="http://schema.org/FollowAction">FollowAction</a>: Unlike FollowAction, TrackAction refers to the interest on the location of innanimates objects.</li><li><a href="http://schema.org/SubscribeAction">SubscribeAction</a>: Unlike SubscribeAction, TrackAction refers to  the interest on the location of innanimate objects.</li></ul>
+        /// </summary>
         public static readonly Uri TrackAction=new Uri(BaseUri+"TrackAction");
-
+        
+        /// <summary>
+        /// The status of a medical study. Enumerated type.
+        /// </summary>
         public static readonly Uri MedicalStudyStatus=new Uri(BaseUri+"MedicalStudyStatus");
-
+        
+        /// <summary>
+        /// The act of allocating an action/event/task to some destination (someone or something).
+        /// </summary>
         public static readonly Uri AssignAction=new Uri(BaseUri+"AssignAction");
-
+        
+        /// <summary>
+        /// A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.
+        /// </summary>
         public static readonly Uri citation=new Uri(BaseUri+"citation");
-
+        
+        /// <summary>
+        /// The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values.
+        /// </summary>
         public static readonly Uri defaultValue=new Uri(BaseUri+"defaultValue");
-
+        
+        /// <summary>
+        /// The type/class of the seat.
+        /// </summary>
         public static readonly Uri seatingType=new Uri(BaseUri+"seatingType");
-
+        
+        /// <summary>
+        /// Textual description of the unit type (including suite vs. room, size of bed, etc.).
+        /// </summary>
         public static readonly Uri lodgingUnitType=new Uri(BaseUri+"lodgingUnitType");
-
+        
+        /// <summary>
+        /// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.
+        /// </summary>
         public static readonly Uri eligibleRegion=new Uri(BaseUri+"eligibleRegion");
-
+        
+        /// <summary>
+        /// The depth of the product.
+        /// </summary>
         public static readonly Uri depth=new Uri(BaseUri+"depth");
-
+        
+        /// <summary>
+        /// A sub property of object. The options subject to this action.
+        /// </summary>
         public static readonly Uri option=new Uri(BaseUri+"option");
-
+        
+        /// <summary>
+        /// The width of the item.
+        /// </summary>
         public static readonly Uri width=new Uri(BaseUri+"width");
-
+        
+        /// <summary>
+        /// The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.
+        /// </summary>
         public static readonly Uri model=new Uri(BaseUri+"model");
-
+        
+        /// <summary>
+        /// The height of the item.
+        /// </summary>
         public static readonly Uri height=new Uri(BaseUri+"height");
-
+        
+        /// <summary>
+        /// The kind of aircraft (e.g., "Boeing 747").
+        /// </summary>
         public static readonly Uri aircraft=new Uri(BaseUri+"aircraft");
-
+        
+        /// <summary>
+        /// The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. "iPhone") or a general category of products or services (e.g. "smartphones").
+        /// </summary>
         public static readonly Uri productSupported=new Uri(BaseUri+"productSupported");
-
+        
+        /// <summary>
+        /// A sub property of instrument. The query used on this action.
+        /// </summary>
         public static readonly Uri query=new Uri(BaseUri+"query");
-
+        
+        /// <summary>
+        /// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+        /// </summary>
         public static readonly Uri category=new Uri(BaseUri+"category");
-
+        
+        /// <summary>
+        /// An alias for the item.
+        /// </summary>
         public static readonly Uri alternateName=new Uri(BaseUri+"alternateName");
-
+        
+        /// <summary>
+        /// Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.
+        /// </summary>
         public static readonly Uri exerciseType=new Uri(BaseUri+"exerciseType");
-
+        
+        /// <summary>
+        /// Nutritional information specific to the dietary plan. May include dietary recommendations on what foods to avoid, what foods to consume, and specific alterations/deviations from the USDA or other regulatory body's approved dietary guidelines.
+        /// </summary>
         public static readonly Uri dietFeatures=new Uri(BaseUri+"dietFeatures");
-
+        
+        /// <summary>
+        /// Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure.
+        /// </summary>
         public static readonly Uri workload=new Uri(BaseUri+"workload");
-
+        
+        /// <summary>
+        /// The number of upvotes this question has received from the community.
+        /// </summary>
         public static readonly Uri upvoteCount=new Uri(BaseUri+"upvoteCount");
-
+        
+        /// <summary>
+        /// Indicates whether this content is family friendly.
+        /// </summary>
         public static readonly Uri isFamilyFriendly=new Uri(BaseUri+"isFamilyFriendly");
-
+        
+        /// <summary>
+        /// Identifies the issue of publication; for example, "iii" or "2".
+        /// </summary>
         public static readonly Uri issueNumber=new Uri(BaseUri+"issueNumber");
-
+        
+        /// <summary>
+        /// The street address. For example, 1600 Amphitheatre Pkwy.
+        /// </summary>
         public static readonly Uri streetAddress=new Uri(BaseUri+"streetAddress");
-
+        
+        /// <summary>
+        /// The number of grams of fat.
+        /// </summary>
         public static readonly Uri fatContent=new Uri(BaseUri+"fatContent");
-
+        
+        /// <summary>
+        /// The number of grams of trans fat.
+        /// </summary>
         public static readonly Uri transFatContent=new Uri(BaseUri+"transFatContent");
-
+        
+        /// <summary>
+        /// The release date of a product or product model. This can be used to distinguish the exact variant of a product.
+        /// </summary>
         public static readonly Uri releaseDate=new Uri(BaseUri+"releaseDate");
-
+        
+        /// <summary>
+        /// Specifies browser requirements in human-readable text. For example,"requires HTML5 support".
+        /// </summary>
         public static readonly Uri browserRequirements=new Uri(BaseUri+"browserRequirements");
-
+        
+        /// <summary>
+        /// The category of the recipe&#x2014;for example, appetizer, entree, etc.
+        /// </summary>
         public static readonly Uri recipeCategory=new Uri(BaseUri+"recipeCategory");
-
+        
+        /// <summary>
+        /// The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'.
+        /// </summary>
         public static readonly Uri interactivityType=new Uri(BaseUri+"interactivityType");
-
+        
+        /// <summary>
+        /// Indicates whether this image is representative of the content of the page.
+        /// </summary>
         public static readonly Uri representativeOfPage=new Uri(BaseUri+"representativeOfPage");
-
+        
+        /// <summary>
+        /// The name given to how bone physically connects to each other.
+        /// </summary>
         public static readonly Uri structuralClass=new Uri(BaseUri+"structuralClass");
-
+        
+        /// <summary>
+        /// Full (compile ready) solution, code snippet, inline code, scripts, template.
+        /// </summary>
         public static readonly Uri sampleType=new Uri(BaseUri+"sampleType");
-
+        
+        /// <summary>
+        /// After this date, the item will no longer be available for pickup.
+        /// </summary>
         public static readonly Uri availableThrough=new Uri(BaseUri+"availableThrough");
-
+        
+        /// <summary>
+        /// Type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship).
+        /// </summary>
         public static readonly Uri employmentType=new Uri(BaseUri+"employmentType");
-
+        
+        /// <summary>
+        /// The actual code.
+        /// </summary>
         public static readonly Uri codeValue=new Uri(BaseUri+"codeValue");
-
+        
+        /// <summary>
+        /// When a taxi will pickup a passenger or a rental car can be picked up.
+        /// </summary>
         public static readonly Uri pickupTime=new Uri(BaseUri+"pickupTime");
-
+        
+        /// <summary>
+        /// The specific biochemical interaction through which this drug or supplement produces its pharmacological effect.
+        /// </summary>
         public static readonly Uri mechanismOfAction=new Uri(BaseUri+"mechanismOfAction");
-
+        
+        /// <summary>
+        /// A description of the procedure involved in setting up, using, and/or installing the device.
+        /// </summary>
         public static readonly Uri procedure=new Uri(BaseUri+"procedure");
-
+        
+        /// <summary>
+        /// The description of a node in an established educational framework.
+        /// </summary>
         public static readonly Uri targetDescription=new Uri(BaseUri+"targetDescription");
-
+        
+        /// <summary>
+        /// The date and time of obtaining the product.
+        /// </summary>
         public static readonly Uri ownedFrom=new Uri(BaseUri+"ownedFrom");
-
+        
+        /// <summary>
+        /// The number of answers this question has received.
+        /// </summary>
         public static readonly Uri answerCount=new Uri(BaseUri+"answerCount");
-
+        
+        /// <summary>
+        /// Countries for which the application is not supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
+        /// </summary>
         public static readonly Uri countriesNotSupported=new Uri(BaseUri+"countriesNotSupported");
-
+        
+        /// <summary>
+        /// The currency (in 3-letter ISO 4217 format) of the discount.
+        /// </summary>
         public static readonly Uri discountCurrency=new Uri(BaseUri+"discountCurrency");
-
+        
+        /// <summary>
+        /// A more specific type of the condition, where applicable, for example 'Type 1 Diabetes', 'Type 2 Diabetes', or 'Gestational Diabetes' for Diabetes.
+        /// </summary>
         public static readonly Uri subtype=new Uri(BaseUri+"subtype");
-
+        
+        /// <summary>
+        /// Indicates if use of the media require a subscription  (either paid or free). Allowed values are <code>true</code> or <code>false</code> (note that an earlier version had 'yes', 'no').
+        /// </summary>
         public static readonly Uri requiresSubscription=new Uri(BaseUri+"requiresSubscription");
-
+        
+        /// <summary>
+        /// Date of death.
+        /// </summary>
         public static readonly Uri deathDate=new Uri(BaseUri+"deathDate");
-
+        
+        /// <summary>
+        /// The name of the train (e.g. The Orient Express).
+        /// </summary>
         public static readonly Uri trainName=new Uri(BaseUri+"trainName");
-
+        
+        /// <summary>
+        /// Date on which this guideline's recommendation was made.
+        /// </summary>
         public static readonly Uri guidelineDate=new Uri(BaseUri+"guidelineDate");
-
+        
+        /// <summary>
+        /// The units of an active ingredient's strength, e.g. mg.
+        /// </summary>
         public static readonly Uri strengthUnit=new Uri(BaseUri+"strengthUnit");
-
+        
+        /// <summary>
+        /// The value of an active ingredient's strength, e.g. 325.
+        /// </summary>
         public static readonly Uri strengthValue=new Uri(BaseUri+"strengthValue");
-
+        
+        /// <summary>
+        /// Type of software application, e.g. "Game, Multimedia".
+        /// </summary>
         public static readonly Uri applicationCategory=new Uri(BaseUri+"applicationCategory");
-
+        
+        /// <summary>
+        /// Identifier of the flight's departure terminal.
+        /// </summary>
         public static readonly Uri departureTerminal=new Uri(BaseUri+"departureTerminal");
-
+        
+        /// <summary>
+        /// Email address.
+        /// </summary>
         public static readonly Uri email=new Uri(BaseUri+"email");
-
+        
+        /// <summary>
+        /// A flag to signal that the publication is accessible for free.
+        /// </summary>
         public static readonly Uri free=new Uri(BaseUri+"free");
-
+        
+        /// <summary>
+        /// A number that confirms the given order.
+        /// </summary>
         public static readonly Uri confirmationNumber=new Uri(BaseUri+"confirmationNumber");
-
+        
+        /// <summary>
+        /// The expected progression of the condition if it is not treated and allowed to progress naturally.
+        /// </summary>
         public static readonly Uri naturalProgression=new Uri(BaseUri+"naturalProgression");
-
+        
+        /// <summary>
+        /// Content features of the resource, such as accessible media, alternatives and supported enhancements for accessibility (<a href="http://www.w3.org/wiki/WebSchemas/Accessibility">WebSchemas wiki lists possible values</a>).
+        /// </summary>
         public static readonly Uri accessibilityFeature=new Uri(BaseUri+"accessibilityFeature");
-
+        
+        /// <summary>
+        /// The number of pages in the book.
+        /// </summary>
         public static readonly Uri numberOfPages=new Uri(BaseUri+"numberOfPages");
-
+        
+        /// <summary>
+        /// The name of the bus (e.g. Bolt Express).
+        /// </summary>
         public static readonly Uri busName=new Uri(BaseUri+"busName");
-
+        
+        /// <summary>
+        /// The date and time the reservation was modified.
+        /// </summary>
         public static readonly Uri modifiedTime=new Uri(BaseUri+"modifiedTime");
-
+        
+        /// <summary>
+        /// Publication date for the job posting.
+        /// </summary>
         public static readonly Uri datePosted=new Uri(BaseUri+"datePosted");
-
+        
+        /// <summary>
+        /// The color of the product.
+        /// </summary>
         public static readonly Uri color=new Uri(BaseUri+"color");
-
+        
+        /// <summary>
+        /// Estimated processing time for the service using this channel.
+        /// </summary>
         public static readonly Uri processingTime=new Uri(BaseUri+"processingTime");
-
+        
+        /// <summary>
+        /// The value of the dose, e.g. 500.
+        /// </summary>
         public static readonly Uri doseValue=new Uri(BaseUri+"doseValue");
-
+        
+        /// <summary>
+        /// The date and time of giving up ownership on the product.
+        /// </summary>
         public static readonly Uri ownedThrough=new Uri(BaseUri+"ownedThrough");
-
+        
+        /// <summary>
+        /// The language of the content. please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard.</a>
+        /// </summary>
         public static readonly Uri inLanguage=new Uri(BaseUri+"inLanguage");
-
+        
+        /// <summary>
+        /// The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
+        /// </summary>
         public static readonly Uri sku=new Uri(BaseUri+"sku");
-
+        
+        /// <summary>
+        /// The opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.<br />- Days are specified using the following two-letter combinations: <code>Mo</code>, <code>Tu</code>, <code>We</code>, <code>Th</code>, <code>Fr</code>, <code>Sa</code>, <code>Su</code>.<br />- Times are specified using 24:00 time. For example, 3pm is specified as <code>15:00</code>. <br />- Here is an example: <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>. <br />- If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.
+        /// </summary>
         public static readonly Uri openingHours=new Uri(BaseUri+"openingHours");
-
+        
+        /// <summary>
+        /// URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.
+        /// </summary>
         public static readonly Uri sameAs=new Uri(BaseUri+"sameAs");
-
+        
+        /// <summary>
+        /// The elevation of a location.
+        /// </summary>
         public static readonly Uri elevation=new Uri(BaseUri+"elevation");
-
+        
+        /// <summary>
+        /// The identifier of the transaction.
+        /// </summary>
         public static readonly Uri orderNumber=new Uri(BaseUri+"orderNumber");
-
+        
+        /// <summary>
+        /// The earliest date the package may arrive.
+        /// </summary>
         public static readonly Uri expectedArrivalFrom=new Uri(BaseUri+"expectedArrivalFrom");
-
+        
+        /// <summary>
+        /// A thumbnail image relevant to the Thing.
+        /// </summary>
         public static readonly Uri thumbnailUrl=new Uri(BaseUri+"thumbnailUrl");
-
+        
+        /// <summary>
+        /// An additional name for a Person, can be used for a middle name.
+        /// </summary>
         public static readonly Uri additionalName=new Uri(BaseUri+"additionalName");
-
+        
+        /// <summary>
+        /// Date the content expires and is no longer useful or available. Useful for videos.
+        /// </summary>
         public static readonly Uri expires=new Uri(BaseUri+"expires");
-
+        
+        /// <summary>
+        /// Identifier of the flight's departure gate.
+        /// </summary>
         public static readonly Uri departureGate=new Uri(BaseUri+"departureGate");
-
+        
+        /// <summary>
+        /// The location where the NewsArticle was produced.
+        /// </summary>
         public static readonly Uri dateline=new Uri(BaseUri+"dateline");
-
+        
+        /// <summary>
+        /// Maximal age recommended for viewing content.
+        /// </summary>
         public static readonly Uri suggestedMaxAge=new Uri(BaseUri+"suggestedMaxAge");
-
+        
+        /// <summary>
+        /// Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition.
+        /// </summary>
         public static readonly Uri pathophysiology=new Uri(BaseUri+"pathophysiology");
-
+        
+        /// <summary>
+        /// The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
+        /// </summary>
         public static readonly Uri serviceType=new Uri(BaseUri+"serviceType");
-
+        
+        /// <summary>
+        /// Minimal age of the child
+        /// </summary>
         public static readonly Uri childMinAge=new Uri(BaseUri+"childMinAge");
-
+        
+        /// <summary>
+        /// The opening hour of the place or service on the given day(s) of the week.
+        /// </summary>
         public static readonly Uri opens=new Uri(BaseUri+"opens");
-
+        
+        /// <summary>
+        /// The number of adults staying in the unit.
+        /// </summary>
         public static readonly Uri numAdults=new Uri(BaseUri+"numAdults");
-
+        
+        /// <summary>
+        /// The cost per unit of the drug.
+        /// </summary>
         public static readonly Uri costPerUnit=new Uri(BaseUri+"costPerUnit");
-
+        
+        /// <summary>
+        /// The number of tracks in this album or playlist.
+        /// </summary>
         public static readonly Uri numTracks=new Uri(BaseUri+"numTracks");
-
+        
+        /// <summary>
+        /// The end of the validity of offer, price specification, or opening hours data.
+        /// </summary>
         public static readonly Uri validThrough=new Uri(BaseUri+"validThrough");
-
+        
+        /// <summary>
+        /// Medical expert advice related to the plan.
+        /// </summary>
         public static readonly Uri expertConsiderations=new Uri(BaseUri+"expertConsiderations");
-
+        
+        /// <summary>
+        /// The count of total number of reviews.
+        /// </summary>
         public static readonly Uri reviewCount=new Uri(BaseUri+"reviewCount");
-
+        
+        /// <summary>
+        /// Identifier of the flight's arrival gate.
+        /// </summary>
         public static readonly Uri arrivalGate=new Uri(BaseUri+"arrivalGate");
-
+        
+        /// <summary>
+        /// The highest price if the price is a range.
+        /// </summary>
         public static readonly Uri maxPrice=new Uri(BaseUri+"maxPrice");
-
+        
+        /// <summary>
+        /// Minimum memory requirements.
+        /// </summary>
         public static readonly Uri memoryRequirements=new Uri(BaseUri+"memoryRequirements");
-
+        
+        /// <summary>
+        /// Specifies whether the applicable value-added tax (VAT) is included in the price specification or not.
+        /// </summary>
         public static readonly Uri valueAddedTaxIncluded=new Uri(BaseUri+"valueAddedTaxIncluded");
-
+        
+        /// <summary>
+        /// The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes. <br /> <br />       Usage guidelines: <br /> <ul> <li>Use the <a href="/priceCurrency">priceCurrency</a> property (with <a href="http://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO 4217 codes</a> e.g. "USD") instead of       including <a href="http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign">ambiguous symbols</a> such as '$' in the value. </li> <li>       Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator. </li> <li>       Note that both <a href="http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute">RDFa</a> and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values       alongside more human-friendly formatting. </li> <li>       Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols. </li> </ul>        
+        /// </summary>
         public static readonly Uri price=new Uri(BaseUri+"price");
-
+        
+        /// <summary>
+        /// How the procedure is performed.
+        /// </summary>
         public static readonly Uri howPerformed=new Uri(BaseUri+"howPerformed");
-
+        
+        /// <summary>
+        /// A secondary title of the CreativeWork.
+        /// </summary>
         public static readonly Uri alternativeHeadline=new Uri(BaseUri+"alternativeHeadline");
-
+        
+        /// <summary>
+        /// The number of seasons in this series.
+        /// </summary>
         public static readonly Uri numberOfSeasons=new Uri(BaseUri+"numberOfSeasons");
-
+        
+        /// <summary>
+        /// A short text or acronym indicating multiple price specifications for the same offer, e.g. SRP for the suggested retail price or INVOICE for the invoice price, mostly used in the car industry.
+        /// </summary>
         public static readonly Uri priceType=new Uri(BaseUri+"priceType");
-
+        
+        /// <summary>
+        /// Specific physiologic risks associated to the plan.
+        /// </summary>
         public static readonly Uri risks=new Uri(BaseUri+"risks");
-
+        
+        /// <summary>
+        /// The official name of the organization, e.g. the registered company name.
+        /// </summary>
         public static readonly Uri legalName=new Uri(BaseUri+"legalName");
-
+        
+        /// <summary>
+        /// The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
+        /// </summary>
         public static readonly Uri isicV4=new Uri(BaseUri+"isicV4");
-
+        
+        /// <summary>
+        /// How often one should engage in the activity.
+        /// </summary>
         public static readonly Uri activityFrequency=new Uri(BaseUri+"activityFrequency");
-
+        
+        /// <summary>
+        /// Type of ordering (e.g. Ascending, Descending, Unordered).
+        /// </summary>
         public static readonly Uri itemListOrder=new Uri(BaseUri+"itemListOrder");
-
+        
+        /// <summary>
+        /// Code used to redeem a discount.
+        /// </summary>
         public static readonly Uri discountCode=new Uri(BaseUri+"discountCode");
-
+        
+        /// <summary>
+        /// Genre of the creative work
+        /// </summary>
         public static readonly Uri genre=new Uri(BaseUri+"genre");
-
+        
+        /// <summary>
+        /// Typical or recommended followup care after the procedure is performed.
+        /// </summary>
         public static readonly Uri followup=new Uri(BaseUri+"followup");
-
+        
+        /// <summary>
+        /// The position of the creative work within a series or other ordered collection of works.
+        /// </summary>
         public static readonly Uri position=new Uri(BaseUri+"position");
-
+        
+        /// <summary>
+        /// Prerequisites needed to fulfill steps in article.
+        /// </summary>
         public static readonly Uri dependencies=new Uri(BaseUri+"dependencies");
-
+        
+        /// <summary>
+        /// A link to the page containing the comments of the CreativeWork.
+        /// </summary>
         public static readonly Uri discussionUrl=new Uri(BaseUri+"discussionUrl");
-
+        
+        /// <summary>
+        /// The distance of the flight.
+        /// </summary>
         public static readonly Uri flightDistance=new Uri(BaseUri+"flightDistance");
-
+        
+        /// <summary>
+        /// Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated.
+        /// </summary>
         public static readonly Uri previousStartDate=new Uri(BaseUri+"previousStartDate");
-
+        
+        /// <summary>
+        /// A dosage form in which this drug/supplement is available, e.g. 'tablet', 'suspension', 'injection'.
+        /// </summary>
         public static readonly Uri dosageForm=new Uri(BaseUri+"dosageForm");
-
+        
+        /// <summary>
+        /// Description of the meals that will be provided or available for purchase.
+        /// </summary>
         public static readonly Uri mealService=new Uri(BaseUri+"mealService");
-
+        
+        /// <summary>
+        /// Any characteristics of the population used in the study, e.g. 'males under 65'.
+        /// </summary>
         public static readonly Uri population=new Uri(BaseUri+"population");
-
+        
+        /// <summary>
+        /// Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean, an URL at which reservations can be made or (for backwards compatibility) the strings <code>Yes</code> or <code>No</code>.
+        /// </summary>
         public static readonly Uri acceptsReservations=new Uri(BaseUri+"acceptsReservations");
-
+        
+        /// <summary>
+        /// The length of time it takes to prepare the recipe, in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 duration format</a>.
+        /// </summary>
         public static readonly Uri prepTime=new Uri(BaseUri+"prepTime");
-
+        
+        /// <summary>
+        /// The number of grams of fiber.
+        /// </summary>
         public static readonly Uri fiberContent=new Uri(BaseUri+"fiberContent");
-
+        
+        /// <summary>
+        /// The rating for the content.
+        /// </summary>
         public static readonly Uri ratingValue=new Uri(BaseUri+"ratingValue");
-
+        
+        /// <summary>
+        /// If this NewsArticle appears in print, this field indicates the name of the page on which the article is found. Please note that this field is intended for the exact page name (e.g. A5, B18).
+        /// </summary>
         public static readonly Uri printPage=new Uri(BaseUri+"printPage");
-
+        
+        /// <summary>
+        /// Specific qualifications required for this role.
+        /// </summary>
         public static readonly Uri qualifications=new Uri(BaseUri+"qualifications");
-
+        
+        /// <summary>
+        /// Headline of the article
+        /// </summary>
         public static readonly Uri headline=new Uri(BaseUri+"headline");
-
+        
+        /// <summary>
+        /// The number of children staying in the unit.
+        /// </summary>
         public static readonly Uri numChildren=new Uri(BaseUri+"numChildren");
-
+        
+        /// <summary>
+        /// The edition of the print product in which the NewsArticle appears.
+        /// </summary>
         public static readonly Uri printEdition=new Uri(BaseUri+"printEdition");
-
+        
+        /// <summary>
+        /// A sub property of location. The final location of the object or the agent after the action.
+        /// </summary>
         public static readonly Uri toLocation=new Uri(BaseUri+"toLocation");
-
+        
+        /// <summary>
+        /// mp3, mpeg4, etc.
+        /// </summary>
         public static readonly Uri encodingFormat=new Uri(BaseUri+"encodingFormat");
-
+        
+        /// <summary>
+        /// A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.
+        /// </summary>
         public static readonly Uri circle=new Uri(BaseUri+"circle");
-
+        
+        /// <summary>
+        /// Features or modules provided by this application (and possibly required by other applications).
+        /// </summary>
         public static readonly Uri featureList=new Uri(BaseUri+"featureList");
-
+        
+        /// <summary>
+        /// Range of acceptable values for a typical patient, when applicable.
+        /// </summary>
         public static readonly Uri normalRange=new Uri(BaseUri+"normalRange");
-
+        
+        /// <summary>
+        /// The caption for this object.
+        /// </summary>
         public static readonly Uri caption=new Uri(BaseUri+"caption");
-
+        
+        /// <summary>
+        /// Maximal age of the child
+        /// </summary>
         public static readonly Uri childMaxAge=new Uri(BaseUri+"childMaxAge");
-
+        
+        /// <summary>
+        /// The number of calories
+        /// </summary>
         public static readonly Uri calories=new Uri(BaseUri+"calories");
-
+        
+        /// <summary>
+        /// The unit in which the drug is measured, e.g. '5 mg tablet'.
+        /// </summary>
         public static readonly Uri drugUnit=new Uri(BaseUri+"drugUnit");
-
+        
+        /// <summary>
+        /// The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*.  Note that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions. 
+        /// </summary>
         public static readonly Uri endTime=new Uri(BaseUri+"endTime");
-
+        
+        /// <summary>
+        /// Type of app development: phone, Metro style, desktop, XBox, etc.
+        /// </summary>
         public static readonly Uri targetPlatform=new Uri(BaseUri+"targetPlatform");
-
+        
+        /// <summary>
+        /// Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).
+        /// </summary>
         public static readonly Uri requirements=new Uri(BaseUri+"requirements");
-
+        
+        /// <summary>
+        /// The exchange traded instrument associated with a Corporation object. The tickerSymbol is expressed as an exchange and an instrument name separated by a space character. For the exchange component of the tickerSymbol attribute, we reccommend using the controlled vocaulary of Market Identifier Codes (MIC) specified in ISO15022.
+        /// </summary>
         public static readonly Uri tickerSymbol=new Uri(BaseUri+"tickerSymbol");
-
+        
+        /// <summary>
+        /// Date order was placed.
+        /// </summary>
         public static readonly Uri orderDate=new Uri(BaseUri+"orderDate");
-
+        
+        /// <summary>
+        /// The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
+        /// </summary>
         public static readonly Uri mpn=new Uri(BaseUri+"mpn");
-
+        
+        /// <summary>
+        /// Any precaution, guidance, contraindication, etc. related to this drug's use during pregnancy.
+        /// </summary>
         public static readonly Uri pregnancyWarning=new Uri(BaseUri+"pregnancyWarning");
-
+        
+        /// <summary>
+        /// The number of milligrams of cholesterol.
+        /// </summary>
         public static readonly Uri cholesterolContent=new Uri(BaseUri+"cholesterolContent");
-
+        
+        /// <summary>
+        /// Quantitative measure gauging the degree of force involved in the exercise, for example, heartbeats per minute. May include the velocity of the movement.
+        /// </summary>
         public static readonly Uri intensity=new Uri(BaseUri+"intensity");
-
+        
+        /// <summary>
+        /// A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space.
+        /// </summary>
         public static readonly Uri line=new Uri(BaseUri+"line");
-
+        
+        /// <summary>
+        /// How often the dose is taken, e.g. 'daily'.
+        /// </summary>
         public static readonly Uri frequency=new Uri(BaseUri+"frequency");
-
+        
+        /// <summary>
+        /// The estimated time the flight will take.
+        /// </summary>
         public static readonly Uri estimatedFlightDuration=new Uri(BaseUri+"estimatedFlightDuration");
-
+        
+        /// <summary>
+        /// The number of words in the text of the Article.
+        /// </summary>
         public static readonly Uri wordCount=new Uri(BaseUri+"wordCount");
-
+        
+        /// <summary>
+        /// The date that this organization was dissolved.
+        /// </summary>
         public static readonly Uri dissolutionDate=new Uri(BaseUri+"dissolutionDate");
-
+        
+        /// <summary>
+        /// Any precaution, guidance, contraindication, etc. related to consumption of specific foods while taking this drug.
+        /// </summary>
         public static readonly Uri foodWarning=new Uri(BaseUri+"foodWarning");
-
+        
+        /// <summary>
+        /// The base salary of the job.
+        /// </summary>
         public static readonly Uri baseSalary=new Uri(BaseUri+"baseSalary");
-
+        
+        /// <summary>
+        /// A description of the workup, testing, and other preparations required before implanting this device.
+        /// </summary>
         public static readonly Uri preOp=new Uri(BaseUri+"preOp");
-
+        
+        /// <summary>
+        /// Proficiency needed for this content; expected values: 'Beginner', 'Expert'.
+        /// </summary>
         public static readonly Uri proficiencyLevel=new Uri(BaseUri+"proficiencyLevel");
-
+        
+        /// <summary>
+        /// Device required to run the application. Used in cases where a specific make/model is required to run the application.
+        /// </summary>
         public static readonly Uri device=new Uri(BaseUri+"device");
-
+        
+        /// <summary>
+        /// Link to prescribing information for the drug.
+        /// </summary>
         public static readonly Uri prescribingInfo=new Uri(BaseUri+"prescribingInfo");
-
+        
+        /// <summary>
+        /// The purpose of a work in the context of education; for example, 'assignment', 'group work'.
+        /// </summary>
         public static readonly Uri educationalUse=new Uri(BaseUri+"educationalUse");
-
+        
+        /// <summary>
+        /// Description of bonus and commission compensation aspects of the job.
+        /// </summary>
         public static readonly Uri incentives=new Uri(BaseUri+"incentives");
-
+        
+        /// <summary>
+        /// Category or categories describing the job. Use BLS O*NET-SOC taxonomy: http://www.onetcenter.org/taxonomy.html. Ideally includes textual label and formal code, with the property repeated for each applicable value.
+        /// </summary>
         public static readonly Uri occupationalCategory=new Uri(BaseUri+"occupationalCategory");
-
+        
+        /// <summary>
+        /// A set of links that can help a user understand and navigate a website hierarchy.
+        /// </summary>
         public static readonly Uri breadcrumb=new Uri(BaseUri+"breadcrumb");
-
+        
+        /// <summary>
+        /// The name of the application suite to which the application belongs (e.g. Excel belongs to Office)
+        /// </summary>
         public static readonly Uri applicationSuite=new Uri(BaseUri+"applicationSuite");
-
+        
+        /// <summary>
+        /// The total price for the reservation or ticket, including applicable taxes, shipping, etc.
+        /// </summary>
         public static readonly Uri totalPrice=new Uri(BaseUri+"totalPrice");
-
+        
+        /// <summary>
+        /// The row location of the reserved seat (e.g., B).
+        /// </summary>
         public static readonly Uri seatRow=new Uri(BaseUri+"seatRow");
-
+        
+        /// <summary>
+        /// The actual body of the review.
+        /// </summary>
         public static readonly Uri reviewBody=new Uri(BaseUri+"reviewBody");
-
+        
+        /// <summary>
+        /// The latest someone may check out of a lodging establishment.
+        /// </summary>
         public static readonly Uri checkoutTime=new Uri(BaseUri+"checkoutTime");
-
+        
+        /// <summary>
+        /// The cuisine of the restaurant.
+        /// </summary>
         public static readonly Uri servesCuisine=new Uri(BaseUri+"servesCuisine");
-
+        
+        /// <summary>
+        /// The end of the availability of the product or service included in the offer.
+        /// </summary>
         public static readonly Uri availabilityEnds=new Uri(BaseUri+"availabilityEnds");
-
+        
+        /// <summary>
+        /// Number of times one should repeat the activity.
+        /// </summary>
         public static readonly Uri repetitions=new Uri(BaseUri+"repetitions");
-
+        
+        /// <summary>
+        /// Whether multiple values are allowed for the property.  Default is false.
+        /// </summary>
         public static readonly Uri multipleValues=new Uri(BaseUri+"multipleValues");
-
+        
+        /// <summary>
+        /// An active ingredient, typically chemical compounds and/or biologic substances.
+        /// </summary>
         public static readonly Uri activeIngredient=new Uri(BaseUri+"activeIngredient");
-
+        
+        /// <summary>
+        /// The biomechanical properties of the bone.
+        /// </summary>
         public static readonly Uri biomechnicalClass=new Uri(BaseUri+"biomechnicalClass");
-
+        
+        /// <summary>
+        /// An url template (RFC6570) that will be used to construct the target of the execution of the action.
+        /// </summary>
         public static readonly Uri urlTemplate=new Uri(BaseUri+"urlTemplate");
-
+        
+        /// <summary>
+        /// The date on which the CreativeWork was most recently modified.
+        /// </summary>
         public static readonly Uri dateModified=new Uri(BaseUri+"dateModified");
-
+        
+        /// <summary>
+        /// A logo associated with an organization.
+        /// </summary>
         public static readonly Uri logo=new Uri(BaseUri+"logo");
-
+        
+        /// <summary>
+        /// When the item is available for pickup from the store, locker, etc.
+        /// </summary>
         public static readonly Uri availableFrom=new Uri(BaseUri+"availableFrom");
-
+        
+        /// <summary>
+        /// MIME format of the binary (e.g. application/zip).
+        /// </summary>
         public static readonly Uri fileFormat=new Uri(BaseUri+"fileFormat");
-
+        
+        /// <summary>
+        /// A unique identifier for the reservation.
+        /// </summary>
         public static readonly Uri reservationId=new Uri(BaseUri+"reservationId");
-
+        
+        /// <summary>
+        /// Actual bytes of the media object, for example the image file or video file. (previous spelling: contentURL)
+        /// </summary>
         public static readonly Uri contentUrl=new Uri(BaseUri+"contentUrl");
-
+        
+        /// <summary>
+        /// The frame size of the video.
+        /// </summary>
         public static readonly Uri videoFrameSize=new Uri(BaseUri+"videoFrameSize");
-
+        
+        /// <summary>
+        /// The type of tissue sample required for the test.
+        /// </summary>
         public static readonly Uri tissueSample=new Uri(BaseUri+"tissueSample");
-
+        
+        /// <summary>
+        /// The cuisine of the recipe (for example, French or Ethiopian).
+        /// </summary>
         public static readonly Uri recipeCuisine=new Uri(BaseUri+"recipeCuisine");
-
+        
+        /// <summary>
+        /// Date when this media object was uploaded to this site.
+        /// </summary>
         public static readonly Uri uploadDate=new Uri(BaseUri+"uploadDate");
-
+        
+        /// <summary>
+        /// File size in (mega/kilo) bytes.
+        /// </summary>
         public static readonly Uri contentSize=new Uri(BaseUri+"contentSize");
-
+        
+        /// <summary>
+        /// The framework to which the resource being described is aligned.
+        /// </summary>
         public static readonly Uri educationalFramework=new Uri(BaseUri+"educationalFramework");
-
+        
+        /// <summary>
+        /// The name of a node in an established educational framework.
+        /// </summary>
         public static readonly Uri targetName=new Uri(BaseUri+"targetName");
-
+        
+        /// <summary>
+        /// The airline-specific indicator of boarding order / preference.
+        /// </summary>
         public static readonly Uri boardingGroup=new Uri(BaseUri+"boardingGroup");
-
+        
+        /// <summary>
+        /// The Dun & Bradstreet DUNS number for identifying an organization or business person.
+        /// </summary>
         public static readonly Uri duns=new Uri(BaseUri+"duns");
-
+        
+        /// <summary>
+        /// Library file name e.g., mscorlib.dll, system.web.dll
+        /// </summary>
         public static readonly Uri assembly=new Uri(BaseUri+"assembly");
-
+        
+        /// <summary>
+        /// The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
+        /// </summary>
         public static readonly Uri taxID=new Uri(BaseUri+"taxID");
-
+        
+        /// <summary>
+        /// The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.)           domain: Audience           Range: Text         
+        /// </summary>
         public static readonly Uri audienceType=new Uri(BaseUri+"audienceType");
-
+        
+        /// <summary>
+        /// The expected departure time.
+        /// </summary>
         public static readonly Uri departureTime=new Uri(BaseUri+"departureTime");
-
+        
+        /// <summary>
+        /// Strength of the guideline's recommendation (e.g. 'class I').
+        /// </summary>
         public static readonly Uri recommendationStrength=new Uri(BaseUri+"recommendationStrength");
-
+        
+        /// <summary>
+        /// The likely outcome in either the short term or long term of the medical condition.
+        /// </summary>
         public static readonly Uri expectedPrognosis=new Uri(BaseUri+"expectedPrognosis");
-
+        
+        /// <summary>
+        /// Any precaution, guidance, contraindication, etc. related to this drug's use by breastfeeding mothers.
+        /// </summary>
         public static readonly Uri breastfeedingWarning=new Uri(BaseUri+"breastfeedingWarning");
-
+        
+        /// <summary>
+        /// When a rental car can be dropped off.
+        /// </summary>
         public static readonly Uri dropoffTime=new Uri(BaseUri+"dropoffTime");
-
+        
+        /// <summary>
+        /// URL at which the app may be installed, if different from the URL of the item.
+        /// </summary>
         public static readonly Uri installUrl=new Uri(BaseUri+"installUrl");
-
+        
+        /// <summary>
+        /// The type of the medical article, taken from the US NLM MeSH <a href=http://www.nlm.nih.gov/mesh/pubtypes.html>publication type catalog.
+        /// </summary>
         public static readonly Uri publicationType=new Uri(BaseUri+"publicationType");
-
+        
+        /// <summary>
+        /// The time it takes to actually cook the dish, in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 duration format</a>.
+        /// </summary>
         public static readonly Uri cookTime=new Uri(BaseUri+"cookTime");
-
+        
+        /// <summary>
+        /// The steps to make the dish.
+        /// </summary>
         public static readonly Uri recipeInstructions=new Uri(BaseUri+"recipeInstructions");
-
+        
+        /// <summary>
+        /// A single list item.
+        /// </summary>
         public static readonly Uri itemListElement=new Uri(BaseUri+"itemListElement");
-
+        
+        /// <summary>
+        /// Gender of the person.
+        /// </summary>
         public static readonly Uri gender=new Uri(BaseUri+"gender");
-
+        
+        /// <summary>
+        /// The gender of the person or audience.
+        /// </summary>
         public static readonly Uri suggestedGender=new Uri(BaseUri+"suggestedGender");
-
+        
+        /// <summary>
+        /// The earliest someone may check into a lodging establishment.
+        /// </summary>
         public static readonly Uri checkinTime=new Uri(BaseUri+"checkinTime");
-
+        
+        /// <summary>
+        /// Player type required&#x2014;for example, Flash or Silverlight.
+        /// </summary>
         public static readonly Uri playerType=new Uri(BaseUri+"playerType");
-
+        
+        /// <summary>
+        /// A sub property of object. A question.
+        /// </summary>
         public static readonly Uri question=new Uri(BaseUri+"question");
-
+        
+        /// <summary>
+        /// The upper value of some characteristic or property.
+        /// </summary>
         public static readonly Uri maxValue=new Uri(BaseUri+"maxValue");
-
+        
+        /// <summary>
+        /// A URL pointing to a player for a specific video. In general, this is the information in the <code>src</code> element of an <code>embed</code> tag and should not be the same as the content of the <code>loc</code> tag. (previous spelling: embedURL)
+        /// </summary>
         public static readonly Uri embedUrl=new Uri(BaseUri+"embedUrl");
-
+        
+        /// <summary>
+        /// A position played, performed or filled by a person or organization, as part of an organization. For example, an athlete in a SportsTeam might play in the position named 'Quarterback'.
+        /// </summary>
         public static readonly Uri namedPosition=new Uri(BaseUri+"namedPosition");
-
+        
+        /// <summary>
+        /// A license document that applies to this content, typically indicated by URL.
+        /// </summary>
         public static readonly Uri license=new Uri(BaseUri+"license");
-
+        
+        /// <summary>
+        /// Date of birth.
+        /// </summary>
         public static readonly Uri birthDate=new Uri(BaseUri+"birthDate");
-
+        
+        /// <summary>
+        /// Official rating of a piece of content&#x2014;for example,'MPAA PG-13'.
+        /// </summary>
         public static readonly Uri contentRating=new Uri(BaseUri+"contentRating");
-
+        
+        /// <summary>
+        /// The bitrate of the media object.
+        /// </summary>
         public static readonly Uri bitrate=new Uri(BaseUri+"bitrate");
-
+        
+        /// <summary>
+        /// Specifies the minimum allowed range for number of characters in a literal value.
+        /// </summary>
         public static readonly Uri valueMinLength=new Uri(BaseUri+"valueMinLength");
-
+        
+        /// <summary>
+        /// The program providing the membership.
+        /// </summary>
         public static readonly Uri programName=new Uri(BaseUri+"programName");
-
+        
+        /// <summary>
+        /// The number of milligrams of sodium.
+        /// </summary>
         public static readonly Uri sodiumContent=new Uri(BaseUri+"sodiumContent");
-
+        
+        /// <summary>
+        /// The text of the UserComment.
+        /// </summary>
         public static readonly Uri commentText=new Uri(BaseUri+"commentText");
-
+        
+        /// <summary>
+        /// The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December.  Note that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions. 
+        /// </summary>
         public static readonly Uri startTime=new Uri(BaseUri+"startTime");
-
+        
+        /// <summary>
+        /// Either the actual menu or a URL of the menu.
+        /// </summary>
         public static readonly Uri menu=new Uri(BaseUri+"menu");
-
+        
+        /// <summary>
+        /// The latest date the package may arrive.
+        /// </summary>
         public static readonly Uri expectedArrivalUntil=new Uri(BaseUri+"expectedArrivalUntil");
-
+        
+        /// <summary>
+        /// If this NewsArticle appears in print, this field indicates the print section in which the article appeared.
+        /// </summary>
         public static readonly Uri printSection=new Uri(BaseUri+"printSection");
-
+        
+        /// <summary>
+        /// The serving size, in terms of the number of volume or mass.
+        /// </summary>
         public static readonly Uri servingSize=new Uri(BaseUri+"servingSize");
-
+        
+        /// <summary>
+        /// The quantity of the goods included in the offer.
+        /// </summary>
         public static readonly Uri amountOfThisGood=new Uri(BaseUri+"amountOfThisGood");
-
+        
+        /// <summary>
+        /// The number of offers for the product.
+        /// </summary>
         public static readonly Uri offerCount=new Uri(BaseUri+"offerCount");
-
+        
+        /// <summary>
+        /// The version of the CreativeWork embodied by a specified resource.
+        /// </summary>
         public static readonly Uri version=new Uri(BaseUri+"version");
-
+        
+        /// <summary>
+        /// The expected arrival time.
+        /// </summary>
         public static readonly Uri arrivalTime=new Uri(BaseUri+"arrivalTime");
-
+        
+        /// <summary>
+        /// The closing hour of the place or service on the given day(s) of the week.
+        /// </summary>
         public static readonly Uri closes=new Uri(BaseUri+"closes");
-
+        
+        /// <summary>
+        /// The product identifier, such as ISBN. For example: <code>&lt;meta itemprop='productID' content='isbn:123-456-789'/&gt;</code>.
+        /// </summary>
         public static readonly Uri productID=new Uri(BaseUri+"productID");
-
+        
+        /// <summary>
+        /// An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint. Values are capitalized strings as used in HTTP.
+        /// </summary>
         public static readonly Uri httpMethod=new Uri(BaseUri+"httpMethod");
-
+        
+        /// <summary>
+        /// An ingredient used in the recipe.
+        /// </summary>
         public static readonly Uri ingredients=new Uri(BaseUri+"ingredients");
-
+        
+        /// <summary>
+        /// The URL for sending a payment.
+        /// </summary>
         public static readonly Uri paymentUrl=new Uri(BaseUri+"paymentUrl");
-
+        
+        /// <summary>
+        /// The method of cooking, such as Frying, Steaming, ...
+        /// </summary>
         public static readonly Uri cookingMethod=new Uri(BaseUri+"cookingMethod");
-
+        
+        /// <summary>
+        /// A category of alignment between the learning resource and the framework node. Recommended values include: 'assesses', 'teaches', 'requires', 'textComplexity', 'readingLevel', 'educationalSubject', and 'educationLevel'.
+        /// </summary>
         public static readonly Uri alignmentType=new Uri(BaseUri+"alignmentType");
-
+        
+        /// <summary>
+        /// Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the Name property.
+        /// </summary>
         public static readonly Uri familyName=new Uri(BaseUri+"familyName");
-
+        
+        /// <summary>
+        /// The duration of the item (movie, audio recording, event, etc.) in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>.
+        /// </summary>
         public static readonly Uri duration=new Uri(BaseUri+"duration");
-
+        
+        /// <summary>
+        /// A link to a screenshot image of the app.
+        /// </summary>
         public static readonly Uri screenshot=new Uri(BaseUri+"screenshot");
-
+        
+        /// <summary>
+        /// Cash, credit card, etc.
+        /// </summary>
         public static readonly Uri paymentAccepted=new Uri(BaseUri+"paymentAccepted");
-
+        
+        /// <summary>
+        /// The actual infectious agent, such as a specific bacterium.
+        /// </summary>
         public static readonly Uri infectiousAgent=new Uri(BaseUri+"infectiousAgent");
-
+        
+        /// <summary>
+        /// Skills required to fulfill this role.
+        /// </summary>
         public static readonly Uri skills=new Uri(BaseUri+"skills");
-
+        
+        /// <summary>
+        /// The currency (coded using ISO 4217, http://en.wikipedia.org/wiki/ISO_4217 used for the main salary information in this job posting.
+        /// </summary>
         public static readonly Uri salaryCurrency=new Uri(BaseUri+"salaryCurrency");
-
+        
+        /// <summary>
+        /// The number of grams of unsaturated fat.
+        /// </summary>
         public static readonly Uri unsaturatedFatContent=new Uri(BaseUri+"unsaturatedFatContent");
-
+        
+        /// <summary>
+        /// The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.
+        /// </summary>
         public static readonly Uri worstRating=new Uri(BaseUri+"worstRating");
-
+        
+        /// <summary>
+        /// Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports, Lifestyle, etc.
+        /// </summary>
         public static readonly Uri articleSection=new Uri(BaseUri+"articleSection");
-
+        
+        /// <summary>
+        /// The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.
+        /// </summary>
         public static readonly Uri bestRating=new Uri(BaseUri+"bestRating");
-
+        
+        /// <summary>
+        /// The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.
+        /// </summary>
         public static readonly Uri learningResourceType=new Uri(BaseUri+"learningResourceType");
-
+        
+        /// <summary>
+        /// The number of grams of saturated fat.
+        /// </summary>
         public static readonly Uri saturatedFatContent=new Uri(BaseUri+"saturatedFatContent");
-
+        
+        /// <summary>
+        /// The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere.
+        /// </summary>
         public static readonly Uri commentCount=new Uri(BaseUri+"commentCount");
-
+        
+        /// <summary>
+        /// The job title of the person (for example, Financial Manager).
+        /// </summary>
         public static readonly Uri jobTitle=new Uri(BaseUri+"jobTitle");
-
+        
+        /// <summary>
+        /// Identifies the volume of publication or multi-part work; for example, "iii" or "2".
+        /// </summary>
         public static readonly Uri volumeNumber=new Uri(BaseUri+"volumeNumber");
-
+        
+        /// <summary>
+        /// How the disease spreads, either as a route or vector, for example 'direct contact', 'Aedes aegypti', etc.
+        /// </summary>
         public static readonly Uri transmissionMethod=new Uri(BaseUri+"transmissionMethod");
-
+        
+        /// <summary>
+        /// The date and time the reservation was booked.
+        /// </summary>
         public static readonly Uri bookingTime=new Uri(BaseUri+"bookingTime");
-
+        
+        /// <summary>
+        /// Reference to an asset (e.g., Barcode, QR code image or PDF) usable for entrance.
+        /// </summary>
         public static readonly Uri ticketToken=new Uri(BaseUri+"ticketToken");
-
+        
+        /// <summary>
+        /// Specifies the allowed range for number of characters in a literal value.
+        /// </summary>
         public static readonly Uri valueMaxLength=new Uri(BaseUri+"valueMaxLength");
-
+        
+        /// <summary>
+        /// Countries for which the application is supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
+        /// </summary>
         public static readonly Uri countriesSupported=new Uri(BaseUri+"countriesSupported");
-
+        
+        /// <summary>
+        /// The website to access the service.
+        /// </summary>
         public static readonly Uri serviceUrl=new Uri(BaseUri+"serviceUrl");
-
+        
+        /// <summary>
+        /// The unique identifier for a flight including the airline IATA code. For example, if describing United flight 110, where the IATA code for United is 'UA', the flightNumber is 'UA110'.
+        /// </summary>
         public static readonly Uri flightNumber=new Uri(BaseUri+"flightNumber");
-
+        
+        /// <summary>
+        /// Specifies specific carrier(s) requirements for the application (e.g. an application may only work on a specific carrier network).
+        /// </summary>
         public static readonly Uri carrierRequirements=new Uri(BaseUri+"carrierRequirements");
-
+        
+        /// <summary>
+        /// The coding system, e.g. 'ICD-10'.
+        /// </summary>
         public static readonly Uri codingSystem=new Uri(BaseUri+"codingSystem");
-
+        
+        /// <summary>
+        /// The value of the product characteristic.
+        /// </summary>
         public static readonly Uri value=new Uri(BaseUri+"value");
-
+        
+        /// <summary>
+        /// The lower value of some characteristic or property.
+        /// </summary>
         public static readonly Uri minValue=new Uri(BaseUri+"minValue");
-
+        
+        /// <summary>
+        /// The edition of the book.
+        /// </summary>
         public static readonly Uri bookEdition=new Uri(BaseUri+"bookEdition");
-
+        
+        /// <summary>
+        /// The phase of the trial.
+        /// </summary>
         public static readonly Uri phase=new Uri(BaseUri+"phase");
-
+        
+        /// <summary>
+        /// The movement the muscle generates.
+        /// </summary>
         public static readonly Uri muscleAction=new Uri(BaseUri+"muscleAction");
-
+        
+        /// <summary>
+        /// Expected or actual outcomes of the study.
+        /// </summary>
         public static readonly Uri outcome=new Uri(BaseUri+"outcome");
-
+        
+        /// <summary>
+        /// Any potential safety concern associated with the supplement. May include interactions with other drugs and foods, pregnancy, breastfeeding, known adverse reactions, and documented efficacy of the supplement.
+        /// </summary>
         public static readonly Uri safetyConsideration=new Uri(BaseUri+"safetyConsideration");
-
+        
+        /// <summary>
+        /// The time admission will commence.
+        /// </summary>
         public static readonly Uri doorTime=new Uri(BaseUri+"doorTime");
-
+        
+        /// <summary>
+        /// The date the ticket was issued.
+        /// </summary>
         public static readonly Uri dateIssued=new Uri(BaseUri+"dateIssued");
-
+        
+        /// <summary>
+        /// A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.
+        /// </summary>
         public static readonly Uri box=new Uri(BaseUri+"box");
-
+        
+        /// <summary>
+        /// A URL to a map of the place.
+        /// </summary>
         public static readonly Uri hasMap=new Uri(BaseUri+"hasMap");
-
+        
+        /// <summary>
+        /// The lowest price of all offers available.
+        /// </summary>
         public static readonly Uri lowPrice=new Uri(BaseUri+"lowPrice");
-
+        
+        /// <summary>
+        /// Whether the property must be filled in to complete the action.  Default is false.
+        /// </summary>
         public static readonly Uri valueRequired=new Uri(BaseUri+"valueRequired");
-
+        
+        /// <summary>
+        /// Description of skills and experience needed for the position.
+        /// </summary>
         public static readonly Uri experienceRequirements=new Uri(BaseUri+"experienceRequirements");
-
+        
+        /// <summary>
+        /// If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
+        /// </summary>
         public static readonly Uri transcript=new Uri(BaseUri+"transcript");
-
+        
+        /// <summary>
+        /// The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification and its subtypes.
+        /// </summary>
         public static readonly Uri priceCurrency=new Uri(BaseUri+"priceCurrency");
-
+        
+        /// <summary>
+        /// Specific physiologic benefits associated to the plan.
+        /// </summary>
         public static readonly Uri physiologicalBenefits=new Uri(BaseUri+"physiologicalBenefits");
-
+        
+        /// <summary>
+        /// The page on which the work starts; for example "135" or "xiii".
+        /// </summary>
         public static readonly Uri pageStart=new Uri(BaseUri+"pageStart");
-
+        
+        /// <summary>
+        /// The date after which the price is no longer available.
+        /// </summary>
         public static readonly Uri priceValidUntil=new Uri(BaseUri+"priceValidUntil");
-
+        
+        /// <summary>
+        /// The beginning of the availability of the product or service included in the offer.
+        /// </summary>
         public static readonly Uri availabilityStarts=new Uri(BaseUri+"availabilityStarts");
-
+        
+        /// <summary>
+        /// The region. For example, CA.
+        /// </summary>
         public static readonly Uri addressRegion=new Uri(BaseUri+"addressRegion");
-
+        
+        /// <summary>
+        /// The name of a character played in some acting or performing role, i.e. in a PerformanceRole.
+        /// </summary>
         public static readonly Uri characterName=new Uri(BaseUri+"characterName");
-
+        
+        /// <summary>
+        /// The number of grams of sugar.
+        /// </summary>
         public static readonly Uri sugarContent=new Uri(BaseUri+"sugarContent");
-
+        
+        /// <summary>
+        /// The latitude of a location. For example <code>37.42242</code>.
+        /// </summary>
         public static readonly Uri latitude=new Uri(BaseUri+"latitude");
-
+        
+        /// <summary>
+        /// Any precaution, guidance, contraindication, etc. related to consumption of alcohol while taking this drug.
+        /// </summary>
         public static readonly Uri alcoholWarning=new Uri(BaseUri+"alcoholWarning");
-
+        
+        /// <summary>
+        /// Indicates whether API is managed or unmanaged.
+        /// </summary>
         public static readonly Uri programmingModel=new Uri(BaseUri+"programmingModel");
-
+        
+        /// <summary>
+        /// Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB will be assumed.
+        /// </summary>
         public static readonly Uri fileSize=new Uri(BaseUri+"fileSize");
-
+        
+        /// <summary>
+        /// Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the Name property.
+        /// </summary>
         public static readonly Uri givenName=new Uri(BaseUri+"givenName");
-
+        
+        /// <summary>
+        /// The date on which the CreativeWork was created.
+        /// </summary>
         public static readonly Uri dateCreated=new Uri(BaseUri+"dateCreated");
-
+        
+        /// <summary>
+        /// The location of the reserved seat (e.g., 27).
+        /// </summary>
         public static readonly Uri seatNumber=new Uri(BaseUri+"seatNumber");
-
+        
+        /// <summary>
+        /// The end date and time of the role, event or item (in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>).
+        /// </summary>
         public static readonly Uri endDate=new Uri(BaseUri+"endDate");
-
+        
+        /// <summary>
+        /// The date when the item becomes valid.
+        /// </summary>
         public static readonly Uri validFrom=new Uri(BaseUri+"validFrom");
-
+        
+        /// <summary>
+        /// IATA identifier for an airline or airport
+        /// </summary>
         public static readonly Uri iataCode=new Uri(BaseUri+"iataCode");
-
+        
+        /// <summary>
+        /// The section location of the reserved seat (e.g. Orchestra).
+        /// </summary>
         public static readonly Uri seatSection=new Uri(BaseUri+"seatSection");
-
+        
+        /// <summary>
+        /// An honorific prefix preceding a Person's name such as Dr/Mrs/Mr.
+        /// </summary>
         public static readonly Uri honorificPrefix=new Uri(BaseUri+"honorificPrefix");
-
+        
+        /// <summary>
+        /// Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'P30M', 'P1H25M'.
+        /// </summary>
         public static readonly Uri timeRequired=new Uri(BaseUri+"timeRequired");
-
+        
+        /// <summary>
+        /// Descriptive information establishing a historical perspective on the supplement. May include the rationale for the name, the population where the supplement first came to prominence, etc.
+        /// </summary>
         public static readonly Uri background=new Uri(BaseUri+"background");
-
+        
+        /// <summary>
+        /// The distance travelled, e.g. exercising or travelling.
+        /// </summary>
         public static readonly Uri distance=new Uri(BaseUri+"distance");
-
+        
+        /// <summary>
+        /// True if this item's name is a proprietary/brand name (vs. generic name).
+        /// </summary>
         public static readonly Uri isProprietary=new Uri(BaseUri+"isProprietary");
-
+        
+        /// <summary>
+        /// If the file can be downloaded, URL to download the binary.
+        /// </summary>
         public static readonly Uri downloadUrl=new Uri(BaseUri+"downloadUrl");
-
+        
+        /// <summary>
+        /// The <a href="http://apps.gs1.org/GDD/glossary/Pages/GTIN-8.aspx">GTIN-8</a> code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See <a href="http://www.gs1.org/barcodes/technical/idkeys/gtin">GS1 GTIN Summary</a> for more details.
+        /// </summary>
         public static readonly Uri gtin8=new Uri(BaseUri+"gtin8");
-
+        
+        /// <summary>
+        /// Minimal age recommended for viewing content.
+        /// </summary>
         public static readonly Uri suggestedMinAge=new Uri(BaseUri+"suggestedMinAge");
-
+        
+        /// <summary>
+        /// A sub property of location. The original location of the object or the agent before the action.
+        /// </summary>
         public static readonly Uri fromLocation=new Uri(BaseUri+"fromLocation");
-
+        
+        /// <summary>
+        /// The longitude of a location. For example <code>-122.08585</code>.
+        /// </summary>
         public static readonly Uri longitude=new Uri(BaseUri+"longitude");
-
+        
+        /// <summary>
+        /// The industry associated with the job position.
+        /// </summary>
         public static readonly Uri industry=new Uri(BaseUri+"industry");
-
+        
+        /// <summary>
+        /// Operating systems supported (Windows 7, OSX 10.6, Android 1.6).
+        /// </summary>
         public static readonly Uri operatingSystem=new Uri(BaseUri+"operatingSystem");
-
+        
+        /// <summary>
+        /// The total time it takes to prepare and cook the recipe, in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 duration format</a>.
+        /// </summary>
         public static readonly Uri totalTime=new Uri(BaseUri+"totalTime");
-
+        
+        /// <summary>
+        /// Proprietary name given to the diet plan, typically by its originator or creator.
+        /// </summary>
         public static readonly Uri proprietaryName=new Uri(BaseUri+"proprietaryName");
-
+        
+        /// <summary>
+        /// The number of grams of carbohydrates.
+        /// </summary>
         public static readonly Uri carbohydrateContent=new Uri(BaseUri+"carbohydrateContent");
-
+        
+        /// <summary>
+        /// The degree of mobility the joint allows.
+        /// </summary>
         public static readonly Uri functionalClass=new Uri(BaseUri+"functionalClass");
-
+        
+        /// <summary>
+        /// Number of people the reservation should accommodate.
+        /// </summary>
         public static readonly Uri partySize=new Uri(BaseUri+"partySize");
-
+        
+        /// <summary>
+        /// Link to the repository where the un-compiled, human readable code and related code is located (SVN, github, CodePlex)
+        /// </summary>
         public static readonly Uri codeRepository=new Uri(BaseUri+"codeRepository");
-
+        
+        /// <summary>
+        /// This property specifies the minimal quantity and rounding increment that will be the basis for the billing. The unit of measurement is specified by the unitCode property.
+        /// </summary>
         public static readonly Uri billingIncrement=new Uri(BaseUri+"billingIncrement");
-
+        
+        /// <summary>
+        /// Function of the anatomical structure.
+        /// </summary>
         public static readonly Uri function=new Uri(BaseUri+"function");
-
+        
+        /// <summary>
+        /// The currency accepted (in <a href='http://en.wikipedia.org/wiki/ISO_4217'>ISO 4217 currency format</a>).
+        /// </summary>
         public static readonly Uri currenciesAccepted=new Uri(BaseUri+"currenciesAccepted");
-
+        
+        /// <summary>
+        /// The time the object is scheduled to.
+        /// </summary>
         public static readonly Uri scheduledTime=new Uri(BaseUri+"scheduledTime");
-
+        
+        /// <summary>
+        /// How often one should break from the activity.
+        /// </summary>
         public static readonly Uri restPeriods=new Uri(BaseUri+"restPeriods");
-
+        
+        /// <summary>
+        /// An educationalRole of an EducationalAudience
+        /// </summary>
         public static readonly Uri educationalRole=new Uri(BaseUri+"educationalRole");
-
+        
+        /// <summary>
+        /// An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
+        /// </summary>
         public static readonly Uri paymentMethodId=new Uri(BaseUri+"paymentMethodId");
-
+        
+        /// <summary>
+        /// Characteristics of the population for which this is intended, or which typically uses it, e.g. 'adults'.
+        /// </summary>
         public static readonly Uri targetPopulation=new Uri(BaseUri+"targetPopulation");
-
+        
+        /// <summary>
+        /// Description of the absorption and elimination of drugs, including their concentration (pharmacokinetics, pK) and biological effects (pharmacodynamics, pD).
+        /// </summary>
         public static readonly Uri clincalPharmacology=new Uri(BaseUri+"clincalPharmacology");
-
+        
+        /// <summary>
+        /// Shipper tracking number.
+        /// </summary>
         public static readonly Uri trackingNumber=new Uri(BaseUri+"trackingNumber");
-
+        
+        /// <summary>
+        /// The date that payment is due.
+        /// </summary>
         public static readonly Uri paymentDue=new Uri(BaseUri+"paymentDue");
-
+        
+        /// <summary>
+        /// The page on which the work ends; for example "138" or "xvi".
+        /// </summary>
         public static readonly Uri pageEnd=new Uri(BaseUri+"pageEnd");
-
+        
+        /// <summary>
+        /// Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3, .Net Framework 3.0)
+        /// </summary>
         public static readonly Uri runtime=new Uri(BaseUri+"runtime");
-
+        
+        /// <summary>
+        /// Associated product/technology version. e.g., .NET Framework 4.5
+        /// </summary>
         public static readonly Uri assemblyVersion=new Uri(BaseUri+"assemblyVersion");
-
+        
+        /// <summary>
+        /// A count of a specific user interactions with this item&#x2014;for example, <code>20 UserLikes</code>, <code>5 UserComments</code>, or <code>300 UserDownloads</code>. The user interaction type should be one of the sub types of <a href='UserInteraction'>UserInteraction</a>.
+        /// </summary>
         public static readonly Uri interactionCount=new Uri(BaseUri+"interactionCount");
-
+        
+        /// <summary>
+        /// An award won by this person or for this creative work.
+        /// </summary>
         public static readonly Uri award=new Uri(BaseUri+"award");
-
+        
+        /// <summary>
+        /// The quantity produced by the recipe (for example, number of people served, number of servings, etc).
+        /// </summary>
         public static readonly Uri recipeYield=new Uri(BaseUri+"recipeYield");
-
+        
+        /// <summary>
+        /// Educational background needed for the position.
+        /// </summary>
         public static readonly Uri educationRequirements=new Uri(BaseUri+"educationRequirements");
-
+        
+        /// <summary>
+        /// The telephone number.
+        /// </summary>
         public static readonly Uri telephone=new Uri(BaseUri+"telephone");
-
+        
+        /// <summary>
+        /// exif data for this object.
+        /// </summary>
         public static readonly Uri exifData=new Uri(BaseUri+"exifData");
-
+        
+        /// <summary>
+        /// Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork.
+        /// </summary>
         public static readonly Uri publishingPrinciples=new Uri(BaseUri+"publishingPrinciples");
-
+        
+        /// <summary>
+        /// An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW.
+        /// </summary>
         public static readonly Uri honorificSuffix=new Uri(BaseUri+"honorificSuffix");
-
+        
+        /// <summary>
+        /// The Value-added Tax ID of the organization or person.
+        /// </summary>
         public static readonly Uri vatID=new Uri(BaseUri+"vatID");
-
+        
+        /// <summary>
+        /// Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.
+        /// </summary>
         public static readonly Uri keywords=new Uri(BaseUri+"keywords");
-
+        
+        /// <summary>
+        /// An image of the item. This can be a <a href="http://schema.org/URL">URL</a> or a fully described <a href="http://schema.org/ImageObject">ImageObject</a>.
+        /// </summary>
         public static readonly Uri image=new Uri(BaseUri+"image");
-
+        
+        /// <summary>
+        /// Processor architecture required to run the application (e.g. IA64).
+        /// </summary>
         public static readonly Uri processorRequirements=new Uri(BaseUri+"processorRequirements");
-
+        
+        /// <summary>
+        /// Whether or not a property is mutable.  Default is false. Specifying this for a property that also has a value makes it act similar to a "hidden" input in an HTML form.
+        /// </summary>
         public static readonly Uri readonlyValue=new Uri(BaseUri+"readonlyValue");
-
+        
+        /// <summary>
+        /// Audiences defined by a person's gender.
+        /// </summary>
         public static readonly Uri requiredGender=new Uri(BaseUri+"requiredGender");
-
+        
+        /// <summary>
+        /// One of the more significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most.
+        /// </summary>
         public static readonly Uri significantLink=new Uri(BaseUri+"significantLink");
-
+        
+        /// <summary>
+        /// The locality. For example, Mountain View.
+        /// </summary>
         public static readonly Uri addressLocality=new Uri(BaseUri+"addressLocality");
-
+        
+        /// <summary>
+        /// Typical preparation that a patient must undergo before having the procedure performed.
+        /// </summary>
         public static readonly Uri preparation=new Uri(BaseUri+"preparation");
-
+        
+        /// <summary>
+        /// A URL to a map of the place.
+        /// </summary>
         public static readonly Uri map=new Uri(BaseUri+"map");
-
+        
+        /// <summary>
+        /// Audiences defined by a person's maximum age.
+        /// </summary>
         public static readonly Uri requiredMaxAge=new Uri(BaseUri+"requiredMaxAge");
-
+        
+        /// <summary>
+        /// Any information related to overdose on a drug, including signs or symptoms, treatments, contact information for emergency response.
+        /// </summary>
         public static readonly Uri overdosage=new Uri(BaseUri+"overdosage");
-
+        
+        /// <summary>
+        /// The date that this organization was founded.
+        /// </summary>
         public static readonly Uri foundingDate=new Uri(BaseUri+"foundingDate");
-
+        
+        /// <summary>
+        /// A unique identifier for the membership.
+        /// </summary>
         public static readonly Uri membershipNumber=new Uri(BaseUri+"membershipNumber");
-
+        
+        /// <summary>
+        /// Description of what changed in this version.
+        /// </summary>
         public static readonly Uri releaseNotes=new Uri(BaseUri+"releaseNotes");
-
+        
+        /// <summary>
+        /// Any discount applied (to an Order).
+        /// </summary>
         public static readonly Uri discount=new Uri(BaseUri+"discount");
-
+        
+        /// <summary>
+        /// Additional details to capture the origin of the cost data. For example, 'Medicare Part B'.
+        /// </summary>
         public static readonly Uri costOrigin=new Uri(BaseUri+"costOrigin");
-
+        
+        /// <summary>
+        /// Descriptive information establishing the overarching theory/philosophy of the plan. May include the rationale for the name, the population where the plan first came to prominence, etc.
+        /// </summary>
         public static readonly Uri overview=new Uri(BaseUri+"overview");
-
+        
+        /// <summary>
+        /// Subcategory of the application, e.g. "Arcade Game".
+        /// </summary>
         public static readonly Uri applicationSubCategory=new Uri(BaseUri+"applicationSubCategory");
-
+        
+        /// <summary>
+        /// The platform where the train arrives.
+        /// </summary>
         public static readonly Uri arrivalPlatform=new Uri(BaseUri+"arrivalPlatform");
-
+        
+        /// <summary>
+        /// The URL of a node in an established educational framework.
+        /// </summary>
         public static readonly Uri targetUrl=new Uri(BaseUri+"targetUrl");
-
+        
+        /// <summary>
+        /// Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
+        /// </summary>
         public static readonly Uri pagination=new Uri(BaseUri+"pagination");
-
+        
+        /// <summary>
+        /// Storage requirements (free space required).
+        /// </summary>
         public static readonly Uri storageRequirements=new Uri(BaseUri+"storageRequirements");
-
+        
+        /// <summary>
+        /// The post office box number for PO box addresses.
+        /// </summary>
         public static readonly Uri postOfficeBoxNumber=new Uri(BaseUri+"postOfficeBoxNumber");
-
+        
+        /// <summary>
+        /// The highest price of all offers available.
+        /// </summary>
         public static readonly Uri highPrice=new Uri(BaseUri+"highPrice");
-
+        
+        /// <summary>
+        /// The International Standard Serial Number (ISSN) that identifies this periodical. You can repeat this property to (for example) identify different formats of this periodical.
+        /// </summary>
         public static readonly Uri issn=new Uri(BaseUri+"issn");
-
+        
+        /// <summary>
+        /// The number of grams of protein.
+        /// </summary>
         public static readonly Uri proteinContent=new Uri(BaseUri+"proteinContent");
-
+        
+        /// <summary>
+        /// The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
+        /// </summary>
         public static readonly Uri serialNumber=new Uri(BaseUri+"serialNumber");
-
+        
+        /// <summary>
+        /// Length of time to engage in the activity.
+        /// </summary>
         public static readonly Uri activityDuration=new Uri(BaseUri+"activityDuration");
-
+        
+        /// <summary>
+        /// Description of benefits associated with the job.
+        /// </summary>
         public static readonly Uri benefits=new Uri(BaseUri+"benefits");
-
+        
+        /// <summary>
+        /// Audiences defined by a person's minimum age.
+        /// </summary>
         public static readonly Uri requiredMinAge=new Uri(BaseUri+"requiredMinAge");
-
+        
+        /// <summary>
+        /// The significance associated with the superficial anatomy; as an example, how characteristics of the superficial anatomy can suggest underlying medical conditions or courses of treatment.
+        /// </summary>
         public static readonly Uri significance=new Uri(BaseUri+"significance");
-
+        
+        /// <summary>
+        /// The unit of the dose, e.g. 'mg'.
+        /// </summary>
         public static readonly Uri doseUnit=new Uri(BaseUri+"doseUnit");
-
+        
+        /// <summary>
+        /// True if the drug is available in a generic form (regardless of name).
+        /// </summary>
         public static readonly Uri isAvailableGenerically=new Uri(BaseUri+"isAvailableGenerically");
-
+        
+        /// <summary>
+        /// The unique identifier for the train.
+        /// </summary>
         public static readonly Uri trainNumber=new Uri(BaseUri+"trainNumber");
-
+        
+        /// <summary>
+        /// Location in the body of the anatomical structure.
+        /// </summary>
         public static readonly Uri bodyLocation=new Uri(BaseUri+"bodyLocation");
-
+        
+        /// <summary>
+        /// Responsibilities associated with this role.
+        /// </summary>
         public static readonly Uri responsibilities=new Uri(BaseUri+"responsibilities");
-
+        
+        /// <summary>
+        /// Any additional component of the exercise prescription that may need to be articulated to the patient. This may include the order of exercises, the number of repetitions of movement, quantitative distance, progressions over time, etc.
+        /// </summary>
         public static readonly Uri additionalVariable=new Uri(BaseUri+"additionalVariable");
-
+        
+        /// <summary>
+        /// A link related to this web page, for example to other related web pages.
+        /// </summary>
         public static readonly Uri relatedLink=new Uri(BaseUri+"relatedLink");
-
+        
+        /// <summary>
+        /// The time validity of the permit.
+        /// </summary>
         public static readonly Uri validFor=new Uri(BaseUri+"validFor");
-
+        
+        /// <summary>
+        /// The textual content of this CreativeWork.
+        /// </summary>
         public static readonly Uri text=new Uri(BaseUri+"text");
-
+        
+        /// <summary>
+        /// Any FDA or other warnings about the drug (text or URL).
+        /// </summary>
         public static readonly Uri warning=new Uri(BaseUri+"warning");
-
+        
+        /// <summary>
+        /// Identifies input methods that are sufficient to fully control the described resource (<a href="http://www.w3.org/wiki/WebSchemas/Accessibility">WebSchemas wiki lists possible values</a>).
+        /// </summary>
         public static readonly Uri accessibilityControl=new Uri(BaseUri+"accessibilityControl");
-
+        
+        /// <summary>
+        /// The typical expected age range, e.g. '7-9', '11-'.
+        /// </summary>
         public static readonly Uri typicalAgeRange=new Uri(BaseUri+"typicalAgeRange");
-
+        
+        /// <summary>
+        /// The platform from which the train departs.
+        /// </summary>
         public static readonly Uri departurePlatform=new Uri(BaseUri+"departurePlatform");
-
+        
+        /// <summary>
+        /// Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name.
+        /// </summary>
         public static readonly Uri valueName=new Uri(BaseUri+"valueName");
-
+        
+        /// <summary>
+        /// The stage represented as a number, e.g. 3.
+        /// </summary>
         public static readonly Uri stageAsNumber=new Uri(BaseUri+"stageAsNumber");
-
+        
+        /// <summary>
+        /// The number of episodes in this season or series.
+        /// </summary>
         public static readonly Uri numberOfEpisodes=new Uri(BaseUri+"numberOfEpisodes");
-
+        
+        /// <summary>
+        /// The year during which the claimed copyright for the CreativeWork was first asserted.
+        /// </summary>
         public static readonly Uri copyrightYear=new Uri(BaseUri+"copyrightYear");
-
+        
+        /// <summary>
+        /// The number of downvotes this question has received from the community.
+        /// </summary>
         public static readonly Uri downvoteCount=new Uri(BaseUri+"downvoteCount");
-
+        
+        /// <summary>
+        /// The algorithm or rules to follow to compute the score.
+        /// </summary>
         public static readonly Uri algorithm=new Uri(BaseUri+"algorithm");
-
+        
+        /// <summary>
+        /// If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system.
+        /// </summary>
         public static readonly Uri associatedPathophysiology=new Uri(BaseUri+"associatedPathophysiology");
-
+        
+        /// <summary>
+        /// The unit of measurement given using the UN/CEFACT Common Code (3 characters).
+        /// </summary>
         public static readonly Uri unitCode=new Uri(BaseUri+"unitCode");
-
+        
+        /// <summary>
+        /// The title of the job.
+        /// </summary>
         public static readonly Uri title=new Uri(BaseUri+"title");
-
+        
+        /// <summary>
+        /// The characteristics of associated patients, such as age, gender, race etc.
+        /// </summary>
         public static readonly Uri epidemiology=new Uri(BaseUri+"epidemiology");
-
+        
+        /// <summary>
+        /// Version of the software instance.
+        /// </summary>
         public static readonly Uri softwareVersion=new Uri(BaseUri+"softwareVersion");
-
+        
+        /// <summary>
+        /// The number of the column in which the NewsArticle appears in the print edition.
+        /// </summary>
         public static readonly Uri printColumn=new Uri(BaseUri+"printColumn");
-
+        
+        /// <summary>
+        /// The movement the muscle generates.
+        /// </summary>
         public static readonly Uri action=new Uri(BaseUri+"action");
-
+        
+        /// <summary>
+        /// Link to the drug's label details.
+        /// </summary>
         public static readonly Uri labelDetails=new Uri(BaseUri+"labelDetails");
-
+        
+        /// <summary>
+        /// Any special commitments associated with this job posting. Valid entries include VeteranCommit, MilitarySpouseCommit, etc.
+        /// </summary>
         public static readonly Uri specialCommitments=new Uri(BaseUri+"specialCommitments");
-
+        
+        /// <summary>
+        /// Source of the data used to formulate the guidance, e.g. RCT, consensus opinion, etc.
+        /// </summary>
         public static readonly Uri evidenceOrigin=new Uri(BaseUri+"evidenceOrigin");
-
+        
+        /// <summary>
+        /// The generic name of this drug or supplement.
+        /// </summary>
         public static readonly Uri nonProprietaryName=new Uri(BaseUri+"nonProprietaryName");
-
+        
+        /// <summary>
+        /// The lowest price if the price is a range.
+        /// </summary>
         public static readonly Uri minPrice=new Uri(BaseUri+"minPrice");
-
+        
+        /// <summary>
+        /// The <a href="http://apps.gs1.org/GDD/glossary/Pages/GTIN-14.aspx">GTIN-14</a> code of the product, or the product to which the offer refers. See <a href="http://www.gs1.org/barcodes/technical/idkeys/gtin">GS1 GTIN Summary</a> for more details.
+        /// </summary>
         public static readonly Uri gtin14=new Uri(BaseUri+"gtin14");
-
+        
+        /// <summary>
+        /// Permission(s) required to run the app (for example, a mobile app may require full internet access or may run only on wifi).
+        /// </summary>
         public static readonly Uri permissions=new Uri(BaseUri+"permissions");
-
+        
+        /// <summary>
+        /// A characteristic of the described resource that is physiologically dangerous to some users. Related to WCAG 2.0 guideline 2.3. (<a href="http://www.w3.org/wiki/WebSchemas/Accessibility">WebSchemas wiki lists possible values</a>)
+        /// </summary>
         public static readonly Uri accessibilityHazard=new Uri(BaseUri+"accessibilityHazard");
-
+        
+        /// <summary>
+        /// A full description of the lodging unit.
+        /// </summary>
         public static readonly Uri lodgingUnitDescription=new Uri(BaseUri+"lodgingUnitDescription");
-
+        
+        /// <summary>
+        /// The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm).
+        /// </summary>
         public static readonly Uri workHours=new Uri(BaseUri+"workHours");
-
+        
+        /// <summary>
+        /// The unique identifier for the bus.
+        /// </summary>
         public static readonly Uri busNumber=new Uri(BaseUri+"busNumber");
-
+        
+        /// <summary>
+        /// The price range of the business, for example <code>$$$</code>.
+        /// </summary>
         public static readonly Uri priceRange=new Uri(BaseUri+"priceRange");
-
+        
+        /// <summary>
+        /// Date of first broadcast/publication.
+        /// </summary>
         public static readonly Uri datePublished=new Uri(BaseUri+"datePublished");
-
+        
+        /// <summary>
+        /// Specifies a regular expression for testing literal values according to the HTML spec.
+        /// </summary>
         public static readonly Uri valuePattern=new Uri(BaseUri+"valuePattern");
-
+        
+        /// <summary>
+        /// Tracking url for the parcel delivery.
+        /// </summary>
         public static readonly Uri trackingUrl=new Uri(BaseUri+"trackingUrl");
-
+        
+        /// <summary>
+        /// The currency (in 3-letter <a href=http://en.wikipedia.org/wiki/ISO_4217>ISO 4217 format</a>) of the drug cost.
+        /// </summary>
         public static readonly Uri costCurrency=new Uri(BaseUri+"costCurrency");
-
+        
+        /// <summary>
+        /// Was the offer accepted as a gift for someone other than the buyer.
+        /// </summary>
         public static readonly Uri isGift=new Uri(BaseUri+"isGift");
-
+        
+        /// <summary>
+        /// The substage, e.g. 'a' for Stage IIIa.
+        /// </summary>
         public static readonly Uri subStageSuffix=new Uri(BaseUri+"subStageSuffix");
-
+        
+        /// <summary>
+        /// The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
+        /// </summary>
         public static readonly Uri globalLocationNumber=new Uri(BaseUri+"globalLocationNumber");
-
+        
+        /// <summary>
+        /// Position of the episode within an ordered group of episodes.
+        /// </summary>
         public static readonly Uri episodeNumber=new Uri(BaseUri+"episodeNumber");
-
+        
+        /// <summary>
+        /// The North American Industry Classification System (NAICS) code for a particular organization or business person.
+        /// </summary>
         public static readonly Uri naics=new Uri(BaseUri+"naics");
-
+        
+        /// <summary>
+        /// The supported encoding type(s) for an EntryPoint request.
+        /// </summary>
         public static readonly Uri encodingType=new Uri(BaseUri+"encodingType");
-
+        
+        /// <summary>
+        /// The count of total number of ratings.
+        /// </summary>
         public static readonly Uri ratingCount=new Uri(BaseUri+"ratingCount");
-
+        
+        /// <summary>
+        /// A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point.
+        /// </summary>
         public static readonly Uri contactType=new Uri(BaseUri+"contactType");
-
+        
+        /// <summary>
+        /// The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the year 2011 (in ISO 8601 time interval format).
+        /// </summary>
         public static readonly Uri temporal=new Uri(BaseUri+"temporal");
-
+        
+        /// <summary>
+        /// The start date and time of the event, role or item (in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>).
+        /// </summary>
         public static readonly Uri startDate=new Uri(BaseUri+"startDate");
-
+        
+        /// <summary>
+        /// The date when the item is no longer valid.
+        /// </summary>
         public static readonly Uri validUntil=new Uri(BaseUri+"validUntil");
-
+        
+        /// <summary>
+        /// Password, PIN, or access code needed for delivery (e.g. from a locker).
+        /// </summary>
         public static readonly Uri accessCode=new Uri(BaseUri+"accessCode");
-
+        
+        /// <summary>
+        /// The supported content type(s) for an EntryPoint response.
+        /// </summary>
         public static readonly Uri contentType=new Uri(BaseUri+"contentType");
-
+        
+        /// <summary>
+        /// The unique identifier for the ticket.
+        /// </summary>
         public static readonly Uri ticketNumber=new Uri(BaseUri+"ticketNumber");
-
+        
+        /// <summary>
+        /// A possible unexpected and unfavorable evolution of a medical condition. Complications may include worsening of the signs or symptoms of the disease, extension of the condition to other organ systems, etc.
+        /// </summary>
         public static readonly Uri possibleComplication=new Uri(BaseUri+"possibleComplication");
-
+        
+        /// <summary>
+        /// The time at which the UserComment was made.
+        /// </summary>
         public static readonly Uri commentTime=new Uri(BaseUri+"commentTime");
-
+        
+        /// <summary>
+        /// A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.
+        /// </summary>
         public static readonly Uri polygon=new Uri(BaseUri+"polygon");
-
+        
+        /// <summary>
+        /// The time when a passenger can check into the flight online.
+        /// </summary>
         public static readonly Uri webCheckinTime=new Uri(BaseUri+"webCheckinTime");
-
+        
+        /// <summary>
+        /// Position of the season within an ordered group of seasons.
+        /// </summary>
         public static readonly Uri seasonNumber=new Uri(BaseUri+"seasonNumber");
-
+        
+        /// <summary>
+        /// The postal code. For example, 94043.
+        /// </summary>
         public static readonly Uri postalCode=new Uri(BaseUri+"postalCode");
-
+        
+        /// <summary>
+        /// A description of the postoperative procedures, care, and/or followups for this device.
+        /// </summary>
         public static readonly Uri postOp=new Uri(BaseUri+"postOp");
-
+        
+        /// <summary>
+        /// Date on which the content on this web page was last reviewed for accuracy and/or completeness.
+        /// </summary>
         public static readonly Uri lastReviewed=new Uri(BaseUri+"lastReviewed");
-
+        
+        /// <summary>
+        /// An aspect of medical practice that is considered on the page, such as 'diagnosis', 'treatment', 'causes', 'prognosis', 'etiology', 'epidemiology', etc.
+        /// </summary>
         public static readonly Uri aspect=new Uri(BaseUri+"aspect");
-
+        
+        /// <summary>
+        /// The URL at which a reply may be posted to the specified UserComment.
+        /// </summary>
         public static readonly Uri replyToUrl=new Uri(BaseUri+"replyToUrl");
-
+        
+        /// <summary>
+        /// The quality of the video.
+        /// </summary>
         public static readonly Uri videoQuality=new Uri(BaseUri+"videoQuality");
-
+        
+        /// <summary>
+        /// Position of the clip within an ordered group of clips.
+        /// </summary>
         public static readonly Uri clipNumber=new Uri(BaseUri+"clipNumber");
-
+        
+        /// <summary>
+        /// Indicates that the resource is compatible with the referenced accessibility API (<a href="http://www.w3.org/wiki/WebSchemas/Accessibility">WebSchemas wiki lists possible values</a>).          
+        /// </summary>
         public static readonly Uri accessibilityAPI=new Uri(BaseUri+"accessibilityAPI");
-
+        
+        /// <summary>
+        /// The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification.
+        /// </summary>
         public static readonly Uri stepValue=new Uri(BaseUri+"stepValue");
-
+        
+        /// <summary>
+        /// Identifier of the flight's arrival terminal.
+        /// </summary>
         public static readonly Uri arrivalTerminal=new Uri(BaseUri+"arrivalTerminal");
-
+        
+        /// <summary>
+        /// IACO identifier for an airport.
+        /// </summary>
         public static readonly Uri icaoCode=new Uri(BaseUri+"icaoCode");
-
+        
+        /// <summary>
+        /// The <a href="http://apps.gs1.org/GDD/glossary/Pages/GTIN-13.aspx">GTIN-13</a> code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See <a href="http://www.gs1.org/barcodes/technical/idkeys/gtin">GS1 GTIN Summary</a> for more details.
+        /// </summary>
         public static readonly Uri gtin13=new Uri(BaseUri+"gtin13");
-
+        
+        /// <summary>
+        /// A route by which this drug may be administered, e.g. 'oral'.
+        /// </summary>
         public static readonly Uri administrationRoute=new Uri(BaseUri+"administrationRoute");
-
+        
+        /// <summary>
+        /// The fax number.
+        /// </summary>
         public static readonly Uri faxNumber=new Uri(BaseUri+"faxNumber");
-
+        
+        /// <summary>
+        /// The ISBN of the book.
+        /// </summary>
         public static readonly Uri isbn=new Uri(BaseUri+"isbn");
-
+        
+        /// <summary>
+        /// The actual body of the article.
+        /// </summary>
         public static readonly Uri articleBody=new Uri(BaseUri+"articleBody");
-
+        
+        /// <summary>
+        /// A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html
+        /// </summary>
         public static readonly Uri isBasedOnUrl=new Uri(BaseUri+"isBasedOnUrl");
-
+        
+        /// <summary>
+        /// The series to which this episode or season belongs.
+        /// </summary>
         public static readonly Uri partOfSeries=new Uri(BaseUri+"partOfSeries");
-
+        
+        /// <summary>
+        /// Specifies the Person who edited the CreativeWork.
+        /// </summary>
         public static readonly Uri editor=new Uri(BaseUri+"editor");
-
+        
+        /// <summary>
+        /// The rating given in this review. Note that reviews can themselves be rated. The <code>reviewRating</code> applies to rating given by the review. The <code>aggregateRating</code> property applies to the review itself, as a creative work.
+        /// </summary>
         public static readonly Uri reviewRating=new Uri(BaseUri+"reviewRating");
-
+        
+        /// <summary>
+        /// The branches that delineate from the nerve bundle.
+        /// </summary>
         public static readonly Uri branch=new Uri(BaseUri+"branch");
-
+        
+        /// <summary>
+        /// A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.
+        /// </summary>
         public static readonly Uri code=new Uri(BaseUri+"code");
-
+        
+        /// <summary>
+        /// A sub property of participant. The participant who is at the receiving end of the action.
+        /// </summary>
         public static readonly Uri recipient=new Uri(BaseUri+"recipient");
-
+        
+        /// <summary>
+        /// The muscle whose action counteracts the specified muscle.
+        /// </summary>
         public static readonly Uri antagonist=new Uri(BaseUri+"antagonist");
-
+        
+        /// <summary>
+        /// An image containing a diagram that illustrates the structure and/or its component substructures and/or connections with other structures.
+        /// </summary>
         public static readonly Uri diagram=new Uri(BaseUri+"diagram");
-
+        
+        /// <summary>
+        /// The class of infectious agent (bacteria, prion, etc.) that causes the disease.
+        /// </summary>
         public static readonly Uri infectiousAgentClass=new Uri(BaseUri+"infectiousAgentClass");
-
+        
+        /// <summary>
+        /// A person or organization attending the event.
+        /// </summary>
         public static readonly Uri attendee=new Uri(BaseUri+"attendee");
-
+        
+        /// <summary>
+        /// A pointer to products or services sought by the organization or person (demand).
+        /// </summary>
         public static readonly Uri seeks=new Uri(BaseUri+"seeks");
-
+        
+        /// <summary>
+        /// The type of procedure, for example Surgical, Noninvasive, or Percutaneous.
+        /// </summary>
         public static readonly Uri procedureType=new Uri(BaseUri+"procedureType");
-
+        
+        /// <summary>
+        /// Method used for delivery or shipping.
+        /// </summary>
         public static readonly Uri hasDeliveryMethod=new Uri(BaseUri+"hasDeliveryMethod");
-
+        
+        /// <summary>
+        /// A contact location for a person's place of work.
+        /// </summary>
         public static readonly Uri workLocation=new Uri(BaseUri+"workLocation");
-
+        
+        /// <summary>
+        /// Organization offering the job position.
+        /// </summary>
         public static readonly Uri hiringOrganization=new Uri(BaseUri+"hiringOrganization");
-
+        
+        /// <summary>
+        /// The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.
+        /// </summary>
         public static readonly Uri medicineSystem=new Uri(BaseUri+"medicineSystem");
-
+        
+        /// <summary>
+        /// The address for accessing the service by mail.
+        /// </summary>
         public static readonly Uri servicePostalAddress=new Uri(BaseUri+"servicePostalAddress");
-
+        
+        /// <summary>
+        /// A medical guideline related to this entity.
+        /// </summary>
         public static readonly Uri guideline=new Uri(BaseUri+"guideline");
-
+        
+        /// <summary>
+        /// One of a set of differential diagnoses for the condition. Specifically, a closely-related or competing diagnosis typically considered later in the cognitive process whereby this medical condition is distinguished from others most likely responsible for a similar collection of signs and symptoms to reach the most parsimonious diagnosis or diagnoses in a patient.
+        /// </summary>
         public static readonly Uri differentialDiagnosis=new Uri(BaseUri+"differentialDiagnosis");
-
+        
+        /// <summary>
+        /// The country. For example, USA. You can also provide the two-letter <a href='http://en.wikipedia.org/wiki/ISO_3166-1'>ISO 3166-1 alpha-2 country code</a>.
+        /// </summary>
         public static readonly Uri addressCountry=new Uri(BaseUri+"addressCountry");
-
+        
+        /// <summary>
+        /// A sign detected by the test.
+        /// </summary>
         public static readonly Uri signDetected=new Uri(BaseUri+"signDetected");
-
+        
+        /// <summary>
+        /// The typical delay between the receipt of the order and the goods leaving the warehouse.
+        /// </summary>
         public static readonly Uri deliveryLeadTime=new Uri(BaseUri+"deliveryLeadTime");
-
+        
+        /// <summary>
+        /// Indicates if this web page element is the main subject of the page.
+        /// </summary>
         public static readonly Uri mainContentOfPage=new Uri(BaseUri+"mainContentOfPage");
-
+        
+        /// <summary>
+        /// The branches that comprise the arterial structure.
+        /// </summary>
         public static readonly Uri arterialBranch=new Uri(BaseUri+"arterialBranch");
-
+        
+        /// <summary>
+        /// A component test of the panel.
+        /// </summary>
         public static readonly Uri subTest=new Uri(BaseUri+"subTest");
-
+        
+        /// <summary>
+        /// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+        /// </summary>
         public static readonly Uri broker=new Uri(BaseUri+"broker");
-
+        
+        /// <summary>
+        /// An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference.
+        /// </summary>
         public static readonly Uri subEvent=new Uri(BaseUri+"subEvent");
-
+        
+        /// <summary>
+        /// A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature.
+        /// </summary>
         public static readonly Uri valueReference=new Uri(BaseUri+"valueReference");
-
+        
+        /// <summary>
+        /// The format of the book.
+        /// </summary>
         public static readonly Uri bookFormat=new Uri(BaseUri+"bookFormat");
-
+        
+        /// <summary>
+        /// Other co-agents that participated in the action indirectly. e.g. John wrote a book with *Steve*.
+        /// </summary>
         public static readonly Uri participant=new Uri(BaseUri+"participant");
-
+        
+        /// <summary>
+        /// A hospital with which the physician or office is affiliated.
+        /// </summary>
         public static readonly Uri hospitalAffiliation=new Uri(BaseUri+"hospitalAffiliation");
-
+        
+        /// <summary>
+        /// A sub property of object. The candidate subject of this action.
+        /// </summary>
         public static readonly Uri candidate=new Uri(BaseUri+"candidate");
-
+        
+        /// <summary>
+        /// New entry added as the package passes through each leg of its journey (from shipment to final delivery).
+        /// </summary>
         public static readonly Uri deliveryStatus=new Uri(BaseUri+"deliveryStatus");
-
+        
+        /// <summary>
+        /// A review of the item.
+        /// </summary>
         public static readonly Uri review=new Uri(BaseUri+"review");
-
+        
+        /// <summary>
+        /// Specifies the Person that is legally accountable for the CreativeWork.
+        /// </summary>
         public static readonly Uri accountablePerson=new Uri(BaseUri+"accountablePerson");
-
+        
+        /// <summary>
+        /// The service through with the permit was granted.
+        /// </summary>
         public static readonly Uri issuedThrough=new Uri(BaseUri+"issuedThrough");
-
+        
+        /// <summary>
+        /// A factor that indicates use of this therapy for treatment and/or prevention of a condition, symptom, etc. For therapies such as drugs, indications can include both officially-approved indications as well as off-label uses. These can be distinguished by using the ApprovedIndication subtype of MedicalIndication.
+        /// </summary>
         public static readonly Uri indication=new Uri(BaseUri+"indication");
-
+        
+        /// <summary>
+        /// The station from which the train departs.
+        /// </summary>
         public static readonly Uri departureStation=new Uri(BaseUri+"departureStation");
-
+        
+        /// <summary>
+        /// The overall order the items in this delivery were included in.
+        /// </summary>
         public static readonly Uri partOfOrder=new Uri(BaseUri+"partOfOrder");
-
+        
+        /// <summary>
+        /// A pointer from a previous, often discontinued variant of the product to its newer variant.
+        /// </summary>
         public static readonly Uri predecessorOf=new Uri(BaseUri+"predecessorOf");
-
+        
+        /// <summary>
+        /// The condition, complication, or symptom whose risk is being estimated.
+        /// </summary>
         public static readonly Uri estimatesRiskOf=new Uri(BaseUri+"estimatesRiskOf");
-
+        
+        /// <summary>
+        /// The delivery method(s) available for this offer.
+        /// </summary>
         public static readonly Uri availableDeliveryMethod=new Uri(BaseUri+"availableDeliveryMethod");
-
+        
+        /// <summary>
+        /// A sub property of participant. The real estate agent involved in the action.
+        /// </summary>
         public static readonly Uri realEstateAgent=new Uri(BaseUri+"realEstateAgent");
-
+        
+        /// <summary>
+        /// Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.
+        /// </summary>
         public static readonly Uri programMembershipUsed=new Uri(BaseUri+"programMembershipUsed");
-
+        
+        /// <summary>
+        /// The season to which this episode belongs.
+        /// </summary>
         public static readonly Uri partOfSeason=new Uri(BaseUri+"partOfSeason");
-
+        
+        /// <summary>
+        /// Nutrition information about the recipe.
+        /// </summary>
         public static readonly Uri nutrition=new Uri(BaseUri+"nutrition");
-
+        
+        /// <summary>
+        /// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
+        /// </summary>
         public static readonly Uri seller=new Uri(BaseUri+"seller");
-
+        
+        /// <summary>
+        /// A pointer to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive.
+        /// </summary>
         public static readonly Uri isVariantOf=new Uri(BaseUri+"isVariantOf");
-
+        
+        /// <summary>
+        /// The underlying innervation associated with the muscle.
+        /// </summary>
         public static readonly Uri nerve=new Uri(BaseUri+"nerve");
-
+        
+        /// <summary>
+        /// A music album.
+        /// </summary>
         public static readonly Uri album=new Uri(BaseUri+"album");
-
+        
+        /// <summary>
+        /// A sub property of participant. The opponent on this action.
+        /// </summary>
         public static readonly Uri opponent=new Uri(BaseUri+"opponent");
-
+        
+        /// <summary>
+        /// The underlying anatomical structures, such as organs, that comprise the anatomical system.
+        /// </summary>
         public static readonly Uri comprisedOf=new Uri(BaseUri+"comprisedOf");
-
+        
+        /// <summary>
+        /// The day of the week for which these opening hours are valid.
+        /// </summary>
         public static readonly Uri dayOfWeek=new Uri(BaseUri+"dayOfWeek");
-
+        
+        /// <summary>
+        /// A sign or symptom of this condition. Signs are objective or physically observable manifestations of the medical condition while symptoms are the subjective experience of the medical condition.
+        /// </summary>
         public static readonly Uri signOrSymptom=new Uri(BaseUri+"signOrSymptom");
-
+        
+        /// <summary>
+        /// Sponsor of the study.
+        /// </summary>
         public static readonly Uri sponsor=new Uri(BaseUri+"sponsor");
-
+        
+        /// <summary>
+        /// A broadcast service associated with the publication event.
+        /// </summary>
         public static readonly Uri publishedOn=new Uri(BaseUri+"publishedOn");
-
+        
+        /// <summary>
+        /// Indicates the main image on the page.
+        /// </summary>
         public static readonly Uri primaryImageOfPage=new Uri(BaseUri+"primaryImageOfPage");
-
+        
+        /// <summary>
+        /// An organization that this person is affiliated with. For example, a school/university, a club, or a team.
+        /// </summary>
         public static readonly Uri affiliation=new Uri(BaseUri+"affiliation");
-
+        
+        /// <summary>
+        /// A sub property of location. The entertainment business where the action occurred.
+        /// </summary>
         public static readonly Uri entertainmentBusiness=new Uri(BaseUri+"entertainmentBusiness");
-
+        
+        /// <summary>
+        /// A sub property of object. The person or organization being followed.
+        /// </summary>
         public static readonly Uri followee=new Uri(BaseUri+"followee");
-
+        
+        /// <summary>
+        /// A sub property of location. The sports activity location where this action occurred.
+        /// </summary>
         public static readonly Uri sportsActivityLocation=new Uri(BaseUri+"sportsActivityLocation");
-
+        
+        /// <summary>
+        /// 'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights.
+        /// </summary>
         public static readonly Uri carrier=new Uri(BaseUri+"carrier");
-
+        
+        /// <summary>
+        /// 'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent.
+        /// </summary>
         public static readonly Uri bookingAgent=new Uri(BaseUri+"bookingAgent");
-
+        
+        /// <summary>
+        /// The name of the credit card or other method of payment for the order.
+        /// </summary>
         public static readonly Uri paymentMethod=new Uri(BaseUri+"paymentMethod");
-
+        
+        /// <summary>
+        /// Recommended intake of this supplement for a given population as defined by a specific recommending authority.
+        /// </summary>
         public static readonly Uri recommendedIntake=new Uri(BaseUri+"recommendedIntake");
-
+        
+        /// <summary>
+        /// An educational organizations that the person is an alumni of.
+        /// </summary>
         public static readonly Uri alumniOf=new Uri(BaseUri+"alumniOf");
-
+        
+        /// <summary>
+        /// The warranty promise(s) included in the offer.
+        /// </summary>
         public static readonly Uri warranty=new Uri(BaseUri+"warranty");
-
+        
+        /// <summary>
+        /// The size of the business in annual revenue.
+        /// </summary>
         public static readonly Uri yearlyRevenue=new Uri(BaseUri+"yearlyRevenue");
-
+        
+        /// <summary>
+        /// This ordering relation for qualitative values indicates that the subject is not equal to the object.
+        /// </summary>
         public static readonly Uri nonEqual=new Uri(BaseUri+"nonEqual");
-
+        
+        /// <summary>
+        /// The current status of the order.
+        /// </summary>
         public static readonly Uri orderStatus=new Uri(BaseUri+"orderStatus");
-
+        
+        /// <summary>
+        /// One of the domain specialities to which this web page's content applies.
+        /// </summary>
         public static readonly Uri specialty=new Uri(BaseUri+"specialty");
-
+        
+        /// <summary>
+        /// The anatomical or organ system drained by this vessel; generally refers to a specific part of an organ.
+        /// </summary>
         public static readonly Uri regionDrained=new Uri(BaseUri+"regionDrained");
-
+        
+        /// <summary>
+        /// A sub property of location. The course where this action was taken.
+        /// </summary>
         public static readonly Uri course=new Uri(BaseUri+"course");
-
+        
+        /// <summary>
+        /// The person or organization the reservation or ticket is for.
+        /// </summary>
         public static readonly Uri underName=new Uri(BaseUri+"underName");
-
+        
+        /// <summary>
+        /// An alignment to an established educational framework.
+        /// </summary>
         public static readonly Uri educationalAlignment=new Uri(BaseUri+"educationalAlignment");
-
+        
+        /// <summary>
+        /// A posting that is part of this blog.
+        /// </summary>
         public static readonly Uri blogPost=new Uri(BaseUri+"blogPost");
-
+        
+        /// <summary>
+        /// A medical condition associated with this anatomy.
+        /// </summary>
         public static readonly Uri relatedCondition=new Uri(BaseUri+"relatedCondition");
-
+        
+        /// <summary>
+        /// Physical address of the item.
+        /// </summary>
         public static readonly Uri address=new Uri(BaseUri+"address");
-
+        
+        /// <summary>
+        /// A broadcast service to which the broadcast service may belong to such as regional variations of a national channel.
+        /// </summary>
         public static readonly Uri parentService=new Uri(BaseUri+"parentService");
-
+        
+        /// <summary>
+        /// Anatomical systems or structures that relate to the superficial anatomy.
+        /// </summary>
         public static readonly Uri relatedAnatomy=new Uri(BaseUri+"relatedAnatomy");
-
+        
+        /// <summary>
+        /// A secondary contributor to the CreativeWork.
+        /// </summary>
         public static readonly Uri contributor=new Uri(BaseUri+"contributor");
-
+        
+        /// <summary>
+        /// The amount of time that is required between accepting the offer and the actual usage of the resource or service.
+        /// </summary>
         public static readonly Uri advanceBookingRequirement=new Uri(BaseUri+"advanceBookingRequirement");
-
+        
+        /// <summary>
+        /// Specifics about the trial design (enumerated).
+        /// </summary>
         public static readonly Uri trialDesign=new Uri(BaseUri+"trialDesign");
-
+        
+        /// <summary>
+        /// A pointer to products or services offered by the organization or person.
+        /// </summary>
         public static readonly Uri makesOffer=new Uri(BaseUri+"makesOffer");
-
+        
+        /// <summary>
+        /// A contact location for a person's residence.
+        /// </summary>
         public static readonly Uri homeLocation=new Uri(BaseUri+"homeLocation");
-
+        
+        /// <summary>
+        /// The result produced in the action. e.g. John wrote *a book*.
+        /// </summary>
         public static readonly Uri result=new Uri(BaseUri+"result");
-
+        
+        /// <summary>
+        /// The geo coordinates of the place.
+        /// </summary>
         public static readonly Uri geo=new Uri(BaseUri+"geo");
-
+        
+        /// <summary>
+        /// The anatomical or organ system that the vein flows into; a larger structure that the vein connects to.
+        /// </summary>
         public static readonly Uri tributary=new Uri(BaseUri+"tributary");
-
+        
+        /// <summary>
+        /// Thumbnail image for an image or video.
+        /// </summary>
         public static readonly Uri thumbnail=new Uri(BaseUri+"thumbnail");
-
+        
+        /// <summary>
+        /// The manufacturer of the product.
+        /// </summary>
         public static readonly Uri manufacturer=new Uri(BaseUri+"manufacturer");
-
+        
+        /// <summary>
+        /// An embedded audio object.
+        /// </summary>
         public static readonly Uri audio=new Uri(BaseUri+"audio");
-
+        
+        /// <summary>
+        /// The area to which the artery supplies blood.
+        /// </summary>
         public static readonly Uri supplyTo=new Uri(BaseUri+"supplyTo");
-
+        
+        /// <summary>
+        /// The anatomical or organ system that the artery originates from.
+        /// </summary>
         public static readonly Uri source=new Uri(BaseUri+"source");
-
+        
+        /// <summary>
+        /// The intended audience of the item, i.e. the group for whom the item was created.
+        /// </summary>
         public static readonly Uri audience=new Uri(BaseUri+"audience");
-
+        
+        /// <summary>
+        /// The location in which the study is taking/took place.
+        /// </summary>
         public static readonly Uri studyLocation=new Uri(BaseUri+"studyLocation");
-
+        
+        /// <summary>
+        /// A cast member of the movie, tv/radio series, season, episode, or video.
+        /// </summary>
         public static readonly Uri actor=new Uri(BaseUri+"actor");
-
+        
+        /// <summary>
+        /// The current status of the reservation.
+        /// </summary>
         public static readonly Uri reservationStatus=new Uri(BaseUri+"reservationStatus");
-
+        
+        /// <summary>
+        /// Expectations for health conditions of target audience
+        /// </summary>
         public static readonly Uri healthCondition=new Uri(BaseUri+"healthCondition");
-
+        
+        /// <summary>
+        /// The tangible thing generated by the service, e.g. a passport, permit, etc.
+        /// </summary>
         public static readonly Uri produces=new Uri(BaseUri+"produces");
-
+        
+        /// <summary>
+        /// Target Operating System / Product to which the code applies.  If applies to several versions, just the product name can be used.
+        /// </summary>
         public static readonly Uri targetProduct=new Uri(BaseUri+"targetProduct");
-
+        
+        /// <summary>
+        /// A sub property of participant. The winner of the action.
+        /// </summary>
         public static readonly Uri winner=new Uri(BaseUri+"winner");
-
+        
+        /// <summary>
+        /// A downloadable form of this dataset, at a specific location, in a specific format.
+        /// </summary>
         public static readonly Uri distribution=new Uri(BaseUri+"distribution");
-
+        
+        /// <summary>
+        /// The type(s) of customers for which the given offer is valid.
+        /// </summary>
         public static readonly Uri eligibleCustomerType=new Uri(BaseUri+"eligibleCustomerType");
-
+        
+        /// <summary>
+        /// Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.
+        /// </summary>
         public static readonly Uri mentions=new Uri(BaseUri+"mentions");
-
+        
+        /// <summary>
+        /// Destination address.
+        /// </summary>
         public static readonly Uri deliveryAddress=new Uri(BaseUri+"deliveryAddress");
-
+        
+        /// <summary>
+        /// A sub property of object. The object that replaces.
+        /// </summary>
         public static readonly Uri replacer=new Uri(BaseUri+"replacer");
-
+        
+        /// <summary>
+        /// The parent of a question, answer or item in general.
+        /// </summary>
         public static readonly Uri parentItem=new Uri(BaseUri+"parentItem");
-
+        
+        /// <summary>
+        /// A parent of this person.
+        /// </summary>
         public static readonly Uri parent=new Uri(BaseUri+"parent");
-
+        
+        /// <summary>
+        /// The composer of the movie or TV/radio soundtrack.
+        /// </summary>
         public static readonly Uri musicBy=new Uri(BaseUri+"musicBy");
-
+        
+        /// <summary>
+        /// Relates a property to a class that is (one of) the type(s) the property is expected to be used on.
+        /// </summary>
         public static readonly Uri domainIncludes=new Uri(BaseUri+"domainIncludes");
-
+        
+        /// <summary>
+        /// A contact point for a person or organization.
+        /// </summary>
         public static readonly Uri contactPoint=new Uri(BaseUri+"contactPoint");
-
+        
+        /// <summary>
+        /// A sub property of result. The review that resulted in the performing of the action.
+        /// </summary>
         public static readonly Uri resultReview=new Uri(BaseUri+"resultReview");
-
+        
+        /// <summary>
+        /// A drug in this drug class.
+        /// </summary>
         public static readonly Uri drug=new Uri(BaseUri+"drug");
-
+        
+        /// <summary>
+        /// A colleague of the person.
+        /// </summary>
         public static readonly Uri colleague=new Uri(BaseUri+"colleague");
-
+        
+        /// <summary>
+        /// The publisher of the creative work.
+        /// </summary>
         public static readonly Uri publisher=new Uri(BaseUri+"publisher");
-
+        
+        /// <summary>
+        /// A medical study or trial related to this entity.
+        /// </summary>
         public static readonly Uri study=new Uri(BaseUri+"study");
-
+        
+        /// <summary>
+        /// A possible treatment to address this condition, sign or symptom.
+        /// </summary>
         public static readonly Uri possibleTreatment=new Uri(BaseUri+"possibleTreatment");
-
+        
+        /// <summary>
+        /// Relates a property to one that supersedes it.
+        /// </summary>
         public static readonly Uri supersededBy=new Uri(BaseUri+"supersededBy");
-
+        
+        /// <summary>
+        /// A member of a music group&#x2014;for example, John, Paul, George, or Ringo.
+        /// </summary>
         public static readonly Uri musicGroupMember=new Uri(BaseUri+"musicGroupMember");
-
+        
+        /// <summary>
+        /// Pregnancy category of this drug.
+        /// </summary>
         public static readonly Uri pregnancyCategory=new Uri(BaseUri+"pregnancyCategory");
-
+        
+        /// <summary>
+        /// Imaging technique used.
+        /// </summary>
         public static readonly Uri imagingTechnique=new Uri(BaseUri+"imagingTechnique");
-
+        
+        /// <summary>
+        /// Indicates the current disposition of the Action.
+        /// </summary>
         public static readonly Uri actionStatus=new Uri(BaseUri+"actionStatus");
-
+        
+        /// <summary>
+        /// A sub property of participant. The participant who is at the sending end of the action.
+        /// </summary>
         public static readonly Uri sender=new Uri(BaseUri+"sender");
-
+        
+        /// <summary>
+        /// The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.
+        /// </summary>
         public static readonly Uri businessFunction=new Uri(BaseUri+"businessFunction");
-
+        
+        /// <summary>
+        /// One or more detailed price specifications, indicating the unit price and delivery or payment charges.
+        /// </summary>
         public static readonly Uri priceSpecification=new Uri(BaseUri+"priceSpecification");
-
+        
+        /// <summary>
+        /// A NewsArticle associated with the Media Object.
+        /// </summary>
         public static readonly Uri associatedArticle=new Uri(BaseUri+"associatedArticle");
-
+        
+        /// <summary>
+        /// The producer of the movie, tv/radio series, season, or episode, or video.
+        /// </summary>
         public static readonly Uri producer=new Uri(BaseUri+"producer");
-
+        
+        /// <summary>
+        /// The location in which the strength is available.
+        /// </summary>
         public static readonly Uri availableIn=new Uri(BaseUri+"availableIn");
-
+        
+        /// <summary>
+        /// The geographic area associated with the audience.
+        /// </summary>
         public static readonly Uri geographicArea=new Uri(BaseUri+"geographicArea");
-
+        
+        /// <summary>
+        /// The payment method(s) accepted by seller for this offer.
+        /// </summary>
         public static readonly Uri acceptedPaymentMethod=new Uri(BaseUri+"acceptedPaymentMethod");
-
+        
+        /// <summary>
+        /// An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers.)
+        /// </summary>
         public static readonly Uri contactOption=new Uri(BaseUri+"contactOption");
-
+        
+        /// <summary>
+        /// A medical specialty of the provider.
+        /// </summary>
         public static readonly Uri medicalSpecialty=new Uri(BaseUri+"medicalSpecialty");
-
+        
+        /// <summary>
+        /// The object upon the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). e.g. John read *a book*.
+        /// </summary>
         public static readonly Uri @object=new Uri(BaseUri+"object");
-
+        
+        /// <summary>
+        /// This ordering relation for qualitative values indicates that the subject is lesser than the object.
+        /// </summary>
         public static readonly Uri lesser=new Uri(BaseUri+"lesser");
-
+        
+        /// <summary>
+        /// An application that can complete the request.
+        /// </summary>
         public static readonly Uri application=new Uri(BaseUri+"application");
-
+        
+        /// <summary>
+        /// The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
+        /// </summary>
         public static readonly Uri durationOfWarranty=new Uri(BaseUri+"durationOfWarranty");
-
+        
+        /// <summary>
+        /// The size of business by number of employees.
+        /// </summary>
         public static readonly Uri numberofEmployees=new Uri(BaseUri+"numberofEmployees");
-
+        
+        /// <summary>
+        /// The blood vessel that carries blood from the heart to the muscle.
+        /// </summary>
         public static readonly Uri bloodSupply=new Uri(BaseUri+"bloodSupply");
-
+        
+        /// <summary>
+        /// The class of drug this belongs to (e.g., statins).
+        /// </summary>
         public static readonly Uri drugClass=new Uri(BaseUri+"drugClass");
-
+        
+        /// <summary>
+        /// A performer at the event&#x2014;for example, a presenter, musician, musical group or actor.
+        /// </summary>
         public static readonly Uri performer=new Uri(BaseUri+"performer");
-
+        
+        /// <summary>
+        /// The place(s) from which the offer can be obtained (e.g. store locations).
+        /// </summary>
         public static readonly Uri availableAtOrFrom=new Uri(BaseUri+"availableAtOrFrom");
-
+        
+        /// <summary>
+        /// The availability of this item&#x2014;for example In stock, Out of stock, Pre-order, etc.
+        /// </summary>
         public static readonly Uri availability=new Uri(BaseUri+"availability");
-
+        
+        /// <summary>
+        /// The location served by this contact point (e.g., a phone number intended for Europeans vs. North Americans or only within the United States.)
+        /// </summary>
         public static readonly Uri areaServed=new Uri(BaseUri+"areaServed");
-
+        
+        /// <summary>
+        /// A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or is otherwise life-threatening or requires immediate medical attention), tag it as a seriouseAdverseOutcome instead.
+        /// </summary>
         public static readonly Uri adverseOutcome=new Uri(BaseUri+"adverseOutcome");
-
+        
+        /// <summary>
+        /// The category of cost, such as wholesale, retail, reimbursement cap, etc.
+        /// </summary>
         public static readonly Uri costCategory=new Uri(BaseUri+"costCategory");
-
+        
+        /// <summary>
+        /// The stage of the condition, if applicable.
+        /// </summary>
         public static readonly Uri stage=new Uri(BaseUri+"stage");
-
+        
+        /// <summary>
+        /// A physical examination that can identify this sign.
+        /// </summary>
         public static readonly Uri identifyingExam=new Uri(BaseUri+"identifyingExam");
-
+        
+        /// <summary>
+        /// A medical test typically performed given this condition.
+        /// </summary>
         public static readonly Uri typicalTest=new Uri(BaseUri+"typicalTest");
-
+        
+        /// <summary>
+        /// Indicates the kind of Map, from the MapCategoryType Enumeration.
+        /// </summary>
         public static readonly Uri mapType=new Uri(BaseUri+"mapType");
-
+        
+        /// <summary>
+        /// A pointer from a newer variant of a product  to its previous, often discontinued predecessor.
+        /// </summary>
         public static readonly Uri successorOf=new Uri(BaseUri+"successorOf");
-
+        
+        /// <summary>
+        /// Where a taxi will pick up a passenger or a rental car can be picked up.
+        /// </summary>
         public static readonly Uri pickupLocation=new Uri(BaseUri+"pickupLocation");
-
+        
+        /// <summary>
+        /// A dataset contained in a catalog.
+        /// </summary>
         public static readonly Uri dataset=new Uri(BaseUri+"dataset");
-
+        
+        /// <summary>
+        /// Nationality of the person.
+        /// </summary>
         public static readonly Uri nationality=new Uri(BaseUri+"nationality");
-
+        
+        /// <summary>
+        /// A sibling of the person.
+        /// </summary>
         public static readonly Uri sibling=new Uri(BaseUri+"sibling");
-
+        
+        /// <summary>
+        /// The item that is being reviewed/rated.
+        /// </summary>
         public static readonly Uri itemReviewed=new Uri(BaseUri+"itemReviewed");
-
+        
+        /// <summary>
+        /// A sub property of participant. The participant/person/organization that bought the object.
+        /// </summary>
         public static readonly Uri buyer=new Uri(BaseUri+"buyer");
-
+        
+        /// <summary>
+        /// A (typically single) geographic location associated with the job position.
+        /// </summary>
         public static readonly Uri jobLocation=new Uri(BaseUri+"jobLocation");
-
+        
+        /// <summary>
+        /// The answer that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.
+        /// </summary>
         public static readonly Uri acceptedAnswer=new Uri(BaseUri+"acceptedAnswer");
-
+        
+        /// <summary>
+        /// Drugs that affect the test's results.
+        /// </summary>
         public static readonly Uri affectedBy=new Uri(BaseUri+"affectedBy");
-
+        
+        /// <summary>
+        /// A diagnostic test or procedure offered by this lab.
+        /// </summary>
         public static readonly Uri availableTest=new Uri(BaseUri+"availableTest");
-
+        
+        /// <summary>
+        /// A sub property of instrument. The method of delivery
+        /// </summary>
         public static readonly Uri deliveryMethod=new Uri(BaseUri+"deliveryMethod");
-
+        
+        /// <summary>
+        /// An organizer of an Event.
+        /// </summary>
         public static readonly Uri organizer=new Uri(BaseUri+"organizer");
-
+        
+        /// <summary>
+        /// The airport where the flight terminates.
+        /// </summary>
         public static readonly Uri arrivalAirport=new Uri(BaseUri+"arrivalAirport");
-
+        
+        /// <summary>
+        /// Where a rental car can be dropped off.
+        /// </summary>
         public static readonly Uri dropoffLocation=new Uri(BaseUri+"dropoffLocation");
-
+        
+        /// <summary>
+        /// The location (e.g. civic structure, local business, etc.) where a person can go to access the service.
+        /// </summary>
         public static readonly Uri serviceLocation=new Uri(BaseUri+"serviceLocation");
-
+        
+        /// <summary>
+        /// A sub property of participant. The owner of the real estate property.
+        /// </summary>
         public static readonly Uri landlord=new Uri(BaseUri+"landlord");
-
+        
+        /// <summary>
+        /// The phone number to use to access the service.
+        /// </summary>
         public static readonly Uri servicePhone=new Uri(BaseUri+"servicePhone");
-
+        
+        /// <summary>
+        /// Indicates a target EntryPoint for an Action.
+        /// </summary>
         public static readonly Uri target=new Uri(BaseUri+"target");
-
+        
+        /// <summary>
+        /// A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.
+        /// </summary>
         public static readonly Uri itemCondition=new Uri(BaseUri+"itemCondition");
-
+        
+        /// <summary>
+        /// An underlying cause. More specifically, one of the causative agent(s) that are most directly responsible for the pathophysiologic process that eventually results in the occurrence.
+        /// </summary>
         public static readonly Uri cause=new Uri(BaseUri+"cause");
-
+        
+        /// <summary>
+        /// Device used to perform the test.
+        /// </summary>
         public static readonly Uri usesDevice=new Uri(BaseUri+"usesDevice");
-
+        
+        /// <summary>
+        /// The item being offered.
+        /// </summary>
         public static readonly Uri itemOffered=new Uri(BaseUri+"itemOffered");
-
+        
+        /// <summary>
+        /// A photograph of this place.
+        /// </summary>
         public static readonly Uri photo=new Uri(BaseUri+"photo");
-
+        
+        /// <summary>
+        /// This ordering relation for qualitative values indicates that the subject is greater than the object.
+        /// </summary>
         public static readonly Uri greater=new Uri(BaseUri+"greater");
-
+        
+        /// <summary>
+        /// The object that helped the agent perform the action. e.g. John wrote a book with *a pen*.
+        /// </summary>
         public static readonly Uri instrument=new Uri(BaseUri+"instrument");
-
+        
+        /// <summary>
+        /// The anatomical or organ system that this structure is part of.
+        /// </summary>
         public static readonly Uri partOfSystem=new Uri(BaseUri+"partOfSystem");
-
+        
+        /// <summary>
+        /// The episode to which this clip belongs.
+        /// </summary>
         public static readonly Uri partOfEpisode=new Uri(BaseUri+"partOfEpisode");
-
+        
+        /// <summary>
+        /// A pointer to another, somehow related product (or multiple products).
+        /// </summary>
         public static readonly Uri isRelatedTo=new Uri(BaseUri+"isRelatedTo");
-
+        
+        /// <summary>
+        /// A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition.
+        /// </summary>
         public static readonly Uri seriousAdverseOutcome=new Uri(BaseUri+"seriousAdverseOutcome");
-
+        
+        /// <summary>
+        /// The scope of the warranty promise.
+        /// </summary>
         public static readonly Uri warrantyScope=new Uri(BaseUri+"warrantyScope");
-
+        
+        /// <summary>
+        /// A sub property of object. The object that is being replaced.
+        /// </summary>
         public static readonly Uri replacee=new Uri(BaseUri+"replacee");
-
+        
+        /// <summary>
+        /// The neurological pathway that originates the neurons.
+        /// </summary>
         public static readonly Uri sourcedFrom=new Uri(BaseUri+"sourcedFrom");
-
+        
+        /// <summary>
+        /// Points-of-Sales operated by the organization or person.
+        /// </summary>
         public static readonly Uri hasPOS=new Uri(BaseUri+"hasPOS");
-
+        
+        /// <summary>
+        /// A goal towards an action is taken. Can be concrete or abstract.
+        /// </summary>
         public static readonly Uri purpose=new Uri(BaseUri+"purpose");
-
+        
+        /// <summary>
+        /// The operating organization, if different from the provider.  This enables the representation of services that are provided by an organization, but operated by another organization like a subcontractor.
+        /// </summary>
         public static readonly Uri serviceOperator=new Uri(BaseUri+"serviceOperator");
-
+        
+        /// <summary>
+        /// Alumni of educational organization.
+        /// </summary>
         public static readonly Uri alumni=new Uri(BaseUri+"alumni");
-
+        
+        /// <summary>
+        /// An embedded video object.
+        /// </summary>
         public static readonly Uri video=new Uri(BaseUri+"video");
-
+        
+        /// <summary>
+        /// A sub property of location. The specific food event where the action occurred.
+        /// </summary>
         public static readonly Uri foodEvent=new Uri(BaseUri+"foodEvent");
-
+        
+        /// <summary>
+        /// The most generic uni-directional social relation.
+        /// </summary>
         public static readonly Uri follows=new Uri(BaseUri+"follows");
-
+        
+        /// <summary>
+        /// Indicates whether this drug is available by prescription or over-the-counter.
+        /// </summary>
         public static readonly Uri prescriptionStatus=new Uri(BaseUri+"prescriptionStatus");
-
+        
+        /// <summary>
+        /// A work performed in some event, for example a play performed in a TheaterEvent.
+        /// </summary>
         public static readonly Uri workPerformed=new Uri(BaseUri+"workPerformed");
-
+        
+        /// <summary>
+        /// If applicable, a medical specialty in which this entity is relevant.
+        /// </summary>
         public static readonly Uri relevantSpecialty=new Uri(BaseUri+"relevantSpecialty");
-
+        
+        /// <summary>
+        /// The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.
+        /// </summary>
         public static readonly Uri creator=new Uri(BaseUri+"creator");
-
+        
+        /// <summary>
+        /// Another drug that is known to interact with this drug in a way that impacts the effect of this drug or causes a risk to the patient. Note: disease interactions are typically captured as contraindications.
+        /// </summary>
         public static readonly Uri interactingDrug=new Uri(BaseUri+"interactingDrug");
-
+        
+        /// <summary>
+        /// An additional offer that can only be obtained in combination with the first base offer (e.g. supplements and extensions that are available for a surcharge).
+        /// </summary>
         public static readonly Uri addOn=new Uri(BaseUri+"addOn");
-
+        
+        /// <summary>
+        /// The age of the business.
+        /// </summary>
         public static readonly Uri yearsInOperation=new Uri(BaseUri+"yearsInOperation");
-
+        
+        /// <summary>
+        /// A media object that encodes this CreativeWork. This property is a synonym for encoding.
+        /// </summary>
         public static readonly Uri associatedMedia=new Uri(BaseUri+"associatedMedia");
-
+        
+        /// <summary>
+        /// Component (sub-)structure(s) that comprise this anatomical structure.
+        /// </summary>
         public static readonly Uri subStructure=new Uri(BaseUri+"subStructure");
-
+        
+        /// <summary>
+        /// Organizations that the person works for.
+        /// </summary>
         public static readonly Uri worksFor=new Uri(BaseUri+"worksFor");
-
+        
+        /// <summary>
+        /// The location in which the status applies.
+        /// </summary>
         public static readonly Uri applicableLocation=new Uri(BaseUri+"applicableLocation");
-
+        
+        /// <summary>
+        /// A preventative therapy used to prevent an initial occurrence of the medical condition, such as vaccination.
+        /// </summary>
         public static readonly Uri primaryPrevention=new Uri(BaseUri+"primaryPrevention");
-
+        
+        /// <summary>
+        /// An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer site.
+        /// </summary>
         public static readonly Uri suggestedAnswer=new Uri(BaseUri+"suggestedAnswer");
-
+        
+        /// <summary>
+        /// People or organizations that endorse the plan.
+        /// </summary>
         public static readonly Uri endorsers=new Uri(BaseUri+"endorsers");
-
+        
+        /// <summary>
+        /// The neurological pathway extension that inputs and sends information to the brain or spinal cord.
+        /// </summary>
         public static readonly Uri sensoryUnit=new Uri(BaseUri+"sensoryUnit");
-
+        
+        /// <summary>
+        /// A sub property of instrument. The recipe/instructions used to perform the action.
+        /// </summary>
         public static readonly Uri recipe=new Uri(BaseUri+"recipe");
-
+        
+        /// <summary>
+        /// Someone working for this organization.
+        /// </summary>
         public static readonly Uri employee=new Uri(BaseUri+"employee");
-
+        
+        /// <summary>
+        /// A means of accessing the service (e.g. a phone bank, a web site, a location, etc.)
+        /// </summary>
         public static readonly Uri availableChannel=new Uri(BaseUri+"availableChannel");
-
+        
+        /// <summary>
+        /// A person who founded this organization.
+        /// </summary>
         public static readonly Uri founder=new Uri(BaseUri+"founder");
-
+        
+        /// <summary>
+        /// A music recording (track)&#x2014;usually a single song.
+        /// </summary>
         public static readonly Uri track=new Uri(BaseUri+"track");
-
+        
+        /// <summary>
+        /// The CreativeWork encoded by this media object.
+        /// </summary>
         public static readonly Uri encodesCreativeWork=new Uri(BaseUri+"encodesCreativeWork");
-
+        
+        /// <summary>
+        /// A sub property of instrument. The language used on this action.
+        /// </summary>
         public static readonly Uri language=new Uri(BaseUri+"language");
-
+        
+        /// <summary>
+        /// A creative work that this work is an example/instance/realization/derivation of.
+        /// </summary>
         public static readonly Uri exampleOfWork=new Uri(BaseUri+"exampleOfWork");
-
+        
+        /// <summary>
+        /// The opening hours of a certain place.
+        /// </summary>
         public static readonly Uri openingHoursSpecification=new Uri(BaseUri+"openingHoursSpecification");
-
+        
+        /// <summary>
+        /// Example/instance/realization/derivation of the concept of this creative work. eg. The paperback edition, first edition, or eBook.
+        /// </summary>
         public static readonly Uri workExample=new Uri(BaseUri+"workExample");
-
+        
+        /// <summary>
+        /// The direct performer or driver of the action (animate or inanimate). e.g. *John* wrote a book.
+        /// </summary>
         public static readonly Uri agent=new Uri(BaseUri+"agent");
-
+        
+        /// <summary>
+        /// A preventative therapy used to prevent reoccurrence of the medical condition after an initial episode of the condition.
+        /// </summary>
         public static readonly Uri secondaryPrevention=new Uri(BaseUri+"secondaryPrevention");
-
+        
+        /// <summary>
+        /// Related anatomical structure(s) that are not part of the system but relate or connect to it, such as vascular bundles associated with an organ system.
+        /// </summary>
         public static readonly Uri relatedStructure=new Uri(BaseUri+"relatedStructure");
-
+        
+        /// <summary>
+        /// The neurological pathway extension that involves muscle control.
+        /// </summary>
         public static readonly Uri nerveMotor=new Uri(BaseUri+"nerveMotor");
-
+        
+        /// <summary>
+        /// The organization owning or operating the broadcast service.
+        /// </summary>
         public static readonly Uri broadcaster=new Uri(BaseUri+"broadcaster");
-
+        
+        /// <summary>
+        /// Other anatomical structures to which this structure is connected.
+        /// </summary>
         public static readonly Uri connectedTo=new Uri(BaseUri+"connectedTo");
-
+        
+        /// <summary>
+        /// One or more alternative conditions considered in the differential diagnosis process.
+        /// </summary>
         public static readonly Uri diagnosis=new Uri(BaseUri+"diagnosis");
-
+        
+        /// <summary>
+        /// The vasculature the lymphatic structure originates, or afferents, from.
+        /// </summary>
         public static readonly Uri originatesFrom=new Uri(BaseUri+"originatesFrom");
-
+        
+        /// <summary>
+        /// The overall rating, based on a collection of reviews or ratings, of the item.
+        /// </summary>
         public static readonly Uri aggregateRating=new Uri(BaseUri+"aggregateRating");
-
+        
+        /// <summary>
+        /// 'merchant' is an out-dated term for 'seller'.
+        /// </summary>
         public static readonly Uri merchant=new Uri(BaseUri+"merchant");
-
+        
+        /// <summary>
+        /// Recommended intake of this supplement for a given population as defined by a specific recommending authority.
+        /// </summary>
         public static readonly Uri maximumIntake=new Uri(BaseUri+"maximumIntake");
-
+        
+        /// <summary>
+        /// The author of this content. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
+        /// </summary>
         public static readonly Uri author=new Uri(BaseUri+"author");
-
+        
+        /// <summary>
+        /// The organization issuing the ticket or permit.
+        /// </summary>
         public static readonly Uri issuedBy=new Uri(BaseUri+"issuedBy");
-
+        
+        /// <summary>
+        /// A diagnostic test that can identify this sign.
+        /// </summary>
         public static readonly Uri identifyingTest=new Uri(BaseUri+"identifyingTest");
-
+        
+        /// <summary>
+        /// An Organization (or ProgramMembership) to which this Person or Organization belongs.
+        /// </summary>
         public static readonly Uri memberOf=new Uri(BaseUri+"memberOf");
-
+        
+        /// <summary>
+        /// The place or point where a muscle arises.
+        /// </summary>
         public static readonly Uri origin=new Uri(BaseUri+"origin");
-
+        
+        /// <summary>
+        /// Upcoming or past event associated with this place or organization.
+        /// </summary>
         public static readonly Uri @event=new Uri(BaseUri+"event");
-
+        
+        /// <summary>
+        /// The most generic bi-directional social/work relation.
+        /// </summary>
         public static readonly Uri knows=new Uri(BaseUri+"knows");
-
+        
+        /// <summary>
+        /// Strength of evidence of the data used to formulate the guideline (enumerated).
+        /// </summary>
         public static readonly Uri evidenceLevel=new Uri(BaseUri+"evidenceLevel");
-
+        
+        /// <summary>
+        /// The thing -- flight, event, restaurant,etc. being reserved.
+        /// </summary>
         public static readonly Uri reservationFor=new Uri(BaseUri+"reservationFor");
-
+        
+        /// <summary>
+        /// A sub property of participant. The person that lends the object being borrowed.
+        /// </summary>
         public static readonly Uri lender=new Uri(BaseUri+"lender");
-
+        
+        /// <summary>
+        /// Shipper's address.
+        /// </summary>
         public static readonly Uri originAddress=new Uri(BaseUri+"originAddress");
-
+        
+        /// <summary>
+        /// The anatomy of the underlying organ system or structures associated with this entity.
+        /// </summary>
         public static readonly Uri associatedAnatomy=new Uri(BaseUri+"associatedAnatomy");
-
+        
+        /// <summary>
+        /// Party placing the order.
+        /// </summary>
         public static readonly Uri customer=new Uri(BaseUri+"customer");
-
+        
+        /// <summary>
+        /// A sub property of instrument. The exercise plan used on this action.
+        /// </summary>
         public static readonly Uri exercisePlan=new Uri(BaseUri+"exercisePlan");
-
+        
+        /// <summary>
+        /// The stop or station from which the bus arrives.
+        /// </summary>
         public static readonly Uri arrivalBusStop=new Uri(BaseUri+"arrivalBusStop");
-
+        
+        /// <summary>
+        /// Relates a property to a property that is its inverse. Inverse properties relate the same pairs of items to each other, but in reversed direction. For example, the 'alumni' and 'alumniOf' properties are inverseOf each other. Some properties don't have explicit inverses; in these situations RDFa and JSON-LD syntax for reverse properties can be used.
+        /// </summary>
         public static readonly Uri inverseOf=new Uri(BaseUri+"inverseOf");
-
+        
+        /// <summary>
+        /// The vasculature that the vein drains into.
+        /// </summary>
         public static readonly Uri drainsTo=new Uri(BaseUri+"drainsTo");
-
+        
+        /// <summary>
+        /// A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals.
+        /// </summary>
         public static readonly Uri member=new Uri(BaseUri+"member");
-
+        
+        /// <summary>
+        /// This ordering relation for qualitative values indicates that the subject is lesser than or equal to the object.
+        /// </summary>
         public static readonly Uri lesserOrEqual=new Uri(BaseUri+"lesserOrEqual");
-
+        
+        /// <summary>
+        /// The payment method(s) to which the payment charge specification applies.
+        /// </summary>
         public static readonly Uri appliesToPaymentMethod=new Uri(BaseUri+"appliesToPaymentMethod");
-
+        
+        /// <summary>
+        /// The location of the event, organization or action.
+        /// </summary>
         public static readonly Uri location=new Uri(BaseUri+"location");
-
+        
+        /// <summary>
+        /// A modifiable or non-modifiable factor that increases the risk of a patient contracting this condition, e.g. age,  coexisting condition.
+        /// </summary>
         public static readonly Uri riskFactor=new Uri(BaseUri+"riskFactor");
-
+        
+        /// <summary>
+        /// One of a set of signs and symptoms that can be used to distinguish this diagnosis from others in the differential diagnosis.
+        /// </summary>
         public static readonly Uri distinguishingSign=new Uri(BaseUri+"distinguishingSign");
-
+        
+        /// <summary>
+        /// The audience eligible for this service.
+        /// </summary>
         public static readonly Uri serviceAudience=new Uri(BaseUri+"serviceAudience");
-
+        
+        /// <summary>
+        /// The billing address for the order.
+        /// </summary>
         public static readonly Uri billingAddress=new Uri(BaseUri+"billingAddress");
-
+        
+        /// <summary>
+        /// A pointer to another product (or multiple products) for which this product is a consumable.
+        /// </summary>
         public static readonly Uri isConsumableFor=new Uri(BaseUri+"isConsumableFor");
-
+        
+        /// <summary>
+        /// The computer programming language.
+        /// </summary>
         public static readonly Uri programmingLanguage=new Uri(BaseUri+"programmingLanguage");
-
+        
+        /// <summary>
+        /// A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe.
+        /// </summary>
         public static readonly Uri department=new Uri(BaseUri+"department");
-
+        
+        /// <summary>
+        /// The seat associated with the ticket.
+        /// </summary>
         public static readonly Uri ticketedSeat=new Uri(BaseUri+"ticketedSeat");
-
+        
+        /// <summary>
+        /// The geographic area where the service is provided.
+        /// </summary>
         public static readonly Uri serviceArea=new Uri(BaseUri+"serviceArea");
-
+        
+        /// <summary>
+        /// The party holding the legal copyright to the CreativeWork.
+        /// </summary>
         public static readonly Uri copyrightHolder=new Uri(BaseUri+"copyrightHolder");
-
+        
+        /// <summary>
+        /// The number to access the service by text message.
+        /// </summary>
         public static readonly Uri serviceSmsNumber=new Uri(BaseUri+"serviceSmsNumber");
-
+        
+        /// <summary>
+        /// 'vendor' is an earlier term for 'seller'.
+        /// </summary>
         public static readonly Uri vendor=new Uri(BaseUri+"vendor");
-
+        
+        /// <summary>
+        /// An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.
+        /// </summary>
         public static readonly Uri superEvent=new Uri(BaseUri+"superEvent");
-
+        
+        /// <summary>
+        /// The current approximate inventory level for the item or items.
+        /// </summary>
         public static readonly Uri inventoryLevel=new Uri(BaseUri+"inventoryLevel");
-
+        
+        /// <summary>
+        /// A sub property of instrument. The diet used in this action.
+        /// </summary>
         public static readonly Uri diet=new Uri(BaseUri+"diet");
-
+        
+        /// <summary>
+        /// A sub property of location. The specific food establishment where the action occurred.
+        /// </summary>
         public static readonly Uri foodEstablishment=new Uri(BaseUri+"foodEstablishment");
-
+        
+        /// <summary>
+        /// A season in a tv/radio series.
+        /// </summary>
         public static readonly Uri season=new Uri(BaseUri+"season");
-
+        
+        /// <summary>
+        /// An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, or give away tickets to an event.
+        /// </summary>
         public static readonly Uri offers=new Uri(BaseUri+"offers");
-
+        
+        /// <summary>
+        /// The location of the content.
+        /// </summary>
         public static readonly Uri contentLocation=new Uri(BaseUri+"contentLocation");
-
+        
+        /// <summary>
+        /// The larger organization that this local business is a branch of, if any.
+        /// </summary>
         public static readonly Uri branchOf=new Uri(BaseUri+"branchOf");
-
+        
+        /// <summary>
+        /// The stop or station from which the bus departs.
+        /// </summary>
         public static readonly Uri departureBusStop=new Uri(BaseUri+"departureBusStop");
-
+        
+        /// <summary>
+        /// A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property.
+        /// </summary>
         public static readonly Uri subOrganization=new Uri(BaseUri+"subOrganization");
-
+        
+        /// <summary>
+        /// Products owned by the organization or person.
+        /// </summary>
         public static readonly Uri owns=new Uri(BaseUri+"owns");
-
+        
+        /// <summary>
+        /// Item(s) being shipped.
+        /// </summary>
         public static readonly Uri itemShipped=new Uri(BaseUri+"itemShipped");
-
+        
+        /// <summary>
+        /// The hours during which this contact point is available.
+        /// </summary>
         public static readonly Uri hoursAvailable=new Uri(BaseUri+"hoursAvailable");
-
+        
+        /// <summary>
+        /// This ordering relation for qualitative values indicates that the subject is greater than or equal to the object.
+        /// </summary>
         public static readonly Uri greaterOrEqual=new Uri(BaseUri+"greaterOrEqual");
-
+        
+        /// <summary>
+        /// A sub property of participant. The person/organization being supported.
+        /// </summary>
         public static readonly Uri endorsee=new Uri(BaseUri+"endorsee");
-
+        
+        /// <summary>
+        /// A condition the test is used to diagnose.
+        /// </summary>
         public static readonly Uri usedToDiagnose=new Uri(BaseUri+"usedToDiagnose");
-
+        
+        /// <summary>
+        /// The production company or studio that made the movie, tv/radio series, season, or episode, or media object.
+        /// </summary>
         public static readonly Uri productionCompany=new Uri(BaseUri+"productionCompany");
-
+        
+        /// <summary>
+        /// The airport where the flight originates.
+        /// </summary>
         public static readonly Uri departureAirport=new Uri(BaseUri+"departureAirport");
-
+        
+        /// <summary>
+        /// A data catalog which contains a dataset.
+        /// </summary>
         public static readonly Uri catalog=new Uri(BaseUri+"catalog");
-
+        
+        /// <summary>
+        /// The most generic familial relation.
+        /// </summary>
         public static readonly Uri relatedTo=new Uri(BaseUri+"relatedTo");
-
+        
+        /// <summary>
+        /// The illustrator of the book.
+        /// </summary>
         public static readonly Uri illustrator=new Uri(BaseUri+"illustrator");
-
+        
+        /// <summary>
+        /// Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.
+        /// </summary>
         public static readonly Uri potentialAction=new Uri(BaseUri+"potentialAction");
-
+        
+        /// <summary>
+        /// The service provided by this channel.
+        /// </summary>
         public static readonly Uri providesService=new Uri(BaseUri+"providesService");
-
+        
+        /// <summary>
+        /// Specifies the CreativeWork associated with the UserComment.
+        /// </summary>
         public static readonly Uri discusses=new Uri(BaseUri+"discusses");
-
+        
+        /// <summary>
+        /// The offer(s) -- e.g., product, quantity and price combinations -- included in the order.
+        /// </summary>
         public static readonly Uri acceptedOffer=new Uri(BaseUri+"acceptedOffer");
-
+        
+        /// <summary>
+        /// Any other drug related to this one, for example commonly-prescribed alternatives.
+        /// </summary>
         public static readonly Uri relatedDrug=new Uri(BaseUri+"relatedDrug");
-
+        
+        /// <summary>
+        /// A sub property of participant. The loser of the action.
+        /// </summary>
         public static readonly Uri loser=new Uri(BaseUri+"loser");
-
+        
+        /// <summary>
+        /// The place of attachment of a muscle, or what the muscle moves.
+        /// </summary>
         public static readonly Uri insertion=new Uri(BaseUri+"insertion");
-
+        
+        /// <summary>
+        /// A therapy that duplicates or overlaps this one.
+        /// </summary>
         public static readonly Uri duplicateTherapy=new Uri(BaseUri+"duplicateTherapy");
-
+        
+        /// <summary>
+        /// The condition, complication, symptom, sign, etc. caused.
+        /// </summary>
         public static readonly Uri causeOf=new Uri(BaseUri+"causeOf");
-
+        
+        /// <summary>
+        /// The Organization on whose behalf the creator was working.
+        /// </summary>
         public static readonly Uri sourceOrganization=new Uri(BaseUri+"sourceOrganization");
-
+        
+        /// <summary>
+        /// Specifics about the observational study design (enumerated).
+        /// </summary>
         public static readonly Uri studyDesign=new Uri(BaseUri+"studyDesign");
-
+        
+        /// <summary>
+        /// The range of spatial applicability of a dataset, e.g. for a dataset of New York weather, the state of New York.
+        /// </summary>
         public static readonly Uri spatial=new Uri(BaseUri+"spatial");
-
+        
+        /// <summary>
+        /// A pointer to another, functionally similar product (or multiple products).
+        /// </summary>
         public static readonly Uri isSimilarTo=new Uri(BaseUri+"isSimilarTo");
-
+        
+        /// <summary>
+        /// A sub property of participant. The person that borrows the object being lent.
+        /// </summary>
         public static readonly Uri borrower=new Uri(BaseUri+"borrower");
-
+        
+        /// <summary>
+        /// The duration for which the given offer is valid.
+        /// </summary>
         public static readonly Uri eligibleDuration=new Uri(BaseUri+"eligibleDuration");
-
+        
+        /// <summary>
+        /// The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.
+        /// </summary>
         public static readonly Uri eligibleTransactionVolume=new Uri(BaseUri+"eligibleTransactionVolume");
-
+        
+        /// <summary>
+        /// This links to a node or nodes indicating the exact quantity of the products included in the offer.
+        /// </summary>
         public static readonly Uri includesObject=new Uri(BaseUri+"includesObject");
-
+        
+        /// <summary>
+        /// The person's spouse.
+        /// </summary>
         public static readonly Uri spouse=new Uri(BaseUri+"spouse");
-
+        
+        /// <summary>
+        /// The drug or supplement's legal status, including any controlled substance schedules that apply.
+        /// </summary>
         public static readonly Uri legalStatus=new Uri(BaseUri+"legalStatus");
-
+        
+        /// <summary>
+        /// The artist that performed this album or recording.
+        /// </summary>
         public static readonly Uri byArtist=new Uri(BaseUri+"byArtist");
-
+        
+        /// <summary>
+        /// Cost per unit of the drug, as reported by the source being tagged.
+        /// </summary>
         public static readonly Uri cost=new Uri(BaseUri+"cost");
-
+        
+        /// <summary>
+        /// A media object that encodes this CreativeWork. This property is a synonym for associatedMedia.
+        /// </summary>
         public static readonly Uri encoding=new Uri(BaseUri+"encoding");
-
+        
+        /// <summary>
+        /// An available dosage strength for the drug.
+        /// </summary>
         public static readonly Uri availableStrength=new Uri(BaseUri+"availableStrength");
-
+        
+        /// <summary>
+        /// Relates a property to a class that constitutes (one of) the expected type(s) for values of the property.
+        /// </summary>
         public static readonly Uri rangeIncludes=new Uri(BaseUri+"rangeIncludes");
-
+        
+        /// <summary>
+        /// A ticket associated with the reservation.
+        /// </summary>
         public static readonly Uri reservedTicket=new Uri(BaseUri+"reservedTicket");
-
+        
+        /// <summary>
+        /// A sub property of object. The collection target of the action.
+        /// </summary>
         public static readonly Uri collection=new Uri(BaseUri+"collection");
-
+        
+        /// <summary>
+        /// The organization or person from which the product was acquired.
+        /// </summary>
         public static readonly Uri acquiredFrom=new Uri(BaseUri+"acquiredFrom");
-
+        
+        /// <summary>
+        /// The station where the train trip ends.
+        /// </summary>
         public static readonly Uri arrivalStation=new Uri(BaseUri+"arrivalStation");
-
+        
+        /// <summary>
+        /// A modifiable or non-modifiable risk factor included in the calculation, e.g. age, coexisting condition.
+        /// </summary>
         public static readonly Uri includedRiskFactor=new Uri(BaseUri+"includedRiskFactor");
-
+        
+        /// <summary>
+        /// A publication event associated with the episode, clip or media object.
+        /// </summary>
         public static readonly Uri publication=new Uri(BaseUri+"publication");
-
+        
+        /// <summary>
+        /// The status of the study (enumerated).
+        /// </summary>
         public static readonly Uri status=new Uri(BaseUri+"status");
-
+        
+        /// <summary>
+        /// A sub property of location. The sports event where this action occurred.
+        /// </summary>
         public static readonly Uri sportsEvent=new Uri(BaseUri+"sportsEvent");
-
+        
+        /// <summary>
+        /// The weight of the product.
+        /// </summary>
         public static readonly Uri weight=new Uri(BaseUri+"weight");
-
+        
+        /// <summary>
+        /// The geographic area where the permit is valid.
+        /// </summary>
         public static readonly Uri validIn=new Uri(BaseUri+"validIn");
-
+        
+        /// <summary>
+        /// The area within which users can expect to reach the broadcast service.
+        /// </summary>
         public static readonly Uri area=new Uri(BaseUri+"area");
-
+        
+        /// <summary>
+        /// This ordering relation for qualitative values indicates that the subject is equal to the object.
+        /// </summary>
         public static readonly Uri equal=new Uri(BaseUri+"equal");
-
+        
+        /// <summary>
+        /// The individual reservations included in the package. Typically a repeated property.
+        /// </summary>
         public static readonly Uri subReservation=new Uri(BaseUri+"subReservation");
-
+        
+        /// <summary>
+        /// A child of the person.
+        /// </summary>
         public static readonly Uri children=new Uri(BaseUri+"children");
-
+        
+        /// <summary>
+        /// The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.
+        /// </summary>
         public static readonly Uri eligibleQuantity=new Uri(BaseUri+"eligibleQuantity");
-
+        
+        /// <summary>
+        /// A contraindication for this therapy.
+        /// </summary>
         public static readonly Uri contraindication=new Uri(BaseUri+"contraindication");
-
+        
+        /// <summary>
+        /// A language someone may use with the item.
+        /// </summary>
         public static readonly Uri availableLanguage=new Uri(BaseUri+"availableLanguage");
-
+        
+        /// <summary>
+        /// A subject of the study, i.e. one of the medical conditions, therapies, devices, drugs, etc. investigated by the study.
+        /// </summary>
         public static readonly Uri studySubject=new Uri(BaseUri+"studySubject");
-
+        
+        /// <summary>
+        /// The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+        /// </summary>
         public static readonly Uri brand=new Uri(BaseUri+"brand");
-
+        
+        /// <summary>
+        /// A sub property of participant. The sports team that participated on this action.
+        /// </summary>
         public static readonly Uri sportsTeam=new Uri(BaseUri+"sportsTeam");
-
+        
+        /// <summary>
+        /// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+        /// </summary>
         public static readonly Uri provider=new Uri(BaseUri+"provider");
-
+        
+        /// <summary>
+        /// An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.
+        /// </summary>
         public static readonly Uri eventStatus=new Uri(BaseUri+"eventStatus");
-
+        
+        /// <summary>
+        /// An episode of a TV/radio series or season
+        /// </summary>
         public static readonly Uri episode=new Uri(BaseUri+"episode");
-
+        
+        /// <summary>
+        /// The album to which this recording belongs.
+        /// </summary>
         public static readonly Uri inAlbum=new Uri(BaseUri+"inAlbum");
-
+        
+        /// <summary>
+        /// Indicates a CreativeWork that this CreativeWork is (in some sense) part of.
+        /// </summary>
         public static readonly Uri isPartOf=new Uri(BaseUri+"isPartOf");
-
+        
+        /// <summary>
+        /// The product that this structured value is referring to.
+        /// </summary>
         public static readonly Uri typeOfGood=new Uri(BaseUri+"typeOfGood");
-
+        
+        /// <summary>
+        /// Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.
+        /// </summary>
         public static readonly Uri hasPart=new Uri(BaseUri+"hasPart");
-
+        
+        /// <summary>
+        /// A medical therapy related to this anatomy.
+        /// </summary>
         public static readonly Uri relatedTherapy=new Uri(BaseUri+"relatedTherapy");
-
+        
+        /// <summary>
+        /// A pointer to another product (or multiple products) for which this product is an accessory or spare part.
+        /// </summary>
         public static readonly Uri isAccessoryOrSparePartFor=new Uri(BaseUri+"isAccessoryOrSparePartFor");
-
+        
+        /// <summary>
+        /// The playlist to which this recording belongs.
+        /// </summary>
         public static readonly Uri inPlaylist=new Uri(BaseUri+"inPlaylist");
-
+        
+        /// <summary>
+        /// The target audience for this permit.
+        /// </summary>
         public static readonly Uri permitAudience=new Uri(BaseUri+"permitAudience");
-
+        
+        /// <summary>
+        /// The vasculature the lymphatic structure runs, or efferents, to.
+        /// </summary>
         public static readonly Uri runsTo=new Uri(BaseUri+"runsTo");
-
+        
+        /// <summary>
+        /// The organization (airline, travelers' club, etc.) the membership is made with.
+        /// </summary>
         public static readonly Uri hostingOrganization=new Uri(BaseUri+"hostingOrganization");
-
+        
+        /// <summary>
+        /// The medical conditions, treatments, etc. that are the subject of the guideline.
+        /// </summary>
         public static readonly Uri guidelineSubject=new Uri(BaseUri+"guidelineSubject");
-
+        
+        /// <summary>
+        /// The condition, complication, etc. influenced by this factor.
+        /// </summary>
         public static readonly Uri increasesRiskOf=new Uri(BaseUri+"increasesRiskOf");
-
+        
+        /// <summary>
+        /// Comments, typically from users, on this CreativeWork.
+        /// </summary>
         public static readonly Uri comment=new Uri(BaseUri+"comment");
-
+        
+        /// <summary>
+        /// The director of the movie, tv/radio episode or series.
+        /// </summary>
         public static readonly Uri director=new Uri(BaseUri+"director");
-
+        
+        /// <summary>
+        /// The delivery method(s) to which the delivery charge or payment charge specification applies.
+        /// </summary>
         public static readonly Uri appliesToDeliveryMethod=new Uri(BaseUri+"appliesToDeliveryMethod");
-
+        
+        /// <summary>
+        /// If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.
+        /// </summary>
         public static readonly Uri recognizingAuthority=new Uri(BaseUri+"recognizingAuthority");
-
+        
+        /// <summary>
+        /// A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.
+        /// </summary>
         public static readonly Uri doseSchedule=new Uri(BaseUri+"doseSchedule");
-
+        
+        /// <summary>
+        /// The regions where the media is allowed. If not specified, then it's assumed to be allowed everywhere. Specify the countries in <a href='http://en.wikipedia.org/wiki/ISO_3166'>ISO 3166 format</a>.
+        /// </summary>
         public static readonly Uri regionsAllowed=new Uri(BaseUri+"regionsAllowed");
-
+        
+        /// <summary>
+        /// The warranty promise(s) included in the offer.
+        /// </summary>
         public static readonly Uri warrantyPromise=new Uri(BaseUri+"warrantyPromise");
-
+        
+        /// <summary>
+        /// A medical service available from this provider.
+        /// </summary>
         public static readonly Uri availableService=new Uri(BaseUri+"availableService");
-
+        
+        /// <summary>
+        /// Event that this person is a performer or participant in.
+        /// </summary>
         public static readonly Uri performerIn=new Uri(BaseUri+"performerIn");
-
+        
+        /// <summary>
+        /// The subject matter of the content.
+        /// </summary>
         public static readonly Uri about=new Uri(BaseUri+"about");
-
+        
+        /// <summary>
+        /// The trailer of a movie or tv/radio series, season, or episode.
+        /// </summary>
         public static readonly Uri trailer=new Uri(BaseUri+"trailer");
-
+        
+        /// <summary>
+        /// The item ordered.
+        /// </summary>
         public static readonly Uri orderedItem=new Uri(BaseUri+"orderedItem");
-
+        
+        /// <summary>
+        /// People or organizations that have reviewed the content on this web page for accuracy and/or completeness.
+        /// </summary>
         public static readonly Uri reviewedBy=new Uri(BaseUri+"reviewedBy");
-
+        
+        /// <summary>
+        /// The basic containment relation between places.
+        /// </summary>
         public static readonly Uri containedIn=new Uri(BaseUri+"containedIn");
-
+        /// <summary>
+        /// Indicates that the item has sold out.
+        /// </summary>
         public static readonly Uri SoldOut=new Uri(BaseUri+"SoldOut");
-
+        /// <summary>
+        /// Indicates that the item is available only online.
+        /// </summary>
         public static readonly Uri OnlineOnly=new Uri(BaseUri+"OnlineOnly");
-
+        /// <summary>
+        /// Indicates that the item is available for pre-order.
+        /// </summary>
         public static readonly Uri PreOrder=new Uri(BaseUri+"PreOrder");
-
+        /// <summary>
+        /// Indicates that the item is out of stock.
+        /// </summary>
         public static readonly Uri OutOfStock=new Uri(BaseUri+"OutOfStock");
-
+        /// <summary>
+        /// Indicates that the item is available only at physical locations.
+        /// </summary>
         public static readonly Uri InStoreOnly=new Uri(BaseUri+"InStoreOnly");
-
+        /// <summary>
+        /// Indicates that the item has limited availability.
+        /// </summary>
         public static readonly Uri LimitedAvailability=new Uri(BaseUri+"LimitedAvailability");
-
+        /// <summary>
+        /// Indicates that the item has been discontinued.
+        /// </summary>
         public static readonly Uri Discontinued=new Uri(BaseUri+"Discontinued");
-
+        /// <summary>
+        /// Indicates that the item is in stock.
+        /// </summary>
         public static readonly Uri InStock=new Uri(BaseUri+"InStock");
-
+        /// <summary>
+        /// Indicates that the item is new.
+        /// </summary>
         public static readonly Uri NewCondition=new Uri(BaseUri+"NewCondition");
-
+        /// <summary>
+        /// Indicates that the item is used.
+        /// </summary>
         public static readonly Uri UsedCondition=new Uri(BaseUri+"UsedCondition");
-
+        /// <summary>
+        /// Indicates that the item is damaged.
+        /// </summary>
         public static readonly Uri DamagedCondition=new Uri(BaseUri+"DamagedCondition");
-
+        /// <summary>
+        /// Indicates that the item is refurbished.
+        /// </summary>
         public static readonly Uri RefurbishedCondition=new Uri(BaseUri+"RefurbishedCondition");
-
+        /// <summary>
+        /// Positron emission tomography imaging.
+        /// </summary>
         public static readonly Uri PET=new Uri(BaseUri+"PET");
-
+        /// <summary>
+        /// Magnetic resonance imaging.
+        /// </summary>
         public static readonly Uri MRI=new Uri(BaseUri+"MRI");
-
+        /// <summary>
+        /// X-ray computed tomography imaging.
+        /// </summary>
         public static readonly Uri CT=new Uri(BaseUri+"CT");
-
+        /// <summary>
+        /// Ultrasound imaging.
+        /// </summary>
         public static readonly Uri Ultrasound=new Uri(BaseUri+"Ultrasound");
-
+        /// <summary>
+        /// X-ray imaging.
+        /// </summary>
         public static readonly Uri XRay=new Uri(BaseUri+"XRay");
-
+        /// <summary>
+        /// Data derived from a single randomized trial, or nonrandomized studies.
+        /// </summary>
         public static readonly Uri EvidenceLevelB=new Uri(BaseUri+"EvidenceLevelB");
-
+        /// <summary>
+        /// Data derived from multiple randomized clinical trials or meta-analyses.
+        /// </summary>
         public static readonly Uri EvidenceLevelA=new Uri(BaseUri+"EvidenceLevelA");
-
+        /// <summary>
+        /// Only consensus opinion of experts, case studies, or standard-of-care.
+        /// </summary>
         public static readonly Uri EvidenceLevelC=new Uri(BaseUri+"EvidenceLevelC");
-
+        /// <summary>
+        /// An international trial.
+        /// </summary>
         public static readonly Uri InternationalTrial=new Uri(BaseUri+"InternationalTrial");
-
+        /// <summary>
+        /// A trial design in which the researcher knows which treatment the patient was randomly assigned to but the patient does not.
+        /// </summary>
         public static readonly Uri SingleBlindedTrial=new Uri(BaseUri+"SingleBlindedTrial");
-
+        /// <summary>
+        /// A trial that takes place at multiple centers.
+        /// </summary>
         public static readonly Uri MultiCenterTrial=new Uri(BaseUri+"MultiCenterTrial");
-
+        /// <summary>
+        /// A placebo-controlled trial design.
+        /// </summary>
         public static readonly Uri PlaceboControlledTrial=new Uri(BaseUri+"PlaceboControlledTrial");
-
+        /// <summary>
+        /// A trial design in which neither the researcher nor the patient knows the details of the treatment the patient was randomly assigned to.
+        /// </summary>
         public static readonly Uri DoubleBlindedTrial=new Uri(BaseUri+"DoubleBlindedTrial");
-
+        /// <summary>
+        /// A trial design in which the researcher knows the full details of the treatment, and so does the patient.
+        /// </summary>
         public static readonly Uri OpenTrial=new Uri(BaseUri+"OpenTrial");
-
+        /// <summary>
+        /// A trial design in which neither the researcher, the person administering the therapy nor the patient knows the details of the treatment the patient was randomly assigned to.
+        /// </summary>
         public static readonly Uri TripleBlindedTrial=new Uri(BaseUri+"TripleBlindedTrial");
-
+        /// <summary>
+        /// A trial that takes place at a single center.
+        /// </summary>
         public static readonly Uri SingleCenterTrial=new Uri(BaseUri+"SingleCenterTrial");
-
+        /// <summary>
+        /// A randomized trial design.
+        /// </summary>
         public static readonly Uri RandomizedTrial=new Uri(BaseUri+"RandomizedTrial");
-
+        /// <summary>
+        /// The associated telephone number is toll free.
+        /// </summary>
         public static readonly Uri TollFree=new Uri(BaseUri+"TollFree");
-
+        /// <summary>
+        /// Uses devices to support users with hearing impairments.
+        /// </summary>
         public static readonly Uri HearingImpairedSupported=new Uri(BaseUri+"HearingImpairedSupported");
-
+        /// <summary>
+        /// A medical device used for diagnostic purposes.
+        /// </summary>
         public static readonly Uri Diagnostic=new Uri(BaseUri+"Diagnostic");
-
+        /// <summary>
+        /// A medical device used for therapeutic purposes.
+        /// </summary>
         public static readonly Uri Therapeutic=new Uri(BaseUri+"Therapeutic");
-
+        /// <summary>
+        /// A system of medicine that originated in India over thousands of years and that focuses on integrating and balancing the body, mind, and spirit.
+        /// </summary>
         public static readonly Uri Ayurvedic=new Uri(BaseUri+"Ayurvedic");
-
+        /// <summary>
+        /// The conventional Western system of medicine, that aims to apply the best available evidence gained from the scientific method to clinical decision making. Also known as conventional or Western medicine.
+        /// </summary>
         public static readonly Uri WesternConventional=new Uri(BaseUri+"WesternConventional");
-
+        /// <summary>
+        /// A system of medicine based on the principle that a disease can be cured by a substance that produces similar symptoms in healthy people.
+        /// </summary>
         public static readonly Uri Homeopathic=new Uri(BaseUri+"Homeopathic");
-
+        /// <summary>
+        /// A system of medicine focused on promoting the body's innate ability to heal itself.
+        /// </summary>
         public static readonly Uri Osteopathic=new Uri(BaseUri+"Osteopathic");
-
+        /// <summary>
+        /// A system of medicine based on common theoretical concepts that originated in China and evolved over thousands of years, that uses herbs, acupuncture, exercise, massage, dietary therapy, and other methods to treat a wide range of conditions.
+        /// </summary>
         public static readonly Uri TraditionalChinese=new Uri(BaseUri+"TraditionalChinese");
-
+        /// <summary>
+        /// A system of medicine focused on the relationship between the body's structure, mainly the spine, and its functioning.
+        /// </summary>
         public static readonly Uri Chiropractic=new Uri(BaseUri+"Chiropractic");
-
+        /// <summary>
+        /// The event is taking place or has taken place on the startDate as scheduled. Use of this value is optional, as it is assumed by default.
+        /// </summary>
         public static readonly Uri EventScheduled=new Uri(BaseUri+"EventScheduled");
-
+        /// <summary>
+        /// The event has been rescheduled. The event's previousStartDate should be set to the old date and the startDate should be set to the event's new date. (If the event has been rescheduled multiple times, the previousStartDate property may be repeated.)
+        /// </summary>
         public static readonly Uri EventRescheduled=new Uri(BaseUri+"EventRescheduled");
-
+        /// <summary>
+        /// The event has been cancelled. If the event has multiple startDate values, all are assumed to be cancelled. Either startDate or previousStartDate may be used to specify the event's cancelled date(s).
+        /// </summary>
         public static readonly Uri EventCancelled=new Uri(BaseUri+"EventCancelled");
-
+        /// <summary>
+        /// The event has been postponed and no new date has been set. The event's previousStartDate should be set.
+        /// </summary>
         public static readonly Uri EventPostponed=new Uri(BaseUri+"EventPostponed");
-
+        /// <summary>
+        /// A designation by the US FDA signifying that studies in animals or humans have demonstrated fetal abnormalities and/or there is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience, and the risks involved in use of the drug in pregnant women clearly outweigh potential benefits.
+        /// </summary>
         public static readonly Uri FDAcategoryX=new Uri(BaseUri+"FDAcategoryX");
-
+        /// <summary>
+        /// A designation by the US FDA signifying that animal reproduction studies have failed to demonstrate a risk to the fetus and there are no adequate and well-controlled studies in pregnant women.
+        /// </summary>
         public static readonly Uri FDAcategoryB=new Uri(BaseUri+"FDAcategoryB");
-
+        /// <summary>
+        /// A designation by the US FDA signifying that animal reproduction studies have shown an adverse effect on the fetus and there are no adequate and well-controlled studies in humans, but potential benefits may warrant use of the drug in pregnant women despite potential risks.
+        /// </summary>
         public static readonly Uri FDAcategoryC=new Uri(BaseUri+"FDAcategoryC");
-
+        /// <summary>
+        /// A designation by the US FDA signifying that there is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience or studies in humans, but potential benefits may warrant use of the drug in pregnant women despite potential risks.
+        /// </summary>
         public static readonly Uri FDAcategoryD=new Uri(BaseUri+"FDAcategoryD");
-
+        /// <summary>
+        /// A designation by the US FDA signifying that adequate and well-controlled studies have failed to demonstrate a risk to the fetus in the first trimester of pregnancy (and there is no evidence of risk in later trimesters).
+        /// </summary>
         public static readonly Uri FDAcategoryA=new Uri(BaseUri+"FDAcategoryA");
-
+        /// <summary>
+        /// A designation that the drug in question has not been assigned a pregnancy category designation by the US FDA.
+        /// </summary>
         public static readonly Uri FDAnotEvaluated=new Uri(BaseUri+"FDAnotEvaluated");
-
+        /// <summary>
+        /// The status of a reservation on hold pending an update like credit card number or flight changes.
+        /// </summary>
         public static readonly Uri ReservationHold=new Uri(BaseUri+"ReservationHold");
-
+        /// <summary>
+        /// The status of a reservation when a request has been sent, but not confirmed.
+        /// </summary>
         public static readonly Uri ReservationPending=new Uri(BaseUri+"ReservationPending");
-
+        /// <summary>
+        /// The status for a previously confirmed reservation that is now cancelled.
+        /// </summary>
         public static readonly Uri ReservationCancelled=new Uri(BaseUri+"ReservationCancelled");
-
+        /// <summary>
+        /// The status of a confirmed reservation.
+        /// </summary>
         public static readonly Uri ReservationConfirmed=new Uri(BaseUri+"ReservationConfirmed");
-
+        /// <summary>
+        /// Book format: Hardcover.
+        /// </summary>
         public static readonly Uri Hardcover=new Uri(BaseUri+"Hardcover");
-
+        /// <summary>
+        /// Book format: Paperback.
+        /// </summary>
         public static readonly Uri Paperback=new Uri(BaseUri+"Paperback");
-
+        /// <summary>
+        /// Book format: Ebook.
+        /// </summary>
         public static readonly Uri EBook=new Uri(BaseUri+"EBook");
-
+        /// <summary>
+        /// Eye
+        /// </summary>
         public static readonly Uri Eye=new Uri(BaseUri+"Eye");
-
+        /// <summary>
+        /// Cardiovascular
+        /// </summary>
         public static readonly Uri CardiovascularExam=new Uri(BaseUri+"CardiovascularExam");
-
+        /// <summary>
+        /// Neuro
+        /// </summary>
         public static readonly Uri Neuro=new Uri(BaseUri+"Neuro");
-
+        /// <summary>
+        /// Skin
+        /// </summary>
         public static readonly Uri Skin=new Uri(BaseUri+"Skin");
-
+        /// <summary>
+        /// Ear
+        /// </summary>
         public static readonly Uri Ear=new Uri(BaseUri+"Ear");
-
+        /// <summary>
+        /// Musculoskeletal
+        /// </summary>
         public static readonly Uri MusculoskeletalExam=new Uri(BaseUri+"MusculoskeletalExam");
-
+        /// <summary>
+        /// Throat
+        /// </summary>
         public static readonly Uri Throat=new Uri(BaseUri+"Throat");
-
+        /// <summary>
+        /// VitalSign
+        /// </summary>
         public static readonly Uri VitalSign=new Uri(BaseUri+"VitalSign");
-
+        /// <summary>
+        /// Nose
+        /// </summary>
         public static readonly Uri Nose=new Uri(BaseUri+"Nose");
-
+        /// <summary>
+        /// Appearance
+        /// </summary>
         public static readonly Uri Appearance=new Uri(BaseUri+"Appearance");
-
+        /// <summary>
+        /// Genitourinary
+        /// </summary>
         public static readonly Uri Genitourinary=new Uri(BaseUri+"Genitourinary");
-
+        /// <summary>
+        /// Abdomen
+        /// </summary>
         public static readonly Uri Abdomen=new Uri(BaseUri+"Abdomen");
-
+        /// <summary>
+        /// Head
+        /// </summary>
         public static readonly Uri Head=new Uri(BaseUri+"Head");
-
+        /// <summary>
+        /// Lung
+        /// </summary>
         public static readonly Uri Lung=new Uri(BaseUri+"Lung");
-
+        /// <summary>
+        /// Neck
+        /// </summary>
         public static readonly Uri Neck=new Uri(BaseUri+"Neck");
-
+        /// <summary>
+        /// A type of medical procedure that involves invasive surgical techniques.
+        /// </summary>
         public static readonly Uri SurgicalProcedure=new Uri(BaseUri+"SurgicalProcedure");
-
+        /// <summary>
+        /// A type of medical procedure that involves percutaneous techniques, where access to organs or tissue is achieved via needle-puncture of the skin. For example, catheter-based procedures like stent delivery.
+        /// </summary>
         public static readonly Uri PercutaneousProcedure=new Uri(BaseUri+"PercutaneousProcedure");
-
+        /// <summary>
+        /// A type of medical procedure that involves noninvasive techniques.
+        /// </summary>
         public static readonly Uri NoninvasiveProcedure=new Uri(BaseUri+"NoninvasiveProcedure");
-
+        /// <summary>
+        /// Available over the counter.
+        /// </summary>
         public static readonly Uri OTC=new Uri(BaseUri+"OTC");
-
+        /// <summary>
+        /// Available by prescription only.
+        /// </summary>
         public static readonly Uri PrescriptionOnly=new Uri(BaseUri+"PrescriptionOnly");
-
+        /// <summary>
+        /// Physical activity that is engaged in to improve muscle and bone strength. Also referred to as resistance training.
+        /// </summary>
         public static readonly Uri StrengthTraining=new Uri(BaseUri+"StrengthTraining");
-
+        /// <summary>
+        /// Any physical activity engaged in for recreational purposes. Examples may include ballroom dancing, roller skating, canoeing, fishing, etc.
+        /// </summary>
         public static readonly Uri LeisureTimeActivity=new Uri(BaseUri+"LeisureTimeActivity");
-
+        /// <summary>
+        /// Physical activity that is of high-intensity which utilizes the anaerobic metabolism of the body.
+        /// </summary>
         public static readonly Uri AnaerobicActivity=new Uri(BaseUri+"AnaerobicActivity");
-
+        /// <summary>
+        /// Physical activity of relatively low intensity that depends primarily on the aerobic energy-generating process; during activity, the aerobic metabolism uses oxygen to adequately meet energy demands during exercise.
+        /// </summary>
         public static readonly Uri AerobicActivity=new Uri(BaseUri+"AerobicActivity");
-
+        /// <summary>
+        /// Physical activity that is engaged to help maintain posture and balance.
+        /// </summary>
         public static readonly Uri Balance=new Uri(BaseUri+"Balance");
-
+        /// <summary>
+        /// Any physical activity engaged in for job-related purposes. Examples may include waiting tables, maid service, carrying a mailbag, picking fruits or vegetables, construction work, etc.
+        /// </summary>
         public static readonly Uri OccupationalActivity=new Uri(BaseUri+"OccupationalActivity");
-
+        /// <summary>
+        /// Physical activity that is engaged in to improve joint and muscle flexibility.
+        /// </summary>
         public static readonly Uri Flexibility=new Uri(BaseUri+"Flexibility");
-
+        /// <summary>
+        /// OrderStatus representing that payment is due on an order.
+        /// </summary>
         public static readonly Uri OrderPaymentDue=new Uri(BaseUri+"OrderPaymentDue");
-
+        /// <summary>
+        /// OrderStatus representing availability of an order for pickup.
+        /// </summary>
         public static readonly Uri OrderPickupAvailable=new Uri(BaseUri+"OrderPickupAvailable");
-
+        /// <summary>
+        /// OrderStatus representing that an order is in transit.
+        /// </summary>
         public static readonly Uri OrderInTransit=new Uri(BaseUri+"OrderInTransit");
-
+        /// <summary>
+        /// OrderStatus representing that an order has been returned.
+        /// </summary>
         public static readonly Uri OrderReturned=new Uri(BaseUri+"OrderReturned");
-
+        /// <summary>
+        /// OrderStatus representing successful delivery of an order.
+        /// </summary>
         public static readonly Uri OrderDelivered=new Uri(BaseUri+"OrderDelivered");
-
+        /// <summary>
+        /// OrderStatus representing cancellation of an order.
+        /// </summary>
         public static readonly Uri OrderCancelled=new Uri(BaseUri+"OrderCancelled");
-
+        /// <summary>
+        /// OrderStatus representing that an order is being processed.
+        /// </summary>
         public static readonly Uri OrderProcessing=new Uri(BaseUri+"OrderProcessing");
-
+        /// <summary>
+        /// OrderStatus representing that there is a problem with the order.
+        /// </summary>
         public static readonly Uri OrderProblem=new Uri(BaseUri+"OrderProblem");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to the study of the respiratory system and its respective disease states.
+        /// </summary>
         public static readonly Uri Pulmonary=new Uri(BaseUri+"Pulmonary");
-
+        /// <summary>
+        /// Diet and nutrition.
+        /// </summary>
         public static readonly Uri DietNutrition=new Uri(BaseUri+"DietNutrition");
-
+        /// <summary>
+        /// Speech pathology.
+        /// </summary>
         public static readonly Uri SpeechPathology=new Uri(BaseUri+"SpeechPathology");
-
+        /// <summary>
+        /// A specific branch of medical science that specializes in the care of infants, children and adolescents.
+        /// </summary>
         public static readonly Uri Pediatric=new Uri(BaseUri+"Pediatric");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to diagnosis and treatment of disorders of skin.
+        /// </summary>
         public static readonly Uri Dermatologic=new Uri(BaseUri+"Dermatologic");
-
+        /// <summary>
+        /// A specific branch of medical science that is concerned with the ear, nose and throat and their respective disease states.
+        /// </summary>
         public static readonly Uri Otolaryngologic=new Uri(BaseUri+"Otolaryngologic");
-
+        /// <summary>
+        /// Dentistry.
+        /// </summary>
         public static readonly Uri Dentistry=new Uri(BaseUri+"Dentistry");
-
+        /// <summary>
+        /// Radiography.
+        /// </summary>
         public static readonly Uri Radiograpy=new Uri(BaseUri+"Radiograpy");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to the study of the kidneys and its respective disease states.
+        /// </summary>
         public static readonly Uri Renal=new Uri(BaseUri+"Renal");
-
+        /// <summary>
+        /// A specific branch of medical science that is concerned with poisons, their nature, effects and detection and involved in the treatment of poisoning.
+        /// </summary>
         public static readonly Uri Toxicologic=new Uri(BaseUri+"Toxicologic");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to diagnosis and treatment of disorders of heart and vasculature.
+        /// </summary>
         public static readonly Uri Cardiovascular=new Uri(BaseUri+"Cardiovascular");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to diagnosis and treatment of disorders of muscles, ligaments and skeletal system.
+        /// </summary>
         public static readonly Uri Musculoskeletal=new Uri(BaseUri+"Musculoskeletal");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to the health care of women, particularly in the diagnosis and treatment of disorders affecting the female reproductive system.
+        /// </summary>
         public static readonly Uri Gynecologic=new Uri(BaseUri+"Gynecologic");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to diagnosis and treatment of disorders of digestive system.
+        /// </summary>
         public static readonly Uri Gastroenterologic=new Uri(BaseUri+"Gastroenterologic");
-
+        /// <summary>
+        /// Pharmacy.
+        /// </summary>
         public static readonly Uri PharmacySpecialty=new Uri(BaseUri+"PharmacySpecialty");
-
+        /// <summary>
+        /// A specific branch of medical science that is concerned with the diagnosis and treatment of diseases pertaining to the urinary tract and the urogenital system.
+        /// </summary>
         public static readonly Uri Urologic=new Uri(BaseUri+"Urologic");
-
+        /// <summary>
+        /// Physiotherapy.
+        /// </summary>
         public static readonly Uri Physiotherapy=new Uri(BaseUri+"Physiotherapy");
-
+        /// <summary>
+        /// A specific branch of medical science that specializes in the care of women during the prenatal and postnatal care and with the delivery of the child.
+        /// </summary>
         public static readonly Uri Obstetric=new Uri(BaseUri+"Obstetric");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to diagnosis and treatment of disorders of blood and blood producing organs.
+        /// </summary>
         public static readonly Uri Hematologic=new Uri(BaseUri+"Hematologic");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to hereditary transmission and the variation of inherited characteristics and disorders.
+        /// </summary>
         public static readonly Uri Genetic=new Uri(BaseUri+"Genetic");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to diagnosis and treatment of disorders of endocrine glands and their secretions.
+        /// </summary>
         public static readonly Uri Endocrine=new Uri(BaseUri+"Endocrine");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to diagnosis and treatment of bacterial, viral, fungal and parasitic infections.
+        /// </summary>
         public static readonly Uri Infectious=new Uri(BaseUri+"Infectious");
-
+        /// <summary>
+        /// A specific branch of medical science that is concerned with the diagnosis and treatment of diseases, debilities and provision of care to the aged.
+        /// </summary>
         public static readonly Uri Geriatric=new Uri(BaseUri+"Geriatric");
-
+        /// <summary>
+        /// Environment and public health.
+        /// </summary>
         public static readonly Uri PublicHealth=new Uri(BaseUri+"PublicHealth");
-
+        /// <summary>
+        /// Respiratory therapy.
+        /// </summary>
         public static readonly Uri RespiratoryTherapy=new Uri(BaseUri+"RespiratoryTherapy");
-
+        /// <summary>
+        /// A specific branch of medical science that deals with the study and treatment of rheumatic, autoimmune or joint diseases.
+        /// </summary>
         public static readonly Uri Rheumatologic=new Uri(BaseUri+"Rheumatologic");
-
+        /// <summary>
+        /// Optometry.
+        /// </summary>
         public static readonly Uri Optometic=new Uri(BaseUri+"Optometic");
-
+        /// <summary>
+        /// Nursing.
+        /// </summary>
         public static readonly Uri Nursing=new Uri(BaseUri+"Nursing");
-
+        /// <summary>
+        /// A specific branch of medical science that deals with benign and malignant tumors, including the study of their development, diagnosis, treatment and prevention.
+        /// </summary>
         public static readonly Uri Oncologic=new Uri(BaseUri+"Oncologic");
-
+        /// <summary>
+        /// A specific branch of medical science that is concerned with the study of the cause, origin and nature of a disease state, including its consequences as a result of manifestation of the disease. In clinical care, the term is used to designate a branch of medicine using laboratory tests to diagnose and determine the prognostic significance of illness.
+        /// </summary>
         public static readonly Uri Pathology=new Uri(BaseUri+"Pathology");
-
+        /// <summary>
+        /// A specific branch of medical science that is deals with the evaluation and initial treatment of medical conditions caused by trauma or sudden illness.
+        /// </summary>
         public static readonly Uri Emergency=new Uri(BaseUri+"Emergency");
-
+        /// <summary>
+        /// Podiatry.
+        /// </summary>
         public static readonly Uri Podiatric=new Uri(BaseUri+"Podiatric");
-
+        /// <summary>
+        /// Primary care.
+        /// </summary>
         public static readonly Uri PrimaryCare=new Uri(BaseUri+"PrimaryCare");
-
+        /// <summary>
+        /// A specific branch of medical science that is concerned with the study, treatment, and prevention of mental illness, using both medical and psychological therapies.
+        /// </summary>
         public static readonly Uri Psychiatric=new Uri(BaseUri+"Psychiatric");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to treating diseases, injuries and deformities by manual and instrumental means.
+        /// </summary>
         public static readonly Uri Surgical=new Uri(BaseUri+"Surgical");
-
+        /// <summary>
+        /// Midwifery.
+        /// </summary>
         public static readonly Uri Midwifery=new Uri(BaseUri+"Midwifery");
-
+        /// <summary>
+        /// A specific branch of medical science that studies the nerves and nervous system and its respective disease states.
+        /// </summary>
         public static readonly Uri Neurologic=new Uri(BaseUri+"Neurologic");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to therapeutic or cosmetic repair or re-formation of missing, injured or malformed tissues or body parts by manual and instrumental means.
+        /// </summary>
         public static readonly Uri PlasticSurgery=new Uri(BaseUri+"PlasticSurgery");
-
+        /// <summary>
+        /// Community health.
+        /// </summary>
         public static readonly Uri CommunityHealth=new Uri(BaseUri+"CommunityHealth");
-
+        /// <summary>
+        /// A specific branch of medical science that pertains to study of anesthetics and their application.
+        /// </summary>
         public static readonly Uri Anesthesia=new Uri(BaseUri+"Anesthesia");
-
+        /// <summary>
+        /// Laboratory science.
+        /// </summary>
         public static readonly Uri LaboratoryScience=new Uri(BaseUri+"LaboratoryScience");
-
+        /// <summary>
+        /// Occupational therapy.
+        /// </summary>
         public static readonly Uri OccupationalTherapy=new Uri(BaseUri+"OccupationalTherapy");
-
+        /// <summary>
+        /// Unlike cross-sectional studies, longitudinal studies track the same people, and therefore the differences observed in those people are less likely to be the result of cultural differences across generations. Longitudinal studies are also used in medicine to uncover predictors of certain diseases.
+        /// </summary>
         public static readonly Uri Longitudinal=new Uri(BaseUri+"Longitudinal");
-
+        /// <summary>
+        /// An observational study design.
+        /// </summary>
         public static readonly Uri Observational=new Uri(BaseUri+"Observational");
-
+        /// <summary>
+        /// A case series (also known as a clinical series) is a medical research study that tracks patients with a known exposure given similar treatment or examines their medical records for exposure and outcome. A case series can be retrospective or prospective and usually involves a smaller number of patients than the more powerful case-control studies or randomized controlled trials. Case series may be consecutive or non-consecutive, depending on whether all cases presenting to the reporting authors over a period of time were included, or only a selection.
+        /// </summary>
         public static readonly Uri CaseSeries=new Uri(BaseUri+"CaseSeries");
-
+        /// <summary>
+        /// Also known as a panel study. A cohort study is a form of longitudinal study used in medicine and social science. It is one type of study design and should be compared with a cross-sectional study.  A cohort is a group of people who share a common characteristic or experience within a defined period (e.g., are born, leave school, lose their job, are exposed to a drug or a vaccine, etc.). The comparison group may be the general population from which the cohort is drawn, or it may be another cohort of persons thought to have had little or no exposure to the substance under investigation, but otherwise similar. Alternatively, subgroups within the cohort may be compared with each other.
+        /// </summary>
         public static readonly Uri CohortStudy=new Uri(BaseUri+"CohortStudy");
-
+        /// <summary>
+        /// Studies carried out on pre-existing data (usually from 'snapshot' surveys), such as that collected by the Census Bureau. Sometimes called Prevalence Studies.
+        /// </summary>
         public static readonly Uri CrossSectional=new Uri(BaseUri+"CrossSectional");
-
+        /// <summary>
+        /// A registry-based study design.
+        /// </summary>
         public static readonly Uri Registry=new Uri(BaseUri+"Registry");
-
+        /// <summary>
+        /// Researchers.
+        /// </summary>
         public static readonly Uri Researcher=new Uri(BaseUri+"Researcher");
-
+        /// <summary>
+        /// Patients.
+        /// </summary>
         public static readonly Uri Patient=new Uri(BaseUri+"Patient");
-
+        /// <summary>
+        /// Medical clinicians, including practicing physicians and other medical professionals involved in clinical practice.
+        /// </summary>
         public static readonly Uri Clinician=new Uri(BaseUri+"Clinician");
-
+        /// <summary>
+        /// Medical researchers.
+        /// </summary>
         public static readonly Uri MedicalResearcher=new Uri(BaseUri+"MedicalResearcher");
-
+        /// <summary>
+        /// A DeliveryMethod in which an item is collected on site, e.g. in a store or at a box office.
+        /// </summary>
         public static readonly Uri OnSitePickup=new Uri(BaseUri+"OnSitePickup");
-
+        /// <summary>
+        /// An action that has already taken place.
+        /// </summary>
         public static readonly Uri CompletedActionStatus=new Uri(BaseUri+"CompletedActionStatus");
-
+        /// <summary>
+        /// An in-progress action (e.g, while watching the movie, or driving to a location).
+        /// </summary>
         public static readonly Uri ActiveActionStatus=new Uri(BaseUri+"ActiveActionStatus");
-
+        /// <summary>
+        /// A description of an action that is supported.
+        /// </summary>
         public static readonly Uri PotentialActionStatus=new Uri(BaseUri+"PotentialActionStatus");
-
+        /// <summary>
+        /// The drug's cost represents the wholesale acquisition cost of the drug.
+        /// </summary>
         public static readonly Uri Wholesale=new Uri(BaseUri+"Wholesale");
-
+        /// <summary>
+        /// The drug's cost represents the maximum reimbursement paid by an insurer for the drug.
+        /// </summary>
         public static readonly Uri ReimbursementCap=new Uri(BaseUri+"ReimbursementCap");
-
+        /// <summary>
+        /// The drug's cost represents the retail cost of the drug.
+        /// </summary>
         public static readonly Uri Retail=new Uri(BaseUri+"Retail");
-
+        /// <summary>
+        /// Pathogenic bacteria that cause bacterial infection.
+        /// </summary>
         public static readonly Uri Bacteria=new Uri(BaseUri+"Bacteria");
-
+        /// <summary>
+        /// Multicellular parasite that causes an infection.
+        /// </summary>
         public static readonly Uri MulticellularParasite=new Uri(BaseUri+"MulticellularParasite");
-
+        /// <summary>
+        /// Pathogenic fungus.
+        /// </summary>
         public static readonly Uri Fungus=new Uri(BaseUri+"Fungus");
-
+        /// <summary>
+        /// Pathogenic virus that causes viral infection.
+        /// </summary>
         public static readonly Uri Virus=new Uri(BaseUri+"Virus");
-
+        /// <summary>
+        /// A prion is an infectious agent composed of protein in a misfolded form.
+        /// </summary>
         public static readonly Uri Prion=new Uri(BaseUri+"Prion");
-
+        /// <summary>
+        /// Single-celled organism that causes an infection.
+        /// </summary>
         public static readonly Uri Protozoa=new Uri(BaseUri+"Protozoa");
-
+        /// <summary>
+        /// A transit map.
+        /// </summary>
         public static readonly Uri TransitMap=new Uri(BaseUri+"TransitMap");
-
+        /// <summary>
+        /// A parking map.
+        /// </summary>
         public static readonly Uri ParkingMap=new Uri(BaseUri+"ParkingMap");
-
+        /// <summary>
+        /// A venue map (e.g. for malls, auditoriums, museums, etc.).
+        /// </summary>
         public static readonly Uri VenueMap=new Uri(BaseUri+"VenueMap");
-
+        /// <summary>
+        /// A seating map.
+        /// </summary>
         public static readonly Uri SeatingMap=new Uri(BaseUri+"SeatingMap");
-
+        /// <summary>
+        /// Enrolling participants by invitation only.
+        /// </summary>
         public static readonly Uri EnrollingByInvitation=new Uri(BaseUri+"EnrollingByInvitation");
-
+        /// <summary>
+        /// Active, but not recruiting new participants.
+        /// </summary>
         public static readonly Uri ActiveNotRecruiting=new Uri(BaseUri+"ActiveNotRecruiting");
-
+        /// <summary>
+        /// Results are not available.
+        /// </summary>
         public static readonly Uri ResultsNotAvailable=new Uri(BaseUri+"ResultsNotAvailable");
-
+        /// <summary>
+        /// Suspended.
+        /// </summary>
         public static readonly Uri Suspended=new Uri(BaseUri+"Suspended");
-
+        /// <summary>
+        /// Completed.
+        /// </summary>
         public static readonly Uri Completed=new Uri(BaseUri+"Completed");
-
+        /// <summary>
+        /// Recruiting participants.
+        /// </summary>
         public static readonly Uri Recruiting=new Uri(BaseUri+"Recruiting");
-
+        /// <summary>
+        /// Results are available.
+        /// </summary>
         public static readonly Uri ResultsAvailable=new Uri(BaseUri+"ResultsAvailable");
-
+        /// <summary>
+        /// Withdrawn.
+        /// </summary>
         public static readonly Uri Withdrawn=new Uri(BaseUri+"Withdrawn");
-
+        /// <summary>
+        /// Not yet recruiting.
+        /// </summary>
         public static readonly Uri NotYetRecruiting=new Uri(BaseUri+"NotYetRecruiting");
-
+        /// <summary>
+        /// Terminated.
+        /// </summary>
         public static readonly Uri Terminated=new Uri(BaseUri+"Terminated");
-#pragma warning restore 1591 // ReSharper restore InconsistentNaming
     }
 }

@@ -53,15 +53,15 @@
     <Compile Include="IImageResizer.cs" />
     <Compile Include="IWikibusConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vocabularies\Opus.cs">
-      <DependentUpon>Opus.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Vocabularies\Bibo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Bibo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vocabularies\Opus.cs">
+      <DependentUpon>Opus.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Vocabularies\DC.cs">
       <AutoGen>True</AutoGen>

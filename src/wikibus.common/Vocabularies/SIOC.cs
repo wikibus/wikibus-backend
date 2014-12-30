@@ -6,158 +6,378 @@ namespace wikibus.common.Vocabularies
     /// <summary>SIOC Core Ontology Namespace (http://rdfs.org/sioc/ns#).</summary>
     public static partial class Sioc
     {
-#pragma warning disable 1591 // ReSharper disable InconsistentNaming
         public const string Prefix="sioc";
 
         public const string BaseUri="http://rdfs.org/sioc/ns#";
-
+        
+        /// <summary>
+        /// Community is a high-level concept that defines an online community and what it consists of.
+        /// </summary>
         public static readonly Uri Community=new Uri(BaseUri+"Community");
-
+        
+        /// <summary>
+        /// An area in which content Items are contained.
+        /// </summary>
         public static readonly Uri Container=new Uri(BaseUri+"Container");
-
+        
+        /// <summary>
+        /// A discussion area on which Posts or entries are made.
+        /// </summary>
         public static readonly Uri Forum=new Uri(BaseUri+"Forum");
-
+        
+        /// <summary>
+        /// An Item is something which can be in a Container.
+        /// </summary>
         public static readonly Uri Item=new Uri(BaseUri+"Item");
-
+        
+        /// <summary>
+        /// An article or message that can be posted to a Forum.
+        /// </summary>
         public static readonly Uri Post=new Uri(BaseUri+"Post");
-
+        
+        /// <summary>
+        /// A Role is a function of a UserAccount within a scope of a particular Forum, Site, etc.
+        /// </summary>
         public static readonly Uri Role=new Uri(BaseUri+"Role");
-
+        
+        /// <summary>
+        /// A Space is a place where data resides, e.g. on a website, desktop, fileshare, etc.
+        /// </summary>
         public static readonly Uri Space=new Uri(BaseUri+"Space");
-
+        
+        /// <summary>
+        /// A Site can be the location of an online community or set of communities, with UserAccounts and Usergroups creating Items in a set of Containers. It can be thought of as a web-accessible data Space.
+        /// </summary>
         public static readonly Uri Site=new Uri(BaseUri+"Site");
-
+        
+        /// <summary>
+        /// A container for a series of threaded discussion Posts or Items.
+        /// </summary>
         public static readonly Uri Thread=new Uri(BaseUri+"Thread");
-
+        
+        /// <summary>
+        /// A user account in an online community site.
+        /// </summary>
         public static readonly Uri UserAccount=new Uri(BaseUri+"UserAccount");
-
+        
+        /// <summary>
+        /// A set of UserAccounts whose owners have a common purpose or interest. Can be used for access control purposes.
+        /// </summary>
         public static readonly Uri Usergroup=new Uri(BaseUri+"Usergroup");
-
+        
+        /// <summary>
+        /// The content of the Item in plain text format.
+        /// </summary>
         public static readonly Uri content=new Uri(BaseUri+"content");
-
+        
+        /// <summary>
+        /// An electronic mail address of the UserAccount, encoded using SHA1.
+        /// </summary>
         public static readonly Uri email_sha1=new Uri(BaseUri+"email_sha1");
-
+        
+        /// <summary>
+        /// An identifier of a SIOC concept instance. For example, a user ID. Must be unique for instances of each type of SIOC concept within the same site.
+        /// </summary>
         public static readonly Uri id=new Uri(BaseUri+"id");
-
+        
+        /// <summary>
+        /// The IP address used when creating this Item. This can be associated with a creator. Some wiki articles list the IP addresses for the creator or modifiers when the usernames are absent.
+        /// </summary>
         public static readonly Uri ip_address=new Uri(BaseUri+"ip_address");
-
+        
+        /// <summary>
+        /// The date and time of the last activity associated with a SIOC concept instance, and expressed in ISO 8601 format. This could be due to a reply Post or Comment, a modification to an Item, etc.
+        /// </summary>
         public static readonly Uri last_activity_date=new Uri(BaseUri+"last_activity_date");
-
+        
+        /// <summary>
+        /// The date and time of the last Post (or Item) in a Forum (or a Container), in ISO 8601 format.
+        /// </summary>
         public static readonly Uri last_item_date=new Uri(BaseUri+"last_item_date");
-
+        
+        /// <summary>
+        /// The date and time of the last reply Post or Comment, which could be associated with a starter Item or Post or with a Thread, and expressed in ISO 8601 format.
+        /// </summary>
         public static readonly Uri last_reply_date=new Uri(BaseUri+"last_reply_date");
-
+        
+        /// <summary>
+        /// The name of a SIOC concept instance, e.g. a username for a UserAccount, group name for a Usergroup, etc.
+        /// </summary>
         public static readonly Uri name=new Uri(BaseUri+"name");
-
+        
+        /// <summary>
+        /// A note associated with this resource, for example, if it has been edited by a UserAccount.
+        /// </summary>
         public static readonly Uri note=new Uri(BaseUri+"note");
-
+        
+        /// <summary>
+        /// The number of unique authors (UserAccounts and unregistered posters) who have contributed to this Item, Thread, Post, etc.
+        /// </summary>
         public static readonly Uri num_authors=new Uri(BaseUri+"num_authors");
-
+        
+        /// <summary>
+        /// The number of Posts (or Items) in a Forum (or a Container).
+        /// </summary>
         public static readonly Uri num_items=new Uri(BaseUri+"num_items");
-
+        
+        /// <summary>
+        /// The number of replies that this Item, Thread, Post, etc. has. Useful for when the reply structure is absent.
+        /// </summary>
         public static readonly Uri num_replies=new Uri(BaseUri+"num_replies");
-
+        
+        /// <summary>
+        /// The number of Threads (AKA discussion topics) in a Forum.
+        /// </summary>
         public static readonly Uri num_threads=new Uri(BaseUri+"num_threads");
-
+        
+        /// <summary>
+        /// The number of times this Item, Thread, UserAccount profile, etc. has been viewed.
+        /// </summary>
         public static readonly Uri num_views=new Uri(BaseUri+"num_views");
-
+        
+        /// <summary>
+        /// Specifies that this Item is about a particular resource, e.g. a Post describing a book, hotel, etc.
+        /// </summary>
         public static readonly Uri about=new Uri(BaseUri+"about");
-
+        
+        /// <summary>
+        /// Refers to the foaf:Agent or foaf:Person who owns this sioc:UserAccount.
+        /// </summary>
         public static readonly Uri account_of=new Uri(BaseUri+"account_of");
-
+        
+        /// <summary>
+        /// Refers to who (e.g. a UserAccount, e-mail address, etc.) a particular Item is addressed to.
+        /// </summary>
         public static readonly Uri addressed_to=new Uri(BaseUri+"addressed_to");
-
+        
+        /// <summary>
+        /// A Site that the UserAccount is an administrator of.
+        /// </summary>
         public static readonly Uri administrator_of=new Uri(BaseUri+"administrator_of");
-
+        
+        /// <summary>
+        /// The URI of a file attached to an Item.
+        /// </summary>
         public static readonly Uri attachment=new Uri(BaseUri+"attachment");
-
+        
+        /// <summary>
+        /// An image or depiction used to represent this UserAccount.
+        /// </summary>
         public static readonly Uri avatar=new Uri(BaseUri+"avatar");
-
+        
+        /// <summary>
+        /// An Item that this Container contains.
+        /// </summary>
         public static readonly Uri container_of=new Uri(BaseUri+"container_of");
-
+        
+        /// <summary>
+        /// A resource that the UserAccount is a creator of.
+        /// </summary>
         public static readonly Uri creator_of=new Uri(BaseUri+"creator_of");
-
+        
+        /// <summary>
+        /// An electronic mail address of the UserAccount.
+        /// </summary>
         public static readonly Uri email=new Uri(BaseUri+"email");
-
+        
+        /// <summary>
+        /// This links Items to embedded statements, facts and structured content.
+        /// </summary>
         public static readonly Uri embeds_knowledge=new Uri(BaseUri+"embeds_knowledge");
-
+        
+        /// <summary>
+        /// A feed (e.g. RSS, Atom, etc.) pertaining to this resource (e.g. for a Forum, Site, UserAccount, etc.).
+        /// </summary>
         public static readonly Uri feed=new Uri(BaseUri+"feed");
-
+        
+        /// <summary>
+        /// Indicates that one UserAccount follows another UserAccount (e.g. for microblog posts or other content item updates).
+        /// </summary>
         public static readonly Uri follows=new Uri(BaseUri+"follows");
-
+        
+        /// <summary>
+        /// A UserAccount that has this Role.
+        /// </summary>
         public static readonly Uri function_of=new Uri(BaseUri+"function_of");
-
+        
+        /// <summary>
+        /// A UserAccount that is an administrator of this Site.
+        /// </summary>
         public static readonly Uri has_administrator=new Uri(BaseUri+"has_administrator");
-
+        
+        /// <summary>
+        /// The Container to which this Item belongs.
+        /// </summary>
         public static readonly Uri has_container=new Uri(BaseUri+"has_container");
-
+        
+        /// <summary>
+        /// This is the UserAccount that made this resource.
+        /// </summary>
         public static readonly Uri has_creator=new Uri(BaseUri+"has_creator");
-
+        
+        /// <summary>
+        /// The discussion that is related to this Item.
+        /// </summary>
         public static readonly Uri has_discussion=new Uri(BaseUri+"has_discussion");
-
+        
+        /// <summary>
+        /// A Role that this UserAccount has.
+        /// </summary>
         public static readonly Uri has_function=new Uri(BaseUri+"has_function");
-
+        
+        /// <summary>
+        /// The Site that hosts this Forum.
+        /// </summary>
         public static readonly Uri has_host=new Uri(BaseUri+"has_host");
-
+        
+        /// <summary>
+        /// A UserAccount that is a member of this Usergroup.
+        /// </summary>
         public static readonly Uri has_member=new Uri(BaseUri+"has_member");
-
+        
+        /// <summary>
+        /// A UserAccount that is a moderator of this Forum.
+        /// </summary>
         public static readonly Uri has_moderator=new Uri(BaseUri+"has_moderator");
-
+        
+        /// <summary>
+        /// A UserAccount that modified this Item.
+        /// </summary>
         public static readonly Uri has_modifier=new Uri(BaseUri+"has_modifier");
-
+        
+        /// <summary>
+        /// A UserAccount that this resource is owned by.
+        /// </summary>
         public static readonly Uri has_owner=new Uri(BaseUri+"has_owner");
-
+        
+        /// <summary>
+        /// A Container or Forum that this Container or Forum is a child of.
+        /// </summary>
         public static readonly Uri has_parent=new Uri(BaseUri+"has_parent");
-
+        
+        /// <summary>
+        /// Points to an Item or Post that is a reply or response to this Item or Post.
+        /// </summary>
         public static readonly Uri has_reply=new Uri(BaseUri+"has_reply");
-
+        
+        /// <summary>
+        /// A resource that this Role applies to.
+        /// </summary>
         public static readonly Uri has_scope=new Uri(BaseUri+"has_scope");
-
+        
+        /// <summary>
+        /// A data Space which this resource is a part of.
+        /// </summary>
         public static readonly Uri has_space=new Uri(BaseUri+"has_space");
-
+        
+        /// <summary>
+        /// A UserAccount that is subscribed to this Container.
+        /// </summary>
         public static readonly Uri has_subscriber=new Uri(BaseUri+"has_subscriber");
-
+        
+        /// <summary>
+        /// Points to a Usergroup that has certain access to this Space.
+        /// </summary>
         public static readonly Uri has_usergroup=new Uri(BaseUri+"has_usergroup");
-
+        
+        /// <summary>
+        /// A Forum that is hosted on this Site.
+        /// </summary>
         public static readonly Uri host_of=new Uri(BaseUri+"host_of");
-
+        
+        /// <summary>
+        /// Links to the latest revision of this Item or Post.
+        /// </summary>
         public static readonly Uri latest_version=new Uri(BaseUri+"latest_version");
-
+        
+        /// <summary>
+        /// A URI of a document which contains this SIOC object.
+        /// </summary>
         public static readonly Uri link=new Uri(BaseUri+"link");
-
+        
+        /// <summary>
+        /// Links extracted from hyperlinks within a SIOC concept, e.g. Post or Site.
+        /// </summary>
         public static readonly Uri links_to=new Uri(BaseUri+"links_to");
-
+        
+        /// <summary>
+        /// A Usergroup that this UserAccount is a member of.
+        /// </summary>
         public static readonly Uri member_of=new Uri(BaseUri+"member_of");
-
+        
+        /// <summary>
+        /// A Forum that a UserAccount is a moderator of.
+        /// </summary>
         public static readonly Uri moderator_of=new Uri(BaseUri+"moderator_of");
-
+        
+        /// <summary>
+        /// An Item that this UserAccount has modified.
+        /// </summary>
         public static readonly Uri modifier_of=new Uri(BaseUri+"modifier_of");
-
+        
+        /// <summary>
+        /// Next Item or Post in a given Container sorted by date.
+        /// </summary>
         public static readonly Uri next_by_date=new Uri(BaseUri+"next_by_date");
-
+        
+        /// <summary>
+        /// Links to the next revision of this Item or Post.
+        /// </summary>
         public static readonly Uri next_version=new Uri(BaseUri+"next_version");
-
+        
+        /// <summary>
+        /// A resource owned by a particular UserAccount, for example, a weblog or image gallery.
+        /// </summary>
         public static readonly Uri owner_of=new Uri(BaseUri+"owner_of");
-
+        
+        /// <summary>
+        /// A child Container or Forum that this Container or Forum is a parent of.
+        /// </summary>
         public static readonly Uri parent_of=new Uri(BaseUri+"parent_of");
-
+        
+        /// <summary>
+        /// Previous Item or Post in a given Container sorted by date.
+        /// </summary>
         public static readonly Uri previous_by_date=new Uri(BaseUri+"previous_by_date");
-
+        
+        /// <summary>
+        /// Links to the previous revision of this Item or Post.
+        /// </summary>
         public static readonly Uri previous_version=new Uri(BaseUri+"previous_version");
-
+        
+        /// <summary>
+        /// Related Posts for this Post, perhaps determined implicitly from topics or references.
+        /// </summary>
         public static readonly Uri related_to=new Uri(BaseUri+"related_to");
-
+        
+        /// <summary>
+        /// Links to an Item or Post which this Item or Post is a reply to.
+        /// </summary>
         public static readonly Uri reply_of=new Uri(BaseUri+"reply_of");
-
+        
+        /// <summary>
+        /// A Role that has a scope of this resource.
+        /// </summary>
         public static readonly Uri scope_of=new Uri(BaseUri+"scope_of");
-
+        
+        /// <summary>
+        /// A resource which belongs to this data Space.
+        /// </summary>
         public static readonly Uri space_of=new Uri(BaseUri+"space_of");
-
+        
+        /// <summary>
+        /// A Container that a UserAccount is subscribed to.
+        /// </summary>
         public static readonly Uri subscriber_of=new Uri(BaseUri+"subscriber_of");
-
+        
+        /// <summary>
+        /// A topic of interest, linking to the appropriate URI, e.g. in the Open Directory Project or of a SKOS category.
+        /// </summary>
         public static readonly Uri topic=new Uri(BaseUri+"topic");
-
+        
+        /// <summary>
+        /// A Space that the Usergroup has access to.
+        /// </summary>
         public static readonly Uri usergroup_of=new Uri(BaseUri+"usergroup_of");
-#pragma warning restore 1591 // ReSharper restore InconsistentNaming
     }
 }

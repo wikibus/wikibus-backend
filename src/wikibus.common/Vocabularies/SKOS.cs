@@ -6,62 +6,138 @@ namespace wikibus.common.Vocabularies
     /// <summary>SKOS Vocabulary (http://www.w3.org/2004/02/skos/core#).</summary>
     public static partial class Skos
     {
-#pragma warning disable 1591 // ReSharper disable InconsistentNaming
         public const string Prefix="skos";
 
         public const string BaseUri="http://www.w3.org/2004/02/skos/core#";
-
+        
+        /// <summary>
+        /// An idea or notion; a unit of thought.
+        /// </summary>
         public static readonly Uri Concept=new Uri(BaseUri+"Concept");
-
+        
+        /// <summary>
+        /// A set of concepts, optionally including statements about semantic relationships between those concepts.
+        /// </summary>
         public static readonly Uri ConceptScheme=new Uri(BaseUri+"ConceptScheme");
-
+        
+        /// <summary>
+        /// A meaningful collection of concepts.
+        /// </summary>
         public static readonly Uri Collection=new Uri(BaseUri+"Collection");
-
+        
+        /// <summary>
+        /// An ordered collection of concepts, where both the grouping and the ordering are meaningful.
+        /// </summary>
         public static readonly Uri OrderedCollection=new Uri(BaseUri+"OrderedCollection");
-
+        
+        /// <summary>
+        /// A notation, also known as classification code, is a string of characters such as "T58.5" or "303.4833" used to uniquely identify a concept within the scope of a given concept scheme.
+        /// </summary>
         public static readonly Uri notation=new Uri(BaseUri+"notation");
-
+        
+        /// <summary>
+        /// Relates a resource (for example a concept) to a concept scheme in which it is included.
+        /// </summary>
         public static readonly Uri inScheme=new Uri(BaseUri+"inScheme");
-
+        
+        /// <summary>
+        /// Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.
+        /// </summary>
         public static readonly Uri hasTopConcept=new Uri(BaseUri+"hasTopConcept");
-
+        
+        /// <summary>
+        /// Relates a concept to the concept scheme that it is a top level concept of.
+        /// </summary>
         public static readonly Uri topConceptOf=new Uri(BaseUri+"topConceptOf");
-
+        
+        /// <summary>
+        /// Links a concept to a concept related by meaning.
+        /// </summary>
         public static readonly Uri semanticRelation=new Uri(BaseUri+"semanticRelation");
-
+        
+        /// <summary>
+        /// Relates a concept to a concept that is more general in meaning.
+        /// </summary>
         public static readonly Uri broader=new Uri(BaseUri+"broader");
-
+        
+        /// <summary>
+        /// Relates a concept to a concept that is more specific in meaning.
+        /// </summary>
         public static readonly Uri narrower=new Uri(BaseUri+"narrower");
-
+        
+        /// <summary>
+        /// Relates a collection to one of its members.
+        /// </summary>
         public static readonly Uri member=new Uri(BaseUri+"member");
-
+        
+        /// <summary>
+        /// Relates an ordered collection to the RDF list containing its members.
+        /// </summary>
         public static readonly Uri memberList=new Uri(BaseUri+"memberList");
-
+        
+        /// <summary>
+        /// Relates two concepts coming, by convention, from different schemes, and that have comparable meanings
+        /// </summary>
         public static readonly Uri mappingRelation=new Uri(BaseUri+"mappingRelation");
-
+        
+        /// <summary>
+        /// skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.
+        /// </summary>
         public static readonly Uri broadMatch=new Uri(BaseUri+"broadMatch");
-
+        
+        /// <summary>
+        /// skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.
+        /// </summary>
         public static readonly Uri narrowMatch=new Uri(BaseUri+"narrowMatch");
-
+        
+        /// <summary>
+        /// The preferred lexical label for a resource, in a given language.
+        /// </summary>
         public static readonly Uri prefLabel=new Uri(BaseUri+"prefLabel");
-
+        
+        /// <summary>
+        /// An alternative lexical label for a resource.
+        /// </summary>
         public static readonly Uri altLabel=new Uri(BaseUri+"altLabel");
-
+        
+        /// <summary>
+        /// A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.
+        /// </summary>
         public static readonly Uri hiddenLabel=new Uri(BaseUri+"hiddenLabel");
-
+        
+        /// <summary>
+        /// A general note, for any purpose.
+        /// </summary>
         public static readonly Uri note=new Uri(BaseUri+"note");
-
+        
+        /// <summary>
+        /// A note about a modification to a concept.
+        /// </summary>
         public static readonly Uri changeNote=new Uri(BaseUri+"changeNote");
-
+        
+        /// <summary>
+        /// A statement or formal explanation of the meaning of a concept.
+        /// </summary>
         public static readonly Uri definition=new Uri(BaseUri+"definition");
-
+        
+        /// <summary>
+        /// A note for an editor, translator or maintainer of the vocabulary.
+        /// </summary>
         public static readonly Uri editorialNote=new Uri(BaseUri+"editorialNote");
-
+        
+        /// <summary>
+        /// An example of the use of a concept.
+        /// </summary>
         public static readonly Uri example=new Uri(BaseUri+"example");
-
+        
+        /// <summary>
+        /// A note about the past state/use/meaning of a concept.
+        /// </summary>
         public static readonly Uri historyNote=new Uri(BaseUri+"historyNote");
-
+        
+        /// <summary>
+        /// A note that helps to clarify the meaning and/or the use of a concept.
+        /// </summary>
         public static readonly Uri scopeNote=new Uri(BaseUri+"scopeNote");
-#pragma warning restore 1591 // ReSharper restore InconsistentNaming
     }
 }

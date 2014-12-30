@@ -6,38 +6,77 @@ namespace wikibus.common.Vocabularies
     /// <summary>The RDF Vocabulary (RDF) (http://www.w3.org/1999/02/22-rdf-syntax-ns#).</summary>
     public static partial class Rdf
     {
-#pragma warning disable 1591 // ReSharper disable InconsistentNaming
         public const string Prefix="rdf";
 
         public const string BaseUri="http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-
+        
+        /// <summary>
+        /// The class of RDF properties.
+        /// </summary>
         public static readonly Uri Property=new Uri(BaseUri+"Property");
-
+        
+        /// <summary>
+        /// The class of RDF statements.
+        /// </summary>
         public static readonly Uri Statement=new Uri(BaseUri+"Statement");
-
+        
+        /// <summary>
+        /// The class of unordered containers.
+        /// </summary>
         public static readonly Uri Bag=new Uri(BaseUri+"Bag");
-
+        
+        /// <summary>
+        /// The class of ordered containers.
+        /// </summary>
         public static readonly Uri Seq=new Uri(BaseUri+"Seq");
-
+        
+        /// <summary>
+        /// The class of containers of alternatives.
+        /// </summary>
         public static readonly Uri Alt=new Uri(BaseUri+"Alt");
-
+        
+        /// <summary>
+        /// The class of RDF Lists.
+        /// </summary>
         public static readonly Uri List=new Uri(BaseUri+"List");
-
+        
+        /// <summary>
+        /// The subject is an instance of a class.
+        /// </summary>
         public static readonly Uri type=new Uri(BaseUri+"type");
-
+        
+        /// <summary>
+        /// The subject of the subject RDF statement.
+        /// </summary>
         public static readonly Uri subject=new Uri(BaseUri+"subject");
-
+        
+        /// <summary>
+        /// The predicate of the subject RDF statement.
+        /// </summary>
         public static readonly Uri predicate=new Uri(BaseUri+"predicate");
-
+        
+        /// <summary>
+        /// The object of the subject RDF statement.
+        /// </summary>
         public static readonly Uri @object=new Uri(BaseUri+"object");
-
+        
+        /// <summary>
+        /// Idiomatic property used for structured values.
+        /// </summary>
         public static readonly Uri value=new Uri(BaseUri+"value");
-
+        
+        /// <summary>
+        /// The first item in the subject RDF list.
+        /// </summary>
         public static readonly Uri first=new Uri(BaseUri+"first");
-
+        
+        /// <summary>
+        /// The rest of the subject RDF list after the first item.
+        /// </summary>
         public static readonly Uri rest=new Uri(BaseUri+"rest");
-
+        /// <summary>
+        /// The empty list, with no items in it. If the rest of a list is nil then the list has no more items in it.
+        /// </summary>
         public static readonly Uri nil=new Uri(BaseUri+"nil");
-#pragma warning restore 1591 // ReSharper restore InconsistentNaming
     }
 }
