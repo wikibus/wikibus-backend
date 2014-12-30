@@ -9,6 +9,7 @@ using Nancy.RDF.Responses;
 using Nancy.Responses.Negotiation;
 using Nancy.Testing;
 using NUnit.Framework;
+using VDS.RDF;
 using wikibus.common;
 using wikibus.purl.nancy;
 
@@ -28,6 +29,7 @@ namespace wikibus.tests.Modules
                                          .Module<RedirectModule>()
                                          .DisableAutoRegistrations()
                                          .Dependency(A.Dummy<IEntitySerializer>())
+                                         .Dependency(A.Dummy<INamespaceMapper>())
                                          .Dependency<IWikibusConfiguration>(new TestConfiguration()));
         }
 
