@@ -1,5 +1,6 @@
 ﻿{
     "dcterms": "http://purl.org/dc/terms/",
     "wbo": "http://wikibus.org/ontology#",
-    "title": "dcterms:title"
+    "title": "dcterms:title",
+    "sch": "http://schema.org/"
 }
