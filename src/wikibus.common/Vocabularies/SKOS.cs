@@ -6,10 +6,8 @@ namespace wikibus.common.Vocabularies
     /// <summary>SKOS Vocabulary (http://www.w3.org/2004/02/skos/core#).</summary>
     public static partial class Skos
     {
-#pragma warning disable 1591 // ReSharper disable InconsistentNaming
         public const string Prefix="skos";
 
         public const string BaseUri="http://www.w3.org/2004/02/skos/core#";
-#pragma warning restore 1591 // ReSharper restore InconsistentNaming
     }
 }

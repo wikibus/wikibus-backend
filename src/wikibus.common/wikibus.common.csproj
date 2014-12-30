@@ -35,6 +35,7 @@
     <Content Include="FodyWeavers.xml">
       <Paket>True</Paket>
     </Content>
+    <Content Include="Vocabularies\Opus.owl" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -52,6 +53,16 @@
     <Compile Include="IImageResizer.cs" />
     <Compile Include="IWikibusConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vocabularies\Opus.cs">
+      <DependentUpon>Opus.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Vocabularies\Bibo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Bibo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Vocabularies\DC.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,6 +110,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Vocabularies\Opus.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Opus.cs</LastGenOutput>
+      <DependentUpon>Opus.owl</DependentUpon>
+    </None>
+    <None Include="Vocabularies\BIBO.owl" />
+    <None Include="Vocabularies\Bibo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Bibo.cs</LastGenOutput>
+      <DependentUpon>BIBO.owl</DependentUpon>
+    </None>
     <None Include="Vocabularies\DC.owl" />
     <None Include="Vocabularies\DC.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -156,12 +178,7 @@
     </None>
     <None Include="Vocabularies\SIOC.owl" />
     <None Include="Vocabularies\SKOS.rdf" />
-    <None Include="Vocabularies\Xsd.owl" />
-    <None Include="Vocabularies\Xsd.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Xsd.cs</LastGenOutput>
-      <DependentUpon>Xsd.owl</DependentUpon>
-    </None>
+    <Compile Include="Vocabularies\Xsd.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
