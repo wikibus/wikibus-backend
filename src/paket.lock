@@ -59,15 +59,15 @@ NUGET
     Zoltu.Versioning (1.1.29.0)
   remote: https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
   specs:
-    JsonLd.Entities (0.2.29.0)
+    JsonLd.Entities (0.2.39.0)
       dotNetRDF (>= 1.0.0)
       json-ld.net (>= 1.0)
   remote: https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
   specs:
-    Nancy.RDF (0.1.5.0)
+    Nancy.RDF (0.1.7.0)
       JsonLd.Entities 
       Nancy (>= 0.23)
 GIST
   remote: tpluscode/5d9c6983004c1c9ec91f
   specs:
-    FULLPROJECT (5d9c6983004c1c9ec91f)
+    FULLPROJECT (77ad64f596b13cb09af65878e67961e1815ffdda)

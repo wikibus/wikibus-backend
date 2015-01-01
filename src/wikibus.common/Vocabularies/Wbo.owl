@@ -14,10 +14,26 @@
     <dc:creator>Tomasz Pluskiewicz</dc:creator>
   </owl:Ontology>
 
+  <owl:Class rdf:about="Source">
+    <rdfs:label>Source</rdfs:label>
+    <rdfs:comment>Any source material for wikibus.org (books, brochures, etc).</rdfs:comment>
+  </owl:Class>
 
   <owl:Class rdf:about="Book">
     <rdfs:label>Book</rdfs:label>
-    <rdfs:comment>A boook about public transport.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="Source" />
+    <rdfs:comment>A book about public transport.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="Brochure">
+    <rdfs:label>Brochure</rdfs:label>
+    <rdfs:subClassOf rdf:resource="Source" />
+    <rdfs:comment>A promotional brochure about public transport.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="Magazine">
+    <rdfs:label>Magazine</rdfs:label>
+    <rdfs:comment>A periodical publication about public transport.</rdfs:comment>
   </owl:Class>
 
   <owl:ObjectProperty rdf:about="http://lsdis.cs.uga.edu/projects/semdis/opus#at_organization">

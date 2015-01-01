@@ -168,10 +168,10 @@
     </None>
     <None Include="Vocabularies\SIOC.owl" />
     <None Include="Vocabularies\SKOS.rdf" />
-    <Compile Include="Vocabularies\wbo.cs">
+    <Compile Include="Vocabularies\Wbo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>wbo.tt</DependentUpon>
+      <DependentUpon>Wbo.tt</DependentUpon>
     </Compile>
     <Compile Include="Vocabularies\Xsd.cs" />
     <None Include="Vocabularies\Wbo.tt">

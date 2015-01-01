@@ -8,7 +8,6 @@ namespace wikibus.sources
     /// <summary>
     /// A brochure about buses, trams, etc.
     /// </summary>
-    [Class("wbo:Brochure")]
     public class Brochure : Source
     {
         private string _description;
@@ -64,6 +63,11 @@ namespace wikibus.sources
 
                 _code = value;
             }
+        }
+
+        private string Type
+        {
+            get { return Wbo.Brochure; }
         }
     }
 }

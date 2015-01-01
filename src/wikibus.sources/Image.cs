@@ -1,5 +1,4 @@
-﻿using JsonLD.Entities;
-using NullGuard;
+﻿using NullGuard;
 using wikibus.common.Vocabularies;
 
 namespace wikibus.sources
@@ -7,7 +6,6 @@ namespace wikibus.sources
     /// <summary>
     /// Represents a schema.org ImageObject
     /// </summary>
-    [Class(Schema.ImageObject)]
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     public class Image
     {
@@ -28,6 +26,11 @@ namespace wikibus.sources
                     ContentUrl = ContentUrl + "/small"
                 };
             }
+        }
+
+        private string Type
+        {
+            get { return Schema.ImageObject; }
         }
 
         /// <summary>

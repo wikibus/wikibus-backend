@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Hydra.Annotations;
-using JsonLD.Entities;
 using NullGuard;
 using wikibus.common.Vocabularies;
 
@@ -9,7 +9,6 @@ namespace wikibus.sources
     /// <summary>
     /// A book about public transport
     /// </summary>
-    [Class("wbo:Book")]
     public class Book : Source
     {
         /// <summary>
@@ -32,9 +31,20 @@ namespace wikibus.sources
         [Required]
         public string Title { [return: AllowNull] get; set; }
 
-        private string Type
+        /// <summary>
+        /// Gets the types.
+        /// </summary>
+        protected override IEnumerable<string> Types
         {
-            get { return Wbo.Book; }
+            get
+            {
+                foreach (var type in base.Types)
+                {
+                    yield return type;
+                }
+
+                yield return Wbo.Book;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Hydra.Annotations;
 using JsonLD.Entities;
 using NullGuard;
@@ -9,8 +10,6 @@ namespace wikibus.sources
     /// <summary>
     /// A periodical about public transport
     /// </summary>
-    [Class("wbo:Magazine")]
-    [Class(Schema.Periodical)]
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     public class Magazine
     {
@@ -33,6 +32,15 @@ namespace wikibus.sources
         public Uri Issues
         {
             get { return new Uri(Id + "/issues"); }
+        }
+
+        private IEnumerable<string> Types
+        {
+            get
+            {
+                yield return Wbo.Magazine;
+                yield return Schema.Periodical;
+            }
         }
     }
 }

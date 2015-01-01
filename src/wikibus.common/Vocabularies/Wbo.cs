@@ -16,15 +16,39 @@ namespace wikibus.common.Vocabularies
     /// <summary>Wikibus.org Ontology (http://wikibus.org/ontology#).</summary>
     public static partial class Wbo
     {
+        /// <summary>
+        /// wbo
+        /// </summary>
         public const string Prefix="wbo";
 
+        /// <summary>
+        /// http://wikibus.org/ontology#
+        /// </summary>
         public const string BaseUri="http://wikibus.org/ontology#";
 
         
         /// <summary>
-        /// A boook about public transport.
+        /// Any source material for wikibus.org (books, brochures, etc).
         /// </summary>
-        public static readonly Uri Book=new Uri(BaseUri+"Book");
+        public const string Source = BaseUri + "Source";
+
+        
+        /// <summary>
+        /// A book about public transport.
+        /// </summary>
+        public const string Book = BaseUri + "Book";
+
+        
+        /// <summary>
+        /// A promotional brochure about public transport.
+        /// </summary>
+        public const string Brochure = BaseUri + "Brochure";
+
+        
+        /// <summary>
+        /// A periodical publication about public transport.
+        /// </summary>
+        public const string Magazine = BaseUri + "Magazine";
 
     }
 }

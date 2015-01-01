@@ -13,14 +13,6 @@ namespace wikibus.sources
     {
         private Language[] _languages = new Language[0];
 
-        public static IEnumerable<Uri> Types
-        {
-            get
-            {
-                yield return new Uri("http://wikibus.org/ontology#Source");
-            }
-        } 
-
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
@@ -65,5 +57,13 @@ namespace wikibus.sources
         /// </summary>
         [SupportedProperty(Schema.image)]
         public Image Image { [return: AllowNull] get; set; }
+
+        /// <summary>
+        /// Gets the types.
+        /// </summary>
+        protected virtual IEnumerable<string> Types
+        {
+            get { yield return Wbo.Source; }
+        }
     }
 }

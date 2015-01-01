@@ -10,18 +10,9 @@ namespace wikibus.sources
     /// <summary>
     /// A magazine issue
     /// </summary>
-    [Class(Schema.PublicationIssue)]
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     public class Issue : Source
     {
-        public new static IEnumerable<Uri> Types
-        {
-            get
-            {
-                yield return new Uri("http://wikibus.org/ontology#Source");
-            }
-        } 
-
         /// <summary>
         /// Gets or sets the magazine Uri.
         /// </summary>
@@ -34,5 +25,21 @@ namespace wikibus.sources
         /// </summary>
         [SupportedProperty(Schema.issueNumber)]
         public string Number { get; set; }
+
+        /// <summary>
+        /// Gets the types.
+        /// </summary>
+        protected override IEnumerable<string> Types
+        {
+            get
+            {
+                foreach (var type in base.Types)
+                {
+                    yield return type;
+                }
+
+                yield return Schema.PublicationIssue;
+            }
+        }
     }
 }
