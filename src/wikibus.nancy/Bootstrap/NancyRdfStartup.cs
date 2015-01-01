@@ -1,7 +1,7 @@
 ﻿using System;
 using Nancy.Bootstrapper;
 using Nancy.RDF;
-using VDS.RDF;
+using wikibus.common;
 using wikibus.common.Vocabularies;
 
 namespace wikibus.nancy
@@ -14,9 +14,10 @@ namespace wikibus.nancy
         /// <summary>
         /// Initializes a new instance of the <see cref="NancyRdfStartup"/> class.
         /// </summary>
-        public NancyRdfStartup(INamespaceMapper mapper)
+        public NancyRdfStartup(INamespaceManager mapper, IWikibusConfiguration config)
         {
-            mapper.Import(new NamespaceMapper());
+            mapper.SetBaseUri(new Uri(config.BaseResourceNamespace));
+
             mapper.AddNamespace(Dc.Prefix, new Uri(Dc.BaseUri));
             mapper.AddNamespace(DCTerms.Prefix, new Uri(DCTerms.BaseUri));
             mapper.AddNamespace(Schema.Prefix, new Uri(Schema.BaseUri));
