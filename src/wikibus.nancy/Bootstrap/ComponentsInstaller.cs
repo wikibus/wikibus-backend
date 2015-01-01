@@ -51,7 +51,6 @@ namespace wikibus.nancy
         {
             var contextProvider = new StaticContextProvider();
             contextProvider.SetupSourcesContexts();
-            contextProvider.SetupEntrypointContext();
             return contextProvider;
         }
     }

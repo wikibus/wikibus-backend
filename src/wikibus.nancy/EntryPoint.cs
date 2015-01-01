@@ -1,5 +1,8 @@
-﻿using Hydra.Annotations;
-using JsonLD.Entities;
+﻿using System.Configuration;
+using Hydra.Annotations;
+using JetBrains.Annotations;
+using Newtonsoft.Json.Linq;
+using wikibus.common.Vocabularies;
 
 namespace wikibus.nancy
 {
@@ -25,7 +28,7 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the brochures Uri.
         /// </summary>
-        [SupportedProperty("wb:brochures")]
+        [SupportedProperty(Api.brochures)]
         [AllowGet(Range = Hydra.Hydra.PagedCollection)]
         public string Brochures
         {
@@ -35,7 +38,7 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the books Uri.
         /// </summary>
-        [SupportedProperty("wb:books", Range = Hydra.Hydra.PagedCollection)]
+        [SupportedProperty(Api.books, Range = Hydra.Hydra.PagedCollection)]
         [AllowGet]
         public string Books
         {
@@ -45,16 +48,32 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the magazines Uri.
         /// </summary>
-        [SupportedProperty("wb:magazines", Range = Hydra.Hydra.PagedCollection)]
+        [SupportedProperty(Api.magazines, Range = Hydra.Hydra.PagedCollection)]
         [AllowGet]
         public string Magazines
         {
             get { return "magazines"; }
         }
 
+        [UsedImplicitly]
+        private static JObject Context
+        {
+            get
+            {
+                return new JObject(
+                    new JProperty("@base", ConfigurationManager.AppSettings["baseUrl"]),
+                    new JProperty(Wbo.Prefix, Wbo.BaseUri),
+                    new JProperty(Api.Prefix, Api.BaseUri),
+                    new JObject(new JProperty("magazines", Api.magazines), new JProperty("@type", "@id")),
+                    new JObject(new JProperty("brochures", Api.brochures), new JProperty("@type", "@id")),
+                    new JObject(new JProperty("books", Api.books), new JProperty("@type", "@id")));
+            }
+        }
+
+        [UsedImplicitly]
         private string Type
         {
-            get { return "api:EntryPoint"; }
+            get { return Api.EntryPoint; }
         }
     }
 }

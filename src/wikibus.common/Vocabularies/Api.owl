@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns="http://wikibus.org/ontology#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:wbo="http://wikibus.org/ontology#"
+  xmlns:api="http://wikibus.org/api#">
+
+  <owl:Ontology rdf:about="http://wikibus.org/api#">
+    <rdfs:label>Wikibus.org Ontology</rdfs:label>
+    <rdfs:comment></rdfs:comment>
+    <owl:versionInfo>2015-01-01</owl:versionInfo>
+    <dc:creator>Tomasz Pluskiewicz</dc:creator>
+  </owl:Ontology>
+
+  <owl:Class rdf:about="EntryPoint">
+    <rdfs:comment>The API entry point</rdfs:comment>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="brochures">
+    <rdfs:comment>Link to brochure collection.</rdfs:comment>
+    <rdfs:range rdf:resource="EntryPoint"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="books">
+    <rdfs:comment>Link to book collection.</rdfs:comment>
+    <rdfs:range rdf:resource="EntryPoint"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="magazines">
+    <rdfs:comment>Link to magazine collection.</rdfs:comment>
+    <rdfs:range rdf:resource="EntryPoint"/>
+  </owl:ObjectProperty>
+  
+</rdf:RDF>
