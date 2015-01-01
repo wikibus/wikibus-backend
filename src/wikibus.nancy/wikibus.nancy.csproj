@@ -61,9 +61,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Components\ImageResizer.cs" />
-    <EmbeddedResource Include="WikibusApi.json">
-      <DependentUpon>WikibusApi.cs</DependentUpon>
-    </EmbeddedResource>
     <Compile Include="HydraModule.cs" />
     <Compile Include="WikibusApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

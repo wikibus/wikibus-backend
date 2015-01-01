@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Hydra;
 using JsonLD.Entities;
+using Newtonsoft.Json.Linq;
+using wikibus.common.Vocabularies;
 using wikibus.sources;
 
 namespace wikibus.nancy
@@ -42,6 +44,23 @@ namespace wikibus.nancy
                     typeof(Magazine).ToClass(),
                     typeof(Issue).ToClass()
                 };
+            }
+        }
+
+        private static JToken Context
+        {
+            get
+            {
+                var hydra = JToken.Parse("http://www.w3.org/ns/hydra/context.jsonld");
+                var wikibus = new JObject(
+                    new JProperty("api", "http://wikibus.org/api#"),
+                    new JProperty(Wbo.Prefix, Wbo.BaseUri),
+                    new JProperty(Schema.Prefix, Schema.BaseUri),
+                    new JProperty(DCTerms.Prefix, DCTerms.BaseUri),
+                    new JProperty(Opus.Prefix, Opus.BaseUri),
+                    new JProperty(Bibo.Prefix, Bibo.BaseUri));
+
+                return new JArray(hydra, wikibus);
             }
         }
     }

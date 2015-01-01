@@ -26,7 +26,6 @@ namespace wikibus.nancy
             JObject jObject = JObject.Parse(EntrypointContext);
             jObject["@base"] = ConfigurationManager.AppSettings["baseUrl"];
             contextProvider.SetContext(typeof(EntryPoint), jObject);
-            contextProvider.SetContext(typeof(WikibusApi), JToken.Parse(Resource.AsString("WikibusApi")));
         }
 
         /// <summary>
