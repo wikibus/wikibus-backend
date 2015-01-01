@@ -52,7 +52,7 @@ namespace wikibus.nancy
         {
             get
             {
-                var hydra = JToken.Parse("http://www.w3.org/ns/hydra/context.jsonld");
+                const string hydra = "http://www.w3.org/ns/hydra/context.jsonld";
                 var wikibus = new JObject(
                     new JProperty("api", "http://wikibus.org/api#"),
                     new JProperty(Wbo.Prefix, Wbo.BaseUri),
