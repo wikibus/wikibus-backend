@@ -31,5 +31,10 @@ namespace wikibus.sources
         [SupportedProperty(DCTerms.title)]
         [Required]
         public string Title { [return: AllowNull] get; set; }
+
+        private string Type
+        {
+            get { return Wbo.Book; }
+        }
     }
 }

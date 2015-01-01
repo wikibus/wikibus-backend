@@ -1,24 +1,25 @@
 ﻿prefix hydra: <http://www.w3.org/ns/hydra/core#>
 prefix dcterms: <http://purl.org/dc/terms/>
+prefix sch: <http://schema.org/>
 
 construct
 {
   @container 
     a hydra:PagedCollection ;
-    hydra:member ?source ;
+    hydra:member ?issue ;
     hydra:totalItems ?count.
 
-  ?source dcterms:title ?title
+  ?source sch:issueNumber ?number
 }
 where
 {
   optional {
-    select ?source ?title
+    select ?issue ?number
     {
-      ?source a @type .  
-      ?source dcterms:title ?title
+      ?issue sch:isPartOf @magazine ;
+             sch:issueNumber ?number .  
     }
-    order by ?title
+    order by ?number
     limit @limit
     offset @offset
   }
@@ -26,7 +27,7 @@ where
   {
     select count(*) as ?count
     {
-      ?source a @type . 
+      ?issue sch:isPartOf @magazine . 
     }
   }
 }

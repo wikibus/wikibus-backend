@@ -8,6 +8,7 @@ using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Writing;
 using wikibus.common;
+using wikibus.common.Vocabularies;
 
 namespace wikibus.sources.dotNetRDF
 {
@@ -71,8 +72,25 @@ namespace wikibus.sources.dotNetRDF
             return GetAll<Magazine>(page);
         }
 
+        /// <inheritdoc />
+        public PagedCollection<Issue> GetMagazineIssues(string magName, int page)
+        {
+            return GetIssues(page, magName);
+        }
+
+        /// <inheritdoc />
+        public Issue GetIssue(Uri identifier)
+        {
+            return Get<Issue>(identifier);
+        }
+
         private static Uri GetTypeUri(Type type)
         {
+            if (type == typeof(Issue))
+            {
+                return new Uri(Schema.PublicationIssue);
+            }
+
             return new Uri(string.Format("http://wikibus.org/ontology#{0}", type.Name));
         }
 
@@ -136,6 +154,29 @@ namespace wikibus.sources.dotNetRDF
             }
 
             return new PagedCollection<T>();
+        }
+
+        private PagedCollection<Issue> GetIssues(int page, string name, int pageSize = 10)
+        {
+            var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetIssuesPage.rq"));
+            query.SetUri("magazine", new Uri(string.Format("{0}magazine/{1}", _configuration.BaseResourceNamespace, name)));
+            query.SetUri("container", new Uri(string.Format("{0}magazine/{1}/{2}", _configuration.BaseResourceNamespace, name, "issues")));
+            query.SetLiteral("limit", pageSize);
+            query.SetLiteral("offset", (page - 1) * pageSize);
+            var graph = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));
+
+            if (graph.Triples.Count > 0)
+            {
+                var dataset = StringWriter.Write(graph, new NTriplesWriter(NTriplesSyntax.Rdf11));
+
+                var collection = _serializer.Deserialize<PagedCollection<Issue>>(dataset);
+                collection.ItemsPerPage = pageSize;
+                collection.CurrentPage = page;
+
+                return collection;
+            }
+
+            return new PagedCollection<Issue>();
         }
     }
 }

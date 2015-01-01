@@ -105,6 +105,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Vocabularies\Wbo.owl" />
     <None Include="Vocabularies\Opus.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Opus.cs</LastGenOutput>
@@ -167,7 +168,17 @@
     </None>
     <None Include="Vocabularies\SIOC.owl" />
     <None Include="Vocabularies\SKOS.rdf" />
+    <Compile Include="Vocabularies\wbo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>wbo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Vocabularies\Xsd.cs" />
+    <None Include="Vocabularies\Wbo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Wbo.cs</LastGenOutput>
+      <DependentUpon>Wbo.owl</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

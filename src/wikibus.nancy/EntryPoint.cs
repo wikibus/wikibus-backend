@@ -6,7 +6,6 @@ namespace wikibus.nancy
     /// <summary>
     /// The API entry point
     /// </summary>
-    [Class("api:EntryPoint")]
     public sealed class EntryPoint
     {
         /// <summary>
@@ -51,6 +50,11 @@ namespace wikibus.nancy
         public string Magazines
         {
             get { return "magazines"; }
+        }
+
+        private string Type
+        {
+            get { return "api:EntryPoint"; }
         }
     }
 }

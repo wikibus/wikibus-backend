@@ -28,6 +28,7 @@ namespace wikibus.sources
             contextProvider.SetContext(typeof(PagedCollection<Book>), contextProvider.CreateCollectionContext(typeof(Book)));
             contextProvider.SetContext(typeof(PagedCollection<Brochure>), contextProvider.CreateCollectionContext(typeof(Brochure)));
             contextProvider.SetContext(typeof(PagedCollection<Magazine>), contextProvider.CreateCollectionContext(typeof(Magazine)));
+            contextProvider.SetContext(typeof(PagedCollection<Issue>), contextProvider.CreateCollectionContext(typeof(Issue)));
         }
 
         /// <summary>
@@ -37,6 +38,7 @@ namespace wikibus.sources
         {
             frameProvider.SetFrame(typeof(Book), JObject.Parse("{ '@type': 'wbo:Book' }"));
             frameProvider.SetFrame(typeof(Brochure), JObject.Parse("{ '@type': 'wbo:Brochure' }"));
+            frameProvider.SetFrame(typeof(Issue), JObject.Parse("{ '@type': 'sch:PublicationIssue' }"));
             frameProvider.SetFrame(typeof(PagedCollection<Book>), PagedCollectionFrame);
             frameProvider.SetFrame(typeof(PagedCollection<Brochure>), PagedCollectionFrame);
             frameProvider.SetFrame(typeof(PagedCollection<Magazine>), PagedCollectionFrame);

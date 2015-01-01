@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Hydra.Annotations;
 using NullGuard;
 using wikibus.common.Vocabularies;
@@ -11,6 +12,14 @@ namespace wikibus.sources
     public class Source
     {
         private Language[] _languages = new Language[0];
+
+        public static IEnumerable<Uri> Types
+        {
+            get
+            {
+                yield return new Uri("http://wikibus.org/ontology#Source");
+            }
+        } 
 
         /// <summary>
         /// Gets or sets the identifier.

@@ -10,6 +10,7 @@ namespace wikibus.sources.nancy
     /// </summary>
     public class SourcesModule : NancyModule
     {
+        private readonly ISourcesRepository _repository;
         private readonly IWikibusConfiguration _config;
 
         /// <summary>
@@ -19,6 +20,7 @@ namespace wikibus.sources.nancy
         /// <param name="config">The configuration.</param>
         public SourcesModule(ISourcesRepository repository, IWikibusConfiguration config)
         {
+            _repository = repository;
             _config = config;
 
             this.ReturnNotFoundWhenModelIsNull();
@@ -26,14 +28,26 @@ namespace wikibus.sources.nancy
             Get["brochure/{id}"] = r => GetSingle(repository.GetBrochure);
             Get["book/{id}"] = r => GetSingle(repository.GetBook);
             Get["magazine/{magName}"] = r => GetSingle(repository.GetMagazine);
+            Get["magazine/{magName}/issues"] = r => GetPage(GetIssues(r.magName));
+            Get["magazine/{magName}/issue/{number}"] = r => GetSingle(repository.GetIssue);
             Get["books"] = r => GetPage(repository.GetBooks);
             Get["brochures"] = r => GetPage(repository.GetBrochures);
             Get["magazines"] = r => GetPage(repository.GetMagazines);
         }
 
+        private Func<int, PagedCollection<Issue>> GetIssues(string magName)
+        {
+            return page => _repository.GetMagazineIssues(magName, page);
+        }
+
         private T GetSingle<T>(Func<Uri, T> getResource) where T : class
         {
-            return getResource(new Uri(new Uri(_config.BaseResourceNamespace), Request.Path));
+            return getResource(GetRequestUri());
+        }
+
+        private Uri GetRequestUri()
+        {
+            return new Uri(new Uri(_config.BaseResourceNamespace), Request.Path);
         }
 
         private dynamic GetPage<T>(Func<int, PagedCollection<T>> getPage) where T : class

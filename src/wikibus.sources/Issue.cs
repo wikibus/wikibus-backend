@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Hydra.Annotations;
 using JsonLD.Entities;
 using NullGuard;
@@ -13,12 +14,20 @@ namespace wikibus.sources
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     public class Issue : Source
     {
+        public new static IEnumerable<Uri> Types
+        {
+            get
+            {
+                yield return new Uri("http://wikibus.org/ontology#Source");
+            }
+        } 
+
         /// <summary>
         /// Gets or sets the magazine Uri.
         /// </summary>
         [SupportedProperty(Schema.isPartOf)]
         [AllowGet]
-        public Uri Magazine { get; set; }
+        public Magazine Magazine { get; set; }
 
         /// <summary>
         /// Gets or sets the issue number.
