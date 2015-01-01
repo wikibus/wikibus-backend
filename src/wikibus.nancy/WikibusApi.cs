@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Hydra;
-using JsonLD.Entities;
+using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
 using wikibus.common.Vocabularies;
 using wikibus.sources;
@@ -47,6 +47,7 @@ namespace wikibus.nancy
             }
         }
 
+        [UsedImplicitly]
         private static JToken Context
         {
             get

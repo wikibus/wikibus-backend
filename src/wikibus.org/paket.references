@@ -1,3 +1,4 @@
 Nancy.Hosting.Aspnet
 Zoltu.Versioning
 NullGuard.Fody
+JetBrainsAnnotations.Fody

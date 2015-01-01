@@ -10,3 +10,4 @@ r2rml4net
 ImpromptuInterface
 Resourcer.Fody
 NDbUnit.SqlClient
+JetBrainsAnnotations.Fody
