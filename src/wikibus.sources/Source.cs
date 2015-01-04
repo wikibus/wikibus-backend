@@ -79,7 +79,7 @@ namespace wikibus.sources
                     Prefix.Of(typeof(Rdfs)),
                     Prefix.Of(typeof(Schema)),
                     Prefix.Of(typeof(Wbo)),
-                    "langIso".IsPrefixOf("http://www.lexvo.org/page/iso639-1/"),
+                    "langIso".IsPrefixOf(Lexvo.iso639_1),
                     "year".IsProperty(Opus.year).Type().Is(Xsd.gYear),
                     "month".IsProperty(Opus.month).Type().Is(Xsd.gMonth),
                     "date".IsProperty(DCTerms.date).Type().Is(Xsd.date),
@@ -87,7 +87,7 @@ namespace wikibus.sources
                     "title".IsProperty(DCTerms.title),
                     "code".IsProperty(DCTerms.identifier),
                     "languages".IsProperty(DCTerms.language).Type().Id().Container().Set(),
-                    "name".IsProperty(Schema.BaseUri + "name"),
+                    "name".IsProperty(Schema.name),
                     "image".IsProperty(Schema.image),
                     "contentUrl".IsProperty(Schema.contentUrl).Type().Is(Schema.URL),
                     "thumbnail".IsProperty(Schema.thumbnail));

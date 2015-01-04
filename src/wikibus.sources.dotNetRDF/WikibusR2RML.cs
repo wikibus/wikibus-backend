@@ -6,7 +6,6 @@ using TCode.r2rml4net.Mapping;
 using TCode.r2rml4net.Mapping.Fluent;
 using TCode.r2rml4net.RDB;
 using TCode.r2rml4net.Validation;
-using VDS.RDF.Parsing;
 using wikibus.common;
 using wikibus.common.Vocabularies;
 
@@ -76,7 +75,7 @@ namespace wikibus.sources.dotNetRDF
             _magazineMap = rml.CreateTriplesMapFromR2RMLView("select * from [Sources].[Magazine]");
             _magazineMap.SubjectMap.IsTemplateValued(_config.BaseResourceNamespace + "magazine/{Name}");
             _magazineMap.SubjectMap.AddClass(new Uri(Schema.Periodical));
-            _magazineMap.SubjectMap.AddClass(new Uri("http://wikibus.org/ontology#Magazine"));
+            _magazineMap.SubjectMap.AddClass(new Uri(Wbo.Magazine));
 
             MapMagazineTitle(_magazineMap);
         }
@@ -95,10 +94,7 @@ namespace wikibus.sources.dotNetRDF
             MapIssueParent(magIssueMap);
             MapPagesCount(magIssueMap);
 
-            magIssueMap.MapColumn(
-                            "MagIssueNumber",
-                            Schema.issueNumber,
-                            new Uri(XmlSpecsHelper.XmlSchemaDataTypeString));
+            magIssueMap.MapColumn("MagIssueNumber", Schema.issueNumber, new Uri(Xsd.@string));
         }
 
         private void MapIssueParent(ITriplesMapFromR2RMLViewConfiguration sourceMap)
@@ -149,7 +145,7 @@ namespace wikibus.sources.dotNetRDF
             var authorTriplesMap = sourceMap.R2RMLConfiguration.CreateTriplesMapFromR2RMLView(SelectBookAuthorSql);
             authorTriplesMap.SubjectMap.TermType.IsBlankNode().IsTemplateValued("author_{Id}");
 
-            authorTriplesMap.MapColumn("BookAuthor", Schema.BaseUri + "name");
+            authorTriplesMap.MapColumn("BookAuthor", Schema.name);
 
             var authorMap = sourceMap.CreatePropertyObjectMap();
             authorMap.CreatePredicateMap().IsConstantValued(new Uri(Schema.author));
@@ -158,7 +154,7 @@ namespace wikibus.sources.dotNetRDF
 
         private void MapPagesCount(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            sourceMap.MapColumn("Pages", Bibo.pages, new Uri(XmlSpecsHelper.XmlSchemaDataTypeInteger));
+            sourceMap.MapColumn("Pages", Bibo.pages, new Uri(Xsd.integer));
         }
 
         private void MapFolderCode(ITriplesMapFromR2RMLViewConfiguration sourceMap)
@@ -169,21 +165,21 @@ namespace wikibus.sources.dotNetRDF
         private void MapDate(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
             sourceMap
-                .MapColumn("Year", Opus.year, new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gYear"))
-                .MapColumn("month", Opus.month, new Uri(XmlSpecsHelper.NamespaceXmlSchema + "gMonth"))
-                .MapTemplate("{Year}-{Month}-{Day}", DCTerms.date, XmlSpecsHelper.XmlSchemaDataTypeDate);
+                .MapColumn("Year", Opus.year, new Uri(Xsd.gYear))
+                .MapColumn("month", Opus.month, new Uri(Xsd.gMonth))
+                .MapTemplate("{Year}-{Month}-{Day}", DCTerms.date, Xsd.date);
         }
 
         private void MapLanguages(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
             sourceMap
-                .MapTemplate("http://www.lexvo.org/page/iso639-1/{Language}", DCTerms.language)
-                .MapTemplate("http://www.lexvo.org/page/iso639-1/{Language2}", DCTerms.language);
+                .MapTemplate(Lexvo.iso639_1 + "{Language}", DCTerms.language)
+                .MapTemplate(Lexvo.iso639_1 + "{Language2}", DCTerms.language);
         }
 
         private void MapType(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            sourceMap.MapTemplate("http://wikibus.org/ontology#{Type}", RdfSpecsHelper.RdfType);
+            sourceMap.MapTemplate(Wbo.BaseUri + "{Type}", Rdf.type);
         }
 
         private void MapFolderName(ITriplesMapFromR2RMLViewConfiguration sourceMap)

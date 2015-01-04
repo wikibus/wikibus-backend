@@ -26,7 +26,7 @@ namespace wikibus.nancy
             mapper.AddNamespace(Rdfs.Prefix, new Uri(Rdfs.BaseUri));
             mapper.AddNamespace(Bibo.Prefix, new Uri(Bibo.BaseUri));
             mapper.AddNamespace(Opus.Prefix, new Uri(Opus.BaseUri));
-            mapper.AddNamespace("lexvo", new Uri("http://www.lexvo.org/page/iso639-1/"));
+            mapper.AddNamespace("lexvo", new Uri(Lexvo.iso639_1));
             mapper.AddNamespace(Wbo.Prefix, new Uri(Wbo.BaseUri));
         }
 

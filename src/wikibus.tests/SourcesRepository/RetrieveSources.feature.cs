@@ -119,7 +119,7 @@ this.ScenarioSetup(scenarioInfo);
 @prefix dcterms: <http://purl.org/dc/terms/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>.
-@prefix langIso: <http://www.lexvo.org/page/iso639-1/>.
+@prefix langIso: <http://lexvo.org/id/iso639-1/>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix sch: <http://schema.org/>.
 
@@ -177,7 +177,7 @@ this.ScenarioSetup(scenarioInfo);
 @prefix dcterms: <http://purl.org/dc/terms/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>.
-@prefix langIso: <http://www.lexvo.org/page/iso639-1/>.
+@prefix langIso: <http://lexvo.org/id/iso639-1/>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
 {

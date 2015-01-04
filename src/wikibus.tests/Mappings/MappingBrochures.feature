@@ -20,8 +20,8 @@ Scenario: Mapping brochure row
             a wbo:Brochure ;
             bibo:pages 2 ;
             dcterms:title "Türkkar City Angel E.D." ;
-            dcterms:language <http://www.lexvo.org/page/iso639-1/tr>, 
-                             <http://www.lexvo.org/page/iso639-1/en> .
+            dcterms:language <http://lexvo.org/id/iso639-1/tr>, 
+                             <http://lexvo.org/id/iso639-1/en> .
       }
       """
 
@@ -67,7 +67,7 @@ Scenario: Mapping brochure row with date
       prefix dcterms: <http://purl.org/dc/terms/>
       prefix xsd: <http://www.w3.org/2001/XMLSchema#>
       prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
-      prefix langIso: <http://www.lexvo.org/page/iso639-1/>
+      prefix langIso: <http://lexvo.org/id/iso639-1/>
 
       ASK
       {
@@ -114,7 +114,7 @@ Scenario: Mapping complete book row
           prefix dcterms: <http://purl.org/dc/terms/>
           prefix xsd: <http://www.w3.org/2001/XMLSchema#>
           prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
-          prefix langIso: <http://www.lexvo.org/page/iso639-1/>
+          prefix langIso: <http://lexvo.org/id/iso639-1/>
           prefix sch: <http://schema.org/>
 
           ASK
@@ -146,7 +146,7 @@ Scenario: Mapping complete magazine issue
           prefix dcterms: <http://purl.org/dc/terms/>
           prefix xsd: <http://www.w3.org/2001/XMLSchema#>
           prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
-          prefix langIso: <http://www.lexvo.org/page/iso639-1/>
+          prefix langIso: <http://lexvo.org/id/iso639-1/>
           prefix sch: <http://schema.org/>
 
           ASK

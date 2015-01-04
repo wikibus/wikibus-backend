@@ -63,6 +63,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bibo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Vocabularies\CustomSchema.cs" />
+    <Compile Include="Vocabularies\Lexvo.cs" />
     <Compile Include="Vocabularies\Opus.cs">
       <DependentUpon>Opus.tt</DependentUpon>
       <AutoGen>True</AutoGen>

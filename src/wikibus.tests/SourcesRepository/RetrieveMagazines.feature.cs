@@ -102,7 +102,7 @@ this.ScenarioSetup(scenarioInfo);
     <magazine/Motor/issue/161> <http://lsdis.cs.uga.edu/projects/semdis/opus#month> ""5""^^xsd:gMonth;
                                <http://lsdis.cs.uga.edu/projects/semdis/opus#year> ""1955""^^xsd:gYear;
                                <http://purl.org/dc/terms/date> ""1955-5-22""^^xsd:date;
-                               <http://purl.org/dc/terms/language> <http://www.lexvo.org/page/iso639-1/pl>;
+                               <http://purl.org/dc/terms/language> <http://lexvo.org/id/iso639-1/pl>;
                                <http://purl.org/ontology/bibo/pages> 16 ;
                                <http://schema.org/isPartOf> <magazine/Motor>;
                                <http://schema.org/issueNumber> ""161""^^xsd:string;

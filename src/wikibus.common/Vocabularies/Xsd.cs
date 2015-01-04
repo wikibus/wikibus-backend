@@ -14,6 +14,8 @@ namespace wikibus.common.Vocabularies
 
         public const string date = BaseUri + "date";
 
+        public const string @string = BaseUri + "string";
+
         public const string integer = BaseUri + "integer";
     }
 }
