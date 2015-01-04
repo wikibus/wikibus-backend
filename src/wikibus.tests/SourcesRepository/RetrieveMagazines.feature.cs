@@ -85,6 +85,38 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get single issue")]
+        public virtual void GetSingleIssue()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get single issue", ((string[])(null)));
+#line 18
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+#line 19
+    testRunner.Given("RDF data:", @"@base <http://wikibus.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+{
+    <magazine/Motor/issue/161> <http://lsdis.cs.uga.edu/projects/semdis/opus#month> ""5""^^xsd:gMonth;
+                               <http://lsdis.cs.uga.edu/projects/semdis/opus#year> ""1955""^^xsd:gYear;
+                               <http://purl.org/dc/terms/date> ""1955-5-22""^^xsd:date;
+                               <http://purl.org/dc/terms/language> <http://www.lexvo.org/page/iso639-1/pl>;
+                               <http://purl.org/ontology/bibo/pages> 16 ;
+                               <http://schema.org/isPartOf> <magazine/Motor>;
+                               <http://schema.org/issueNumber> ""161""^^xsd:string;
+                               a <http://schema.org/PublicationIssue>.
+}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 35
+     testRunner.When("issue <http://wikibus.org/magazine/Motor/issue/161> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 36
+     testRunner.Then("\'Magazine.Id\' should be Uri \'http://wikibus.org/magazine/Motor\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 37
+      testRunner.And("\'Number\' should be string equal to \'161\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

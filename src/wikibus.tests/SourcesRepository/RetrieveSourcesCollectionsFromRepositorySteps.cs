@@ -20,7 +20,7 @@ namespace wikibus.tests.SourcesRepository
             ScenarioContext.Current.Set(books, "Model");
         }
 
-        [Then(@"'(.*)' should be (.*)")]
+        [Then(@"'(.*)' should be (\d*)")]
         public void ThenShouldBe(string propName, int expectedValue)
         {
             ScenarioContext.Current["Model"]

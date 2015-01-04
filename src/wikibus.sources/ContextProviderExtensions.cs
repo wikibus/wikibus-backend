@@ -1,5 +1,4 @@
-﻿using System;
-using Hydra;
+﻿using Hydra;
 using JsonLD.Entities;
 using Newtonsoft.Json.Linq;
 using Resourcer;
@@ -20,7 +19,7 @@ namespace wikibus.sources
         {
             frameProvider.SetFrame(typeof(Book), JObject.Parse("{ '@type': 'wbo:Book' }"));
             frameProvider.SetFrame(typeof(Brochure), JObject.Parse("{ '@type': 'wbo:Brochure' }"));
-            frameProvider.SetFrame(typeof(Issue), JObject.Parse("{ '@type': 'sch:PublicationIssue' }"));
+            frameProvider.SetFrame(typeof(Issue), JObject.Parse("{ '@type': 'schema:PublicationIssue' }"));
             frameProvider.SetFrame(typeof(PagedCollection<Book>), PagedCollectionFrame);
             frameProvider.SetFrame(typeof(PagedCollection<Brochure>), PagedCollectionFrame);
             frameProvider.SetFrame(typeof(PagedCollection<Magazine>), PagedCollectionFrame);
