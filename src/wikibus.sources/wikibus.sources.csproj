@@ -53,7 +53,6 @@
     <Compile Include="Book.cs" />
     <Compile Include="Brochure.cs" />
     <Compile Include="ContextProviderExtensions.cs" />
-    <Compile Include="Contexts\Prefix.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="ISourceImagesRepository.cs" />
     <Compile Include="Issue.cs" />

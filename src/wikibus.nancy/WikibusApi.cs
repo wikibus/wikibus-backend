@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Hydra;
-using JetBrains.Annotations;
 using Newtonsoft.Json.Linq;
+using wikibus.common.JsonLd;
 using wikibus.common.Vocabularies;
 using wikibus.sources;
 
@@ -47,22 +47,18 @@ namespace wikibus.nancy
             }
         }
 
-        [UsedImplicitly]
-        private static JToken Context
+        /// <summary>
+        /// Gets the @context for wikibus API.
+        /// </summary>
+        protected override JToken GetLocalContext()
         {
-            get
-            {
-                const string hydra = "http://www.w3.org/ns/hydra/context.jsonld";
-                var wikibus = new JObject(
-                    new JProperty("api", "http://wikibus.org/api#"),
-                    new JProperty(Wbo.Prefix, Wbo.BaseUri),
-                    new JProperty(Schema.Prefix, Schema.BaseUri),
-                    new JProperty(DCTerms.Prefix, DCTerms.BaseUri),
-                    new JProperty(Opus.Prefix, Opus.BaseUri),
-                    new JProperty(Bibo.Prefix, Bibo.BaseUri));
-
-                return new JArray(hydra, wikibus);
-            }
+            return new JObject(
+                Prefix.Of(typeof(Api)),
+                Prefix.Of(typeof(Wbo)),
+                Prefix.Of(typeof(Schema)),
+                Prefix.Of(typeof(DCTerms)),
+                Prefix.Of(typeof(Opus)),
+                Prefix.Of(typeof(Bibo)));
         }
     }
 }

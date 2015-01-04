@@ -6,8 +6,8 @@ using JsonLD.Entities.Context;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
+using wikibus.common.JsonLd;
 using wikibus.common.Vocabularies;
-using wikibus.sources.Contexts;
 
 namespace wikibus.sources
 {

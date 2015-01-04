@@ -3,8 +3,8 @@ using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json.Linq;
+using wikibus.common.JsonLd;
 using wikibus.common.Vocabularies;
-using wikibus.sources.Contexts;
 
 namespace wikibus.nancy
 {
