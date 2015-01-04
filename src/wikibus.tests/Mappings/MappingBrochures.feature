@@ -6,15 +6,17 @@ Scenario: Mapping brochure row
       | Id | SourceType | Language | Language2 | Pages | FolderName              |
       | 1  | folder     | tr       | en        | 2     | Türkkar City Angel E.D. |
    When retrieve all triples
-   Then resulting dataset should contain '5' triples
+   Then resulting dataset should contain '6' triples
    And resulting dataset should match query:
       """
       base <http://wikibus.org/>
       prefix wbo: <http://wikibus.org/ontology#>
       prefix bibo: <http://purl.org/ontology/bibo/>
       prefix dcterms: <http://purl.org/dc/terms/>
+      prefix graph: <http://data.wikibus.org/graph/r2rml/>
 
       ASK
+      FROM <http://data.wikibus.org/graph/folder/1/imported>
       {
          <brochure/1> 
             a wbo:Brochure ;
@@ -31,19 +33,26 @@ Scenario: Mapping brochure and book with image
       | 1   | folder     | 3qAAAA== |
       | 407 | book       | 3qAAAA== |
    When retrieve all triples
-   Then resulting dataset should contain '4' triples
+   Then resulting dataset should contain '6' triples
    And resulting dataset should match query:
       """
       base <http://wikibus.org/>
       prefix sch: <http://schema.org/>
+      prefix graph: <http://data.wikibus.org/graph/r2rml/>
 
       ASK
       {
-         <brochure/1> 
-            <http://wikibus.org/ontology#hasImage> true.
-            
-         <book/407> 
-            <http://wikibus.org/ontology#hasImage> true.
+         GRAPH <http://data.wikibus.org/graph/folder/1/imported>
+         {
+            <brochure/1> 
+               <http://wikibus.org/ontology#hasImage> true.
+         }
+          
+         GRAPH <http://data.wikibus.org/graph/book/407/imported>
+         {  
+            <book/407> 
+               <http://wikibus.org/ontology#hasImage> true.
+         }
       }
       """
 
@@ -52,7 +61,7 @@ Scenario: Mapping brochure row with date
       | Id | SourceType | Language | Language2 | Pages | Year | Month | Day | FolderCode                         | FolderName                                                |
       | 6  | folder     | pl       | NULL      | 2     | 2006 | 9     | 21  | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance |
    When retrieve all triples
-   Then resulting dataset should contain '8' triples
+   Then resulting dataset should contain '9' triples
    And resulting dataset should match query:
       """
       base <http://wikibus.org/>
@@ -62,8 +71,10 @@ Scenario: Mapping brochure row with date
       prefix xsd: <http://www.w3.org/2001/XMLSchema#>
       prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
       prefix langIso: <http://lexvo.org/id/iso639-1/>
+      prefix graph: <http://data.wikibus.org/graph/r2rml/>
 
       ASK
+      FROM <http://data.wikibus.org/graph/folder/6/imported>
       {
          <brochure/6> 
             a wbo:Brochure ;
@@ -82,13 +93,15 @@ Scenario: Mapping brochure row with incomplete date
       | Id | SourceType | Language | Language2 | Pages | Year | FolderCode                         | FolderName                                                |
       | 6  | folder     | pl       | NULL      | 2     | 2006 | BED 81419 2006-09-21 POL Version 2 | Fakty: Autobus turystyczny Volvo B9r/Sunsundegui Elegance |
    When retrieve all triples
-   Then resulting dataset should contain '6' triples
+   Then resulting dataset should contain '7' triples
    And resulting dataset should not match query:
       """
       base <http://wikibus.org/>
       prefix dcterms: <http://purl.org/dc/terms/>
+      prefix graph: <http://data.wikibus.org/graph/r2rml/>
 
       ASK
+      FROM <http://data.wikibus.org/graph/folder/6/imported>
       {
          <brochure/6> dcterms:date ?date
       }
@@ -99,7 +112,7 @@ Scenario: Mapping complete book row
          | Id  | SourceType | Language | Language2 | Pages | Year | BookTitle                                       | BookAuthor        | BookISBN      | 
          | 407 | book       | pl       | NULL      | 140   | 2010 | Pojazdy samochodowe i przyczepy Jelcz 1952-1970 | Wojciech Polomski | 9788320617412 |
     When retrieve all triples
-    Then resulting dataset should contain '8' triples
+    Then resulting dataset should contain '9' triples
      And resulting dataset should match query:
          """
           base <http://wikibus.org/>
@@ -110,8 +123,10 @@ Scenario: Mapping complete book row
           prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
           prefix langIso: <http://lexvo.org/id/iso639-1/>
           prefix sch: <http://schema.org/>
+          prefix graph: <http://data.wikibus.org/graph/r2rml/>
 
           ASK
+          FROM <http://data.wikibus.org/graph/book/407/imported>
           {
              <book/407> a wbo:Book ;
                 dcterms:title "Pojazdy samochodowe i przyczepy Jelcz 1952-1970" ;
@@ -131,7 +146,7 @@ Scenario: Mapping complete magazine issue
          | Id | Name      |
          | 1  | Bus Kurier |
     When retrieve all triples
-    Then resulting dataset should contain '11' triples
+    Then resulting dataset should contain '13' triples
      And resulting dataset should match query:
          """
           base <http://wikibus.org/>
@@ -142,8 +157,10 @@ Scenario: Mapping complete magazine issue
           prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>
           prefix langIso: <http://lexvo.org/id/iso639-1/>
           prefix sch: <http://schema.org/>
+          prefix graph: <http://data.wikibus.org/graph/r2rml/>
 
           ASK
+          FROM <http://data.wikibus.org/graph/magissue/324/imported>
           {
              <magazine/Bus%20Kurier/issue/13> a sch:PublicationIssue ;
                 wbo:hasImage true ;

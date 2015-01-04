@@ -73,14 +73,23 @@ namespace wikibus.tests.SourcesRepository
 this.ScenarioSetup(scenarioInfo);
 #line hidden
 #line 4
-   testRunner.Given("RDF data:", "@base <http://wikibus.org/> .\r\n@prefix dcterms: <http://purl.org/dc/terms/>.\r\n\r\n{" +
-                    "\r\n   <magazine/Bus Kurier> a <ontology#Magazine> ;\r\n      dcterms:title \"Bus Kur" +
-                    "ier\" .\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 14
+   testRunner.Given("RDF data:", @"@base <http://wikibus.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/>.
+  @prefix foaf: <http://xmlns.com/foaf/0.1/>.
+
+  {
+     <http://data.wikibus.org/graph/> foaf:primaryTopic <magazine/Bus Kurier>
+  }
+
+  <http://data.wikibus.org/graph/> {
+   <magazine/Bus Kurier> a <ontology#Magazine> ;
+      dcterms:title ""Bus Kurier"" .
+}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 19
    testRunner.When("magazine <http://wikibus.org/magazine/Bus Kurier> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 15
+#line 20
    testRunner.Then("\'Title\' should be string equal to \'Bus Kurier\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 16
+#line 21
     testRunner.And("\'Issues\' should be Uri \'http://wikibus.org/magazine/Bus%20Kurier/issues\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -91,14 +100,19 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetSingleIssue()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get single issue", ((string[])(null)));
-#line 18
+#line 23
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-#line 19
+#line 24
     testRunner.Given("RDF data:", @"@base <http://wikibus.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
 {
+   <http://data.wikibus.org/graph/> foaf:primaryTopic <magazine/Motor/issue/161>
+}
+
+<http://data.wikibus.org/graph/> {
     <magazine/Motor/issue/161> <http://lsdis.cs.uga.edu/projects/semdis/opus#month> ""5""^^xsd:gMonth;
                                <http://lsdis.cs.uga.edu/projects/semdis/opus#year> ""1955""^^xsd:gYear;
                                <http://purl.org/dc/terms/date> ""1955-5-22""^^xsd:date;
@@ -108,11 +122,11 @@ this.ScenarioSetup(scenarioInfo);
                                <http://schema.org/issueNumber> ""161""^^xsd:string;
                                a <http://schema.org/PublicationIssue>.
 }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 35
+#line 45
      testRunner.When("issue <http://wikibus.org/magazine/Motor/issue/161> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 36
+#line 46
      testRunner.Then("\'Magazine.Id\' should be Uri \'http://wikibus.org/magazine/Motor\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 37
+#line 47
       testRunner.And("\'Number\' should be string equal to \'161\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

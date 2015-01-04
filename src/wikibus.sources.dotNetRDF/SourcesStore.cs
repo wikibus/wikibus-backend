@@ -2,6 +2,7 @@
 using TCode.r2rml4net;
 using VDS.RDF;
 using wikibus.common;
+using wikibus.sources.dotNetRDF.Mapping;
 
 namespace wikibus.sources.dotNetRDF
 {

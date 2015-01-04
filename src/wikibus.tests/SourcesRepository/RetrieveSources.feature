@@ -6,8 +6,13 @@ Scenario: Get simple brochure
       """
       @base <http://wikibus.org/> .
       @prefix dcterms: <http://purl.org/dc/terms/>.
+      @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
       {
+        <http://data.wikibus.org/graph/> foaf:primaryTopic <brochure/VanHool+T8>
+      }
+
+      <http://data.wikibus.org/graph/> {
          <brochure/VanHool+T8> a <ontology#Brochure> ;
             dcterms:title "VanHool T8 - New Look" .
       }
@@ -20,8 +25,13 @@ Scenario: Get brochure with Polish diacritics
       """
       @base <http://wikibus.org/> .
       @prefix dcterms: <http://purl.org/dc/terms/>.
+      @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
       {
+        <http://data.wikibus.org/graph/> foaf:primaryTopic <brochure/12345>
+      }
+
+      <http://data.wikibus.org/graph/> {
          <brochure/12345> a <ontology#Brochure> ;
             dcterms:title "Jelcz M11 - nowość" .
       }
@@ -41,8 +51,13 @@ Scenario: Get complete brochure
         @prefix langIso: <http://lexvo.org/id/iso639-1/>.
         @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
         @prefix sch: <http://schema.org/>.
+        @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
         {
+           <http://data.wikibus.org/graph/> foaf:primaryTopic <brochure/6>
+        }
+
+        <http://data.wikibus.org/graph/> {
             <brochure/6> 
                 a wbo:Brochure ;
                 bibo:pages 2 ;
@@ -78,8 +93,13 @@ Scenario: Get brochure without data
         @prefix opus: <http://lsdis.cs.uga.edu/projects/semdis/opus#>.
         @prefix langIso: <http://lexvo.org/id/iso639-1/>.
         @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+        @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
         {
+           <http://data.wikibus.org/graph/> foaf:primaryTopic <brochure/6>
+        }
+
+        <http://data.wikibus.org/graph/> {
             <brochure/6> 
                 a wbo:Brochure ;
         }
@@ -100,8 +120,13 @@ Scenario: Get complete book
         @prefix wbo: <http://wikibus.org/ontology#>.
         @prefix dcterms: <http://purl.org/dc/terms/>.
         @prefix sch: <http://schema.org/>.
+        @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
         {
+           <http://data.wikibus.org/graph/> foaf:primaryTopic <book/6>
+        }
+
+        <http://data.wikibus.org/graph/> {
             <book/6> 
                 a wbo:Book ;
                 dcterms:title "Strassenbahnen in Schlesien" ;
@@ -125,8 +150,13 @@ Scenario: Get book without author
         @prefix wbo: <http://wikibus.org/ontology#>.
         @prefix dcterms: <http://purl.org/dc/terms/>.
         @prefix sch: <http://schema.org/>.
+        @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
         {
+           <http://data.wikibus.org/graph/> foaf:primaryTopic <book/6>
+        }
+
+        <http://data.wikibus.org/graph/> {
             <book/6> 
                 a wbo:Book ;
                 dcterms:title "Strassenbahnen in Schlesien" ;
@@ -137,37 +167,7 @@ Scenario: Get book without author
      Then 'Author' should be null
 
 Scenario: Get first page of books
-    Given RDF data:
-        """
-        @base <http://wikibus.org/>.
-        @prefix wbo: <http://wikibus.org/ontology#>.
-        @prefix dcterms: <http://purl.org/dc/terms/>.
-        @prefix sch: <http://schema.org/>.
-
-        {
-            <book/1> a wbo:Book .
-            <book/2> a wbo:Book .
-            <book/3> a wbo:Book .
-            <book/4> a wbo:Book .
-            <book/5> a wbo:Book .
-            <book/6> a wbo:Book .
-            <book/7> a wbo:Book .
-            <book/8> a wbo:Book .
-            <book/9> a wbo:Book .
-            <book/10> a wbo:Book .
-            <book/11> a wbo:Book .
-            <book/12> a wbo:Book .
-            <book/13> a wbo:Book .
-            <book/14> a wbo:Book .
-            <book/15> a wbo:Book .
-            <book/16> a wbo:Book .
-            <book/17> a wbo:Book .
-            <book/18> a wbo:Book .
-            <book/19> a wbo:Book .
-            <book/20> a wbo:Book .
-            <book/21> a wbo:Book .
-        }
-        """
+    Given 21 books
      When page 1 of books is fetched
      Then 'TotalItems' should be 21
       And 'ItemsPerPage' should be 10
@@ -175,36 +175,7 @@ Scenario: Get first page of books
       And 'LastPage' should be Uri 'http://wikibus.org/books?page=3'
 
 Scenario: Get last page of books
-    Given RDF data:
-        """
-        @base <http://wikibus.org/>.
-        @prefix wbo: <http://wikibus.org/ontology#>.
-        @prefix dcterms: <http://purl.org/dc/terms/>.
-        @prefix sch: <http://schema.org/>.
-
-        {
-            <book/1> a wbo:Book .
-            <book/2> a wbo:Book .
-            <book/3> a wbo:Book .
-            <book/4> a wbo:Book .
-            <book/5> a wbo:Book .
-            <book/6> a wbo:Book .
-            <book/7> a wbo:Book .
-            <book/8> a wbo:Book .
-            <book/9> a wbo:Book .
-            <book/10> a wbo:Book .
-            <book/11> a wbo:Book .
-            <book/12> a wbo:Book .
-            <book/13> a wbo:Book .
-            <book/14> a wbo:Book .
-            <book/15> a wbo:Book .
-            <book/16> a wbo:Book .
-            <book/17> a wbo:Book .
-            <book/18> a wbo:Book .
-            <book/19> a wbo:Book .
-            <book/20> a wbo:Book .
-        }
-        """
+    Given 20 books
      When page 2 of books is fetched
      Then 'TotalItems' should be 20
       And 'ItemsPerPage' should be 10
@@ -213,36 +184,7 @@ Scenario: Get last page of books
       And 'LastPage' should be Uri 'http://wikibus.org/books?page=2'
 
 Scenario: Get invalid page of books
-    Given RDF data:
-        """
-        @base <http://wikibus.org/>.
-        @prefix wbo: <http://wikibus.org/ontology#>.
-        @prefix dcterms: <http://purl.org/dc/terms/>.
-        @prefix sch: <http://schema.org/>.
-
-        {
-            <book/1> a wbo:Book .
-            <book/2> a wbo:Book .
-            <book/3> a wbo:Book .
-            <book/4> a wbo:Book .
-            <book/5> a wbo:Book .
-            <book/6> a wbo:Book .
-            <book/7> a wbo:Book .
-            <book/8> a wbo:Book .
-            <book/9> a wbo:Book .
-            <book/10> a wbo:Book .
-            <book/11> a wbo:Book .
-            <book/12> a wbo:Book .
-            <book/13> a wbo:Book .
-            <book/14> a wbo:Book .
-            <book/15> a wbo:Book .
-            <book/16> a wbo:Book .
-            <book/17> a wbo:Book .
-            <book/18> a wbo:Book .
-            <book/19> a wbo:Book .
-            <book/20> a wbo:Book .
-        }
-        """
+    Given 20 books
      When page 20 of books is fetched
      Then 'TotalItems' should be 20
       And 'ItemsPerPage' should be 10

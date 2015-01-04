@@ -83,7 +83,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
     testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
-    testRunner.Then("resulting dataset should contain \'3\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("resulting dataset should contain \'4\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 10
      testRunner.And("resulting dataset should match query:", @" base <http://wikibus.org/>
@@ -96,6 +96,7 @@ this.ScenarioSetup(scenarioInfo);
  prefix sch: <http://schema.org/>
 
  ASK
+ FROM <http://data.wikibus.org/graph/magazine/1/imported> 
  {
     <magazine/Bus%20Kurier> a sch:Periodical, wbo:Magazine ;
        dcterms:title ""Bus Kurier"" .

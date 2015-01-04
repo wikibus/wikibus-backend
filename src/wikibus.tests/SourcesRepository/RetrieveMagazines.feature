@@ -5,8 +5,13 @@ Scenario: Get simple brochure
       """
       @base <http://wikibus.org/> .
       @prefix dcterms: <http://purl.org/dc/terms/>.
+        @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
-      {
+        {
+           <http://data.wikibus.org/graph/> foaf:primaryTopic <magazine/Bus Kurier>
+        }
+
+        <http://data.wikibus.org/graph/> {
          <magazine/Bus Kurier> a <ontology#Magazine> ;
             dcterms:title "Bus Kurier" .
       }
@@ -20,8 +25,13 @@ Scenario: Get single issue
         """
         @base <http://wikibus.org/> .
         @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+        @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
         {
+           <http://data.wikibus.org/graph/> foaf:primaryTopic <magazine/Motor/issue/161>
+        }
+
+        <http://data.wikibus.org/graph/> {
             <magazine/Motor/issue/161> <http://lsdis.cs.uga.edu/projects/semdis/opus#month> "5"^^xsd:gMonth;
                                        <http://lsdis.cs.uga.edu/projects/semdis/opus#year> "1955"^^xsd:gYear;
                                        <http://purl.org/dc/terms/date> "1955-5-22"^^xsd:date;

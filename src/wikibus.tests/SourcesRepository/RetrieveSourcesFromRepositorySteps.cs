@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using VDS.RDF;
+using wikibus.common.Vocabularies;
 using wikibus.sources;
 
 namespace wikibus.tests.SourcesRepository
@@ -21,6 +23,25 @@ namespace wikibus.tests.SourcesRepository
         public void GivenRdfFrom(string datasetToLoad)
         {
             _context.Store.LoadFromString(datasetToLoad);
+        }
+
+        [Given(@"(.*) books")]
+        public void GivenBooks(int count)
+        {
+            foreach (var i in Enumerable.Range(1, count))
+            {
+                const string format = @"
+INSERT DATA
+{{
+<http://data.wikibus.org/graph/r2rml/{0}> <http://xmlns.com/foaf/0.1/primaryTopic> <http://wikibus.org/book/{0}> .
+
+GRAPH <http://data.wikibus.org/graph/r2rml/{0}>
+{{
+    <http://wikibus.org/book/{0}> a <{1}>
+}}
+}}";
+                _context.Store.ExecuteUpdate(string.Format(format, i, Wbo.Book));
+            }
         }
 
         [When(@"brochure <(.*)> is fetched")]

@@ -1,4 +1,5 @@
 ﻿SELECT [Id]
+      ,[SourceType]
       ,CASE [SourceType]
         WHEN 'folder' THEN 'Brochure'
         WHEN 'book' THEN 'Book'

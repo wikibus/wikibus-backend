@@ -6,7 +6,7 @@ Scenario: Mapping complete magazine
          | Id | Name      |
          | 1  | Bus Kurier |
     When retrieve all triples
-    Then resulting dataset should contain '3' triples
+    Then resulting dataset should contain '4' triples
      And resulting dataset should match query:
          """
           base <http://wikibus.org/>
@@ -19,6 +19,7 @@ Scenario: Mapping complete magazine
           prefix sch: <http://schema.org/>
 
           ASK
+          FROM <http://data.wikibus.org/graph/magazine/1/imported> 
           {
              <magazine/Bus%20Kurier> a sch:Periodical, wbo:Magazine ;
                 dcterms:title "Bus Kurier" .

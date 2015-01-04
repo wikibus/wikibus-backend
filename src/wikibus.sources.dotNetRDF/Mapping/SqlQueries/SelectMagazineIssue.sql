@@ -1,4 +1,5 @@
 ﻿SELECT i.[Id]
+      ,[SourceType]
       ,[Language]
       ,[Language2]
       ,[Pages]
