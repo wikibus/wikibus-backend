@@ -31,7 +31,7 @@ Scenario: Mapping brochure and book with image
       | 1   | folder     | 3qAAAA== |
       | 407 | book       | 3qAAAA== |
    When retrieve all triples
-   Then resulting dataset should contain '8' triples
+   Then resulting dataset should contain '4' triples
    And resulting dataset should match query:
       """
       base <http://wikibus.org/>
@@ -40,16 +40,10 @@ Scenario: Mapping brochure and book with image
       ASK
       {
          <brochure/1> 
-            sch:image [
-                a sch:ImageObject ;
-                sch:contentUrl "http://wikibus.org/brochure/1/image"^^sch:URL
-            ].
+            <http://wikibus.org/ontology#hasImage> true.
             
          <book/407> 
-            sch:image [
-                a sch:ImageObject ;
-                sch:contentUrl "http://wikibus.org/book/407/image"^^sch:URL
-            ].
+            <http://wikibus.org/ontology#hasImage> true.
       }
       """
 
@@ -137,7 +131,7 @@ Scenario: Mapping complete magazine issue
          | Id | Name      |
          | 1  | Bus Kurier |
     When retrieve all triples
-    Then resulting dataset should contain '13' triples
+    Then resulting dataset should contain '11' triples
      And resulting dataset should match query:
          """
           base <http://wikibus.org/>
@@ -152,10 +146,7 @@ Scenario: Mapping complete magazine issue
           ASK
           {
              <magazine/Bus%20Kurier/issue/13> a sch:PublicationIssue ;
-                sch:image [
-                    a sch:ImageObject ;
-                    sch:contentUrl "http://wikibus.org/magazine/Bus Kurier/issue/13/image"^^sch:URL 
-                ] ;
+                wbo:hasImage true ;
                 sch:issueNumber "13"^^xsd:string ;
                 sch:isPartOf <magazine/Bus%20Kurier> ;
                 bibo:pages 16 ;

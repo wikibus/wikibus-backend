@@ -1,4 +1,5 @@
-﻿using NullGuard;
+﻿using JetBrains.Annotations;
+using NullGuard;
 using wikibus.common.Vocabularies;
 
 namespace wikibus.sources
@@ -28,6 +29,7 @@ namespace wikibus.sources
             }
         }
 
+        [UsedImplicitly]
         private string Type
         {
             get { return Schema.ImageObject; }

@@ -19,7 +19,6 @@ namespace wikibus.sources.dotNetRDF
         private static readonly string SelectBookAuthorSql = Resource.AsString("SqlQueries.SelectBookAuthor.sql");
         private static readonly string SelectBrochureAndBook = Resource.AsString("SqlQueries.SelectBrochureAndBook.sql");
         private static readonly string SelectMagIssues = Resource.AsString("SqlQueries.SelectMagazineIssue.sql");
-        private static readonly string SelectImages = Resource.AsString("SqlQueries.SelectImages.sql");
         private readonly Lazy<IR2RML> _rml;
         private readonly IWikibusConfiguration _config;
         private ITriplesMapConfiguration _magazineMap;
@@ -90,7 +89,7 @@ namespace wikibus.sources.dotNetRDF
 
             MapLanguages(magIssueMap);
             MapDate(magIssueMap);
-            MapImage(magIssueMap, template);
+            MapImage(magIssueMap);
             MapIssueParent(magIssueMap);
             MapPagesCount(magIssueMap);
 
@@ -119,20 +118,12 @@ namespace wikibus.sources.dotNetRDF
             MapDate(sourceMap);
             MapBookAuthor(sourceMap);
             MapBookISBN(sourceMap);
-            MapImage(sourceMap, template);
+            MapImage(sourceMap);
         }
 
-        private void MapImage(ITriplesMapFromR2RMLViewConfiguration sourceMap, string template)
+        private void MapImage(ITriplesMapFromR2RMLViewConfiguration sourceMap)
         {
-            var imageObjectMap = sourceMap.R2RMLConfiguration.CreateTriplesMapFromR2RMLView(SelectImages);
-            imageObjectMap.SubjectMap.TermType.IsBlankNode().IsTemplateValued("image_{Id}");
-            imageObjectMap.SubjectMap.AddClass(new Uri(Schema.ImageObject));
-
-            imageObjectMap.MapTemplate(template + "/image", Schema.contentUrl, Schema.URL);
-
-            var imageMap = sourceMap.CreatePropertyObjectMap();
-            imageMap.CreatePredicateMap().IsConstantValued(new Uri(Schema.image));
-            imageMap.CreateRefObjectMap(imageObjectMap).AddJoinCondition("Id", "Id");
+            sourceMap.MapColumn("HasImage", Wbo.BaseUri + "hasImage", new Uri(Xsd.boolean));
         }
 
         private void MapBookISBN(ITriplesMapFromR2RMLViewConfiguration sourceMap)

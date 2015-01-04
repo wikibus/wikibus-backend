@@ -134,7 +134,7 @@ this.ScenarioSetup(scenarioInfo);
         dcterms:language langIso:pl ;
         dcterms:identifier ""BED 81419 2006-09-21 POL Version 2"" ;
         rdfs:comment ""Some description about brochure"" ;
-        sch:image [ sch:contentUrl ""http://wikibus.org/brochure/6/image""^^sch:URL ] .
+        wbo:hasImage true .
 }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 59
     testRunner.When("brochure <http://wikibus.org/brochure/6> is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -156,8 +156,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 67
      testRunner.And("\'Image\' should be not null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 68
-     testRunner.And("\'Image\' should have string property \'ContentUrl\' equal to \'http://wikibus.org/bro" +
-                    "chure/6/image\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("\'Image.ContentUrl\' should be string equal to \'http://wikibus.org/brochure/6/image" +
+                    "\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -222,8 +222,8 @@ this.ScenarioSetup(scenarioInfo);
     <book/6> 
         a wbo:Book ;
         dcterms:title ""Strassenbahnen in Schlesien"" ;
-        sch:isbn ""3879434247"" .
-    <book/6> sch:image [ sch:contentUrl ""http://wikibus.org/book/6/image""^^sch:URL ] .
+        sch:isbn ""3879434247"" ;
+        wbo:hasImage true .
     <book/6> sch:author [ sch:name ""Siegfried Bufe"" ].
 }", ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 113
@@ -233,14 +233,13 @@ this.ScenarioSetup(scenarioInfo);
 #line 115
      testRunner.And("\'Author\' should be not null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 116
-     testRunner.And("\'Author\' should have string property \'Name\' equal to \'Siegfried Bufe\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("\'Author.Name\' should be string equal to \'Siegfried Bufe\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 117
      testRunner.And("\'ISBN\' should be string equal to \'3879434247\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 118
      testRunner.And("\'Image\' should be not null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 119
-     testRunner.And("\'Image\' should have string property \'ContentUrl\' equal to \'http://wikibus.org/boo" +
-                    "k/6/image\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And("\'Image.ContentUrl\' should be string equal to \'http://wikibus.org/book/6/image\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

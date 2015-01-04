@@ -24,5 +24,8 @@
       ,[FileMimeType]
       ,[Url]
       ,[FileName]
+      ,CASE 
+        WHEN [Image] is not null THEN cast(1 as bit)
+       END as [HasImage]
   FROM [Sources].[Source]
   WHERE [SourceType] <> 'magissue'

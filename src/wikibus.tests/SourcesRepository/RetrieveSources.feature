@@ -53,7 +53,7 @@ Scenario: Get complete brochure
                 dcterms:language langIso:pl ;
                 dcterms:identifier "BED 81419 2006-09-21 POL Version 2" ;
                 rdfs:comment "Some description about brochure" ;
-                sch:image [ sch:contentUrl "http://wikibus.org/brochure/6/image"^^sch:URL ] .
+                wbo:hasImage true .
         }
         """
     When brochure <http://wikibus.org/brochure/6> is fetched
@@ -65,7 +65,7 @@ Scenario: Get complete brochure
      And Languages should contain 'pl'
      And 'Description' should be string equal to 'Some description about brochure'
      And 'Image' should be not null
-     And 'Image' should have string property 'ContentUrl' equal to 'http://wikibus.org/brochure/6/image'
+     And 'Image.ContentUrl' should be string equal to 'http://wikibus.org/brochure/6/image'
 
 Scenario: Get brochure without data
     Given RDF data:
@@ -105,18 +105,18 @@ Scenario: Get complete book
             <book/6> 
                 a wbo:Book ;
                 dcterms:title "Strassenbahnen in Schlesien" ;
-                sch:isbn "3879434247" .
-            <book/6> sch:image [ sch:contentUrl "http://wikibus.org/book/6/image"^^sch:URL ] .
+                sch:isbn "3879434247" ;
+                wbo:hasImage true .
             <book/6> sch:author [ sch:name "Siegfried Bufe" ].
         }
         """
     When book <http://wikibus.org/book/6> is fetched
     Then 'Title' should be string equal to 'Strassenbahnen in Schlesien'
      And 'Author' should be not null
-     And 'Author' should have string property 'Name' equal to 'Siegfried Bufe'
+     And 'Author.Name' should be string equal to 'Siegfried Bufe'
      And 'ISBN' should be string equal to '3879434247'
      And 'Image' should be not null
-     And 'Image' should have string property 'ContentUrl' equal to 'http://wikibus.org/book/6/image'
+     And 'Image.ContentUrl' should be string equal to 'http://wikibus.org/book/6/image'
 
 Scenario: Get book without author
     Given RDF data:

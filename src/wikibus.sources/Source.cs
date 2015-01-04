@@ -58,10 +58,21 @@ namespace wikibus.sources
         public int? Month { [return: AllowNull] get; set; }
 
         /// <summary>
-        /// Gets or sets the image.
+        /// Gets the image.
         /// </summary>
         [SupportedProperty(Schema.image)]
-        public Image Image { [return: AllowNull] get; set; }
+        public Image Image
+        {
+            [return: AllowNull] get
+            {
+                if (HasImage == false)
+                {
+                    return null;
+                }
+
+                return new Image { ContentUrl = Id + "/image" };
+            }
+        }
 
         /// <summary>
         /// Gets the @context.
@@ -89,6 +100,7 @@ namespace wikibus.sources
                     "languages".IsProperty(DCTerms.language).Type().Id().Container().Set(),
                     "name".IsProperty(Schema.name),
                     "image".IsProperty(Schema.image),
+                    "hasImage".IsProperty(Wbo.BaseUri + "hasImage"),
                     "contentUrl".IsProperty(Schema.contentUrl).Type().Is(Schema.URL),
                     "thumbnail".IsProperty(Schema.thumbnail));
             }
@@ -102,5 +114,8 @@ namespace wikibus.sources
         {
             get { yield return Wbo.Source; }
         }
+
+        [JsonProperty]
+        private bool HasImage { get; [UsedImplicitly] set; }
     }
 }

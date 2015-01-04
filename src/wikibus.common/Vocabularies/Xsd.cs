@@ -17,5 +17,7 @@ namespace wikibus.common.Vocabularies
         public const string @string = BaseUri + "string";
 
         public const string integer = BaseUri + "integer";
+
+        public const string boolean = BaseUri + "boolean";
     }
 }

@@ -93,15 +93,6 @@ namespace wikibus.tests.SourcesRepository
             ScenarioContext.Current.Set(value, propName);
         }
 
-        [Then(@"'(.*)' should have string property '(.*)' equal to '(.*)'")]
-        public void ThenShouldHaveStringPropertyEqualTo(string objName, string propName, string expectedValue)
-        {
-            var model = ScenarioContext.Current[objName];
-            object value = ImpromptuInterface.Impromptu.InvokeGet(model, propName);
-
-            value.Should().Be(expectedValue);
-        }
-
         [Then(@"'(.*)' should be empty")]
         public void ThenLanguageShouldBeEmpty(string propName)
         {
