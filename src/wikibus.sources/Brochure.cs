@@ -1,5 +1,7 @@
 ﻿using Hydra.Annotations;
 using JetBrains.Annotations;
+using JsonLD.Entities.Context;
+using Newtonsoft.Json.Linq;
 using NullGuard;
 using wikibus.common.Vocabularies;
 
@@ -62,6 +64,19 @@ namespace wikibus.sources
                 }
 
                 _code = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the context.
+        /// </summary>
+        protected static new JObject Context
+        {
+            get
+            {
+                var context = Source.Context;
+                context.Add("description".IsProperty(Rdfs.comment));
+                return context;
             }
         }
 

@@ -2,6 +2,7 @@
 using System.Linq;
 using FakeItEasy;
 using JsonLD.Entities;
+using Nancy.RDF;
 using Nancy.Testing;
 using wikibus.common;
 using wikibus.sources;
@@ -38,6 +39,7 @@ namespace wikibus.tests.Modules.Bindings
             yield return A.Dummy<IEntitySerializer>();
             yield return SourceImages;
             yield return _resizer;
+            yield return A.Dummy<INamespaceManager>();
 
             IWikibusConfiguration testConfiguration = new TestConfiguration();
             yield return testConfiguration;
