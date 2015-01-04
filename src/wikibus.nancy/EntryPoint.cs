@@ -1,8 +1,10 @@
 ﻿using System.Configuration;
 using Hydra.Annotations;
 using JetBrains.Annotations;
+using JsonLD.Entities.Context;
 using Newtonsoft.Json.Linq;
 using wikibus.common.Vocabularies;
+using wikibus.sources.Contexts;
 
 namespace wikibus.nancy
 {
@@ -61,12 +63,12 @@ namespace wikibus.nancy
             get
             {
                 return new JObject(
-                    new JProperty("@base", ConfigurationManager.AppSettings["baseUrl"]),
-                    new JProperty(Wbo.Prefix, Wbo.BaseUri),
-                    new JProperty(Api.Prefix, Api.BaseUri),
-                    new JObject(new JProperty("magazines", Api.magazines), new JProperty("@type", "@id")),
-                    new JObject(new JProperty("brochures", Api.brochures), new JProperty("@type", "@id")),
-                    new JObject(new JProperty("books", Api.books), new JProperty("@type", "@id")));
+                    Base.Is(ConfigurationManager.AppSettings["baseUrl"]),
+                    Prefix.Of(typeof(Wbo)),
+                    Prefix.Of(typeof(Api)),
+                    "magazines".IsProperty(Api.magazines).Type().Id(),
+                    "brochures".IsProperty(Api.brochures).Type().Id(),
+                    "books".IsProperty(Api.books).Type().Id());
             }
         }
 

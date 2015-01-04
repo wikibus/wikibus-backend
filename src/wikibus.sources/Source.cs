@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using Hydra.Annotations;
+using JetBrains.Annotations;
+using JsonLD.Entities.Context;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NullGuard;
 using wikibus.common.Vocabularies;
+using wikibus.sources.Contexts;
 
 namespace wikibus.sources
 {
@@ -59,8 +64,40 @@ namespace wikibus.sources
         public Image Image { [return: AllowNull] get; set; }
 
         /// <summary>
+        /// Gets the @context.
+        /// </summary>
+        [UsedImplicitly]
+        protected static JObject Context
+        {
+            get
+            {
+                return new JObject(
+                    Prefix.Of(typeof(Bibo)),
+                    Prefix.Of(typeof(DCTerms)),
+                    Prefix.Of(typeof(Xsd)),
+                    Prefix.Of(typeof(Opus)),
+                    Prefix.Of(typeof(Rdfs)),
+                    Prefix.Of(typeof(Schema)),
+                    Prefix.Of(typeof(Wbo)),
+                    "langIso".IsPrefixOf("http://www.lexvo.org/page/iso639-1/"),
+                    "year".IsProperty(Opus.year).Type().Is(Xsd.gYear),
+                    "month".IsProperty(Opus.month).Type().Is(Xsd.gMonth),
+                    "date".IsProperty(DCTerms.date).Type().Is(Xsd.date),
+                    "pages".IsProperty(Bibo.pages).Type().Is(Xsd.integer),
+                    "title".IsProperty(DCTerms.title),
+                    "code".IsProperty(DCTerms.identifier),
+                    "languages".IsProperty(DCTerms.language).Type().Id().Container().Set(),
+                    "name".IsProperty(Schema.BaseUri + "name"),
+                    "image".IsProperty(Schema.image),
+                    "contentUrl".IsProperty(Schema.contentUrl).Type().Is(Schema.URL),
+                    "thumbnail".IsProperty(Schema.thumbnail));
+            }
+        }
+
+        /// <summary>
         /// Gets the types.
         /// </summary>
+        [JsonProperty]
         protected virtual IEnumerable<string> Types
         {
             get { yield return Wbo.Source; }

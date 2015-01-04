@@ -3,7 +3,6 @@ using System.IO;
 using JsonLD.Entities;
 using Nancy;
 using Nancy.Bootstrapper;
-using TCode.r2rml4net;
 using VDS.RDF.Configuration;
 using VDS.RDF.Query;
 using wikibus.common;
@@ -34,7 +33,6 @@ namespace wikibus.nancy
 
             Register(configuration);
             Register(configurationLoader.LoadObject<ISparqlQueryProcessor>(QueryProcessorName));
-            Register(CreateContextProvider());
             Register(CreateFrameProvider());
             Register<ISourceImagesRepository>(new SourceImagesRepository(ConfigurationManager.ConnectionStrings["sql"].ConnectionString));
             Register<IImageResizer>(new ImageResizer());
@@ -45,13 +43,6 @@ namespace wikibus.nancy
             var frameProvider = new StaticFrameProvider();
             frameProvider.SetupSourcesFrames();
             return frameProvider;
-        }
-
-        private static IContextProvider CreateContextProvider()
-        {
-            var contextProvider = new StaticContextProvider();
-            contextProvider.SetupSourcesContexts();
-            return contextProvider;
         }
     }
 }

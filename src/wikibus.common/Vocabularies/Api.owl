@@ -33,5 +33,10 @@
     <rdfs:comment>Link to magazine collection.</rdfs:comment>
     <rdfs:range rdf:resource="EntryPoint"/>
   </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="issues">
+    <rdfs:comment>Link to magazine's issues.</rdfs:comment>
+    <rdfs:range rdf:resource="wbo:Magazine"/>
+  </owl:ObjectProperty>
   
 </rdf:RDF>

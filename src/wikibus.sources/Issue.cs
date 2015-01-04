@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Hydra.Annotations;
-using JsonLD.Entities;
+using JetBrains.Annotations;
+using JsonLD.Entities.Context;
+using Newtonsoft.Json.Linq;
 using NullGuard;
 using wikibus.common.Vocabularies;
 
@@ -39,6 +40,18 @@ namespace wikibus.sources
                 }
 
                 yield return Schema.PublicationIssue;
+            }
+        }
+
+        [UsedImplicitly]
+        private static new JObject Context
+        {
+            get
+            {
+                var context = Source.Context;
+                context.Add("number".IsProperty(Schema.issueNumber));
+                context.Add("magazine".IsProperty(Schema.isPartOf));
+                return context;
             }
         }
     }

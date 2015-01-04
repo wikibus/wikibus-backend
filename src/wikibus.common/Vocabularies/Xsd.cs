@@ -7,5 +7,13 @@ namespace wikibus.common.Vocabularies
         public const string Prefix = "xsd";
 
         public const string BaseUri = "http://www.w3.org/2001/XMLSchema#";
+
+        public const string gYear = BaseUri + "gYear";
+
+        public const string gMonth = BaseUri + "gMonth";
+
+        public const string date = BaseUri + "date";
+
+        public const string integer = BaseUri + "integer";
     }
 }

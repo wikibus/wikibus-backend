@@ -50,5 +50,11 @@ namespace wikibus.common.Vocabularies
         /// </summary>
         public const string magazines = BaseUri + "magazines";
 
+        
+        /// <summary>
+        /// Link to magazine's issues.
+        /// </summary>
+        public const string issues = BaseUri + "issues";
+
     }
 }

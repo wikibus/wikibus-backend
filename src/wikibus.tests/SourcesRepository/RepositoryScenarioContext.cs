@@ -11,7 +11,6 @@ namespace wikibus.tests.SourcesRepository
         {
             Store = new TripleStore();
             var contextProvider = new StaticContextProvider();
-            contextProvider.SetupSourcesContexts();
             var frameProvider = new StaticFrameProvider();
             frameProvider.SetupSourcesFrames();
             var serializer = new EntitySerializer(contextProvider, frameProvider);

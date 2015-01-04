@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Hydra.Annotations;
+using JetBrains.Annotations;
+using JsonLD.Entities.Context;
+using Newtonsoft.Json.Linq;
 using NullGuard;
 using wikibus.common.Vocabularies;
 
@@ -44,6 +47,18 @@ namespace wikibus.sources
                 }
 
                 yield return Wbo.Book;
+            }
+        }
+
+        [UsedImplicitly]
+        private static new JObject Context
+        {
+            get
+            {
+                var context = Source.Context;
+                context.Add("isbn".IsProperty(Schema.isbn));
+                context.Add("author".IsProperty(Schema.author));
+                return context;
             }
         }
     }

@@ -53,6 +53,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="Brochure.cs" />
     <Compile Include="ContextProviderExtensions.cs" />
+    <Compile Include="Contexts\Prefix.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="ISourceImagesRepository.cs" />
     <Compile Include="Issue.cs" />
@@ -64,10 +65,7 @@
     <Compile Include="Source.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Contexts\Brochure.json" />
-    <EmbeddedResource Include="Contexts\PagedCollection.json" />
     <EmbeddedResource Include="Frames\PagedCollection.json" />
-    <EmbeddedResource Include="Contexts\Magazine.json" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>

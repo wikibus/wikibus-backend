@@ -1,5 +1,5 @@
 ﻿using Hydra.Annotations;
-using JsonLD.Entities;
+using JetBrains.Annotations;
 using NullGuard;
 using wikibus.common.Vocabularies;
 
@@ -65,6 +65,7 @@ namespace wikibus.sources
             }
         }
 
+        [UsedImplicitly]
         private string Type
         {
             get { return Wbo.Brochure; }

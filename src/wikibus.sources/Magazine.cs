@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Hydra.Annotations;
-using JsonLD.Entities;
+using JetBrains.Annotations;
+using JsonLD.Entities.Context;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NullGuard;
 using wikibus.common.Vocabularies;
 
@@ -27,13 +30,25 @@ namespace wikibus.sources
         /// <summary>
         /// Gets the issues Uri.
         /// </summary>
-        [SupportedProperty("wbo:issues")]
+        [SupportedProperty(Api.issues)]
         [AllowGet]
         public Uri Issues
         {
             get { return new Uri(Id + "/issues"); }
         }
 
+        [UsedImplicitly]
+        private static JObject Context
+        {
+            get
+            {
+                return new JObject(
+                    "title".IsProperty(DCTerms.title),
+                    "issues".IsProperty(Api.issues).Type().Id());
+            }
+        }
+
+        [JsonProperty, UsedImplicitly]
         private IEnumerable<string> Types
         {
             get
