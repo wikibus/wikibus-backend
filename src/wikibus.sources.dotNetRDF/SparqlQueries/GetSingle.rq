@@ -1,0 +1,15 @@
+﻿prefix foaf: <http://xmlns.com/foaf/0.1/>
+
+CONSTRUCT 
+{ 
+    ?s ?p ?o
+} 
+WHERE 
+{ 
+    GRAPH ?g
+    {
+        ?s ?p ?o
+    }
+
+    ?g foaf:primaryTopic @source 
+}

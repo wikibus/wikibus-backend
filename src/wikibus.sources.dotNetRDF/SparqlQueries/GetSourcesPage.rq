@@ -12,11 +12,14 @@ construct
 }
 where
 {
+
   optional {
     select ?source ?title
     {
+    graph ?g {
       ?source a @type .  
       ?source dcterms:title ?title
+      }
     }
     order by ?title
     limit @limit
@@ -26,7 +29,7 @@ where
   {
     select count(*) as ?count
     {
-      ?source a @type . 
+      graph ?g { ?source a @type . }
     }
   }
 }

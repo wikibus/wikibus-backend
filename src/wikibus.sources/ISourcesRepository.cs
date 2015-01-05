@@ -47,9 +47,7 @@ namespace wikibus.sources
         /// <summary>
         /// Gets the magazine issues.
         /// </summary>
-        /// <param name="magName">Name of the mag.</param>
-        /// <param name="page">The page.</param>
-        PagedCollection<Issue> GetMagazineIssues(string magName, int page);
+        Collection<Issue> GetMagazineIssues(Uri uri);
 
         /// <summary>
         /// Gets the issue.

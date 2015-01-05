@@ -1,10 +1,11 @@
 ﻿prefix hydra: <http://www.w3.org/ns/hydra/core#>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix sch: <http://schema.org/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
 
 construct
 {
-  @container 
+  @container
     a hydra:PagedCollection ;
     hydra:member ?issue ;
     hydra:totalItems ?count.
@@ -13,11 +14,16 @@ construct
 }
 where
 {
+  ?graph foaf:primaryTopic @collection .
+
   optional {
-    select ?issue ?number
+    select ?source ?number
     {
-      ?issue sch:isPartOf @magazine ;
-             sch:issueNumber ?number .  
+      GRAPH ?graph 
+      { 
+        @collection hydra:member ?issue .
+        ?issue sch:issueNumber ?number .  
+      }
     }
     order by ?number
     limit @limit
@@ -25,9 +31,9 @@ where
   }
 
   {
-    select count(*) as ?count
+    select count(*) as ?count    
     {
-      ?issue sch:isPartOf @magazine . 
+     GRAPH ?graph { @collection hydra:member ?i . }
     }
   }
 }

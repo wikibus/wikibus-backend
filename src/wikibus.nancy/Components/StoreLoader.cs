@@ -38,7 +38,12 @@ namespace wikibus.nancy
             if (!File.Exists(_storePath))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(_storePath));
-                new SourcesStore(new SqlConnection(Sql.ConnectionString), _config).SaveToFile(_storePath, new TriGWriter());
+                var sourcesStore = new SourcesStore(new SqlConnection(Sql.ConnectionString), _config);
+                sourcesStore.SaveToFile(_storePath, new TriGWriter());
+                sourcesStore.Initialize();
+
+                obj = sourcesStore;
+                return true;
             }
 
             var tripleStore = new TripleStore();

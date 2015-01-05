@@ -1,0 +1,50 @@
+﻿prefix hydra: <http://www.w3.org/ns/hydra/core#>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix sch: <http://schema.org/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+
+insert
+{
+   graph ?graph
+   {
+      ?issues hydra:member ?issue .
+      ?issues a hydra:Collection .
+      ?issue sch:issueNumber ?number .
+   }
+}
+where
+{
+    ?magGraph foaf:primaryTopic ?mag .
+    bind( iri(concat(str(?magGraph), '/issues')) as ?graph )
+
+    graph ?magGraph
+    {
+       ?mag a <http://wikibus.org/ontology#Magazine> .
+       ?mag dcterms:title ?title .
+       BIND( iri(concat(str(?mag), '/issues')) as ?issues) 
+    }
+
+    graph ?issueGraph
+    {
+       ?issue sch:isPartOf ?mag .
+       ?issue sch:issueNumber ?number .
+    }
+    filter ( regex( str(?magGraph), 'magazine'))
+};
+
+insert
+{
+   ?graph foaf:primaryTopic ?issues .
+}
+where
+{
+    ?magGraph foaf:primaryTopic ?mag .
+    bind( iri(concat(str(?magGraph), '/issues')) as ?graph )
+
+    graph ?magGraph
+    {
+       ?mag a <http://wikibus.org/ontology#Magazine> .
+       BIND( iri(concat(str(?mag), '/issues')) as ?issues) 
+    }
+    filter ( regex( str(?magGraph), 'magazine'))
+}

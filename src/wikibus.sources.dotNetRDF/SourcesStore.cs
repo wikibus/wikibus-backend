@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using Resourcer;
 using TCode.r2rml4net;
 using VDS.RDF;
 using wikibus.common;
@@ -21,6 +22,14 @@ namespace wikibus.sources.dotNetRDF
             var processor = new W3CR2RMLProcessor(connection);
 
             processor.GenerateTriples(new WikibusR2RML(config), this);
+        }
+
+        /// <summary>
+        /// Initializes the store with collections etc.
+        /// </summary>
+        public void Initialize()
+        {
+            ExecuteUpdate(Resource.AsString("SparqlQueries.InitCollections.rq"));
         }
     }
 }

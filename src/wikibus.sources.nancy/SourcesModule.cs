@@ -28,16 +28,11 @@ namespace wikibus.sources.nancy
             Get["brochure/{id}"] = r => GetSingle(repository.GetBrochure);
             Get["book/{id}"] = r => GetSingle(repository.GetBook);
             Get["magazine/{magName}"] = r => GetSingle(repository.GetMagazine);
-            Get["magazine/{magName}/issues"] = r => GetPage(GetIssues(r.magName));
+            Get["magazine/{magName}/issues"] = r => GetSingle(repository.GetMagazineIssues);
             Get["magazine/{magName}/issue/{number}"] = r => GetSingle(repository.GetIssue);
             Get["books"] = r => GetPage(repository.GetBooks);
             Get["brochures"] = r => GetPage(repository.GetBrochures);
             Get["magazines"] = r => GetPage(repository.GetMagazines);
-        }
-
-        private Func<int, PagedCollection<Issue>> GetIssues(string magName)
-        {
-            return page => _repository.GetMagazineIssues(magName, page);
         }
 
         private T GetSingle<T>(Func<Uri, T> getResource) where T : class

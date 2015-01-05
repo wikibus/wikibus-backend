@@ -11,6 +11,7 @@ namespace wikibus.sources
     public static class ContextProviderExtensions
     {
         private static readonly JObject PagedCollectionFrame = JObject.Parse(Resource.AsString("Frames.PagedCollection.json"));
+        private static readonly JObject CollectionFrame = JObject.Parse(Resource.AsString("Frames.Collection.json"));
 
         /// <summary>
         /// Setups the sources frames.
@@ -23,6 +24,7 @@ namespace wikibus.sources
             frameProvider.SetFrame(typeof(PagedCollection<Book>), PagedCollectionFrame);
             frameProvider.SetFrame(typeof(PagedCollection<Brochure>), PagedCollectionFrame);
             frameProvider.SetFrame(typeof(PagedCollection<Magazine>), PagedCollectionFrame);
+            frameProvider.SetFrame(typeof(Collection<Issue>), CollectionFrame);
         }
     }
 }

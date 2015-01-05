@@ -117,5 +117,13 @@ namespace wikibus.sources
 
         [JsonProperty]
         private bool HasImage { get; [UsedImplicitly] set; }
+
+        /// <summary>
+        /// Should not serialize <see cref="HasImage"/>
+        /// </summary>
+        public bool ShouldSerializeHasImage()
+        {
+            return false;
+        }
     }
 }
