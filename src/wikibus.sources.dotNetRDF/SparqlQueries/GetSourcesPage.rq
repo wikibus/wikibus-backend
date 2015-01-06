@@ -1,24 +1,28 @@
 ﻿prefix hydra: <http://www.w3.org/ns/hydra/core#>
 prefix dcterms: <http://purl.org/dc/terms/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
 
 construct
 {
-  @container 
+  ?container 
     a hydra:PagedCollection ;
-    hydra:member ?source ;
+    hydra:member ?member ;
     hydra:totalItems ?count.
 
-  ?source dcterms:title ?title
+  ?member dcterms:title ?title
 }
 where
 {
+  ?g foaf:primaryTopic @collection .
+  BIND( iri(concat(str(@collection), '?page=@page')) as ?container )
 
   optional {
-    select ?source ?title
+    select ?member ?title
     {
-    graph ?g {
-      ?source a @type .  
-      ?source dcterms:title ?title
+      graph ?g 
+      {
+        @collection hydra:member ?member .
+        ?member dcterms:title ?title
       }
     }
     order by ?title
@@ -29,7 +33,7 @@ where
   {
     select count(*) as ?count
     {
-      graph ?g { ?source a @type . }
+      graph ?g { @collection hydra:member ?i. }
     }
   }
 }

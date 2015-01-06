@@ -10,7 +10,6 @@ namespace wikibus.sources.nancy
     /// </summary>
     public class SourcesModule : NancyModule
     {
-        private readonly ISourcesRepository _repository;
         private readonly IWikibusConfiguration _config;
 
         /// <summary>
@@ -20,7 +19,6 @@ namespace wikibus.sources.nancy
         /// <param name="config">The configuration.</param>
         public SourcesModule(ISourcesRepository repository, IWikibusConfiguration config)
         {
-            _repository = repository;
             _config = config;
 
             this.ReturnNotFoundWhenModelIsNull();
@@ -45,7 +43,7 @@ namespace wikibus.sources.nancy
             return new Uri(new Uri(_config.BaseResourceNamespace), Request.Path);
         }
 
-        private dynamic GetPage<T>(Func<int, PagedCollection<T>> getPage) where T : class
+        private dynamic GetPage<T>(Func<Uri, int, PagedCollection<T>> getPage) where T : class
         {
             int page;
             if (!int.TryParse(Request.Query.page.Value, out page))
@@ -58,7 +56,7 @@ namespace wikibus.sources.nancy
                 return 400;
             }
 
-            return getPage(page);
+            return getPage(GetRequestUri(), page);
         }
     }
 }

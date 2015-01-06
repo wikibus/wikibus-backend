@@ -39,8 +39,8 @@ namespace wikibus.nancy
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(_storePath));
                 var sourcesStore = new SourcesStore(new SqlConnection(Sql.ConnectionString), _config);
-                sourcesStore.SaveToFile(_storePath, new TriGWriter());
                 sourcesStore.Initialize();
+                sourcesStore.SaveToFile(_storePath, new TriGWriter());
 
                 obj = sourcesStore;
                 return true;

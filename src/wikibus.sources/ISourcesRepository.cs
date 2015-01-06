@@ -29,20 +29,23 @@ namespace wikibus.sources
         /// <summary>
         /// Gets the books.
         /// </summary>
+        /// <param name="identifier">The identifier.</param>
         /// <param name="page">The page.</param>
-        PagedCollection<Book> GetBooks(int page);
+        PagedCollection<Book> GetBooks(Uri identifier, int page);
 
         /// <summary>
         /// Gets the brochures.
         /// </summary>
+        /// <param name="identifier">The identifier.</param>
         /// <param name="page">The page.</param>
-        PagedCollection<Brochure> GetBrochures(int page);
+        PagedCollection<Brochure> GetBrochures(Uri identifier, int page);
 
         /// <summary>
         /// Gets the magazines.
         /// </summary>
+        /// <param name="identifier">The identifier.</param>
         /// <param name="page">The page.</param>
-        PagedCollection<Magazine> GetMagazines(int page);
+        PagedCollection<Magazine> GetMagazines(Uri identifier, int page);
 
         /// <summary>
         /// Gets the magazine issues.

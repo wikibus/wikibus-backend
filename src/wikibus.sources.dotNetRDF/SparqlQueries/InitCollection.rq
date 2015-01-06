@@ -1,0 +1,35 @@
+﻿prefix hydra: <http://www.w3.org/ns/hydra/core#>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix sch: <http://schema.org/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix wbo: <http://wikibus.org/ontology#>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+
+insert
+{
+   graph @collection
+   {
+      @collection hydra:member ?element .
+      @collection a hydra:Collection .
+      ?element dcterms:title ?title .
+      ?element wbo:hasImage ?hasImage .
+   }
+}
+where
+{
+    ?elementGraph foaf:primaryTopic ?element .
+
+    graph ?elementGraph
+    {
+       ?element a @elementType .
+       ?element dcterms:title ?title .
+       optional { ?element wbo:hasImage ?hasImage . }
+    }
+
+    filter ( regex( str(?elementGraph), @pattern))
+};
+
+insert data
+{
+   @collection foaf:primaryTopic @collection .
+}

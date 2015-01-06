@@ -13,10 +13,10 @@ namespace wikibus.tests.SourcesRepository
             _context = context;
         }
 
-        [When(@"page (.*) of books is fetched")]
-        public void WhenPageOfBooksIsFetched(int expectedPageIndex)
+        [When(@"page (.*) of (.*) is fetched")]
+        public void WhenPageOfBooksIsFetched(int expectedPageIndex, string uri)
         {
-            var books = _context.Repository.GetBooks(expectedPageIndex);
+            var books = _context.Repository.GetBooks(new Uri(uri), expectedPageIndex);
             ScenarioContext.Current.Set(books, "Model");
         }
 

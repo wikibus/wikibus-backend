@@ -2,6 +2,7 @@
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix sch: <http://schema.org/>
 prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix wbo: <http://wikibus.org/ontology#>
 
 insert
 {
@@ -10,6 +11,7 @@ insert
       ?issues hydra:member ?issue .
       ?issues a hydra:Collection .
       ?issue sch:issueNumber ?number .
+      ?issue wbo:hasImage ?hasImage .
    }
 }
 where
@@ -28,6 +30,7 @@ where
     {
        ?issue sch:isPartOf ?mag .
        ?issue sch:issueNumber ?number .
+       ?issue wbo:hasImage ?hasImage .
     }
     filter ( regex( str(?magGraph), 'magazine'))
 };

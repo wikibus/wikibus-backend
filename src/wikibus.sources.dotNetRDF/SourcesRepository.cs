@@ -55,21 +55,21 @@ namespace wikibus.sources.dotNetRDF
         }
 
         /// <inheritdoc />
-        public PagedCollection<Book> GetBooks(int page)
+        public PagedCollection<Book> GetBooks(Uri identifier, int page)
         {
-            return GetAll<Book>(page);
+            return GetAll<Book>(identifier, page);
         }
 
         /// <inheritdoc />
-        public PagedCollection<Brochure> GetBrochures(int page)
+        public PagedCollection<Brochure> GetBrochures(Uri identifier, int page)
         {
-            return GetAll<Brochure>(page);
+            return GetAll<Brochure>(identifier, page);
         }
 
         /// <inheritdoc />
-        public PagedCollection<Magazine> GetMagazines(int page)
+        public PagedCollection<Magazine> GetMagazines(Uri identifier, int page)
         {
-            return GetAll<Magazine>(page);
+            return GetAll<Magazine>(identifier, page);
         }
 
         /// <inheritdoc />
@@ -94,27 +94,6 @@ namespace wikibus.sources.dotNetRDF
             return new Uri(string.Format("http://wikibus.org/ontology#{0}", type.Name));
         }
 
-        private Uri GetCollectionUri(Type type)
-        {
-            string collectionName;
-            switch (type.Name)
-            {
-                case "Book":
-                    collectionName = "books";
-                    break;
-                case "Brochure":
-                    collectionName = "brochures";
-                    break;
-                case "Magazine":
-                    collectionName = "magazines";
-                    break;
-                default:
-                    throw new ArgumentException(string.Format("Unrecognized entity type {0}", type), "type");
-            }
-
-            return new Uri(string.Format("{0}{1}", _configuration.BaseResourceNamespace, collectionName));
-        }
-
         private T Get<T>(Uri uri) where T : class
         {
             var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSingle.rq"));
@@ -131,11 +110,12 @@ namespace wikibus.sources.dotNetRDF
             return null;
         }
 
-        private PagedCollection<T> GetAll<T>(int page, int pageSize = 10) where T : class
+        private PagedCollection<T> GetAll<T>(Uri collectionUri, int page, int pageSize = 10) where T : class
         {
             var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSourcesPage.rq"));
             query.SetUri("type", GetTypeUri(typeof(T)));
-            query.SetUri("container", GetCollectionUri(typeof(T)));
+            query.SetUri("collection", collectionUri);
+            query.SetLiteral("page", page);
             query.SetLiteral("limit", pageSize);
             query.SetLiteral("offset", (page - 1) * pageSize);
             var graph = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));

@@ -52,7 +52,7 @@ namespace wikibus.tests.Modules.Bindings
         [Given(@"exisiting book collection")]
         public void GivenExisitingBookCollection()
         {
-            A.CallTo(() => _dep.Sources.GetBooks(A<int>.Ignored)).Returns(new PagedCollection<Book>());
+            A.CallTo(() => _dep.Sources.GetBooks(A<Uri>.Ignored, A<int>.Ignored)).Returns(new PagedCollection<Book>());
         }
 
         [Given(@"existing book '(.*)'")]
@@ -110,7 +110,7 @@ namespace wikibus.tests.Modules.Bindings
         [Then(@"page (.*) of book collection should have been retrieved")]
         public void ThenPageOfBookCollectionShouldHaveBeenRetrieved(int page)
         {
-            A.CallTo(() => _dep.Sources.GetBooks(page)).MustHaveHappened();
+            A.CallTo(() => _dep.Sources.GetBooks(A<Uri>.Ignored, page)).MustHaveHappened();
         }
 
         [Then(@"response should have status (.*)")]
