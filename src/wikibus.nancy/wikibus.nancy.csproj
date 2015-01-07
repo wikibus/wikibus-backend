@@ -52,7 +52,9 @@
     </Compile>
     <Compile Include="Bootstrap\Bootstrapper.cs" />
     <Compile Include="Bootstrap\ComponentsInstaller.cs" />
+    <Compile Include="Bootstrap\DotNetRdfStartup.cs" />
     <Compile Include="Bootstrap\ElmahStartup.cs" />
+    <Compile Include="Components\ContextPathMapper.cs" />
     <Compile Include="ContextProviderExtensions.cs" />
     <Compile Include="EntryPoint.cs">
       <SubType>Code</SubType>

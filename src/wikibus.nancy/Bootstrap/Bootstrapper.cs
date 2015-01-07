@@ -3,6 +3,7 @@ using System.Linq;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Diagnostics;
+using Nancy.Responses.Negotiation;
 using Nancy.TinyIoc;
 
 namespace wikibus.nancy
@@ -50,7 +51,7 @@ namespace wikibus.nancy
 
         private static bool IsNotNancyProcessor(Type responseProcessor)
         {
-            return responseProcessor.Assembly != typeof(INancyBootstrapper).Assembly;
+            return responseProcessor.Assembly != typeof(INancyBootstrapper).Assembly || responseProcessor == typeof(ResponseProcessor);
         }
     }
 }
