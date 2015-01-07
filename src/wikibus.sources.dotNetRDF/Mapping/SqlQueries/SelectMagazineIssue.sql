@@ -16,4 +16,4 @@
   FROM [Sources].[Source] i
   JOIN [Sources].[Magazine] m
     ON i.[MagIssueMagazine] = m.[Id]
-  WHERE [SourceType] = 'magissue'
+  WHERE [SourceType] = 'magissue' and [MagIssueNumber] is not null
