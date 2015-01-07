@@ -26,7 +26,7 @@ namespace wikibus.sources.nancy
             Get["brochure/{id}"] = r => GetSingle(repository.GetBrochure);
             Get["book/{id}"] = r => GetSingle(repository.GetBook);
             Get["magazine/{magName}"] = r => GetSingle(repository.GetMagazine);
-            Get["magazine/{magName}/issues"] = r => GetSingle(repository.GetMagazineIssues);
+            Get["magazine/{magName}/issues"] = r => GetSingle(repository.GetMagazineIssues) ?? new Collection<Issue>();
             Get["magazine/{magName}/issue/{number}"] = r => GetSingle(repository.GetIssue);
             Get["books"] = r => GetPage(repository.GetBooks);
             Get["brochures"] = r => GetPage(repository.GetBrochures);
