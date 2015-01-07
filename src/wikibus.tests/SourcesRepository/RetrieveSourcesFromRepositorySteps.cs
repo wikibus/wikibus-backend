@@ -30,14 +30,20 @@ namespace wikibus.tests.SourcesRepository
         {
             foreach (var i in Enumerable.Range(1, count))
             {
-                const string format = @"
+                const string format = @"prefix hydra: <http://www.w3.org/ns/hydra/core#>
 INSERT DATA
 {{
+<urn:book:collection> <http://xmlns.com/foaf/0.1/primaryTopic> <http://wikibus.org/books> .
 <http://data.wikibus.org/graph/r2rml/{0}> <http://xmlns.com/foaf/0.1/primaryTopic> <http://wikibus.org/book/{0}> .
 
 GRAPH <http://data.wikibus.org/graph/r2rml/{0}>
 {{
     <http://wikibus.org/book/{0}> a <{1}>
+}}
+
+GRAPH <urn:book:collection>
+{{
+    <http://wikibus.org/books> hydra:member <http://wikibus.org/book/{0}>
 }}
 }}";
                 _context.Store.ExecuteUpdate(string.Format(format, i, Wbo.Book));

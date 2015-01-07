@@ -320,7 +320,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 170
     testRunner.Given("21 books", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 171
-     testRunner.When("page 1 of books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("page 1 of http://wikibus.org/books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 172
      testRunner.Then("\'TotalItems\' should be 21", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 173
@@ -343,7 +343,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 178
     testRunner.Given("20 books", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 179
-     testRunner.When("page 2 of books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("page 2 of http://wikibus.org/books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 180
      testRunner.Then("\'TotalItems\' should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 181
@@ -368,7 +368,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 187
     testRunner.Given("20 books", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 188
-     testRunner.When("page 20 of books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("page 20 of http://wikibus.org/books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 189
      testRunner.Then("\'TotalItems\' should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 190
