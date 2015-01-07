@@ -30,5 +30,6 @@ nuget Nancy.elmah
 nuget Nancy.metrics
 nuget jsonld.entities
 nuget JetBrainsAnnotations.Fody
+nuget ModuleInit.Fody
 
 gist tpluscode/5d9c6983004c1c9ec91f

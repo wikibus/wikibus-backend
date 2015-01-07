@@ -26,6 +26,8 @@ NUGET
     json-ld.net (1.0.3)
       Newtonsoft.Json (>= 4.0.1)
     Metrics.NET (0.2.14)
+    ModuleInit.Fody (1.5.6.0)
+      Fody
     Nancy (0.23.2)
     Nancy.Elmah (0.1.8)
       Nancy (>= 0.20.0)

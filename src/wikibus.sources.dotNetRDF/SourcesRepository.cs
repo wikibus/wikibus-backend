@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Hydra;
 using JsonLD.Entities;
 using NullGuard;
@@ -7,7 +6,6 @@ using Resourcer;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
-using VDS.RDF.Query.Optimisation;
 using VDS.RDF.Writing;
 using wikibus.common.Vocabularies;
 
@@ -30,8 +28,6 @@ namespace wikibus.sources.dotNetRDF
         /// <param name="serializer">JSON-LD serializer</param>
         public SourcesRepository(ISparqlQueryProcessor queryProcessor, IEntitySerializer serializer)
         {
-            SparqlOptimiser.RemoveOptimiser(SparqlOptimiser.AlgebraOptimisers.FirstOrDefault(o => o.GetType() == typeof(LazyBgpOptimiser)));
-            
             _queryProcessor = queryProcessor;
             _serializer = serializer;
         }
