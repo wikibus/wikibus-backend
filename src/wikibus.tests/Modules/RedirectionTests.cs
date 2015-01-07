@@ -5,6 +5,7 @@ using FluentAssertions;
 using JsonLD.Entities;
 using Nancy;
 using Nancy.RDF;
+using Nancy.RDF.Contexts;
 using Nancy.Responses.Negotiation;
 using Nancy.Testing;
 using NUnit.Framework;
@@ -28,6 +29,7 @@ namespace wikibus.tests.Modules
                                          .DisableAutoRegistrations()
                                          .Dependency(A.Dummy<IEntitySerializer>())
                                          .Dependency(A.Dummy<INamespaceManager>())
+                                         .Dependency(A.Dummy<IContextPathMapper>())
                                          .Dependency<IWikibusConfiguration>(new TestConfiguration()));
         }
 
