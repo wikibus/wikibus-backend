@@ -25,7 +25,7 @@ namespace wikibus.nancy
             ServeContextOf<Magazine>();
             ServeContextOf<PagedCollection<Book>>("PagedCollectionOfBooks");
             ServeContextOf<PagedCollection<Brochure>>("PagedCollectionOfBrochures");
-            ServeContextOf<PagedCollection<Issue>>("PagedCollectionOfIssues");
+            ServeContextOf<Collection<Issue>>("CollectionOfIssues");
         }
 
         /// <summary>
