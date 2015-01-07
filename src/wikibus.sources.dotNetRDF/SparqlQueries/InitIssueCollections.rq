@@ -30,7 +30,7 @@ where
     {
        ?issue sch:isPartOf ?mag .
        ?issue sch:issueNumber ?number .
-       ?issue wbo:hasImage ?hasImage .
+       optional { ?issue wbo:hasImage ?hasImage . }
     }
     filter ( regex( str(?magGraph), 'magazine'))
 };
