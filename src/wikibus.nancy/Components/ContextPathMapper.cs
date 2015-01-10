@@ -33,7 +33,7 @@ namespace wikibus.nancy
         /// </summary>
         public override Uri AppPath
         {
-            get { return new Uri(_config.BaseResourceNamespace); }
+            get { return new Uri(_config.BaseApiNamespace); }
         }
 
         /// <summary>
