@@ -8,3 +8,4 @@ VersionAssemblyInfo.cs
 src/paket-files
 *.transformed
 **/App_Data
+paket.exe
