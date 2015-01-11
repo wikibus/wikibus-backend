@@ -47,6 +47,8 @@ namespace wikibus.sources
                 }
 
                 yield return Wbo.Book;
+                yield return Schema.Book;
+                yield return Bibo.Book;
             }
         }
 

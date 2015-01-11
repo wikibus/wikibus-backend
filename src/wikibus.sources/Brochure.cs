@@ -1,4 +1,5 @@
-﻿using Hydra.Annotations;
+﻿using System.Collections.Generic;
+using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json.Linq;
@@ -77,6 +78,22 @@ namespace wikibus.sources
                 var context = Source.Context;
                 context.Add("description".IsProperty(Rdfs.comment));
                 return context;
+            }
+        }
+
+        /// <summary>
+        /// Gets the types.
+        /// </summary>
+        protected override IEnumerable<string> Types
+        {
+            get
+            {
+                foreach (var type in base.Types)
+                {
+                    yield return type;
+                }
+
+                yield return Wbo.Brochure;
             }
         }
 
