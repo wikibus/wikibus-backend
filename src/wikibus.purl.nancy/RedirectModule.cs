@@ -18,12 +18,13 @@ namespace wikibus.purl.nancy
             _config = config;
 
             Get["/{path*}"] = rqst => RedirectRdfRequest();
+            Get["/"] = rqst => RedirectRdfRequest();
         }
 
         private object RedirectRdfRequest()
         {
-            string documentLocation = string.Format(_config.BaseApiNamespace + "{0}", Request.Path.Trim('/'));
-            return Response.AsRedirect(documentLocation);
+            string redirectDestination = _config.BaseApiNamespace + Request.Path.Trim('/');
+            return Response.AsRedirect(redirectDestination);
         }
     }
 }
