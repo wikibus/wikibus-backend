@@ -36,9 +36,7 @@ namespace wikibus.nancy
         private void AppendCorsHeaders(NancyContext context)
         {
             context.Response
-             .WithHeader(AllowOriginHeader, _configuration.BaseResourceNamespace)
-             .WithHeader(AllowOriginHeader, _configuration.BaseApiNamespace)
-             .WithHeader(AllowOriginHeader, "http://json-ld.org")
+             .WithHeader(AllowOriginHeader, "*")
              .WithHeader(AllowMethodHeader, "POST, GET, DELETE, PUT, OPTIONS")
              .WithHeader(AllowHeadersHeader, "Accept, Origin, Content-type")
              .WithHeader(AllowHeader, "POST, GET, DELETE, PUT, OPTIONS");
