@@ -38,7 +38,7 @@ namespace wikibus.nancy
             context.Response
              .WithHeader(AllowOriginHeader, "*")
              .WithHeader(AllowMethodHeader, "POST, GET, DELETE, PUT, OPTIONS")
-             .WithHeader(AllowHeadersHeader, "Accept, Origin, Content-type")
+             .WithHeader(AllowHeadersHeader, "Accept, Origin, Content-type, X-Requested-With")
              .WithHeader(AllowHeader, "POST, GET, DELETE, PUT, OPTIONS");
         }
     }
