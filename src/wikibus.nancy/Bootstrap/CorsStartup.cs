@@ -37,7 +37,7 @@ namespace wikibus.nancy
         private void AppendCorsHeaders(NancyContext context)
         {
             context.Response
-             .WithHeader(AllowOriginHeader, context.Request.Headers["Origin"].FirstOrDefault() ?? "*")
+             .WithHeader(AllowOriginHeader, "*")
              .WithHeader(AllowMethodHeader, "POST, GET, DELETE, PUT, OPTIONS")
              .WithHeader(AllowHeadersHeader, "Accept, Origin, Content-type, X-Requested-With")
              .WithHeader(AllowHeader, "POST, GET, DELETE, PUT, OPTIONS");
