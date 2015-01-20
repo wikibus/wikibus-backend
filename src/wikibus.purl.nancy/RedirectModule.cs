@@ -23,7 +23,7 @@ namespace wikibus.purl.nancy
 
         private object RedirectRdfRequest()
         {
-            string redirectDestination = _config.BaseApiNamespace + Request.Path.Trim('/');
+            string redirectDestination = _config.BaseApiNamespace + Request.Url;
             return Response.AsRedirect(redirectDestination);
         }
     }
