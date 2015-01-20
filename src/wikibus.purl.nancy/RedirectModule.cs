@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Nancy;
 using wikibus.common;
@@ -37,8 +36,13 @@ namespace wikibus.purl.nancy
                 Query = query ?? string.Empty
             };
 
-            var uriNoPort = uri.Uri.GetComponents(UriComponents.AbsoluteUri & ~UriComponents.Port, UriFormat.SafeUnescaped);
-            return Response.AsRedirect(uriNoPort);
+            if (uri.Port == 80)
+            {
+                var uriNoPort = uri.Uri.GetComponents(UriComponents.AbsoluteUri & ~UriComponents.Port, UriFormat.SafeUnescaped);
+                return Response.AsRedirect(uriNoPort);
+            }
+
+            return Response.AsRedirect(uri.ToString());
         }
     }
 }
