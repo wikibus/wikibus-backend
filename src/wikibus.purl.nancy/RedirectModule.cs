@@ -1,4 +1,7 @@
-﻿using Nancy;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Nancy;
 using wikibus.common;
 
 namespace wikibus.purl.nancy
@@ -23,8 +26,19 @@ namespace wikibus.purl.nancy
 
         private object RedirectRdfRequest()
         {
-            string redirectDestination = _config.BaseApiNamespace + Request.Url;
-            return Response.AsRedirect(redirectDestination);
+            var baseUri = new Uri(_config.BaseApiNamespace);
+
+            var pathAndQuery = Request.Url.Path.Split('?');
+            var path = pathAndQuery.ElementAtOrDefault(0);
+            var query = pathAndQuery.ElementAtOrDefault(1);
+            var uri = new UriBuilder(_config.BaseApiNamespace)
+            {
+                Path = baseUri.AbsolutePath + (path ?? string.Empty).TrimStart('/'),
+                Query = query ?? string.Empty
+            };
+
+            var uriNoPort = uri.Uri.GetComponents(UriComponents.AbsoluteUri & ~UriComponents.Port, UriFormat.UriEscaped);
+            return Response.AsRedirect(uriNoPort);
         }
     }
 }

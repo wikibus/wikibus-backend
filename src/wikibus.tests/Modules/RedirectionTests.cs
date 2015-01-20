@@ -51,7 +51,7 @@ namespace wikibus.tests.Modules
 
         private IEnumerable<Tuple<string, string>> PathsToRedirect()
         {
-            yield return Tuple.Create("/brochure/", "brochure");
+            yield return Tuple.Create("/brochure/", "brochure/");
             yield return Tuple.Create("/brochure/x/y/z", "brochure/x/y/z");
             yield return Tuple.Create("brochure/x/y/z", "brochure/x/y/z");
             yield return Tuple.Create("brochure/x/y/z?a=a&b=b%20b", "brochure/x/y/z?a=a&b=b%20b");
