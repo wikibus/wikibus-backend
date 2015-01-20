@@ -54,7 +54,7 @@ namespace wikibus.tests.Modules
             yield return Tuple.Create("/brochure/", "brochure/");
             yield return Tuple.Create("/brochure/x/y/z", "brochure/x/y/z");
             yield return Tuple.Create("brochure/x/y/z", "brochure/x/y/z");
-            yield return Tuple.Create("brochure/x/y/z?a=a&b=b%20b", "brochure/x/y/z?a=a&b=b%20b");
+            yield return Tuple.Create("brochure/x/y/z?a=a&b=b%20b", "brochure/x/y/z?a=a&b=b b");
             yield return Tuple.Create("/", string.Empty);
         }
 

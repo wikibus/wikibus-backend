@@ -37,7 +37,7 @@ namespace wikibus.purl.nancy
                 Query = query ?? string.Empty
             };
 
-            var uriNoPort = uri.Uri.GetComponents(UriComponents.AbsoluteUri & ~UriComponents.Port, UriFormat.UriEscaped);
+            var uriNoPort = uri.Uri.GetComponents(UriComponents.AbsoluteUri & ~UriComponents.Port, UriFormat.SafeUnescaped);
             return Response.AsRedirect(uriNoPort);
         }
     }
