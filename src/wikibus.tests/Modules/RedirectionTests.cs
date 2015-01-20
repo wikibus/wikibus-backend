@@ -49,12 +49,33 @@ namespace wikibus.tests.Modules
             response.Headers["Location"].Should().Be(expectedReditectLocation.ToString());
         }
 
+        [Test]
+        public void Should_redirect_request_with_query()
+        {
+            // given
+            const string pathExpected = "brochure/x/y/z?a=a&b=b+b";
+            var expectedReditectLocation = new Uri(BaseUri + string.Format("{0}", pathExpected));
+
+            // when
+            var response = _browser.Get(
+                "brochure/x/y/z",
+                context =>
+                {
+                    context.Accept(RdfSerialization.Turtle.MediaType);
+                    context.Query("a", "a");
+                    context.Query("b", "b b");
+                });
+
+            // then
+            response.StatusCode.Should().Be(HttpStatusCode.SeeOther);
+            response.Headers["Location"].Should().Be(expectedReditectLocation.ToString());
+        }
+
         private IEnumerable<Tuple<string, string>> PathsToRedirect()
         {
             yield return Tuple.Create("/brochure/", "brochure/");
             yield return Tuple.Create("/brochure/x/y/z", "brochure/x/y/z");
             yield return Tuple.Create("brochure/x/y/z", "brochure/x/y/z");
-            yield return Tuple.Create("brochure/x/y/z?a=a&b=b%20b", "brochure/x/y/z?a=a&b=b b");
             yield return Tuple.Create("/", string.Empty);
         }
 

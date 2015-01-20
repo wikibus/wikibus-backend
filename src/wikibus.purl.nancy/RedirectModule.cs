@@ -27,18 +27,15 @@ namespace wikibus.purl.nancy
         {
             var baseUri = new Uri(_config.BaseApiNamespace);
 
-            var pathAndQuery = Request.Url.Path.Split('?');
-            var path = pathAndQuery.ElementAtOrDefault(0);
-            var query = pathAndQuery.ElementAtOrDefault(1);
             var uri = new UriBuilder(_config.BaseApiNamespace)
             {
-                Path = baseUri.AbsolutePath + (path ?? string.Empty).TrimStart('/'),
-                Query = query ?? string.Empty
+                Path = baseUri.AbsolutePath + Request.Url.Path.TrimStart('/'),
+                Query = Request.Url.Query.TrimStart('?')
             };
 
             if (uri.Port == 80)
             {
-                var uriNoPort = uri.Uri.GetComponents(UriComponents.AbsoluteUri & ~UriComponents.Port, UriFormat.SafeUnescaped);
+                var uriNoPort = uri.Uri.GetComponents(UriComponents.AbsoluteUri & ~UriComponents.Port, UriFormat.UriEscaped);
                 return Response.AsRedirect(uriNoPort);
             }
 
