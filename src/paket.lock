@@ -74,3 +74,7 @@ GIST
   remote: tpluscode/5d9c6983004c1c9ec91f
   specs:
     FULLPROJECT (77ad64f596b13cb09af65878e67961e1815ffdda)
+HTTP
+  remote: http://www.w3.org/ns/hydra/context.jsonld
+  specs:
+    context.jsonld
