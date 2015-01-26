@@ -1,4 +1,4 @@
 cd src
 ".paket/paket.bootstrapper.exe"
-".paket/paket.exe restore"
+".paket/paket.exe" restore
 cd ..
