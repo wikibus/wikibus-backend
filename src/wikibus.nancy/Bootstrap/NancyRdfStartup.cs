@@ -35,7 +35,7 @@ namespace wikibus.nancy
         /// </summary>
         public void Initialize(IPipelines pipelines)
         {
-            RdfResponses.SetDefaultSerialization(pipelines, RdfSerialization.Turtle);
+            RdfResponses.SetDefaultSerialization(pipelines, RdfSerialization.JsonLd);
         }
     }
 }
