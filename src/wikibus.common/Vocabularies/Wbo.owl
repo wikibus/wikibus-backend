@@ -5,7 +5,8 @@
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns="http://wikibus.org/ontology#"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:wbo="http://wikibus.org/ontology#">
+  xmlns:wbo="http://wikibus.org/ontology#"
+  xmlns:hydra="http://www.w3.org/ns/hydra/core#">
 
   <owl:Ontology rdf:about="http://wikibus.org/ontology#">
     <rdfs:label>Wikibus.org Ontology</rdfs:label>
@@ -34,6 +35,24 @@
   <owl:Class rdf:about="Magazine">
     <rdfs:label>Magazine</rdfs:label>
     <rdfs:comment>A periodical publication about public transport.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="PagedCollectionOfMagazines">
+    <rdfs:label>Paged collection of Magazines</rdfs:label>
+    <rdfs:subClassOf rdf:resource="hydra:PagedCollection" />
+    <rdfs:comment>A typed hydra collection of Magazines.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="PagedCollectionOfBrochures">
+    <rdfs:label>Paged collection of Brochures</rdfs:label>
+    <rdfs:subClassOf rdf:resource="hydra:PagedCollection" />
+    <rdfs:comment>A typed hydra collection of Brochures.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="PagedCollectionOfBooks">
+    <rdfs:label>Paged collection of Books</rdfs:label>
+    <rdfs:subClassOf rdf:resource="hydra:PagedCollection" />
+    <rdfs:comment>A typed hydra collection of Books.</rdfs:comment>
   </owl:Class>
 
   <owl:DatatypeProperty rdf:about="http://lsdis.cs.uga.edu/projects/semdis/opus#book_title">

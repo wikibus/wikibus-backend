@@ -28,9 +28,9 @@ namespace wikibus.sources.nancy
             Get["magazine/{magName}"] = r => GetSingle(repository.GetMagazine);
             Get["magazine/{magName}/issues"] = r => GetSingle(repository.GetMagazineIssues) ?? new Collection<Issue>();
             Get["magazine/{magName}/issue/{number}"] = r => GetSingle(repository.GetIssue);
-            Get["books"] = r => GetPage(repository.GetBooks);
-            Get["brochures"] = r => GetPage(repository.GetBrochures);
-            Get["magazines"] = r => GetPage(repository.GetMagazines);
+            Get["books"] = r => GetPage<Book, PagedCollectionOfBooks>(repository.GetBooks);
+            Get["brochures"] = r => GetPage<Brochure, PagedCollectionOfBrochures>(repository.GetBrochures);
+            Get["magazines"] = r => GetPage<Magazine, PagedCollectionOfMagazines>(repository.GetMagazines);
         }
 
         private T GetSingle<T>(Func<Uri, T> getResource) where T : class
@@ -43,7 +43,9 @@ namespace wikibus.sources.nancy
             return new Uri(new Uri(_config.BaseResourceNamespace), Request.Path);
         }
 
-        private dynamic GetPage<T>(Func<Uri, int, PagedCollection<T>> getPage) where T : class
+        private dynamic GetPage<T, TCollection>(Func<Uri, int, TCollection> getPage)
+            where T : class
+            where TCollection : Collection<T>
         {
             int page;
             if (!int.TryParse(Request.Query.page.Value, out page))

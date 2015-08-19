@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using FakeItEasy;
 using FluentAssertions;
-using Hydra;
 using Nancy;
 using Nancy.RDF;
 using Nancy.Responses.Negotiation;
@@ -52,7 +51,7 @@ namespace wikibus.tests.Modules.Bindings
         [Given(@"exisiting book collection")]
         public void GivenExisitingBookCollection()
         {
-            A.CallTo(() => _dep.Sources.GetBooks(A<Uri>.Ignored, A<int>.Ignored)).Returns(new PagedCollection<Book>());
+            A.CallTo(() => _dep.Sources.GetBooks(A<Uri>.Ignored, A<int>.Ignored)).Returns(new PagedCollectionOfBooks());
         }
 
         [Given(@"existing book '(.*)'")]

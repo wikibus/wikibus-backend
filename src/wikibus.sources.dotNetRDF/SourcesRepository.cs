@@ -51,21 +51,21 @@ namespace wikibus.sources.dotNetRDF
         }
 
         /// <inheritdoc />
-        public PagedCollection<Book> GetBooks(Uri identifier, int page)
+        public PagedCollectionOfBooks GetBooks(Uri identifier, int page)
         {
-            return GetAll<Book>(identifier, page);
+            return GetAll<Book, PagedCollectionOfBooks>(identifier, page);
         }
 
         /// <inheritdoc />
-        public PagedCollection<Brochure> GetBrochures(Uri identifier, int page)
+        public PagedCollectionOfBrochures GetBrochures(Uri identifier, int page)
         {
-            return GetAll<Brochure>(identifier, page);
+            return GetAll<Brochure, PagedCollectionOfBrochures>(identifier, page);
         }
 
         /// <inheritdoc />
-        public PagedCollection<Magazine> GetMagazines(Uri identifier, int page)
+        public PagedCollectionOfMagazines GetMagazines(Uri identifier, int page)
         {
-            return GetAll<Magazine>(identifier, page);
+            return GetAll<Magazine, PagedCollectionOfMagazines>(identifier, page);
         }
 
         /// <inheritdoc />
@@ -106,7 +106,9 @@ namespace wikibus.sources.dotNetRDF
             return null;
         }
 
-        private PagedCollection<T> GetAll<T>(Uri collectionUri, int page, int pageSize = 10) where T : class
+        private TCollection GetAll<T, TCollection>(Uri collectionUri, int page, int pageSize = 10)
+            where T : class
+            where TCollection : PagedCollection<T>, new()
         {
             var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSourcesPage.rq"));
             query.SetUri("type", GetTypeUri(typeof(T)));
@@ -120,14 +122,14 @@ namespace wikibus.sources.dotNetRDF
             {
                 var dataset = StringWriter.Write(graph, new NTriplesWriter(NTriplesSyntax.Rdf11));
 
-                var collection = _serializer.Deserialize<PagedCollection<T>>(dataset);
+                var collection = _serializer.Deserialize<TCollection>(dataset);
                 collection.ItemsPerPage = pageSize;
                 collection.CurrentPage = page;
 
                 return collection;
             }
 
-            return new PagedCollection<T>();
+            return new TCollection();
         }
     }
 }
