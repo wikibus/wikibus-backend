@@ -1,6 +1,7 @@
 ﻿prefix hydra: <http://www.w3.org/ns/hydra/core#>
 prefix dcterms: <http://purl.org/dc/terms/>
 prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix wbo: <http://wikibus.org/ontology#>
 
 construct
 {
@@ -9,7 +10,8 @@ construct
     hydra:member ?member ;
     hydra:totalItems ?count.
 
-  ?member dcterms:title ?title
+  ?member dcterms:title ?title ;
+          wbo:hasImage ?hasImage .
 }
 where
 {
@@ -17,12 +19,13 @@ where
   BIND( iri(concat(str(@collection), '?page=@page')) as ?container )
 
   optional {
-    select ?member ?title
+    select ?member ?title ?hasImage
     {
       graph ?g 
       {
         @collection hydra:member ?member .
-        ?member dcterms:title ?title
+        ?member dcterms:title ?title ; 
+                wbo:hasImage ?hasImage.
       }
     }
     order by ?title
