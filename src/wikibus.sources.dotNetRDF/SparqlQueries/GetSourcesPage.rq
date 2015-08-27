@@ -24,8 +24,11 @@ where
       graph ?g 
       {
         @collection hydra:member ?member .
-        ?member dcterms:title ?title ; 
-                wbo:hasImage ?hasImage.
+        ?member dcterms:title ?title .                
+
+        optional {
+            ?member wbo:hasImage ?hasImage .
+        }
       }
     }
     order by ?title

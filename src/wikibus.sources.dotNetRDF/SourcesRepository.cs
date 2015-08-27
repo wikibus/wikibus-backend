@@ -106,7 +106,7 @@ namespace wikibus.sources.dotNetRDF
             return null;
         }
 
-        private TCollection GetAll<T, TCollection>(Uri collectionUri, int page, int pageSize = 10)
+        private TCollection GetAll<T, TCollection>(Uri collectionUri, int page, int pageSize = 12)
             where T : class
             where TCollection : PagedCollection<T>, new()
         {
