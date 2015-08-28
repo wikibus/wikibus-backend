@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Nancy;
+﻿using Nancy;
 using Nancy.Bootstrapper;
 using wikibus.common;
 
@@ -14,6 +13,7 @@ namespace wikibus.nancy
         private const string AllowOriginHeader = "Access-Control-Allow-Origin";
         private const string AllowMethodHeader = "Access-Control-Allow-Methods";
         private const string AllowHeader = "Allow";
+        private const string AccessControlExposeHeaders = "Access-Control-Expose-Headers";
 
         private readonly IWikibusConfiguration _configuration;
 
@@ -40,7 +40,8 @@ namespace wikibus.nancy
              .WithHeader(AllowOriginHeader, "*")
              .WithHeader(AllowMethodHeader, "POST, GET, DELETE, PUT, OPTIONS")
              .WithHeader(AllowHeadersHeader, "Accept, Origin, Content-type, X-Requested-With")
-             .WithHeader(AllowHeader, "POST, GET, DELETE, PUT, OPTIONS");
+             .WithHeader(AllowHeader, "POST, GET, DELETE, PUT, OPTIONS")
+             .WithHeader(AccessControlExposeHeaders, "Link");
         }
     }
 }
