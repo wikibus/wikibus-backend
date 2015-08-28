@@ -2,6 +2,9 @@ source https://www.nuget.org/api/v2
 source https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
 source https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
 
+framework: net40
+content: none
+
 nuget Anotar.Custom.Fody 2.12.0
 nuget FakeItEasy 1.24.0
 nuget json-ld.net 1.0.3

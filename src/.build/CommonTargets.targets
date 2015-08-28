@@ -6,6 +6,4 @@
     </StyleCopAdditionalAddinPaths>
   </ItemGroup>
   <Import Project="..\packages\StyleCop.MSBuild\build\StyleCop.MSBuild.Targets" />
-  <Import Project="..\packages\Zoltu.Versioning\build\Zoltu.Versioning.targets" />
-  <Import Project="..\packages\Fody\build\Fody.targets" />
 </Project>
