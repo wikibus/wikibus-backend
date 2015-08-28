@@ -10,6 +10,8 @@ namespace wikibus.sources.nancy
     /// </summary>
     public class SourcesModule : NancyModule
     {
+        private const int PageSize = 12;
+
         private readonly IWikibusConfiguration _config;
 
         /// <summary>
@@ -43,7 +45,7 @@ namespace wikibus.sources.nancy
             return new Uri(new Uri(_config.BaseResourceNamespace), Request.Path);
         }
 
-        private dynamic GetPage<T, TCollection>(Func<Uri, int, TCollection> getPage)
+        private dynamic GetPage<T, TCollection>(Func<Uri, int, int, TCollection> getPage)
             where T : class
             where TCollection : Collection<T>
         {
@@ -58,7 +60,7 @@ namespace wikibus.sources.nancy
                 return 400;
             }
 
-            return getPage(GetRequestUri(), page);
+            return getPage(GetRequestUri(), page, PageSize);
         }
     }
 }

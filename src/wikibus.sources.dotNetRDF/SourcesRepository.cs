@@ -51,21 +51,21 @@ namespace wikibus.sources.dotNetRDF
         }
 
         /// <inheritdoc />
-        public PagedCollectionOfBooks GetBooks(Uri identifier, int page)
+        public PagedCollectionOfBooks GetBooks(Uri identifier, int page, int pageSize = 10)
         {
-            return GetAll<Book, PagedCollectionOfBooks>(identifier, page);
+            return GetAll<Book, PagedCollectionOfBooks>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public PagedCollectionOfBrochures GetBrochures(Uri identifier, int page)
+        public PagedCollectionOfBrochures GetBrochures(Uri identifier, int page, int pageSize = 10)
         {
-            return GetAll<Brochure, PagedCollectionOfBrochures>(identifier, page);
+            return GetAll<Brochure, PagedCollectionOfBrochures>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public PagedCollectionOfMagazines GetMagazines(Uri identifier, int page)
+        public PagedCollectionOfMagazines GetMagazines(Uri identifier, int page, int pageSize = 10)
         {
-            return GetAll<Magazine, PagedCollectionOfMagazines>(identifier, page);
+            return GetAll<Magazine, PagedCollectionOfMagazines>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
@@ -106,7 +106,7 @@ namespace wikibus.sources.dotNetRDF
             return null;
         }
 
-        private TCollection GetAll<T, TCollection>(Uri collectionUri, int page, int pageSize = 12)
+        private TCollection GetAll<T, TCollection>(Uri collectionUri, int page, int pageSize = 10)
             where T : class
             where TCollection : PagedCollection<T>, new()
         {
