@@ -20,5 +20,13 @@ namespace wikibus.sources
                 yield return Wbo.PagedCollectionOfMagazines;
             }
         }
+
+        /// <summary>
+        /// Gets the title.
+        /// </summary>
+        public string Title
+        {
+            get { return "Magazines"; }
+        }
     }
 }

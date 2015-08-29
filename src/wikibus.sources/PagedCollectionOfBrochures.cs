@@ -20,5 +20,13 @@ namespace wikibus.sources
                 yield return Wbo.PagedCollectionOfBrochures;
             }
         }
+
+        /// <summary>
+        /// Gets the title.
+        /// </summary>
+        public string Title
+        {
+            get { return "Brochures"; }
+        }
     }
 }

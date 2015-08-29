@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Hydra;
 using wikibus.common.Vocabularies;
 
@@ -20,6 +19,14 @@ namespace wikibus.sources
                 yield return Hydra.Hydra.PagedCollection;
                 yield return Wbo.PagedCollectionOfBooks;
             }
+        }
+
+        /// <summary>
+        /// Gets the title.
+        /// </summary>
+        public string Title
+        {
+            get { return "Books"; }
         }
     }
 }
