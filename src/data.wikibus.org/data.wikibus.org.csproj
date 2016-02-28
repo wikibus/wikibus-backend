@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="HydraStartup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -275,4 +278,12 @@
       </ItemGroup>
     </When>
   </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
+      <PropertyGroup>
+        <__paket__Zoltu_Versioning_targets>Zoltu.Versioning</__paket__Zoltu_Versioning_targets>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  <Import Project="..\..\packages\Zoltu.Versioning\build\$(__paket__Zoltu_Versioning_targets).targets" Condition="Exists('..\..\packages\Zoltu.Versioning\build\$(__paket__Zoltu_Versioning_targets).targets')" Label="Paket" />
 </Project>
