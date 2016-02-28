@@ -42,7 +42,10 @@ namespace wikibus.nancy
                     typeof(Book).ToClass(),
                     typeof(Brochure).ToClass(),
                     typeof(Magazine).ToClass(),
-                    typeof(Issue).ToClass()
+                    typeof(Issue).ToClass(),
+                    typeof(PagedCollectionOfBooks).ToClass(),
+                    typeof(PagedCollectionOfMagazines).ToClass(),
+                    typeof(PagedCollectionOfBrochures).ToClass()
                 };
             }
         }

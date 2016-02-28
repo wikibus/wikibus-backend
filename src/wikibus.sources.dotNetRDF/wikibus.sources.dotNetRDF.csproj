@@ -90,7 +90,7 @@
   </Target>
   -->
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="DatabaseSchemaReader">
           <HintPath>..\packages\DatabaseSchemaReader\lib\net40\DatabaseSchemaReader.dll</HintPath>
@@ -101,7 +101,7 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="dotNetRDF">
           <HintPath>..\packages\dotNetRDF\lib\net40\dotNetRDF.dll</HintPath>
@@ -112,13 +112,12 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <PropertyGroup>
         <__paket__Fody_targets>Fody</__paket__Fody_targets>
       </PropertyGroup>
     </When>
   </Choose>
-  <Import Project="..\packages\Fody\build\$(__paket__Fody_targets).targets" Condition="Exists('..\packages\Fody\build\$(__paket__Fody_targets).targets')" Label="Paket" />
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
       <ItemGroup>
@@ -129,9 +128,18 @@
         </Reference>
       </ItemGroup>
     </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
+      <ItemGroup>
+        <Reference Include="HtmlAgilityPack">
+          <HintPath>..\packages\HtmlAgilityPack\lib\Net45\HtmlAgilityPack.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="JetBrains.Annotations">
           <HintPath>..\packages\JetBrainsAnnotations.Fody\Lib\JetBrains.Annotations.dll</HintPath>
@@ -142,10 +150,10 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
-        <Reference Include="JsonLD">
-          <HintPath>..\packages\json-ld.net\lib\net40\JsonLD.dll</HintPath>
+        <Reference Include="JsonLD.Entities">
+          <HintPath>..\packages\JsonLd.Entities\lib\net40\JsonLD.Entities.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -153,10 +161,10 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
-        <Reference Include="JsonLD.Entities">
-          <HintPath>..\packages\JsonLd.Entities\lib\net40\JsonLD.Entities.dll</HintPath>
+        <Reference Include="JsonLD">
+          <HintPath>..\packages\json-ld.net\lib\net40\JsonLD.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -173,9 +181,18 @@
         </Reference>
       </ItemGroup>
     </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
+      <ItemGroup>
+        <Reference Include="Newtonsoft.Json">
+          <HintPath>..\packages\Newtonsoft.Json\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="NullGuard">
           <HintPath>..\packages\NullGuard.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\NullGuard.dll</HintPath>
@@ -186,7 +203,7 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="TCode.r2rml4net">
           <HintPath>..\packages\r2rml4net\lib\net40\TCode.r2rml4net.dll</HintPath>
@@ -197,7 +214,7 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="Resourcer">
           <HintPath>..\packages\Resourcer.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\Resourcer.dll</HintPath>
@@ -208,7 +225,7 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="VDS.Common">
           <HintPath>..\packages\VDS.Common\lib\net40-client\VDS.Common.dll</HintPath>
@@ -219,11 +236,12 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <PropertyGroup>
         <__paket__Zoltu_Versioning_targets>Zoltu.Versioning</__paket__Zoltu_Versioning_targets>
       </PropertyGroup>
     </When>
   </Choose>
+  <Import Project="..\packages\Fody\build\$(__paket__Fody_targets).targets" Condition="Exists('..\packages\Fody\build\$(__paket__Fody_targets).targets')" Label="Paket" />
   <Import Project="..\packages\Zoltu.Versioning\build\$(__paket__Zoltu_Versioning_targets).targets" Condition="Exists('..\packages\Zoltu.Versioning\build\$(__paket__Zoltu_Versioning_targets).targets')" Label="Paket" />
 </Project>

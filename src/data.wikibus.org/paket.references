@@ -1,7 +1,6 @@
-Nancy.Hosting.Aspnet
+Nancy.Owin
+Microsoft.Owin.Host.HttpListener
+Microsoft.Owin.Hosting
+dotNetRDF
 r2rml4net
-Resourcer.Fody
-Zoltu.Versioning
 Nancy.RDF
-NullGuard.Fody
-JetBrainsAnnotations.Fody

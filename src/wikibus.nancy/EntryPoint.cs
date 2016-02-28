@@ -2,6 +2,7 @@
 using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using wikibus.common.JsonLd;
 using wikibus.common.Vocabularies;
@@ -31,7 +32,7 @@ namespace wikibus.nancy
         /// Gets the brochures Uri.
         /// </summary>
         [SupportedProperty(Api.brochures)]
-        [AllowGet(Range = Hydra.Hydra.PagedCollection)]
+        [AllowGet(Range = Wbo.PagedCollectionOfBrochures)]
         public string Brochures
         {
             get { return "brochures"; }
@@ -40,7 +41,7 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the books Uri.
         /// </summary>
-        [SupportedProperty(Api.books, Range = Hydra.Hydra.PagedCollection)]
+        [SupportedProperty(Api.books, Range = Wbo.PagedCollectionOfBooks)]
         [AllowGet]
         public string Books
         {
@@ -50,7 +51,7 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the magazines Uri.
         /// </summary>
-        [SupportedProperty(Api.magazines, Range = Hydra.Hydra.PagedCollection)]
+        [SupportedProperty(Api.magazines, Range = Wbo.PagedCollectionOfMagazines)]
         [AllowGet]
         public string Magazines
         {
@@ -72,7 +73,7 @@ namespace wikibus.nancy
             }
         }
 
-        [UsedImplicitly]
+        [UsedImplicitly, JsonProperty]
         private string Type
         {
             get { return Api.EntryPoint; }
