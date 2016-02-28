@@ -1,11 +1,11 @@
 *.suo
-src/packages
+packages
 [Bb]in
 [Oo]bj
 *.user
 *.Cache
 VersionAssemblyInfo.cs
-src/paket-files
+paket-files
 *.transformed
 **/App_Data
 paket.exe
