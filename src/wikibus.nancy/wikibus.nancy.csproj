@@ -11,9 +11,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>wikibus.nancy</RootNamespace>
     <AssemblyName>wikibus.nancy</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Slp.r2rml4net.Storage">
@@ -54,7 +57,6 @@
     <Compile Include="Bootstrap\ComponentsInstaller.cs" />
     <Compile Include="Bootstrap\CorsStartup.cs" />
     <Compile Include="Bootstrap\DotNetRdfStartup.cs" />
-    <Compile Include="Bootstrap\ElmahStartup.cs" />
     <Compile Include="Components\ContextPathMapper.cs" />
     <Compile Include="ContextProviderExtensions.cs" />
     <Compile Include="EntryPoint.cs">
@@ -135,19 +137,8 @@
   </Choose>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
-      <ItemGroup>
-        <Reference Include="Elmah">
-          <HintPath>..\packages\elmah.corelibrary\lib\Elmah.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
-  <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <PropertyGroup>
-        <__paket__Fody_targets>Fody</__paket__Fody_targets>
+        <__paket__Fody_targets>portable-net+sl+win+wpa+wp\Fody</__paket__Fody_targets>
       </PropertyGroup>
     </When>
   </Choose>
@@ -172,10 +163,10 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
       <ItemGroup>
         <Reference Include="ImageResizer">
-          <HintPath>..\packages\ImageResizer\lib\ImageResizer.dll</HintPath>
+          <HintPath>..\packages\ImageResizer\lib\net45\ImageResizer.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -208,18 +199,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="JsonLD">
-          <HintPath>..\packages\json-ld.net\lib\net40\JsonLD.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
-  <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
-      <ItemGroup>
-        <Reference Include="Metrics">
-          <HintPath>..\packages\Metrics.NET\lib\net45\Metrics.dll</HintPath>
+          <HintPath>..\packages\json-ld.net\lib\net40-Client\JsonLD.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -231,28 +211,6 @@
       <ItemGroup>
         <Reference Include="Nancy">
           <HintPath>..\packages\Nancy\lib\net40\Nancy.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
-  <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
-      <ItemGroup>
-        <Reference Include="Nancy.Elmah">
-          <HintPath>..\packages\Nancy.Elmah\lib\net40\Nancy.Elmah.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
-  <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
-      <ItemGroup>
-        <Reference Include="Nancy.Metrics">
-          <HintPath>..\packages\Nancy.Metrics\lib\net45\Nancy.Metrics.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -294,7 +252,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="NullGuard">
-          <HintPath>..\packages\NullGuard.Fody\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\NullGuard.dll</HintPath>
+          <HintPath>..\packages\NullGuard.Fody\Lib\portable-net4+sl5+wpa81+wp8+win8+MonoAndroid16+MonoTouch40\NullGuard.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

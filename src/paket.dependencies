@@ -7,10 +7,9 @@ content: none
 
 nuget Anotar.Custom.Fody 2.12.0
 nuget FakeItEasy 1.24.0
-nuget json-ld.net 1.0.3
-nuget Nancy.Hosting.Aspnet 0.23.2
+nuget json-ld.net
 nuget Nancy.Owin
-nuget Nancy.Testing 0.23.2
+nuget Nancy.Testing
 nuget r2rml4net 0.4.0.0-pre01
 nuget Resourcer.Fody 1.2.0.0
 nuget SpecFlow.NUnit 1.1.1
@@ -25,18 +24,14 @@ nuget Nancy.RDF
 nuget NullGuard.Fody
 nuget ImpromptuInterface
 nuget NDbUnit.SqlClient
-nuget Nancy.elmah
-nuget Nancy.metrics
 nuget CodeAssassin.ConfigTransform
 nuget ImageResizer
-nuget Nancy.Rdf
-nuget Nancy.elmah
-nuget Nancy.metrics
 nuget jsonld.entities
 nuget JetBrainsAnnotations.Fody
 nuget ModuleInit.Fody
 nuget Microsoft.Owin.Host.HttpListener
 nuget Microsoft.Owin.Hosting
+nuget nunit < 3
 
 gist tpluscode/5d9c6983004c1c9ec91f
 

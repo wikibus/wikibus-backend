@@ -4,9 +4,7 @@ Zoltu.Versioning
 JsonLd.Entities
 r2rml4net
 NullGuard.Fody
-Nancy.elmah
 ImageResizer
-Nancy.metrics
 Resourcer.Fody
 Nancy.Rdf
 JetBrainsAnnotations.Fody
