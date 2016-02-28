@@ -1,4 +1,5 @@
 ﻿using System;
+using JsonLD.Entities;
 using Microsoft.Owin.Hosting;
 using Owin;
 using wikibus.sources.dotNetRDF;
@@ -7,12 +8,23 @@ namespace data.wikibus.org
 {
     internal class Program
     {
+        private const int DefaultPort = 17899;
+
         private static void Main(string[] args)
         {
-            var urlBuilder = new UriBuilder("http://localhost") {Port = 17899};
+            int port = DefaultPort;
+            if (args.Length > 0)
+            {
+                int.TryParse(args[0], out port);
+            }
 
-            //new JsonLD.Entities.EntitySerializer();
-            //var x = typeof(SourcesRepository);
+            var urlBuilder = new UriBuilder("http://localhost")
+            {
+                Port = port
+            };
+
+            var type = typeof(EntitySerializer);
+            var x = typeof(SourcesRepository);
 
             using (WebApp.Start<Startup>(urlBuilder.ToString()))
             {

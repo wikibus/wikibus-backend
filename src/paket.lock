@@ -22,7 +22,7 @@ NUGET
       Fody (>= 1.29.2)
     JetBrainsAnnotations.Fody (1.0.4)
       Fody (>= 1.29.2)
-    json-ld.net (1.0.4)
+    json-ld.net (1.0.3)
       Newtonsoft.Json (>= 4.0.1)
     Microsoft.Owin (3.0.1)
       Owin (>= 1.0)

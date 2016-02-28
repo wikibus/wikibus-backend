@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Linq;
+using JsonLD.Entities;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Diagnostics;
 using Nancy.Responses.Negotiation;
 using Nancy.TinyIoc;
+using wikibus.sources;
+using wikibus.sources.dotNetRDF;
 
 namespace wikibus.nancy
 {
