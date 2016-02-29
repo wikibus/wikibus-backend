@@ -23,9 +23,6 @@ namespace data.wikibus.org
                 Port = port
             };
 
-            var type = typeof(EntitySerializer);
-            var x = typeof(SourcesRepository);
-
             using (WebApp.Start<Startup>(urlBuilder.ToString()))
             {
                 Console.WriteLine("started nancy");

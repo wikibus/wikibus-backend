@@ -53,6 +53,7 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Bootstrap\Bootstrapper.cs" />
     <Compile Include="Bootstrap\ComponentsInstaller.cs" />
     <Compile Include="Bootstrap\CorsStartup.cs" />
     <Compile Include="Bootstrap\DotNetRdfStartup.cs" />

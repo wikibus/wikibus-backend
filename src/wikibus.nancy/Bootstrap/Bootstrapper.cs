@@ -17,6 +17,14 @@ namespace wikibus.nancy
     public class Bootstrapper : DefaultNancyBootstrapper
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="Bootstrapper"/> class.
+        /// </summary>
+        public Bootstrapper()
+        {
+            AppDomainAssemblyTypeScanner.AddAssembliesToScan("JsonLD.Entities");
+        }
+
+        /// <summary>
         /// Gets overridden configuration
         /// </summary>
         protected override NancyInternalConfiguration InternalConfiguration
