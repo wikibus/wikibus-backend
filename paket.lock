@@ -60,6 +60,7 @@ NUGET
     StyleCopPlus.MSBuild (4.7.49.4)
       StyleCop.MSBuild (>= 4.7.49.0)
     VDS.Common (1.6.0)
+    Zoltu.Versioning (1.1.29)
   remote: https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
   specs:
     JsonLd.Entities (0.2.75.0)

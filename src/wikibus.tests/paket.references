@@ -2,6 +2,7 @@ dotNetRDF
 FakeItEasy
 Nancy.Testing
 SpecFlow.NUnit
+Zoltu.Versioning
 InfoOf.Fody
 FluentAssertions
 Nancy.RDF
