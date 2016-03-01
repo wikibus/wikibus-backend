@@ -12,7 +12,6 @@ using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Writing;
-using wikibus.sources.dotNetRDF;
 using wikibus.sources.dotNetRDF.Mapping;
 using StringWriter = VDS.RDF.Writing.StringWriter;
 

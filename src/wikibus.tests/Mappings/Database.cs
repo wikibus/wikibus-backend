@@ -1,5 +1,7 @@
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data.SqlLocalDb;
 using NDbUnit.Core;
 using NDbUnit.Core.SqlClient;
 using Resourcer;
@@ -12,7 +14,7 @@ namespace wikibus.tests.Mappings
     public static class Database
     {
         public static readonly string TestConnectionString = ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
-        private static readonly string MasterConnString = ConfigurationManager.ConnectionStrings["master"].ConnectionString;
+        private const string InstanceName = "WikibusTest";
 
         /// <summary>
         /// Initializes the database.
@@ -20,16 +22,16 @@ namespace wikibus.tests.Mappings
         /// <param name="connection"></param>
         public static INDbUnitTest Initialize(SqlConnection connection)
         {
-            SqlDbUnitTest database;
-            using (var sqlConnection = new SqlConnection(MasterConnString))
+            if (SqlLocalDbApi.GetInstanceInfo(InstanceName).Exists)
             {
-                database = new SqlDbUnitTest(sqlConnection);
-                database.Scripts.AddSingle("Scripts\\InitDatabase.sql");
-                database.ExecuteScripts();
-                database.Scripts.ClearAll();
+                SqlLocalDbApi.StopInstance(InstanceName, TimeSpan.FromSeconds(10));
+                SqlLocalDbApi.DeleteInstance(InstanceName, true);
             }
 
-            database = new SqlDbUnitTest(connection);
+            SqlLocalDbApi.CreateInstance(InstanceName);
+
+            var database = new SqlDbUnitTest(connection);
+
             database.Scripts.AddSingle("Scripts\\InitSchema.sql");
             database.Scripts.AddWithWildcard("Scripts", "InitTable_*.sql");
             database.ExecuteScripts();

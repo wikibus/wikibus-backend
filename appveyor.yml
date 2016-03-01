@@ -1,7 +1,7 @@
 before_build:
   - restore_packages.bat
 services:
-  - mssql2008r2sp2
+  - mssql2014
 
 build:
   publish_wap: true  

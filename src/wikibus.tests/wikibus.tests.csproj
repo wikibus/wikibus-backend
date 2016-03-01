@@ -46,9 +46,6 @@
     <Content Include="Scripts\InitTable_Source.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\InitDatabase.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Reference Include="Slp.r2rml4net.Storage">
       <HintPath>..\..\lib\Slp.r2rml4net.Storage.dll</HintPath>
     </Reference>
@@ -450,6 +447,17 @@
       <ItemGroup>
         <Reference Include="TechTalk.SpecFlow">
           <HintPath>..\..\packages\SpecFlow\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
+      <ItemGroup>
+        <Reference Include="System.Data.SqlLocalDb">
+          <HintPath>..\..\packages\System.Data.SqlLocalDb\lib\net20\System.Data.SqlLocalDb.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
