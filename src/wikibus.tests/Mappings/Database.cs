@@ -36,7 +36,6 @@ namespace wikibus.tests.Mappings
             database.Scripts.AddWithWildcard("Scripts", "InitTable_*.sql");
             database.ExecuteScripts();
             database.ReadXmlSchema(Resource.AsStream("Wikibus.xsd"));
-            database.PerformDbOperation(DbOperationFlag.DeleteAll);
 
             return database;
         }
