@@ -27,7 +27,7 @@ nuget NullGuard.Fody
 nuget ImpromptuInterface
 nuget NDbUnit.SqlClient
 nuget ImageResizer
-nuget jsonld.entities prerelease
+nuget jsonld.entities >= 0.3 prerelease
 nuget JetBrainsAnnotations.Fody
 nuget ModuleInit.Fody
 nuget Microsoft.Owin.Host.HttpListener
