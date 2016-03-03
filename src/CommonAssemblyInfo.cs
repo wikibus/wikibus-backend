@@ -2,4 +2,4 @@
 
 [assembly: AssemblyCompany("Tomasz Pluskiewicz T+Code")]
 [assembly: AssemblyProduct("wikibus.org")]
-[assembly: AssemblyCopyright("Copyright © Tomasz Pluskiewicz 2014")]
+[assembly: AssemblyCopyright("Copyright © Tomasz Pluskiewicz 2016")]

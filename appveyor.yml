@@ -1,6 +1,10 @@
+install:
+  - choco install gitversion.portable -pre -y
+  
 before_build:
   - .paket\paket.bootstrapper.exe prerelease
   - .paket\paket.exe restore
+  - ps: gitversion /l console /output buildserver
 
 services:
   - mssql2014

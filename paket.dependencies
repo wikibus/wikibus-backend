@@ -16,7 +16,7 @@ nuget r2rml4net 0.4.0.0-pre01
 nuget Resourcer.Fody
 nuget SpecFlow.NUnit
 nuget StyleCopPlus.MSBuild
-nuget Zoltu.Versioning 1.1.29.0
+nuget GitVersionTask
 nuget HtmlAgilityPack
 nuget FluentAssertions
 nuget dotNetRDF
