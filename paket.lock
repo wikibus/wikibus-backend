@@ -1,19 +1,19 @@
 REDIRECTS: ON
+COPY-LOCAL: TRUE
 CONTENT: NONE
 FRAMEWORK: NET40, NET45
 NUGET
   remote: https://www.nuget.org/api/v2
   specs:
-    Anotar.Custom.Fody (2.12.0)
-      Fody
-    CodeAssassin.ConfigTransform (1.2)
+    Anotar.Custom.Fody (2.20.0)
+      Fody (>= 1.29.2)
     CsQuery (1.3.4)
     DatabaseSchemaReader (1.4.4)
     dotNetRDF (1.0.9.3683)
       HtmlAgilityPack (>= 1.4.9)
       Newtonsoft.Json (>= 6.0.8)
       VDS.Common (1.6.0)
-    FakeItEasy (1.24.0)
+    FakeItEasy (1.25.3)
     FluentAssertions (4.2.2)
     Fody (1.29.4)
     HtmlAgilityPack (1.4.9)
@@ -23,7 +23,7 @@ NUGET
       Fody (>= 1.29.2)
     JetBrainsAnnotations.Fody (1.0.4)
       Fody (>= 1.29.2)
-    json-ld.net (1.0.3)
+    json-ld.net (1.0.4)
       Newtonsoft.Json (>= 4.0.1)
     Microsoft.Owin (3.0.1)
       Owin (>= 1.0)
@@ -51,31 +51,31 @@ NUGET
     r2rml4net (0.4.0-pre01)
       DatabaseSchemaReader (>= 1.2.8)
       dotNetRDF (>= 1.0.0)
-    Resourcer.Fody (1.2.0)
-      Fody (>= 1.13.8)
+    Resourcer.Fody (1.4.1)
+      Fody (>= 1.29.2)
     SpecFlow (2.0.0)
     SpecFlow.NUnit (1.1.1)
       NUnit (>= 2.6)
       SpecFlow
     StyleCop.MSBuild (4.7.50)
-    StyleCopPlus.MSBuild (4.7.49.4)
+    StyleCopPlus.MSBuild (4.7.49.5)
       StyleCop.MSBuild (>= 4.7.49.0)
     System.Data.SqlLocalDb (1.14.0)
     VDS.Common (1.6.0)
     Zoltu.Versioning (1.1.29)
   remote: https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
   specs:
-    JsonLd.Entities (0.2.75.0)
+    JsonLd.Entities (0.3.0-pre0096)
       json-ld.net (>= 1.0)
   remote: https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
   specs:
-    Nancy.RDF (0.1.14.0)
+    Nancy.RDF (0.2.0-pre0023)
       JsonLd.Entities
       Nancy (>= 0.23)
-GIST
-  remote: tpluscode/5d9c6983004c1c9ec91f
-  specs:
-    FULLPROJECT (77ad64f596b13cb09af65878e67961e1815ffdda)
+#GIT
+ # remote: https://gist.github.com/5d9c6983004c1c9ec91f.git
+  #specs:
+   #  (77ad64f596b13cb09af65878e67961e1815ffdda)
 HTTP
   remote: http://www.w3.org
   specs:

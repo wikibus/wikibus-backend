@@ -1,5 +1,7 @@
 before_build:
-  - restore_packages.bat
+  - .paket\paket.bootstrapper.exe prerelease
+  - .paket\paket.exe restore
+
 services:
   - mssql2014
 

@@ -44,6 +44,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Content Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
@@ -239,7 +240,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="JsonLD">
-          <HintPath>..\..\packages\json-ld.net\lib\net40\JsonLD.dll</HintPath>
+          <HintPath>..\..\packages\json-ld.net\lib\net40-Client\JsonLD.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
