@@ -76,6 +76,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Hydra\ApiDocumentation.json" />
     <None Include="paket.references" />
+    <None Include="paket.template" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hydra\Hydra.csproj">

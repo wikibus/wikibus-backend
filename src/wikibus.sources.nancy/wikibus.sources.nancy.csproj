@@ -58,6 +58,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="paket.references" />
+    <None Include="paket.template" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hydra\Hydra.csproj">

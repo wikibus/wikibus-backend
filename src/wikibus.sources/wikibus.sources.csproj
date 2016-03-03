@@ -71,6 +71,7 @@
     <EmbeddedResource Include="Frames\PagedCollection.json" />
     <EmbeddedResource Include="Frames\Collection.json" />
     <None Include="paket.references" />
+    <None Include="paket.template" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hydra\Hydra.csproj">

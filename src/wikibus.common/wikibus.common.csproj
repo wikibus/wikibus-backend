@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Vocabularies\Wbo.owl" />
+    <None Include="paket.template" />
     <None Include="Vocabularies\Api.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Api.owl</DependentUpon>

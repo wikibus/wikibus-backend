@@ -79,6 +79,7 @@
     <EmbeddedResource Include="SparqlQueries\GetSingle.rq" />
     <EmbeddedResource Include="SparqlQueries\InitIssueCollections.rq" />
     <EmbeddedResource Include="SparqlQueries\InitCollection.rq" />
+    <None Include="paket.template" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
