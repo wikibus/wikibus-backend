@@ -4,8 +4,8 @@ packages
 [Oo]bj
 *.user
 *.Cache
-VersionAssemblyInfo.cs
 paket-files
 *.transformed
 **/App_Data
 paket.exe
+nugets/
