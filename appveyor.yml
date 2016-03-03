@@ -16,6 +16,12 @@ configuration:
   - Staging
   - Release 
 
+after_build:
+  - .paket\paket.exe pack output nugets include-referenced-projects version %GitVersion_NuGetVersion%
+
+artifacts:
+  - path: 'nugets\*.nupkg'
+  
 deploy:
   - provider: Environment
     name: wikibus.org API test
