@@ -72,10 +72,10 @@ NUGET
     Nancy.RDF (0.2.0-pre0023)
       JsonLd.Entities
       Nancy (>= 0.23)
-#GIT
- # remote: https://gist.github.com/5d9c6983004c1c9ec91f.git
-  #specs:
-   #  (77ad64f596b13cb09af65878e67961e1815ffdda)
+GIT
+  remote: https://gist.github.com/5d9c6983004c1c9ec91f.git
+  specs:
+     (77ad64f596b13cb09af65878e67961e1815ffdda)
 HTTP
   remote: http://www.w3.org
   specs:
