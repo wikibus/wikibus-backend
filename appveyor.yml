@@ -9,25 +9,10 @@ before_build:
 services:
   - mssql2014
 
-build:
-  publish_wap: true  
-
-configuration:  
-  - Staging
-  - Release 
+configuration: Release 
 
 after_build:
   - .paket\paket.exe pack output nugets include-referenced-projects version %GitVersion_NuGetVersion%
 
 artifacts:
   - path: 'nugets\*.nupkg'
-  
-deploy:
-  - provider: Environment
-    name: wikibus.org API test
-    on:
-      Configuration: Staging
-  - provider: Environment
-    name: wikibus.org PURL test
-    on:
-      Configuration: Staging

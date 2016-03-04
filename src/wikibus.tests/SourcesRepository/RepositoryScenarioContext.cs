@@ -1,4 +1,5 @@
-﻿using JsonLD.Entities;
+﻿using System;
+using JsonLD.Entities;
 using VDS.RDF;
 using VDS.RDF.Query;
 using wikibus.sources;
@@ -16,7 +17,7 @@ namespace wikibus.tests.SourcesRepository
             var serializer = new EntitySerializer(contextProvider, frameProvider);
             var config = new TestConfiguration();
 
-            Repository = new sources.dotNetRDF.SourcesRepository(new LeviathanQueryProcessor(Store), serializer);
+            Repository = new sources.dotNetRDF.SourcesRepository(new Lazy<ISparqlQueryProcessor>(() => new LeviathanQueryProcessor(Store)), serializer);
         }
 
         public sources.dotNetRDF.SourcesRepository Repository { get; private set; }

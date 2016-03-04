@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Nancy;
 using VDS.RDF;
 using VDS.RDF.Parsing;
@@ -12,7 +13,7 @@ namespace data.wikibus.org
     /// </summary>
     public class SparqlModule : NancyModule
     {
-        private readonly ISparqlQueryProcessor _queryProcessor;
+        private readonly Lazy<ISparqlQueryProcessor> _queryProcessor;
         private readonly SparqlQueryParser _parser = new SparqlQueryParser();
         private readonly IRdfWriter _writer = new Notation3Writer();
         private readonly ISparqlResultsWriter _sparqlWriter = new SparqlXmlWriter();
@@ -21,7 +22,7 @@ namespace data.wikibus.org
         /// Initializes a new instance of the <see cref="SparqlModule"/> class.
         /// </summary>
         /// <param name="queryProcessor">The query processor.</param>
-        public SparqlModule(ISparqlQueryProcessor queryProcessor) : base("sparql")
+        public SparqlModule(Lazy<ISparqlQueryProcessor> queryProcessor) : base("sparql")
         {
             _queryProcessor = queryProcessor;
 
@@ -32,7 +33,7 @@ namespace data.wikibus.org
         {
             string query = Request.Query.query;
 
-            var result = _queryProcessor.ProcessQuery(_parser.ParseFromString(query));
+            var result = _queryProcessor.Value.ProcessQuery(_parser.ParseFromString(query));
 
             if (result is IGraph)
             {

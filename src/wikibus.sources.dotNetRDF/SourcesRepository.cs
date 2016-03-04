@@ -17,7 +17,7 @@ namespace wikibus.sources.dotNetRDF
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.ReturnValues)]
     public class SourcesRepository : ISourcesRepository
     {
-        private readonly ISparqlQueryProcessor _queryProcessor;
+        private readonly Lazy<ISparqlQueryProcessor> _queryProcessor;
         private readonly IEntitySerializer _serializer;
         private readonly SparqlQueryParser _parser = new SparqlQueryParser();
 
@@ -26,7 +26,7 @@ namespace wikibus.sources.dotNetRDF
         /// </summary>
         /// <param name="queryProcessor">The query processor.</param>
         /// <param name="serializer">JSON-LD serializer</param>
-        public SourcesRepository(ISparqlQueryProcessor queryProcessor, IEntitySerializer serializer)
+        public SourcesRepository(Lazy<ISparqlQueryProcessor> queryProcessor, IEntitySerializer serializer)
         {
             _queryProcessor = queryProcessor;
             _serializer = serializer;
@@ -94,7 +94,7 @@ namespace wikibus.sources.dotNetRDF
         {
             var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSingle.rq"));
             query.SetUri("source", uri);
-            var graph = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));
+            var graph = (IGraph)_queryProcessor.Value.ProcessQuery(_parser.ParseFromString(query.ToString()));
 
             if (graph.Triples.Count > 0)
             {
@@ -116,7 +116,7 @@ namespace wikibus.sources.dotNetRDF
             query.SetLiteral("page", page);
             query.SetLiteral("limit", pageSize);
             query.SetLiteral("offset", (page - 1) * pageSize);
-            var graph = (IGraph)_queryProcessor.ProcessQuery(_parser.ParseFromString(query.ToString()));
+            var graph = (IGraph)_queryProcessor.Value.ProcessQuery(_parser.ParseFromString(query.ToString()));
 
             if (graph.Triples.Count > 0)
             {
