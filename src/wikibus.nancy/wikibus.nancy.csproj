@@ -58,6 +58,7 @@
     <Compile Include="Bootstrap\ComponentsInstaller.cs" />
     <Compile Include="Bootstrap\CorsStartup.cs" />
     <Compile Include="Bootstrap\DotNetRdfStartup.cs" />
+    <Compile Include="Bootstrap\HydraStartup.cs" />
     <Compile Include="Components\ContextPathMapper.cs" />
     <Compile Include="ContextProviderExtensions.cs" />
     <Compile Include="EntryPoint.cs">

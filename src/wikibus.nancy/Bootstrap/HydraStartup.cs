@@ -3,7 +3,7 @@ using Nancy.Bootstrapper;
 using Nancy.Hydra;
 using wikibus.common;
 
-namespace data.wikibus.org
+namespace wikibus.nancy
 {
     /// <summary>
     /// Starts Hydra

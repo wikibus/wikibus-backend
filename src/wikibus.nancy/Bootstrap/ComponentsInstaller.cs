@@ -18,7 +18,6 @@ namespace wikibus.nancy
     public class ComponentsInstaller : Registrations
     {
         private const string SourceTrigStore = @"App_Data\sources.trig";
-        private const string SqlConnectionStringName = "sql";
         private static readonly string DotNetRDFConfiguration = ConfigurationManager.AppSettings["dotnetrdf-config"];
         private static readonly string QueryProcessorName = ConfigurationManager.AppSettings["queryPorcessor"];
 
@@ -26,7 +25,8 @@ namespace wikibus.nancy
         /// Initializes a new instance of the <see cref="ComponentsInstaller"/> class.
         /// </summary>
         /// <param name="pathProvider">The path provider.</param>
-        public ComponentsInstaller(IRootPathProvider pathProvider)
+        /// <param name="dataSourceConfig">Database configuration provider</param>
+        public ComponentsInstaller(IRootPathProvider pathProvider, ISourcesDatabaseConnectionStringProvider dataSourceConfig)
         {
             IWikibusConfiguration configuration = new AppSettingsConfiguration();
 
@@ -34,15 +34,13 @@ namespace wikibus.nancy
             Register(new Lazy<ISparqlQueryProcessor>(() =>
             {
                 var storePath = Path.Combine(pathProvider.GetRootPath(), SourceTrigStore);
-                ConfigurationLoader.AddObjectFactory(new StoreLoader(storePath, configuration));
+                ConfigurationLoader.AddObjectFactory(new StoreLoader(storePath, configuration, dataSourceConfig));
                 var configPath = Path.Combine(pathProvider.GetRootPath(), DotNetRDFConfiguration);
                 var configurationLoader = new ConfigurationLoader(configPath);
 
                 return configurationLoader.LoadObject<ISparqlQueryProcessor>(QueryProcessorName);
             }));
             Register(CreateFrameProvider());
-            Register<ISourceImagesRepository>(new SourceImagesRepository(ConfigurationManager.ConnectionStrings[SqlConnectionStringName].ConnectionString));
-            Register<IImageResizer>(new ImageResizer());
         }
 
         private static IFrameProvider CreateFrameProvider()

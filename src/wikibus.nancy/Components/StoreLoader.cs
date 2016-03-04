@@ -1,5 +1,4 @@
 using System;
-using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using VDS.RDF;
@@ -15,19 +14,21 @@ namespace wikibus.nancy
     /// </summary>
     public class StoreLoader : IObjectFactory
     {
-        private static readonly ConnectionStringSettings Sql = ConfigurationManager.ConnectionStrings["sql"];
         private readonly string _storePath;
         private readonly IWikibusConfiguration _config;
+        private readonly ISourcesDatabaseConnectionStringProvider _sourcesDatabaseConnectionStringProvider;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StoreLoader"/> class.
+        /// Initializes a new instance of the <see cref="StoreLoader" /> class.
         /// </summary>
         /// <param name="storePath">The store path.</param>
         /// <param name="config">The configuration</param>
-        public StoreLoader(string storePath, IWikibusConfiguration config)
+        /// <param name="sourcesDatabaseConnectionStringProvider">The sources database connection string provider.</param>
+        public StoreLoader(string storePath, IWikibusConfiguration config, ISourcesDatabaseConnectionStringProvider sourcesDatabaseConnectionStringProvider)
         {
             _storePath = storePath;
             _config = config;
+            _sourcesDatabaseConnectionStringProvider = sourcesDatabaseConnectionStringProvider;
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace wikibus.nancy
             if (!File.Exists(_storePath))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(_storePath));
-                var sourcesStore = new SourcesStore(new SqlConnection(Sql.ConnectionString), _config);
+                var sourcesStore = new SourcesStore(new SqlConnection(_sourcesDatabaseConnectionStringProvider.ConnectionString), _config);
                 sourcesStore.Initialize();
                 sourcesStore.SaveToFile(_storePath, new TriGWriter());
 

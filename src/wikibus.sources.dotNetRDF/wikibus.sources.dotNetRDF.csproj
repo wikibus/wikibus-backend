@@ -53,6 +53,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="FluentR2RMLExtenstions.cs" />
+    <Compile Include="ISourcesDatabaseConnectionStringProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourceImagesRepository.cs" />
     <Compile Include="SourcesRepository.cs" />
