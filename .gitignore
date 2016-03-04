@@ -9,3 +9,4 @@ paket-files
 **/App_Data
 paket.exe
 nugets/
+.vs/
