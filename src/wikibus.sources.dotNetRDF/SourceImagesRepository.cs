@@ -13,7 +13,7 @@ namespace wikibus.sources.dotNetRDF
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceImagesRepository"/> class.
         /// </summary>
-        public SourceImagesRepository(ISourcesDatabaseConnectionStringProvider configuration)
+        public SourceImagesRepository(ISourcesDatabaseSettings configuration)
         {
             _connectionString = configuration.ConnectionString;
         }

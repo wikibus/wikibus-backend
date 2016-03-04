@@ -16,19 +16,19 @@ namespace wikibus.nancy
     {
         private readonly string _storePath;
         private readonly IWikibusConfiguration _config;
-        private readonly ISourcesDatabaseConnectionStringProvider _sourcesDatabaseConnectionStringProvider;
+        private readonly ISourcesDatabaseSettings _sourcesDatabaseSettings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StoreLoader" /> class.
         /// </summary>
         /// <param name="storePath">The store path.</param>
         /// <param name="config">The configuration</param>
-        /// <param name="sourcesDatabaseConnectionStringProvider">The sources database connection string provider.</param>
-        public StoreLoader(string storePath, IWikibusConfiguration config, ISourcesDatabaseConnectionStringProvider sourcesDatabaseConnectionStringProvider)
+        /// <param name="sourcesDatabaseSettings">The sources database connection string provider.</param>
+        public StoreLoader(string storePath, IWikibusConfiguration config, ISourcesDatabaseSettings sourcesDatabaseSettings)
         {
             _storePath = storePath;
             _config = config;
-            _sourcesDatabaseConnectionStringProvider = sourcesDatabaseConnectionStringProvider;
+            _sourcesDatabaseSettings = sourcesDatabaseSettings;
         }
 
         /// <summary>
@@ -39,9 +39,9 @@ namespace wikibus.nancy
             if (!File.Exists(_storePath))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(_storePath));
-                var sourcesStore = new SourcesStore(new SqlConnection(_sourcesDatabaseConnectionStringProvider.ConnectionString), _config);
+                var sourcesStore = new SourcesStore(new SqlConnection(_sourcesDatabaseSettings.ConnectionString), _config);
                 sourcesStore.Initialize();
-                sourcesStore.SaveToFile(_storePath, new TriGWriter());
+                sourcesStore.SaveToFile(_storePath, new NQuadsWriter());
 
                 obj = sourcesStore;
                 return true;

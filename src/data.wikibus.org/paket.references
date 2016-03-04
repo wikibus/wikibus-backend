@@ -1,5 +1,7 @@
+Microsoft.CodeDom.Providers.DotNetCompilerPlatform
+Microsoft.Net.Compilers
 Nancy.Owin
-Microsoft.Owin.Host.HttpListener
+Microsoft.Owin.Host.SystemWeb
 Microsoft.Owin.Hosting
 dotNetRDF
 r2rml4net

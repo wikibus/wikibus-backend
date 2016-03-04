@@ -10,6 +10,8 @@ copy_local: true
 nuget Anotar.Custom.Fody
 nuget FakeItEasy
 nuget json-ld.net
+nuget Microsoft.CodeDom.Providers.DotNetCompilerPlatform 1.0.0 framework: >= net45
+nuget Microsoft.Net.Compilers 1.0.0 framework: >= net45
 nuget Nancy.Owin
 nuget Nancy.Testing
 nuget r2rml4net 0.4.0.0-pre01
@@ -30,7 +32,7 @@ nuget ImageResizer
 nuget jsonld.entities prerelease
 nuget JetBrainsAnnotations.Fody
 nuget ModuleInit.Fody
-nuget Microsoft.Owin.Host.HttpListener
+nuget Microsoft.Owin.Host.SystemWeb
 nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
