@@ -102,10 +102,6 @@
       <Project>{d2647469-3693-4756-a6d5-f8742572526d}</Project>
       <Name>wikibus.nancy</Name>
     </ProjectReference>
-    <ProjectReference Include="..\wikibus.purl.nancy\wikibus.purl.nancy.csproj">
-      <Project>{0e27e46a-84c4-4180-8628-22c57442ee30}</Project>
-      <Name>wikibus.purl.nancy</Name>
-    </ProjectReference>
     <ProjectReference Include="..\wikibus.sources.dotNetRDF\wikibus.sources.dotNetRDF.csproj">
       <Project>{dcd4b6e3-eb86-41b0-819a-c47e1b4b6d78}</Project>
       <Name>wikibus.sources.dotNetRDF</Name>
