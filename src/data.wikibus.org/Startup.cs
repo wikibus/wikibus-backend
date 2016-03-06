@@ -3,7 +3,7 @@ using data.wikibus.org;
 using Microsoft.Owin;
 using Owin;
 
-[OwinStartup(typeof(Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
 namespace data.wikibus.org
 {

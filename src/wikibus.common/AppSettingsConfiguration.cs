@@ -12,7 +12,7 @@ namespace wikibus.common
         /// </summary>
         public string BaseResourceNamespace
         {
-            get { return ConfigurationManager.AppSettings["BaseUrl"]; }
+            get { return ConfigurationManager.AppSettings["baseUrl"]; }
         }
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace wikibus.common
         /// </summary>
         public string BaseApiNamespace
         {
-            get { return ConfigurationManager.AppSettings["ApiUrl"]; }
+            get { return ConfigurationManager.AppSettings["apiUrl"]; }
         }
     }
 }
