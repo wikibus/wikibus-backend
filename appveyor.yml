@@ -18,10 +18,10 @@ configuration:
   
 deploy:
   - provider: Environment
-    name: [TEST] data.wikibus.org
+    name: '[TEST] data.wikibus.org'
     on:
       Configuration: Debug
   - provider: Environment
-    name: [TEST] wikibus.org
+    name: '[TEST] wikibus.org'
     on:
       Configuration: Debug
