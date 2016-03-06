@@ -13,5 +13,10 @@ namespace wikibus.tests
         {
             get { return "http://wikibus.org/data/"; }
         }
+
+        public string BaseWebNamespace
+        {
+            get { return "http://www.wikibus.org/"; }
+        }
     }
 }

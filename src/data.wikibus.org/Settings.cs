@@ -8,14 +8,14 @@ namespace data.wikibus.org
     {
         public string ConnectionString
         {
-            get { return ConfigurationManager.ConnectionStrings["sql"].ConnectionString; }
+            get { return ConfigurationManager.ConnectionStrings["wikibus.sources#sql"].ConnectionString; }
         }
 
         public Uri SourcesSparqlEndpoint
         {
             get
             {
-                var setting = ConfigurationManager.AppSettings["wikibus.source.dotNetRDF#sparqlEndpoint"];
+                var setting = ConfigurationManager.AppSettings["wikibus.sources.dotNetRDF#sparqlEndpoint"];
                 return new Uri(setting);
             }
         }

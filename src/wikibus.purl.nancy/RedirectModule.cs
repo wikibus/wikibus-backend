@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Nancy;
+using Nancy.Responses.Negotiation;
 using wikibus.common;
 
 namespace wikibus.purl.nancy
@@ -10,24 +11,27 @@ namespace wikibus.purl.nancy
     /// </summary>
     public class RedirectModule : NancyModule
     {
-        private readonly IWikibusConfiguration _config;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="RedirectModule"/> class.
         /// </summary>
         public RedirectModule(IWikibusConfiguration config)
         {
-            _config = config;
-
-            Get["/{path*}"] = rqst => RedirectRdfRequest();
-            Get["/"] = rqst => RedirectRdfRequest();
+            Get["/{path*}"] = rqst => RedirectRdfRequest(config.BaseApiNamespace);
+            Get["/{path*}", IsHtmlRequest] = rqst => RedirectRdfRequest(config.BaseWebNamespace);
+            Get["/"] = rqst => RedirectRdfRequest(config.BaseApiNamespace);
+            Get["/", IsHtmlRequest] = rqst => RedirectRdfRequest(config.BaseWebNamespace);
         }
 
-        private object RedirectRdfRequest()
+        private static bool IsHtmlRequest(NancyContext context)
         {
-            var baseUri = new Uri(_config.BaseApiNamespace);
+            return context.Request.Headers.Accept.Any(h => new MediaRange("text/html").Matches(new MediaRange(h.Item1)));
+        }
 
-            var uri = new UriBuilder(_config.BaseApiNamespace)
+        private object RedirectRdfRequest(string baseUrl)
+        {
+            var baseUri = new Uri(baseUrl);
+
+            var uri = new UriBuilder(baseUrl)
             {
                 Path = baseUri.AbsolutePath + Request.Url.Path.TrimStart('/'),
                 Query = Request.Url.Query.TrimStart('?')

@@ -7,12 +7,18 @@ namespace wikibus.common
     /// </summary>
     public class AppSettingsConfiguration : IWikibusConfiguration
     {
+        private const string Prefix = "wikibus#";
+
+        private const string BaseUrl = Prefix + "baseUrl";
+        private const string ApiUrl = Prefix + "apiUrl";
+        private const string WebUrl = Prefix + "websiteUrl";
+
         /// <summary>
         /// Gets the base namespace for data resources.
         /// </summary>
         public string BaseResourceNamespace
         {
-            get { return ConfigurationManager.AppSettings["baseUrl"]; }
+            get { return ConfigurationManager.AppSettings[BaseUrl]; }
         }
 
         /// <summary>
@@ -20,7 +26,15 @@ namespace wikibus.common
         /// </summary>
         public string BaseApiNamespace
         {
-            get { return ConfigurationManager.AppSettings["apiUrl"]; }
+            get { return ConfigurationManager.AppSettings[ApiUrl]; }
+        }
+
+        /// <summary>
+        /// Gets the base address for the wikibus.org website
+        /// </summary>
+        public string BaseWebNamespace
+        {
+            get { return ConfigurationManager.AppSettings[WebUrl]; }
         }
     }
 }

@@ -14,5 +14,10 @@
         /// Gets the base namespace for API resources.
         /// </summary>
         string BaseApiNamespace { get; }
+
+        /// <summary>
+        /// Gets the base address for the wikibus.org website
+        /// </summary>
+        string BaseWebNamespace { get; }
     }
 }
