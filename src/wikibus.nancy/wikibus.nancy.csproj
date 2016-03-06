@@ -71,7 +71,6 @@
     <Compile Include="WikibusApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bootstrap\NancyRdfStartup.cs" />
-    <Compile Include="Components\StoreLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Hydra\ApiDocumentation.json" />
