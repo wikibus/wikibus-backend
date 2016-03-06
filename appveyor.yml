@@ -18,10 +18,10 @@ configuration:
   
 deploy:
   - provider: Environment
-    name: wikibus.org API test
+    name: [TEST] data.wikibus.org
     on:
       Configuration: Debug
   - provider: Environment
-    name: wikibus.org PURL test
+    name: [TEST] wikibus.org
     on:
       Configuration: Debug
