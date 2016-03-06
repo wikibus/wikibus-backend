@@ -1,3 +1,6 @@
 GitVersionTask
 NullGuard.Fody
 JetBrainsAnnotations.Fody
+Nancy.Owin
+Microsoft.Owin.Host.SystemWeb
+Microsoft.Owin.Hosting
