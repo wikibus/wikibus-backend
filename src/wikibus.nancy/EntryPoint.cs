@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using Hydra.Annotations;
+﻿using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json;
@@ -59,12 +58,12 @@ namespace wikibus.nancy
         }
 
         [UsedImplicitly]
-        private static JObject Context
+        private JObject Context
         {
             get
             {
                 return new JObject(
-                    Base.Is(ConfigurationManager.AppSettings["baseUrl"]),
+                    Base.Is(Id),
                     Prefix.Of(typeof(Wbo)),
                     Prefix.Of(typeof(Api)),
                     "magazines".IsProperty(Api.magazines).Type().Id(),
