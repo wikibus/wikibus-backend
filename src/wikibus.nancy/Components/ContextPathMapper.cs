@@ -1,5 +1,6 @@
 ﻿using System;
 using Hydra;
+using Hydra.Resources;
 using wikibus.common;
 using wikibus.sources;
 
@@ -23,8 +24,9 @@ namespace wikibus.nancy
             ServeContextOf<Brochure>();
             ServeContextOf<Issue>();
             ServeContextOf<Magazine>();
-            ServeContextOf<PagedCollection<Book>>("PagedCollectionOfBooks");
-            ServeContextOf<PagedCollection<Brochure>>("PagedCollectionOfBrochures");
+            ServeContextOf<Collection<Book>>("PagedCollectionOfBooks");
+            ServeContextOf<Collection<Brochure>>("PagedCollectionOfBrochures");
+            ServeContextOf<Collection<Magazine>>("PagedCollectionOfMagazines");
             ServeContextOf<Collection<Issue>>("CollectionOfIssues");
         }
 

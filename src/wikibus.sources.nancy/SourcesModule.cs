@@ -1,5 +1,5 @@
 ﻿using System;
-using Hydra;
+using Hydra.Resources;
 using Nancy;
 using wikibus.common;
 
@@ -30,9 +30,9 @@ namespace wikibus.sources.nancy
             Get["magazine/{magName}"] = r => GetSingle(repository.GetMagazine);
             Get["magazine/{magName}/issues"] = r => GetSingle(repository.GetMagazineIssues) ?? new Collection<Issue>();
             Get["magazine/{magName}/issue/{number}"] = r => GetSingle(repository.GetIssue);
-            Get["books"] = r => GetPage<Book, PagedCollectionOfBooks>(repository.GetBooks);
-            Get["brochures"] = r => GetPage<Brochure, PagedCollectionOfBrochures>(repository.GetBrochures);
-            Get["magazines"] = r => GetPage<Magazine, PagedCollectionOfMagazines>(repository.GetMagazines);
+            Get["books"] = r => GetPage<Book, Collection<Book>>(repository.GetBooks);
+            Get["brochures"] = r => GetPage<Brochure, Collection<Brochure>>(repository.GetBrochures);
+            Get["magazines"] = r => GetPage<Magazine, Collection<Magazine>>(repository.GetMagazines);
         }
 
         private T GetSingle<T>(Func<Uri, T> getResource) where T : class

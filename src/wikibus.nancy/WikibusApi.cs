@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Hydra;
+using Hydra.Core;
 using Newtonsoft.Json.Linq;
 using wikibus.common.JsonLd;
 using wikibus.common.Vocabularies;
@@ -42,10 +43,7 @@ namespace wikibus.nancy
                     typeof(Book).ToClass(),
                     typeof(Brochure).ToClass(),
                     typeof(Magazine).ToClass(),
-                    typeof(Issue).ToClass(),
-                    typeof(PagedCollectionOfBooks).ToClass(),
-                    typeof(PagedCollectionOfMagazines).ToClass(),
-                    typeof(PagedCollectionOfBrochures).ToClass()
+                    typeof(Issue).ToClass()
                 };
             }
         }

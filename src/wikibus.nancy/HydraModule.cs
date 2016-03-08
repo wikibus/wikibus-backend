@@ -1,5 +1,6 @@
 ﻿using System;
 using Hydra;
+using Hydra.Core;
 using wikibus.common;
 
 namespace wikibus.nancy
@@ -7,7 +8,7 @@ namespace wikibus.nancy
     /// <summary>
     /// Serves wikibus API
     /// </summary>
-    public class HydraModule : Nancy.Hydra.HydraModule
+    public class HydraModule : Hydra.Nancy.HydraModule
     {
         private readonly IWikibusConfiguration _config;
 

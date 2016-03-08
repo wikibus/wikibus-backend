@@ -61,10 +61,6 @@
     <Compile Include="Mapping\WikibusR2RML.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hydra\Hydra.csproj">
-      <Project>{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}</Project>
-      <Name>Hydra</Name>
-    </ProjectReference>
     <ProjectReference Include="..\wikibus.common\wikibus.common.csproj">
       <Project>{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}</Project>
       <Name>wikibus.common</Name>
@@ -94,6 +90,17 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
+      <ItemGroup>
+        <Reference Include="Lernean.Hydra">
+          <HintPath>..\..\packages\Argolis\lib\net45\Lernean.Hydra.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
@@ -230,6 +237,17 @@
       <ItemGroup>
         <Reference Include="Resourcer">
           <HintPath>..\..\packages\Resourcer.Fody\Lib\portable-net45+netcore45+wpa81+wp8\Resourcer.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
+      <ItemGroup>
+        <Reference Include="TunnelVisionLabs.Net.UriTemplate">
+          <HintPath>..\..\packages\TunnelVisionLabs.Net.UriTemplate\lib\net20\TunnelVisionLabs.Net.UriTemplate.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

@@ -69,7 +69,16 @@ NUGET
     StyleCopPlus.MSBuild (4.7.49.5)
       StyleCop.MSBuild (>= 4.7.49.0)
     System.Data.SqlLocalDb (1.14.0)
+    TunnelVisionLabs.Net.UriTemplate (1.0.0-beta004)
     VDS.Common (1.6.0)
+  remote: https://ci.appveyor.com/nuget/argolis-hydra
+  specs:
+    Argolis (0.1.0)
+      JsonLd.Entities
+      TunnelVisionLabs.Net.UriTemplate (>= 0.0.0-prerelease)
+    Argolis.Nancy (0.1.0)
+      Argolis (>= 0.1.0)
+      Nancy
   remote: https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
   specs:
     Nancy.RDF (0.2.0-pre0030)
@@ -79,8 +88,4 @@ NUGET
 GIT
   remote: https://gist.github.com/5d9c6983004c1c9ec91f.git
   specs:
-     (77ad64f596b13cb09af65878e67961e1815ffdda)
-HTTP
-  remote: http://www.w3.org
-  specs:
-    context.jsonld (/ns/hydra/context.jsonld)
+     (2a5f0785c2686635f1b8ab21af1751d276d02727)

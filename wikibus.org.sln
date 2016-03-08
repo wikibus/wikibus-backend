@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.purl.nancy", "src\wikibus.purl.nancy\wikibus.purl.nancy.csproj", "{0E27E46A-84C4-4180-8628-22C57442EE30}"
 EndProject
@@ -30,10 +30,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.nancy", "src\wikibus.nancy\wikibus.nancy.csproj", "{D2647469-3693-4756-A6D5-F8742572526D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.common", "src\wikibus.common\wikibus.common.csproj", "{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Hydra", "src\Nancy.Hydra\Nancy.Hydra.csproj", "{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hydra", "src\Hydra\Hydra.csproj", "{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.org", "src\wikibus.org\wikibus.org.csproj", "{44AF921E-6E2B-488D-99F2-EE97A557E8BB}"
 EndProject
@@ -73,14 +69,6 @@ Global
 		{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CBCAC4DC-129D-4F36-96D5-19B14F18CF18}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8B427F1-AEEB-481B-8D51-A53AF4EF0813}.Release|Any CPU.Build.0 = Release|Any CPU
 		{44AF921E-6E2B-488D-99F2-EE97A557E8BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{44AF921E-6E2B-488D-99F2-EE97A557E8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44AF921E-6E2B-488D-99F2-EE97A557E8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU

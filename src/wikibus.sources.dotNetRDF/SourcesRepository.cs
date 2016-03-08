@@ -1,5 +1,5 @@
 ﻿using System;
-using Hydra;
+using Hydra.Resources;
 using JsonLD.Entities;
 using NullGuard;
 using Resourcer;
@@ -51,21 +51,21 @@ namespace wikibus.sources.dotNetRDF
         }
 
         /// <inheritdoc />
-        public PagedCollectionOfBooks GetBooks(Uri identifier, int page, int pageSize = 10)
+        public Collection<Book> GetBooks(Uri identifier, int page, int pageSize = 10)
         {
-            return GetAll<Book, PagedCollectionOfBooks>(identifier, page, pageSize);
+            return GetAll<Book, Collection<Book>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public PagedCollectionOfBrochures GetBrochures(Uri identifier, int page, int pageSize = 10)
+        public Collection<Brochure> GetBrochures(Uri identifier, int page, int pageSize = 10)
         {
-            return GetAll<Brochure, PagedCollectionOfBrochures>(identifier, page, pageSize);
+            return GetAll<Brochure, Collection<Brochure>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public PagedCollectionOfMagazines GetMagazines(Uri identifier, int page, int pageSize = 10)
+        public Collection<Magazine> GetMagazines(Uri identifier, int page, int pageSize = 10)
         {
-            return GetAll<Magazine, PagedCollectionOfMagazines>(identifier, page, pageSize);
+            return GetAll<Magazine, Collection<Magazine>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
@@ -108,7 +108,7 @@ namespace wikibus.sources.dotNetRDF
 
         private TCollection GetAll<T, TCollection>(Uri collectionUri, int page, int pageSize = 10)
             where T : class
-            where TCollection : PagedCollection<T>, new()
+            where TCollection : Collection<T>, new()
         {
             var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSourcesPage.rq"));
             query.SetUri("type", GetTypeUri(typeof(T)));
@@ -123,9 +123,7 @@ namespace wikibus.sources.dotNetRDF
                 var dataset = StringWriter.Write(graph, new NTriplesWriter(NTriplesSyntax.Rdf11));
 
                 var collection = _serializer.Deserialize<TCollection>(dataset);
-                collection.ItemsPerPage = pageSize;
-                collection.CurrentPage = page;
-
+                
                 return collection;
             }
 

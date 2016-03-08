@@ -1,6 +1,6 @@
 ﻿using System;
+using Hydra.Nancy;
 using Nancy.Bootstrapper;
-using Nancy.Hydra;
 using wikibus.common;
 
 namespace wikibus.nancy

@@ -86,14 +86,6 @@
     <Compile Include="SparqlModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hydra\Hydra.csproj">
-      <Project>{f8b427f1-aeeb-481b-8d51-a53af4ef0813}</Project>
-      <Name>Hydra</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Nancy.Hydra\Nancy.Hydra.csproj">
-      <Project>{cbcac4dc-129d-4f36-96d5-19b14f18cf18}</Project>
-      <Name>Nancy.Hydra</Name>
-    </ProjectReference>
     <ProjectReference Include="..\wikibus.common\wikibus.common.csproj">
       <Project>{5be7e665-da3b-4238-bc5b-8d722d27f5c4}</Project>
       <Name>wikibus.common</Name>
@@ -126,7 +118,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64248</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

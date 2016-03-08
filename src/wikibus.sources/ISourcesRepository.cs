@@ -1,5 +1,5 @@
 ﻿using System;
-using Hydra;
+using Hydra.Resources;
 
 namespace wikibus.sources
 {
@@ -32,7 +32,7 @@ namespace wikibus.sources
         /// <param name="identifier">The identifier.</param>
         /// <param name="page">The page.</param>
         /// <param name="pageSize">Number of books to fetch</param>
-        PagedCollectionOfBooks GetBooks(Uri identifier, int page, int pageSize = 10);
+        Collection<Book> GetBooks(Uri identifier, int page, int pageSize = 10);
 
         /// <summary>
         /// Gets the brochures.
@@ -40,7 +40,7 @@ namespace wikibus.sources
         /// <param name="identifier">The identifier.</param>
         /// <param name="page">The page.</param>
         /// <param name="pageSize">Number of brochures to fetch</param>
-        PagedCollectionOfBrochures GetBrochures(Uri identifier, int page, int pageSize = 10);
+        Collection<Brochure> GetBrochures(Uri identifier, int page, int pageSize = 10);
 
         /// <summary>
         /// Gets the magazines.
@@ -48,7 +48,7 @@ namespace wikibus.sources
         /// <param name="identifier">The identifier.</param>
         /// <param name="page">The page.</param>
         /// <param name="pageSize">Number of magazines to fetch</param>
-        PagedCollectionOfMagazines GetMagazines(Uri identifier, int page, int pageSize = 10);
+        Collection<Magazine> GetMagazines(Uri identifier, int page, int pageSize = 10);
 
         /// <summary>
         /// Gets the magazine issues.
