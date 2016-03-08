@@ -1,6 +1,7 @@
 ﻿using System;
 using Hydra.Resources;
 using Nancy;
+using TunnelVisionLabs.Net;
 using wikibus.common;
 
 namespace wikibus.sources.nancy
@@ -60,7 +61,14 @@ namespace wikibus.sources.nancy
                 return 400;
             }
 
-            return getPage(GetRequestUri(), page, PageSize);
+            var collection = getPage(GetRequestUri(), page, PageSize);
+
+            collection.Views = new[]
+            {
+                new TemplatedPartialCollectionView(new UriTemplate(Request.Url.Path + "{?page}"), "page", collection.TotalItems, page, PageSize)
+            };
+
+            return collection;
         }
     }
 }

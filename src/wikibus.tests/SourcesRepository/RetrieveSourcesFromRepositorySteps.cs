@@ -46,7 +46,8 @@ GRAPH <urn:book:collection>
     <http://wikibus.org/books> hydra:member <http://wikibus.org/book/{0}>
 }}
 }}";
-                _context.Store.ExecuteUpdate(string.Format(format, i, Wbo.Book));
+                var update = string.Format(format, i, Wbo.Book);
+                _context.Store.ExecuteUpdate(update);
             }
         }
 

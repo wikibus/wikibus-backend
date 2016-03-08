@@ -6,7 +6,7 @@ prefix wbo: <http://wikibus.org/ontology#>
 construct
 {
   ?container 
-    a hydra:PagedCollection ;
+    a hydra:Collection ;
     hydra:member ?member ;
     hydra:totalItems ?count.
 

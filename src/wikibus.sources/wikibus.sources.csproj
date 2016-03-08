@@ -65,8 +65,7 @@
     <Compile Include="Source.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Frames\PagedCollection.json" />
-    <EmbeddedResource Include="Frames\Collection.json" />
+    <EmbeddedResource Include="Frames\Collection.jsonld" />
     <None Include="paket.references" />
     <None Include="paket.template" />
   </ItemGroup>
@@ -128,7 +127,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="JsonLD.Entities">
-          <HintPath>..\..\packages\JsonLd.Entities\lib\net40\JsonLD.Entities.dll</HintPath>
+          <HintPath>..\..\packages\JsonLD.Entities\lib\net40\JsonLD.Entities.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

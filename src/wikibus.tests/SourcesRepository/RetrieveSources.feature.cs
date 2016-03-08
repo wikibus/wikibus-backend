@@ -322,12 +322,6 @@ this.ScenarioSetup(scenarioInfo);
      testRunner.When("page 1 of http://wikibus.org/books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 172
      testRunner.Then("\'TotalItems\' should be 21", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 173
-      testRunner.And("\'ItemsPerPage\' should be 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 174
-      testRunner.And("\'NextPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 175
-      testRunner.And("\'LastPage\' should be Uri \'http://wikibus.org/books?page=3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -337,22 +331,14 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetLastPageOfBooks()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get last page of books", ((string[])(null)));
-#line 177
+#line 176
 this.ScenarioSetup(scenarioInfo);
-#line 178
+#line 177
     testRunner.Given("20 books", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 179
+#line 178
      testRunner.When("page 2 of http://wikibus.org/books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 180
+#line 179
      testRunner.Then("\'TotalItems\' should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 181
-      testRunner.And("\'ItemsPerPage\' should be 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 182
-      testRunner.And("\'NextPage\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 183
-      testRunner.And("\'PreviousPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 184
-      testRunner.And("\'LastPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -362,22 +348,14 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetInvalidPageOfBooks()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get invalid page of books", ((string[])(null)));
-#line 186
+#line 184
 this.ScenarioSetup(scenarioInfo);
-#line 187
+#line 185
     testRunner.Given("20 books", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 188
+#line 186
      testRunner.When("page 20 of http://wikibus.org/books is fetched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 189
+#line 187
      testRunner.Then("\'TotalItems\' should be 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 190
-      testRunner.And("\'ItemsPerPage\' should be 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 191
-      testRunner.And("\'NextPage\' should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 192
-      testRunner.And("\'PreviousPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 193
-      testRunner.And("\'LastPage\' should be Uri \'http://wikibus.org/books?page=2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

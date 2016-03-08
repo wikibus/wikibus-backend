@@ -170,24 +170,21 @@ Scenario: Get first page of books
     Given 21 books
      When page 1 of http://wikibus.org/books is fetched
      Then 'TotalItems' should be 21
-      And 'ItemsPerPage' should be 10
-      And 'NextPage' should be Uri 'http://wikibus.org/books?page=2'
-      And 'LastPage' should be Uri 'http://wikibus.org/books?page=3'
+#      And 'Views[0].Next' should be Uri 'http://wikibus.org/books?page=2'
+#      And 'Views[0].Last' should be Uri 'http://wikibus.org/books?page=3'
 
 Scenario: Get last page of books
     Given 20 books
      When page 2 of http://wikibus.org/books is fetched
      Then 'TotalItems' should be 20
-      And 'ItemsPerPage' should be 10
-      And 'NextPage' should be null
-      And 'PreviousPage' should be Uri 'http://wikibus.org/books?page=2'
-      And 'LastPage' should be Uri 'http://wikibus.org/books?page=2'
+#      And 'Views[0].Next' should be null
+#      And 'Views[0].Previous' should be Uri 'http://wikibus.org/books?page=2'
+#      And 'Views[0].Last' should be Uri 'http://wikibus.org/books?page=2'
 
 Scenario: Get invalid page of books
     Given 20 books
      When page 20 of http://wikibus.org/books is fetched
      Then 'TotalItems' should be 20
-      And 'ItemsPerPage' should be 10
-      And 'NextPage' should be null
-      And 'PreviousPage' should be Uri 'http://wikibus.org/books?page=2'
-      And 'LastPage' should be Uri 'http://wikibus.org/books?page=2'
+#      And 'Views[0].Next' should be null
+#      And 'Views[0].Previous' should be Uri 'http://wikibus.org/books?page=2'
+#      And 'Views[0].Last' should be Uri 'http://wikibus.org/books?page=2'
