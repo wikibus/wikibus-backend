@@ -65,7 +65,7 @@ namespace wikibus.sources.nancy
 
             collection.Views = new[]
             {
-                new TemplatedPartialCollectionView(new UriTemplate(Request.Url.Path + "{?page}"), "page", collection.TotalItems, page, PageSize)
+                new TemplatedPartialCollectionView(new UriTemplate(Request.Url.SiteBase + Request.Url.Path + "{?page}"), "page", collection.TotalItems, page, PageSize)
             };
 
             return collection;
