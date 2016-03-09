@@ -30,8 +30,8 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the brochures Uri.
         /// </summary>
-        [SupportedProperty(Api.brochures)]
-        [AllowGet(Range = Wbo.PagedCollectionOfBrochures)]
+        [SupportedProperty(Api.brochures, Range = global::Hydra.Hydra.Collection)]
+        [AllowGet(Range = global::Hydra.Hydra.Collection)]
         public string Brochures
         {
             get { return "brochures"; }
@@ -40,8 +40,8 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the books Uri.
         /// </summary>
-        [SupportedProperty(Api.books, Range = Wbo.PagedCollectionOfBooks)]
-        [AllowGet]
+        [SupportedProperty(Api.books, Range = global::Hydra.Hydra.Collection)]
+        [AllowGet(Range = global::Hydra.Hydra.Collection)]
         public string Books
         {
             get { return "books"; }
@@ -50,8 +50,8 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the magazines Uri.
         /// </summary>
-        [SupportedProperty(Api.magazines, Range = Wbo.PagedCollectionOfMagazines)]
-        [AllowGet]
+        [SupportedProperty(Api.magazines, Range = global::Hydra.Hydra.Collection)]
+        [AllowGet(Range = global::Hydra.Hydra.Collection)]
         public string Magazines
         {
             get { return "magazines"; }

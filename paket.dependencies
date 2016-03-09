@@ -30,14 +30,14 @@ nuget NullGuard.Fody
 nuget ImpromptuInterface
 nuget NDbUnit.SqlClient
 nuget ImageResizer
-nuget jsonld.entities prerelease
+nuget jsonld.entities > 0.3 prerelease
 nuget JetBrainsAnnotations.Fody
 nuget ModuleInit.Fody
 nuget Microsoft.Owin.Host.SystemWeb
 nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
-nuget Argolis
-nuget Argolis.Nancy
+nuget Argolis prerelease
+nuget Argolis.Nancy prerelease
 
 git https://gist.github.com/5d9c6983004c1c9ec91f.git

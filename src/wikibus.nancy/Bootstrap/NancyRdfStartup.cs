@@ -21,7 +21,7 @@ namespace wikibus.nancy
             mapper.AddNamespace(Dc.Prefix, new Uri(Dc.BaseUri));
             mapper.AddNamespace(DCTerms.Prefix, new Uri(DCTerms.BaseUri));
             mapper.AddNamespace(Schema.Prefix, new Uri(Schema.BaseUri));
-            mapper.AddNamespace(Hydra.Hydra.Prefix, new Uri(Hydra.Hydra.BaseUri));
+            mapper.AddNamespace(global::Hydra.Hydra.Prefix, new Uri(global::Hydra.Hydra.BaseUri));
             mapper.AddNamespace(Rdf.Prefix, new Uri(Rdf.BaseUri));
             mapper.AddNamespace(Rdfs.Prefix, new Uri(Rdfs.BaseUri));
             mapper.AddNamespace(Bibo.Prefix, new Uri(Bibo.BaseUri));

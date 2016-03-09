@@ -26,7 +26,7 @@ NUGET
       Fody (>= 1.29.2)
     json-ld.net (1.0.4)
       Newtonsoft.Json (>= 4.0.1)
-    Microsoft.CodeDom.Providers.DotNetCompilerPlatform (1.0.0) - framework: >= net45
+    Microsoft.CodeDom.Providers.DotNetCompilerPlatform (1.0.0) - framework: >= net40
       Microsoft.Net.Compilers (>= 1.0.0)
     Microsoft.Net.Compilers (1.0.0) - framework: >= net40
     Microsoft.Owin (3.0.1)
@@ -71,11 +71,11 @@ NUGET
     VDS.Common (1.6.0)
   remote: https://ci.appveyor.com/nuget/argolis-hydra
   specs:
-    Argolis (0.1.0)
+    Argolis (0.2.0-pre0063)
       JsonLD.Entities
       TunnelVisionLabs.Net.UriTemplate (>= 0.0.0-prerelease)
-    Argolis.Nancy (0.1.0)
-      Argolis (>= 0.1.0)
+    Argolis.Nancy (0.2.0-pre0063)
+      Argolis (>= 0.2.0-pre0063)
       Nancy
   remote: https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
   specs:

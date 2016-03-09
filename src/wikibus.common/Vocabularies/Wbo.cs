@@ -49,24 +49,5 @@ namespace wikibus.common.Vocabularies
         /// A periodical publication about public transport.
         /// </summary>
         public const string Magazine = BaseUri + "Magazine";
-
-        
-        /// <summary>
-        /// A typed hydra collection of Magazines.
-        /// </summary>
-        public const string PagedCollectionOfMagazines = BaseUri + "PagedCollectionOfMagazines";
-
-        
-        /// <summary>
-        /// A typed hydra collection of Brochures.
-        /// </summary>
-        public const string PagedCollectionOfBrochures = BaseUri + "PagedCollectionOfBrochures";
-
-        
-        /// <summary>
-        /// A typed hydra collection of Books.
-        /// </summary>
-        public const string PagedCollectionOfBooks = BaseUri + "PagedCollectionOfBooks";
-
     }
 }

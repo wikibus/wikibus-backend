@@ -23,14 +23,6 @@ namespace wikibus.nancy
         }
 
         /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        public string Id
-        {
-            get { return new Uri(Entrypoint, "doc").ToString(); }
-        }
-
-        /// <summary>
         /// Gets the supported classes.
         /// </summary>
         public override IEnumerable<Class> SupportedClasses

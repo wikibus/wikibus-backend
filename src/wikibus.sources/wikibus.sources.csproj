@@ -90,8 +90,8 @@
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
       <ItemGroup>
-        <Reference Include="Lernean.Hydra">
-          <HintPath>..\..\packages\Argolis\lib\net45\Lernean.Hydra.dll</HintPath>
+        <Reference Include="Lernaean.Hydra">
+          <HintPath>..\..\packages\Argolis\lib\net45\Lernaean.Hydra.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
