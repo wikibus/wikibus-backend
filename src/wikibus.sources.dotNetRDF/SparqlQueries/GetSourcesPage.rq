@@ -5,7 +5,7 @@ prefix wbo: <http://wikibus.org/ontology#>
 
 construct
 {
-  ?container 
+  @collection 
     a hydra:Collection ;
     hydra:member ?member ;
     hydra:totalItems ?count.
@@ -15,13 +15,10 @@ construct
 }
 where
 {
-  ?g foaf:primaryTopic @collection .
-  BIND( iri(concat(str(@collection), '?page=@page')) as ?container )
-
   optional {
     select ?member ?title ?hasImage
     {
-      graph ?g 
+      graph @collection
       {
         @collection hydra:member ?member .
         ?member dcterms:title ?title .                

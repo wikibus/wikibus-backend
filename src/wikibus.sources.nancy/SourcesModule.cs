@@ -61,11 +61,12 @@ namespace wikibus.sources.nancy
                 return 400;
             }
 
-            var collection = getPage(GetRequestUri(), page, PageSize);
+            var requestUri = GetRequestUri();
+            var collection = getPage(requestUri, page, PageSize);
 
             collection.Views = new[]
             {
-                new TemplatedPartialCollectionView(new UriTemplate(Request.Url.SiteBase + Request.Url.Path + "{?page}"), "page", collection.TotalItems, page, PageSize)
+                new TemplatedPartialCollectionView(new UriTemplate(requestUri + "{?page}"), "page", collection.TotalItems, page, PageSize)
             };
 
             return collection;

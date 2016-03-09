@@ -6,6 +6,7 @@ using Resourcer;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
+using VDS.RDF.Query.Builder;
 using VDS.RDF.Writing;
 using wikibus.common.Vocabularies;
 
@@ -71,7 +72,9 @@ namespace wikibus.sources.dotNetRDF
         /// <inheritdoc />
         public Collection<Issue> GetMagazineIssues(Uri identifier)
         {
-            return Get<Collection<Issue>>(identifier);
+            var magazineIssues = Get<Collection<Issue>>(identifier);
+            magazineIssues.TotalItems = magazineIssues.Members.Length;
+            return magazineIssues;
         }
 
         /// <inheritdoc />
@@ -122,9 +125,7 @@ namespace wikibus.sources.dotNetRDF
             {
                 var dataset = StringWriter.Write(graph, new NTriplesWriter(NTriplesSyntax.Rdf11));
 
-                var collection = _serializer.Deserialize<TCollection>(dataset);
-                
-                return collection;
+                return _serializer.Deserialize<TCollection>(dataset);
             }
 
             return new TCollection();
