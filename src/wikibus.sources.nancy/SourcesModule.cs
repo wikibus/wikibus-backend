@@ -31,9 +31,9 @@ namespace wikibus.sources.nancy
             Get["magazine/{magName}"] = r => GetSingle(repository.GetMagazine);
             Get["magazine/{magName}/issues"] = r => GetSingle(repository.GetMagazineIssues) ?? new Collection<Issue>();
             Get["magazine/{magName}/issue/{number}"] = r => GetSingle(repository.GetIssue);
-            Get["books"] = r => GetPage<Book, Collection<Book>>(repository.GetBooks);
-            Get["brochures"] = r => GetPage<Brochure, Collection<Brochure>>(repository.GetBrochures);
-            Get["magazines"] = r => GetPage<Magazine, Collection<Magazine>>(repository.GetMagazines);
+            Get["books"] = r => GetPage(repository.GetBooks);
+            Get["brochures"] = r => GetPage(repository.GetBrochures);
+            Get["magazines"] = r => GetPage(repository.GetMagazines);
         }
 
         private T GetSingle<T>(Func<Uri, T> getResource) where T : class
@@ -46,9 +46,8 @@ namespace wikibus.sources.nancy
             return new Uri(new Uri(_config.BaseResourceNamespace), Request.Path);
         }
 
-        private dynamic GetPage<T, TCollection>(Func<Uri, int, int, TCollection> getPage)
+        private dynamic GetPage<T>(Func<Uri, int, int, Collection<T>> getPage)
             where T : class
-            where TCollection : Collection<T>
         {
             int page;
             if (!int.TryParse(Request.Query.page.Value, out page))
@@ -64,7 +63,7 @@ namespace wikibus.sources.nancy
             var requestUri = GetRequestUri();
             var collection = getPage(requestUri, page, PageSize);
 
-            collection.Views = new[]
+            collection.Views = new IView[]
             {
                 new TemplatedPartialCollectionView(new UriTemplate(requestUri + "{?page}"), "page", collection.TotalItems, page, PageSize)
             };

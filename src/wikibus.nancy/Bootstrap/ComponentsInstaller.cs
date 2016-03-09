@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Configuration;
-using System.IO;
 using JsonLD.Entities;
 using Nancy.Bootstrapper;
 using VDS.RDF.Query;
@@ -29,14 +27,7 @@ namespace wikibus.nancy
                 var endpointUri = databaseSettings.SourcesSparqlEndpoint;
                 return new RemoteQueryProcessor(new SparqlRemoteEndpoint(endpointUri));
             }));
-            Register(CreateFrameProvider());
-        }
-
-        private static IFrameProvider CreateFrameProvider()
-        {
-            var frameProvider = new StaticFrameProvider();
-            frameProvider.SetupSourcesFrames();
-            return frameProvider;
+            Register<IFrameProvider>(new WikibusModelFrames());
         }
     }
 }

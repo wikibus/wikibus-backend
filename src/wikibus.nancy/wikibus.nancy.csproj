@@ -59,7 +59,6 @@
     <Compile Include="Bootstrap\DotNetRdfStartup.cs" />
     <Compile Include="Bootstrap\HydraStartup.cs" />
     <Compile Include="Components\ContextPathMapper.cs" />
-    <Compile Include="ContextProviderExtensions.cs" />
     <Compile Include="EntryPoint.cs">
       <SubType>Code</SubType>
     </Compile>

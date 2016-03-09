@@ -20,10 +20,8 @@ namespace wikibus.tests.SourcesRepository
                 "member".IsProperty(Hydra.Hydra.member).Container().Set(),
                 "totalItems".IsProperty(Hydra.Hydra.totalItems));
             contextProvider.SetContext(typeof(Collection<Book>), jObject);
-            var frameProvider = new StaticFrameProvider();
-            frameProvider.SetupSourcesFrames();
+            var frameProvider = new WikibusModelFrames();
             var serializer = new EntitySerializer(contextProvider, frameProvider);
-            var config = new TestConfiguration();
 
             Repository = new sources.dotNetRDF.SourcesRepository(new Lazy<ISparqlQueryProcessor>(() => new LeviathanQueryProcessor(Store)), serializer);
         }

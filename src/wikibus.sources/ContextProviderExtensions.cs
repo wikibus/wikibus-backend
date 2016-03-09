@@ -6,24 +6,25 @@ using Resourcer;
 namespace wikibus.sources
 {
     /// <summary>
-    /// Extension to set up @context for source models
+    /// Provider JSON-LD frames for wikibus models
     /// </summary>
-    public static class ContextProviderExtensions
+    /// <seealso cref="JsonLD.Entities.StaticFrameProvider" />
+    public class WikibusModelFrames : StaticFrameProvider
     {
         private static readonly JObject CollectionFrame = JObject.Parse(Resource.AsString("Frames.Collection.jsonld"));
 
         /// <summary>
-        /// Setups the sources frames.
+        /// Initializes a new instance of the <see cref="WikibusModelFrames"/> class.
         /// </summary>
-        public static void SetupSourcesFrames(this StaticFrameProvider frameProvider)
+        public WikibusModelFrames()
         {
-            frameProvider.SetFrame(typeof(Book), JObject.Parse("{ '@type': 'wbo:Book' }"));
-            frameProvider.SetFrame(typeof(Brochure), JObject.Parse("{ '@type': 'wbo:Brochure' }"));
-            frameProvider.SetFrame(typeof(Issue), JObject.Parse("{ '@type': 'schema:PublicationIssue' }"));
-            frameProvider.SetFrame(typeof(Collection<Book>), CollectionFrame);
-            frameProvider.SetFrame(typeof(Collection<Brochure>), CollectionFrame);
-            frameProvider.SetFrame(typeof(Collection<Magazine>), CollectionFrame);
-            frameProvider.SetFrame(typeof(Collection<Issue>), CollectionFrame);
+            SetFrame(typeof(Book), JObject.Parse("{ '@type': 'wbo:Book' }"));
+            SetFrame(typeof(Brochure), JObject.Parse("{ '@type': 'wbo:Brochure' }"));
+            SetFrame(typeof(Issue), JObject.Parse("{ '@type': 'schema:PublicationIssue' }"));
+            SetFrame(typeof(Collection<Book>), CollectionFrame);
+            SetFrame(typeof(Collection<Brochure>), CollectionFrame);
+            SetFrame(typeof(Collection<Magazine>), CollectionFrame);
+            SetFrame(typeof(Collection<Issue>), CollectionFrame);
         }
     }
 }
