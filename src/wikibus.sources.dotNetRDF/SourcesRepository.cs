@@ -6,7 +6,6 @@ using Resourcer;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
-using VDS.RDF.Query.Builder;
 using VDS.RDF.Writing;
 using wikibus.common.Vocabularies;
 
