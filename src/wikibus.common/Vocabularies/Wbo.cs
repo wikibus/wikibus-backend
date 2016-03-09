@@ -49,5 +49,6 @@ namespace wikibus.common.Vocabularies
         /// A periodical publication about public transport.
         /// </summary>
         public const string Magazine = BaseUri + "Magazine";
+
     }
 }
