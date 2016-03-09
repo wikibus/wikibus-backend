@@ -57,7 +57,7 @@ namespace wikibus.nancy
             get { return "magazines"; }
         }
 
-        [UsedImplicitly]
+        [UsedImplicitly, JsonProperty]
         private JObject Context
         {
             get
