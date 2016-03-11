@@ -1,6 +1,7 @@
 ﻿using System;
 using data.wikibus.org;
 using Microsoft.Owin;
+using Microsoft.Owin.Extensions;
 using Owin;
 
 [assembly: OwinStartup(typeof(Startup))]
@@ -17,6 +18,7 @@ namespace data.wikibus.org
                 await func();
             });
             builder.UseNancy();
+            builder.UseStageMarker(PipelineStage.MapHandler);
         }
     }
 }
