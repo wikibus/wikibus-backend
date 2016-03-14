@@ -2,8 +2,8 @@
 using System.Linq;
 using FakeItEasy;
 using JsonLD.Entities;
-using Nancy.RDF;
-using Nancy.RDF.Contexts;
+using Nancy.Rdf;
+using Nancy.Rdf.Contexts;
 using Nancy.Testing;
 using wikibus.common;
 using wikibus.sources;

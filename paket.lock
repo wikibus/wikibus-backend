@@ -71,7 +71,7 @@ NUGET
     VDS.Common (1.6.0)
   remote: https://ci.appveyor.com/nuget/argolis-hydra
   specs:
-    Argolis (0.2.0-pre0063)
+    Argolis (0.2.0-pre0067)
       JsonLD.Entities
       TunnelVisionLabs.Net.UriTemplate (>= 0.0.0-prerelease)
     Argolis.Nancy (0.2.0-pre0063)
@@ -83,7 +83,7 @@ NUGET
       json-ld.net
   remote: https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
   specs:
-    Nancy.RDF (0.2.0-pre0032)
+    Nancy.Rdf (0.2.0-pre0038)
       dotNetRDF
       JsonLD.Entities (>= 0.0.0-prerelease)
       Nancy

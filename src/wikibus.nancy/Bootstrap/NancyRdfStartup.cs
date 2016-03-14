@@ -1,6 +1,6 @@
 ﻿using System;
 using Nancy.Bootstrapper;
-using Nancy.RDF;
+using Nancy.Rdf;
 using wikibus.common;
 using wikibus.common.Vocabularies;
 

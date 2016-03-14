@@ -9,7 +9,7 @@ namespace wikibus.nancy
     /// <summary>
     /// Maps wikibus models to remote contexts
     /// </summary>
-    public class ContextPathMapper : Nancy.RDF.Contexts.ContextPathMapper
+    public class ContextPathMapper : Nancy.Rdf.Contexts.ContextPathMapper
     {
         private readonly IWikibusConfiguration _config;
 
