@@ -8,7 +8,7 @@ namespace wikibus.nancy.Hydra
     /// <summary>
     /// Factory of wikibus API documentation
     /// </summary>
-    public class ApiDocumentationFactory : IApiDocumentationProvider
+    public class ApiDocumentationFactory : IApiDocumentationFactory
     {
         private readonly IWikibusConfiguration _configuration;
 
