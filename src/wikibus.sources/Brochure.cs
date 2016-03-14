@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Hydra.Annotations;
-using JetBrains.Annotations;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json.Linq;
 using NullGuard;
@@ -95,12 +94,6 @@ namespace wikibus.sources
 
                 yield return Wbo.Brochure;
             }
-        }
-
-        [UsedImplicitly]
-        private string Type
-        {
-            get { return Wbo.Brochure; }
         }
     }
 }
