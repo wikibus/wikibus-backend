@@ -88,10 +88,10 @@ namespace wikibus.sources
         {
             get
             {
-                foreach (var type in base.Types)
-                {
-                    yield return type;
-                }
+                ////foreach (var type in base.Types)
+                ////{
+                ////    yield return type;
+                ////}
 
                 yield return Wbo.Brochure;
             }
