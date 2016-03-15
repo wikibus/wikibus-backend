@@ -6,6 +6,7 @@ using JsonLD.Entities.Context;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
+using Vocab;
 using wikibus.common.JsonLd;
 using wikibus.common.Vocabularies;
 

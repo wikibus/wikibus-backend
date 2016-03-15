@@ -39,5 +39,6 @@ nuget nunit < 3
 nuget System.Data.SqlLocalDb
 nuget Argolis prerelease
 nuget Argolis.Nancy prerelease
+nuget Rdf.Vocabularies
 
 http https://gist.githubusercontent.com/tpluscode/5d9c6983004c1c9ec91f/raw/2a5f0785c2686635f1b8ab21af1751d276d02727/vocabulary.tt

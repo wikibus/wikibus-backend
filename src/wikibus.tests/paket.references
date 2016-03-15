@@ -13,3 +13,4 @@ NDbUnit.SqlClient
 JetBrainsAnnotations.Fody
 System.Data.SqlLocalDb
 Argolis
+Rdf.Vocabularies

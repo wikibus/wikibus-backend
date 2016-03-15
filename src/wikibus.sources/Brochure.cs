@@ -3,6 +3,7 @@ using Hydra.Annotations;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json.Linq;
 using NullGuard;
+using Vocab;
 using wikibus.common.Vocabularies;
 
 namespace wikibus.sources

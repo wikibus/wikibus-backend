@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Hydra;
 using Hydra.Core;
 using Newtonsoft.Json.Linq;
+using Vocab;
 using wikibus.common.JsonLd;
 using wikibus.common.Vocabularies;
 using wikibus.sources;

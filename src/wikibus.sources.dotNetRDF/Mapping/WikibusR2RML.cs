@@ -6,6 +6,7 @@ using TCode.r2rml4net.Mapping;
 using TCode.r2rml4net.Mapping.Fluent;
 using TCode.r2rml4net.RDB;
 using TCode.r2rml4net.Validation;
+using Vocab;
 using wikibus.common;
 using wikibus.common.Vocabularies;
 

@@ -7,6 +7,7 @@ using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Writing;
+using Vocab;
 using wikibus.common.Vocabularies;
 
 namespace wikibus.sources.dotNetRDF

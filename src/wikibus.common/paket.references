@@ -2,3 +2,4 @@ GitVersionTask
 NullGuard.Fody
 JetBrainsAnnotations.Fody
 JsonLd.Entities
+Rdf.Vocabularies

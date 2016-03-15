@@ -35,7 +35,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
-    <Content Include="Vocabularies\Opus.owl" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -60,58 +59,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Api.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vocabularies\Bibo.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Bibo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vocabularies\CustomSchema.cs" />
-    <Compile Include="Vocabularies\Lexvo.cs" />
-    <Compile Include="Vocabularies\Opus.cs">
-      <DependentUpon>Opus.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Vocabularies\DC.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DC.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vocabularies\DCTerms.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DCTerms.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vocabularies\FOAF.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FOAF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vocabularies\RDF.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RDF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vocabularies\RDFS.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RDFS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vocabularies\Schema.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Schema.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vocabularies\SIOC.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIOC.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vocabularies\SKOS.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SKOS.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Vocabularies\Wbo.owl" />
@@ -121,74 +68,12 @@
       <DependentUpon>Api.owl</DependentUpon>
       <LastGenOutput>Api.cs</LastGenOutput>
     </None>
-    <None Include="Vocabularies\Opus.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Opus.cs</LastGenOutput>
-      <DependentUpon>Opus.owl</DependentUpon>
-    </None>
-    <None Include="Vocabularies\BIBO.owl" />
-    <None Include="Vocabularies\Bibo.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Bibo.cs</LastGenOutput>
-      <DependentUpon>BIBO.owl</DependentUpon>
-    </None>
-    <None Include="Vocabularies\DC.owl" />
-    <None Include="Vocabularies\DC.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DC.cs</LastGenOutput>
-      <DependentUpon>DC.owl</DependentUpon>
-    </None>
-    <None Include="Vocabularies\FOAF.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FOAF.cs</LastGenOutput>
-      <DependentUpon>FOAF.owl</DependentUpon>
-    </None>
-    <None Include="Vocabularies\Schema.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Schema.cs</LastGenOutput>
-      <DependentUpon>Schema.owl</DependentUpon>
-    </None>
-    <None Include="Vocabularies\SKOS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SKOS.cs</LastGenOutput>
-      <DependentUpon>SKOS.rdf</DependentUpon>
-    </None>
-    <None Include="Vocabularies\SIOC.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SIOC.cs</LastGenOutput>
-      <DependentUpon>SIOC.owl</DependentUpon>
-    </None>
-    <None Include="Vocabularies\RDFS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RDFS.cs</LastGenOutput>
-      <DependentUpon>RDFS.owl</DependentUpon>
-    </None>
-    <None Include="Vocabularies\RDF.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RDF.cs</LastGenOutput>
-      <DependentUpon>RDF.owl</DependentUpon>
-    </None>
-    <None Include="Vocabularies\DCTerms.owl" />
-    <None Include="Vocabularies\DCTerms.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DCTerms.cs</LastGenOutput>
-      <DependentUpon>DCTerms.owl</DependentUpon>
-    </None>
-    <None Include="Vocabularies\FOAF.owl" />
     <None Include="paket.references" />
-    <None Include="Vocabularies\RDF.owl" />
-    <None Include="Vocabularies\RDFS.owl" />
-    <None Include="Vocabularies\Schema.owl">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Vocabularies\SIOC.owl" />
-    <None Include="Vocabularies\SKOS.rdf" />
     <Compile Include="Vocabularies\Wbo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Wbo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vocabularies\Xsd.cs" />
     <Content Include="Vocabularies\Api.owl" />
     <None Include="Vocabularies\Wbo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -280,6 +165,17 @@
       <ItemGroup>
         <Reference Include="NullGuard">
           <HintPath>..\..\packages\NullGuard.Fody\Lib\portable-net4+sl5+wpa81+wp8+win8+MonoAndroid16+MonoTouch40\NullGuard.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
+      <ItemGroup>
+        <Reference Include="Rdf.Vocabularies">
+          <HintPath>..\..\packages\Rdf.Vocabularies\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Rdf.Vocabularies.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
