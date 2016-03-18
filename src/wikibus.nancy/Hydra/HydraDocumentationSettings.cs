@@ -35,6 +35,7 @@ namespace wikibus.nancy.Hydra
             get
             {
                 yield return new AssemblyAnnotatedTypeSelector(typeof(Source).Assembly);
+                yield return new AssemblyAnnotatedTypeSelector(typeof(EntryPoint).Assembly);
             }
         }
 
