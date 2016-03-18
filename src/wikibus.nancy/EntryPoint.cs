@@ -11,6 +11,7 @@ namespace wikibus.nancy
     /// <summary>
     /// The API entry point
     /// </summary>
+    [SupportedClass(Api.EntryPoint)]
     public sealed class EntryPoint
     {
         /// <summary>

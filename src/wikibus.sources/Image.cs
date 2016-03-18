@@ -1,7 +1,6 @@
 ﻿using JetBrains.Annotations;
 using NullGuard;
 using Vocab;
-using wikibus.common.Vocabularies;
 
 namespace wikibus.sources
 {

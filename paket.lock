@@ -57,7 +57,7 @@ NUGET
     r2rml4net (0.4.0-pre01)
       DatabaseSchemaReader (>= 1.2.8)
       dotNetRDF (>= 1.0.0)
-    Rdf.Vocabularies (1.0.0)
+    Rdf.Vocabularies (1.1.0)
     Resourcer.Fody (1.4.1)
       Fody (>= 1.29.2)
     SpecFlow (2.0.0)
@@ -72,21 +72,22 @@ NUGET
     VDS.Common (1.6.0)
   remote: https://ci.appveyor.com/nuget/argolis-hydra
   specs:
-    Argolis (0.2.0-pre0073)
-      JsonLD.Entities (>= 0.0.0-prerelease)
-      TunnelVisionLabs.Net.UriTemplate (>= 0.0.0-prerelease)
-    Argolis.Nancy (0.2.0-pre0070)
-      Argolis (>= 0.2.0-pre0070)
-      Nancy
+    Argolis (0.2.0-pre0106)
+      JsonLD.Entities (>= 0.3.1-pre0023)
+      Rdf.Vocabularies (>= 1.1.0)
+      TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
+    Argolis.Nancy (0.2.0-pre0106)
+      Argolis (>= 0.2.0-pre0106)
+      Nancy.Rdf (>= 0.2.0-pre0049)
   remote: https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
   specs:
-    JsonLD.Entities (0.3.1-pre0023)
+    JsonLD.Entities (0.3.1-pre0025)
       json-ld.net
   remote: https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
   specs:
-    Nancy.Rdf (0.2.0-pre0040)
+    Nancy.Rdf (0.2.0-pre0049)
       dotNetRDF
-      JsonLD.Entities (>= 0.3.1-pre0017 < 0.4.0)
+      JsonLD.Entities (>= 0.3.1-pre0017)
       Nancy
 HTTP
   remote: https://gist.githubusercontent.com

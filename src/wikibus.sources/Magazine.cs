@@ -15,6 +15,7 @@ namespace wikibus.sources
     /// A periodical about public transport
     /// </summary>
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
+    [SupportedClass(Wbo.Magazine)]
     public class Magazine
     {
         /// <summary>

@@ -37,6 +37,12 @@
     <rdfs:comment>A periodical publication about public transport.</rdfs:comment>
   </owl:Class>
 
+  <owl:Class rdf:about="MagazineIssue">
+    <rdfs:label>Magazine</rdfs:label>
+    <rdfs:subClassOf rdf:resource="Source" />
+    <rdfs:comment>An issue of a magazine.</rdfs:comment>
+  </owl:Class>
+
   <owl:DatatypeProperty rdf:about="http://lsdis.cs.uga.edu/projects/semdis/opus#book_title">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:comment>An alternative Book Title or the Book Title where an article appears, such as title of proceedings.</rdfs:comment>

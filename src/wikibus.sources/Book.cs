@@ -13,6 +13,7 @@ namespace wikibus.sources
     /// <summary>
     /// A book about public transport
     /// </summary>
+    [SupportedClass(Wbo.Book)]
     public class Book : Source
     {
         /// <summary>

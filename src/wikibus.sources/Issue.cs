@@ -13,6 +13,7 @@ namespace wikibus.sources
     /// A magazine issue
     /// </summary>
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
+    [SupportedClass(Wbo.MagazineIssue)]
     public class Issue : Source
     {
         /// <summary>

@@ -11,6 +11,7 @@ namespace wikibus.sources
     /// <summary>
     /// A brochure about buses, trams, etc.
     /// </summary>
+    [SupportedClass(Wbo.Brochure)]
     public class Brochure : Source
     {
         private string _description;
