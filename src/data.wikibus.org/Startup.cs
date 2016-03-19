@@ -12,11 +12,6 @@ namespace data.wikibus.org
     {
         public void Configuration(IAppBuilder builder)
         {
-            builder.Use(async (context, func) =>
-            {
-                Console.WriteLine(context.Request.Uri);
-                await func();
-            });
             builder.UseNancy();
             builder.UseStageMarker(PipelineStage.MapHandler);
         }
