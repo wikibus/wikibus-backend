@@ -65,6 +65,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Components\ImageResizer.cs" />
+    <Compile Include="Hydra\AssembliesToScanForSupportedTypes.cs" />
     <Compile Include="Hydra\HydraDocumentationSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bootstrap\NancyRdfStartup.cs" />

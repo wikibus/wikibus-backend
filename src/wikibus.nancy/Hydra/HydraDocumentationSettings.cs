@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using Hydra;
-using Hydra.DocumentationDiscovery;
+﻿using Hydra;
 using JsonLD.Entities;
 using wikibus.common;
-using wikibus.sources;
 
 namespace wikibus.nancy.Hydra
 {
@@ -27,16 +24,6 @@ namespace wikibus.nancy.Hydra
         public string DocumentationPath
         {
             get { return "doc"; }
-        }
-        
-        /// <inheritdoc/>
-        public IEnumerable<IDocumentedTypeSelector> Sources
-        {
-            get
-            {
-                yield return new AssemblyAnnotatedTypeSelector(typeof(Source).Assembly);
-                yield return new AssemblyAnnotatedTypeSelector(typeof(EntryPoint).Assembly);
-            }
         }
 
         /// <inheritdoc/>

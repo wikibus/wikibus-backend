@@ -9,6 +9,7 @@ using VDS.RDF.Query;
 using VDS.RDF.Writing;
 using Vocab;
 using wikibus.common.Vocabularies;
+using Resource = Resourcer.Resource;
 
 namespace wikibus.sources.dotNetRDF
 {

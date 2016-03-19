@@ -2,6 +2,7 @@
 using JsonLD.Entities;
 using Newtonsoft.Json.Linq;
 using Resourcer;
+using Resource = Resourcer.Resource;
 
 namespace wikibus.sources
 {
