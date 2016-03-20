@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Hydra.Annotations;
 using JsonLD.Entities.Context;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;
@@ -20,13 +21,13 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        [SupportedProperty(DCTerms.title)]
+        [JsonProperty(DCTerms.title)]
         public string Title { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
-        [SupportedProperty(Rdfs.comment)]
+        [JsonProperty(Rdfs.comment)]
         public string Description
         {
             [return: AllowNull]
@@ -49,7 +50,7 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the code.
         /// </summary>
-        [SupportedProperty(DCTerms.identifier)]
+        [JsonProperty(DCTerms.identifier)]
         public string Code
         {
             [return: AllowNull]

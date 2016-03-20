@@ -2,6 +2,7 @@
 using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;
@@ -19,14 +20,14 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the magazine Uri.
         /// </summary>
-        [SupportedProperty(Schema.isPartOf)]
-        [AllowGet]
+        [JsonProperty(Schema.isPartOf)]
+        [Range(Wbo.Magazine)]
         public Magazine Magazine { get; set; }
 
         /// <summary>
         /// Gets or sets the issue number.
         /// </summary>
-        [SupportedProperty(Schema.issueNumber)]
+        [JsonProperty(Schema.issueNumber)]
         public string Number { get; set; }
 
         /// <summary>

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;
@@ -19,20 +20,20 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the ISBN.
         /// </summary>
-        [SupportedProperty(Schema.isbn)]
+        [JsonProperty(Schema.isbn)]
         public string ISBN { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the author.
         /// </summary>
-        [SupportedProperty(Schema.author)]
-        [AllowGet]
+        [JsonProperty(Schema.author)]
+        [Hydra.Annotations.Range(Schema.Person)]
         public Author Author { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        [SupportedProperty(DCTerms.title)]
+        [JsonProperty(DCTerms.title)]
         [Required]
         public string Title { [return: AllowNull] get; set; }
 

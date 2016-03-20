@@ -26,14 +26,14 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        [SupportedProperty(DCTerms.title)]
+        [JsonProperty(DCTerms.title)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets the issues Uri.
         /// </summary>
-        [SupportedProperty(Api.issues)]
-        [AllowGet]
+        [JsonProperty(Api.issues)]
+        [Range(Hydra.Hydra.Collection)]
         public Uri Issues
         {
             get { return new Uri(Id + "/issues"); }

@@ -1,5 +1,6 @@
 ﻿using Hydra.Annotations;
 using JetBrains.Annotations;
+using JsonLD.Entities;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -31,31 +32,31 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the brochures Uri.
         /// </summary>
-        [SupportedProperty(Api.brochures, Range = global::Hydra.Hydra.Collection)]
-        [AllowGet(Range = global::Hydra.Hydra.Collection)]
-        public string Brochures
+        [JsonProperty(Api.brochures)]
+        [Range(global::Hydra.Hydra.Collection)]
+        public IriRef Brochures
         {
-            get { return "brochures"; }
+            get { return (IriRef)"brochures"; }
         }
 
         /// <summary>
         /// Gets the books Uri.
         /// </summary>
-        [SupportedProperty(Api.books, Range = global::Hydra.Hydra.Collection)]
-        [AllowGet(Range = global::Hydra.Hydra.Collection)]
-        public string Books
+        [JsonProperty(Api.books)]
+        [Range(global::Hydra.Hydra.Collection)]
+        public IriRef Books
         {
-            get { return "books"; }
+            get { return (IriRef)"books"; }
         }
 
         /// <summary>
         /// Gets the magazines Uri.
         /// </summary>
-        [SupportedProperty(Api.magazines, Range = global::Hydra.Hydra.Collection)]
-        [AllowGet(Range = global::Hydra.Hydra.Collection)]
-        public string Magazines
+        [JsonProperty(Api.magazines)]
+        [Range(global::Hydra.Hydra.Collection)]
+        public IriRef Magazines
         {
-            get { return "magazines"; }
+            get { return (IriRef)"magazines"; }
         }
 
         [UsedImplicitly, JsonProperty]
