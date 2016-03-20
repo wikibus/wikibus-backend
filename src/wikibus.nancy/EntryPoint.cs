@@ -56,13 +56,12 @@ namespace wikibus.nancy
             get { return (IriRef)"magazines"; }
         }
 
-        [UsedImplicitly, JsonProperty]
-        private JObject Context
+        [UsedImplicitly]
+        private static JObject Context
         {
             get
             {
                 return new JObject(
-                    Base.Is(Id),
                     Prefix.Of(typeof(Wbo)),
                     Prefix.Of(typeof(Api)),
                     "magazines".IsProperty(Api.magazines).Type().Id(),
@@ -75,6 +74,14 @@ namespace wikibus.nancy
         private string Type
         {
             get { return Api.EntryPoint; }
+        }
+
+        [UsedImplicitly]
+        private static JObject GetContext(EntryPoint p)
+        {
+            var context = Context;
+            context.AddFirst(Base.Is(p.Id));
+            return context;
         }
     }
 }
