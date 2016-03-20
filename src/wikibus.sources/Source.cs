@@ -27,7 +27,6 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the languages.
         /// </summary>
-        [JsonProperty(DCTerms.language)]
         [Range(Xsd.gMonth)]
         public Language[] Languages
         {
@@ -38,35 +37,30 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the pages count.
         /// </summary>
-        [JsonProperty(Bibo.pages)]
         [Range(Xsd.nonNegativeInteger)]
         public int? Pages { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication date date.
         /// </summary>
-        [JsonProperty(DCTerms.date)]
         [Range(Xsd.date)]
         public DateTime? Date { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication year.
         /// </summary>
-        [JsonProperty(Opus.year)]
         [Range(Xsd.gYear)]
         public int? Year { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication month.
         /// </summary>
-        [JsonProperty(Opus.month)]
         [Range(Xsd.gMonth)]
         public int? Month { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets the image.
         /// </summary>
-        [JsonProperty(Schema.image)]
         [Range(Schema.ImageObject)]
         public Image Image
         {

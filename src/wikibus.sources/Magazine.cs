@@ -26,13 +26,11 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        [JsonProperty(DCTerms.title)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets the issues Uri.
         /// </summary>
-        [JsonProperty(Api.issues)]
         [Range(Hydra.Hydra.Collection)]
         public Uri Issues
         {

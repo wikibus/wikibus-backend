@@ -20,14 +20,12 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the magazine Uri.
         /// </summary>
-        [JsonProperty(Schema.isPartOf)]
         [Range(Wbo.Magazine)]
         public Magazine Magazine { get; set; }
 
         /// <summary>
         /// Gets or sets the issue number.
         /// </summary>
-        [JsonProperty(Schema.issueNumber)]
         public string Number { get; set; }
 
         /// <summary>

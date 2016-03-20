@@ -32,7 +32,6 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the brochures Uri.
         /// </summary>
-        [JsonProperty(Api.brochures)]
         [Range(global::Hydra.Hydra.Collection)]
         public IriRef Brochures
         {
@@ -42,7 +41,6 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the books Uri.
         /// </summary>
-        [JsonProperty(Api.books)]
         [Range(global::Hydra.Hydra.Collection)]
         public IriRef Books
         {
@@ -52,7 +50,6 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the magazines Uri.
         /// </summary>
-        [JsonProperty(Api.magazines)]
         [Range(global::Hydra.Hydra.Collection)]
         public IriRef Magazines
         {

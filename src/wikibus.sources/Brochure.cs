@@ -21,13 +21,11 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        [JsonProperty(DCTerms.title)]
         public string Title { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
-        [JsonProperty(Rdfs.comment)]
         public string Description
         {
             [return: AllowNull]
@@ -50,7 +48,6 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the code.
         /// </summary>
-        [JsonProperty(DCTerms.identifier)]
         public string Code
         {
             [return: AllowNull]

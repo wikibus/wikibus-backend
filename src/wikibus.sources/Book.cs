@@ -20,20 +20,17 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the ISBN.
         /// </summary>
-        [JsonProperty(Schema.isbn)]
         public string ISBN { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the author.
         /// </summary>
-        [JsonProperty(Schema.author)]
         [Hydra.Annotations.Range(Schema.Person)]
         public Author Author { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        [JsonProperty(DCTerms.title)]
         [Required]
         public string Title { [return: AllowNull] get; set; }
 
