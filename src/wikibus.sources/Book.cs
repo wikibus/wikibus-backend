@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Hydra.Annotations;
 using JetBrains.Annotations;
@@ -20,18 +21,20 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the ISBN.
         /// </summary>
+        [ReadOnly(true)]
         public string ISBN { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the author.
         /// </summary>
+        [ReadOnly(true)]
         [Hydra.Annotations.Range(Schema.Person)]
         public Author Author { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
-        [Required]
+        [ReadOnly(true)]
         public string Title { [return: AllowNull] get; set; }
 
         /// <summary>

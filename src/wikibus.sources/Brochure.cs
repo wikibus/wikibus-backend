@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using Hydra.Annotations;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json;
@@ -21,11 +22,13 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
+        [ReadOnly(true)]
         public string Title { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
+        [ReadOnly(true)]
         public string Description
         {
             [return: AllowNull]
@@ -48,6 +51,7 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the code.
         /// </summary>
+        [ReadOnly(true)]
         public string Code
         {
             [return: AllowNull]

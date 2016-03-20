@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
@@ -27,6 +28,7 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the languages.
         /// </summary>
+        [ReadOnly(true)]
         [Range(Xsd.gMonth)]
         public Language[] Languages
         {
@@ -37,30 +39,35 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the pages count.
         /// </summary>
+        [ReadOnly(true)]
         [Range(Xsd.nonNegativeInteger)]
         public int? Pages { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication date date.
         /// </summary>
+        [ReadOnly(true)]
         [Range(Xsd.date)]
         public DateTime? Date { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication year.
         /// </summary>
+        [ReadOnly(true)]
         [Range(Xsd.gYear)]
         public int? Year { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets or sets the publication month.
         /// </summary>
+        [ReadOnly(true)]
         [Range(Xsd.gMonth)]
         public int? Month { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets the image.
         /// </summary>
+        [ReadOnly(true)]
         [Range(Schema.ImageObject)]
         public Image Image
         {

@@ -1,4 +1,5 @@
-﻿using Hydra.Annotations;
+﻿using System.ComponentModel;
+using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities;
 using JsonLD.Entities.Context;
@@ -32,6 +33,7 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the brochures Uri.
         /// </summary>
+        [ReadOnly(true)]
         [Range(global::Hydra.Hydra.Collection)]
         public IriRef Brochures
         {
@@ -41,6 +43,7 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the books Uri.
         /// </summary>
+        [ReadOnly(true)]
         [Range(global::Hydra.Hydra.Collection)]
         public IriRef Books
         {
@@ -50,6 +53,7 @@ namespace wikibus.nancy
         /// <summary>
         /// Gets the magazines Uri.
         /// </summary>
+        [ReadOnly(true)]
         [Range(global::Hydra.Hydra.Collection)]
         public IriRef Magazines
         {

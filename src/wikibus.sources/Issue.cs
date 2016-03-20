@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
@@ -20,12 +21,14 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the magazine Uri.
         /// </summary>
+        [ReadOnly(true)]
         [Range(Wbo.Magazine)]
         public Magazine Magazine { get; set; }
 
         /// <summary>
         /// Gets or sets the issue number.
         /// </summary>
+        [ReadOnly(true)]
         public string Number { get; set; }
 
         /// <summary>

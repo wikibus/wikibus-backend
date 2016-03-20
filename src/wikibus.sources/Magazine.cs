@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
@@ -26,11 +27,13 @@ namespace wikibus.sources
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
+        [ReadOnly(true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets the issues Uri.
         /// </summary>
+        [ReadOnly(true)]
         [Range(Hydra.Hydra.Collection)]
         public Uri Issues
         {
