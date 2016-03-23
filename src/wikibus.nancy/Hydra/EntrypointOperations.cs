@@ -12,11 +12,11 @@ namespace wikibus.nancy.Hydra
         /// </summary>
         public EntrypointOperations()
         {
-            SupportsGet();
+            Class.SupportsGet("Gets the API entrypoint", "The entrypoint is the the API starts");
 
-            Property(e => e.Books).SupportsGet();
-            Property(e => e.Brochures).SupportsGet();
-            Property(e => e.Magazines).SupportsGet();
+            Property(e => e.Books).SupportsGet("Gets the collectioon of books (paged)");
+            Property(e => e.Brochures).SupportsGet("Gets the collection of brochures (paged)");
+            Property(e => e.Magazines).SupportsGet("Gets the collection of magazines");
         }
     }
 }

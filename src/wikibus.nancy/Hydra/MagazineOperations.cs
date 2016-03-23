@@ -13,7 +13,7 @@ namespace wikibus.nancy.Hydra
         /// </summary>
         public MagazineOperations()
         {
-            SupportsGet();
+            Class.SupportsGet();
             Property(e => e.Issues).SupportsGet();
         }
     }

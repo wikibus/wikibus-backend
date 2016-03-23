@@ -72,12 +72,12 @@ NUGET
     VDS.Common (1.6.0)
   remote: https://ci.appveyor.com/nuget/argolis-hydra
   specs:
-    Argolis (0.2.0-unstable0143)
+    Argolis (0.2.0-unstable0160)
       JsonLD.Entities (>= 0.3.1-pre0032)
       Rdf.Vocabularies (>= 1.1.0)
       TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
-    Argolis.Nancy (0.2.0-unstable0143)
-      Argolis (>= 0.2.0-unstable0143)
+    Argolis.Nancy (0.2.0-unstable0160)
+      Argolis (>= 0.2.0-unstable0160)
       Nancy.Rdf (>= 0.2.0-pre0049)
   remote: https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
   specs:
