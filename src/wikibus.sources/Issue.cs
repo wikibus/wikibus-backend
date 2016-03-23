@@ -48,14 +48,16 @@ namespace wikibus.sources
         }
 
         [UsedImplicitly]
-        private static new JObject Context
+        private static new JArray Context
         {
             get
             {
-                var context = Source.Context;
-                context.Add("number".IsProperty(Schema.issueNumber));
-                context.Add("magazine".IsProperty(Schema.isPartOf));
-                return context;
+                var context = new JObject
+                {
+                    "number".IsProperty(Schema.issueNumber),
+                    "magazine".IsProperty(Schema.isPartOf)
+                };
+                return new JArray(Source.Context, Magazine.Context, context);
             }
         }
     }

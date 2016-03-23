@@ -40,8 +40,11 @@ namespace wikibus.sources
             get { return new Uri(Id + "/issues"); }
         }
 
+        /// <summary>
+        /// Gets the context.
+        /// </summary>
         [UsedImplicitly]
-        private static JObject Context
+        internal static JObject Context
         {
             get
             {

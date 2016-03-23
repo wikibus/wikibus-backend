@@ -16,6 +16,7 @@ namespace wikibus.sources
     /// <summary>
     /// A bibliographical source of knowledge about public transport
     /// </summary>
+    [SupportedClass(Wbo.Source)]
     public class Source
     {
         private Language[] _languages = new Language[0];
