@@ -1,5 +1,4 @@
 using Hydra.Discovery.SupportedOperations;
-using JsonLD.Entities;
 using wikibus.sources;
 
 namespace wikibus.nancy.Hydra
