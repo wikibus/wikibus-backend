@@ -74,8 +74,13 @@ namespace wikibus.sources.dotNetRDF
         public Collection<Issue> GetMagazineIssues(Uri identifier)
         {
             var magazineIssues = Get<Collection<Issue>>(identifier);
-            magazineIssues.TotalItems = magazineIssues.Members.Length;
-            return magazineIssues;
+            if (magazineIssues != null)
+            {
+                magazineIssues.TotalItems = magazineIssues.Members.Length;
+                return magazineIssues;
+            }
+
+            return new Collection<Issue>();
         }
 
         /// <inheritdoc />
