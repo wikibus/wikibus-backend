@@ -48,7 +48,7 @@ namespace wikibus.sources
         }
 
         [UsedImplicitly]
-        private static new JArray Context
+        private static new JToken Context
         {
             get
             {
@@ -57,7 +57,7 @@ namespace wikibus.sources
                     "number".IsProperty(Schema.issueNumber),
                     "magazine".IsProperty(Schema.isPartOf)
                 };
-                return new JArray(Source.Context, Magazine.Context, context);
+                return Source.Context.MergeWith(Magazine.Context, context);
             }
         }
     }
