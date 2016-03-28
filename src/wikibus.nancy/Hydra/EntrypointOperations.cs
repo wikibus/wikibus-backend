@@ -14,7 +14,7 @@ namespace wikibus.nancy.Hydra
         {
             Class.SupportsGet("Gets the API entrypoint", "The entrypoint is the the API starts");
 
-            Property(e => e.Books).SupportsGet("Gets the collectioon of books (paged)");
+            Property(e => e.Books).SupportsGet("Gets the collection of books (paged)");
             Property(e => e.Brochures).SupportsGet("Gets the collection of brochures (paged)");
             Property(e => e.Magazines).SupportsGet("Gets the collection of magazines");
         }
