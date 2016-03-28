@@ -2,6 +2,7 @@
 using System.Linq;
 using Nancy;
 using Nancy.Bootstrapper;
+using Nancy.Bootstrappers.DryIoc;
 using Nancy.Diagnostics;
 using Nancy.Responses.Negotiation;
 using Nancy.TinyIoc;
@@ -11,17 +12,11 @@ namespace wikibus.nancy
     /// <summary>
     /// Bootstrapper for wikibus.org API app
     /// </summary>
-    public class Bootstrapper : DefaultNancyBootstrapper
+    public class Bootstrapper : DryIocNancyBootstrapper
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Bootstrapper"/> class.
-        /// </summary>
         public Bootstrapper()
         {
-            AppDomainAssemblyTypeScanner.AddAssembliesToScan(
-                "JsonLD.Entities",
-                "wikibus.sources.dotNetRDF",
-                "wikibus.common");
+            StaticConfiguration.DisableErrorTraces = false;
         }
 
         /// <summary>
@@ -47,17 +42,6 @@ namespace wikibus.nancy
         protected override DiagnosticsConfiguration DiagnosticsConfiguration
         {
             get { return new DiagnosticsConfiguration { Password = @"wb" }; }
-        }
-
-        /// <summary>
-        /// Applications the startup.
-        /// </summary>
-        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
-        {
-            base.ApplicationStartup(container, pipelines);
-#if DEBUG
-            StaticConfiguration.DisableErrorTraces = false;
-#endif
         }
 
         private static bool IsNotNancyProcessor(Type responseProcessor)
