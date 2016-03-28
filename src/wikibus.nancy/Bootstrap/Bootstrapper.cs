@@ -14,6 +14,9 @@ namespace wikibus.nancy
     /// </summary>
     public class Bootstrapper : DryIocNancyBootstrapper
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Bootstrapper"/> class.
+        /// </summary>
         public Bootstrapper()
         {
             StaticConfiguration.DisableErrorTraces = false;
