@@ -15,17 +15,6 @@ namespace wikibus.nancy
         private const string AllowHeader = "Allow";
         private const string AccessControlExposeHeaders = "Access-Control-Expose-Headers";
 
-        private readonly IWikibusConfiguration _configuration;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CorsStartup"/> class.
-        /// </summary>
-        /// <param name="configuration">The configuration.</param>
-        public CorsStartup(IWikibusConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-
         /// <summary>
         /// Append CORS headers to reponses
         /// </summary>

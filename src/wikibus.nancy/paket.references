@@ -10,4 +10,4 @@ Nancy.Rdf
 JetBrainsAnnotations.Fody
 Argolis.Nancy
 Rdf.Vocabularies
-Nancy.Bootstrappers.DryIoc
+Nancy.Bootstrappers.Autofac

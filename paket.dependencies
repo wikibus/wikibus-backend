@@ -11,8 +11,6 @@ copy_local: true
 nuget Anotar.Custom.Fody
 nuget FakeItEasy
 nuget json-ld.net
-nuget Microsoft.CodeDom.Providers.DotNetCompilerPlatform 1.0.0 framework: >= net45
-nuget Microsoft.Net.Compilers 1.0.0 framework: >= net45
 nuget Nancy.Owin
 nuget Nancy.Testing
 nuget r2rml4net 0.4.0.0-pre01
@@ -40,6 +38,6 @@ nuget System.Data.SqlLocalDb
 nuget Argolis prerelease
 nuget Argolis.Nancy prerelease
 nuget Rdf.Vocabularies
-nuget Nancy.Bootstrappers.DryIoc
+nuget Nancy.Bootstrappers.Autofac
 
 http https://gist.githubusercontent.com/tpluscode/5d9c6983004c1c9ec91f/raw/2a5f0785c2686635f1b8ab21af1751d276d02727/vocabulary.tt
