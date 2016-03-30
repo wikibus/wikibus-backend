@@ -7,6 +7,13 @@ NUGET
   specs:
     Anotar.Custom.Fody (3.0.0)
       Fody (>= 1.29.2)
+    Argolis (0.2.0-supported-operat0001)
+      JsonLd.Entities (>= 0.3.1)
+      Rdf.Vocabularies (>= 1.1.0)
+      TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
+    Argolis.Nancy (0.2.0-supported-operat0001)
+      Argolis (>= 0.2.0-supported-operat0001)
+      Nancy.Rdf (>= 0.2.0-beta0001)
     Autofac (3.5.2)
     CsQuery (1.3.4)
     DatabaseSchemaReader (1.5.0.5)
@@ -25,6 +32,8 @@ NUGET
       Fody (>= 1.29.2)
     JetBrainsAnnotations.Fody (1.0.4)
       Fody (>= 1.29.2)
+    JsonLd.Entities (0.3.1)
+      json-ld.net
     json-ld.net (1.0.4)
       Newtonsoft.Json (>= 4.0.1)
     Microsoft.Owin (3.0.1)
@@ -44,6 +53,11 @@ NUGET
     Nancy.Owin (1.4.1)
       Nancy (>= 1.4.1)
       Owin (>= 1.0)
+    Nancy.Rdf (0.2.0-beta0001)
+      dotNetRDF
+      JsonLd.Entities (>= 0.3.1)
+      Nancy
+      Rdf.Vocabularies
     Nancy.Testing (1.4.1)
       CsQuery (>= 1.3.3)
       Nancy (>= 1.4.1)
@@ -71,25 +85,6 @@ NUGET
     System.Data.SqlLocalDb (1.14.0)
     TunnelVisionLabs.Net.UriTemplate (1.0.0-beta004)
     VDS.Common (1.6.0)
-  remote: https://ci.appveyor.com/nuget/argolis-hydra
-  specs:
-    Argolis (0.2.0-unstable0175)
-      JsonLD.Entities (>= 0.3.1-pre0041)
-      Rdf.Vocabularies (>= 1.1.0)
-      TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
-    Argolis.Nancy (0.2.0-unstable0175)
-      Argolis (>= 0.2.0-unstable0175)
-      Nancy.Rdf (>= 0.2.0-pre0049)
-  remote: https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
-  specs:
-    JsonLD.Entities (0.3.1-pre0045)
-      json-ld.net
-  remote: https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
-  specs:
-    Nancy.Rdf (0.2.0-pre0049)
-      dotNetRDF
-      JsonLD.Entities (>= 0.3.1-pre0017)
-      Nancy
 HTTP
   remote: https://gist.githubusercontent.com
   specs:
