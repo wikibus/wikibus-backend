@@ -35,8 +35,8 @@ nuget Microsoft.Owin.Host.SystemWeb
 nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
-nuget Argolis = 0.2.0-supported-operat0001
-nuget Argolis.Nancy = 0.2.0-supported-operat0001
+nuget Argolis = 0.2.1-supported-operat0001
+nuget Argolis.Nancy = 0.2.1-supported-operat0001
 nuget Rdf.Vocabularies
 nuget Nancy.Bootstrappers.Autofac
 
