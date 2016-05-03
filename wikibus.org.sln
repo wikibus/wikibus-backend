@@ -41,6 +41,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{44E2163D-9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.vehicles.domain", "src\wikibus.vehicles.domain\wikibus.vehicles.domain.csproj", "{2EE1519D-C8EC-4A1F-8DFF-CB49381585C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.vehicles.application", "src\wikibus.vehicles.application\wikibus.vehicles.application.csproj", "{43D677DA-7A82-4B71-A8FA-FF0BCD9693EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.vehicles.nancy", "src\wikibus.vehicles.nancy\wikibus.vehicles.nancy.csproj", "{88EC6F2D-38BF-4607-AD2B-C798C9D15F89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{2EE1519D-C8EC-4A1F-8DFF-CB49381585C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EE1519D-C8EC-4A1F-8DFF-CB49381585C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EE1519D-C8EC-4A1F-8DFF-CB49381585C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43D677DA-7A82-4B71-A8FA-FF0BCD9693EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D677DA-7A82-4B71-A8FA-FF0BCD9693EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D677DA-7A82-4B71-A8FA-FF0BCD9693EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D677DA-7A82-4B71-A8FA-FF0BCD9693EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88EC6F2D-38BF-4607-AD2B-C798C9D15F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88EC6F2D-38BF-4607-AD2B-C798C9D15F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88EC6F2D-38BF-4607-AD2B-C798C9D15F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88EC6F2D-38BF-4607-AD2B-C798C9D15F89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,5 +112,7 @@ Global
 		{44AF921E-6E2B-488D-99F2-EE97A557E8BB} = {EF30ED7D-DC26-4317-A8E2-57B3CF7A1998}
 		{057FBE23-BDF2-4C41-BA57-94B4E87895D9} = {EF30ED7D-DC26-4317-A8E2-57B3CF7A1998}
 		{2EE1519D-C8EC-4A1F-8DFF-CB49381585C3} = {44E2163D-9F91-4D60-8915-1425BBD79223}
+		{43D677DA-7A82-4B71-A8FA-FF0BCD9693EA} = {44E2163D-9F91-4D60-8915-1425BBD79223}
+		{88EC6F2D-38BF-4607-AD2B-C798C9D15F89} = {44E2163D-9F91-4D60-8915-1425BBD79223}
 	EndGlobalSection
 EndGlobal
