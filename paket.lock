@@ -7,13 +7,6 @@ NUGET
   specs:
     Anotar.Custom.Fody (3.0)
       Fody (>= 1.29.2)
-    Argolis (0.2.1-supported-operat0001)
-      JsonLd.Entities (>= 0.3.1)
-      Rdf.Vocabularies (>= 1.1)
-      TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
-    Argolis.Nancy (0.2.1-supported-operat0001)
-      Argolis (>= 0.2.1-supported-operat0001)
-      Nancy.Rdf (>= 0.2.0-beta0001)
     Autofac (3.5.2)
     CsQuery (1.3.4)
     DatabaseSchemaReader (1.5.0.5)
@@ -85,6 +78,15 @@ NUGET
     System.Data.SqlLocalDb (1.14)
     TunnelVisionLabs.Net.UriTemplate (1.0.0-beta004)
     VDS.Common (1.6)
+  remote: https://ci.appveyor.com/nuget/argolis-hydra
+  specs:
+    Argolis (0.2.1-unstable0195)
+      JsonLd.Entities (>= 0.3.1)
+      Rdf.Vocabularies (>= 1.1)
+      TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
+    Argolis.Nancy (0.2.1-unstable0195)
+      Argolis (>= 0.2.1-unstable0195)
+      Nancy.Rdf (>= 0.2.0-beta0001)
 HTTP
   remote: https://gist.githubusercontent.com
   specs:
