@@ -113,20 +113,6 @@
     <None Include="Properties\PublishProfiles\Test.pubxml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
-      <PropertyGroup>
-        <__paket__GitVersionTask_targets>\packages\GitVersionTask\Build\portable-net+sl+win+wpa+wp\GitVersionTask</__paket__GitVersionTask_targets>
-      </PropertyGroup>
-    </When>
-  </Choose>
-  <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
-      <PropertyGroup>
-        <__paket__Fody_targets>portable-net+sl+win+wpa+wp\Fody</__paket__Fody_targets>
-      </PropertyGroup>
-    </When>
-  </Choose>
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
@@ -154,6 +140,20 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
+      <PropertyGroup>
+        <__paket__Fody_targets>portable-net+sl+win+wpa+wp\Fody</__paket__Fody_targets>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
+      <PropertyGroup>
+        <__paket__GitVersionTask_targets>\packages\GitVersionTask\Build\portable-net+sl+win+wpa+wp\GitVersionTask</__paket__GitVersionTask_targets>
+      </PropertyGroup>
+    </When>
+  </Choose>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>

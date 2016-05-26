@@ -23,20 +23,20 @@ nuget FluentAssertions
 nuget dotNetRDF
 nuget infoof.fody
 nuget JsonLd.Entities
-nuget Nancy.RDF = 0.2.0-beta0001
+nuget Nancy.RDF
 nuget NullGuard.Fody
 nuget ImpromptuInterface
 nuget NDbUnit.SqlClient
 nuget ImageResizer
-nuget jsonld.entities = 0.3.1
+nuget jsonld.entities
 nuget JetBrainsAnnotations.Fody
 nuget ModuleInit.Fody
 nuget Microsoft.Owin.Host.SystemWeb
 nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
-nuget Argolis = 0.2.1-unstable0195
-nuget Argolis.Nancy = 0.2.1-unstable0195
+nuget Argolis = 0.2.1-unstable0197
+nuget Argolis.Nancy = 0.2.1-unstable0197
 nuget Rdf.Vocabularies
 nuget Nancy.Bootstrappers.Autofac
 

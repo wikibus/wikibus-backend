@@ -162,20 +162,6 @@
     </StyleCopAdditionalAddinPaths>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
-      <PropertyGroup>
-        <__paket__GitVersionTask_targets>\packages\GitVersionTask\Build\portable-net+sl+win+wpa+wp\GitVersionTask</__paket__GitVersionTask_targets>
-      </PropertyGroup>
-    </When>
-  </Choose>
-  <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
-      <PropertyGroup>
-        <__paket__Fody_targets>portable-net+sl+win+wpa+wp\Fody</__paket__Fody_targets>
-      </PropertyGroup>
-    </When>
-  </Choose>
   <Import Project="..\..\.build\CommonTargets.targets" />
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
@@ -275,6 +261,20 @@
     </When>
   </Choose>
   <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
+      <PropertyGroup>
+        <__paket__Fody_targets>portable-net+sl+win+wpa+wp\Fody</__paket__Fody_targets>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
+      <PropertyGroup>
+        <__paket__GitVersionTask_targets>\packages\GitVersionTask\Build\portable-net+sl+win+wpa+wp\GitVersionTask</__paket__GitVersionTask_targets>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
       <ItemGroup>
         <Reference Include="HtmlAgilityPack">
@@ -334,7 +334,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
         <Reference Include="JsonLD.Entities">
-          <HintPath>..\..\packages\JsonLd.Entities\lib\net40\JsonLD.Entities.dll</HintPath>
+          <HintPath>..\..\packages\JsonLD.Entities\lib\net40\JsonLD.Entities.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -344,8 +344,8 @@
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5')">
       <ItemGroup>
-        <Reference Include="JsonLD">
-          <HintPath>..\..\packages\json-ld.net\lib\net40-Client\JsonLD.dll</HintPath>
+        <Reference Include="json-ld.net">
+          <HintPath>..\..\packages\json-ld.net\lib\net40-client\json-ld.net.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -487,6 +487,37 @@
       <ItemGroup>
         <Reference Include="System.Data.SqlLocalDb">
           <HintPath>..\..\packages\System.Data.SqlLocalDb\lib\net20\System.Data.SqlLocalDb.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
+      <ItemGroup>
+        <Reference Include="System.Diagnostics.DiagnosticSource">
+          <HintPath>..\..\packages\System.Diagnostics.DiagnosticSource\lib\portable-net45+win8+wpa81\System.Diagnostics.DiagnosticSource.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
+      <ItemGroup>
+        <Reference Include="System.Net.Http">
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.5'">
+      <ItemGroup>
+        <Reference Include="System.Threading.Tasks.Extensions">
+          <HintPath>..\..\packages\System.Threading.Tasks.Extensions\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
