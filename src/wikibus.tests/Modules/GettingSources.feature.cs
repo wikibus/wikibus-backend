@@ -123,7 +123,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 24
     testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 25
-     testRunner.And("page 1 of book collection should have been retrieved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And(string.Format("page 1 of {0} collection should have been retrieved", type), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -160,7 +160,7 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("GET source collection Nth page")]
         [NUnit.Framework.TestCaseAttribute("book", "/books", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("brochure", "/brocures", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("brochure", "/brochures", new string[0])]
         [NUnit.Framework.TestCaseAttribute("magazine", "/magazines", new string[0])]
         public virtual void GETSourceCollectionNthPage(string type, string path, string[] exampleTags)
         {
@@ -185,7 +185,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 52
     testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 53
-     testRunner.And("page 25 of book collection should have been retrieved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+     testRunner.And(string.Format("page 25 of {0} collection should have been retrieved", type), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -22,7 +22,7 @@ Scenario Outline: GET collection first page
      And exisiting <type> collection
     When I GET resource '<path>'
     Then response should have status 200
-     And page 1 of book collection should have been retrieved
+     And page 1 of <type> collection should have been retrieved
 Examples: 
     | type     | path       |
     | book     | /books     |
@@ -50,11 +50,11 @@ Scenario Outline: GET source collection Nth page
 		| page | 25    |
     When I GET resource '<path>'
     Then response should have status 200
-     And page 25 of book collection should have been retrieved
+     And page 25 of <type> collection should have been retrieved
 Examples: 
     | type     | path       |
     | book     | /books     |
-    | brochure | /brocures  |
+    | brochure | /brochures  |
     | magazine | /magazines |
 
 Scenario Outline: GET images

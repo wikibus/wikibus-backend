@@ -55,6 +55,18 @@ namespace wikibus.tests.Modules.Bindings
             A.CallTo(() => _dep.Sources.GetBooks(A<Uri>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Book>());
         }
 
+        [Given(@"exisiting brochure collection")]
+        public void GivenExisitingBrochureCollection()
+        {
+            A.CallTo(() => _dep.Sources.GetBrochures(A<Uri>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Brochure>());
+        }
+
+        [Given(@"exisiting magazine collection")]
+        public void GivenExisitingMagazineCollection()
+        {
+            A.CallTo(() => _dep.Sources.GetMagazines(A<Uri>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Magazine>());
+        }
+
         [Given(@"existing book '(.*)'")]
         public void GivenExistingBook(string resourceUri)
         {
@@ -111,6 +123,18 @@ namespace wikibus.tests.Modules.Bindings
         public void ThenPageOfBookCollectionShouldHaveBeenRetrieved(int page)
         {
             A.CallTo(() => _dep.Sources.GetBooks(A<Uri>.Ignored, page, A<int>.Ignored)).MustHaveHappened();
+        }
+
+        [Then(@"page (.*) of magazine collection should have been retrieved")]
+        public void ThenPageOfMagazineCollectionShouldHaveBeenRetrieved(int page)
+        {
+            A.CallTo(() => _dep.Sources.GetMagazines(A<Uri>.Ignored, page, A<int>.Ignored)).MustHaveHappened();
+        }
+
+        [Then(@"page (.*) of brochure collection should have been retrieved")]
+        public void ThenPageOfBrochureCollectionShouldHaveBeenRetrieved(int page)
+        {
+            A.CallTo(() => _dep.Sources.GetBrochures(A<Uri>.Ignored, page, A<int>.Ignored)).MustHaveHappened();
         }
 
         [Then(@"response should have status (.*)")]
