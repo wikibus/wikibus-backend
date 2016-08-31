@@ -35,8 +35,8 @@ nuget Microsoft.Owin.Host.SystemWeb
 nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
-nuget Argolis = 0.2.1-unstable0197
-nuget Argolis.Nancy = 0.2.1-unstable0197
+nuget Argolis = 0.2.1-unstable0202
+nuget Argolis.Nancy = 0.2.1-unstable0202
 nuget Rdf.Vocabularies
 nuget Nancy.Bootstrappers.Autofac
 
