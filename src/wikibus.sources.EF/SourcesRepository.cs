@@ -221,7 +221,7 @@ namespace wikibus.sources.EF
             {
                 Id = _templates.CreateBookIdentifier(bookEntity.Id)
             };
-            if (bookEntity.BookISBN != null) book.ISBN = bookEntity.BookISBN;
+            if (bookEntity.BookISBN != null) book.ISBN = bookEntity.BookISBN.Trim();
             if (bookEntity.Pages != null) book.Pages = bookEntity.Pages;
             if (bookEntity.Year != null) book.Year = bookEntity.Year;
             if (bookEntity.Month != null) book.Month = bookEntity.Month;
