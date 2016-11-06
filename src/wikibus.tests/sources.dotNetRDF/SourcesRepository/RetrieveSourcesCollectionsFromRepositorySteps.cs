@@ -1,5 +1,6 @@
 ﻿using System;
 using TechTalk.SpecFlow;
+using wikibus.sources.Filters;
 
 namespace wikibus.tests.SourcesRepository
 {
@@ -16,7 +17,7 @@ namespace wikibus.tests.SourcesRepository
         [When(@"page (.*) of (.*) is fetched")]
         public void WhenPageOfBooksIsFetched(int expectedPageIndex, string uri)
         {
-            var books = _context.Repository.GetBooks(new Uri(uri), expectedPageIndex);
+            var books = _context.Repository.GetBooks(new Uri(uri), new BookFilters(), expectedPageIndex);
             ScenarioContext.Current.Set(books, "Model");
         }
 

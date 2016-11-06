@@ -11,3 +11,4 @@ JetBrainsAnnotations.Fody
 Argolis.Nancy
 Rdf.Vocabularies
 Nancy.Bootstrappers.Autofac
+EntityFramework

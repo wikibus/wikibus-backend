@@ -1,4 +1,6 @@
-﻿Feature: Mapping Magazines from SQL to RDF
+﻿@RML
+@SQL
+Feature: Mapping Magazines from SQL to RDF
    Make sure that correct RDF is returned for SQL rows
 
 Scenario: Mapping complete magazine

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.purl.nancy", "src\wikibus.purl.nancy\wikibus.purl.nancy.csproj", "{0E27E46A-84C4-4180-8628-22C57442EE30}"
 EndProject
@@ -44,6 +44,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.vehicles.application", "src\wikibus.vehicles.application\wikibus.vehicles.application.csproj", "{43D677DA-7A82-4B71-A8FA-FF0BCD9693EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.vehicles.nancy", "src\wikibus.vehicles.nancy\wikibus.vehicles.nancy.csproj", "{88EC6F2D-38BF-4607-AD2B-C798C9D15F89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.sources.EF", "src\wikibus.sources.EF\wikibus.sources.EF.csproj", "{D147EF7A-ADCE-4CEB-A7FD-0073D248E15D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{88EC6F2D-38BF-4607-AD2B-C798C9D15F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88EC6F2D-38BF-4607-AD2B-C798C9D15F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88EC6F2D-38BF-4607-AD2B-C798C9D15F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D147EF7A-ADCE-4CEB-A7FD-0073D248E15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D147EF7A-ADCE-4CEB-A7FD-0073D248E15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D147EF7A-ADCE-4CEB-A7FD-0073D248E15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D147EF7A-ADCE-4CEB-A7FD-0073D248E15D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,5 +120,6 @@ Global
 		{2EE1519D-C8EC-4A1F-8DFF-CB49381585C3} = {44E2163D-9F91-4D60-8915-1425BBD79223}
 		{43D677DA-7A82-4B71-A8FA-FF0BCD9693EA} = {44E2163D-9F91-4D60-8915-1425BBD79223}
 		{88EC6F2D-38BF-4607-AD2B-C798C9D15F89} = {44E2163D-9F91-4D60-8915-1425BBD79223}
+		{D147EF7A-ADCE-4CEB-A7FD-0073D248E15D} = {642ED47A-5660-43BA-87C1-689D66EAE6F7}
 	EndGlobalSection
 EndGlobal

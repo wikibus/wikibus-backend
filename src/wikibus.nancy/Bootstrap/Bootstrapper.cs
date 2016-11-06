@@ -9,7 +9,10 @@ using Nancy.Diagnostics;
 using Nancy.Responses.Negotiation;
 using wikibus.common;
 using wikibus.nancy.Hydra;
+using wikibus.sources;
 using wikibus.sources.dotNetRDF;
+using wikibus.sources.EF;
+using SourcesRepository = wikibus.sources.EF.SourcesRepository;
 
 namespace wikibus.nancy
 {
@@ -65,9 +68,28 @@ namespace wikibus.nancy
                 builder.RegisterAssemblyTypes(typeof(SourcesRepository).Assembly)
                     .Where(t => t.Name.EndsWith("Repository"))
                     .AsImplementedInterfaces();
+                builder.RegisterType<SourceImagesRepository>().AsImplementedInterfaces();
+                builder.RegisterType<IdRetriever>().AsSelf();
+                builder.RegisterType<EntityFactory>().AsSelf();
+                builder.RegisterType<IdentifierTemplates>().AsSelf();
             });
 
             base.ConfigureApplicationContainer(existingContainer);
+        }
+
+        /// <summary>
+        /// Configures the request container.
+        /// </summary>
+        /// <param name="container">The container.</param>
+        /// <param name="context">The context.</param>
+        protected override void ConfigureRequestContainer(ILifetimeScope container, NancyContext context)
+        {
+            container.Update(builder =>
+            {
+                builder.RegisterType<SourceContext>().AsImplementedInterfaces();
+            });
+
+            base.ConfigureRequestContainer(container, context);
         }
 
         private static bool IsNotNancyProcessor(Type responseProcessor)

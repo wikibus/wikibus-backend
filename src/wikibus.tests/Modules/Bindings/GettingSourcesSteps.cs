@@ -10,6 +10,7 @@ using Nancy.Responses.Negotiation;
 using Nancy.Testing;
 using TechTalk.SpecFlow;
 using wikibus.sources;
+using wikibus.sources.Filters;
 
 namespace wikibus.tests.Modules.Bindings
 {
@@ -52,19 +53,19 @@ namespace wikibus.tests.Modules.Bindings
         [Given(@"exisiting book collection")]
         public void GivenExisitingBookCollection()
         {
-            A.CallTo(() => _dep.Sources.GetBooks(A<Uri>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Book>());
+            A.CallTo(() => _dep.Sources.GetBooks(A<Uri>.Ignored, A<BookFilters>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Book>());
         }
 
         [Given(@"exisiting brochure collection")]
         public void GivenExisitingBrochureCollection()
         {
-            A.CallTo(() => _dep.Sources.GetBrochures(A<Uri>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Brochure>());
+            A.CallTo(() => _dep.Sources.GetBrochures(A<Uri>.Ignored, A<BrochureFilters>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Brochure>());
         }
 
         [Given(@"exisiting magazine collection")]
         public void GivenExisitingMagazineCollection()
         {
-            A.CallTo(() => _dep.Sources.GetMagazines(A<Uri>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Magazine>());
+            A.CallTo(() => _dep.Sources.GetMagazines(A<Uri>.Ignored, A<MagazineFilters>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Magazine>());
         }
 
         [Given(@"existing book '(.*)'")]
@@ -122,19 +123,19 @@ namespace wikibus.tests.Modules.Bindings
         [Then(@"page (.*) of book collection should have been retrieved")]
         public void ThenPageOfBookCollectionShouldHaveBeenRetrieved(int page)
         {
-            A.CallTo(() => _dep.Sources.GetBooks(A<Uri>.Ignored, page, A<int>.Ignored)).MustHaveHappened();
+            A.CallTo(() => _dep.Sources.GetBooks(A<Uri>.Ignored, A<BookFilters>.Ignored, page, A<int>.Ignored)).MustHaveHappened();
         }
 
         [Then(@"page (.*) of magazine collection should have been retrieved")]
         public void ThenPageOfMagazineCollectionShouldHaveBeenRetrieved(int page)
         {
-            A.CallTo(() => _dep.Sources.GetMagazines(A<Uri>.Ignored, page, A<int>.Ignored)).MustHaveHappened();
+            A.CallTo(() => _dep.Sources.GetMagazines(A<Uri>.Ignored, A<MagazineFilters>.Ignored, page, A<int>.Ignored)).MustHaveHappened();
         }
 
         [Then(@"page (.*) of brochure collection should have been retrieved")]
         public void ThenPageOfBrochureCollectionShouldHaveBeenRetrieved(int page)
         {
-            A.CallTo(() => _dep.Sources.GetBrochures(A<Uri>.Ignored, page, A<int>.Ignored)).MustHaveHappened();
+            A.CallTo(() => _dep.Sources.GetBrochures(A<Uri>.Ignored, A<BrochureFilters>.Ignored, page, A<int>.Ignored)).MustHaveHappened();
         }
 
         [Then(@"response should have status (.*)")]

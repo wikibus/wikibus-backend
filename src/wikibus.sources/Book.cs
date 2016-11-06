@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;

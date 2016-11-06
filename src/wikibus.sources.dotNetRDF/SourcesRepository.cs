@@ -9,6 +9,7 @@ using VDS.RDF.Query;
 using VDS.RDF.Writing;
 using Vocab;
 using wikibus.common.Vocabularies;
+using wikibus.sources.Filters;
 using Resource = Resourcer.Resource;
 
 namespace wikibus.sources.dotNetRDF
@@ -53,19 +54,19 @@ namespace wikibus.sources.dotNetRDF
         }
 
         /// <inheritdoc />
-        public Collection<Book> GetBooks(Uri identifier, int page, int pageSize = 10)
+        public Collection<Book> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
         {
             return GetAll<Book, Collection<Book>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public Collection<Brochure> GetBrochures(Uri identifier, int page, int pageSize = 10)
+        public Collection<Brochure> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
         {
             return GetAll<Brochure, Collection<Brochure>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public Collection<Magazine> GetMagazines(Uri identifier, int page, int pageSize = 10)
+        public Collection<Magazine> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
         {
             return GetAll<Magazine, Collection<Magazine>>(identifier, page, pageSize);
         }

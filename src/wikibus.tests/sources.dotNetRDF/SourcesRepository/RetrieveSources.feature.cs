@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace wikibus.tests.SourcesRepository
+namespace wikibus.tests.Sources_DotNetRDF.SourcesRepository
 {
     using TechTalk.SpecFlow;
     

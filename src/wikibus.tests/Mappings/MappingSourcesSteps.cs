@@ -35,7 +35,7 @@ namespace wikibus.tests.Mappings
             };
         }
 
-        [Given(@"table (.*) with data:")]
+        [Given(@"table (.*) with data:"), Scope(Tag = "SQL")]
         public void GivenTableWithData(string tableName, Table table)
         {
             var datasetFile = Path.GetTempFileName();
@@ -44,7 +44,13 @@ namespace wikibus.tests.Mappings
             _database.AppendXml(datasetFile);
         }
 
-        [When(@"retrieve all triples")]
+        [Given("data is inserted"), Scope(Tag = "SQL")]
+        public void GiveDataInserted()
+        {
+            _database.PerformDbOperation(DbOperationFlag.Insert);
+        }
+
+        [When(@"retrieve all triples"), Scope(Tag = "RML")]
         public void WhenRetrieveAllTriples()
         {
             _database.PerformDbOperation(DbOperationFlag.Insert);
@@ -52,21 +58,21 @@ namespace wikibus.tests.Mappings
             _result.SaveToFile("out.trig");
         }
 
-        [Then(@"resulting dataset should match query:")]
+        [Then(@"resulting dataset should match query:"), Scope(Tag = "RML")]
         public void ThenResultingShouldMatchQuery(string query)
         {
             var querySuccess = ExecuteAsk(query);
             Assert.That(querySuccess, "Actual triples were: {0}", StringWriter.Write(_result, new TriGWriter()));
         }
 
-        [Then(@"resulting dataset should not match query:")]
+        [Then(@"resulting dataset should not match query:"), Scope(Tag = "RML")]
         public void ThenResultingDatasetShouldNotMatchQuery(string query)
         {
             var querySuccess = ExecuteAsk(query);
             Assert.That(querySuccess, Is.False, "Actual triples were: {0}", StringWriter.Write(_result, new TriGWriter()));
         }
 
-        [Then(@"resulting dataset should contain '(\d*)' triples")]
+        [Then(@"resulting dataset should contain '(\d*)' triples"), Scope(Tag = "RML")]
         public void ThenResultingDatasetShouldContainTriples(int expectedCount)
         {
             Assert.That(

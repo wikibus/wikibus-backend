@@ -1,8 +1,11 @@
 ﻿using System;
 using Hydra.Resources;
 using Nancy;
-using TunnelVisionLabs.Net;
+using Nancy.ModelBinding;
+using Tavis.UriTemplates;
 using wikibus.common;
+using wikibus.sources.Filters;
+using Id = wikibus.sources.IdentifierTemplates;
 
 namespace wikibus.sources.nancy
 {
@@ -26,14 +29,14 @@ namespace wikibus.sources.nancy
 
             this.ReturnNotFoundWhenModelIsNull();
 
-            Get["brochure/{id}"] = r => GetSingle(repository.GetBrochure);
-            Get["book/{id}"] = r => GetSingle(repository.GetBook);
-            Get["magazine/{magName}"] = r => GetSingle(repository.GetMagazine);
-            Get["magazine/{magName}/issues"] = r => GetSingle(repository.GetMagazineIssues) ?? new Collection<Issue>();
-            Get["magazine/{magName}/issue/{number}"] = r => GetSingle(repository.GetIssue);
-            Get["books"] = r => GetPage(repository.GetBooks);
-            Get["brochures"] = r => GetPage(repository.GetBrochures);
-            Get["magazines"] = r => GetPage(repository.GetMagazines);
+            Get[Id.BrochurePath] = r => GetSingle(repository.GetBrochure);
+            Get[Id.BookPath] = r => GetSingle(repository.GetBook);
+            Get[Id.MagazinePath] = r => GetSingle(repository.GetMagazine);
+            Get[Id.MagazineIssuesPath] = r => GetSingle(repository.GetMagazineIssues) ?? new Collection<Issue>();
+            Get[Id.MagazineIssuePath] = r => GetSingle(repository.GetIssue);
+            Get[Id.BooksPath] = r => GetPage<Book, BookFilters>(repository.GetBooks);
+            Get[Id.BrochuresPath] = r => GetPage<Brochure, BrochureFilters>(repository.GetBrochures);
+            Get[Id.MagazinesPath] = r => GetPage<Magazine, MagazineFilters>(repository.GetMagazines);
         }
 
         private T GetSingle<T>(Func<Uri, T> getResource) where T : class
@@ -46,7 +49,7 @@ namespace wikibus.sources.nancy
             return new Uri(new Uri(_config.BaseResourceNamespace), Request.Path);
         }
 
-        private dynamic GetPage<T>(Func<Uri, int, int, Collection<T>> getPage)
+        private dynamic GetPage<T, TFilter>(Func<Uri, TFilter, int, int, Collection<T>> getPage)
             where T : class
         {
             int page;
@@ -60,8 +63,9 @@ namespace wikibus.sources.nancy
                 return 400;
             }
 
+            var filter = this.Bind<TFilter>();
             var requestUri = GetRequestUri();
-            var collection = getPage(requestUri, page, PageSize);
+            var collection = getPage(requestUri, filter, page, PageSize);
 
             collection.Views = new IView[]
             {

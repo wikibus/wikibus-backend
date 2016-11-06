@@ -19,6 +19,8 @@ namespace wikibus.tests.Mappings
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Mapping Magazines from SQL to RDF")]
+    [NUnit.Framework.CategoryAttribute("RML")]
+    [NUnit.Framework.CategoryAttribute("SQL")]
     public partial class MappingMagazinesFromSQLToRDFFeature
     {
         
@@ -31,7 +33,9 @@ namespace wikibus.tests.Mappings
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Mapping Magazines from SQL to RDF", "   Make sure that correct RDF is returned for SQL rows", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Mapping Magazines from SQL to RDF", "   Make sure that correct RDF is returned for SQL rows", ProgrammingLanguage.CSharp, new string[] {
+                        "RML",
+                        "SQL"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -68,7 +72,7 @@ namespace wikibus.tests.Mappings
         public virtual void MappingCompleteMagazine()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mapping complete magazine", ((string[])(null)));
-#line 4
+#line 6
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -77,14 +81,14 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "1",
                         "Bus Kurier"});
-#line 5
+#line 7
    testRunner.Given("table Sources.Magazine with data:", ((string)(null)), table1, "Given ");
-#line 8
+#line 10
     testRunner.When("retrieve all triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 9
+#line 11
     testRunner.Then("resulting dataset should contain \'4\' triples", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 10
+#line 12
      testRunner.And("resulting dataset should match query:", @" base <http://wikibus.org/>
  prefix wbo: <http://wikibus.org/ontology#>
  prefix bibo: <http://purl.org/ontology/bibo/>

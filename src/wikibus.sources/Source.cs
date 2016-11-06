@@ -84,6 +84,12 @@ namespace wikibus.sources
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this instance has image.
+        /// </summary>
+        [JsonProperty]
+        public bool HasImage { get; set; }
+
+        /// <summary>
         /// Gets the @context.
         /// </summary>
         [UsedImplicitly]
@@ -123,9 +129,6 @@ namespace wikibus.sources
         {
             get { yield return Wbo.Source; }
         }
-
-        [JsonProperty]
-        private bool HasImage { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Should not serialize <see cref="HasImage"/>

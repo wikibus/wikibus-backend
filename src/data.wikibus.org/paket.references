@@ -8,3 +8,4 @@ GitVersionTask
 Rdf.Vocabularies
 argolis.nancy
 Nancy.Bootstrappers.Autofac
+EntityFramework

@@ -1,7 +1,5 @@
 using Autofac;
 using Nancy.Bootstrappers.Autofac;
-using wikibus.common;
-using wikibus.sources.dotNetRDF;
 
 namespace data.wikibus.org
 {
@@ -18,7 +16,7 @@ namespace data.wikibus.org
         {
             existingContainer.Update(builder =>
             {
-                builder.RegisterType<Settings>().As<ISourcesDatabaseSettings>();
+                builder.RegisterType<Settings>().AsImplementedInterfaces();
             });
 
             base.ConfigureApplicationContainer(existingContainer);

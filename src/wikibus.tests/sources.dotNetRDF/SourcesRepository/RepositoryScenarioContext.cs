@@ -23,10 +23,10 @@ namespace wikibus.tests.SourcesRepository
             var frameProvider = new WikibusModelFrames();
             var serializer = new EntitySerializer(contextProvider, frameProvider);
 
-            Repository = new sources.dotNetRDF.SourcesRepository(new Lazy<ISparqlQueryProcessor>(() => new LeviathanQueryProcessor(Store)), serializer);
+            Repository = new wikibus.sources.dotNetRDF.SourcesRepository(new Lazy<ISparqlQueryProcessor>(() => new LeviathanQueryProcessor(Store)), serializer);
         }
 
-        public sources.dotNetRDF.SourcesRepository Repository { get; private set; }
+        public wikibus.sources.dotNetRDF.SourcesRepository Repository { get; private set; }
 
         public TripleStore Store { get; private set; }
     }

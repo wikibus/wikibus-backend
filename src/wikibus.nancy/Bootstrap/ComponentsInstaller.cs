@@ -4,7 +4,7 @@ using Nancy.Bootstrapper;
 using VDS.RDF.Query;
 using wikibus.common;
 using wikibus.sources;
-using wikibus.sources.dotNetRDF;
+using ISourcesDatabaseSettings = wikibus.sources.dotNetRDF.ISourcesDatabaseSettings;
 
 namespace wikibus.nancy
 {

@@ -3,15 +3,10 @@
 namespace wikibus.sources.dotNetRDF
 {
     /// <summary>
-    /// Configuration of wikibus data sources
+    /// Configuration of wikibus data sources for RDF
     /// </summary>
-    public interface ISourcesDatabaseSettings
+    public interface ISourcesDatabaseSettings : sources.ISourcesDatabaseSettings
     {
-        /// <summary>
-        /// Gets the wikibus database connection string.
-        /// </summary>
-        string ConnectionString { get; }
-        
         /// <summary>
         /// Gets the SPARQL endpoint with Sources RDF data.
         /// </summary>
