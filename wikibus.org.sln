@@ -16,11 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution items", ".solutio
 		appveyor.yml = appveyor.yml
 		src\Common.props = src\Common.props
 		src\CommonAssemblyInfo.cs = src\CommonAssemblyInfo.cs
-		.build\CommonTargets.targets = .build\CommonTargets.targets
 		GitVersionConfig.yaml = GitVersionConfig.yaml
 		paket.dependencies = paket.dependencies
 		paket.lock = paket.lock
-		src\Settings.StyleCop = src\Settings.StyleCop
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{EF30ED7D-DC26-4317-A8E2-57B3CF7A1998}"

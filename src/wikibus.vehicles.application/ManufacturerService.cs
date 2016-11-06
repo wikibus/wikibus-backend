@@ -9,8 +9,4 @@ namespace wikibus.vehicles.application
     public class ManufacturerService
     {
     }
-
-    public class BrandService
-    {
-    }
 }

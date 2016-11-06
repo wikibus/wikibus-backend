@@ -13,6 +13,9 @@ namespace wikibus.sources.nancy.Responses
         /// <summary>
         /// Gets nothing
         /// </summary>
+        /// <value>
+        /// Empty
+        /// </value>
         public IEnumerable<Tuple<string, MediaRange>> ExtensionMappings
         {
             get { yield break; }

@@ -4,7 +4,6 @@
     {
         public ManufacturerId(string uri)
         {
-            
         }
     }
 }

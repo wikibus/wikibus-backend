@@ -9,3 +9,4 @@ Rdf.Vocabularies
 argolis.nancy
 Nancy.Bootstrappers.Autofac
 EntityFramework
+StyleCop.Analyzers

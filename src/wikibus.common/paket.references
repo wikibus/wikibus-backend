@@ -3,3 +3,4 @@ NullGuard.Fody
 JetBrainsAnnotations.Fody
 JsonLd.Entities
 Rdf.Vocabularies
+StyleCop.Analyzers

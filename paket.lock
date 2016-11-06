@@ -74,9 +74,7 @@ NUGET
     SpecFlow.NUnit (1.1.1)
       NUnit (>= 2.6)
       SpecFlow
-    StyleCop.MSBuild (4.7.50)
-    StyleCopPlus.MSBuild (4.7.49.5)
-      StyleCop.MSBuild (>= 4.7.49)
+    StyleCop.Analyzers (1.0)
     System.Data.SqlLocalDb (1.14)
     Tavis.UriTemplates (1.1)
     VDS.Common (1.6)

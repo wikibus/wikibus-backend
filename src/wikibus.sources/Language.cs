@@ -31,7 +31,6 @@ namespace wikibus.sources
             get { return _cultureInfo.Name; }
         }
 
-        #region Generated Code
         public static bool operator ==(Language left, Language right)
         {
             return Equals(left, right);
@@ -71,6 +70,5 @@ namespace wikibus.sources
         {
             return _cultureInfo.Equals(other._cultureInfo);
         }
-        #endregion
     }
 }

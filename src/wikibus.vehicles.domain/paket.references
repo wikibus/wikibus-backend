@@ -1,3 +1,4 @@
 GitVersionTask
 NullGuard.Fody
 JetBrainsAnnotations.Fody
+StyleCop.Analyzers

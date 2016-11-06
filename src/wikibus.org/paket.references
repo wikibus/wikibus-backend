@@ -4,3 +4,4 @@ JetBrainsAnnotations.Fody
 Nancy.Owin
 Microsoft.Owin.Host.SystemWeb
 Microsoft.Owin.Hosting
+StyleCop.Analyzers

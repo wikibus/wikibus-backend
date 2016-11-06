@@ -3,3 +3,4 @@ NullGuard.Fody
 JetBrainsAnnotations.Fody
 Argolis
 EntityFramework
+StyleCop.Analyzers
