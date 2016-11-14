@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Hydra.Resources;
 using Nancy;
 using Nancy.ModelBinding;
@@ -34,9 +35,9 @@ namespace wikibus.sources.nancy
             Get[Id.MagazinePath] = r => GetSingle(repository.GetMagazine);
             Get[Id.MagazineIssuesPath] = r => GetSingle(repository.GetMagazineIssues) ?? new Collection<Issue>();
             Get[Id.MagazineIssuePath] = r => GetSingle(repository.GetIssue);
-            Get[Id.BooksPath] = r => GetPage<Book, BookFilters>(repository.GetBooks);
-            Get[Id.BrochuresPath] = r => GetPage<Brochure, BrochureFilters>(repository.GetBrochures);
-            Get[Id.MagazinesPath] = r => GetPage<Magazine, MagazineFilters>(repository.GetMagazines);
+            Get[Id.BooksPath] = r => GetPage<Book, BookFilters>(Id.BooksPath, (int?)r.page, repository.GetBooks);
+            Get[Id.BrochuresPath] = r => GetPage<Brochure, BrochureFilters>(Id.BrochuresPath, (int?)r.page, repository.GetBrochures);
+            Get[Id.MagazinesPath] = r => GetPage<Magazine, MagazineFilters>(Id.MagazinesPath, (int?)r.page, repository.GetMagazines);
         }
 
         private T GetSingle<T>(Func<Uri, T> getResource) where T : class
@@ -49,11 +50,10 @@ namespace wikibus.sources.nancy
             return new Uri(new Uri(_config.BaseResourceNamespace), Request.Path);
         }
 
-        private dynamic GetPage<T, TFilter>(Func<Uri, TFilter, int, int, Collection<T>> getPage)
+        private dynamic GetPage<T, TFilter>(string templatePath, int? page, Func<Uri, TFilter, int, int, Collection<T>> getPage)
             where T : class
         {
-            int page;
-            if (!int.TryParse(Request.Query.page.Value, out page))
+            if (page == null)
             {
                 page = 1;
             }
@@ -65,11 +65,17 @@ namespace wikibus.sources.nancy
 
             var filter = this.Bind<TFilter>();
             var requestUri = GetRequestUri();
-            var collection = getPage(requestUri, filter, page, PageSize);
+            var collection = getPage(requestUri, filter, page.Value, PageSize);
+
+            var uriTemplate = new UriTemplate(_config.BaseResourceNamespace + templatePath + "{?title}");
+            foreach (var pair in Request.Query as IDictionary<string, object>)
+            {
+                uriTemplate.SetParameter(pair.Key, pair.Value);
+            }
 
             collection.Views = new IView[]
             {
-                new TemplatedPartialCollectionView(new UriTemplate(requestUri + "{?page}"), "page", collection.TotalItems, page, PageSize)
+                new TemplatedPartialCollectionView(uriTemplate, "page", collection.TotalItems, page.Value, PageSize)
             };
 
             return collection;

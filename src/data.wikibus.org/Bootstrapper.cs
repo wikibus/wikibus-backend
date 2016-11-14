@@ -1,5 +1,7 @@
 using Autofac;
+using Nancy.Bootstrapper;
 using Nancy.Bootstrappers.Autofac;
+using wikibus.sources.nancy;
 
 namespace data.wikibus.org
 {

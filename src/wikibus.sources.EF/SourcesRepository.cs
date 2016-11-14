@@ -99,49 +99,35 @@ namespace wikibus.sources.EF
 
         public Collection<Book> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
         {
-            var query = (from entity in _context.Books
-                         orderby entity.BookTitle
-                         select entity).Skip((page - 1) * pageSize).Take(pageSize);
-            var books = query.ToList();
-
-            return new Collection<Book>
-            {
-                Id = identifier,
-                Members = books.ToList().Select(_factory.CreateBook).ToArray(),
-                TotalItems = query.Count()
-            };
+            return _context.Books.GetCollectionPage(
+                identifier,
+                entity => entity.BookTitle,
+                FilterBooks(filters),
+                page,
+                pageSize,
+                _factory.CreateBook);
         }
 
         public Collection<Brochure> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
         {
-            var allBrochures = from entity in _context.Brochures
-                               orderby entity.FolderName
-                               select entity;
-            var pageOfBrochures = allBrochures.Skip((page - 1) * pageSize).Take(pageSize);
-            var books = pageOfBrochures.ToList();
-
-            return new Collection<Brochure>
-            {
-                Id = identifier,
-                Members = books.ToList().Select(_factory.CreateBrochure).ToArray(),
-                TotalItems = allBrochures.Count()
-            };
+            return _context.Brochures.GetCollectionPage(
+                identifier,
+                entity => entity.FolderName,
+                FilterBrochures(filters),
+                page,
+                pageSize,
+                _factory.CreateBrochure);
         }
 
         public Collection<Magazine> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
         {
-            var allBrochures = from entity in _context.Magazines
-                               orderby entity.Name
-                               select entity;
-            var pageOfBrochures = allBrochures.Skip((page - 1) * pageSize).Take(pageSize);
-            var books = pageOfBrochures.ToList();
-
-            return new Collection<Magazine>
-            {
-                Id = identifier,
-                Members = books.ToList().Select(_factory.CreateMagazine).ToArray(),
-                TotalItems = allBrochures.Count()
-            };
+            return _context.Magazines.GetCollectionPage(
+                identifier,
+                entity => entity.Name,
+                FilterMagazines(filters),
+                page,
+                pageSize,
+                _factory.CreateMagazine);
         }
 
         public Collection<Issue> GetMagazineIssues(Uri uri)
@@ -199,6 +185,40 @@ namespace wikibus.sources.EF
             var brochure = _factory.CreateMagazineIssue(source.Issue);
             brochure.HasImage = source.HasImage;
             return brochure;
+        }
+
+        private Func<IQueryable<BookEntity>, IQueryable<BookEntity>> FilterBooks(BookFilters filters)
+        {
+            return entities =>
+            {
+                if (string.IsNullOrWhiteSpace(filters.Title) == false)
+                {
+                    entities = entities.Where(e => e.BookTitle.Contains(filters.Title.Trim()));
+                }
+
+                return entities;
+            };
+        }
+
+        private Func<IQueryable<BrochureEntity>, IQueryable<BrochureEntity>> FilterBrochures(BrochureFilters filters)
+        {
+            return entities =>
+            {
+                if (string.IsNullOrWhiteSpace(filters.Title) == false)
+                {
+                    entities = entities.Where(e => e.FolderName.Contains(filters.Title.Trim()));
+                }
+
+                return entities;
+            };
+        }
+
+        private Func<IQueryable<MagazineEntity>, IQueryable<MagazineEntity>> FilterMagazines(MagazineFilters filters)
+        {
+            return entities =>
+            {
+                return entities;
+            };
         }
     }
 }

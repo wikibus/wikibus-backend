@@ -57,6 +57,7 @@
     <Compile Include="MagazineIssueEntity.cs" />
     <Compile Include="SourceContext.cs" />
     <Compile Include="SourceEntity.cs" />
+    <Compile Include="SourceRepositoryExtensions.cs" />
     <Compile Include="SourcesRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
