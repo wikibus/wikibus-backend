@@ -3,7 +3,7 @@ source https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
 source https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
 source https://ci.appveyor.com/nuget/argolis-hydra
 
-framework: net40, net45
+framework: net452
 content: none
 redirects: on
 copy_local: true
