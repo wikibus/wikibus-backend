@@ -13,7 +13,7 @@ namespace wikibus.nancy
         /// </summary>
         public EntrypointModule(IWikibusConfiguration config)
         {
-            Get["/"] = route => new EntryPoint(config.BaseResourceNamespace);
+            Get("/", route => new EntryPoint(config.BaseResourceNamespace));
         }
     }
 }

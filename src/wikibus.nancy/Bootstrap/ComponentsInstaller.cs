@@ -1,6 +1,8 @@
 ﻿using System;
 using JsonLD.Entities;
+using Nancy;
 using Nancy.Bootstrapper;
+using Nancy.Routing;
 using VDS.RDF.Query;
 using wikibus.common;
 using wikibus.sources;
@@ -17,7 +19,9 @@ namespace wikibus.nancy
         /// Initializes a new instance of the <see cref="ComponentsInstaller"/> class.
         /// </summary>
         /// <param name="databaseSettings">Database configuration provider</param>
-        public ComponentsInstaller(ISourcesDatabaseSettings databaseSettings)
+        /// <param name="catalog">Nancy type catalog</param>
+        public ComponentsInstaller(ISourcesDatabaseSettings databaseSettings, ITypeCatalog catalog)
+            : base(catalog)
         {
             IWikibusConfiguration configuration = new AppSettingsConfiguration();
 
@@ -28,6 +32,7 @@ namespace wikibus.nancy
                 return new RemoteQueryProcessor(new SparqlRemoteEndpoint(endpointUri));
             }));
             Register<IFrameProvider>(new WikibusModelFrames());
+            Register<DefaultRouteResolver>();
         }
     }
 }

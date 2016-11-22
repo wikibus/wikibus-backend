@@ -2,8 +2,9 @@ source https://www.nuget.org/api/v2
 source https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
 source https://ci.appveyor.com/nuget/nancy-rdf-kh5o73kjrn37
 source https://ci.appveyor.com/nuget/argolis-hydra
+source https://ci.appveyor.com/nuget/nancy-routing-uritemplates
 
-framework: net452
+framework: >= net45
 content: none
 redirects: on
 copy_local: true
@@ -11,8 +12,9 @@ copy_local: true
 nuget Anotar.Custom.Fody
 nuget FakeItEasy
 nuget json-ld.net
-nuget Nancy.Owin
-nuget Nancy.Testing
+nuget Nancy.Owin prerelease
+nuget nancy.routing.uritemplates
+nuget Nancy.Testing prerelease
 nuget r2rml4net 0.4.0.0-pre01
 nuget Resourcer.Fody
 nuget SpecFlow.NUnit
@@ -23,7 +25,7 @@ nuget FluentAssertions
 nuget dotNetRDF
 nuget infoof.fody
 nuget JsonLd.Entities
-nuget Nancy.RDF
+nuget Nancy.RDF = 0.3.0-beta0001
 nuget NullGuard.Fody
 nuget ImpromptuInterface
 nuget NDbUnit.SqlClient
@@ -35,11 +37,12 @@ nuget Microsoft.Owin.Host.SystemWeb
 nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
-nuget Argolis = 0.2.1-unstable0203
-nuget Argolis.Nancy = 0.2.1-unstable0203
+nuget Argolis = 0.2.1-unstable0208
+nuget Argolis.Nancy = 0.2.1-unstable0208
 nuget Rdf.Vocabularies
-nuget Nancy.Bootstrappers.Autofac
+nuget Nancy.Bootstrappers.Autofac prerelease
 nuget EntityFramework
-nuget Tavis.UriTemplates
 
 http https://gist.githubusercontent.com/tpluscode/5d9c6983004c1c9ec91f/raw/2a5f0785c2686635f1b8ab21af1751d276d02727/vocabulary.tt
+
+gist tpluscode/a285267d2543466fc35c3a168c846f9f

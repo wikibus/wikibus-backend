@@ -26,7 +26,7 @@ namespace data.wikibus.org
         {
             _queryProcessor = queryProcessor;
 
-            Get["/"] = request => ProcessQuery();
+            Get("/", request => ProcessQuery());
         }
 
         private object ProcessQuery()

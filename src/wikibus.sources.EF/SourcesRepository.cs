@@ -196,6 +196,11 @@ namespace wikibus.sources.EF
                     entities = entities.Where(e => e.BookTitle.Contains(filters.Title.Trim()));
                 }
 
+                if (string.IsNullOrWhiteSpace(filters.Author) == false)
+                {
+                    entities = entities.Where(e => e.BookAuthor.Contains(filters.Author.Trim()));
+                }
+
                 return entities;
             };
         }

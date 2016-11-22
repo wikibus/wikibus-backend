@@ -13,3 +13,4 @@ Rdf.Vocabularies
 Nancy.Bootstrappers.Autofac
 EntityFramework
 StyleCop.Analyzers
+Nancy.Routing.UriTemplates

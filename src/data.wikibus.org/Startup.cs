@@ -12,7 +12,7 @@ namespace data.wikibus.org
     {
         public void Configuration(IAppBuilder builder)
         {
-            builder.UseNancy();
+            builder.UseNancy(options => options.Bootstrapper = new Bootstrapper());
             builder.UseStageMarker(PipelineStage.MapHandler);
         }
     }

@@ -16,10 +16,10 @@ namespace wikibus.purl.nancy
         /// </summary>
         public RedirectModule(IWikibusConfiguration config)
         {
-            Get["/{path*}"] = rqst => RedirectRdfRequest(config.BaseApiNamespace);
-            Get["/{path*}", IsHtmlRequest] = rqst => RedirectRdfRequest(config.BaseWebNamespace);
-            Get["/"] = rqst => RedirectRdfRequest(config.BaseApiNamespace);
-            Get["/", IsHtmlRequest] = rqst => RedirectRdfRequest(config.BaseWebNamespace);
+            Get("/{path*}", rqst => RedirectRdfRequest(config.BaseApiNamespace));
+            Get("/{path*}", rqst => RedirectRdfRequest(config.BaseWebNamespace), IsHtmlRequest);
+            Get("/", rqst => RedirectRdfRequest(config.BaseApiNamespace));
+            Get("/", rqst => RedirectRdfRequest(config.BaseWebNamespace), IsHtmlRequest);
         }
 
         private static bool IsHtmlRequest(NancyContext context)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Tavis.UriTemplates;
+using System.Linq;
+using TunnelVisionLabs.Net;
 using wikibus.common;
 
 namespace wikibus.sources
@@ -28,7 +29,7 @@ namespace wikibus.sources
         /// <summary>
         /// The books path
         /// </summary>
-        public const string BooksPath = "books{?page}";
+        public const string BooksPath = "books{/page}{?title,author}";
 
         /// <summary>
         /// The magazine path`
@@ -50,7 +51,7 @@ namespace wikibus.sources
         /// </summary>
         public const string MagazineIssuePath = "magazine/{name}/issue/{number}";
 
-        private readonly UriTemplateTable _templateTable = new UriTemplateTable();
+        private readonly IDictionary<Type, UriTemplate> _templateTable = new Dictionary<Type, UriTemplate>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentifierTemplates"/> class.
@@ -58,10 +59,10 @@ namespace wikibus.sources
         /// <param name="configuration">The configuration.</param>
         public IdentifierTemplates(IWikibusConfiguration configuration)
         {
-            _templateTable.Add(typeof(Book).FullName, new UriTemplate(configuration.BaseResourceNamespace + BookPath));
-            _templateTable.Add(typeof(Magazine).FullName, new UriTemplate(configuration.BaseResourceNamespace + MagazinePath));
-            _templateTable.Add(typeof(Brochure).FullName, new UriTemplate(configuration.BaseResourceNamespace + BrochurePath));
-            _templateTable.Add(typeof(Issue).FullName, new UriTemplate(configuration.BaseResourceNamespace + MagazineIssuePath));
+            _templateTable.Add(typeof(Book), new UriTemplate(configuration.BaseResourceNamespace + BookPath));
+            _templateTable.Add(typeof(Magazine), new UriTemplate(configuration.BaseResourceNamespace + MagazinePath));
+            _templateTable.Add(typeof(Brochure), new UriTemplate(configuration.BaseResourceNamespace + BrochurePath));
+            _templateTable.Add(typeof(Issue), new UriTemplate(configuration.BaseResourceNamespace + MagazineIssuePath));
         }
 
         /// <summary>
@@ -70,7 +71,10 @@ namespace wikibus.sources
         /// <param name="name">The name.</param>
         public Uri CreateMagazineIdentifier(string name)
         {
-            return new Uri(_templateTable[typeof(Magazine).FullName].AddParameter("name", name).Resolve());
+            return _templateTable[typeof(Magazine)].BindByName(new Dictionary<string, string>
+            {
+                { "name", name },
+            });
         }
 
         /// <summary>
@@ -80,11 +84,11 @@ namespace wikibus.sources
         /// <param name="magazineName">Name of the magazine.</param>
         public Uri CreateMagazineIssueIdentifier(int issueNumber, string magazineName)
         {
-            var uriString = _templateTable[typeof(Issue).FullName]
-                .AddParameter("name", magazineName)
-                .AddParameter("number", issueNumber).Resolve();
-
-            return new Uri(uriString);
+            return _templateTable[typeof(Issue)].BindByName(new Dictionary<string, string>
+            {
+                { "name", magazineName },
+                { "number", issueNumber.ToString() }
+            });
         }
 
         /// <summary>
@@ -93,7 +97,10 @@ namespace wikibus.sources
         /// <param name="id">The identifier.</param>
         public Uri CreateBrochureIdentifier(int id)
         {
-            return new Uri(_templateTable[typeof(Brochure).FullName].AddParameter("id", id).Resolve());
+            return _templateTable[typeof(Brochure)].BindByName(new Dictionary<string, string>
+            {
+                { "id", id.ToString() }
+            });
         }
 
         /// <summary>
@@ -102,7 +109,10 @@ namespace wikibus.sources
         /// <param name="id">The identifier.</param>
         public Uri CreateBookIdentifier(int id)
         {
-            return new Uri(_templateTable[typeof(Book).FullName].AddParameter("id", id).Resolve());
+            return _templateTable[typeof(Book)].BindByName(new Dictionary<string, string>
+            {
+                { "id", id.ToString() }
+            });
         }
 
         /// <summary>
@@ -112,11 +122,11 @@ namespace wikibus.sources
         /// <param name="uri">The resource identifier.</param>
         public IDictionary<string, object> GetMatch<T>(Uri uri)
         {
-            var templateMatch = _templateTable.Match(uri);
+            var templateMatch = _templateTable.First(pair => pair.Value.Match(uri) != null);
 
-            if (templateMatch.Key == typeof(T).FullName)
+            if (templateMatch.Key == typeof(T))
             {
-                return templateMatch.Parameters;
+                return templateMatch.Value.Match(uri).Bindings.ToDictionary(m => m.Key, m => m.Value.Value);
             }
 
             return new Dictionary<string, object>();

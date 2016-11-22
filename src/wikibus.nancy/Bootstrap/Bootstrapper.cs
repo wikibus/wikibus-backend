@@ -5,8 +5,10 @@ using Hydra;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Bootstrappers.Autofac;
+using Nancy.Configuration;
 using Nancy.Diagnostics;
 using Nancy.Responses.Negotiation;
+using Nancy.Routing.UriTemplates;
 using wikibus.common;
 using wikibus.nancy.Hydra;
 using wikibus.sources;
@@ -22,36 +24,30 @@ namespace wikibus.nancy
     public class Bootstrapper : AutofacNancyBootstrapper
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Bootstrapper"/> class.
-        /// </summary>
-        public Bootstrapper()
-        {
-            StaticConfiguration.DisableErrorTraces = false;
-        }
-
-        /// <summary>
         /// Gets overridden configuration
         /// </summary>
-        protected override NancyInternalConfiguration InternalConfiguration
+        protected override Func<ITypeCatalog, NancyInternalConfiguration> InternalConfiguration
         {
             get
             {
                 return NancyInternalConfiguration.WithOverrides(c =>
                 {
                     c.ResponseProcessors = c.ResponseProcessors.Where(IsNotNancyProcessor).ToList();
+                    c.RouteResolver = typeof(UriTemplateRouteResolver);
                 });
             }
         }
 
         /// <summary>
-        /// Gets the diagnostics configuration.
+        /// Configures the Nancy environment
         /// </summary>
-        /// <value>
-        /// The diagnostics configuration.
-        /// </value>
-        protected override DiagnosticsConfiguration DiagnosticsConfiguration
+        /// <param name="environment">The <see cref="T:Nancy.Configuration.INancyEnvironment" /> instance to configure</param>
+        public override void Configure(INancyEnvironment environment)
         {
-            get { return new DiagnosticsConfiguration { Password = @"wb" }; }
+            base.Configure(environment);
+
+            environment.Tracing(true, true);
+            environment.Diagnostics("wb");
         }
 
         /// <summary>

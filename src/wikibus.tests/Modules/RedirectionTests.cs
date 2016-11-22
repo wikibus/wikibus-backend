@@ -24,7 +24,7 @@ namespace wikibus.tests.Modules
         public void Setup()
         {
             IResponseProcessor p = new ResponseProcessor();
-            _browser = new Browser(c => c.Assembly("wikibus.purl.nancy")
+            _browser = new Browser(c => c
                                          .Module<RedirectModule>()
                                          .DisableAutoRegistrations()
                                          .Dependency(A.Dummy<IEntitySerializer>())
@@ -34,7 +34,7 @@ namespace wikibus.tests.Modules
         }
 
         [Test]
-        public void Should_redirect_rdf_requests_to_document(
+        public async void Should_redirect_rdf_requests_to_document(
             [ValueSource("PathsToRedirect")] Tuple<string, string> path,
             [ValueSource("RdfMediaTypes")] RdfSerialization media)
         {
@@ -42,7 +42,7 @@ namespace wikibus.tests.Modules
             var expectedReditectLocation = new Uri(BaseUri + string.Format("{0}", path.Item2));
 
             // when
-            var response = _browser.Get(path.Item1, context => context.Accept(media.MediaType));
+            var response = await _browser.Get(path.Item1, context => context.Accept(media.MediaType));
 
             // then
             response.StatusCode.Should().Be(HttpStatusCode.SeeOther);
@@ -50,14 +50,14 @@ namespace wikibus.tests.Modules
         }
 
         [Test]
-        public void Should_redirect_request_with_query()
+        public async void Should_redirect_request_with_query()
         {
             // given
             const string pathExpected = "brochure/x/y/z?a=a&b=b+b";
             var expectedReditectLocation = new Uri(BaseUri + string.Format("{0}", pathExpected));
 
             // when
-            var response = _browser.Get(
+            var response = await _browser.Get(
                 "brochure/x/y/z",
                 context =>
                 {
