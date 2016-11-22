@@ -4,10 +4,10 @@ using System.Linq;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using VDS.RDF;
-using Wikibus.Common.Vocabularies;
+using Wikibus.Common;
 using Wikibus.Sources;
 
-namespace wikibus.tests.SourcesRepository
+namespace Wikibus.Tests.sources.dotNetRDF.SourcesRepository
 {
     [Binding]
     public class RetrieveSourcesFromRepositorySteps

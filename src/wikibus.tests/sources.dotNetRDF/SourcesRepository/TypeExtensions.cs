@@ -1,6 +1,6 @@
 using System;
 
-namespace wikibus.tests.SourcesRepository
+namespace Wikibus.Tests.sources.dotNetRDF.SourcesRepository
 {
     internal static class TypeExtensions
     {

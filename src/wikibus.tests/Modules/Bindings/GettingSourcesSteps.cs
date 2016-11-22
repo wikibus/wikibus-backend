@@ -12,7 +12,7 @@ using TechTalk.SpecFlow;
 using Wikibus.Sources;
 using Wikibus.Sources.Filters;
 
-namespace wikibus.tests.Modules.Bindings
+namespace Wikibus.Tests.Modules.Bindings
 {
     [Binding]
     public class NancyTestingSteps

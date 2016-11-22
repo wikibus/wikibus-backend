@@ -8,8 +8,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;
+using Wikibus.Common;
 using Wikibus.Common.JsonLd;
-using Wikibus.Common.Vocabularies;
 
 namespace Wikibus.Sources
 {

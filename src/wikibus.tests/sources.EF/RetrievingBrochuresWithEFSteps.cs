@@ -1,7 +1,7 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 
-namespace wikibus.tests.sources.EF
+namespace Wikibus.Tests.sources.EF
 {
     [Binding, Scope(Tag = "EF"), Scope(Tag = "Brochure")]
     public class RetrievingBrochuresWithEfSteps

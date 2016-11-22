@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using VDS.RDF;
 
-namespace wikibus.tests.FluentAssertions
+namespace Wikibus.Tests.FluentAssertions
 {
     public static class AssertionsExtensions
     {

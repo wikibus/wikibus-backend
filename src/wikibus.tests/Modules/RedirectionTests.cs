@@ -12,7 +12,7 @@ using NUnit.Framework;
 using Wikibus.Common;
 using Wikibus.Purl.Nancy;
 
-namespace wikibus.tests.Modules
+namespace Wikibus.Tests.Modules
 {
     [TestFixture]
     public class RedirectionTests

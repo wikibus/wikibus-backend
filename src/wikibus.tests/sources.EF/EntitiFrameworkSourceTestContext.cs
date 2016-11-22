@@ -1,8 +1,8 @@
-using wikibus.tests.Mappings;
 using Wikibus.Sources;
 using Wikibus.Sources.EF;
+using Wikibus.Tests.Mappings;
 
-namespace wikibus.tests.sources.EF
+namespace Wikibus.Tests.sources.EF
 {
     public class EntitiFrameworkSourceTestContext
     {

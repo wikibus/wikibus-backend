@@ -9,7 +9,7 @@ using Wikibus.Common;
 using Wikibus.Sources;
 using Wikibus.Sources.Nancy;
 
-namespace wikibus.tests.Modules.Bindings
+namespace Wikibus.Tests.Modules.Bindings
 {
     public class NancyDependencies
     {

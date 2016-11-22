@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using TechTalk.SpecFlow;
 
-namespace wikibus.tests.Mappings
+namespace Wikibus.Tests.Mappings
 {
     /// <summary>
     /// Table extension to populate test database

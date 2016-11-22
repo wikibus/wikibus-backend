@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace wikibus.tests.SourcesRepository
+namespace Wikibus.Tests.sources.dotNetRDF.SourcesRepository
 {
     public static class AssertionExtensions
     {

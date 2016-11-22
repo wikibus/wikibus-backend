@@ -1,6 +1,6 @@
 using Wikibus.Common;
 
-namespace wikibus.tests
+namespace Wikibus.Tests
 {
     public class TestConfiguration : IWikibusConfiguration
     {

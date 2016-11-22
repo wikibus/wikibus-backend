@@ -2,7 +2,7 @@
 using TechTalk.SpecFlow;
 using Wikibus.Sources.Filters;
 
-namespace wikibus.tests.SourcesRepository
+namespace Wikibus.Tests.sources.dotNetRDF.SourcesRepository
 {
     [Binding]
     public class RetrieveSourcesCollectionsFromRepositorySteps

@@ -8,7 +8,6 @@ using TCode.r2rml4net.RDB;
 using TCode.r2rml4net.Validation;
 using Vocab;
 using Wikibus.Common;
-using Wikibus.Common.Vocabularies;
 
 namespace Wikibus.Sources.DotNetRDF.Mapping
 {

@@ -7,7 +7,7 @@ using VDS.RDF.Query.Builder;
 using VDS.RDF.Query.Builder.Expressions;
 using VDS.RDF.Query.Datasets;
 
-namespace wikibus.tests.FluentAssertions
+namespace Wikibus.Tests.FluentAssertions
 {
     public class StoreAssertions : ReferenceTypeAssertions<ITripleStore, StoreAssertions>
     {

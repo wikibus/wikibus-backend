@@ -3,7 +3,7 @@ using FluentAssertions;
 using TechTalk.SpecFlow;
 using Wikibus.Sources;
 
-namespace wikibus.tests.sources.EF
+namespace Wikibus.Tests.sources.EF
 {
     [Binding, Scope(Tag = "EF"), Scope(Tag = "MagazineIssue")]
     public class RetrievingMagazinesWithEfSteps

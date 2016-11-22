@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;
-using Wikibus.Common.Vocabularies;
+using Wikibus.Common;
 
 namespace Wikibus.Sources
 {

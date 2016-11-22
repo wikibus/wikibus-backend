@@ -15,7 +15,7 @@ using VDS.RDF.Writing;
 using Wikibus.Sources.DotNetRDF.Mapping;
 using StringWriter = VDS.RDF.Writing.StringWriter;
 
-namespace wikibus.tests.Mappings
+namespace Wikibus.Tests.Mappings
 {
     [Binding]
     public class MappingSourcesSteps : IDisposable

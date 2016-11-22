@@ -4,7 +4,7 @@ using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
-namespace wikibus.tests.sources.EF
+namespace Wikibus.Tests.sources.EF
 {
     [Binding, Scope(Tag = "EF")]
     public class RetrievingSourceWithEfSteps

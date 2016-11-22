@@ -6,7 +6,7 @@ using NDbUnit.Core;
 using NDbUnit.Core.SqlClient;
 using Resourcer;
 
-namespace wikibus.tests.Mappings
+namespace Wikibus.Tests.Mappings
 {
     /// <summary>
     /// Cleans and initializes test database

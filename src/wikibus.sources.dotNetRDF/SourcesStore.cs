@@ -4,7 +4,6 @@ using Resourcer;
 using TCode.r2rml4net;
 using VDS.RDF;
 using Wikibus.Common;
-using Wikibus.Common.Vocabularies;
 using Wikibus.Sources.DotNetRDF.Mapping;
 
 namespace Wikibus.Sources.DotNetRDF

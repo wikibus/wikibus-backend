@@ -5,8 +5,8 @@ using JsonLD.Entities;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Wikibus.Common;
 using Wikibus.Common.JsonLd;
-using Wikibus.Common.Vocabularies;
 
 namespace Wikibus.Nancy
 {

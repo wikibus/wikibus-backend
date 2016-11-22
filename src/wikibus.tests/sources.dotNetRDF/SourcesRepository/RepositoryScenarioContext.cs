@@ -7,7 +7,7 @@ using VDS.RDF;
 using VDS.RDF.Query;
 using Wikibus.Sources;
 
-namespace wikibus.tests.SourcesRepository
+namespace Wikibus.Tests.sources.dotNetRDF.SourcesRepository
 {
     public class RepositoryScenarioContext
     {

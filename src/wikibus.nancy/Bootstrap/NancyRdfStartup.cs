@@ -3,7 +3,6 @@ using Nancy.Bootstrapper;
 using Nancy.Rdf;
 using Vocab;
 using Wikibus.Common;
-using Wikibus.Common.Vocabularies;
 
 namespace Wikibus.Nancy
 {

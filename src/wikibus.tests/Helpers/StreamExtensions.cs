@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Newtonsoft.Json.Linq;
 
-namespace wikibus.tests.Helpers
+namespace Wikibus.Tests.Helpers
 {
     public static class StreamExtensions
     {
