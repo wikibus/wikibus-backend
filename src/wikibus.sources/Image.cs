@@ -2,7 +2,7 @@
 using NullGuard;
 using Vocab;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// Represents a schema.org ImageObject
@@ -24,7 +24,7 @@ namespace wikibus.sources
             {
                 return new Image
                 {
-                    ContentUrl = ContentUrl + "/small"
+                    ContentUrl = this.ContentUrl + "/small"
                 };
             }
         }
@@ -40,7 +40,7 @@ namespace wikibus.sources
         /// </summary>
         public bool ShouldSerializeThumbnail()
         {
-            return ContentUrl.EndsWith("small") == false;
+            return this.ContentUrl.EndsWith("small") == false;
         }
     }
 }

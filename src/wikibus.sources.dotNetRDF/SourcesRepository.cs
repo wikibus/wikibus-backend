@@ -2,17 +2,15 @@
 using Hydra.Resources;
 using JsonLD.Entities;
 using NullGuard;
-using Resourcer;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Writing;
 using Vocab;
-using wikibus.common.Vocabularies;
-using wikibus.sources.Filters;
+using Wikibus.Sources.Filters;
 using Resource = Resourcer.Resource;
 
-namespace wikibus.sources.dotNetRDF
+namespace Wikibus.Sources.DotNetRDF
 {
     /// <summary>
     /// dotNetRDF SPARQL repository of sources
@@ -20,9 +18,9 @@ namespace wikibus.sources.dotNetRDF
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.ReturnValues)]
     public class SourcesRepository : ISourcesRepository
     {
-        private readonly Lazy<ISparqlQueryProcessor> _queryProcessor;
-        private readonly IEntitySerializer _serializer;
-        private readonly SparqlQueryParser _parser = new SparqlQueryParser();
+        private readonly Lazy<ISparqlQueryProcessor> queryProcessor;
+        private readonly IEntitySerializer serializer;
+        private readonly SparqlQueryParser parser = new SparqlQueryParser();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourcesRepository"/> class.
@@ -31,50 +29,50 @@ namespace wikibus.sources.dotNetRDF
         /// <param name="serializer">JSON-LD serializer</param>
         public SourcesRepository(Lazy<ISparqlQueryProcessor> queryProcessor, IEntitySerializer serializer)
         {
-            _queryProcessor = queryProcessor;
-            _serializer = serializer;
+            this.queryProcessor = queryProcessor;
+            this.serializer = serializer;
         }
 
         /// <inheritdoc />
         public Magazine GetMagazine(Uri identifier)
         {
-            return Get<Magazine>(identifier);
+            return this.Get<Magazine>(identifier);
         }
 
         /// <inheritdoc />
         public Brochure GetBrochure(Uri identifier)
         {
-            return Get<Brochure>(identifier);
+            return this.Get<Brochure>(identifier);
         }
 
         /// <inheritdoc />
         public Book GetBook(Uri identifier)
         {
-            return Get<Book>(identifier);
+            return this.Get<Book>(identifier);
         }
 
         /// <inheritdoc />
         public Collection<Book> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
         {
-            return GetAll<Book, Collection<Book>>(identifier, page, pageSize);
+            return this.GetAll<Book, Collection<Book>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
         public Collection<Brochure> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
         {
-            return GetAll<Brochure, Collection<Brochure>>(identifier, page, pageSize);
+            return this.GetAll<Brochure, Collection<Brochure>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
         public Collection<Magazine> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
         {
-            return GetAll<Magazine, Collection<Magazine>>(identifier, page, pageSize);
+            return this.GetAll<Magazine, Collection<Magazine>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
         public Collection<Issue> GetMagazineIssues(Uri identifier)
         {
-            var magazineIssues = Get<Collection<Issue>>(identifier);
+            var magazineIssues = this.Get<Collection<Issue>>(identifier);
             if (magazineIssues != null)
             {
                 magazineIssues.TotalItems = magazineIssues.Members.Length;
@@ -87,7 +85,7 @@ namespace wikibus.sources.dotNetRDF
         /// <inheritdoc />
         public Issue GetIssue(Uri identifier)
         {
-            return Get<Issue>(identifier);
+            return this.Get<Issue>(identifier);
         }
 
         private static Uri GetTypeUri(Type type)
@@ -100,17 +98,18 @@ namespace wikibus.sources.dotNetRDF
             return new Uri(string.Format("http://wikibus.org/ontology#{0}", type.Name));
         }
 
-        private T Get<T>(Uri uri) where T : class
+        private T Get<T>(Uri uri)
+            where T : class
         {
             var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSingle.rq"));
             query.SetUri("source", uri);
-            var graph = (IGraph)_queryProcessor.Value.ProcessQuery(_parser.ParseFromString(query.ToString()));
+            var graph = (IGraph)this.queryProcessor.Value.ProcessQuery(this.parser.ParseFromString(query.ToString()));
 
             if (graph.Triples.Count > 0)
             {
                 var dataset = StringWriter.Write(graph, new NTriplesWriter(NTriplesSyntax.Rdf11));
 
-                return _serializer.Deserialize<T>(dataset);
+                return this.serializer.Deserialize<T>(dataset);
             }
 
             return null;
@@ -126,13 +125,13 @@ namespace wikibus.sources.dotNetRDF
             query.SetLiteral("page", page);
             query.SetLiteral("limit", pageSize);
             query.SetLiteral("offset", (page - 1) * pageSize);
-            var graph = (IGraph)_queryProcessor.Value.ProcessQuery(_parser.ParseFromString(query.ToString()));
+            var graph = (IGraph)this.queryProcessor.Value.ProcessQuery(this.parser.ParseFromString(query.ToString()));
 
             if (graph.Triples.Count > 0)
             {
                 var dataset = StringWriter.Write(graph, new NTriplesWriter(NTriplesSyntax.Rdf11));
 
-                return _serializer.Deserialize<TCollection>(dataset);
+                return this.serializer.Deserialize<TCollection>(dataset);
             }
 
             return new TCollection();

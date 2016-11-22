@@ -5,22 +5,22 @@ using JsonLD.Entities;
 using Nancy.Rdf;
 using Nancy.Rdf.Contexts;
 using Nancy.Testing;
-using wikibus.common;
-using wikibus.sources;
-using wikibus.sources.nancy;
+using Wikibus.Common;
+using Wikibus.Sources;
+using Wikibus.Sources.Nancy;
 
 namespace wikibus.tests.Modules.Bindings
 {
     public class NancyDependencies
     {
-        private readonly IImageResizer _resizer;
+        private readonly IImageResizer resizer;
 
         public NancyDependencies()
         {
             Sources = A.Fake<ISourcesRepository>(mock => mock.Strict());
             SourceImages = A.Fake<ISourceImagesRepository>();
-            _resizer = A.Dummy<IImageResizer>();
-            A.CallTo(() => _resizer.Resize(A<byte[]>.Ignored, A<int>.Ignored))
+            resizer = A.Dummy<IImageResizer>();
+            A.CallTo(() => resizer.Resize(A<byte[]>.Ignored, A<int>.Ignored))
              .ReturnsLazily(c => c.Arguments.Get<byte[]>(0));
 
             Browser = new Browser(with => with.Module<SourcesModule>()
@@ -39,7 +39,7 @@ namespace wikibus.tests.Modules.Bindings
             yield return Sources;
             yield return A.Dummy<IEntitySerializer>();
             yield return SourceImages;
-            yield return _resizer;
+            yield return resizer;
             yield return A.Dummy<INamespaceManager>();
             yield return A.Dummy<IContextPathMapper>();
 

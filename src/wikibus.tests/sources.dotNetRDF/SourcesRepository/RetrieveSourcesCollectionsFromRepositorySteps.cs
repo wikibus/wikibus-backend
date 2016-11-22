@@ -1,23 +1,23 @@
 ﻿using System;
 using TechTalk.SpecFlow;
-using wikibus.sources.Filters;
+using Wikibus.Sources.Filters;
 
 namespace wikibus.tests.SourcesRepository
 {
     [Binding]
     public class RetrieveSourcesCollectionsFromRepositorySteps
     {
-        private readonly RepositoryScenarioContext _context;
+        private readonly RepositoryScenarioContext context;
 
         public RetrieveSourcesCollectionsFromRepositorySteps(RepositoryScenarioContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         [When(@"page (.*) of (.*) is fetched")]
         public void WhenPageOfBooksIsFetched(int expectedPageIndex, string uri)
         {
-            var books = _context.Repository.GetBooks(new Uri(uri), new BookFilters(), expectedPageIndex);
+            var books = context.Repository.GetBooks(new Uri(uri), new BookFilters(), expectedPageIndex);
             ScenarioContext.Current.Set(books, "Model");
         }
 

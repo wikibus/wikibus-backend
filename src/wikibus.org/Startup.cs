@@ -1,10 +1,10 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using wikibus.org;
+using Wikibus.Org;
 
 [assembly: OwinStartup(typeof(Startup))]
 
-namespace wikibus.org
+namespace Wikibus.Org
 {
     internal class Startup
     {

@@ -1,30 +1,30 @@
 using System;
 using FluentAssertions;
 using TechTalk.SpecFlow;
-using wikibus.sources;
+using Wikibus.Sources;
 
 namespace wikibus.tests.sources.EF
 {
     [Binding, Scope(Tag = "EF"), Scope(Tag = "MagazineIssue")]
-    public class RetrievingMagazinesWithEFSteps
+    public class RetrievingMagazinesWithEfSteps
     {
-        private readonly EntitiFrameworkSourceTestContext _context;
+        private readonly EntitiFrameworkSourceTestContext context;
 
-        public RetrievingMagazinesWithEFSteps(EntitiFrameworkSourceTestContext context)
+        public RetrievingMagazinesWithEfSteps(EntitiFrameworkSourceTestContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         [When(@"Getting issue <(.*)>")]
         public void WhenGettingBook(string issueId)
         {
-            _context.Source = _context.Repository.GetIssue(new Uri(issueId));
+            context.Source = context.Repository.GetIssue(new Uri(issueId));
         }
 
         [Then(@"Magazine is <(.*)>")]
         public void ThenMagazineIs(string magazineId)
         {
-            _context.Source.As<Issue>().Magazine.Id.Should().Be(new Uri(magazineId));
+            context.Source.As<Issue>().Magazine.Id.Should().Be(new Uri(magazineId));
         }
     }
 }

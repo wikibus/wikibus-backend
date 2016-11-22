@@ -4,25 +4,25 @@ using System.Linq;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using VDS.RDF;
-using wikibus.common.Vocabularies;
-using wikibus.sources;
+using Wikibus.Common.Vocabularies;
+using Wikibus.Sources;
 
 namespace wikibus.tests.SourcesRepository
 {
     [Binding]
     public class RetrieveSourcesFromRepositorySteps
     {
-        private readonly RepositoryScenarioContext _context;
+        private readonly RepositoryScenarioContext context;
 
         public RetrieveSourcesFromRepositorySteps(RepositoryScenarioContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         [Given(@"RDF data:")]
         public void GivenRdfFrom(string datasetToLoad)
         {
-            _context.Store.LoadFromString(datasetToLoad);
+            context.Store.LoadFromString(datasetToLoad);
         }
 
         [Given(@"(.*) books")]
@@ -47,32 +47,32 @@ GRAPH <urn:book:collection>
 }}
 }}";
                 var update = string.Format(format, i, Wbo.Book);
-                _context.Store.ExecuteUpdate(update);
+                context.Store.ExecuteUpdate(update);
             }
         }
 
         [When(@"brochure <(.*)> is fetched")]
         public void WhenBrochureIsFetched(string uri)
         {
-            ScenarioContext.Current.Set(_context.Repository.GetBrochure(new Uri(uri)), "Model");
+            ScenarioContext.Current.Set(context.Repository.GetBrochure(new Uri(uri)), "Model");
         }
 
         [When(@"book <(.*)> is fetched")]
         public void WhenBookIsFetched(string uri)
         {
-            ScenarioContext.Current.Set(_context.Repository.GetBook(new Uri(uri)), "Model");
+            ScenarioContext.Current.Set(context.Repository.GetBook(new Uri(uri)), "Model");
         }
 
         [When(@"magazine <(.*)> is fetched")]
         public void WhenMagazineIsFetched(string uri)
         {
-            ScenarioContext.Current.Set(_context.Repository.GetMagazine(new Uri(uri)), "Model");
+            ScenarioContext.Current.Set(context.Repository.GetMagazine(new Uri(uri)), "Model");
         }
 
         [When(@"issue <(.*)> is fetched")]
         public void WhenIssueIsFetched(string uri)
         {
-            ScenarioContext.Current.Set(_context.Repository.GetIssue(new Uri(uri)), "Model");
+            ScenarioContext.Current.Set(context.Repository.GetIssue(new Uri(uri)), "Model");
         }
 
         [Then(@"'(.*)' should be string equal to '(.*)'")]

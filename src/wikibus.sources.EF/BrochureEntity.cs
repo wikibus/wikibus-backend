@@ -1,6 +1,6 @@
-using NullGuard;
+﻿using NullGuard;
 
-namespace wikibus.sources.EF
+namespace Wikibus.Sources.EF
 {
     [NullGuard(ValidationFlags.None)]
     public class BrochureEntity : SourceEntity

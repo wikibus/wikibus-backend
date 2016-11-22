@@ -1,28 +1,27 @@
-﻿using System;
-using Hydra;
-using Hydra.Resources;
-using wikibus.sources;
+﻿using Hydra.Resources;
+using Nancy.Rdf.Contexts;
+using Wikibus.Sources;
 
-namespace wikibus.nancy
+namespace Wikibus.Nancy
 {
     /// <summary>
     /// Maps wikibus models to remote contexts
     /// </summary>
-    public class ContextPathMapper : Nancy.Rdf.Contexts.DefaultContextPathMapper
+    public class ContextPathMapper : DefaultContextPathMapper
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ContextPathMapper"/> class.
         /// </summary>
         public ContextPathMapper()
         {
-            ServeContextOf<Book>();
-            ServeContextOf<Brochure>();
-            ServeContextOf<Issue>();
-            ServeContextOf<Magazine>();
-            ServeContextOf<Collection<Book>>("CollectionOfBooks");
-            ServeContextOf<Collection<Brochure>>("CollectionOfBrochures");
-            ServeContextOf<Collection<Magazine>>("CollectionOfMagazines");
-            ServeContextOf<Collection<Issue>>("CollectionOfIssues");
+            this.ServeContextOf<Book>();
+            this.ServeContextOf<Brochure>();
+            this.ServeContextOf<Issue>();
+            this.ServeContextOf<Magazine>();
+            this.ServeContextOf<Collection<Book>>("CollectionOfBooks");
+            this.ServeContextOf<Collection<Brochure>>("CollectionOfBrochures");
+            this.ServeContextOf<Collection<Magazine>>("CollectionOfMagazines");
+            this.ServeContextOf<Collection<Issue>>("CollectionOfIssues");
         }
     }
 }

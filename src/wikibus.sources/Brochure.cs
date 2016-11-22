@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;
-using wikibus.common.Vocabularies;
+using Wikibus.Common.Vocabularies;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// A brochure about buses, trams, etc.
@@ -16,8 +16,8 @@ namespace wikibus.sources
     [SupportedClass(Wbo.Brochure)]
     public class Brochure : Source
     {
-        private string _description;
-        private string _code;
+        private string description;
+        private string code;
 
         /// <summary>
         /// Gets or sets the title.
@@ -34,7 +34,7 @@ namespace wikibus.sources
             [return: AllowNull]
             get
             {
-                return _description;
+                return this.description;
             }
 
             set
@@ -44,7 +44,7 @@ namespace wikibus.sources
                     return;
                 }
 
-                _description = value;
+                this.description = value;
             }
         }
 
@@ -57,7 +57,7 @@ namespace wikibus.sources
             [return: AllowNull]
             get
             {
-                return _code;
+                return this.code;
             }
 
             set
@@ -67,7 +67,7 @@ namespace wikibus.sources
                     return;
                 }
 
-                _code = value;
+                this.code = value;
             }
         }
 

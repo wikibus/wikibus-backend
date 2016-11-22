@@ -1,8 +1,7 @@
 ﻿using Nancy;
 using Nancy.Bootstrapper;
-using wikibus.common;
 
-namespace wikibus.nancy
+namespace Wikibus.Nancy
 {
     /// <summary>
     /// Attaches to Nancy pipeline to add CORS headers
@@ -20,7 +19,7 @@ namespace wikibus.nancy
         /// </summary>
         public void Initialize(IPipelines pipelines)
         {
-            pipelines.AfterRequest.AddItemToEndOfPipeline(AppendCorsHeaders);
+            pipelines.AfterRequest.AddItemToEndOfPipeline(this.AppendCorsHeaders);
         }
 
         private void AppendCorsHeaders(NancyContext context)

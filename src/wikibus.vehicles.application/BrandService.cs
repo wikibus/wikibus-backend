@@ -1,4 +1,4 @@
-﻿namespace wikibus.vehicles.application
+﻿namespace Wikibus.Vehicles.Application
 {
     public class BrandService
     {

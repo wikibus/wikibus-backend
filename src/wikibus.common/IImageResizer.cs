@@ -1,4 +1,4 @@
-﻿namespace wikibus.common
+﻿namespace Wikibus.Common
 {
     /// <summary>
     /// Handles resizing images

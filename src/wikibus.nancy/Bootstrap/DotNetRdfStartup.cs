@@ -2,7 +2,7 @@
 using Nancy.Bootstrapper;
 using VDS.RDF.Query.Optimisation;
 
-namespace wikibus.nancy
+namespace Wikibus.Nancy
 {
     /// <summary>
     /// Performs data back end setup

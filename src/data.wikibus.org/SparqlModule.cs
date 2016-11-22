@@ -6,40 +6,41 @@ using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Writing;
 
-namespace data.wikibus.org
+namespace Data.Wikibus.Org
 {
     /// <summary>
     /// Handles SPARQL queries
     /// </summary>
     public class SparqlModule : NancyModule
     {
-        private readonly Lazy<ISparqlQueryProcessor> _queryProcessor;
-        private readonly SparqlQueryParser _parser = new SparqlQueryParser();
-        private readonly IRdfWriter _writer = new Notation3Writer();
-        private readonly ISparqlResultsWriter _sparqlWriter = new SparqlXmlWriter();
+        private readonly Lazy<ISparqlQueryProcessor> queryProcessor;
+        private readonly SparqlQueryParser parser = new SparqlQueryParser();
+        private readonly IRdfWriter writer = new Notation3Writer();
+        private readonly ISparqlResultsWriter sparqlWriter = new SparqlXmlWriter();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SparqlModule"/> class.
         /// </summary>
         /// <param name="queryProcessor">The query processor.</param>
-        public SparqlModule(Lazy<ISparqlQueryProcessor> queryProcessor) : base("sparql")
+        public SparqlModule(Lazy<ISparqlQueryProcessor> queryProcessor)
+            : base("sparql")
         {
-            _queryProcessor = queryProcessor;
+            this.queryProcessor = queryProcessor;
 
-            Get("/", request => ProcessQuery());
+            this.Get("/", request => this.ProcessQuery());
         }
 
         private object ProcessQuery()
         {
-            string query = Request.Query.query;
+            string query = this.Request.Query.query;
 
-            var result = _queryProcessor.Value.ProcessQuery(_parser.ParseFromString(query));
+            var result = this.queryProcessor.Value.ProcessQuery(this.parser.ParseFromString(query));
 
             if (result is IGraph)
             {
                 return new Response
                 {
-                    Contents = stream => _writer.Save((IGraph)result, new StreamWriter(stream))
+                    Contents = stream => this.writer.Save((IGraph)result, new StreamWriter(stream))
                 };
             }
 
@@ -47,7 +48,7 @@ namespace data.wikibus.org
             {
                 return new Response
                 {
-                    Contents = stream => _sparqlWriter.Save((SparqlResultSet)result, new StreamWriter(stream)),
+                    Contents = stream => this.sparqlWriter.Save((SparqlResultSet)result, new StreamWriter(stream)),
                     ContentType = "application/sparql-results+xml"
                 };
             }

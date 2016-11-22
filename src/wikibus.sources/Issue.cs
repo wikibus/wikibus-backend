@@ -7,9 +7,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;
-using wikibus.common.Vocabularies;
+using Wikibus.Common.Vocabularies;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// A magazine issue

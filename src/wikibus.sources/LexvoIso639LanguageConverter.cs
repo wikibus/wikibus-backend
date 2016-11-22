@@ -3,7 +3,7 @@ using System.Globalization;
 using Newtonsoft.Json;
 using NullGuard;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// Convert Lexvo ISO two-letter language Uri to <see cref="Language"/>

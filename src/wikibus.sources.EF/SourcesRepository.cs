@@ -2,34 +2,34 @@
 using System.Linq;
 using Hydra.Resources;
 using NullGuard;
-using wikibus.sources.Filters;
+using Wikibus.Sources.Filters;
 
-namespace wikibus.sources.EF
+namespace Wikibus.Sources.EF
 {
     public class SourcesRepository : ISourcesRepository
     {
-        private readonly ISourceContext _context;
-        private readonly IdRetriever _idRetriever;
-        private readonly EntityFactory _factory;
+        private readonly ISourceContext context;
+        private readonly IdRetriever identifierRetriever;
+        private readonly EntityFactory factory;
 
-        public SourcesRepository(ISourceContext context, IdRetriever idRetriever, EntityFactory factory)
+        public SourcesRepository(ISourceContext context, IdRetriever identifierRetriever, EntityFactory factory)
         {
-            _context = context;
-            _idRetriever = idRetriever;
-            _factory = factory;
+            this.context = context;
+            this.identifierRetriever = identifierRetriever;
+            this.factory = factory;
         }
 
         [return: AllowNull]
         public Magazine GetMagazine(Uri identifier)
         {
-            var id = _idRetriever.GetMagazineName(identifier);
+            var id = this.identifierRetriever.GetMagazineName(identifier);
 
             if (id == null)
             {
                 return null;
             }
 
-            var source = (from mag in _context.Magazines
+            var source = (from mag in this.context.Magazines
                           where mag.Name == id
                           select mag).SingleOrDefault();
 
@@ -38,20 +38,20 @@ namespace wikibus.sources.EF
                 return null;
             }
 
-            return _factory.CreateMagazine(source);
+            return this.factory.CreateMagazine(source);
         }
 
         [return: AllowNull]
         public Brochure GetBrochure(Uri identifier)
         {
-            var id = _idRetriever.GetBrochureId(identifier);
+            var id = this.identifierRetriever.GetBrochureId(identifier);
 
             if (id == null)
             {
                 return null;
             }
 
-            var source = (from b in _context.Brochures
+            var source = (from b in this.context.Brochures
                           where b.Id == id
                           select new
                           {
@@ -64,7 +64,7 @@ namespace wikibus.sources.EF
                 return null;
             }
 
-            var brochure = _factory.CreateBrochure(source.Brochure);
+            var brochure = this.factory.CreateBrochure(source.Brochure);
             brochure.HasImage = source.HasImage;
             return brochure;
         }
@@ -72,14 +72,14 @@ namespace wikibus.sources.EF
         [return: AllowNull]
         public Book GetBook(Uri identifier)
         {
-            var id = _idRetriever.GetBookId(identifier);
+            var id = this.identifierRetriever.GetBookId(identifier);
 
             if (id == null)
             {
                 return null;
             }
 
-            var source = (from b in _context.Books
+            var source = (from b in this.context.Books
                           where b.Id == id
                           select new
                           {
@@ -92,54 +92,54 @@ namespace wikibus.sources.EF
                 return null;
             }
 
-            var brochure = _factory.CreateBook(source.Book);
+            var brochure = this.factory.CreateBook(source.Book);
             brochure.HasImage = source.HasImage;
             return brochure;
         }
 
         public Collection<Book> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
         {
-            return _context.Books.GetCollectionPage(
+            return this.context.Books.GetCollectionPage(
                 identifier,
                 entity => entity.BookTitle,
-                FilterBooks(filters),
+                this.FilterBooks(filters),
                 page,
                 pageSize,
-                _factory.CreateBook);
+                this.factory.CreateBook);
         }
 
         public Collection<Brochure> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
         {
-            return _context.Brochures.GetCollectionPage(
+            return this.context.Brochures.GetCollectionPage(
                 identifier,
                 entity => entity.FolderName,
-                FilterBrochures(filters),
+                this.FilterBrochures(filters),
                 page,
                 pageSize,
-                _factory.CreateBrochure);
+                this.factory.CreateBrochure);
         }
 
         public Collection<Magazine> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
         {
-            return _context.Magazines.GetCollectionPage(
+            return this.context.Magazines.GetCollectionPage(
                 identifier,
                 entity => entity.Name,
-                FilterMagazines(filters),
+                this.FilterMagazines(filters),
                 page,
                 pageSize,
-                _factory.CreateMagazine);
+                this.factory.CreateMagazine);
         }
 
         public Collection<Issue> GetMagazineIssues(Uri uri)
         {
-            var name = _idRetriever.GetMagazineName(uri);
+            var name = this.identifierRetriever.GetMagazineName(uri);
 
             if (name == null)
             {
                 return new Collection<Issue>();
             }
 
-            var issues = (from m in _context.Magazines
+            var issues = (from m in this.context.Magazines
                           where m.Name == name
                           select m.Issues).SingleOrDefault();
 
@@ -151,7 +151,7 @@ namespace wikibus.sources.EF
             return new Collection<Issue>
             {
                 Id = uri,
-                Members = issues.Select(_factory.CreateMagazineIssue).ToArray(),
+                Members = issues.Select(this.factory.CreateMagazineIssue).ToArray(),
                 TotalItems = issues.Count
             };
         }
@@ -159,14 +159,14 @@ namespace wikibus.sources.EF
         [return: AllowNull]
         public Issue GetIssue(Uri identifier)
         {
-            var id = _idRetriever.GetIssueId(identifier);
+            var id = this.identifierRetriever.GetIssueId(identifier);
 
             if (id == null)
             {
                 return null;
             }
 
-            var source = (from m in _context.Magazines
+            var source = (from m in this.context.Magazines
                           where m.Name == id.MagazineName
                           from i in m.Issues
                           where i.MagIssueNumber == id.IssueNumber
@@ -182,7 +182,7 @@ namespace wikibus.sources.EF
                 return null;
             }
 
-            var brochure = _factory.CreateMagazineIssue(source.Issue);
+            var brochure = this.factory.CreateMagazineIssue(source.Issue);
             brochure.HasImage = source.HasImage;
             return brochure;
         }

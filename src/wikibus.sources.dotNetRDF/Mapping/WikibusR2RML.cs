@@ -7,10 +7,10 @@ using TCode.r2rml4net.Mapping.Fluent;
 using TCode.r2rml4net.RDB;
 using TCode.r2rml4net.Validation;
 using Vocab;
-using wikibus.common;
-using wikibus.common.Vocabularies;
+using Wikibus.Common;
+using Wikibus.Common.Vocabularies;
 
-namespace wikibus.sources.dotNetRDF.Mapping
+namespace Wikibus.Sources.DotNetRDF.Mapping
 {
     /// <summary>
     /// R2RML mappings for the wikibus SQL database
@@ -22,19 +22,19 @@ namespace wikibus.sources.dotNetRDF.Mapping
         private static readonly string SelectBookAuthorSql = Resource.AsString("SqlQueries.SelectBookAuthor.sql");
         private static readonly string SelectBrochureAndBook = Resource.AsString("SqlQueries.SelectBrochureAndBook.sql");
         private static readonly string SelectMagIssues = Resource.AsString("SqlQueries.SelectMagazineIssue.sql");
-        private readonly Lazy<IR2RML> _rml;
-        private readonly IWikibusConfiguration _config;
-        private ITriplesMapConfiguration _magazineMap;
-        private ITriplesMapConfiguration _magIssueMap;
-        private ITriplesMapFromR2RMLViewConfiguration _sourceMap;
+        private readonly Lazy<IR2RML> rml;
+        private readonly IWikibusConfiguration config;
+        private ITriplesMapConfiguration magazineMap;
+        private ITriplesMapConfiguration magIssueMap;
+        private ITriplesMapFromR2RMLViewConfiguration sourceMap;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WikibusR2RML" /> class
         /// </summary>
         public WikibusR2RML(IWikibusConfiguration config)
         {
-            _config = config;
-            _rml = new Lazy<IR2RML>(CreateMappings);
+            this.config = config;
+            this.rml = new Lazy<IR2RML>(this.CreateMappings);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace wikibus.sources.dotNetRDF.Mapping
         /// </summary>
         public IEnumerable<ITriplesMap> TriplesMaps
         {
-            get { return _rml.Value.TriplesMaps; }
+            get { return this.rml.Value.TriplesMaps; }
         }
 
         /// <summary>
@@ -50,8 +50,8 @@ namespace wikibus.sources.dotNetRDF.Mapping
         /// </summary>
         public ISqlQueryBuilder SqlQueryBuilder
         {
-            get { return _rml.Value.SqlQueryBuilder; }
-            set { _rml.Value.SqlQueryBuilder = value; }
+            get { return this.rml.Value.SqlQueryBuilder; }
+            set { this.rml.Value.SqlQueryBuilder = value; }
         }
 
         /// <summary>
@@ -59,18 +59,18 @@ namespace wikibus.sources.dotNetRDF.Mapping
         /// </summary>
         public ISqlVersionValidator SqlVersionValidator
         {
-            get { return _rml.Value.SqlVersionValidator; }
-            set { _rml.Value.SqlVersionValidator = value; }
+            get { return this.rml.Value.SqlVersionValidator; }
+            set { this.rml.Value.SqlVersionValidator = value; }
         }
 
         private FluentR2RML CreateMappings()
         {
             var rml = new FluentR2RML();
 
-            MapBooksAndBrochures(rml);
-            MapMagazines(rml);
-            MapMagazineIssues(rml);
-            MapMetadata(rml);
+            this.MapBooksAndBrochures(rml);
+            this.MapMagazines(rml);
+            this.MapMagazineIssues(rml);
+            this.MapMetadata(rml);
 
             return rml;
         }
@@ -81,74 +81,74 @@ namespace wikibus.sources.dotNetRDF.Mapping
             metadataMapping.SubjectMap.IsTemplateValued(MagazineGraphTemplate);
 
             var magazineMeta = metadataMapping.CreatePropertyObjectMap();
-            magazineMeta.CreateRefObjectMap(_magazineMap).AddJoinCondition("Id", "Id");
+            magazineMeta.CreateRefObjectMap(this.magazineMap).AddJoinCondition("Id", "Id");
             magazineMeta.CreatePredicateMap().IsConstantValued(new Uri(Foaf.primaryTopic));
 
             metadataMapping = rml.CreateTriplesMapFromR2RMLView("select [Id], [SourceType] from [Sources].[Source]");
             metadataMapping.SubjectMap.IsTemplateValued(SourceGraphTemplate);
 
             var issueMeta = metadataMapping.CreatePropertyObjectMap();
-            issueMeta.CreateRefObjectMap(_magIssueMap).AddJoinCondition("Id", "Id");
+            issueMeta.CreateRefObjectMap(this.magIssueMap).AddJoinCondition("Id", "Id");
             issueMeta.CreatePredicateMap().IsConstantValued(new Uri(Foaf.primaryTopic));
 
             var sourceMeta = metadataMapping.CreatePropertyObjectMap();
-            sourceMeta.CreateRefObjectMap(_sourceMap).AddJoinCondition("Id", "Id");
+            sourceMeta.CreateRefObjectMap(this.sourceMap).AddJoinCondition("Id", "Id");
             sourceMeta.CreatePredicateMap().IsConstantValued(new Uri(Foaf.primaryTopic));
         }
 
         private void MapMagazines(FluentR2RML rml)
         {
-            _magazineMap = rml.CreateTriplesMapFromR2RMLView("select * from [Sources].[Magazine]");
-            _magazineMap.SubjectMap.IsTemplateValued(_config.BaseResourceNamespace + "magazine/{Name}");
-            _magazineMap.SubjectMap.AddClass(new Uri(Schema.Periodical));
-            _magazineMap.SubjectMap.AddClass(new Uri(Wbo.Magazine));
-            _magazineMap.SubjectMap.CreateGraphMap().IsTemplateValued(MagazineGraphTemplate);
+            this.magazineMap = rml.CreateTriplesMapFromR2RMLView("select * from [Sources].[Magazine]");
+            this.magazineMap.SubjectMap.IsTemplateValued(this.config.BaseResourceNamespace + "magazine/{Name}");
+            this.magazineMap.SubjectMap.AddClass(new Uri(Schema.Periodical));
+            this.magazineMap.SubjectMap.AddClass(new Uri(Wbo.Magazine));
+            this.magazineMap.SubjectMap.CreateGraphMap().IsTemplateValued(MagazineGraphTemplate);
 
-            MapMagazineTitle(_magazineMap);
+            this.MapMagazineTitle(this.magazineMap);
         }
 
         private void MapMagazineIssues(FluentR2RML rml)
         {
-            var template = _config.BaseResourceNamespace + "magazine/{Magazine}/issue/{MagIssueNumber}";
+            var template = this.config.BaseResourceNamespace + "magazine/{Magazine}/issue/{MagIssueNumber}";
 
-            _magIssueMap = rml.CreateTriplesMapFromR2RMLView(SelectMagIssues);
-            _magIssueMap.SubjectMap.IsTemplateValued(template);
-            _magIssueMap.SubjectMap.AddClass(new Uri(Schema.PublicationIssue));
-            _magIssueMap.SubjectMap.CreateGraphMap().IsTemplateValued(SourceGraphTemplate);
+            this.magIssueMap = rml.CreateTriplesMapFromR2RMLView(SelectMagIssues);
+            this.magIssueMap.SubjectMap.IsTemplateValued(template);
+            this.magIssueMap.SubjectMap.AddClass(new Uri(Schema.PublicationIssue));
+            this.magIssueMap.SubjectMap.CreateGraphMap().IsTemplateValued(SourceGraphTemplate);
 
-            MapLanguages(_magIssueMap);
-            MapDate(_magIssueMap);
-            MapImage(_magIssueMap);
-            MapIssueParent(_magIssueMap);
-            MapPagesCount(_magIssueMap);
+            this.MapLanguages(this.magIssueMap);
+            this.MapDate(this.magIssueMap);
+            this.MapImage(this.magIssueMap);
+            this.MapIssueParent(this.magIssueMap);
+            this.MapPagesCount(this.magIssueMap);
 
-            _magIssueMap.MapColumn("MagIssueNumber", Schema.issueNumber, new Uri(Xsd.@string));
+            this.magIssueMap.MapColumn("MagIssueNumber", Schema.issueNumber, new Uri(Xsd.@string));
         }
 
         private void MapIssueParent(ITriplesMapConfiguration sourceMap)
         {
             var magazineMap = sourceMap.CreatePropertyObjectMap();
             magazineMap.CreatePredicateMap().IsConstantValued(new Uri(Schema.isPartOf));
-            magazineMap.CreateRefObjectMap(_magazineMap)
+            magazineMap.CreateRefObjectMap(this.magazineMap)
                 .AddJoinCondition("MagIssueMagazine", "Id");
         }
 
         private void MapBooksAndBrochures(FluentR2RML rml)
         {
-            _sourceMap = rml.CreateTriplesMapFromR2RMLView(SelectBrochureAndBook);
-            var template = _config.BaseResourceNamespace + "{TypeLower}/{Id}";
-            _sourceMap.SubjectMap.IsTemplateValued(template);
-            _sourceMap.SubjectMap.CreateGraphMap().IsTemplateValued(SourceGraphTemplate);
+            this.sourceMap = rml.CreateTriplesMapFromR2RMLView(SelectBrochureAndBook);
+            var template = this.config.BaseResourceNamespace + "{TypeLower}/{Id}";
+            this.sourceMap.SubjectMap.IsTemplateValued(template);
+            this.sourceMap.SubjectMap.CreateGraphMap().IsTemplateValued(SourceGraphTemplate);
 
-            MapFolderName(_sourceMap);
-            MapType(_sourceMap);
-            MapLanguages(_sourceMap);
-            MapPagesCount(_sourceMap);
-            MapFolderCode(_sourceMap);
-            MapDate(_sourceMap);
-            MapBookAuthor(_sourceMap);
-            MapBookISBN(_sourceMap);
-            MapImage(_sourceMap);
+            this.MapFolderName(this.sourceMap);
+            this.MapType(this.sourceMap);
+            this.MapLanguages(this.sourceMap);
+            this.MapPagesCount(this.sourceMap);
+            this.MapFolderCode(this.sourceMap);
+            this.MapDate(this.sourceMap);
+            this.MapBookAuthor(this.sourceMap);
+            this.MapBookISBN(this.sourceMap);
+            this.MapImage(this.sourceMap);
         }
 
         private void MapImage(ITriplesMapConfiguration sourceMap)

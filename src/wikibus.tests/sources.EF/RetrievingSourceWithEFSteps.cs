@@ -3,19 +3,23 @@ using System.Reflection;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using wikibus.sources;
 
 namespace wikibus.tests.sources.EF
 {
     [Binding, Scope(Tag = "EF")]
-    public class RetrievingSourceWithEFSteps
+    public class RetrievingSourceWithEfSteps
     {
-        private static readonly MethodInfo CreateInstanceGeneric = Info.OfMethod("TechTalk.SpecFlow", "TechTalk.SpecFlow.Assist.TableHelperExtensionMethods", "CreateInstance", "Table");
-        private readonly EntitiFrameworkSourceTestContext _context;
+        private static readonly MethodInfo CreateInstanceGeneric;
+        private readonly EntitiFrameworkSourceTestContext context;
 
-        public RetrievingSourceWithEFSteps(EntitiFrameworkSourceTestContext context)
+        static RetrievingSourceWithEfSteps()
         {
-            _context = context;
+            CreateInstanceGeneric = typeof(TableHelperExtensionMethods).GetMethod("CreateInstance", new[] { typeof(Table) });
+        }
+
+        public RetrievingSourceWithEfSteps(EntitiFrameworkSourceTestContext context)
+        {
+            this.context = context;
         }
 
         [Then(@"(.*) should match")]
@@ -27,8 +31,8 @@ namespace wikibus.tests.sources.EF
 
             foreach (var row in table.Rows)
             {
-                var property = _context.Source.GetType().GetProperty(row[0]);
-                var actulValue = property.GetValue(_context.Source);
+                var property = context.Source.GetType().GetProperty(row[0]);
+                var actulValue = property.GetValue(context.Source);
                 var expectedValue = property.GetValue(expected);
 
                 actulValue.Should().Be(expectedValue);
@@ -38,25 +42,25 @@ namespace wikibus.tests.sources.EF
         [Then(@"Languages should contain (.*)")]
         public void ThenLanguagesShouldContain(string languageId)
         {
-            _context.Source.Languages.Should().Contain(language => language.Name == languageId);
+            context.Source.Languages.Should().Contain(language => language.Name == languageId);
         }
 
         [Then(@"Date should be (.*)")]
         public void ThenDateShouldBe(DateTime date)
         {
-            _context.Source.Date.Should().Be(date);
+            context.Source.Date.Should().Be(date);
         }
 
         [Then(@"Id should be <(.*)>")]
         public void ThenIdShouldBe(string id)
         {
-            _context.Source.Id.Should().Be(new Uri(id));
+            context.Source.Id.Should().Be(new Uri(id));
         }
 
         [Then(@"Should have image (.*)")]
         public void ThenBrochureShouldHaveImage(string imgContentUrl)
         {
-            _context.Source.Image.Should().NotBeNull();
+            context.Source.Image.Should().NotBeNull();
         }
 
         [Then(@"Book should be null")]
@@ -64,7 +68,7 @@ namespace wikibus.tests.sources.EF
         [Then(@"Brochure should be null")]
         public void ThenBrochureShouldBeNull()
         {
-            _context.Source.Should().BeNull();
+            context.Source.Should().BeNull();
         }
     }
 }

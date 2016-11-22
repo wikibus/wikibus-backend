@@ -1,4 +1,4 @@
-﻿namespace wikibus.sources
+﻿namespace Wikibus.Sources
 {
     /// <summary>
     /// Settings of the sources SQL database

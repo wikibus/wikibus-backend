@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Data.SqlClient;
 
-namespace wikibus.sources.dotNetRDF
+namespace Wikibus.Sources.DotNetRDF
 {
     /// <summary>
     /// Implements getting images from SQL database
     /// </summary>
     public class SourceImagesRepository : ISourceImagesRepository
     {
-        private readonly string _connectionString;
+        private readonly string connectionString;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceImagesRepository"/> class.
         /// </summary>
         public SourceImagesRepository(ISourcesDatabaseSettings configuration)
         {
-            _connectionString = configuration.ConnectionString;
+            this.connectionString = configuration.ConnectionString;
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace wikibus.sources.dotNetRDF
         /// </summary>
         public byte[] GetImageBytes(int sourceId)
         {
-            return GetBytes(
+            return this.GetBytes(
                 "SELECT Image FROM [Sources].[Source] WHERE Id = @id AND Image is not null",
                 new Tuple<string, object>("id", sourceId));
         }
@@ -33,7 +33,7 @@ namespace wikibus.sources.dotNetRDF
         /// </summary>
         public byte[] GetImageBytes(string magazine, string issueNumber)
         {
-            return GetBytes(
+            return this.GetBytes(
                 @"SELECT Image
                   FROM [Sources].[Source] i
                   JOIN [Sources].[Magazine] m ON m.Id = i.MagIssueMagazine
@@ -46,7 +46,7 @@ namespace wikibus.sources.dotNetRDF
 
         private byte[] GetBytes(string query, params Tuple<string, object>[] parameters)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(this.connectionString))
             {
                 connection.Open();
                 var sqlCommand = connection.CreateCommand();

@@ -11,16 +11,16 @@ namespace wikibus.tests.FluentAssertions
 {
     public class StoreAssertions : ReferenceTypeAssertions<ITripleStore, StoreAssertions>
     {
-        private readonly ISparqlQueryProcessor _queryProcessor;
+        private readonly ISparqlQueryProcessor queryProcessor;
 
         public StoreAssertions(IInMemoryQueryableStore tripleStore)
         {
-            _queryProcessor = new LeviathanQueryProcessor(tripleStore);
+            queryProcessor = new LeviathanQueryProcessor(tripleStore);
         }
 
         public StoreAssertions(IGraph graph)
         {
-            _queryProcessor = new LeviathanQueryProcessor(new InMemoryDataset(graph));
+            queryProcessor = new LeviathanQueryProcessor(new InMemoryDataset(graph));
         }
 
         protected override string Context
@@ -40,7 +40,7 @@ namespace wikibus.tests.FluentAssertions
             }
 
             var query = queryBuilder.BuildQuery();
-            var askResult = (SparqlResultSet)_queryProcessor.ProcessQuery(queryBuilder.BuildQuery());
+            var askResult = (SparqlResultSet)queryProcessor.ProcessQuery(queryBuilder.BuildQuery());
             askResult.Result.Should().BeTrue("Dataset contents should match query:{0}{1}", Environment.NewLine, query);
 
             return new AndConstraint<StoreAssertions>(this);

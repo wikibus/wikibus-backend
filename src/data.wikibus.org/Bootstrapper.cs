@@ -1,14 +1,12 @@
-using Autofac;
-using Nancy.Bootstrapper;
+﻿using Autofac;
 using Nancy.Bootstrappers.Autofac;
-using wikibus.sources.nancy;
 
-namespace data.wikibus.org
+namespace Data.Wikibus.Org
 {
     /// <summary>
     /// The NAncy bootstrapper
     /// </summary>
-    public class Bootstrapper : global::wikibus.nancy.Bootstrapper
+    public class Bootstrapper : global::Wikibus.Nancy.Bootstrapper
     {
         /// <summary>
         /// Configures the application container.

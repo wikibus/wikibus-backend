@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using Hydra.Resources;
 
-namespace wikibus.sources.EF
+namespace Wikibus.Sources.EF
 {
     public static class SourceRepositoryExtensions
     {

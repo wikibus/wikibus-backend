@@ -12,7 +12,7 @@ using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
 using VDS.RDF.Writing;
-using wikibus.sources.dotNetRDF.Mapping;
+using Wikibus.Sources.DotNetRDF.Mapping;
 using StringWriter = VDS.RDF.Writing.StringWriter;
 
 namespace wikibus.tests.Mappings
@@ -20,16 +20,16 @@ namespace wikibus.tests.Mappings
     [Binding]
     public class MappingSourcesSteps : IDisposable
     {
-        private readonly IR2RMLProcessor _rmlProc;
-        private readonly INDbUnitTest _database;
-        private readonly SqlConnection _sqlConnection;
-        private ITripleStore _result;
+        private readonly IR2RMLProcessor rmlProc;
+        private readonly INDbUnitTest database;
+        private readonly SqlConnection sqlConnection;
+        private ITripleStore result;
 
         public MappingSourcesSteps()
         {
-            _sqlConnection = new SqlConnection(Database.TestConnectionString);
-            _database = Database.Initialize(_sqlConnection);
-            _rmlProc = new W3CR2RMLProcessor(_sqlConnection)
+            sqlConnection = new SqlConnection(Database.TestConnectionString);
+            database = Database.Initialize(sqlConnection);
+            rmlProc = new W3CR2RMLProcessor(sqlConnection)
             {
                 Log = new TextWriterLog(Console.Out)
             };
@@ -41,55 +41,55 @@ namespace wikibus.tests.Mappings
             var datasetFile = Path.GetTempFileName();
             DataSet ds = table.ToDataSet(tableName);
             ds.WriteXml(datasetFile);
-            _database.AppendXml(datasetFile);
+            database.AppendXml(datasetFile);
         }
 
         [Given("data is inserted"), Scope(Tag = "SQL")]
         public void GiveDataInserted()
         {
-            _database.PerformDbOperation(DbOperationFlag.Insert);
+            database.PerformDbOperation(DbOperationFlag.Insert);
         }
 
         [When(@"retrieve all triples"), Scope(Tag = "RML")]
         public void WhenRetrieveAllTriples()
         {
-            _database.PerformDbOperation(DbOperationFlag.Insert);
-            _result = _rmlProc.GenerateTriples(new WikibusR2RML(new TestConfiguration()));
-            _result.SaveToFile("out.trig");
+            database.PerformDbOperation(DbOperationFlag.Insert);
+            result = rmlProc.GenerateTriples(new WikibusR2RML(new TestConfiguration()));
+            result.SaveToFile("out.trig");
         }
 
         [Then(@"resulting dataset should match query:"), Scope(Tag = "RML")]
         public void ThenResultingShouldMatchQuery(string query)
         {
             var querySuccess = ExecuteAsk(query);
-            Assert.That(querySuccess, "Actual triples were: {0}", StringWriter.Write(_result, new TriGWriter()));
+            Assert.That(querySuccess, "Actual triples were: {0}", StringWriter.Write(result, new TriGWriter()));
         }
 
         [Then(@"resulting dataset should not match query:"), Scope(Tag = "RML")]
         public void ThenResultingDatasetShouldNotMatchQuery(string query)
         {
             var querySuccess = ExecuteAsk(query);
-            Assert.That(querySuccess, Is.False, "Actual triples were: {0}", StringWriter.Write(_result, new TriGWriter()));
+            Assert.That(querySuccess, Is.False, "Actual triples were: {0}", StringWriter.Write(result, new TriGWriter()));
         }
 
         [Then(@"resulting dataset should contain '(\d*)' triples"), Scope(Tag = "RML")]
         public void ThenResultingDatasetShouldContainTriples(int expectedCount)
         {
             Assert.That(
-                _result.Triples.Count(),
+                result.Triples.Count(),
                 Is.EqualTo(expectedCount),
                 "Actual triples were: {0}",
-                StringWriter.Write(_result, new TriGWriter()));
+                StringWriter.Write(result, new TriGWriter()));
         }
 
         public void Dispose()
         {
-            _sqlConnection.Dispose();
+            sqlConnection.Dispose();
         }
 
         private bool ExecuteAsk(string query)
         {
-            ISparqlQueryProcessor processor = new LeviathanQueryProcessor((IInMemoryQueryableStore)_result);
+            ISparqlQueryProcessor processor = new LeviathanQueryProcessor((IInMemoryQueryableStore)result);
 
             var queryResult = (SparqlResultSet)processor.ProcessQuery(new SparqlQueryParser().ParseFromString(query));
 

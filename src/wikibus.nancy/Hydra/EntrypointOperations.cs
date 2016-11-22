@@ -1,6 +1,6 @@
 ﻿using Hydra.Discovery.SupportedOperations;
 
-namespace wikibus.nancy.Hydra
+namespace Wikibus.Nancy.Hydra
 {
     /// <summary>
     /// Sets up operations supported by <see cref="EntryPoint"/> class
@@ -12,11 +12,11 @@ namespace wikibus.nancy.Hydra
         /// </summary>
         public EntrypointOperations()
         {
-            Class.SupportsGet("Gets the API entrypoint", "The entrypoint is the the API starts");
+            this.Class.SupportsGet("Gets the API entrypoint", "The entrypoint is the the API starts");
 
-            Property(e => e.Books).SupportsGet("Gets the collection of books (paged)");
-            Property(e => e.Brochures).SupportsGet("Gets the collection of brochures (paged)");
-            Property(e => e.Magazines).SupportsGet("Gets the collection of magazines");
+            this.Property(e => e.Books).SupportsGet("Gets the collection of books (paged)");
+            this.Property(e => e.Brochures).SupportsGet("Gets the collection of brochures (paged)");
+            this.Property(e => e.Magazines).SupportsGet("Gets the collection of magazines");
         }
     }
 }

@@ -1,6 +1,6 @@
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
-namespace wikibus.sources.EF
+namespace Wikibus.Sources.EF
 {
     public interface ISourceContext
     {

@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace wikibus.sources.nancy
+namespace Wikibus.Sources.Nancy
 {
     /// <summary>
     /// Extensions for manipulating string

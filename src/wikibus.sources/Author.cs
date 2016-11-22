@@ -1,7 +1,7 @@
 ﻿using NullGuard;
 using Vocab;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// Book author

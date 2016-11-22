@@ -1,6 +1,6 @@
 ﻿using NullGuard;
 
-namespace wikibus.sources.Filters
+namespace Wikibus.Sources.Filters
 {
     /// <summary>
     /// Defines filters of the brochures collection

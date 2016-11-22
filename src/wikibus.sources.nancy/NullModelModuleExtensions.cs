@@ -2,7 +2,7 @@
 using System.Linq;
 using Nancy;
 
-namespace wikibus.sources.nancy
+namespace Wikibus.Sources.Nancy
 {
     /// <summary>
     /// Ensures 404 status when model is null

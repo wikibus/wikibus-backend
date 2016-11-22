@@ -1,6 +1,6 @@
-using wikibus.sources;
-using wikibus.sources.EF;
 using wikibus.tests.Mappings;
+using Wikibus.Sources;
+using Wikibus.Sources.EF;
 
 namespace wikibus.tests.sources.EF
 {
@@ -10,10 +10,10 @@ namespace wikibus.tests.sources.EF
         {
             var sourceContext = new SourceContext(Database.TestConnectionString);
             var identifierTemplates = new IdentifierTemplates(new TestConfiguration());
-            Repository = new wikibus.sources.EF.SourcesRepository(sourceContext, new IdRetriever(identifierTemplates), new EntityFactory(identifierTemplates));
+            Repository = new Wikibus.Sources.EF.SourcesRepository(sourceContext, new IdRetriever(identifierTemplates), new EntityFactory(identifierTemplates));
         }
 
-        public wikibus.sources.EF.SourcesRepository Repository { get; }
+        public Wikibus.Sources.EF.SourcesRepository Repository { get; }
 
         public Source Source { get; set; }
     }

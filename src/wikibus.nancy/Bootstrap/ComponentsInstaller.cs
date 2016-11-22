@@ -4,11 +4,11 @@ using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Routing;
 using VDS.RDF.Query;
-using wikibus.common;
-using wikibus.sources;
-using ISourcesDatabaseSettings = wikibus.sources.dotNetRDF.ISourcesDatabaseSettings;
+using Wikibus.Common;
+using Wikibus.Sources;
+using ISourcesDatabaseSettings = Wikibus.Sources.DotNetRDF.ISourcesDatabaseSettings;
 
-namespace wikibus.nancy
+namespace Wikibus.Nancy
 {
     /// <summary>
     /// Install all required components
@@ -25,14 +25,14 @@ namespace wikibus.nancy
         {
             IWikibusConfiguration configuration = new AppSettingsConfiguration();
 
-            Register(configuration);
-            Register(new Lazy<ISparqlQueryProcessor>(() =>
+            this.Register(configuration);
+            this.Register(new Lazy<ISparqlQueryProcessor>(() =>
             {
                 var endpointUri = databaseSettings.SourcesSparqlEndpoint;
                 return new RemoteQueryProcessor(new SparqlRemoteEndpoint(endpointUri));
             }));
-            Register<IFrameProvider>(new WikibusModelFrames());
-            Register<DefaultRouteResolver>();
+            this.Register<IFrameProvider>(new WikibusModelFrames());
+            this.Register<DefaultRouteResolver>();
         }
     }
 }

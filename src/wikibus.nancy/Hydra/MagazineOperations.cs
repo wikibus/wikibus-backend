@@ -1,7 +1,7 @@
-using Hydra.Discovery.SupportedOperations;
-using wikibus.sources;
+﻿using Hydra.Discovery.SupportedOperations;
+using Wikibus.Sources;
 
-namespace wikibus.nancy.Hydra
+namespace Wikibus.Nancy.Hydra
 {
     /// <summary>
     /// Sets up operations supported by <see cref="Magazine"/> class
@@ -13,8 +13,8 @@ namespace wikibus.nancy.Hydra
         /// </summary>
         public MagazineOperations()
         {
-            Class.SupportsGet();
-            Property(e => e.Issues).SupportsGet();
+            this.Class.SupportsGet();
+            this.Property(e => e.Issues).SupportsGet();
         }
     }
 }

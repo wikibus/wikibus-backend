@@ -1,8 +1,8 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using NullGuard;
 
-namespace wikibus.sources.EF
+namespace Wikibus.Sources.EF
 {
     [NullGuard(ValidationFlags.None)]
     [Table("Source", Schema = "Sources")]

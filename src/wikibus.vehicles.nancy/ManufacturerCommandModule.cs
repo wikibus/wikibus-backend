@@ -1,7 +1,7 @@
 ﻿using Nancy;
 using Nancy.Security;
 
-namespace wikibus.vehicles.nancy
+namespace Wikibus.Vehicles.Nancy
 {
     public class ManufacturerCommandModule : NancyModule
     {

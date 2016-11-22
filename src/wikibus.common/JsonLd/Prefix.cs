@@ -2,7 +2,7 @@
 using JsonLD.Entities.Context;
 using Newtonsoft.Json.Linq;
 
-namespace wikibus.common.JsonLd
+namespace Wikibus.Common.JsonLd
 {
     /// <summary>
     /// @context building helpers for prefixes

@@ -1,4 +1,4 @@
-namespace wikibus.vehicles.domain.Entities
+﻿namespace Wikibus.Vehicles.Domain.Entities
 {
     public class Brand
     {

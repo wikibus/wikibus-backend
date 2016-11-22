@@ -1,8 +1,8 @@
 ﻿using Hydra;
 using JsonLD.Entities;
-using wikibus.common;
+using Wikibus.Common;
 
-namespace wikibus.nancy.Hydra
+namespace Wikibus.Nancy.Hydra
 {
     /// <summary>
     /// Hydra API documentation settings
@@ -15,7 +15,7 @@ namespace wikibus.nancy.Hydra
         /// </summary>
         public HydraDocumentationSettings(IWikibusConfiguration configuration)
         {
-            EntryPoint = (IriRef)configuration.BaseResourceNamespace;
+            this.EntryPoint = (IriRef)configuration.BaseResourceNamespace;
         }
 
         /// <summary>

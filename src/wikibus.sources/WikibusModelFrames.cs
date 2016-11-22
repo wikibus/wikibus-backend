@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 using Resourcer;
 using Resource = Resourcer.Resource;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// Provider JSON-LD frames for wikibus models
@@ -19,13 +19,13 @@ namespace wikibus.sources
         /// </summary>
         public WikibusModelFrames()
         {
-            SetFrame(typeof(Book), JObject.Parse("{ '@type': 'wbo:Book' }"));
-            SetFrame(typeof(Brochure), JObject.Parse("{ '@type': 'wbo:Brochure' }"));
-            SetFrame(typeof(Issue), JObject.Parse("{ '@type': 'schema:PublicationIssue' }"));
-            SetFrame(typeof(Collection<Book>), CollectionFrame);
-            SetFrame(typeof(Collection<Brochure>), CollectionFrame);
-            SetFrame(typeof(Collection<Magazine>), CollectionFrame);
-            SetFrame(typeof(Collection<Issue>), CollectionFrame);
+            this.SetFrame(typeof(Book), JObject.Parse("{ '@type': 'wbo:Book' }"));
+            this.SetFrame(typeof(Brochure), JObject.Parse("{ '@type': 'wbo:Brochure' }"));
+            this.SetFrame(typeof(Issue), JObject.Parse("{ '@type': 'schema:PublicationIssue' }"));
+            this.SetFrame(typeof(Collection<Book>), CollectionFrame);
+            this.SetFrame(typeof(Collection<Brochure>), CollectionFrame);
+            this.SetFrame(typeof(Collection<Magazine>), CollectionFrame);
+            this.SetFrame(typeof(Collection<Issue>), CollectionFrame);
         }
     }
 }

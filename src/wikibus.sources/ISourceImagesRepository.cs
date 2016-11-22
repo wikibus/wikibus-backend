@@ -1,4 +1,4 @@
-﻿namespace wikibus.sources
+﻿namespace Wikibus.Sources
 {
     /// <summary>
     /// Repository of source images

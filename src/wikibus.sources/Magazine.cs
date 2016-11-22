@@ -8,9 +8,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;
-using wikibus.common.Vocabularies;
+using Wikibus.Common.Vocabularies;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// A periodical about public transport
@@ -37,7 +37,7 @@ namespace wikibus.sources
         [Range(Hydra.Hydra.Collection)]
         public Uri Issues
         {
-            get { return new Uri(Id + "/issues"); }
+            get { return new Uri(this.Id + "/issues"); }
         }
 
         /// <summary>

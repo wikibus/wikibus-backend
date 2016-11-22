@@ -1,4 +1,4 @@
-using wikibus.common;
+using Wikibus.Common;
 
 namespace wikibus.tests
 {

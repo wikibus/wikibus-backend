@@ -5,10 +5,10 @@ using JsonLD.Entities;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using wikibus.common.JsonLd;
-using wikibus.common.Vocabularies;
+using Wikibus.Common.JsonLd;
+using Wikibus.Common.Vocabularies;
 
-namespace wikibus.nancy
+namespace Wikibus.Nancy
 {
     /// <summary>
     /// The API entry point
@@ -22,7 +22,7 @@ namespace wikibus.nancy
         /// <param name="id">The identifier.</param>
         public EntryPoint(string id)
         {
-            Id = id;
+            this.Id = id;
         }
 
         /// <summary>

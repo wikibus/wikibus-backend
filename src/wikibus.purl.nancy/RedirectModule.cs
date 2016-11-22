@@ -2,24 +2,24 @@
 using System.Linq;
 using Nancy;
 using Nancy.Responses.Negotiation;
-using wikibus.common;
+using Wikibus.Common;
 
-namespace wikibus.purl.nancy
+namespace Wikibus.Purl.Nancy
 {
     /// <summary>
     /// Module, which handles redirects like purl.org
     /// </summary>
-    public class RedirectModule : NancyModule
+    public sealed class RedirectModule : NancyModule
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RedirectModule"/> class.
         /// </summary>
         public RedirectModule(IWikibusConfiguration config)
         {
-            Get("/{path*}", rqst => RedirectRdfRequest(config.BaseApiNamespace));
-            Get("/{path*}", rqst => RedirectRdfRequest(config.BaseWebNamespace), IsHtmlRequest);
-            Get("/", rqst => RedirectRdfRequest(config.BaseApiNamespace));
-            Get("/", rqst => RedirectRdfRequest(config.BaseWebNamespace), IsHtmlRequest);
+            this.Get("/{path*}", rqst => this.RedirectRdfRequest(config.BaseApiNamespace));
+            this.Get("/{path*}", rqst => this.RedirectRdfRequest(config.BaseWebNamespace), IsHtmlRequest);
+            this.Get("/", rqst => this.RedirectRdfRequest(config.BaseApiNamespace));
+            this.Get("/", rqst => this.RedirectRdfRequest(config.BaseWebNamespace), IsHtmlRequest);
         }
 
         private static bool IsHtmlRequest(NancyContext context)
@@ -33,17 +33,17 @@ namespace wikibus.purl.nancy
 
             var uri = new UriBuilder(baseUrl)
             {
-                Path = baseUri.AbsolutePath + Request.Url.Path.TrimStart('/'),
-                Query = Request.Url.Query.TrimStart('?')
+                Path = baseUri.AbsolutePath + this.Request.Url.Path.TrimStart('/'),
+                Query = this.Request.Url.Query.TrimStart('?')
             };
 
             if (uri.Port == 80)
             {
                 var uriNoPort = uri.Uri.GetComponents(UriComponents.AbsoluteUri & ~UriComponents.Port, UriFormat.UriEscaped);
-                return Response.AsRedirect(uriNoPort);
+                return this.Response.AsRedirect(uriNoPort);
             }
 
-            return Response.AsRedirect(uri.ToString());
+            return this.Response.AsRedirect(uri.ToString());
         }
     }
 }

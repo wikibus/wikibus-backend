@@ -1,8 +1,8 @@
 ﻿using System;
 using Hydra.Resources;
-using wikibus.sources.Filters;
+using Wikibus.Sources.Filters;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// Facade for accessing sources

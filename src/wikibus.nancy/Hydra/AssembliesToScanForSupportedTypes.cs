@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using Hydra.Discovery.SupportedClasses;
-using wikibus.sources;
+using Wikibus.Sources;
 
-namespace wikibus.nancy.Hydra
+namespace Wikibus.Nancy.Hydra
 {
     /// <summary>
     /// Sets up hydra supported classes source

@@ -1,7 +1,7 @@
 ﻿using Hydra.Discovery.SupportedOperations;
-using wikibus.sources;
+using Wikibus.Sources;
 
-namespace wikibus.nancy.Hydra
+namespace Wikibus.Nancy.Hydra
 {
     /// <summary>
     /// Sets up operations supported by <see cref="Brochure"/> class
@@ -13,7 +13,7 @@ namespace wikibus.nancy.Hydra
         /// </summary>
         public BrochureOperations()
         {
-            Class.SupportsGet();
+            this.Class.SupportsGet();
         }
     }
 }

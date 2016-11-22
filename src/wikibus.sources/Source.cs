@@ -8,10 +8,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;
-using wikibus.common.JsonLd;
-using wikibus.common.Vocabularies;
+using Wikibus.Common.JsonLd;
+using Wikibus.Common.Vocabularies;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// A bibliographical source of knowledge about public transport
@@ -19,7 +19,7 @@ namespace wikibus.sources
     [SupportedClass(Wbo.Source)]
     public class Source
     {
-        private Language[] _languages = new Language[0];
+        private Language[] languages = new Language[0];
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -33,8 +33,8 @@ namespace wikibus.sources
         [Range(Xsd.gMonth)]
         public Language[] Languages
         {
-            get { return _languages; }
-            set { _languages = value; }
+            get { return this.languages; }
+            set { this.languages = value; }
         }
 
         /// <summary>
@@ -74,12 +74,12 @@ namespace wikibus.sources
         {
             [return: AllowNull] get
             {
-                if (HasImage == false)
+                if (this.HasImage == false)
                 {
                     return null;
                 }
 
-                return new Image { ContentUrl = Id + "/image" };
+                return new Image { ContentUrl = this.Id + "/image" };
             }
         }
 

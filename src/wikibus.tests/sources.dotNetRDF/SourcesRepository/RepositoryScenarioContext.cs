@@ -5,7 +5,7 @@ using JsonLD.Entities.Context;
 using Newtonsoft.Json.Linq;
 using VDS.RDF;
 using VDS.RDF.Query;
-using wikibus.sources;
+using Wikibus.Sources;
 
 namespace wikibus.tests.SourcesRepository
 {
@@ -23,10 +23,10 @@ namespace wikibus.tests.SourcesRepository
             var frameProvider = new WikibusModelFrames();
             var serializer = new EntitySerializer(contextProvider, frameProvider);
 
-            Repository = new wikibus.sources.dotNetRDF.SourcesRepository(new Lazy<ISparqlQueryProcessor>(() => new LeviathanQueryProcessor(Store)), serializer);
+            Repository = new Wikibus.Sources.DotNetRDF.SourcesRepository(new Lazy<ISparqlQueryProcessor>(() => new LeviathanQueryProcessor(Store)), serializer);
         }
 
-        public wikibus.sources.dotNetRDF.SourcesRepository Repository { get; private set; }
+        public Wikibus.Sources.DotNetRDF.SourcesRepository Repository { get; private set; }
 
         public TripleStore Store { get; private set; }
     }

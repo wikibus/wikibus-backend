@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using TunnelVisionLabs.Net;
-using wikibus.common;
+using Wikibus.Common;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// Helps managing URI templates of resources
@@ -51,7 +51,7 @@ namespace wikibus.sources
         /// </summary>
         public const string MagazineIssuePath = "magazine/{name}/issue/{number}";
 
-        private readonly IDictionary<Type, UriTemplate> _templateTable = new Dictionary<Type, UriTemplate>();
+        private readonly IDictionary<Type, UriTemplate> templateTable = new Dictionary<Type, UriTemplate>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentifierTemplates"/> class.
@@ -59,10 +59,10 @@ namespace wikibus.sources
         /// <param name="configuration">The configuration.</param>
         public IdentifierTemplates(IWikibusConfiguration configuration)
         {
-            _templateTable.Add(typeof(Book), new UriTemplate(configuration.BaseResourceNamespace + BookPath));
-            _templateTable.Add(typeof(Magazine), new UriTemplate(configuration.BaseResourceNamespace + MagazinePath));
-            _templateTable.Add(typeof(Brochure), new UriTemplate(configuration.BaseResourceNamespace + BrochurePath));
-            _templateTable.Add(typeof(Issue), new UriTemplate(configuration.BaseResourceNamespace + MagazineIssuePath));
+            this.templateTable.Add(typeof(Book), new UriTemplate(configuration.BaseResourceNamespace + BookPath));
+            this.templateTable.Add(typeof(Magazine), new UriTemplate(configuration.BaseResourceNamespace + MagazinePath));
+            this.templateTable.Add(typeof(Brochure), new UriTemplate(configuration.BaseResourceNamespace + BrochurePath));
+            this.templateTable.Add(typeof(Issue), new UriTemplate(configuration.BaseResourceNamespace + MagazineIssuePath));
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace wikibus.sources
         /// <param name="name">The name.</param>
         public Uri CreateMagazineIdentifier(string name)
         {
-            return _templateTable[typeof(Magazine)].BindByName(new Dictionary<string, string>
+            return this.templateTable[typeof(Magazine)].BindByName(new Dictionary<string, string>
             {
                 { "name", name },
             });
@@ -84,7 +84,7 @@ namespace wikibus.sources
         /// <param name="magazineName">Name of the magazine.</param>
         public Uri CreateMagazineIssueIdentifier(int issueNumber, string magazineName)
         {
-            return _templateTable[typeof(Issue)].BindByName(new Dictionary<string, string>
+            return this.templateTable[typeof(Issue)].BindByName(new Dictionary<string, string>
             {
                 { "name", magazineName },
                 { "number", issueNumber.ToString() }
@@ -97,7 +97,7 @@ namespace wikibus.sources
         /// <param name="id">The identifier.</param>
         public Uri CreateBrochureIdentifier(int id)
         {
-            return _templateTable[typeof(Brochure)].BindByName(new Dictionary<string, string>
+            return this.templateTable[typeof(Brochure)].BindByName(new Dictionary<string, string>
             {
                 { "id", id.ToString() }
             });
@@ -109,7 +109,7 @@ namespace wikibus.sources
         /// <param name="id">The identifier.</param>
         public Uri CreateBookIdentifier(int id)
         {
-            return _templateTable[typeof(Book)].BindByName(new Dictionary<string, string>
+            return this.templateTable[typeof(Book)].BindByName(new Dictionary<string, string>
             {
                 { "id", id.ToString() }
             });
@@ -122,7 +122,7 @@ namespace wikibus.sources
         /// <param name="uri">The resource identifier.</param>
         public IDictionary<string, object> GetMatch<T>(Uri uri)
         {
-            var templateMatch = _templateTable.First(pair => pair.Value.Match(uri) != null);
+            var templateMatch = this.templateTable.First(pair => pair.Value.Match(uri) != null);
 
             if (templateMatch.Key == typeof(T))
             {

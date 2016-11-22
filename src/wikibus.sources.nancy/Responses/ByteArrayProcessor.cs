@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Nancy;
 using Nancy.Responses.Negotiation;
 
-namespace wikibus.sources.nancy.Responses
+namespace Wikibus.Sources.Nancy.Responses
 {
     /// <summary>
     /// Processes binary models

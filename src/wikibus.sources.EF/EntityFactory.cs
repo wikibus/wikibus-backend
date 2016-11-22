@@ -1,23 +1,23 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace wikibus.sources.EF
+namespace Wikibus.Sources.EF
 {
     public class EntityFactory
     {
-        private readonly IdentifierTemplates _templates;
+        private readonly IdentifierTemplates templates;
 
         public EntityFactory(IdentifierTemplates templates)
         {
-            _templates = templates;
+            this.templates = templates;
         }
 
         public Book CreateBook(BookEntity bookEntity)
         {
             var book = new Book
             {
-                Id = _templates.CreateBookIdentifier(bookEntity.Id)
+                Id = this.templates.CreateBookIdentifier(bookEntity.Id)
             };
 
             if (bookEntity.BookISBN != null)
@@ -63,7 +63,7 @@ namespace wikibus.sources.EF
         {
             var target = new Brochure
             {
-                Id = _templates.CreateBrochureIdentifier(source.Id)
+                Id = this.templates.CreateBrochureIdentifier(source.Id)
             };
             if (source.Notes != null)
             {
@@ -89,10 +89,10 @@ namespace wikibus.sources.EF
         {
             var magazineIssue = new Issue
             {
-                Id = _templates.CreateMagazineIssueIdentifier(issue.MagIssueNumber.Value, issue.Magazine.Name),
+                Id = this.templates.CreateMagazineIssueIdentifier(issue.MagIssueNumber.Value, issue.Magazine.Name),
                 Magazine = new Magazine
                 {
-                    Id = _templates.CreateMagazineIdentifier(issue.Magazine.Name)
+                    Id = this.templates.CreateMagazineIdentifier(issue.Magazine.Name)
                 }
             };
             if (issue.MagIssueNumber != null)
@@ -109,7 +109,7 @@ namespace wikibus.sources.EF
         {
             var magazine = new Magazine
             {
-                Id = _templates.CreateMagazineIdentifier(entity.Name)
+                Id = this.templates.CreateMagazineIdentifier(entity.Name)
             };
             magazine.Title = entity.Name;
             return magazine;

@@ -1,21 +1,21 @@
-using System;
+﻿using System;
 using NullGuard;
 
-namespace wikibus.sources.EF
+namespace Wikibus.Sources.EF
 {
     public class IdRetriever
     {
-        private readonly IdentifierTemplates _configuration;
+        private readonly IdentifierTemplates configuration;
 
         public IdRetriever(IdentifierTemplates configuration)
         {
-            _configuration = configuration;
+            this.configuration = configuration;
         }
 
         [return: AllowNull]
         public int? GetBrochureId(Uri uri)
         {
-            var uriTemplateMatch = _configuration.GetMatch<Brochure>(uri);
+            var uriTemplateMatch = this.configuration.GetMatch<Brochure>(uri);
             if (uriTemplateMatch.ContainsKey("id"))
             {
                 var binding = uriTemplateMatch["id"];
@@ -28,7 +28,7 @@ namespace wikibus.sources.EF
         [return: AllowNull]
         public int? GetBookId(Uri uri)
         {
-            var uriTemplateMatch = _configuration.GetMatch<Book>(uri);
+            var uriTemplateMatch = this.configuration.GetMatch<Book>(uri);
             if (uriTemplateMatch.ContainsKey("id"))
             {
                 var binding = uriTemplateMatch["id"];
@@ -41,7 +41,7 @@ namespace wikibus.sources.EF
         [return: AllowNull]
         public IssueId GetIssueId(Uri uri)
         {
-            var uriTemplateMatch = _configuration.GetMatch<Issue>(uri);
+            var uriTemplateMatch = this.configuration.GetMatch<Issue>(uri);
 
             if (uriTemplateMatch.ContainsKey("name") && uriTemplateMatch.ContainsKey("number"))
             {
@@ -58,7 +58,7 @@ namespace wikibus.sources.EF
         [return: AllowNull]
         public string GetMagazineName(Uri uri)
         {
-            var uriTemplateMatch = _configuration.GetMatch<Magazine>(uri);
+            var uriTemplateMatch = this.configuration.GetMatch<Magazine>(uri);
 
             if (uriTemplateMatch.ContainsKey("name"))
             {

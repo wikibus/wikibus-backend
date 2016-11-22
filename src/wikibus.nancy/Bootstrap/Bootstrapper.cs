@@ -9,14 +9,14 @@ using Nancy.Configuration;
 using Nancy.Diagnostics;
 using Nancy.Responses.Negotiation;
 using Nancy.Routing.UriTemplates;
-using wikibus.common;
-using wikibus.nancy.Hydra;
-using wikibus.sources;
-using wikibus.sources.dotNetRDF;
-using wikibus.sources.EF;
-using SourcesRepository = wikibus.sources.EF.SourcesRepository;
+using Wikibus.Common;
+using Wikibus.Nancy.Hydra;
+using Wikibus.Sources;
+using Wikibus.Sources.DotNetRDF;
+using Wikibus.Sources.EF;
+using SourcesRepository = Wikibus.Sources.EF.SourcesRepository;
 
-namespace wikibus.nancy
+namespace Wikibus.Nancy
 {
     /// <summary>
     /// Bootstrapper for wikibus.org API app

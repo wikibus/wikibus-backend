@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using Newtonsoft.Json;
 
-namespace wikibus.sources
+namespace Wikibus.Sources
 {
     /// <summary>
     /// Represents a language
@@ -9,18 +9,19 @@ namespace wikibus.sources
     [JsonConverter(typeof(LexvoIso639LanguageConverter))]
     public class Language
     {
-        private readonly CultureInfo _cultureInfo;
+        private readonly CultureInfo cultureInfo;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Language"/> class.
         /// </summary>
-        public Language(string name) : this(new CultureInfo(name))
+        public Language(string name)
+            : this(new CultureInfo(name))
         {
         }
 
         private Language(CultureInfo cultureInfo)
         {
-            _cultureInfo = cultureInfo;
+            this.cultureInfo = cultureInfo;
         }
 
         /// <summary>
@@ -28,7 +29,7 @@ namespace wikibus.sources
         /// </summary>
         public string Name
         {
-            get { return _cultureInfo.Name; }
+            get { return this.cultureInfo.Name; }
         }
 
         public static bool operator ==(Language left, Language right)
@@ -53,22 +54,22 @@ namespace wikibus.sources
                 return true;
             }
 
-            if (obj.GetType() != GetType())
+            if (obj.GetType() != this.GetType())
             {
                 return false;
             }
 
-            return Equals((Language)obj);
+            return this.Equals((Language)obj);
         }
 
         public override int GetHashCode()
         {
-            return _cultureInfo.GetHashCode();
+            return this.cultureInfo.GetHashCode();
         }
 
         protected bool Equals(Language other)
         {
-            return _cultureInfo.Equals(other._cultureInfo);
+            return this.cultureInfo.Equals(other.cultureInfo);
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using ImageResizer;
-using wikibus.common;
+using Wikibus.Common;
 
-namespace wikibus.nancy
+namespace Wikibus.Nancy
 {
     /// <summary>
     /// Uses ImageResizer to resize images

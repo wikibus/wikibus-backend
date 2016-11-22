@@ -2,10 +2,10 @@
 using Nancy.Bootstrapper;
 using Nancy.Rdf;
 using Vocab;
-using wikibus.common;
-using wikibus.common.Vocabularies;
+using Wikibus.Common;
+using Wikibus.Common.Vocabularies;
 
-namespace wikibus.nancy
+namespace Wikibus.Nancy
 {
     /// <summary>
     /// Sets-up RDF serialization options

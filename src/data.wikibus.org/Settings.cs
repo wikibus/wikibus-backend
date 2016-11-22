@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Configuration;
-using wikibus.sources.dotNetRDF;
+using Wikibus.Sources.DotNetRDF;
 
-namespace data.wikibus.org
+namespace Data.Wikibus.Org
 {
     public class Settings : ISourcesDatabaseSettings
     {

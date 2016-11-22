@@ -1,7 +1,7 @@
 ﻿using Nancy;
-using wikibus.common;
+using Wikibus.Common;
 
-namespace wikibus.sources.nancy
+namespace Wikibus.Sources.Nancy
 {
     /// <summary>
     /// Servers images of sources over HTTP
@@ -9,8 +9,8 @@ namespace wikibus.sources.nancy
     public class SourceImagesModule : NancyModule
     {
         private const int SmallImageSize = 200;
-        private readonly ISourceImagesRepository _repository;
-        private readonly IImageResizer _resizer;
+        private readonly ISourceImagesRepository repository;
+        private readonly IImageResizer resizer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourceImagesModule"/> class.
@@ -19,23 +19,23 @@ namespace wikibus.sources.nancy
         {
             this.ReturnNotFoundWhenModelIsNullOr(model => model.Length == 0);
 
-            _repository = repository;
-            _resizer = resizer;
+            this.repository = repository;
+            this.resizer = resizer;
 
-            Get("/book/{id}/image", request => GetImage((int)request.id));
-            Get("/brochure/{id}/image", request => GetImage((int)request.id));
-            Get("/magazine/{mag}/issue/{issue}/image", request => GetImage((string)request.mag, (string)request.issue));
-            Get("/book/{id}/image/small", request => GetImage((int)request.id, resize: true));
-            Get("/brochure/{id}/image/small", request => GetImage((int)request.id, resize: true));
-            Get("/magazine/{mag}/issue/{issue}/image/small", request => GetImage((string)request.mag, (string)request.issue, true));
+            this.Get("/book/{id}/image", request => this.GetImage((int)request.id));
+            this.Get("/brochure/{id}/image", request => this.GetImage((int)request.id));
+            this.Get("/magazine/{mag}/issue/{issue}/image", request => this.GetImage((string)request.mag, (string)request.issue));
+            this.Get("/book/{id}/image/small", request => this.GetImage((int)request.id, resize: true));
+            this.Get("/brochure/{id}/image/small", request => this.GetImage((int)request.id, resize: true));
+            this.Get("/magazine/{mag}/issue/{issue}/image/small", request => this.GetImage((string)request.mag, (string)request.issue, true));
         }
 
         private byte[] GetImage(string magazineName, string issueNumber, bool resize = false)
         {
-            var imageBytes = _repository.GetImageBytes(magazineName, issueNumber);
+            var imageBytes = this.repository.GetImageBytes(magazineName, issueNumber);
             if (resize)
             {
-                return _resizer.Resize(imageBytes, SmallImageSize);
+                return this.resizer.Resize(imageBytes, SmallImageSize);
             }
 
             return imageBytes;
@@ -43,10 +43,10 @@ namespace wikibus.sources.nancy
 
         private byte[] GetImage(int sourceId, bool resize = false)
         {
-            var imageBytes = _repository.GetImageBytes(sourceId);
+            var imageBytes = this.repository.GetImageBytes(sourceId);
             if (resize)
             {
-                return _resizer.Resize(imageBytes, SmallImageSize);
+                return this.resizer.Resize(imageBytes, SmallImageSize);
             }
 
             return imageBytes;

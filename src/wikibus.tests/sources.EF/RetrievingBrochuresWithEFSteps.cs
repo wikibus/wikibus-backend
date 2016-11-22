@@ -4,19 +4,19 @@ using TechTalk.SpecFlow;
 namespace wikibus.tests.sources.EF
 {
     [Binding, Scope(Tag = "EF"), Scope(Tag = "Brochure")]
-    public class RetrievingBrochuresWithEFSteps
+    public class RetrievingBrochuresWithEfSteps
     {
-        private readonly EntitiFrameworkSourceTestContext _context;
+        private readonly EntitiFrameworkSourceTestContext context;
 
-        public RetrievingBrochuresWithEFSteps(EntitiFrameworkSourceTestContext context)
+        public RetrievingBrochuresWithEfSteps(EntitiFrameworkSourceTestContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         [When(@"getting Brochure <(.*)>")]
         public void WhenGettingBrochure(string brochureId)
         {
-            _context.Source = _context.Repository.GetBrochure(new Uri(brochureId));
+            context.Source = context.Repository.GetBrochure(new Uri(brochureId));
         }
     }
 }

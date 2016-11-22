@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace wikibus.sources.dotNetRDF
+namespace Wikibus.Sources.DotNetRDF
 {
     /// <summary>
     /// Configuration of wikibus data sources for RDF
     /// </summary>
-    public interface ISourcesDatabaseSettings : sources.ISourcesDatabaseSettings
+    public interface ISourcesDatabaseSettings : Sources.ISourcesDatabaseSettings
     {
         /// <summary>
         /// Gets the SPARQL endpoint with Sources RDF data.

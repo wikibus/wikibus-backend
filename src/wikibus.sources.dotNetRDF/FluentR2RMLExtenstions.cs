@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using TCode.r2rml4net.Mapping.Fluent;
 
-namespace wikibus.sources.dotNetRDF
+namespace Wikibus.Sources.DotNetRDF
 {
     /// <summary>
     /// Simplifies setting up mappings
