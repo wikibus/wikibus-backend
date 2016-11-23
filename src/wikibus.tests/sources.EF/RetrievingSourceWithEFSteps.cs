@@ -14,7 +14,12 @@ namespace Wikibus.Tests.sources.EF
 
         static RetrievingSourceWithEfSteps()
         {
-            CreateInstanceGeneric = typeof(TableHelperExtensionMethods).GetMethod("CreateInstance", new[] { typeof(Table) });
+            CreateInstanceGeneric = typeof(TableHelperExtensionMethods).GetMethod(
+                "CreateInstance",
+                BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Public,
+                null,
+                new[] {typeof(Table)},
+                null);
         }
 
         public RetrievingSourceWithEfSteps(EntitiFrameworkSourceTestContext context)
@@ -25,7 +30,7 @@ namespace Wikibus.Tests.sources.EF
         [Then(@"(.*) should match")]
         public void ThenResultShouldMatch(string typeName, Table table)
         {
-            var createInstance = CreateInstanceGeneric.MakeGenericMethod(Type.GetType("wikibus.sources." + typeName + ", wikibus.sources"));
+            var createInstance = CreateInstanceGeneric.MakeGenericMethod(Type.GetType("Wikibus.Sources." + typeName + ", wikibus.sources"));
 
             var expected = createInstance.Invoke(null, new object[] { table });
 
