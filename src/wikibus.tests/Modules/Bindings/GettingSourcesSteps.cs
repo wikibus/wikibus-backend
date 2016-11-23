@@ -99,7 +99,7 @@ namespace Wikibus.Tests.Modules.Bindings
         public void WhenGetResourceWithAccept(string path)
         {
             var response = dep.Browser.Get(path, SetupRequest);
-            ScenarioContext.Current.Set(response);
+            ScenarioContext.Current.Set(response.Result);
         }
 
         [Then(@"content type should be '(.*)'")]
