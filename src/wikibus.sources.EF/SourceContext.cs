@@ -12,6 +12,7 @@ namespace Wikibus.Sources.EF
         public SourceContext(string connectionString)
             : base(connectionString)
         {
+            Database.SetInitializer<SourceContext>(null);
         }
 
         public IDbSet<BookEntity> Books { get; set; }
