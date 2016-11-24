@@ -1,4 +1,6 @@
-﻿namespace Wikibus.Sources.Filters
+﻿using NullGuard;
+
+namespace Wikibus.Sources.Filters
 {
     /// <summary>
     /// Defines filters of the magazines collection
