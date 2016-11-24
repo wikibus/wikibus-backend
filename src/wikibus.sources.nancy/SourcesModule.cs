@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Hydra.Resources;
 using Nancy;
 using Nancy.ModelBinding;
+using Nancy.Responses.Negotiation;
 using Nancy.Routing.UriTemplates;
 using TunnelVisionLabs.Net;
 using Wikibus.Common;
@@ -34,7 +35,7 @@ namespace Wikibus.Sources.Nancy
             this.Get(Id.BrochurePath, r => this.GetSingle(repository.GetBrochure));
             this.Get(Id.BookPath, r => this.GetSingle(repository.GetBook));
             this.Get(Id.MagazinePath, r => this.GetSingle(repository.GetMagazine));
-            this.Get(Id.MagazineIssuesPath, r => this.GetSingle(repository.GetMagazineIssues) ?? new Collection<Issue>());
+            this.Get(Id.MagazineIssuesPath, r => this.GetSingle(repository.GetMagazineIssues, new Collection<Issue>()));
             this.Get(Id.MagazineIssuePath, r => this.GetSingle(repository.GetIssue));
 
             using (this.Templates)
@@ -45,10 +46,17 @@ namespace Wikibus.Sources.Nancy
             }
         }
 
-        private T GetSingle<T>(Func<Uri, T> getResource)
+        private dynamic GetSingle<T>(Func<Uri, T> getResource, T defaultValue = null)
             where T : class
         {
-            return getResource(this.GetRequestUri());
+            var resource = getResource(this.GetRequestUri()) ?? defaultValue;
+
+            if (resource != null)
+            {
+                return this.Negotiate.WithModel(resource);
+            }
+
+            return new NotFoundResponse();
         }
 
         private Uri GetRequestUri()
