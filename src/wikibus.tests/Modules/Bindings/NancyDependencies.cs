@@ -25,6 +25,7 @@ namespace Wikibus.Tests.Modules.Bindings
 
             Browser = new Browser(with => with.Module<SourcesModule>()
                                               .Module<SourceImagesModule>()
+                                              .RouteResolver<global::Nancy.Routing.UriTemplates.UriTemplateRouteResolver>()
                                               .Dependencies(GetDependencies().ToArray()));
         }
 

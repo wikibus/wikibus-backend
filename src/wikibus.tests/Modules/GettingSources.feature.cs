@@ -130,7 +130,7 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("GET collection negative page")]
-        [NUnit.Framework.TestCaseAttribute("book", "/books", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("book", "/books/-1", new string[0])]
         [NUnit.Framework.TestCaseAttribute("brochure", "/brochures", new string[0])]
         [NUnit.Framework.TestCaseAttribute("magazine", "/magazines", new string[0])]
         public virtual void GETCollectionNegativePage(string type, string path, string[] exampleTags)
@@ -159,7 +159,7 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("GET source collection Nth page")]
-        [NUnit.Framework.TestCaseAttribute("book", "/books", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("book", "/books/25", new string[0])]
         [NUnit.Framework.TestCaseAttribute("brochure", "/brochures", new string[0])]
         [NUnit.Framework.TestCaseAttribute("magazine", "/magazines", new string[0])]
         public virtual void GETSourceCollectionNthPage(string type, string path, string[] exampleTags)

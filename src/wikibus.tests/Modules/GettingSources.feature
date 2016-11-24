@@ -38,7 +38,7 @@ Scenario Outline: GET collection negative page
     Then response should have status 400
 Examples: 
     | type     | path       |
-    | book     | /books     |
+    | book     | /books/-1  |
     | brochure | /brochures |
     | magazine | /magazines |
 
@@ -53,8 +53,8 @@ Scenario Outline: GET source collection Nth page
      And page 25 of <type> collection should have been retrieved
 Examples: 
     | type     | path       |
-    | book     | /books     |
-    | brochure | /brochures  |
+    | book     | /books/25  |
+    | brochure | /brochures |
     | magazine | /magazines |
 
 Scenario Outline: GET images

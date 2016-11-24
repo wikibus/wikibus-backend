@@ -36,11 +36,11 @@ namespace Wikibus.Sources.Nancy
             this.Get(Id.MagazinePath, r => this.GetSingle(repository.GetMagazine));
             this.Get(Id.MagazineIssuesPath, r => this.GetSingle(repository.GetMagazineIssues) ?? new Collection<Issue>());
             this.Get(Id.MagazineIssuePath, r => this.GetSingle(repository.GetIssue));
-            this.Get(Id.BrochuresPath, r => this.GetPage<Brochure, BrochureFilters>(Id.BrochuresPath, (int?)r.page, repository.GetBrochures));
-            this.Get(Id.MagazinesPath, r => this.GetPage<Magazine, MagazineFilters>(Id.MagazinesPath, (int?)r.page, repository.GetMagazines));
 
             using (this.Templates)
             {
+                this.Get(Id.BrochuresPath, r => this.GetPage<Brochure, BrochureFilters>(Id.BrochuresPath, (int?)r.page, repository.GetBrochures));
+                this.Get(Id.MagazinesPath, r => this.GetPage<Magazine, MagazineFilters>(Id.MagazinesPath, (int?)r.page, repository.GetMagazines));
                 this.Get(Id.BooksPath, r => this.GetPage<Book, BookFilters>(Id.BooksPath, (int?)r.page, repository.GetBooks));
             }
         }
