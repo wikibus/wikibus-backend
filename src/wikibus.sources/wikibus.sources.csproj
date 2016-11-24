@@ -57,6 +57,7 @@
     <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Brochure.cs" />
+    <Compile Include="Filters\SourceFilters.cs" />
     <Compile Include="WikibusModelFrames.cs" />
     <Compile Include="Filters\BookFilters.cs" />
     <Compile Include="Filters\BrochureFilters.cs" />

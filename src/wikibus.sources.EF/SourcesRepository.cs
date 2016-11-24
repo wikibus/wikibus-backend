@@ -189,32 +189,42 @@ namespace Wikibus.Sources.EF
 
         private Func<IQueryable<BookEntity>, IQueryable<BookEntity>> FilterBooks(BookFilters filters)
         {
-            return entities =>
+            return books =>
             {
                 if (string.IsNullOrWhiteSpace(filters.Title) == false)
                 {
-                    entities = entities.Where(e => e.BookTitle.Contains(filters.Title.Trim()));
+                    books = books.Where(e => e.BookTitle.Contains(filters.Title.Trim()));
                 }
 
                 if (string.IsNullOrWhiteSpace(filters.Author) == false)
                 {
-                    entities = entities.Where(e => e.BookAuthor.Contains(filters.Author.Trim()));
+                    books = books.Where(e => e.BookAuthor.Contains(filters.Author.Trim()));
                 }
 
-                return entities;
+                if (string.IsNullOrWhiteSpace(filters.Language) == false)
+                {
+                    books = books.Where(b => b.Language == filters.Language || b.Language2 == filters.Language);
+                }
+
+                return books;
             };
         }
 
         private Func<IQueryable<BrochureEntity>, IQueryable<BrochureEntity>> FilterBrochures(BrochureFilters filters)
         {
-            return entities =>
+            return brochures =>
             {
                 if (string.IsNullOrWhiteSpace(filters.Title) == false)
                 {
-                    entities = entities.Where(e => e.FolderName.Contains(filters.Title.Trim()));
+                    brochures = brochures.Where(e => e.FolderName.Contains(filters.Title.Trim()));
                 }
 
-                return entities;
+                if (string.IsNullOrWhiteSpace(filters.Language) == false)
+                {
+                    brochures = brochures.Where(b => b.Language == filters.Language || b.Language2 == filters.Language);
+                }
+
+                return brochures;
             };
         }
 
@@ -222,6 +232,11 @@ namespace Wikibus.Sources.EF
         {
             return entities =>
             {
+                if (string.IsNullOrWhiteSpace(filters.Title) == false)
+                {
+                    entities = entities.Where(m => m.Name.Contains(filters.Title.Trim()));
+                }
+
                 return entities;
             };
         }

@@ -6,7 +6,7 @@ namespace Wikibus.Sources.Filters
     /// Defines filters of the book collection
     /// </summary>
     [NullGuard(ValidationFlags.None)]
-    public class BookFilters
+    public class BookFilters : SourceFilters
     {
         public string Title { get; set; }
 

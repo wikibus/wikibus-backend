@@ -5,5 +5,6 @@
     /// </summary>
     public class MagazineFilters
     {
+        public string Title { get; set; }
     }
 }

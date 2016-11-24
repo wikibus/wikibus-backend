@@ -6,7 +6,7 @@ namespace Wikibus.Tests
     {
         public string BaseResourceNamespace
         {
-            get { return "http://wikibus.org"; }
+            get { return "http://wikibus.org/"; }
         }
 
         public string BaseApiNamespace

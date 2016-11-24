@@ -19,7 +19,7 @@ namespace Wikibus.Sources
         /// <summary>
         /// The brochures path
         /// </summary>
-        public const string BrochuresPath = "brochures{?page}";
+        public const string BrochuresPath = "brochures{?page,title,language}";
 
         /// <summary>
         /// The book path
@@ -29,7 +29,7 @@ namespace Wikibus.Sources
         /// <summary>
         /// The books path
         /// </summary>
-        public const string BooksPath = "books{/page}{?title,author}";
+        public const string BooksPath = "books{/page}{?title,author,language}";
 
         /// <summary>
         /// The magazine path`
@@ -39,7 +39,7 @@ namespace Wikibus.Sources
         /// <summary>
         /// The magazines path
         /// </summary>
-        public const string MagazinesPath = "magazines{?page}";
+        public const string MagazinesPath = "magazines{?page,title}";
 
         /// <summary>
         /// The magazine issues path
