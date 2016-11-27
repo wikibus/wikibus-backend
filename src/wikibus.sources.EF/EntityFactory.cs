@@ -13,94 +13,100 @@ namespace Wikibus.Sources.EF
             this.templates = templates;
         }
 
-        public Book CreateBook(BookEntity bookEntity)
+        public Book CreateBook(EntityWrapper<BookEntity> bookEntity)
         {
             var book = new Book
             {
-                Id = this.templates.CreateBookIdentifier(bookEntity.Id)
+                Id = this.templates.CreateBookIdentifier(bookEntity.Entity.Id)
             };
 
-            if (bookEntity.BookISBN != null)
+            if (bookEntity.Entity.BookISBN != null)
             {
-                book.ISBN = bookEntity.BookISBN.Trim();
+                book.ISBN = bookEntity.Entity.BookISBN.Trim();
             }
 
-            if (bookEntity.Pages != null)
+            if (bookEntity.Entity.Pages != null)
             {
-                book.Pages = bookEntity.Pages;
+                book.Pages = bookEntity.Entity.Pages;
             }
 
-            if (bookEntity.Year != null)
+            if (bookEntity.Entity.Year != null)
             {
-                book.Year = bookEntity.Year;
+                book.Year = bookEntity.Entity.Year;
             }
 
-            if (bookEntity.Month != null)
+            if (bookEntity.Entity.Month != null)
             {
-                book.Month = bookEntity.Month;
+                book.Month = bookEntity.Entity.Month;
             }
 
-            if (bookEntity.BookTitle != null)
+            if (bookEntity.Entity.BookTitle != null)
             {
-                book.Title = bookEntity.BookTitle;
+                book.Title = bookEntity.Entity.BookTitle;
             }
 
-            if (bookEntity.BookAuthor != null)
+            if (bookEntity.Entity.BookAuthor != null)
             {
                 book.Author = new Author
                 {
-                    Name = bookEntity.BookAuthor
+                    Name = bookEntity.Entity.BookAuthor
                 };
             }
 
-            MapLanguages(book, bookEntity);
-            MapDate(book, bookEntity);
+            book.HasImage = bookEntity.HasImage;
+
+            MapLanguages(book, bookEntity.Entity);
+            MapDate(book, bookEntity.Entity);
 
             return book;
         }
 
-        public Brochure CreateBrochure(BrochureEntity source)
+        public Brochure CreateBrochure(EntityWrapper<BrochureEntity> source)
         {
             var target = new Brochure
             {
-                Id = this.templates.CreateBrochureIdentifier(source.Id)
+                Id = this.templates.CreateBrochureIdentifier(source.Entity.Id)
             };
-            if (source.Notes != null)
+            if (source.Entity.Notes != null)
             {
-                target.Description = source.Notes;
+                target.Description = source.Entity.Notes;
             }
 
-            if (source.FolderCode != null)
+            if (source.Entity.FolderCode != null)
             {
-                target.Code = source.FolderCode;
+                target.Code = source.Entity.FolderCode;
             }
 
-            if (source.FolderName != null)
+            if (source.Entity.FolderName != null)
             {
-                target.Title = source.FolderName;
+                target.Title = source.Entity.FolderName;
             }
 
-            MapSource(target, source);
+            target.HasImage = source.HasImage;
+
+            MapSource(target, source.Entity);
 
             return target;
         }
 
-        public Issue CreateMagazineIssue(MagazineIssueEntity issue)
+        public Issue CreateMagazineIssue(EntityWrapper<MagazineIssueEntity> issue)
         {
             var magazineIssue = new Issue
             {
-                Id = this.templates.CreateMagazineIssueIdentifier(issue.MagIssueNumber.Value, issue.Magazine.Name),
+                Id = this.templates.CreateMagazineIssueIdentifier(issue.Entity.MagIssueNumber.Value, issue.Entity.Magazine.Name),
                 Magazine = new Magazine
                 {
-                    Id = this.templates.CreateMagazineIdentifier(issue.Magazine.Name)
+                    Id = this.templates.CreateMagazineIdentifier(issue.Entity.Magazine.Name)
                 }
             };
-            if (issue.MagIssueNumber != null)
+            if (issue.Entity.MagIssueNumber != null)
             {
-                magazineIssue.Number = issue.MagIssueNumber.ToString();
+                magazineIssue.Number = issue.Entity.MagIssueNumber.ToString();
             }
 
-            MapSource(magazineIssue, issue);
+            magazineIssue.HasImage = issue.HasImage;
+
+            MapSource(magazineIssue, issue.Entity);
 
             return magazineIssue;
         }

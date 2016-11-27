@@ -6,7 +6,7 @@ namespace Wikibus.Sources.EF
 {
     [NullGuard(ValidationFlags.None)]
     [Table("Source", Schema = "Sources")]
-    public class SourceEntity
+    public class SourceEntity : IHasImage
     {
         [Key]
         public int Id { get; set; }
@@ -23,6 +23,6 @@ namespace Wikibus.Sources.EF
 
         public byte? Day { get; set; }
 
-        public byte[] Image { get; set; }
+        public virtual ImageData Image { get; set; }
     }
 }

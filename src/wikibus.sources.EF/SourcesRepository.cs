@@ -53,9 +53,9 @@ namespace Wikibus.Sources.EF
 
             var source = (from b in this.context.Brochures
                           where b.Id == id
-                          select new
+                          select new EntityWrapper<BrochureEntity>
                           {
-                              Brochure = b,
+                              Entity = b,
                               HasImage = b.Image != null
                           }).SingleOrDefault();
 
@@ -64,9 +64,7 @@ namespace Wikibus.Sources.EF
                 return null;
             }
 
-            var brochure = this.factory.CreateBrochure(source.Brochure);
-            brochure.HasImage = source.HasImage;
-            return brochure;
+            return this.factory.CreateBrochure(source);
         }
 
         [return: AllowNull]
@@ -81,9 +79,9 @@ namespace Wikibus.Sources.EF
 
             var source = (from b in this.context.Books
                           where b.Id == id
-                          select new
+                          select new EntityWrapper<BookEntity>
                           {
-                              Book = b,
+                              Entity = b,
                               HasImage = b.Image != null
                           }).SingleOrDefault();
 
@@ -92,9 +90,7 @@ namespace Wikibus.Sources.EF
                 return null;
             }
 
-            var brochure = this.factory.CreateBook(source.Book);
-            brochure.HasImage = source.HasImage;
-            return brochure;
+            return this.factory.CreateBook(source);
         }
 
         public Collection<Book> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
@@ -141,12 +137,12 @@ namespace Wikibus.Sources.EF
 
             var issues = (from m in this.context.Magazines
                           where m.Name == name
-                          select m.Issues).SingleOrDefault();
-
-            if (issues == null)
-            {
-                return new Collection<Issue>();
-            }
+                          from issue in m.Issues
+                          select new EntityWrapper<MagazineIssueEntity>
+                          {
+                              Entity = issue,
+                              HasImage = issue.Image != null
+                          }).ToList();
 
             return new Collection<Issue>
             {
@@ -170,11 +166,10 @@ namespace Wikibus.Sources.EF
                           where m.Name == id.MagazineName
                           from i in m.Issues
                           where i.MagIssueNumber == id.IssueNumber
-                          select new
+                          select new EntityWrapper<MagazineIssueEntity>
                           {
-                              Issue = i,
-                              i.Magazine,
-                              HasImage = i.Image != null
+                              Entity = i,
+                              HasImage = i.Image.Image != null
                           }).SingleOrDefault();
 
             if (source == null)
@@ -182,9 +177,7 @@ namespace Wikibus.Sources.EF
                 return null;
             }
 
-            var brochure = this.factory.CreateMagazineIssue(source.Issue);
-            brochure.HasImage = source.HasImage;
-            return brochure;
+            return this.factory.CreateMagazineIssue(source);
         }
 
         private Func<IQueryable<BookEntity>, IQueryable<BookEntity>> FilterBooks(BookFilters filters)

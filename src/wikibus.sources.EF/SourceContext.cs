@@ -30,6 +30,11 @@ namespace Wikibus.Sources.EF
 
             modelBuilder.Entity<MagazineEntity>()
                 .HasMany(t => t.Issues).WithRequired(issue => issue.Magazine).HasForeignKey(issue => issue.MagIssueMagazine);
+
+            modelBuilder.Entity<SourceEntity>()
+                .HasRequired(e => e.Image).WithRequiredPrincipal();
+
+            modelBuilder.Entity<ImageData>().ToTable("Source", "Sources");
         }
     }
 }
