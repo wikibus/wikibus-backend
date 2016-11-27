@@ -29,7 +29,7 @@ namespace Wikibus.Nancy
              .WithHeader(AllowMethodHeader, "POST, GET, DELETE, PUT, OPTIONS")
              .WithHeader(AllowHeadersHeader, "Accept, Origin, Content-type, X-Requested-With")
              .WithHeader(AllowHeader, "POST, GET, DELETE, PUT, OPTIONS")
-             .WithHeader(AccessControlExposeHeaders, "Link");
+             .WithHeader(AccessControlExposeHeaders, "Link, Content-Location");
         }
     }
 }

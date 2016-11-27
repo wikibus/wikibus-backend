@@ -79,6 +79,7 @@
     <Compile Include="Hydra\SourceOperations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bootstrap\NancyRdfStartup.cs" />
+    <Compile Include="Responses\ContentLocationPipeline.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="paket.references" />

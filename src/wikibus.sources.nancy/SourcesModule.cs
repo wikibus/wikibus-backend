@@ -77,19 +77,23 @@ namespace Wikibus.Sources.Nancy
                 return 400;
             }
 
+            var uriTemplate = new UriTemplate(this.config.BaseResourceNamespace + templatePath);
+            var templateParams = new Dictionary<string, object>((DynamicDictionary)this.Context.Request.Query)
+            {
+                ["page"] = page
+            };
+            var contentLocation = uriTemplate.BindByName(templateParams).ToString();
+
             var filter = this.Bind<TFilter>();
             var requestUri = this.GetRequestUri();
             var collection = getPage(requestUri, filter, page.Value, PageSize);
 
-            var uriTemplate = new UriTemplate(this.config.BaseResourceNamespace + templatePath);
-
-            var templateParams = new Dictionary<string, object>((DynamicDictionary)this.Context.Request.Query);
             collection.Views = new IView[]
             {
                 new TemplatedPartialCollectionView(uriTemplate, "page", collection.TotalItems, page.Value, PageSize, templateParams)
             };
 
-            return collection;
+            return this.Negotiate.WithModel(collection).WithHeader("Content-Location", contentLocation);
         }
     }
 }
