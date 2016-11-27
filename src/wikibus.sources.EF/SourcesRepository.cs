@@ -128,21 +128,28 @@ namespace Wikibus.Sources.EF
 
         public Collection<Issue> GetMagazineIssues(Uri uri)
         {
-            var name = this.identifierRetriever.GetMagazineName(uri);
+            var name = this.identifierRetriever.GetMagazineForIssuesId(uri);
 
             if (name == null)
             {
                 return new Collection<Issue>();
             }
 
-            var issues = (from m in this.context.Magazines
-                          where m.Name == name
-                          from issue in m.Issues
-                          select new EntityWrapper<MagazineIssueEntity>
-                          {
-                              Entity = issue,
-                              HasImage = issue.Image != null
-                          }).ToList();
+            var results = (from m in this.context.Magazines
+                           where m.Name == name
+                           from issue in m.Issues
+                           select new
+                           {
+                               Entity = issue,
+                               issue.Magazine,
+                               HasImage = issue.Image != null
+                           }).ToList();
+
+            var issues = results.Select(i => new EntityWrapper<MagazineIssueEntity>
+            {
+                Entity = i.Entity,
+                HasImage = i.HasImage
+            }).ToList();
 
             return new Collection<Issue>
             {

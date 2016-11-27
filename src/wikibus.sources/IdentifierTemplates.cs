@@ -63,6 +63,7 @@ namespace Wikibus.Sources
             this.templateTable.Add(typeof(Magazine), new UriTemplate(configuration.BaseResourceNamespace + MagazinePath));
             this.templateTable.Add(typeof(Brochure), new UriTemplate(configuration.BaseResourceNamespace + BrochurePath));
             this.templateTable.Add(typeof(Issue), new UriTemplate(configuration.BaseResourceNamespace + MagazineIssuePath));
+            this.templateTable.Add(typeof(ICollection<Issue>), new UriTemplate(configuration.BaseResourceNamespace + MagazineIssuesPath));
         }
 
         /// <summary>
@@ -122,6 +123,7 @@ namespace Wikibus.Sources
         /// <param name="uri">The resource identifier.</param>
         public IDictionary<string, object> GetMatch<T>(Uri uri)
         {
+            uri = new Uri(Uri.EscapeUriString(uri.ToString()));
             var templateMatch = this.templateTable.First(pair => pair.Value.Match(uri) != null);
 
             if (templateMatch.Key == typeof(T))

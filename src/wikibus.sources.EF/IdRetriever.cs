@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using NullGuard;
 
 namespace Wikibus.Sources.EF
@@ -59,6 +60,19 @@ namespace Wikibus.Sources.EF
         public string GetMagazineName(Uri uri)
         {
             var uriTemplateMatch = this.configuration.GetMatch<Magazine>(uri);
+
+            if (uriTemplateMatch.ContainsKey("name"))
+            {
+                return uriTemplateMatch["name"].ToString();
+            }
+
+            return null;
+        }
+
+        [return: AllowNull]
+        public string GetMagazineForIssuesId(Uri uri)
+        {
+            var uriTemplateMatch = this.configuration.GetMatch<ICollection<Issue>>(uri);
 
             if (uriTemplateMatch.ContainsKey("name"))
             {
