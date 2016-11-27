@@ -10,7 +10,7 @@ namespace Wikibus.Tests.sources.EF
     public class RetrievingSourceWithEfSteps
     {
         private static readonly MethodInfo CreateInstanceGeneric;
-        private readonly EntitiFrameworkSourceTestContext context;
+        private readonly EntityFrameworkSourceTestContext context;
 
         static RetrievingSourceWithEfSteps()
         {
@@ -22,7 +22,7 @@ namespace Wikibus.Tests.sources.EF
                 null);
         }
 
-        public RetrievingSourceWithEfSteps(EntitiFrameworkSourceTestContext context)
+        public RetrievingSourceWithEfSteps(EntityFrameworkSourceTestContext context)
         {
             this.context = context;
         }

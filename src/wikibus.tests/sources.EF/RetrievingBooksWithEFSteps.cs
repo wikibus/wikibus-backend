@@ -8,9 +8,9 @@ namespace Wikibus.Tests.sources.EF
     [Binding, Scope(Tag = "EF"), Scope(Tag = "Book")]
     public class RetrievingBooksWithEfSteps
     {
-        private readonly EntitiFrameworkSourceTestContext context;
+        private readonly EntityFrameworkSourceTestContext context;
 
-        public RetrievingBooksWithEfSteps(EntitiFrameworkSourceTestContext context)
+        public RetrievingBooksWithEfSteps(EntityFrameworkSourceTestContext context)
         {
             this.context = context;
         }

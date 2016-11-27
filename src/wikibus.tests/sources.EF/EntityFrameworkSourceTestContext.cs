@@ -4,9 +4,9 @@ using Wikibus.Tests.Mappings;
 
 namespace Wikibus.Tests.sources.EF
 {
-    public class EntitiFrameworkSourceTestContext
+    public class EntityFrameworkSourceTestContext
     {
-        public EntitiFrameworkSourceTestContext()
+        public EntityFrameworkSourceTestContext()
         {
             var sourceContext = new SourceContext(Database.TestConnectionString);
             var configuration = new TestConfiguration();

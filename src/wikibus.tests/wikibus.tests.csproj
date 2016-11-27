@@ -105,7 +105,7 @@
     <Compile Include="sources.dotNetRDF\SourcesRepository\RetrieveSourcesCollectionsFromRepositorySteps.cs" />
     <Compile Include="sources.dotNetRDF\SourcesRepository\RetrieveSourcesFromRepositorySteps.cs" />
     <Compile Include="sources.dotNetRDF\SourcesRepository\TypeExtensions.cs" />
-    <Compile Include="sources.EF\EntitiFrameworkSourceTestContext.cs" />
+    <Compile Include="sources.EF\EntityFrameworkSourceTestContext.cs" />
     <Compile Include="sources.EF\QueryingBrochures.feature.cs">
       <DependentUpon>QueryingBrochures.feature</DependentUpon>
       <AutoGen>True</AutoGen>
