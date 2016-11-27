@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Wikibus.Common;
 
 namespace Wikibus.Sources.EF
 {
     public class EntityFactory
     {
         private readonly IdentifierTemplates templates;
+        private readonly IWikibusConfiguration configuration;
 
-        public EntityFactory(IdentifierTemplates templates)
+        public EntityFactory(IdentifierTemplates templates, IWikibusConfiguration configuration)
         {
             this.templates = templates;
+            this.configuration = configuration;
         }
 
         public Book CreateBook(EntityWrapper<BookEntity> bookEntity)
@@ -53,8 +56,7 @@ namespace Wikibus.Sources.EF
                 };
             }
 
-            book.HasImage = bookEntity.HasImage;
-
+            this.CreateImageLinks(book, bookEntity);
             MapLanguages(book, bookEntity.Entity);
             MapDate(book, bookEntity.Entity);
 
@@ -82,7 +84,7 @@ namespace Wikibus.Sources.EF
                 target.Title = source.Entity.FolderName;
             }
 
-            target.HasImage = source.HasImage;
+            this.CreateImageLinks(target, source);
 
             MapSource(target, source.Entity);
 
@@ -104,8 +106,7 @@ namespace Wikibus.Sources.EF
                 magazineIssue.Number = issue.Entity.MagIssueNumber.ToString();
             }
 
-            magazineIssue.HasImage = issue.HasImage;
-
+            this.CreateImageLinks(magazineIssue, issue);
             MapSource(magazineIssue, issue.Entity);
 
             return magazineIssue;
@@ -152,6 +153,17 @@ namespace Wikibus.Sources.EF
             if (source.Year.HasValue && source.Month.HasValue && source.Day.HasValue)
             {
                 target.Date = new DateTime(source.Year.Value, source.Month.Value, source.Day.Value);
+            }
+        }
+
+        private void CreateImageLinks<TEntity>(Source source, EntityWrapper<TEntity> entity)
+        {
+            if (entity.HasImage)
+            {
+                source.Image = new Image
+                {
+                    ContentUrl = source.Id.ToString().Replace(this.configuration.BaseResourceNamespace, this.configuration.BaseApiNamespace) + "/image"
+                };
             }
         }
     }

@@ -70,24 +70,7 @@ namespace Wikibus.Sources
         /// </summary>
         [ReadOnly(true)]
         [Range(Schema.ImageObject)]
-        public Image Image
-        {
-            [return: AllowNull] get
-            {
-                if (this.HasImage == false)
-                {
-                    return null;
-                }
-
-                return new Image { ContentUrl = this.Id + "/image" };
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this instance has image.
-        /// </summary>
-        [JsonProperty]
-        public bool HasImage { get; set; }
+        public Image Image { [return: AllowNull] get; set; }
 
         /// <summary>
         /// Gets the @context.
@@ -128,14 +111,6 @@ namespace Wikibus.Sources
         protected virtual IEnumerable<string> Types
         {
             get { yield return Wbo.Source; }
-        }
-
-        /// <summary>
-        /// Should not serialize <see cref="HasImage"/>
-        /// </summary>
-        public bool ShouldSerializeHasImage()
-        {
-            return false;
         }
     }
 }
