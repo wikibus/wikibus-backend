@@ -162,20 +162,27 @@ namespace Wikibus.Sources.EF
                 return null;
             }
 
-            var source = (from m in this.context.Magazines
+            var result = (from m in this.context.Magazines
                           where m.Name == id.MagazineName
                           from i in m.Issues
                           where i.MagIssueNumber == id.IssueNumber
-                          select new EntityWrapper<MagazineIssueEntity>
+                          select new
                           {
                               Entity = i,
+                              i.Magazine,
                               HasImage = i.Image.Image != null
                           }).SingleOrDefault();
 
-            if (source == null)
+            if (result == null)
             {
                 return null;
             }
+
+            var source = new EntityWrapper<MagazineIssueEntity>
+            {
+                Entity = result.Entity,
+                HasImage = result.HasImage
+            };
 
             return this.factory.CreateMagazineIssue(source);
         }

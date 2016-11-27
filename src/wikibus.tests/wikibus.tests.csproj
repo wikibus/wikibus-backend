@@ -69,16 +69,6 @@
     <Compile Include="FluentAssertions\StoreAssertions.cs" />
     <Compile Include="Helpers\StreamExtensions.cs" />
     <Compile Include="Mappings\Database.cs" />
-    <Compile Include="Mappings\MappingBrochures.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MappingBrochures.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Mappings\MappingMagazines.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MappingMagazines.feature</DependentUpon>
-    </Compile>
     <Compile Include="Mappings\MappingSourcesSteps.cs" />
     <Compile Include="Mappings\TableExtensions.cs" />
     <Compile Include="Modules\Bindings\GettingSourcesSteps.cs" />
@@ -90,21 +80,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Modules\RedirectionTests.cs" />
-    <Compile Include="sources.dotNetRDF\SourcesRepository\AssertionExtensions.cs" />
-    <Compile Include="sources.dotNetRDF\SourcesRepository\RepositoryScenarioContext.cs" />
-    <Compile Include="sources.dotNetRDF\SourcesRepository\RetrieveMagazines.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RetrieveMagazines.feature</DependentUpon>
-    </Compile>
-    <Compile Include="sources.dotNetRDF\SourcesRepository\RetrieveSources.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RetrieveSources.feature</DependentUpon>
-    </Compile>
-    <Compile Include="sources.dotNetRDF\SourcesRepository\RetrieveSourcesCollectionsFromRepositorySteps.cs" />
-    <Compile Include="sources.dotNetRDF\SourcesRepository\RetrieveSourcesFromRepositorySteps.cs" />
-    <Compile Include="sources.dotNetRDF\SourcesRepository\TypeExtensions.cs" />
     <Compile Include="sources.EF\EntityFrameworkSourceTestContext.cs" />
     <Compile Include="sources.EF\QueryingBrochures.feature.cs">
       <DependentUpon>QueryingBrochures.feature</DependentUpon>
@@ -121,32 +96,16 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Mappings\MappingBrochures.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>MappingBrochures.feature.cs</LastGenOutput>
-    </None>
     <EmbeddedResource Include="Mappings\Wikibus.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Wikibus.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Mappings\MappingMagazines.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>MappingMagazines.feature.cs</LastGenOutput>
-    </None>
     <None Include="Modules\GettingSources.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GettingSources.feature.cs</LastGenOutput>
     </None>
     <None Include="paket.references" />
-    <None Include="sources.dotNetRDF\SourcesRepository\RetrieveMagazines.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>RetrieveMagazines.feature.cs</LastGenOutput>
-    </None>
-    <None Include="sources.dotNetRDF\SourcesRepository\RetrieveSources.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>RetrieveSources.feature.cs</LastGenOutput>
-    </None>
     <None Include="sources.EF\QueryingBrochures.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>QueryingBrochures.feature.cs</LastGenOutput>
