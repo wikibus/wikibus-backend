@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Argolis.Templates;
 using Hydra.Resources;
 using Nancy;
 using Nancy.ModelBinding;
-using Nancy.Responses.Negotiation;
-using Nancy.Routing.UriTemplates;
 using TunnelVisionLabs.Net;
 using Wikibus.Common;
 using Wikibus.Sources.Filters;
@@ -15,7 +14,7 @@ namespace Wikibus.Sources.Nancy
     /// <summary>
     /// Module, which serves <see cref="Source"/>s
     /// </summary>
-    public sealed class SourcesModule : UriTemplateModule
+    public sealed class SourcesModule : ArgolisModule
     {
         private const int PageSize = 12;
 
@@ -32,7 +31,7 @@ namespace Wikibus.Sources.Nancy
 
             this.ReturnNotFoundWhenModelIsNull();
 
-            this.Get(Id.BrochurePath, r => this.GetSingle(repository.GetBrochure));
+            this.Get<Brochure>(r => this.GetSingle(repository.GetBrochure));
             this.Get(Id.BookPath, r => this.GetSingle(repository.GetBook));
             this.Get(Id.MagazinePath, r => this.GetSingle(repository.GetMagazine));
             this.Get(Id.MagazineIssuesPath, r => this.GetSingle(repository.GetMagazineIssues, new Collection<Issue>()));

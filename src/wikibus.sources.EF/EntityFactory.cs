@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Argolis.Templates;
 using Wikibus.Common;
 
 namespace Wikibus.Sources.EF
@@ -67,7 +68,12 @@ namespace Wikibus.Sources.EF
         {
             var target = new Brochure
             {
-                Id = this.templates.CreateBrochureIdentifier(source.Entity.Id)
+                Id = IdentifierOf<Brochure>.Bind(
+                    new Dictionary<string, object>
+                    {
+                        ["id"] = source.Entity.Id
+                    },
+                    this.configuration.BaseResourceNamespace)
             };
             if (source.Entity.Notes != null)
             {

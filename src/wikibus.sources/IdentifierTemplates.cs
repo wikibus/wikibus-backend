@@ -12,11 +12,6 @@ namespace Wikibus.Sources
     public class IdentifierTemplates
     {
         /// <summary>
-        /// The brochure path
-        /// </summary>
-        public const string BrochurePath = "brochure/{id}";
-
-        /// <summary>
         /// The brochures path
         /// </summary>
         public const string BrochuresPath = "brochures{?page,title,language}";
@@ -61,7 +56,6 @@ namespace Wikibus.Sources
         {
             this.templateTable.Add(typeof(Book), new UriTemplate(configuration.BaseResourceNamespace + BookPath));
             this.templateTable.Add(typeof(Magazine), new UriTemplate(configuration.BaseResourceNamespace + MagazinePath));
-            this.templateTable.Add(typeof(Brochure), new UriTemplate(configuration.BaseResourceNamespace + BrochurePath));
             this.templateTable.Add(typeof(Issue), new UriTemplate(configuration.BaseResourceNamespace + MagazineIssuePath));
             this.templateTable.Add(typeof(ICollection<Issue>), new UriTemplate(configuration.BaseResourceNamespace + MagazineIssuesPath));
         }
@@ -89,18 +83,6 @@ namespace Wikibus.Sources
             {
                 { "name", magazineName },
                 { "number", issueNumber.ToString() }
-            });
-        }
-
-        /// <summary>
-        /// Creates the brochure identifier.
-        /// </summary>
-        /// <param name="id">The identifier.</param>
-        public Uri CreateBrochureIdentifier(int id)
-        {
-            return this.templateTable[typeof(Brochure)].BindByName(new Dictionary<string, string>
-            {
-                { "id", id.ToString() }
             });
         }
 

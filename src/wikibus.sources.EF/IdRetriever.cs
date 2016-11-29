@@ -14,19 +14,6 @@ namespace Wikibus.Sources.EF
         }
 
         [return: AllowNull]
-        public int? GetBrochureId(Uri uri)
-        {
-            var uriTemplateMatch = this.configuration.GetMatch<Brochure>(uri);
-            if (uriTemplateMatch.ContainsKey("id"))
-            {
-                var binding = uriTemplateMatch["id"];
-                return Convert.ToInt32(binding.ToString());
-            }
-
-            return null;
-        }
-
-        [return: AllowNull]
         public int? GetBookId(Uri uri)
         {
             var uriTemplateMatch = this.configuration.GetMatch<Book>(uri);

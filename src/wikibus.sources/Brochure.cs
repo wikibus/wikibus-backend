@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using Argolis.Templates;
 using Hydra.Annotations;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json;
@@ -14,6 +15,7 @@ namespace Wikibus.Sources
     /// A brochure about buses, trams, etc.
     /// </summary>
     [SupportedClass(Wbo.Brochure)]
+    [IdentifierTemplate("brochure/{id}")]
     public class Brochure : Source
     {
         private string description;

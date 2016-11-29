@@ -11,7 +11,7 @@ namespace Wikibus.Tests.sources.EF
             var sourceContext = new SourceContext(Database.TestConnectionString);
             var configuration = new TestConfiguration();
             var identifierTemplates = new IdentifierTemplates(configuration);
-            Repository = new SourcesRepository(sourceContext, new IdRetriever(identifierTemplates), new EntityFactory(identifierTemplates, configuration));
+            Repository = new SourcesRepository(sourceContext, new IdRetriever(identifierTemplates), new EntityFactory(identifierTemplates, configuration), configuration);
         }
 
         public SourcesRepository Repository { get; }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Linq;
+using Argolis.Templates;
 using Hydra.Resources;
 using NullGuard;
+using Wikibus.Common;
 using Wikibus.Sources.Filters;
 
 namespace Wikibus.Sources.EF
@@ -11,12 +13,14 @@ namespace Wikibus.Sources.EF
         private readonly ISourceContext context;
         private readonly IdRetriever identifierRetriever;
         private readonly EntityFactory factory;
+        private readonly IWikibusConfiguration config;
 
-        public SourcesRepository(ISourceContext context, IdRetriever identifierRetriever, EntityFactory factory)
+        public SourcesRepository(ISourceContext context, IdRetriever identifierRetriever, EntityFactory factory, IWikibusConfiguration config)
         {
             this.context = context;
             this.identifierRetriever = identifierRetriever;
             this.factory = factory;
+            this.config = config;
         }
 
         [return: AllowNull]
@@ -44,7 +48,7 @@ namespace Wikibus.Sources.EF
         [return: AllowNull]
         public Brochure GetBrochure(Uri identifier)
         {
-            var id = this.identifierRetriever.GetBrochureId(identifier);
+            var id = IdentifierOf<Brochure>.Match(identifier, this.config.BaseResourceNamespace).Get<int?>("id");
 
             if (id == null)
             {
