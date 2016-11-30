@@ -8,9 +8,9 @@ namespace Argolis.Templates
     public class UriTemplateExpander : IUriTemplateExpander
     {
         private readonly IBaseUriProvider baseUriProvider;
-        private readonly ModelTemplateProvider modelTemplateProvider;
+        private readonly IModelTemplateProvider modelTemplateProvider;
 
-        public UriTemplateExpander(IBaseUriProvider baseUriProvider, ModelTemplateProvider modelTemplateProvider)
+        public UriTemplateExpander(IBaseUriProvider baseUriProvider, IModelTemplateProvider modelTemplateProvider)
         {
             this.baseUriProvider = baseUriProvider;
             this.modelTemplateProvider = modelTemplateProvider;

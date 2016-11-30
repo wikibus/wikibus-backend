@@ -1,7 +1,7 @@
 ﻿using Argolis.Templates;
 using Wikibus.Common;
 
-namespace Wikibus.Sources.EF
+namespace Wikibus.Sources
 {
     public class BaseUriProvider : IBaseUriProvider
     {
@@ -10,6 +10,6 @@ namespace Wikibus.Sources.EF
             this.BaseUri = configuration.BaseResourceNamespace;
         }
 
-        public string BaseUri { get; private set; }
+        public string BaseUri { get; }
     }
 }

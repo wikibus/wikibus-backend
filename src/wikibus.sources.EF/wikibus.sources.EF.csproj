@@ -49,7 +49,6 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="BaseUriProvider.cs" />
     <Compile Include="BookEntity.cs" />
     <Compile Include="BrochureEntity.cs" />
     <Compile Include="EntityFactory.cs" />

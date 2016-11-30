@@ -5,7 +5,12 @@ using TunnelVisionLabs.Net;
 
 namespace Argolis.Templates
 {
-    public class UriTemplateMatcher
+    public interface IUriTemplateMatcher
+    {
+        UriTemplateMatches Match<T>(Uri uri);
+    }
+
+    public class UriTemplateMatcher : IUriTemplateMatcher
     {
         private readonly IBaseUriProvider baseUriProvider;
         private readonly ModelTemplateProvider modelTemplateProvider;
@@ -16,7 +21,7 @@ namespace Argolis.Templates
             this.modelTemplateProvider = new ModelTemplateProvider();
         }
 
-        public IdentifierMatches Match<T>(Uri uri)
+        public UriTemplateMatches Match<T>(Uri uri)
         {
             var matches = new Dictionary<string, object>();
             var template = this.modelTemplateProvider.GetTemplate(typeof(T));
@@ -34,36 +39,7 @@ namespace Argolis.Templates
                 matches = templateMatch.Bindings.ToDictionary(m => m.Key, m => m.Value.Value);
             }
 
-            return new IdentifierMatches(matches);
-        }
-
-        public class IdentifierMatches
-        {
-            private readonly Dictionary<string, object> dictionary;
-
-            public IdentifierMatches(Dictionary<string, object> dictionary)
-            {
-                this.dictionary = dictionary;
-            }
-
-            public bool AreEmpty => this.dictionary.Count == 0;
-
-            public TOut Get<TOut>(string key)
-            {
-                var valueType = Nullable.GetUnderlyingType(typeof(TOut));
-
-                if (valueType == null)
-                {
-                    valueType = typeof(TOut);
-                }
-
-                if (this.dictionary.ContainsKey(key))
-                {
-                    return (TOut)Convert.ChangeType(this.dictionary[key], valueType);
-                }
-
-                return default(TOut);
-            }
+            return new UriTemplateMatches(matches);
         }
     }
 }

@@ -3,7 +3,6 @@ using System.ComponentModel;
 using Argolis.Templates;
 using Hydra.Annotations;
 using JsonLD.Entities.Context;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;

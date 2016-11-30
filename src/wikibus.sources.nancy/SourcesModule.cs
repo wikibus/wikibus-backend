@@ -76,7 +76,7 @@ namespace Wikibus.Sources.Nancy
                 return 400;
             }
 
-            var uriTemplate = new UriTemplate(this.modelTemplateProvider.GetTemplate(typeof(Collection<T>)));
+            var uriTemplate = new UriTemplate(this.config.BaseResourceNamespace + this.modelTemplateProvider.GetTemplate(typeof(Collection<T>)));
             var templateParams = new Dictionary<string, object>((DynamicDictionary)this.Context.Request.Query)
             {
                 ["page"] = page

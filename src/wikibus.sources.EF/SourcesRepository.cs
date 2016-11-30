@@ -11,12 +11,12 @@ namespace Wikibus.Sources.EF
     {
         private readonly ISourceContext context;
         private readonly EntityFactory factory;
-        private readonly UriTemplateMatcher matcher;
+        private readonly IUriTemplateMatcher matcher;
 
         public SourcesRepository(
             ISourceContext context,
             EntityFactory factory,
-            UriTemplateMatcher matcher)
+            IUriTemplateMatcher matcher)
         {
             this.context = context;
             this.factory = factory;

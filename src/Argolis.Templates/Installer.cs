@@ -9,6 +9,8 @@ namespace Argolis.Templates
             : base(typeCatalog)
         {
             this.RegisterWithDefault<IModelTemplateProvider>(typeof(ModelTemplateProvider));
+            this.RegisterWithDefault<IUriTemplateMatcher>(typeof(UriTemplateMatcher));
+            this.RegisterWithDefault<IUriTemplateExpander>(typeof(UriTemplateExpander));
         }
     }
 }

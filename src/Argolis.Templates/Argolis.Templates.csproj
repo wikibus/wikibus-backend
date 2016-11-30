@@ -52,10 +52,12 @@
     <Compile Include="Installer.cs" />
     <Compile Include="IUriTemplateExpander.cs" />
     <Compile Include="ModelTemplateProvider.cs" />
+    <Compile Include="TemplateAttributeBase.cs" />
     <Compile Include="UriTemplateMatcher.cs" />
     <Compile Include="IdentifierTemplateAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UriTemplateExpander.cs" />
+    <Compile Include="UriTemplateMatches.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="paket.references" />

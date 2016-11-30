@@ -3,13 +3,11 @@
 namespace Argolis.Templates
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
-    public class IdentifierTemplateAttribute : Attribute
+    public sealed class IdentifierTemplateAttribute : TemplateAttributeBase
     {
         public IdentifierTemplateAttribute(string template)
         {
             this.Template = template;
         }
-
-        public string Template { get; private set; }
     }
 }
