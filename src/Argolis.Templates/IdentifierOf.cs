@@ -6,16 +6,19 @@ using TunnelVisionLabs.Net;
 
 namespace Argolis.Templates
 {
+    /// <summary>
+    /// Simplifies accessing and transforming URI Templates for resources
+    /// </summary>
     public static class IdentifierOf<T>
     {
+        public static string Template => typeof(T).GetCustomAttribute<IdentifierTemplateAttribute>().Template;
+
         public static IdentifierMatches Match(Uri uri, string baseUri = null)
         {
             var matches = new Dictionary<string, object>();
-            var templateStr = typeof(T).GetCustomAttribute<IdentifierTemplateAttribute>().Template;
-            var template = new UriTemplate(baseUri + templateStr);
 
             uri = new Uri(Uri.EscapeUriString(uri.ToString()));
-            var templateMatch = template.Match(uri);
+            var templateMatch = GetTemplate(baseUri).Match(uri);
 
             if (templateMatch != null)
             {
@@ -27,10 +30,12 @@ namespace Argolis.Templates
 
         public static Uri Bind(Dictionary<string, object> dictionary, string baseUri = null)
         {
-            var templateStr = typeof(T).GetCustomAttribute<IdentifierTemplateAttribute>().Template;
-            var template = new UriTemplate(baseUri + templateStr);
+            return GetTemplate(baseUri).BindByName(dictionary);
+        }
 
-            return template.BindByName(dictionary);
+        private static UriTemplate GetTemplate(string baseUri = null)
+        {
+            return new UriTemplate(baseUri + Template);
         }
 
         public class IdentifierMatches

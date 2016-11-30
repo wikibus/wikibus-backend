@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Reflection;
 
 namespace Argolis.Templates
 {
+    /// <summary>
+    /// A <see cref="Nancy.NancyModule"/> with routing which doesn't require paths.
+    /// They are taken from model's <see cref="IdentifierTemplateAttribute"/>
+    /// </summary>
+    /// <seealso cref="Nancy.Routing.UriTemplates.UriTemplateModule" />
     public class ArgolisModule : Nancy.Routing.UriTemplates.UriTemplateModule
     {
         public virtual void Get<T>(Func<dynamic, dynamic> action)
         {
-            this.Get<dynamic>(GetModelTemplate(typeof(T)), action);
-        }
-
-        private static string GetModelTemplate(Type type)
-        {
-            return type.GetCustomAttribute<IdentifierTemplateAttribute>().Template;
+            this.Get<dynamic>(IdentifierOf<T>.Template, action);
         }
     }
 }
