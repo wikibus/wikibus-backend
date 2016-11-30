@@ -44,9 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArgolisModule.cs" />
-    <Compile Include="IdentifierOf.cs" />
+    <Compile Include="IBaseUriProvider.cs" />
+    <Compile Include="ModelTemplateProvider.cs" />
+    <Compile Include="UriTemplateMatcher.cs" />
     <Compile Include="IdentifierTemplateAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UriTemplateExpander.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="paket.references" />

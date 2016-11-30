@@ -26,6 +26,7 @@ namespace Wikibus.Sources.Nancy
         /// <param name="repository">The source repository.</param>
         /// <param name="config">The configuration.</param>
         public SourcesModule(ISourcesRepository repository, IWikibusConfiguration config)
+            : base(new ModelTemplateProvider())
         {
             this.config = config;
 

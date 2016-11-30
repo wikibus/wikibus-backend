@@ -1,24 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using TunnelVisionLabs.Net;
 
 namespace Argolis.Templates
 {
-    /// <summary>
-    /// Simplifies accessing and transforming URI Templates for resources
-    /// </summary>
-    public static class IdentifierOf<T>
+    public class UriTemplateMatcher
     {
-        public static string Template => typeof(T).GetCustomAttribute<IdentifierTemplateAttribute>().Template;
+        private readonly IBaseUriProvider baseUriProvider;
+        private readonly ModelTemplateProvider modelTemplateProvider;
 
-        public static IdentifierMatches Match(Uri uri, string baseUri = null)
+        public UriTemplateMatcher(IBaseUriProvider baseUriProvider)
+        {
+            this.baseUriProvider = baseUriProvider;
+            this.modelTemplateProvider = new ModelTemplateProvider();
+        }
+
+        public IdentifierMatches Match<T>(Uri uri)
         {
             var matches = new Dictionary<string, object>();
+            var template = this.modelTemplateProvider.GetTemplate(typeof(T));
 
             uri = new Uri(Uri.EscapeUriString(uri.ToString()));
-            var templateMatch = GetTemplate(baseUri).Match(uri);
+            if (uri.IsAbsoluteUri)
+            {
+                template = this.baseUriProvider + template;
+            }
+
+            var templateMatch = new UriTemplate(template).Match(uri);
 
             if (templateMatch != null)
             {
@@ -26,16 +35,6 @@ namespace Argolis.Templates
             }
 
             return new IdentifierMatches(matches);
-        }
-
-        public static Uri Bind(Dictionary<string, object> dictionary, string baseUri = null)
-        {
-            return GetTemplate(baseUri).BindByName(dictionary);
-        }
-
-        private static UriTemplate GetTemplate(string baseUri = null)
-        {
-            return new UriTemplate(baseUri + Template);
         }
 
         public class IdentifierMatches

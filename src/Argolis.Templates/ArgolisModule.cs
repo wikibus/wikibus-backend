@@ -9,9 +9,16 @@ namespace Argolis.Templates
     /// <seealso cref="Nancy.Routing.UriTemplates.UriTemplateModule" />
     public class ArgolisModule : Nancy.Routing.UriTemplates.UriTemplateModule
     {
+        private readonly ModelTemplateProvider provider;
+
+        public ArgolisModule(ModelTemplateProvider provider)
+        {
+            this.provider = provider;
+        }
+
         public virtual void Get<T>(Func<dynamic, dynamic> action)
         {
-            this.Get<dynamic>(IdentifierOf<T>.Template, action);
+            this.Get<dynamic>(this.provider.GetTemplate(typeof(T)), action);
         }
     }
 }

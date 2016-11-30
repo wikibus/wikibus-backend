@@ -90,6 +90,7 @@
     <Compile Include="sources.EF\RetrievingBrochuresWithEFSteps.cs" />
     <Compile Include="sources.EF\RetrievingMagazinesWithEFSteps.cs" />
     <Compile Include="sources.EF\RetrievingSourceWithEFSteps.cs" />
+    <Compile Include="TestBaseUriProvider.cs" />
     <Compile Include="TestConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>

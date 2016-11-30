@@ -10,11 +10,13 @@ namespace Wikibus.Sources.EF
     {
         private readonly IdentifierTemplates templates;
         private readonly IWikibusConfiguration configuration;
+        private readonly UriTemplateExpander expander;
 
         public EntityFactory(IdentifierTemplates templates, IWikibusConfiguration configuration)
         {
             this.templates = templates;
             this.configuration = configuration;
+            this.expander = new UriTemplateExpander(new BaseUriProvider(configuration), new ModelTemplateProvider());
         }
 
         public Book CreateBook(EntityWrapper<BookEntity> bookEntity)
@@ -68,12 +70,11 @@ namespace Wikibus.Sources.EF
         {
             var target = new Brochure
             {
-                Id = IdentifierOf<Brochure>.Bind(
+                Id = this.expander.ExpandAbsoluteUri<Brochure>(
                     new Dictionary<string, object>
                     {
                         ["id"] = source.Entity.Id
-                    },
-                    this.configuration.BaseResourceNamespace)
+                    })
             };
             if (source.Entity.Notes != null)
             {
