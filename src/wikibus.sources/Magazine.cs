@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Argolis.Templates;
 using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
@@ -17,6 +18,8 @@ namespace Wikibus.Sources
     /// </summary>
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     [SupportedClass(Wbo.Magazine)]
+    [IdentifierTemplate("magazine/{name}")]
+    [CollectionIdentifierTemplate("magazines{?page,title}")]
     public class Magazine
     {
         /// <summary>

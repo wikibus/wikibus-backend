@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using Argolis.Templates;
 using Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
@@ -14,6 +15,8 @@ namespace Wikibus.Sources
     /// A book about public transport
     /// </summary>
     [SupportedClass(Wbo.Book)]
+    [IdentifierTemplate("book/{id}")]
+    [CollectionIdentifierTemplate("books{/page}{?title,author,language}")]
     public class Book : Source
     {
         /// <summary>

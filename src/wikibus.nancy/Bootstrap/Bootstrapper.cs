@@ -11,7 +11,6 @@ using Nancy.Responses.Negotiation;
 using Nancy.Routing.UriTemplates;
 using Wikibus.Common;
 using Wikibus.Nancy.Hydra;
-using Wikibus.Sources;
 using Wikibus.Sources.DotNetRDF;
 using Wikibus.Sources.EF;
 using SourcesRepository = Wikibus.Sources.EF.SourcesRepository;
@@ -65,9 +64,7 @@ namespace Wikibus.Nancy
                     .Where(t => t.Name.EndsWith("Repository"))
                     .AsImplementedInterfaces();
                 builder.RegisterType<SourceImagesRepository>().AsImplementedInterfaces();
-                builder.RegisterType<IdRetriever>().AsSelf();
                 builder.RegisterType<EntityFactory>().AsSelf();
-                builder.RegisterType<IdentifierTemplates>().AsSelf();
             });
 
             base.ConfigureApplicationContainer(existingContainer);

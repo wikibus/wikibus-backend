@@ -10,18 +10,15 @@ namespace Wikibus.Sources.EF
     public class SourcesRepository : ISourcesRepository
     {
         private readonly ISourceContext context;
-        private readonly IdRetriever identifierRetriever;
         private readonly EntityFactory factory;
         private readonly UriTemplateMatcher matcher;
 
         public SourcesRepository(
             ISourceContext context,
-            IdRetriever identifierRetriever,
             EntityFactory factory,
             UriTemplateMatcher matcher)
         {
             this.context = context;
-            this.identifierRetriever = identifierRetriever;
             this.factory = factory;
             this.matcher = matcher;
         }
@@ -29,7 +26,7 @@ namespace Wikibus.Sources.EF
         [return: AllowNull]
         public Magazine GetMagazine(Uri identifier)
         {
-            var id = this.identifierRetriever.GetMagazineName(identifier);
+            var id = this.matcher.Match<Magazine>(identifier).Get<string>("name");
 
             if (id == null)
             {
@@ -77,7 +74,7 @@ namespace Wikibus.Sources.EF
         [return: AllowNull]
         public Book GetBook(Uri identifier)
         {
-            var id = this.identifierRetriever.GetBookId(identifier);
+            var id = this.matcher.Match<Book>(identifier).Get<int?>("id");
 
             if (id == null)
             {
@@ -135,7 +132,7 @@ namespace Wikibus.Sources.EF
 
         public Collection<Issue> GetMagazineIssues(Uri uri)
         {
-            var name = this.identifierRetriever.GetMagazineForIssuesId(uri);
+            var name = this.matcher.Match<Collection<Issue>>(uri).Get<string>("name");
 
             if (name == null)
             {
@@ -169,17 +166,20 @@ namespace Wikibus.Sources.EF
         [return: AllowNull]
         public Issue GetIssue(Uri identifier)
         {
-            var id = this.identifierRetriever.GetIssueId(identifier);
+            var matches = this.matcher.Match<Issue>(identifier);
 
-            if (id == null)
+            if (matches.AreEmpty)
             {
                 return null;
             }
 
+            var magazineName = matches.Get<string>("name");
+            var issueNumber = matches.Get<int>("number");
+
             var result = (from m in this.context.Magazines
-                          where m.Name == id.MagazineName
+                          where m.Name == magazineName
                           from i in m.Issues
-                          where i.MagIssueNumber == id.IssueNumber
+                          where i.MagIssueNumber == issueNumber
                           select new
                           {
                               Entity = i,

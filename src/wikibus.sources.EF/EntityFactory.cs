@@ -8,22 +8,20 @@ namespace Wikibus.Sources.EF
 {
     public class EntityFactory
     {
-        private readonly IdentifierTemplates templates;
         private readonly IWikibusConfiguration configuration;
-        private readonly UriTemplateExpander expander;
+        private readonly IUriTemplateExpander expander;
 
-        public EntityFactory(IdentifierTemplates templates, IWikibusConfiguration configuration)
+        public EntityFactory(IUriTemplateExpander expander, IWikibusConfiguration configuration)
         {
-            this.templates = templates;
+            this.expander = expander;
             this.configuration = configuration;
-            this.expander = new UriTemplateExpander(new BaseUriProvider(configuration), new ModelTemplateProvider());
         }
 
         public Book CreateBook(EntityWrapper<BookEntity> bookEntity)
         {
             var book = new Book
             {
-                Id = this.templates.CreateBookIdentifier(bookEntity.Entity.Id)
+                Id = this.expander.ExpandAbsolute<Book>(new { title = bookEntity.Entity.Id })
             };
 
             if (bookEntity.Entity.BookISBN != null)
@@ -70,7 +68,7 @@ namespace Wikibus.Sources.EF
         {
             var target = new Brochure
             {
-                Id = this.expander.ExpandAbsoluteUri<Brochure>(
+                Id = this.expander.ExpandAbsolute<Brochure>(
                     new Dictionary<string, object>
                     {
                         ["id"] = source.Entity.Id
@@ -102,10 +100,10 @@ namespace Wikibus.Sources.EF
         {
             var magazineIssue = new Issue
             {
-                Id = this.templates.CreateMagazineIssueIdentifier(issue.Entity.MagIssueNumber.Value, issue.Entity.Magazine.Name),
+                Id = this.expander.ExpandAbsolute<Issue>(new { number = issue.Entity.MagIssueNumber.Value, name = issue.Entity.Magazine.Name }),
                 Magazine = new Magazine
                 {
-                    Id = this.templates.CreateMagazineIdentifier(issue.Entity.Magazine.Name)
+                    Id = this.expander.ExpandAbsolute<Magazine>(new { name = issue.Entity.Magazine.Name })
                 }
             };
             if (issue.Entity.MagIssueNumber != null)
@@ -123,7 +121,7 @@ namespace Wikibus.Sources.EF
         {
             var magazine = new Magazine
             {
-                Id = this.templates.CreateMagazineIdentifier(entity.Name)
+                Id = this.expander.ExpandAbsolute<Magazine>(new { name = entity.Name })
             };
             magazine.Title = entity.Name;
             return magazine;

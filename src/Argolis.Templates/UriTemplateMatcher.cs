@@ -24,7 +24,7 @@ namespace Argolis.Templates
             uri = new Uri(Uri.EscapeUriString(uri.ToString()));
             if (uri.IsAbsoluteUri)
             {
-                template = this.baseUriProvider + template;
+                template = this.baseUriProvider.BaseUri + template;
             }
 
             var templateMatch = new UriTemplate(template).Match(uri);
@@ -45,6 +45,8 @@ namespace Argolis.Templates
             {
                 this.dictionary = dictionary;
             }
+
+            public bool AreEmpty => this.dictionary.Count == 0;
 
             public TOut Get<TOut>(string key)
             {

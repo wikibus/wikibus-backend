@@ -62,7 +62,6 @@
     <Compile Include="Filters\BookFilters.cs" />
     <Compile Include="Filters\BrochureFilters.cs" />
     <Compile Include="Filters\MagazineFilters.cs" />
-    <Compile Include="IdentifierTemplates.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="ISourceImagesRepository.cs" />
     <Compile Include="ISourcesDatabaseSettings.cs" />

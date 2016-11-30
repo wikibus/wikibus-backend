@@ -9,9 +9,9 @@ namespace Argolis.Templates
     /// <seealso cref="Nancy.Routing.UriTemplates.UriTemplateModule" />
     public class ArgolisModule : Nancy.Routing.UriTemplates.UriTemplateModule
     {
-        private readonly ModelTemplateProvider provider;
+        private readonly IModelTemplateProvider provider;
 
-        public ArgolisModule(ModelTemplateProvider provider)
+        public ArgolisModule(IModelTemplateProvider provider)
         {
             this.provider = provider;
         }

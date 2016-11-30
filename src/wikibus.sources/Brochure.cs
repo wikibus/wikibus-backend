@@ -16,6 +16,7 @@ namespace Wikibus.Sources
     /// </summary>
     [SupportedClass(Wbo.Brochure)]
     [IdentifierTemplate("brochure/{id}")]
+    [CollectionIdentifierTemplate("brochures{?page,title,language}")]
     public class Brochure : Source
     {
         private string description;

@@ -54,7 +54,6 @@
     <Compile Include="BrochureEntity.cs" />
     <Compile Include="EntityFactory.cs" />
     <Compile Include="EntityWrapper.cs" />
-    <Compile Include="IdRetriever.cs" />
     <Compile Include="IHasImage.cs" />
     <Compile Include="ImageData.cs" />
     <Compile Include="ISourceContext.cs" />

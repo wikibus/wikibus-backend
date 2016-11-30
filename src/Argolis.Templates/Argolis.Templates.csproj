@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Lernaean.Hydra">
+      <HintPath>..\..\packages\Argolis\lib\net452\Lernaean.Hydra.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArgolisModule.cs" />
+    <Compile Include="CollectionIdentifierTemplateAttribute.cs" />
     <Compile Include="IBaseUriProvider.cs" />
+    <Compile Include="Installer.cs" />
+    <Compile Include="IUriTemplateExpander.cs" />
     <Compile Include="ModelTemplateProvider.cs" />
     <Compile Include="UriTemplateMatcher.cs" />
     <Compile Include="IdentifierTemplateAttribute.cs" />
