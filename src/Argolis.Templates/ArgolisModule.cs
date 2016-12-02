@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Argolis.Templates
 {
@@ -16,9 +18,14 @@ namespace Argolis.Templates
             this.provider = provider;
         }
 
-        public virtual void Get<T>(Func<object, object> action)
+        public virtual void Get<T>(Func<dynamic, object> action)
         {
-            this.Get<dynamic>(this.provider.GetTemplate(typeof(T)), action);
+            this.Get(this.provider.GetTemplate(typeof(T)), action);
+        }
+
+        public virtual void Get<T>(Func<dynamic, CancellationToken, Task<object>> action)
+        {
+            this.Get(this.provider.GetTemplate(typeof(T)), action);
         }
     }
 }
