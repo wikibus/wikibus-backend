@@ -16,7 +16,7 @@ namespace Argolis.Templates
             this.provider = provider;
         }
 
-        public virtual void Get<T>(Func<dynamic, dynamic> action)
+        public virtual void Get<T>(Func<object, object> action)
         {
             this.Get<dynamic>(this.provider.GetTemplate(typeof(T)), action);
         }
