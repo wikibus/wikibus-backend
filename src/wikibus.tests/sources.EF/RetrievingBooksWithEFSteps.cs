@@ -18,7 +18,7 @@ namespace Wikibus.Tests.sources.EF
         [When(@"getting Book <(.*)>")]
         public void WhenGettingBook(string bookId)
         {
-            context.Source = context.Repository.GetBook(new Uri(bookId));
+            context.Source = context.Repository.GetBook(new Uri(bookId)).Result;
         }
 
         [Then(@"Author should be '(.*)'")]

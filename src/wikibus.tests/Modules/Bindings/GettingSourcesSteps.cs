@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using FakeItEasy;
 using FluentAssertions;
 using Hydra.Resources;
@@ -35,7 +36,7 @@ namespace Wikibus.Tests.Modules.Bindings
         [Given(@"brochure '(.*)' doesn't exist")]
         public void GivenBrochureDoesntExist(string resourceUri)
         {
-            A.CallTo(() => dep.Sources.GetBrochure(new Uri(resourceUri))).Returns(null);
+            A.CallTo(() => dep.Sources.GetBrochure(new Uri(resourceUri))).Returns(Task.FromResult<Brochure>(null));
         }
 
         [Given(@"existing brochure '(.*)'")]

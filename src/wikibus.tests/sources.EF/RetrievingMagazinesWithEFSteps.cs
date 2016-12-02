@@ -18,7 +18,7 @@ namespace Wikibus.Tests.sources.EF
         [When(@"Getting issue <(.*)>")]
         public void WhenGettingBook(string issueId)
         {
-            context.Source = context.Repository.GetIssue(new Uri(issueId));
+            context.Source = context.Repository.GetIssue(new Uri(issueId)).Result;
         }
 
         [Then(@"Magazine is <(.*)>")]

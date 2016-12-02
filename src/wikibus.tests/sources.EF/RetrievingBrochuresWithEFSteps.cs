@@ -16,7 +16,7 @@ namespace Wikibus.Tests.sources.EF
         [When(@"getting Brochure <(.*)>")]
         public void WhenGettingBrochure(string brochureId)
         {
-            context.Source = context.Repository.GetBrochure(new Uri(brochureId));
+            context.Source = context.Repository.GetBrochure(new Uri(brochureId)).Result;
         }
     }
 }

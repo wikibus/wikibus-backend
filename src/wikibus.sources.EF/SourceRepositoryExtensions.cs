@@ -2,13 +2,14 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Hydra.Resources;
 
 namespace Wikibus.Sources.EF
 {
     public static class SourceRepositoryExtensions
     {
-        public static Collection<T> GetCollectionPage<T, TEntity>(
+        public static async Task<Collection<T>> GetCollectionPage<T, TEntity>(
             this IDbSet<TEntity> dbSet,
             Uri identifier,
             Expression<Func<TEntity, object>> ordering,
@@ -25,17 +26,17 @@ namespace Wikibus.Sources.EF
                 Entity = entity,
                 HasImage = entity.Image.Image != null
             });
-            var books = entityWrappers.ToList();
+            var books = await entityWrappers.ToListAsync();
 
             return new Collection<T>
             {
                 Id = identifier,
                 Members = books.ToList().Select(resourceFactory).ToArray(),
-                TotalItems = entireCollection.Count()
+                TotalItems = await entireCollection.CountAsync()
             };
         }
 
-        public static Collection<T> GetCollectionPage<T, TEntity>(
+        public static async Task<Collection<T>> GetCollectionPage<T, TEntity>(
             this IDbSet<TEntity> dbSet,
             Uri identifier,
             Expression<Func<TEntity, object>> ordering,
@@ -47,13 +48,13 @@ namespace Wikibus.Sources.EF
         {
             var entireCollection = applyFilters(dbSet.AsNoTracking()).OrderBy(ordering);
             var pageOfBrochures = entireCollection.Skip((page - 1) * pageSize).Take(pageSize);
-            var books = pageOfBrochures.ToList();
+            var books = await pageOfBrochures.ToListAsync();
 
             return new Collection<T>
             {
                 Id = identifier,
                 Members = books.ToList().Select(resourceFactory).ToArray(),
-                TotalItems = entireCollection.Count()
+                TotalItems = await entireCollection.CountAsync()
             };
         }
     }

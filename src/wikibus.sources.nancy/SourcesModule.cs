@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Argolis.Templates;
 using Hydra.Resources;
 using Nancy;
@@ -31,24 +32,24 @@ namespace Wikibus.Sources.Nancy
 
             this.ReturnNotFoundWhenModelIsNull();
 
-            this.Get<Brochure>(r => this.GetSingle(repository.GetBrochure));
-            this.Get<Book>(r => this.GetSingle(repository.GetBook));
-            this.Get<Magazine>(r => this.GetSingle(repository.GetMagazine));
-            this.Get<Collection<Issue>>(r => this.GetSingle(repository.GetMagazineIssues, new Collection<Issue>()));
-            this.Get<Issue>(r => this.GetSingle(repository.GetIssue));
+            this.Get<Brochure>(async (r, c) => await this.GetSingle(repository.GetBrochure));
+            this.Get<Book>(async (r, c) => await this.GetSingle(repository.GetBook));
+            this.Get<Magazine>(async (r, c) => await this.GetSingle(repository.GetMagazine));
+            this.Get<Collection<Issue>>(async (r, c) => await this.GetSingle(repository.GetMagazineIssues, new Collection<Issue>()));
+            this.Get<Issue>(async (r, c) => await this.GetSingle(repository.GetIssue));
 
             using (this.Templates)
             {
-                this.Get<Collection<Brochure>>(r => this.GetPage<Brochure, BrochureFilters>((int?)r.page, repository.GetBrochures));
-                this.Get<Collection<Magazine>>(r => this.GetPage<Magazine, MagazineFilters>((int?)r.page, repository.GetMagazines));
-                this.Get<Collection<Book>>(r => this.GetPage<Book, BookFilters>((int?)r.page, repository.GetBooks));
+                this.Get<Collection<Brochure>>(async (r, c) => await this.GetPage<Brochure, BrochureFilters>((int?)r.page, repository.GetBrochures));
+                this.Get<Collection<Magazine>>(async (r, c) => await this.GetPage<Magazine, MagazineFilters>((int?)r.page, repository.GetMagazines));
+                this.Get<Collection<Book>>(async (r, c) => await this.GetPage<Book, BookFilters>((int?)r.page, repository.GetBooks));
             }
         }
 
-        private dynamic GetSingle<T>(Func<Uri, T> getResource, T defaultValue = null)
+        private async Task<dynamic> GetSingle<T>(Func<Uri, Task<T>> getResource, T defaultValue = null)
             where T : class
         {
-            var resource = getResource(this.GetRequestUri()) ?? defaultValue;
+            var resource = await getResource(this.GetRequestUri()) ?? defaultValue;
 
             if (resource != null)
             {
@@ -63,7 +64,7 @@ namespace Wikibus.Sources.Nancy
             return new Uri(new Uri(this.config.BaseResourceNamespace), this.Request.Path);
         }
 
-        private dynamic GetPage<T, TFilter>(int? page, Func<Uri, TFilter, int, int, Collection<T>> getPage)
+        private async Task<dynamic> GetPage<T, TFilter>(int? page, Func<Uri, TFilter, int, int, Task<Collection<T>>> getPage)
             where T : class
         {
             if (page == null)
@@ -85,7 +86,7 @@ namespace Wikibus.Sources.Nancy
 
             var filter = this.Bind<TFilter>();
             var requestUri = this.GetRequestUri();
-            var collection = getPage(requestUri, filter, page.Value, PageSize);
+            var collection = await getPage(requestUri, filter, page.Value, PageSize);
 
             collection.Views = new IView[]
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Hydra.Resources;
 using JsonLD.Entities;
 using NullGuard;
@@ -34,43 +35,43 @@ namespace Wikibus.Sources.DotNetRDF
         }
 
         /// <inheritdoc />
-        public Magazine GetMagazine(Uri identifier)
+        public async Task<Magazine> GetMagazine(Uri identifier)
         {
             return this.Get<Magazine>(identifier);
         }
 
         /// <inheritdoc />
-        public Brochure GetBrochure(Uri identifier)
+        public async Task<Brochure> GetBrochure(Uri identifier)
         {
             return this.Get<Brochure>(identifier);
         }
 
         /// <inheritdoc />
-        public Book GetBook(Uri identifier)
+        public async Task<Book> GetBook(Uri identifier)
         {
             return this.Get<Book>(identifier);
         }
 
         /// <inheritdoc />
-        public Collection<Book> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
+        public async Task<Collection<Book>> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
         {
             return this.GetAll<Book, Collection<Book>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public Collection<Brochure> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
+        public async Task<Collection<Brochure>> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
         {
             return this.GetAll<Brochure, Collection<Brochure>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public Collection<Magazine> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
+        public async Task<Collection<Magazine>> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
         {
             return this.GetAll<Magazine, Collection<Magazine>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public Collection<Issue> GetMagazineIssues(Uri identifier)
+        public async Task<Collection<Issue>> GetMagazineIssues(Uri identifier)
         {
             var magazineIssues = this.Get<Collection<Issue>>(identifier);
             if (magazineIssues != null)
@@ -83,7 +84,7 @@ namespace Wikibus.Sources.DotNetRDF
         }
 
         /// <inheritdoc />
-        public Issue GetIssue(Uri identifier)
+        public async Task<Issue> GetIssue(Uri identifier)
         {
             return this.Get<Issue>(identifier);
         }
