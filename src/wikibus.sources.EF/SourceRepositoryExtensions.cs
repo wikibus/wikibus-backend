@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Hydra.Resources;
+using Argolis.Hydra.Resources;
 
 namespace Wikibus.Sources.EF
 {

@@ -6,6 +6,6 @@ r2rml4net
 NullGuard.Fody
 Resourcer.Fody
 JetBrainsAnnotations.Fody
-Argolis
+Argolis.Hydra
 Rdf.Vocabularies
 StyleCop.Analyzers

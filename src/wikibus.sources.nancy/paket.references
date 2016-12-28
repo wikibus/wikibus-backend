@@ -3,7 +3,7 @@ Newtonsoft.Json
 GitVersionTask
 NullGuard.Fody
 JetBrainsAnnotations.Fody
-Argolis
+Argolis.Nancy
 Rdf.Vocabularies
 StyleCop.Analyzers
 TunnelVisionLabs.Net.UriTemplate

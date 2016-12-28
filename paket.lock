@@ -4,10 +4,10 @@ CONTENT: NONE
 FRAMEWORK: >= NET45
 NUGET
   remote: https://www.nuget.org/api/v2
-    AngleSharp (0.9.9) - framework: >= net452
+    AngleSharp (0.9.9)
     Anotar.Custom.Fody (3.2)
       Fody (>= 1.29)
-    Autofac (4.2) - framework: >= net452
+    Autofac (4.2)
     DatabaseSchemaReader (2.1.1)
     dotNetRDF (1.0.12)
       HtmlAgilityPack (>= 1.4.9)
@@ -27,8 +27,8 @@ NUGET
       Fody (>= 1.29.2)
     json-ld.net (1.0.5)
       Newtonsoft.Json (>= 6.0.4)
-    Microsoft.DotNet.PlatformAbstractions (1.1) - framework: >= net452
-    Microsoft.Extensions.DependencyModel (1.1) - framework: >= net452
+    Microsoft.DotNet.PlatformAbstractions (1.1) - framework: >= net451
+    Microsoft.Extensions.DependencyModel (1.1)
       Microsoft.DotNet.PlatformAbstractions (>= 1.1) - framework: >= net451
       Newtonsoft.Json (>= 9.0.1) - framework: >= net451
     Microsoft.Owin (3.0.1)
@@ -43,7 +43,7 @@ NUGET
       Fody (>= 1.29.2)
     Nancy (2.0.0-barneyrubble)
       Microsoft.Extensions.DependencyModel (>= 1.0) - framework: >= net452
-    Nancy.Authentication.Forms (2.0.0-barneyrubble) - framework: >= net452
+    Nancy.Authentication.Forms (2.0.0-barneyrubble)
       Nancy (>= 2.0.0-barneyrubble) - framework: >= net452
     Nancy.Bootstrappers.Autofac (2.0.0-barneyrubble)
       Autofac (>= 3.5.2) - framework: >= net452
@@ -56,6 +56,10 @@ NUGET
       JsonLD.Entities (>= 0.3.3)
       Nancy (>= 0.0.0-prerelease)
       Rdf.Vocabularies
+    Nancy.Routing.UriTemplates (0.1.1)
+      Nancy (>= 2.0.0-barneyrubble)
+      TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
+      UriTemplateString
     Nancy.Testing (2.0.0-barneyrubble)
       AngleSharp (>= 0.9.5) - framework: >= net452
       Nancy (>= 2.0.0-barneyrubble) - framework: >= net452
@@ -71,7 +75,7 @@ NUGET
     r2rml4net (0.4.0-pre01)
       DatabaseSchemaReader (>= 1.2.8)
       dotNetRDF (>= 1.0)
-    Rdf.Vocabularies (1.1.1)
+    Rdf.Vocabularies (1.2)
     Resourcer.Fody (1.4.2)
       Fody (>= 1.29.2)
     SpecFlow (2.1)
@@ -81,23 +85,34 @@ NUGET
     StyleCop.Analyzers (1.0)
     System.Data.SqlLocalDb (1.15)
     TunnelVisionLabs.Net.UriTemplate (1.0.0-beta004)
+    UriTemplateString (0.1.1)
     VDS.Common (1.6.4)
   remote: https://ci.appveyor.com/nuget/argolis-hydra
-    Argolis (0.2.1-unstable0208)
+    Argolis.Hydra (0.2.1-model-templates0224)
+      Argolis.Models (>= 0.2.1-model-templates0224)
       JsonLD.Entities (>= 0.3.4)
-      Rdf.Vocabularies (>= 1.1.1)
+      Rdf.Vocabularies (>= 1.2)
       TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
-    Argolis.Nancy (0.2.1-unstable0208)
-      Argolis (>= 0.2.1-unstable0208)
-      Nancy.Rdf (>= 0.3.0-beta0001)
+    Argolis.Hydra.Nancy (0.2.1-model-templates0224)
+      Argolis.Hydra (>= 0.2.1-model-templates0224)
+      Argolis.Models (>= 0.2.1-model-templates0224)
+      Nancy.Rdf (>= 0.3)
+      Rdf.Vocabularies
+    Argolis.Models (0.2.1-model-templates0224)
+      TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
+    Argolis.Nancy (0.2.1-model-templates0224)
+      Argolis.Hydra (>= 0.2.1-model-templates0224)
+      Argolis.Hydra.Nancy (>= 0.2.1-model-templates0224)
+      Argolis.Models (>= 0.2.1-model-templates0224)
+      Argolis.UriTemplates.Nancy (>= 0.2.1-model-templates0224)
+      Nancy (2.0.0-barneyrubble)
+    Argolis.UriTemplates.Nancy (0.2.1-model-templates0224)
+      Argolis.Models (>= 0.2.1-model-templates0224)
+      Nancy.Routing.UriTemplates (0.1.1)
   remote: https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
     JsonLD.Entities (0.3.5)
       json-ld.net (>= 1.0.5)
       Newtonsoft.Json (>= 9.0)
-  remote: https://ci.appveyor.com/nuget/nancy-routing-uritemplates
-    Nancy.Routing.UriTemplates (0.1.0)
-      Nancy (>= 2.0.0-barneyrubble)
-      TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
 HTTP
   remote: https://gist.githubusercontent.com
     vocabulary.tt (/tpluscode/5d9c6983004c1c9ec91f/raw/2a5f0785c2686635f1b8ab21af1751d276d02727/vocabulary.tt)

@@ -3,7 +3,7 @@ NullGuard.Fody
 Resourcer.Fody
 jsonld.entities
 JetBrainsAnnotations.Fody
-Argolis
+Argolis.Hydra
 Rdf.Vocabularies
 StyleCop.Analyzers
 TunnelVisionLabs.Net.UriTemplate

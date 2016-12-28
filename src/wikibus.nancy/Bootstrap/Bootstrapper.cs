@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
+using Argolis.Hydra;
 using Autofac;
-using Hydra;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Bootstrappers.Autofac;

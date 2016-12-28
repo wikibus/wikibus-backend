@@ -1,5 +1,5 @@
 ﻿using System;
-using Argolis.Templates;
+using Argolis.Models;
 using JsonLD.Entities;
 using Nancy;
 using Nancy.Bootstrapper;

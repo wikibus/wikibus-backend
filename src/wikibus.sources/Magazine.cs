@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Argolis.Templates;
-using Hydra.Annotations;
+using Argolis.Hydra.Annotations;
+using Argolis.Hydra.Models;
+using Argolis.Models;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json;
@@ -18,8 +19,8 @@ namespace Wikibus.Sources
     /// </summary>
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     [SupportedClass(Wbo.Magazine)]
-    [IdentifierTemplate("magazine/{name}")]
-    [CollectionIdentifierTemplate("magazines{?page,title}")]
+    [Identifier("magazine/{name}")]
+    [CollectionIdentifier("magazines{?page,title}")]
     public class Magazine
     {
         /// <summary>
@@ -37,7 +38,7 @@ namespace Wikibus.Sources
         /// Gets the issues Uri.
         /// </summary>
         [ReadOnly(true)]
-        [Range(Hydra.Hydra.Collection)]
+        [Range(Hydra.Collection)]
         public Uri Issues
         {
             get { return new Uri(this.Id + "/issues"); }

@@ -12,7 +12,9 @@ Resourcer.Fody
 NDbUnit.SqlClient
 JetBrainsAnnotations.Fody
 System.Data.SqlLocalDb
-Argolis
+Argolis.Hydra
+Argolis.UriTemplates.Nancy
+Argolis.Models
 Rdf.Vocabularies
 EntityFramework
 Nancy.Routing.UriTemplates

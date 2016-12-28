@@ -1,4 +1,4 @@
-﻿using Argolis.Templates;
+﻿using Argolis.Models;
 using Wikibus.Common;
 
 namespace Wikibus.Sources
@@ -7,9 +7,9 @@ namespace Wikibus.Sources
     {
         public BaseUriProvider(IWikibusConfiguration configuration)
         {
-            this.BaseUri = configuration.BaseResourceNamespace;
+            this.BaseResourceUri = configuration.BaseResourceNamespace;
         }
 
-        public string BaseUri { get; }
+        public string BaseResourceUri { get; }
     }
 }

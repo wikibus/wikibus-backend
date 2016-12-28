@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Argolis.Hydra.Resources;
 using FakeItEasy;
 using FluentAssertions;
-using Hydra.Resources;
 using Nancy;
 using Nancy.Rdf;
 using Nancy.Responses.Negotiation;

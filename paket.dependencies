@@ -30,15 +30,13 @@ nuget NullGuard.Fody
 nuget ImpromptuInterface
 nuget NDbUnit.SqlClient
 nuget ImageResizer
-nuget jsonld.entities
 nuget JetBrainsAnnotations.Fody
 nuget ModuleInit.Fody
 nuget Microsoft.Owin.Host.SystemWeb
 nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
-nuget Argolis = 0.2.1-unstable0208
-nuget Argolis.Nancy = 0.2.1-unstable0208
+nuget Argolis.Nancy = 0.2.1-model-templates0224
 nuget Rdf.Vocabularies
 nuget Nancy.Bootstrappers.Autofac prerelease
 nuget EntityFramework

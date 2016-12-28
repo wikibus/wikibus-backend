@@ -1,5 +1,4 @@
-using System;
-using Argolis.Templates;
+using Argolis.Models;
 
 namespace Wikibus.Tests
 {
@@ -7,6 +6,6 @@ namespace Wikibus.Tests
     {
         private static readonly TestConfiguration TestConfiguration = new TestConfiguration();
 
-        public string BaseUri => TestConfiguration.BaseResourceNamespace;
+        public string BaseResourceUri => TestConfiguration.BaseApiNamespace;
     }
 }

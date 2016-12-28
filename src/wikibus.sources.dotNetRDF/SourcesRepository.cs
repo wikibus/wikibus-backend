@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Hydra.Resources;
+using Argolis.Hydra.Resources;
 using JsonLD.Entities;
 using NullGuard;
 using VDS.RDF;

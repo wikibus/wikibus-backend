@@ -1,4 +1,4 @@
-﻿using Hydra.Discovery.SupportedOperations;
+﻿using Argolis.Hydra.Discovery.SupportedOperations;
 using Wikibus.Sources;
 
 namespace Wikibus.Nancy.Hydra

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Hydra.Annotations;
+using Argolis.Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json;

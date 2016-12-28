@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Argolis.Templates;
+using Argolis.Models;
 using Wikibus.Common;
 
 namespace Wikibus.Sources.EF

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Argolis.Templates;
-using Hydra.Resources;
+using Argolis.Hydra.Resources;
+using Argolis.Models;
+using Argolis.UriTemplates.Nancy;
 using Nancy;
 using Nancy.ModelBinding;
 using TunnelVisionLabs.Net;

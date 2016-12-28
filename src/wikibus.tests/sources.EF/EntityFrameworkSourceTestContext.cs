@@ -1,4 +1,4 @@
-using Argolis.Templates;
+using Argolis.Models;
 using Wikibus.Sources;
 using Wikibus.Sources.EF;
 using Wikibus.Tests.Mappings;
@@ -11,11 +11,11 @@ namespace Wikibus.Tests.sources.EF
         {
             var sourceContext = new SourceContext(Database.TestConnectionString);
             var configuration = new TestConfiguration();
-            var modelTemplateProvider = new ModelTemplateProvider(new TestBaseUriProvider());
+            var modelTemplateProvider = new AttributeModelTemplateProvider(new TestBaseUriProvider());
             Repository = new SourcesRepository(
                 sourceContext,
-                new EntityFactory(new UriTemplateExpander(modelTemplateProvider), configuration),
-                new UriTemplateMatcher(modelTemplateProvider));
+                new EntityFactory(new TunnelVisionLabsUriTemplateExpander(modelTemplateProvider), configuration),
+                new TunnelVisionLabsUriTemplateMatcher(modelTemplateProvider));
         }
 
         public SourcesRepository Repository { get; }

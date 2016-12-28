@@ -1,4 +1,4 @@
-﻿using Hydra.Resources;
+﻿using Argolis.Hydra.Resources;
 using Nancy.Rdf.Contexts;
 using Wikibus.Sources;
 

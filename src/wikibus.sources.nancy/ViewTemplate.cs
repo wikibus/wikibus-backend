@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Hydra.Resources;
+using Argolis.Hydra.Resources;
 using TunnelVisionLabs.Net;
 
 namespace Wikibus.Sources.Nancy

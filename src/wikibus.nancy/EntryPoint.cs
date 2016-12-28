@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using Hydra.Annotations;
+using Argolis.Hydra.Annotations;
 using JetBrains.Annotations;
 using JsonLD.Entities;
 using JsonLD.Entities.Context;
@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Wikibus.Common;
 using Wikibus.Common.JsonLd;
+using Vocab = JsonLD.Entities.Context.Vocab;
 
 namespace Wikibus.Nancy
 {
@@ -34,7 +35,7 @@ namespace Wikibus.Nancy
         /// Gets the brochures Uri.
         /// </summary>
         [ReadOnly(true)]
-        [Range(global::Hydra.Hydra.Collection)]
+        [Range(global::Vocab.Hydra.Collection)]
         public IriRef Brochures
         {
             get { return (IriRef)"brochures"; }
@@ -44,7 +45,7 @@ namespace Wikibus.Nancy
         /// Gets the books Uri.
         /// </summary>
         [ReadOnly(true)]
-        [Range(global::Hydra.Hydra.Collection)]
+        [Range(global::Vocab.Hydra.Collection)]
         public IriRef Books
         {
             get { return (IriRef)"books"; }
@@ -54,7 +55,7 @@ namespace Wikibus.Nancy
         /// Gets the magazines Uri.
         /// </summary>
         [ReadOnly(true)]
-        [Range(global::Hydra.Hydra.Collection)]
+        [Range(global::Vocab.Hydra.Collection)]
         public IriRef Magazines
         {
             get { return (IriRef)"magazines"; }

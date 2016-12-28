@@ -2,8 +2,8 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using Argolis.Templates;
-using Hydra.Resources;
+using Argolis.Hydra.Resources;
+using Argolis.Models;
 using NullGuard;
 using Wikibus.Sources.Filters;
 
@@ -170,7 +170,7 @@ namespace Wikibus.Sources.EF
         {
             var matches = this.matcher.Match<Issue>(identifier);
 
-            if (matches.AreEmpty)
+            if (matches.Success == false)
             {
                 return null;
             }

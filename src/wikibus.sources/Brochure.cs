@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using Argolis.Templates;
-using Hydra.Annotations;
+using Argolis.Hydra.Annotations;
+using Argolis.Hydra.Models;
+using Argolis.Models;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json.Linq;
 using NullGuard;
@@ -14,8 +15,8 @@ namespace Wikibus.Sources
     /// A brochure about buses, trams, etc.
     /// </summary>
     [SupportedClass(Wbo.Brochure)]
-    [IdentifierTemplate("brochure/{id}")]
-    [CollectionIdentifierTemplate("brochures{?page,title,language}")]
+    [Identifier("brochure/{id}")]
+    [CollectionIdentifier("brochures{?page,title,language}")]
     public class Brochure : Source
     {
         private string description;
