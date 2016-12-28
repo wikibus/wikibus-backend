@@ -11,10 +11,11 @@ namespace Wikibus.Tests.sources.EF
         {
             var sourceContext = new SourceContext(Database.TestConnectionString);
             var configuration = new TestConfiguration();
+            var modelTemplateProvider = new ModelTemplateProvider(new TestBaseUriProvider());
             Repository = new SourcesRepository(
                 sourceContext,
-                new EntityFactory(new UriTemplateExpander(new TestBaseUriProvider(), new ModelTemplateProvider()), configuration),
-                new UriTemplateMatcher(new TestBaseUriProvider()));
+                new EntityFactory(new UriTemplateExpander(modelTemplateProvider), configuration),
+                new UriTemplateMatcher(modelTemplateProvider));
         }
 
         public SourcesRepository Repository { get; }

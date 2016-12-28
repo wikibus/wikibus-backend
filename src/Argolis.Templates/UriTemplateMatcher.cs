@@ -12,25 +12,21 @@ namespace Argolis.Templates
 
     public class UriTemplateMatcher : IUriTemplateMatcher
     {
-        private readonly IBaseUriProvider baseUriProvider;
-        private readonly ModelTemplateProvider modelTemplateProvider;
+        private readonly IModelTemplateProvider modelTemplateProvider;
 
-        public UriTemplateMatcher(IBaseUriProvider baseUriProvider)
+        public UriTemplateMatcher(IModelTemplateProvider modelTemplateProvider)
         {
-            this.baseUriProvider = baseUriProvider;
-            this.modelTemplateProvider = new ModelTemplateProvider();
+            this.modelTemplateProvider = modelTemplateProvider;
         }
 
         public UriTemplateMatches Match<T>(Uri uri)
         {
             var matches = new Dictionary<string, object>();
-            var template = this.modelTemplateProvider.GetTemplate(typeof(T));
 
             uri = new Uri(Uri.EscapeUriString(uri.ToString()));
-            if (uri.IsAbsoluteUri)
-            {
-                template = this.baseUriProvider.BaseUri + template;
-            }
+            var template = uri.IsAbsoluteUri
+                ? this.modelTemplateProvider.GetAbsoluteTemplate(typeof(T))
+                : this.modelTemplateProvider.GetTemplate(typeof(T));
 
             var templateMatch = new UriTemplate(template).Match(uri);
 

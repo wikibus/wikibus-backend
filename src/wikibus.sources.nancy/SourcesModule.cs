@@ -6,7 +6,7 @@ using Hydra.Resources;
 using Nancy;
 using Nancy.ModelBinding;
 using TunnelVisionLabs.Net;
-using Wikibus.Common;
+using Vocab;
 using Wikibus.Sources.Filters;
 
 namespace Wikibus.Sources.Nancy
@@ -18,17 +18,20 @@ namespace Wikibus.Sources.Nancy
     {
         private const int PageSize = 12;
 
-        private readonly IWikibusConfiguration config;
         private readonly IModelTemplateProvider modelTemplateProvider;
+        private readonly IUriTemplateExpander expander;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourcesModule" /> class.
         /// </summary>
-        public SourcesModule(ISourcesRepository repository, IWikibusConfiguration config, IModelTemplateProvider modelTemplateProvider)
+        public SourcesModule(
+            ISourcesRepository repository,
+            IModelTemplateProvider modelTemplateProvider,
+            IUriTemplateExpander expander)
             : base(modelTemplateProvider)
         {
-            this.config = config;
             this.modelTemplateProvider = modelTemplateProvider;
+            this.expander = expander;
 
             this.ReturnNotFoundWhenModelIsNull();
 
@@ -40,9 +43,9 @@ namespace Wikibus.Sources.Nancy
 
             using (this.Templates)
             {
-                this.Get<Collection<Brochure>>(async (r, c) => await this.GetPage<Brochure, BrochureFilters>((int?)r.page, repository.GetBrochures));
-                this.Get<Collection<Magazine>>(async (r, c) => await this.GetPage<Magazine, MagazineFilters>((int?)r.page, repository.GetMagazines));
-                this.Get<Collection<Book>>(async (r, c) => await this.GetPage<Book, BookFilters>((int?)r.page, repository.GetBooks));
+                this.Get<Collection<Brochure>>(async (r, c) => await this.GetPage((int?)r.page, this.Bind<BrochureFilters>(), repository.GetBrochures));
+                this.Get<Collection<Magazine>>(async (r, c) => await this.GetPage((int?)r.page, this.Bind<MagazineFilters>(), repository.GetMagazines));
+                this.Get<Collection<Book>>(async (r, c) => await this.GetPage((int?)r.page, this.Bind<BookFilters>(), repository.GetBooks));
             }
         }
 
@@ -61,10 +64,10 @@ namespace Wikibus.Sources.Nancy
 
         private Uri GetRequestUri()
         {
-            return new Uri(new Uri(this.config.BaseResourceNamespace), this.Request.Path);
+            return new Uri(this.Request.Path, UriKind.Relative);
         }
 
-        private async Task<dynamic> GetPage<T, TFilter>(int? page, Func<Uri, TFilter, int, int, Task<Collection<T>>> getPage)
+        private async Task<dynamic> GetPage<T, TFilter>(int? page, TFilter filter, Func<Uri, TFilter, int, int, Task<Collection<T>>> getPage)
             where T : class
         {
             if (page == null)
@@ -77,23 +80,32 @@ namespace Wikibus.Sources.Nancy
                 return 400;
             }
 
-            var uriTemplate = new UriTemplate(this.config.BaseResourceNamespace + this.modelTemplateProvider.GetTemplate(typeof(Collection<T>)));
+            var uriTemplate = new UriTemplate(this.modelTemplateProvider.GetAbsoluteTemplate(typeof(Collection<T>)));
             var templateParams = new Dictionary<string, object>((DynamicDictionary)this.Context.Request.Query)
             {
                 ["page"] = page
             };
-            var contentLocation = uriTemplate.BindByName(templateParams).ToString();
+            var contentLocation = this.expander.ExpandAbsolute<Collection<T>>(templateParams).ToString();
 
-            var filter = this.Bind<TFilter>();
             var requestUri = this.GetRequestUri();
             var collection = await getPage(requestUri, filter, page.Value, PageSize);
 
             collection.Views = new IView[]
             {
-                new TemplatedPartialCollectionView(uriTemplate, "page", collection.TotalItems, page.Value, PageSize, templateParams)
+                new TemplatedPartialCollectionView(uriTemplate, "page", collection.TotalItems, page.Value, PageSize, templateParams),
+                new ViewTemplate(uriTemplate, this.GetFilterMappings<TFilter>())
             };
 
             return this.Negotiate.WithModel(collection).WithHeader("Content-Location", contentLocation);
+        }
+
+        private IEnumerable<IriTemplateMapping> GetFilterMappings<T>()
+        {
+            if (typeof(T) == typeof(BrochureFilters))
+            {
+                yield return new IriTemplateMapping("title", DCTerms.title);
+                yield return new IriTemplateMapping("language", DCTerms.language);
+            }
         }
     }
 }

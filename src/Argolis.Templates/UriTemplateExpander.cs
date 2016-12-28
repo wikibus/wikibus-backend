@@ -7,12 +7,10 @@ namespace Argolis.Templates
 {
     public class UriTemplateExpander : IUriTemplateExpander
     {
-        private readonly IBaseUriProvider baseUriProvider;
         private readonly IModelTemplateProvider modelTemplateProvider;
 
-        public UriTemplateExpander(IBaseUriProvider baseUriProvider, IModelTemplateProvider modelTemplateProvider)
+        public UriTemplateExpander(IModelTemplateProvider modelTemplateProvider)
         {
-            this.baseUriProvider = baseUriProvider;
             this.modelTemplateProvider = modelTemplateProvider;
         }
 
@@ -27,9 +25,9 @@ namespace Argolis.Templates
 
         public Uri ExpandAbsolute<T>(IDictionary<string, object> templateVariables)
         {
-            var template = this.modelTemplateProvider.GetTemplate(typeof(T));
+            var template = this.modelTemplateProvider.GetAbsoluteTemplate(typeof(T));
 
-            return new UriTemplate(this.baseUriProvider.BaseUri + template).BindByName(templateVariables);
+            return new UriTemplate(template).BindByName(templateVariables);
         }
 
         public Uri ExpandRelative<T>(object templateVariables)

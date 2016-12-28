@@ -45,8 +45,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.vehicles.nancy", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wikibus.sources.EF", "src\wikibus.sources.EF\wikibus.sources.EF.csproj", "{D147EF7A-ADCE-4CEB-A7FD-0073D248E15D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Argolis.Templates", "src\Argolis.Templates\Argolis.Templates.csproj", "{EAFD448E-B765-4856-82DC-9C46BEA87EF5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,10 +103,6 @@ Global
 		{D147EF7A-ADCE-4CEB-A7FD-0073D248E15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D147EF7A-ADCE-4CEB-A7FD-0073D248E15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D147EF7A-ADCE-4CEB-A7FD-0073D248E15D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EAFD448E-B765-4856-82DC-9C46BEA87EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAFD448E-B765-4856-82DC-9C46BEA87EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAFD448E-B765-4856-82DC-9C46BEA87EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAFD448E-B765-4856-82DC-9C46BEA87EF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

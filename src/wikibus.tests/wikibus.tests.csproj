@@ -113,10 +113,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Argolis.Templates\Argolis.Templates.csproj">
-      <Project>{EAFD448E-B765-4856-82DC-9C46BEA87EF5}</Project>
-      <Name>Argolis.Templates</Name>
-    </ProjectReference>
     <ProjectReference Include="..\wikibus.common\wikibus.common.csproj">
       <Project>{5BE7E665-DA3B-4238-BC5B-8D722D27F5C4}</Project>
       <Name>wikibus.common</Name>

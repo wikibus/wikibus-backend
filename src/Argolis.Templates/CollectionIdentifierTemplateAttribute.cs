@@ -9,5 +9,13 @@ namespace Argolis.Templates
         {
             this.Template = template;
         }
+
+        public CollectionIdentifierTemplateAttribute(string template, Type filterType)
+        {
+            this.FilterType = filterType;
+            this.Template = template;
+        }
+
+        public Type FilterType { get; set; }
     }
 }
