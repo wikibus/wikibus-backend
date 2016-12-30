@@ -76,13 +76,13 @@ this.ScenarioSetup(scenarioInfo);
 #line 4
    testRunner.Given("Accept header is \'text/turtle\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 5
-   testRunner.And(string.Format("existing {0} \'http://wikibus.org{1}\'", type, path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.And(string.Format("existing {0} \'{1}\'", type, path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 6
    testRunner.When(string.Format("I GET resource \'{0}\'", path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 7
    testRunner.Then("response should have status 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 8
-   testRunner.And(string.Format("{0} \'http://wikibus.org{1}\' should have been retrieved", type, path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.And(string.Format("{0} \'{1}\' should have been retrieved", type, path), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -95,7 +95,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line 16
-   testRunner.Given("brochure \'http://wikibus.org/brochure/12345\' doesn\'t exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+   testRunner.Given("brochure \'/brochure/12345\' doesn\'t exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 17
    testRunner.When("I GET resource \'/brochure/12345\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18

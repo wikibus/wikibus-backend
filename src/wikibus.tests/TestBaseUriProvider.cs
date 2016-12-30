@@ -6,6 +6,6 @@ namespace Wikibus.Tests
     {
         private static readonly TestConfiguration TestConfiguration = new TestConfiguration();
 
-        public string BaseResourceUri => TestConfiguration.BaseApiNamespace;
+        public string BaseResourceUri => TestConfiguration.BaseResourceNamespace;
     }
 }

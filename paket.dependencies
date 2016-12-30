@@ -37,6 +37,7 @@ nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
 nuget Argolis.Nancy = 0.2.1-model-templates0224
+nuget Argolis.Models = 0.2.1-model-templates0225
 nuget Rdf.Vocabularies
 nuget Nancy.Bootstrappers.Autofac prerelease
 nuget EntityFramework

@@ -53,7 +53,7 @@ namespace Wikibus.Sources.Nancy
         private async Task<dynamic> GetSingle<T>(Func<Uri, Task<T>> getResource, T defaultValue = null)
             where T : class
         {
-            var resource = await getResource(this.GetRequestUri()) ?? defaultValue;
+            var resource = await getResource(new Uri(this.Request.Path, UriKind.Relative)) ?? defaultValue;
 
             if (resource != null)
             {
@@ -61,11 +61,6 @@ namespace Wikibus.Sources.Nancy
             }
 
             return new NotFoundResponse();
-        }
-
-        private Uri GetRequestUri()
-        {
-            return new Uri(this.Request.Path, UriKind.Relative);
         }
 
         private async Task<dynamic> GetPage<T, TFilter>(int? page, TFilter filter, Func<Uri, TFilter, int, int, Task<Collection<T>>> getPage)
@@ -88,7 +83,7 @@ namespace Wikibus.Sources.Nancy
             };
             var contentLocation = this.expander.ExpandAbsolute<Collection<T>>(templateParams).ToString();
 
-            var requestUri = this.GetRequestUri();
+            var requestUri = new Uri(this.Request.Path, UriKind.Relative);
             var collection = await getPage(requestUri, filter, page.Value, PageSize);
 
             collection.Views = new IView[]

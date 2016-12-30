@@ -98,7 +98,7 @@ NUGET
       Argolis.Models (>= 0.2.1-model-templates0224)
       Nancy.Rdf (>= 0.3)
       Rdf.Vocabularies
-    Argolis.Models (0.2.1-model-templates0224)
+    Argolis.Models (0.2.1-model-templates0225)
       TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
     Argolis.Nancy (0.2.1-model-templates0224)
       Argolis.Hydra (>= 0.2.1-model-templates0224)

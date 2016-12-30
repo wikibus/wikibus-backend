@@ -43,6 +43,7 @@ namespace Wikibus.Tests.Modules.Bindings
             yield return resizer;
             yield return A.Dummy<INamespaceManager>();
             yield return A.Dummy<IContextPathMapper>();
+            yield return new TestBaseUriProvider();
 
             IWikibusConfiguration testConfiguration = new TestConfiguration();
             yield return testConfiguration;
