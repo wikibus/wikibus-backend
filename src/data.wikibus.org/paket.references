@@ -1,11 +1,8 @@
 Nancy.Owin
 Microsoft.Owin.Host.SystemWeb
 Microsoft.Owin.Hosting
-dotNetRDF
 r2rml4net
-Nancy.RDF
 GitVersionTask
-Rdf.Vocabularies
 argolis.nancy
 Nancy.Bootstrappers.Autofac
 EntityFramework

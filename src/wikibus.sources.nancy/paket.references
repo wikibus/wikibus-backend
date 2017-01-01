@@ -1,10 +1,5 @@
-Nancy
-Newtonsoft.Json
 GitVersionTask
 NullGuard.Fody
 JetBrainsAnnotations.Fody
 Argolis.Nancy
-Rdf.Vocabularies
 StyleCop.Analyzers
-TunnelVisionLabs.Net.UriTemplate
-Nancy.Routing.UriTemplates

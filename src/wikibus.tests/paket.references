@@ -1,4 +1,3 @@
-dotNetRDF
 FakeItEasy
 Nancy.Testing
 SpecFlow.NUnit
@@ -14,7 +13,4 @@ JetBrainsAnnotations.Fody
 System.Data.SqlLocalDb
 Argolis.Hydra
 Argolis.UriTemplates.Nancy
-Argolis.Models
-Rdf.Vocabularies
 EntityFramework
-Nancy.Routing.UriTemplates

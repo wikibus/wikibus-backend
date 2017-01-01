@@ -1,11 +1,7 @@
-dotNetRDF
-json-ld.net
 GitVersionTask
-JsonLd.Entities
 r2rml4net
 NullGuard.Fody
 Resourcer.Fody
 JetBrainsAnnotations.Fody
 Argolis.Hydra
-Rdf.Vocabularies
 StyleCop.Analyzers
