@@ -12,9 +12,9 @@ copy_local: true
 nuget Anotar.Custom.Fody
 nuget FakeItEasy
 nuget json-ld.net
-nuget Nancy.Owin prerelease
+nuget Nancy.Owin 2.0.0-clinteastwood
 nuget nancy.routing.uritemplates
-nuget Nancy.Testing prerelease
+nuget Nancy.Testing 2.0.0-clinteastwood
 nuget r2rml4net 0.4.0.0-pre01
 nuget Resourcer.Fody
 nuget SpecFlow.NUnit
@@ -36,11 +36,12 @@ nuget Microsoft.Owin.Host.SystemWeb
 nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
-nuget Argolis.Nancy = 0.2.1-model-templates0224
-nuget Argolis.Models = 0.2.1-model-templates0225
+nuget Argolis.Nancy = 0.2.1-model-templates0226
+nuget Argolis.Models = 0.2.1-model-templates0226
 nuget Rdf.Vocabularies
 nuget Nancy.Bootstrappers.Autofac prerelease
 nuget EntityFramework
+nuget Nancy 2.0.0-clinteastwood
 
 http https://gist.githubusercontent.com/tpluscode/5d9c6983004c1c9ec91f/raw/2a5f0785c2686635f1b8ab21af1751d276d02727/vocabulary.tt
 

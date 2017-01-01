@@ -36,31 +36,24 @@ namespace Wikibus.Sources.Nancy
 
             this.ReturnNotFoundWhenModelIsNull();
 
-            this.Get<Brochure>(async (r, c) => await this.GetSingle(repository.GetBrochure));
-            this.Get<Book>(async (r, c) => await this.GetSingle(repository.GetBook));
-            this.Get<Magazine>(async (r, c) => await this.GetSingle(repository.GetMagazine));
-            this.Get<Collection<Issue>>(async (r, c) => await this.GetSingle(repository.GetMagazineIssues, new Collection<Issue>()));
-            this.Get<Issue>(async (r, c) => await this.GetSingle(repository.GetIssue));
+            this.Get<Brochure>(async r => await this.GetSingle(repository.GetBrochure));
+            this.Get<Book>(async r => await this.GetSingle(repository.GetBook));
+            this.Get<Magazine>(async r => await this.GetSingle(repository.GetMagazine));
+            this.Get<Collection<Issue>>(async r => await this.GetSingle(repository.GetMagazineIssues, new Collection<Issue>()));
+            this.Get<Issue>(async r => await this.GetSingle(repository.GetIssue));
 
             using (this.Templates)
             {
-                this.Get<Collection<Brochure>>(async (r, c) => await this.GetPage((int?)r.page, this.Bind<BrochureFilters>(), repository.GetBrochures));
-                this.Get<Collection<Magazine>>(async (r, c) => await this.GetPage((int?)r.page, this.Bind<MagazineFilters>(), repository.GetMagazines));
-                this.Get<Collection<Book>>(async (r, c) => await this.GetPage((int?)r.page, this.Bind<BookFilters>(), repository.GetBooks));
+                this.Get<Collection<Brochure>>(async r => await this.GetPage((int?)r.page, this.Bind<BrochureFilters>(), repository.GetBrochures));
+                this.Get<Collection<Magazine>>(async r => await this.GetPage((int?)r.page, this.Bind<MagazineFilters>(), repository.GetMagazines));
+                this.Get<Collection<Book>>(async r => await this.GetPage((int?)r.page, this.Bind<BookFilters>(), repository.GetBooks));
             }
         }
 
         private async Task<dynamic> GetSingle<T>(Func<Uri, Task<T>> getResource, T defaultValue = null)
             where T : class
         {
-            var resource = await getResource(new Uri(this.Request.Path, UriKind.Relative)) ?? defaultValue;
-
-            if (resource != null)
-            {
-                return this.Negotiate.WithModel(resource);
-            }
-
-            return new NotFoundResponse();
+            return await getResource(new Uri(this.Request.Path, UriKind.Relative)) ?? defaultValue;
         }
 
         private async Task<dynamic> GetPage<T, TFilter>(int? page, TFilter filter, Func<Uri, TFilter, int, int, Task<Collection<T>>> getPage)

@@ -68,11 +68,7 @@ namespace Wikibus.Sources.EF
         {
             var target = new Brochure
             {
-                Id = this.expander.ExpandAbsolute<Brochure>(
-                    new Dictionary<string, object>
-                    {
-                        ["id"] = source.Entity.Id
-                    })
+                Id = this.expander.ExpandAbsolute<Brochure>(new { id = source.Entity.Id })
             };
             if (source.Entity.Notes != null)
             {
