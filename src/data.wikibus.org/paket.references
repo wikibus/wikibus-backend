@@ -10,3 +10,4 @@ argolis.nancy
 Nancy.Bootstrappers.Autofac
 EntityFramework
 StyleCop.Analyzers
+nancy.routing.uritemplates
