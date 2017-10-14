@@ -78,15 +78,16 @@ namespace Wikibus.Sources.Nancy
             }
 
             var uriTemplate = new UriTemplate(this.config.BaseResourceNamespace + templatePath);
-            var templateParams = new Dictionary<string, object>((DynamicDictionary)this.Context.Request.Query)
-            {
-                ["page"] = page
-            };
+
+            var templateParams = new Dictionary<string, object>((DynamicDictionary)this.Context.Request.Query);
+            templateParams.Remove("page");
+            var collectionId = uriTemplate.BindByName(templateParams);
+
+            templateParams["page"] = page;
             var contentLocation = uriTemplate.BindByName(templateParams).ToString();
 
             var filter = this.Bind<TFilter>();
-            var requestUri = this.GetRequestUri();
-            var collection = getPage(requestUri, filter, page.Value, PageSize);
+            var collection = getPage(collectionId, filter, page.Value, PageSize);
 
             collection.Views = new IView[]
             {
