@@ -10,7 +10,6 @@ r2rml4net
 ImpromptuInterface
 Resourcer.Fody
 NDbUnit.SqlClient
-JetBrainsAnnotations.Fody
 System.Data.SqlLocalDb
 Argolis
 Rdf.Vocabularies

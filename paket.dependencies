@@ -37,12 +37,13 @@ nuget Microsoft.Owin.Host.SystemWeb
 nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
-nuget Argolis = 0.2.1-unstable0208
-nuget Argolis.Nancy = 0.2.1-unstable0208
+nuget Argolis
+nuget Argolis.Nancy
 nuget Rdf.Vocabularies
 nuget Nancy.Bootstrappers.Autofac prerelease
 nuget EntityFramework
 nuget uritemplatestring
+nuget jetbrains.annotations
 
 http https://gist.githubusercontent.com/tpluscode/5d9c6983004c1c9ec91f/raw/2a5f0785c2686635f1b8ab21af1751d276d02727/vocabulary.tt
 

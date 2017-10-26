@@ -1,0 +1,12 @@
+*.suo
+packages
+[Bb]in
+[Oo]bj
+*.user
+*.Cache
+paket-files
+*.transformed
+**/App_Data
+paket.exe
+nugets/
+.vs/

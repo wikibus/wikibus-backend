@@ -7,10 +7,10 @@ NullGuard.Fody
 ImageResizer
 Resourcer.Fody
 Nancy.Rdf
-JetBrainsAnnotations.Fody
 Argolis.Nancy
 Rdf.Vocabularies
 Nancy.Bootstrappers.Autofac
 EntityFramework
 StyleCop.Analyzers
 Nancy.Routing.UriTemplates
+jetbrains.annotations

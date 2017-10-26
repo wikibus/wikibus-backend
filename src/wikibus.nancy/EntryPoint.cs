@@ -33,6 +33,7 @@ namespace Wikibus.Nancy
         /// <summary>
         /// Gets the brochures Uri.
         /// </summary>
+        [Link]
         [ReadOnly(true)]
         [Range(global::Hydra.Hydra.Collection)]
         public IriRef Brochures
@@ -43,6 +44,7 @@ namespace Wikibus.Nancy
         /// <summary>
         /// Gets the books Uri.
         /// </summary>
+        [Link]
         [ReadOnly(true)]
         [Range(global::Hydra.Hydra.Collection)]
         public IriRef Books
@@ -53,6 +55,7 @@ namespace Wikibus.Nancy
         /// <summary>
         /// Gets the magazines Uri.
         /// </summary>
+        [Link]
         [ReadOnly(true)]
         [Range(global::Hydra.Hydra.Collection)]
         public IriRef Magazines

@@ -2,9 +2,9 @@ Nancy
 Newtonsoft.Json
 GitVersionTask
 NullGuard.Fody
-JetBrainsAnnotations.Fody
 Argolis
 Rdf.Vocabularies
 StyleCop.Analyzers
 TunnelVisionLabs.Net.UriTemplate
 Nancy.Routing.UriTemplates
+jetbrains.annotations
