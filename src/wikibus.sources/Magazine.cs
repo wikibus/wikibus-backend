@@ -33,6 +33,7 @@ namespace Wikibus.Sources
         /// <summary>
         /// Gets the issues Uri.
         /// </summary>
+        [Link]
         [ReadOnly(true)]
         [Range(Hydra.Hydra.Collection)]
         public Uri Issues
