@@ -1,48 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
-using Hydra.Resources;
+using Argolis.Hydra;
+using Argolis.Hydra.Resources;
+using Argolis.Models;
+using Argolis.Nancy;
 using Nancy;
 using Nancy.ModelBinding;
-using Nancy.Responses.Negotiation;
-using Nancy.Routing.UriTemplates;
 using TunnelVisionLabs.Net;
 using Wikibus.Common;
 using Wikibus.Sources.Filters;
-using Id = Wikibus.Sources.IdentifierTemplates;
 
 namespace Wikibus.Sources.Nancy
 {
     /// <summary>
     /// Module, which serves <see cref="Source"/>s
     /// </summary>
-    public sealed class SourcesModule : UriTemplateModule
+    public sealed class SourcesModule : ArgolisModule
     {
         private const int PageSize = 12;
 
         private readonly IWikibusConfiguration config;
+        private readonly IIriTemplateFactory templateFactory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SourcesModule" /> class.
         /// </summary>
-        /// <param name="repository">The source repository.</param>
-        /// <param name="config">The configuration.</param>
-        public SourcesModule(ISourcesRepository repository, IWikibusConfiguration config)
+        public SourcesModule(
+            ISourcesRepository repository,
+            IWikibusConfiguration config,
+            IIriTemplateFactory templateFactory,
+            IModelTemplateProvider modelTemplateProvider)
+            : base(modelTemplateProvider)
         {
             this.config = config;
+            this.templateFactory = templateFactory;
 
             this.ReturnNotFoundWhenModelIsNull();
 
-            this.Get(Id.BrochurePath, r => this.GetSingle(repository.GetBrochure));
-            this.Get(Id.BookPath, r => this.GetSingle(repository.GetBook));
-            this.Get(Id.MagazinePath, r => this.GetSingle(repository.GetMagazine));
-            this.Get(Id.MagazineIssuesPath, r => this.GetSingle(repository.GetMagazineIssues, new Collection<Issue>()));
-            this.Get(Id.MagazineIssuePath, r => this.GetSingle(repository.GetIssue));
+            this.Get<Brochure>(r => this.GetSingle(repository.GetBrochure));
+            this.Get<Book>(r => this.GetSingle(repository.GetBook));
+            this.Get<Magazine>(r => this.GetSingle(repository.GetMagazine));
+            this.Get<Collection<Issue>>(r => this.GetSingle(repository.GetMagazineIssues, new Collection<Issue>()));
+            this.Get<Issue>(r => this.GetSingle(repository.GetIssue));
 
             using (this.Templates)
             {
-                this.Get(Id.BrochuresPath, r => this.GetPage<Brochure, BrochureFilters>(Id.BrochuresPath, (int?)r.page, repository.GetBrochures));
-                this.Get(Id.MagazinesPath, r => this.GetPage<Magazine, MagazineFilters>(Id.MagazinesPath, (int?)r.page, repository.GetMagazines));
-                this.Get(Id.BooksPath, r => this.GetPage<Book, BookFilters>(Id.BooksPath, (int?)r.page, repository.GetBooks));
+                this.Get<Collection<Brochure>>(r => this.GetPage<Brochure, BrochureFilters>((int?)r.page, repository.GetBrochures));
+                this.Get<Collection<Magazine>>(r => this.GetPage<Magazine, MagazineFilters>((int?)r.page, repository.GetMagazines));
+                this.Get<Collection<Book>>(r => this.GetPage<Book, BookFilters>((int?)r.page, repository.GetBooks));
             }
         }
 
@@ -64,8 +69,9 @@ namespace Wikibus.Sources.Nancy
             return new Uri(new Uri(this.config.BaseResourceNamespace), this.Request.Path);
         }
 
-        private dynamic GetPage<T, TFilter>(string templatePath, int? page, Func<Uri, TFilter, int, int, Collection<T>> getPage)
+        private dynamic GetPage<T, TFilter>(int? page, Func<Uri, TFilter, int, int, SearchableCollection<T>> getPage)
             where T : class
+            where TFilter : ITemplateParameters<Collection<T>>
         {
             if (page == null)
             {
@@ -77,7 +83,8 @@ namespace Wikibus.Sources.Nancy
                 return 400;
             }
 
-            var uriTemplate = new UriTemplate(this.config.BaseResourceNamespace + templatePath);
+            var searchTemplate = this.templateFactory.CreateIriTemplate<TFilter, Collection<T>>();
+            var uriTemplate = new UriTemplate(searchTemplate.Template);
 
             var templateParams = new Dictionary<string, object>((DynamicDictionary)this.Context.Request.Query);
             templateParams.Remove("page");
@@ -91,8 +98,10 @@ namespace Wikibus.Sources.Nancy
 
             collection.Views = new IView[]
             {
-                new TemplatedPartialCollectionView(uriTemplate, "page", collection.TotalItems, page.Value, PageSize, templateParams)
+                new TemplatedPartialCollectionView(uriTemplate, "page", collection.TotalItems, page.Value, PageSize, templateParams),
             };
+
+            collection.Search = searchTemplate;
 
             return this.Negotiate.WithModel(collection).WithHeader("Content-Location", contentLocation);
         }

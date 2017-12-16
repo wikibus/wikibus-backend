@@ -2,7 +2,8 @@ GitVersionTask
 NullGuard.Fody
 Resourcer.Fody
 jsonld.entities
-Argolis
+Argolis.Hydra
+Argolis.Models
 Rdf.Vocabularies
 StyleCop.Analyzers
 TunnelVisionLabs.Net.UriTemplate

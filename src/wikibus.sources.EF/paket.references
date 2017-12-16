@@ -1,6 +1,6 @@
 GitVersionTask
 NullGuard.Fody
-Argolis
+Argolis.Hydra
 EntityFramework
 StyleCop.Analyzers
 jetbrains.annotations

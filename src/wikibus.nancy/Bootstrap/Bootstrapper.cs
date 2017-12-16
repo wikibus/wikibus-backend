@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
+using Argolis.Hydra;
 using Autofac;
-using Hydra;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Bootstrappers.Autofac;
@@ -58,7 +58,7 @@ namespace Wikibus.Nancy
         {
             existingContainer.Update(builder =>
             {
-                builder.RegisterType<AppSettingsConfiguration>().As<IWikibusConfiguration>();
+                builder.RegisterType<AppSettingsConfiguration>().AsImplementedInterfaces();
                 builder.RegisterType<HydraDocumentationSettings>().As<IHydraDocumentationSettings>();
                 builder.RegisterType<ImageResizer>().As<IImageResizer>();
                 builder.RegisterAssemblyTypes(typeof(SourcesRepository).Assembly)

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using Hydra.Annotations;
+using Argolis.Hydra.Annotations;
+using Argolis.Hydra.Models;
+using Argolis.Models;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
 using Newtonsoft.Json.Linq;
@@ -14,6 +16,8 @@ namespace Wikibus.Sources
     /// A book about public transport
     /// </summary>
     [SupportedClass(Wbo.Book)]
+    [Identifier(IdentifierTemplates.BookPath)]
+    [CollectionIdentifier(IdentifierTemplates.BooksPath)]
     public class Book : Source
     {
         /// <summary>
@@ -26,7 +30,7 @@ namespace Wikibus.Sources
         /// Gets or sets the author.
         /// </summary>
         [ReadOnly(true)]
-        [Hydra.Annotations.Range(Schema.Person)]
+        [Range(Schema.Person)]
         public Author Author { [return: AllowNull] get; set; }
 
         /// <summary>

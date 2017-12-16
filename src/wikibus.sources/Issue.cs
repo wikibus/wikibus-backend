@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using Hydra.Annotations;
+using Argolis.Hydra.Annotations;
+using Argolis.Hydra.Models;
+using Argolis.Models;
 using JetBrains.Annotations;
 using JsonLD.Entities.Context;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NullGuard;
 using Vocab;
@@ -16,6 +17,8 @@ namespace Wikibus.Sources
     /// </summary>
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     [SupportedClass(Wbo.MagazineIssue)]
+    [Identifier(IdentifierTemplates.MagazineIssuePath)]
+    [CollectionIdentifier(IdentifierTemplates.MagazineIssuesPath)]
     public class Issue : Source
     {
         /// <summary>

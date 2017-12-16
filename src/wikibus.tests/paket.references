@@ -11,7 +11,7 @@ ImpromptuInterface
 Resourcer.Fody
 NDbUnit.SqlClient
 System.Data.SqlLocalDb
-Argolis
+Argolis.Nancy
 Rdf.Vocabularies
 EntityFramework
 Nancy.Routing.UriTemplates

@@ -5,7 +5,7 @@ JsonLd.Entities
 r2rml4net
 NullGuard.Fody
 Resourcer.Fody
-Argolis
+Argolis.Hydra
 Rdf.Vocabularies
 StyleCop.Analyzers
 jetbrains.annotations

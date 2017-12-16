@@ -2,7 +2,7 @@ Nancy
 Newtonsoft.Json
 GitVersionTask
 NullGuard.Fody
-Argolis
+Argolis.Nancy
 Rdf.Vocabularies
 StyleCop.Analyzers
 TunnelVisionLabs.Net.UriTemplate

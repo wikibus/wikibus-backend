@@ -1,11 +1,12 @@
 ﻿using System.Configuration;
+using Argolis.Models;
 
 namespace Wikibus.Common
 {
     /// <summary>
     /// Retrieves settings from setting configuration section
     /// </summary>
-    public class AppSettingsConfiguration : IWikibusConfiguration
+    public class AppSettingsConfiguration : IWikibusConfiguration, IBaseUriProvider
     {
         private const string Prefix = "wikibus#";
 
@@ -36,5 +37,7 @@ namespace Wikibus.Common
         {
             get { return ConfigurationManager.AppSettings[WebUrl]; }
         }
+
+        public string BaseResourceUri => this.BaseResourceNamespace;
     }
 }

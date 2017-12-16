@@ -58,6 +58,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="Brochure.cs" />
     <Compile Include="Filters\SourceFilters.cs" />
+    <Compile Include="SearchableCollection.cs" />
     <Compile Include="WikibusModelFrames.cs" />
     <Compile Include="Filters\BookFilters.cs" />
     <Compile Include="Filters\BrochureFilters.cs" />
@@ -126,8 +127,19 @@
         <Reference Include="System.Runtime.Serialization">
           <Paket>True</Paket>
         </Reference>
-        <Reference Include="Lernaean.Hydra">
-          <HintPath>..\..\packages\Argolis\lib\net452\Lernaean.Hydra.dll</HintPath>
+        <Reference Include="Argolis.Hydra">
+          <HintPath>..\..\packages\Argolis.Hydra\lib\net452\Argolis.Hydra.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7' Or $(TargetFrameworkVersion) == 'v4.7.1')">
+      <ItemGroup>
+        <Reference Include="Argolis.Models">
+          <HintPath>..\..\packages\Argolis.Models\lib\net45\Argolis.Models.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -226,6 +238,17 @@
       <ItemGroup>
         <Reference Include="TunnelVisionLabs.Net.UriTemplate">
           <HintPath>..\..\packages\TunnelVisionLabs.Net.UriTemplate\lib\net20\TunnelVisionLabs.Net.UriTemplate.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7' Or $(TargetFrameworkVersion) == 'v4.7.1')">
+      <ItemGroup>
+        <Reference Include="UriTemplateString">
+          <HintPath>..\..\packages\UriTemplateString\lib\net45\UriTemplateString.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

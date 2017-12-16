@@ -7,6 +7,13 @@ NUGET
     AngleSharp (0.9.9) - restriction: || (&& (>= net45) (>= netstandard1.6)) (>= net452)
     Anotar.Custom.Fody (3.3.1)
       Fody (>= 2.0 < 3.0)
+    Argolis (0.2.1)
+      JsonLD.Entities (>= 0.3.4)
+      Rdf.Vocabularies (>= 1.1.1)
+      TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
+    Argolis.Nancy (0.2.1)
+      Argolis (>= 0.2.1)
+      Nancy.Rdf (>= 0.3.0-beta0001)
     AsyncUsageAnalyzers (1.0.0-alpha003) - restriction: || (&& (>= net45) (>= netstandard1.6)) (>= net452)
     Autofac (4.6.2) - restriction: || (&& (>= net45) (>= netstandard1.6)) (>= net452)
     DatabaseSchemaReader (2.3.3)
@@ -19,7 +26,7 @@ NUGET
     FluentAssertions (4.19.4)
     Fody (2.2)
     GitVersionTask (3.6.5)
-    HtmlAgilityPack (1.6.6)
+    HtmlAgilityPack (1.6.2)
     ImageResizer (4.1.10)
     ImpromptuInterface (6.2.2)
     InfoOf.Fody (1.1)
@@ -50,10 +57,10 @@ NUGET
       AsyncUsageAnalyzers (>= 1.0.0-alpha003) - restriction: >= net452
       Nancy (>= 2.0.0-clinteastwood) - restriction: >= net452
       Owin (>= 1.0) - restriction: >= net452
-    Nancy.Rdf (0.3)
+    Nancy.Rdf (0.3.0-beta0001)
       dotNetRDF
       JsonLD.Entities (>= 0.3.3)
-      Nancy (>= 2.0.0-barneyrubble)
+      Nancy (>= 0.0.0-prerelease)
       Rdf.Vocabularies
     Nancy.Routing.UriTemplates (0.1.1)
       Nancy (>= 2.0.0-barneyrubble)
@@ -88,24 +95,6 @@ NUGET
     TunnelVisionLabs.Net.UriTemplate (1.0.0-beta004)
     UriTemplateString (0.1.1)
     VDS.Common (1.6.4)
-  remote: https://ci.appveyor.com/nuget/argolis-hydra
-    Argolis.Hydra (0.3.0-alpha0002)
-      Argolis.Models (>= 0.3.0-alpha0002)
-      JsonLD.Entities (>= 0.3.4)
-      Rdf.Vocabularies (>= 1.2)
-      TunnelVisionLabs.Net.UriTemplate (>= 1.0.0-beta004)
-      UriTemplateString
-    Argolis.Hydra.Nancy (0.3.0-alpha0002)
-      Argolis.Hydra (>= 0.3.0-alpha0002)
-      Nancy.Rdf (>= 0.3)
-      Rdf.Vocabularies
-    Argolis.Models (0.3.0-alpha0002)
-    Argolis.Nancy (0.3.0-alpha0002)
-      Argolis.Hydra (>= 0.3.0-alpha0002)
-      Argolis.Hydra.Nancy (>= 0.3.0-alpha0002)
-      Argolis.Models (>= 0.3.0-alpha0002)
-      Nancy (>= 2.0.0-clinteastwood)
-      Nancy.Routing.UriTemplates
   remote: https://ci.appveyor.com/nuget/jsonld-entities-aavhsnxi7xjp
     JsonLD.Entities (0.3.5)
       json-ld.net (>= 1.0.5)

@@ -1,4 +1,4 @@
-﻿using Hydra;
+﻿using Argolis.Hydra;
 using JsonLD.Entities;
 using Wikibus.Common;
 

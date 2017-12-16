@@ -25,7 +25,7 @@ nuget FluentAssertions
 nuget dotNetRDF
 nuget infoof.fody
 nuget JsonLd.Entities
-nuget Nancy.RDF = 0.3.0-beta0001
+nuget Nancy.RDF
 nuget NullGuard.Fody
 nuget ImpromptuInterface
 nuget NDbUnit.SqlClient
@@ -37,8 +37,7 @@ nuget Microsoft.Owin.Host.SystemWeb
 nuget Microsoft.Owin.Hosting
 nuget nunit < 3
 nuget System.Data.SqlLocalDb
-nuget Argolis
-nuget Argolis.Nancy
+nuget Argolis.Nancy prerelease
 nuget Rdf.Vocabularies
 nuget Nancy.Bootstrappers.Autofac prerelease
 nuget EntityFramework

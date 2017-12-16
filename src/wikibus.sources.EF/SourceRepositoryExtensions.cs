@@ -2,13 +2,12 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using Hydra.Resources;
 
 namespace Wikibus.Sources.EF
 {
     public static class SourceRepositoryExtensions
     {
-        public static Collection<T> GetCollectionPage<T, TEntity>(
+        public static SearchableCollection<T> GetCollectionPage<T, TEntity>(
             this IDbSet<TEntity> dbSet,
             Uri identifier,
             Expression<Func<TEntity, object>> ordering,
@@ -27,7 +26,7 @@ namespace Wikibus.Sources.EF
             });
             var books = entityWrappers.ToList();
 
-            return new Collection<T>
+            return new SearchableCollection<T>
             {
                 Id = identifier,
                 Members = books.ToList().Select(resourceFactory).ToArray(),
@@ -35,7 +34,7 @@ namespace Wikibus.Sources.EF
             };
         }
 
-        public static Collection<T> GetCollectionPage<T, TEntity>(
+        public static SearchableCollection<T> GetCollectionPage<T, TEntity>(
             this IDbSet<TEntity> dbSet,
             Uri identifier,
             Expression<Func<TEntity, object>> ordering,
@@ -49,7 +48,7 @@ namespace Wikibus.Sources.EF
             var pageOfBrochures = entireCollection.Skip((page - 1) * pageSize).Take(pageSize);
             var books = pageOfBrochures.ToList();
 
-            return new Collection<T>
+            return new SearchableCollection<T>
             {
                 Id = identifier,
                 Members = books.ToList().Select(resourceFactory).ToArray(),

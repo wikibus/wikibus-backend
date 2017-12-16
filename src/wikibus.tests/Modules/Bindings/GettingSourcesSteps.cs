@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using FakeItEasy;
 using FluentAssertions;
-using Hydra.Resources;
 using Nancy;
 using Nancy.Rdf;
 using Nancy.Responses.Negotiation;
@@ -53,19 +52,19 @@ namespace Wikibus.Tests.Modules.Bindings
         [Given(@"exisiting book collection")]
         public void GivenExisitingBookCollection()
         {
-            A.CallTo(() => dep.Sources.GetBooks(A<Uri>.Ignored, A<BookFilters>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Book>());
+            A.CallTo(() => dep.Sources.GetBooks(A<Uri>.Ignored, A<BookFilters>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new SearchableCollection<Book>());
         }
 
         [Given(@"exisiting brochure collection")]
         public void GivenExisitingBrochureCollection()
         {
-            A.CallTo(() => dep.Sources.GetBrochures(A<Uri>.Ignored, A<BrochureFilters>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Brochure>());
+            A.CallTo(() => dep.Sources.GetBrochures(A<Uri>.Ignored, A<BrochureFilters>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new SearchableCollection<Brochure>());
         }
 
         [Given(@"exisiting magazine collection")]
         public void GivenExisitingMagazineCollection()
         {
-            A.CallTo(() => dep.Sources.GetMagazines(A<Uri>.Ignored, A<MagazineFilters>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new Collection<Magazine>());
+            A.CallTo(() => dep.Sources.GetMagazines(A<Uri>.Ignored, A<MagazineFilters>.Ignored, A<int>.Ignored, A<int>.Ignored)).Returns(new SearchableCollection<Magazine>());
         }
 
         [Given(@"existing book '(.*)'")]

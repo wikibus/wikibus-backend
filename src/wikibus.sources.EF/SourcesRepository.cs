@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Hydra.Resources;
+using Argolis.Hydra.Resources;
 using NullGuard;
 using Wikibus.Sources.Filters;
 
@@ -93,7 +93,7 @@ namespace Wikibus.Sources.EF
             return this.factory.CreateBook(source);
         }
 
-        public Collection<Book> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
+        public SearchableCollection<Book> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
         {
             return this.context.Books.GetCollectionPage(
                 identifier,
@@ -104,7 +104,7 @@ namespace Wikibus.Sources.EF
                 this.factory.CreateBook);
         }
 
-        public Collection<Brochure> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
+        public SearchableCollection<Brochure> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
         {
             return this.context.Brochures.GetCollectionPage(
                 identifier,
@@ -115,7 +115,7 @@ namespace Wikibus.Sources.EF
                 this.factory.CreateBrochure);
         }
 
-        public Collection<Magazine> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
+        public SearchableCollection<Magazine> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
         {
             return this.context.Magazines.GetCollectionPage(
                 identifier,

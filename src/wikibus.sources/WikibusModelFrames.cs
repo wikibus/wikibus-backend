@@ -1,4 +1,4 @@
-﻿using Hydra.Resources;
+﻿using Argolis.Hydra.Resources;
 using JsonLD.Entities;
 using Newtonsoft.Json.Linq;
 using Resourcer;
