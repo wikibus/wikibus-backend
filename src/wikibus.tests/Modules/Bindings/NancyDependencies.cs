@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Argolis.Hydra;
+using Argolis.Models;
+using Argolis.Models.TunnelVisionLabs;
 using FakeItEasy;
 using JsonLD.Entities;
 using Nancy.Rdf;
@@ -26,6 +29,7 @@ namespace Wikibus.Tests.Modules.Bindings
             Browser = new Browser(with => with.Module<SourcesModule>()
                                               .Module<SourceImagesModule>()
                                               .RouteResolver<global::Nancy.Routing.UriTemplates.UriTemplateRouteResolver>()
+                                              .Dependency<IUriTemplateExpander>(typeof(TunnelVisionLabsUriTemplateExpander))
                                               .Dependencies(GetDependencies().ToArray()));
         }
 
@@ -43,6 +47,7 @@ namespace Wikibus.Tests.Modules.Bindings
             yield return resizer;
             yield return A.Dummy<INamespaceManager>();
             yield return A.Dummy<IContextPathMapper>();
+            yield return A.Dummy<IHydraDocumentationSettings>();
 
             IWikibusConfiguration testConfiguration = new TestConfiguration();
             yield return testConfiguration;

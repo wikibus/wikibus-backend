@@ -1,8 +1,9 @@
+using Argolis.Models;
 using Wikibus.Common;
 
 namespace Wikibus.Tests
 {
-    public class TestConfiguration : IWikibusConfiguration
+    public class TestConfiguration : IWikibusConfiguration, IBaseUriProvider
     {
         public string BaseResourceNamespace
         {
@@ -18,5 +19,7 @@ namespace Wikibus.Tests
         {
             get { return "http://www.wikibus.org/"; }
         }
+
+        public string BaseResourceUri => this.BaseResourceNamespace;
     }
 }

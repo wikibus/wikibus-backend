@@ -7,7 +7,6 @@ using Argolis.Nancy;
 using Nancy;
 using Nancy.ModelBinding;
 using TunnelVisionLabs.Net;
-using Wikibus.Common;
 using Wikibus.Sources.Filters;
 
 namespace Wikibus.Sources.Nancy
@@ -19,7 +18,7 @@ namespace Wikibus.Sources.Nancy
     {
         private const int PageSize = 12;
 
-        private readonly IWikibusConfiguration config;
+        private readonly IUriTemplateExpander expander;
         private readonly IIriTemplateFactory templateFactory;
 
         /// <summary>
@@ -27,12 +26,12 @@ namespace Wikibus.Sources.Nancy
         /// </summary>
         public SourcesModule(
             ISourcesRepository repository,
-            IWikibusConfiguration config,
+            IUriTemplateExpander expander,
             IIriTemplateFactory templateFactory,
             IModelTemplateProvider modelTemplateProvider)
             : base(modelTemplateProvider)
         {
-            this.config = config;
+            this.expander = expander;
             this.templateFactory = templateFactory;
 
             this.ReturnNotFoundWhenModelIsNull();
@@ -54,7 +53,8 @@ namespace Wikibus.Sources.Nancy
         private dynamic GetSingle<T>(Func<Uri, T> getResource, T defaultValue = null)
             where T : class
         {
-            var resource = getResource(this.GetRequestUri()) ?? defaultValue;
+            Uri resourceUri = this.expander.ExpandAbsolute<T>(this.Context.Parameters);
+            var resource = getResource(resourceUri) ?? defaultValue;
 
             if (resource != null)
             {
@@ -62,11 +62,6 @@ namespace Wikibus.Sources.Nancy
             }
 
             return new NotFoundResponse();
-        }
-
-        private Uri GetRequestUri()
-        {
-            return new Uri(new Uri(this.config.BaseResourceNamespace), this.Request.Path);
         }
 
         private dynamic GetPage<T, TFilter>(int? page, Func<Uri, TFilter, int, int, SearchableCollection<T>> getPage)

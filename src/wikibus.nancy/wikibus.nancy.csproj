@@ -61,6 +61,7 @@
     <Compile Include="Bootstrap\ComponentsInstaller.cs" />
     <Compile Include="Bootstrap\CorsStartup.cs" />
     <Compile Include="Bootstrap\DotNetRdfStartup.cs" />
+    <Compile Include="Bootstrap\UriTemplatesInstaller.cs" />
     <Compile Include="Components\ContextPathMapper.cs" />
     <Compile Include="EntryPoint.cs">
       <SubType>Code</SubType>
@@ -171,6 +172,17 @@
       <ItemGroup>
         <Reference Include="Argolis.Models">
           <HintPath>..\..\packages\Argolis.Models\lib\net45\Argolis.Models.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7' Or $(TargetFrameworkVersion) == 'v4.7.1')">
+      <ItemGroup>
+        <Reference Include="Argolis.Models.TunnelVisionLabs">
+          <HintPath>..\..\packages\Argolis.Models.TunnelVisionLabs\lib\net452\Argolis.Models.TunnelVisionLabs.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

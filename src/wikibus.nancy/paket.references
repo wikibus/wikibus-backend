@@ -14,3 +14,4 @@ EntityFramework
 StyleCop.Analyzers
 Nancy.Routing.UriTemplates
 jetbrains.annotations
+Argolis.Models.TunnelVisionLabs

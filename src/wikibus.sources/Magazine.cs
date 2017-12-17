@@ -19,8 +19,8 @@ namespace Wikibus.Sources
     /// </summary>
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     [SupportedClass(Wbo.Magazine)]
-    [Identifier(IdentifierTemplates.MagazinePath)]
-    [CollectionIdentifier(IdentifierTemplates.MagazinesPath)]
+    [Identifier("magazine/{name}")]
+    [CollectionIdentifier("magazines{?page}")]
     public class Magazine
     {
         /// <summary>

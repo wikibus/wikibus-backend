@@ -67,7 +67,6 @@ namespace Wikibus.Nancy
                 builder.RegisterType<SourceImagesRepository>().AsImplementedInterfaces();
                 builder.RegisterType<IdRetriever>().AsSelf();
                 builder.RegisterType<EntityFactory>().AsSelf();
-                builder.RegisterType<IdentifierTemplates>().AsSelf();
             });
 
             base.ConfigureApplicationContainer(existingContainer);

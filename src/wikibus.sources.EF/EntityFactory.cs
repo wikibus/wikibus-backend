@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Argolis.Models;
 using Wikibus.Common;
 
 namespace Wikibus.Sources.EF
 {
     public class EntityFactory
     {
-        private readonly IdentifierTemplates templates;
+        private readonly IUriTemplateExpander templates;
         private readonly IWikibusConfiguration configuration;
 
-        public EntityFactory(IdentifierTemplates templates, IWikibusConfiguration configuration)
+        public EntityFactory(IUriTemplateExpander templates, IWikibusConfiguration configuration)
         {
             this.templates = templates;
             this.configuration = configuration;

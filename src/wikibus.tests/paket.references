@@ -15,3 +15,4 @@ Argolis.Nancy
 Rdf.Vocabularies
 EntityFramework
 Nancy.Routing.UriTemplates
+Argolis.Models.TunnelVisionLabs

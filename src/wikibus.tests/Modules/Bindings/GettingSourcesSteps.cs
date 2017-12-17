@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using FakeItEasy;
 using FluentAssertions;
 using Nancy;
@@ -95,10 +96,10 @@ namespace Wikibus.Tests.Modules.Bindings
         }
 
         [When(@"I GET resource '(.*)'")]
-        public void WhenGetResourceWithAccept(string path)
+        public async Task WhenGetResourceWithAccept(string path)
         {
-            var response = dep.Browser.Get(path, SetupRequest);
-            ScenarioContext.Current.Set(response.Result);
+            var response = await dep.Browser.Get(path, SetupRequest);
+            ScenarioContext.Current.Set(response);
         }
 
         [Then(@"content type should be '(.*)'")]
@@ -173,6 +174,8 @@ namespace Wikibus.Tests.Modules.Bindings
             {
                 context.Query(query.Key, query.Value);
             }
+
+            context.HostName("swikibus.org");
         }
     }
 }

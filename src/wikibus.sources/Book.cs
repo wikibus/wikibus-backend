@@ -16,8 +16,8 @@ namespace Wikibus.Sources
     /// A book about public transport
     /// </summary>
     [SupportedClass(Wbo.Book)]
-    [Identifier(IdentifierTemplates.BookPath)]
-    [CollectionIdentifier(IdentifierTemplates.BooksPath)]
+    [Identifier("book/{id}")]
+    [CollectionIdentifier("books{/page}")]
     public class Book : Source
     {
         /// <summary>
