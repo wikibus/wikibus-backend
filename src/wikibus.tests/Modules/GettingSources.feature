@@ -14,7 +14,7 @@ Scenario Outline: GETting sources
 
 Scenario: GET inexistent brochure
    Given brochure 'http://wikibus.org/brochure/12345' doesn't exist
-   When I GET resource '/brochure/12345'
+   When I GET resource 'http://wikibus.org/brochure/12345'
    Then response should have status 404
 
 Scenario Outline: GET collection first page

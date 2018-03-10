@@ -1,4 +1,5 @@
 ﻿using System;
+using Argolis.Models;
 using JsonLD.Entities;
 using Nancy;
 using Nancy.Bootstrapper;
@@ -6,6 +7,7 @@ using Nancy.Routing;
 using VDS.RDF.Query;
 using Wikibus.Common;
 using Wikibus.Sources;
+using Wikibus.Sources.EF;
 using ISourcesDatabaseSettings = Wikibus.Sources.DotNetRDF.ISourcesDatabaseSettings;
 
 namespace Wikibus.Nancy

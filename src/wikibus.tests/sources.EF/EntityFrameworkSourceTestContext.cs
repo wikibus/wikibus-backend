@@ -15,8 +15,8 @@ namespace Wikibus.Tests.sources.EF
             var templateProvider = new AttributeModelTemplateProvider(configuration);
             Repository = new SourcesRepository(
                 sourceContext,
-                new IdRetriever(new TunnelVisionLabsUriTemplateMatcher(templateProvider)),
-                new EntityFactory(new TunnelVisionLabsUriTemplateExpander(templateProvider), configuration));
+                new EntityFactory(new TunnelVisionLabsUriTemplateExpander(templateProvider), configuration),
+                new TunnelVisionLabsUriTemplateMatcher(templateProvider));
         }
 
         public SourcesRepository Repository { get; }

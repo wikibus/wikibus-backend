@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Argolis.Hydra.Resources;
 using JsonLD.Entities;
 using NullGuard;
@@ -34,43 +35,43 @@ namespace Wikibus.Sources.DotNetRDF
         }
 
         /// <inheritdoc />
-        public Magazine GetMagazine(Uri identifier)
+        public async Task<Magazine> GetMagazine(Uri identifier)
         {
             return this.Get<Magazine>(identifier);
         }
 
         /// <inheritdoc />
-        public Brochure GetBrochure(Uri identifier)
+        public async Task<Brochure> GetBrochure(Uri identifier)
         {
             return this.Get<Brochure>(identifier);
         }
 
         /// <inheritdoc />
-        public Book GetBook(Uri identifier)
+        public async Task<Book> GetBook(Uri identifier)
         {
             return this.Get<Book>(identifier);
         }
 
         /// <inheritdoc />
-        public SearchableCollection<Book> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
+        public Task<SearchableCollection<Book>> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
         {
             return this.GetAll<Book, SearchableCollection<Book>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public SearchableCollection<Brochure> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
+        public Task<SearchableCollection<Brochure>> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
         {
             return this.GetAll<Brochure, SearchableCollection<Brochure>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public SearchableCollection<Magazine> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
+        public Task<SearchableCollection<Magazine>> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
         {
             return this.GetAll<Magazine, SearchableCollection<Magazine>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public Collection<Issue> GetMagazineIssues(Uri identifier)
+        public async Task<Collection<Issue>> GetMagazineIssues(Uri identifier)
         {
             var magazineIssues = this.Get<Collection<Issue>>(identifier);
             if (magazineIssues != null)
@@ -83,7 +84,7 @@ namespace Wikibus.Sources.DotNetRDF
         }
 
         /// <inheritdoc />
-        public Issue GetIssue(Uri identifier)
+        public async Task<Issue> GetIssue(Uri identifier)
         {
             return this.Get<Issue>(identifier);
         }
@@ -115,7 +116,7 @@ namespace Wikibus.Sources.DotNetRDF
             return null;
         }
 
-        private TCollection GetAll<T, TCollection>(Uri collectionUri, int page, int pageSize = 10)
+        private async Task<TCollection> GetAll<T, TCollection>(Uri collectionUri, int page, int pageSize = 10)
             where T : class
             where TCollection : SearchableCollection<T>, new()
         {

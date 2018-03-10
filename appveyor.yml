@@ -21,7 +21,9 @@ deploy:
     name: '[TEST] data.wikibus.org'
     on:
       Configuration: Debug
+      branch: master
   - provider: Environment
     name: '[TEST] wikibus.org'
     on:
       Configuration: Debug
+      branch: master

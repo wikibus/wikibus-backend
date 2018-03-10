@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using Argolis.Hydra.Resources;
+using Argolis.Models;
 using NullGuard;
 using Wikibus.Sources.Filters;
 
@@ -9,29 +12,32 @@ namespace Wikibus.Sources.EF
     public class SourcesRepository : ISourcesRepository
     {
         private readonly ISourceContext context;
-        private readonly IdRetriever identifierRetriever;
         private readonly EntityFactory factory;
+        private readonly IUriTemplateMatcher matcher;
 
-        public SourcesRepository(ISourceContext context, IdRetriever identifierRetriever, EntityFactory factory)
+        public SourcesRepository(
+            ISourceContext context,
+            EntityFactory factory,
+            IUriTemplateMatcher matcher)
         {
             this.context = context;
-            this.identifierRetriever = identifierRetriever;
             this.factory = factory;
+            this.matcher = matcher;
         }
 
         [return: AllowNull]
-        public Magazine GetMagazine(Uri identifier)
+        public async Task<Magazine> GetMagazine(Uri identifier)
         {
-            var id = this.identifierRetriever.GetMagazineName(identifier);
+            var id = this.matcher.Match<Magazine>(identifier).Get<string>("name");
 
             if (id == null)
             {
                 return null;
             }
 
-            var source = (from mag in this.context.Magazines
+            var source = await (from mag in this.context.Magazines
                           where mag.Name == id
-                          select mag).SingleOrDefault();
+                          select mag).SingleOrDefaultAsync();
 
             if (source == null)
             {
@@ -42,22 +48,23 @@ namespace Wikibus.Sources.EF
         }
 
         [return: AllowNull]
-        public Brochure GetBrochure(Uri identifier)
+        public async Task<Brochure> GetBrochure(Uri identifier)
         {
-            var id = this.identifierRetriever.GetBrochureId(identifier);
+            var uriTemplateMatches = this.matcher.Match<Brochure>(identifier);
+            var id = uriTemplateMatches.Get<int?>("id");
 
             if (id == null)
             {
                 return null;
             }
 
-            var source = (from b in this.context.Brochures
+            var source = await (from b in this.context.Brochures
                           where b.Id == id
                           select new EntityWrapper<BrochureEntity>
                           {
                               Entity = b,
                               HasImage = b.Image != null
-                          }).SingleOrDefault();
+                          }).SingleOrDefaultAsync();
 
             if (source == null)
             {
@@ -68,22 +75,22 @@ namespace Wikibus.Sources.EF
         }
 
         [return: AllowNull]
-        public Book GetBook(Uri identifier)
+        public async Task<Book> GetBook(Uri identifier)
         {
-            var id = this.identifierRetriever.GetBookId(identifier);
+            var id = this.matcher.Match<Book>(identifier).Get<int?>("id");
 
             if (id == null)
             {
                 return null;
             }
 
-            var source = (from b in this.context.Books
+            var source = await (from b in this.context.Books
                           where b.Id == id
                           select new EntityWrapper<BookEntity>
                           {
                               Entity = b,
                               HasImage = b.Image != null
-                          }).SingleOrDefault();
+                          }).SingleOrDefaultAsync();
 
             if (source == null)
             {
@@ -93,9 +100,9 @@ namespace Wikibus.Sources.EF
             return this.factory.CreateBook(source);
         }
 
-        public SearchableCollection<Book> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
+        public async Task<SearchableCollection<Book>> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
         {
-            return this.context.Books.GetCollectionPage(
+            return await this.context.Books.GetCollectionPage(
                 identifier,
                 entity => entity.BookTitle,
                 this.FilterBooks(filters),
@@ -104,9 +111,9 @@ namespace Wikibus.Sources.EF
                 this.factory.CreateBook);
         }
 
-        public SearchableCollection<Brochure> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
+        public async Task<SearchableCollection<Brochure>> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
         {
-            return this.context.Brochures.GetCollectionPage(
+            return await this.context.Brochures.GetCollectionPage(
                 identifier,
                 entity => entity.FolderName,
                 this.FilterBrochures(filters),
@@ -115,9 +122,9 @@ namespace Wikibus.Sources.EF
                 this.factory.CreateBrochure);
         }
 
-        public SearchableCollection<Magazine> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
+        public async Task<SearchableCollection<Magazine>> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
         {
-            return this.context.Magazines.GetCollectionPage(
+            return await this.context.Magazines.GetCollectionPage(
                 identifier,
                 entity => entity.Name,
                 this.FilterMagazines(filters),
@@ -126,16 +133,16 @@ namespace Wikibus.Sources.EF
                 this.factory.CreateMagazine);
         }
 
-        public Collection<Issue> GetMagazineIssues(Uri uri)
+        public async Task<Collection<Issue>> GetMagazineIssues(Uri uri)
         {
-            var name = this.identifierRetriever.GetMagazineForIssuesId(uri);
+            var name = this.matcher.Match<Collection<Issue>>(uri).Get<string>("name");
 
             if (name == null)
             {
                 return new Collection<Issue>();
             }
 
-            var results = (from m in this.context.Magazines
+            var results = await (from m in this.context.Magazines
                            where m.Name == name
                            from issue in m.Issues
                            select new
@@ -143,7 +150,7 @@ namespace Wikibus.Sources.EF
                                Entity = issue,
                                issue.Magazine,
                                HasImage = issue.Image != null
-                           }).ToList();
+                           }).ToListAsync();
 
             var issues = results.Select(i => new EntityWrapper<MagazineIssueEntity>
             {
@@ -160,25 +167,28 @@ namespace Wikibus.Sources.EF
         }
 
         [return: AllowNull]
-        public Issue GetIssue(Uri identifier)
+        public async Task<Issue> GetIssue(Uri identifier)
         {
-            var id = this.identifierRetriever.GetIssueId(identifier);
+            var matches = this.matcher.Match<Issue>(identifier);
 
-            if (id == null)
+            if (matches.Success == false)
             {
                 return null;
             }
 
-            var result = (from m in this.context.Magazines
-                          where m.Name == id.MagazineName
+            var magazineName = matches.Get<string>("name");
+            var issueNumber = matches.Get<int>("number");
+
+            var result = await (from m in this.context.Magazines
+                          where m.Name == magazineName
                           from i in m.Issues
-                          where i.MagIssueNumber == id.IssueNumber
+                          where i.MagIssueNumber == issueNumber
                           select new
                           {
                               Entity = i,
                               i.Magazine,
                               HasImage = i.Image.Image != null
-                          }).SingleOrDefault();
+                          }).SingleOrDefaultAsync();
 
             if (result == null)
             {

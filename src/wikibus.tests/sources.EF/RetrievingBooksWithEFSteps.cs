@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using Wikibus.Sources;
@@ -16,9 +17,9 @@ namespace Wikibus.Tests.sources.EF
         }
 
         [When(@"getting Book <(.*)>")]
-        public void WhenGettingBook(string bookId)
+        public async Task WhenGettingBook(string bookId)
         {
-            context.Source = context.Repository.GetBook(new Uri(bookId));
+            context.Source = await context.Repository.GetBook(new Uri(bookId));
         }
 
         [Then(@"Author should be '(.*)'")]

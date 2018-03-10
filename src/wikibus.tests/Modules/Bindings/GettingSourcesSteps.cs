@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Argolis.Hydra.Resources;
 using FakeItEasy;
 using FluentAssertions;
 using Nancy;
@@ -35,7 +36,7 @@ namespace Wikibus.Tests.Modules.Bindings
         [Given(@"brochure '(.*)' doesn't exist")]
         public void GivenBrochureDoesntExist(string resourceUri)
         {
-            A.CallTo(() => dep.Sources.GetBrochure(new Uri(resourceUri))).Returns(null);
+            A.CallTo(() => dep.Sources.GetBrochure(new Uri(resourceUri))).Returns(Task.FromResult<Brochure>(null));
         }
 
         [Given(@"existing brochure '(.*)'")]
@@ -175,7 +176,7 @@ namespace Wikibus.Tests.Modules.Bindings
                 context.Query(query.Key, query.Value);
             }
 
-            context.HostName("swikibus.org");
+            context.HostName("wikibus.org");
         }
     }
 }
