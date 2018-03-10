@@ -100,22 +100,11 @@ namespace Wikibus.Sources.Nancy
             collection.Views = new IView[]
             {
                 new TemplatedPartialCollectionView(uriTemplate, "page", collection.TotalItems, page.Value, PageSize, templateParams),
-
-                // new ViewTemplate(uriTemplate, this.GetFilterMappings<TFilter>())
             };
 
             collection.Search = searchTemplate;
 
             return this.Negotiate.WithModel(collection).WithHeader("Content-Location", contentLocation);
         }
-
-        // private IEnumerable<IriTemplateMapping> GetFilterMappings<T>()
-        // {
-        //    if (typeof(T) == typeof(BrochureFilters))
-        //    {
-        //        yield return new IriTemplateMapping("title", DCTerms.title);
-        //        yield return new IriTemplateMapping("language", DCTerms.language);
-        //    }
-        // }
     }
 }

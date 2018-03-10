@@ -49,8 +49,6 @@ namespace Wikibus.Tests.Modules.Bindings
             yield return A.Dummy<IContextPathMapper>();
             yield return A.Dummy<IHydraDocumentationSettings>();
 
-            // yield return new TestBaseUriProvider();
-
             IWikibusConfiguration testConfiguration = new TestConfiguration();
             yield return testConfiguration;
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace Wikibus.Tests.sources.EF
@@ -14,9 +15,9 @@ namespace Wikibus.Tests.sources.EF
         }
 
         [When(@"getting Brochure <(.*)>")]
-        public void WhenGettingBrochure(string brochureId)
+        public async Task WhenGettingBrochure(string brochureId)
         {
-            context.Source = context.Repository.GetBrochure(new Uri(brochureId)).Result;
+            context.Source = await context.Repository.GetBrochure(new Uri(brochureId));
         }
     }
 }
