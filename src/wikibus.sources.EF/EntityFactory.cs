@@ -153,7 +153,13 @@ namespace Wikibus.Sources.EF
         {
             if (source.Year.HasValue && source.Month.HasValue && source.Day.HasValue)
             {
-                target.Date = new DateTime(source.Year.Value, source.Month.Value, source.Day.Value);
+                try
+                {
+                    target.Date = new DateTime(source.Year.Value, source.Month.Value, source.Day.Value);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                }
             }
         }
 

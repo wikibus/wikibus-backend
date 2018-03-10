@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Wikibus.Common;
 using Wikibus.Common.JsonLd;
-using Vocab = JsonLD.Entities.Context.Vocab;
 
 namespace Wikibus.Nancy
 {
@@ -34,8 +33,9 @@ namespace Wikibus.Nancy
         /// <summary>
         /// Gets the brochures Uri.
         /// </summary>
+        [Link]
         [ReadOnly(true)]
-        [Range(global::Vocab.Hydra.Collection)]
+        [Range(Vocab.Hydra.Collection)]
         public IriRef Brochures
         {
             get { return (IriRef)"brochures"; }
@@ -44,8 +44,9 @@ namespace Wikibus.Nancy
         /// <summary>
         /// Gets the books Uri.
         /// </summary>
+        [Link]
         [ReadOnly(true)]
-        [Range(global::Vocab.Hydra.Collection)]
+        [Range(Vocab.Hydra.Collection)]
         public IriRef Books
         {
             get { return (IriRef)"books"; }
@@ -54,8 +55,9 @@ namespace Wikibus.Nancy
         /// <summary>
         /// Gets the magazines Uri.
         /// </summary>
+        [Link]
         [ReadOnly(true)]
-        [Range(global::Vocab.Hydra.Collection)]
+        [Range(Vocab.Hydra.Collection)]
         public IriRef Magazines
         {
             get { return (IriRef)"magazines"; }

@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Data.SqlLocalDb;
 using NDbUnit.Core;
 using NDbUnit.Core.SqlClient;
+using NUnit.Framework;
 using Resourcer;
 
 namespace Wikibus.Tests.Mappings
@@ -32,8 +33,8 @@ namespace Wikibus.Tests.Mappings
 
             var database = new SqlDbUnitTest(connection);
 
-            database.Scripts.AddSingle("Scripts\\InitSchema.sql");
-            database.Scripts.AddWithWildcard("Scripts", "InitTable_*.sql");
+            database.Scripts.AddSingle($"{TestContext.CurrentContext.TestDirectory}\\Scripts\\InitSchema.sql");
+            database.Scripts.AddWithWildcard($"{TestContext.CurrentContext.TestDirectory}\\Scripts", "InitTable_*.sql");
             database.ExecuteScripts();
             database.ReadXmlSchema(Resource.AsStream("Wikibus.xsd"));
 

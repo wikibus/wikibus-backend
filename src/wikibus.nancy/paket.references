@@ -3,9 +3,12 @@ r2rml4net
 NullGuard.Fody
 ImageResizer
 Resourcer.Fody
+Nancy.Rdf
 JetBrainsAnnotations.Fody
 Argolis.Nancy
 Nancy.Bootstrappers.Autofac
 EntityFramework
 StyleCop.Analyzers
-Argolis.Nancy
+Nancy.Routing.UriTemplates
+jetbrains.annotations
+Argolis.Models.TunnelVisionLabs

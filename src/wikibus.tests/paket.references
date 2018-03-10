@@ -9,8 +9,10 @@ r2rml4net
 ImpromptuInterface
 Resourcer.Fody
 NDbUnit.SqlClient
-JetBrainsAnnotations.Fody
 System.Data.SqlLocalDb
-Argolis.Hydra
-Argolis.UriTemplates.Nancy
+Argolis.Nancy
+Rdf.Vocabularies
 EntityFramework
+Nancy.Routing.UriTemplates
+Argolis.Models.TunnelVisionLabs
+Argolis.Hydra

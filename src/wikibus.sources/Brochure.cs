@@ -15,8 +15,8 @@ namespace Wikibus.Sources
     /// A brochure about buses, trams, etc.
     /// </summary>
     [SupportedClass(Wbo.Brochure)]
-    [Identifier("/brochure/{id}")]
-    [CollectionIdentifier("/brochures{?page,title,language}")]
+    [Identifier("brochure/{id}")]
+    [CollectionIdentifier("brochures{?page}")]
     public class Brochure : Source
     {
         private string description;

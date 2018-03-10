@@ -1,5 +1,8 @@
 GitVersionTask
 NullGuard.Fody
-JetBrainsAnnotations.Fody
 Argolis.Nancy
+Rdf.Vocabularies
 StyleCop.Analyzers
+TunnelVisionLabs.Net.UriTemplate
+Nancy.Routing.UriTemplates
+jetbrains.annotations

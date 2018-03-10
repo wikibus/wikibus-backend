@@ -57,7 +57,7 @@ namespace Wikibus.Nancy
         {
             existingContainer.Update(builder =>
             {
-                builder.RegisterType<AppSettingsConfiguration>().As<IWikibusConfiguration>();
+                builder.RegisterType<AppSettingsConfiguration>().AsImplementedInterfaces();
                 builder.RegisterType<HydraDocumentationSettings>().As<IHydraDocumentationSettings>();
                 builder.RegisterType<ImageResizer>().As<IImageResizer>();
                 builder.RegisterAssemblyTypes(typeof(SourcesRepository).Assembly)

@@ -53,21 +53,21 @@ namespace Wikibus.Sources.DotNetRDF
         }
 
         /// <inheritdoc />
-        public async Task<Collection<Book>> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
+        public Task<SearchableCollection<Book>> GetBooks(Uri identifier, BookFilters filters, int page, int pageSize = 10)
         {
-            return this.GetAll<Book, Collection<Book>>(identifier, page, pageSize);
+            return this.GetAll<Book, SearchableCollection<Book>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public async Task<Collection<Brochure>> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
+        public Task<SearchableCollection<Brochure>> GetBrochures(Uri identifier, BrochureFilters filters, int page, int pageSize = 10)
         {
-            return this.GetAll<Brochure, Collection<Brochure>>(identifier, page, pageSize);
+            return this.GetAll<Brochure, SearchableCollection<Brochure>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
-        public async Task<Collection<Magazine>> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
+        public Task<SearchableCollection<Magazine>> GetMagazines(Uri identifier, MagazineFilters filters, int page, int pageSize = 10)
         {
-            return this.GetAll<Magazine, Collection<Magazine>>(identifier, page, pageSize);
+            return this.GetAll<Magazine, SearchableCollection<Magazine>>(identifier, page, pageSize);
         }
 
         /// <inheritdoc />
@@ -116,9 +116,9 @@ namespace Wikibus.Sources.DotNetRDF
             return null;
         }
 
-        private TCollection GetAll<T, TCollection>(Uri collectionUri, int page, int pageSize = 10)
+        private async Task<TCollection> GetAll<T, TCollection>(Uri collectionUri, int page, int pageSize = 10)
             where T : class
-            where TCollection : Collection<T>, new()
+            where TCollection : SearchableCollection<T>, new()
         {
             var query = new SparqlParameterizedString(Resource.AsString("SparqlQueries.GetSourcesPage.rq"));
             query.SetUri("type", GetTypeUri(typeof(T)));

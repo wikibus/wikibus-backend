@@ -23,14 +23,14 @@ namespace Wikibus.Tests.FluentAssertions
             queryProcessor = new LeviathanQueryProcessor(new InMemoryDataset(graph));
         }
 
-        protected override string Context
+        protected override string Identifier
         {
             get { return "triple store"; }
         }
 
         public AndConstraint<StoreAssertions> MatchAsk(
             Action<ITriplePatternBuilder> getPtterns,
-            Func<ExpressionBuilder, BooleanExpression> getFilters = null)
+            Func<INonAggregateExpressionBuilder, BooleanExpression> getFilters = null)
         {
             var queryBuilder = QueryBuilder.Ask().Where(getPtterns);
 

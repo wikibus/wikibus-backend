@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Argolis.Hydra;
 using FakeItEasy;
 using FluentAssertions;
 using JsonLD.Entities;
@@ -30,19 +32,24 @@ namespace Wikibus.Tests.Modules
                                          .Dependency(A.Dummy<IEntitySerializer>())
                                          .Dependency(A.Dummy<INamespaceManager>())
                                          .Dependency(A.Dummy<IContextPathMapper>())
+                                         .Dependency<IHydraDocumentationSettings>(A.Dummy<IHydraDocumentationSettings>())
                                          .Dependency<IWikibusConfiguration>(new TestConfiguration()));
         }
 
         [Test]
-        public async void ShouldRedirectRDFRequestsToDocument(
-            [ValueSource("PathsToRedirect")] Tuple<string, string> path,
-            [ValueSource("RdfMediaTypes")] RdfSerialization media)
+        public async Task ShouldRedirectRDFRequestsToDocument(
+            [ValueSource(nameof(PathsToRedirect))] Tuple<string, string> path,
+            [ValueSource(nameof(RdfMediaTypes))] RdfSerialization media)
         {
             // given
             var expectedReditectLocation = new Uri(BaseUri + string.Format("{0}", path.Item2));
 
             // when
-            var response = await browser.Get(path.Item1, context => context.Accept(media.MediaType));
+            var response = await browser.Get(path.Item1, context =>
+            {
+                context.Accept(media.MediaType);
+                context.HostName("wikibus.org");
+            });
 
             // then
             response.StatusCode.Should().Be(HttpStatusCode.SeeOther);
@@ -50,7 +57,7 @@ namespace Wikibus.Tests.Modules
         }
 
         [Test]
-        public async void ShouldRedirectRequestWithQuery()
+        public async Task ShouldRedirectRequestWithQuery()
         {
             // given
             const string pathExpected = "brochure/x/y/z?a=a&b=b+b";
@@ -64,6 +71,7 @@ namespace Wikibus.Tests.Modules
                     context.Accept(RdfSerialization.Turtle.MediaType);
                     context.Query("a", "a");
                     context.Query("b", "b b");
+                    context.HostName("wikibus.org");
                 });
 
             // then
@@ -71,7 +79,7 @@ namespace Wikibus.Tests.Modules
             response.Headers["Location"].Should().Be(expectedReditectLocation.ToString());
         }
 
-        private IEnumerable<Tuple<string, string>> PathsToRedirect()
+        private static IEnumerable<Tuple<string, string>> PathsToRedirect()
         {
             yield return Tuple.Create("/brochure/", "brochure/");
             yield return Tuple.Create("/brochure/x/y/z", "brochure/x/y/z");
@@ -79,7 +87,7 @@ namespace Wikibus.Tests.Modules
             yield return Tuple.Create("/", string.Empty);
         }
 
-        private IEnumerable<RdfSerialization> RdfMediaTypes()
+        private static IEnumerable<RdfSerialization> RdfMediaTypes()
         {
             yield return RdfSerialization.Turtle;
             yield return RdfSerialization.RdfXml;

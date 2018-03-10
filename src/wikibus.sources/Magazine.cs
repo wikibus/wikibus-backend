@@ -19,8 +19,8 @@ namespace Wikibus.Sources
     /// </summary>
     [NullGuard(ValidationFlags.AllPublic ^ ValidationFlags.Properties)]
     [SupportedClass(Wbo.Magazine)]
-    [Identifier("/magazine/{name}")]
-    [CollectionIdentifier("/magazines{?page,title}")]
+    [Identifier("magazine/{name}")]
+    [CollectionIdentifier("magazines{?page}")]
     public class Magazine
     {
         /// <summary>
@@ -37,6 +37,7 @@ namespace Wikibus.Sources
         /// <summary>
         /// Gets the issues Uri.
         /// </summary>
+        [Link]
         [ReadOnly(true)]
         [Range(Hydra.Collection)]
         public Uri Issues

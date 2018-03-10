@@ -1,6 +1,10 @@
 GitVersionTask
 NullGuard.Fody
 Resourcer.Fody
-JetBrainsAnnotations.Fody
+jsonld.entities
 Argolis.Hydra
+Argolis.Models
+Rdf.Vocabularies
 StyleCop.Analyzers
+TunnelVisionLabs.Net.UriTemplate
+jetbrains.annotations

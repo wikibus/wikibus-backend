@@ -3,13 +3,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Argolis.Hydra.Resources;
 
 namespace Wikibus.Sources.EF
 {
     public static class SourceRepositoryExtensions
     {
-        public static async Task<Collection<T>> GetCollectionPage<T, TEntity>(
+        public static async Task<SearchableCollection<T>> GetCollectionPage<T, TEntity>(
             this IDbSet<TEntity> dbSet,
             Uri identifier,
             Expression<Func<TEntity, object>> ordering,
@@ -28,7 +27,7 @@ namespace Wikibus.Sources.EF
             });
             var books = await entityWrappers.ToListAsync();
 
-            return new Collection<T>
+            return new SearchableCollection<T>
             {
                 Id = identifier,
                 Members = books.ToList().Select(resourceFactory).ToArray(),
@@ -36,7 +35,7 @@ namespace Wikibus.Sources.EF
             };
         }
 
-        public static async Task<Collection<T>> GetCollectionPage<T, TEntity>(
+        public static async Task<SearchableCollection<T>> GetCollectionPage<T, TEntity>(
             this IDbSet<TEntity> dbSet,
             Uri identifier,
             Expression<Func<TEntity, object>> ordering,
@@ -50,7 +49,7 @@ namespace Wikibus.Sources.EF
             var pageOfBrochures = entireCollection.Skip((page - 1) * pageSize).Take(pageSize);
             var books = await pageOfBrochures.ToListAsync();
 
-            return new Collection<T>
+            return new SearchableCollection<T>
             {
                 Id = identifier,
                 Members = books.ToList().Select(resourceFactory).ToArray(),

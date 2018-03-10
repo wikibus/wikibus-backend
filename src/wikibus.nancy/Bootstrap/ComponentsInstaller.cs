@@ -35,7 +35,6 @@ namespace Wikibus.Nancy
             }));
             this.Register<IFrameProvider>(new WikibusModelFrames());
             this.Register<DefaultRouteResolver>();
-            this.Register<IBaseUriProvider>(typeof(BaseUriProvider));
         }
     }
 }
