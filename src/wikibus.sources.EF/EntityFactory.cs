@@ -21,7 +21,7 @@ namespace Wikibus.Sources.EF
         {
             var book = new Book
             {
-                Id = this.expander.ExpandAbsolute<Book>(new { title = bookEntity.Entity.Id })
+                Id = this.expander.ExpandAbsolute<Book>(new { id = bookEntity.Entity.Id })
             };
 
             if (bookEntity.Entity.BookISBN != null)
