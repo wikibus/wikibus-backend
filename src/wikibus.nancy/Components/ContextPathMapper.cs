@@ -18,9 +18,9 @@ namespace Wikibus.Nancy
             this.ServeContextOf<Brochure>();
             this.ServeContextOf<Issue>();
             this.ServeContextOf<Magazine>();
-            this.ServeContextOf<Collection<Book>>("CollectionOfBooks");
-            this.ServeContextOf<Collection<Brochure>>("CollectionOfBrochures");
-            this.ServeContextOf<Collection<Magazine>>("CollectionOfMagazines");
+            this.ServeContextOf<SearchableCollection<Book>>("CollectionOfBooks");
+            this.ServeContextOf<SearchableCollection<Brochure>>("CollectionOfBrochures");
+            this.ServeContextOf<SearchableCollection<Magazine>>("CollectionOfMagazines");
             this.ServeContextOf<Collection<Issue>>("CollectionOfIssues");
         }
     }

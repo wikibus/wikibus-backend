@@ -58,6 +58,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="Brochure.cs" />
     <Compile Include="Filters\SourceFilters.cs" />
+    <Compile Include="Hex.cs" />
     <Compile Include="SearchableCollection.cs" />
     <Compile Include="WikibusModelFrames.cs" />
     <Compile Include="Filters\BookFilters.cs" />

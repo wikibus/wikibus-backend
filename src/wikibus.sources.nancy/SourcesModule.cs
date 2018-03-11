@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Argolis.Hydra;
 using Argolis.Hydra.Core;
@@ -103,6 +104,9 @@ namespace Wikibus.Sources.Nancy
             };
 
             collection.Search = searchTemplate;
+            collection.CurrentMappings = templateParams.ToDictionary(
+                k => searchTemplate.Mappings.FirstOrDefault(mapping => mapping.Variable == k.Key)?.Property.Id ?? k.Key,
+                v => v.Value.ToString());
 
             return this.Negotiate.WithModel(collection).WithHeader("Content-Location", contentLocation);
         }
