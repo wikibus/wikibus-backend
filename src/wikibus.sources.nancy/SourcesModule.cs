@@ -93,7 +93,7 @@ namespace Wikibus.Sources.Nancy
             var collectionId = uriTemplate.BindByName(templateParams);
 
             templateParams["page"] = page;
-            var contentLocation = uriTemplate.BindByName(templateParams).ToString();
+            var canonical = uriTemplate.BindByName(templateParams).ToString();
 
             var filter = this.Bind<TFilter>();
             var collection = await getPage(collectionId, filter, page.Value, PageSize);
@@ -108,7 +108,7 @@ namespace Wikibus.Sources.Nancy
                 k => searchTemplate.Mappings.FirstOrDefault(mapping => mapping.Variable == k.Key)?.Property.Id ?? k.Key,
                 v => v.Value.ToString());
 
-            return this.Negotiate.WithModel(collection).WithHeader("Content-Location", contentLocation);
+            return this.Negotiate.WithModel(collection).WithHeader("Link", $"<{canonical}>; rel=\"canonical\"");
         }
     }
 }
