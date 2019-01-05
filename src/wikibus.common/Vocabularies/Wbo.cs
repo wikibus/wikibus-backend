@@ -2,7 +2,7 @@
 
 namespace Wikibus.Common
 {
-    /// <summary>Wikibus.org Ontology (http://wikibus.org/ontology#).</summary>
+    /// <summary>Wikibus.org Ontology (https://wikibus.org/ontology#).</summary>
     public static partial class Wbo
     {
         /// <summary>
@@ -11,9 +11,9 @@ namespace Wikibus.Common
         public const string Prefix="wbo";
 
         /// <summary>
-        /// http://wikibus.org/ontology#
+        /// https://wikibus.org/ontology#
         /// </summary>
-        public const string BaseUri="http://wikibus.org/ontology#";
+        public const string BaseUri="https://wikibus.org/ontology#";
         
         /// <summary>
         /// Any source material for wikibus.org (books, brochures, etc).

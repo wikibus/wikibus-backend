@@ -7,17 +7,17 @@ namespace Wikibus.Tests
     {
         public string BaseResourceNamespace
         {
-            get { return "http://wikibus.org/"; }
+            get { return "https://wikibus.org/"; }
         }
 
         public string BaseApiNamespace
         {
-            get { return "http://wikibus.org/data/"; }
+            get { return "https://wikibus.org/data/"; }
         }
 
         public string BaseWebNamespace
         {
-            get { return "http://www.wikibus.org/"; }
+            get { return "https://www.wikibus.org/"; }
         }
 
         public string BaseResourceUri => this.BaseResourceNamespace;

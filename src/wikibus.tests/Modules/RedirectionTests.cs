@@ -19,7 +19,7 @@ namespace Wikibus.Tests.Modules
     [TestFixture]
     public class RedirectionTests
     {
-        private const string BaseUri = "http://wikibus.org/data/";
+        private const string BaseUri = "https://wikibus.org/data/";
         private Browser browser;
 
         [SetUp]

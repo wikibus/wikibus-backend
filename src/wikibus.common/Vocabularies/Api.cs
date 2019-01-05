@@ -2,7 +2,7 @@
 
 namespace Wikibus.Common
 {
-    /// <summary>Wikibus.org Ontology (http://wikibus.org/api#).</summary>
+    /// <summary>Wikibus.org Ontology (https://wikibus.org/api#).</summary>
     public static partial class Api
     {
         /// <summary>
@@ -11,9 +11,9 @@ namespace Wikibus.Common
         public const string Prefix="api";
 
         /// <summary>
-        /// http://wikibus.org/api#
+        /// https://wikibus.org/api#
         /// </summary>
-        public const string BaseUri="http://wikibus.org/api#";
+        public const string BaseUri="https://wikibus.org/api#";
         
         /// <summary>
         /// The API entry point

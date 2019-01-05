@@ -96,9 +96,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
   testRunner.And("data is inserted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
-   testRunner.When("getting Brochure <http://wikibus.org/brochure/1>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When("getting Brochure <https://wikibus.org/brochure/1>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
-   testRunner.Then("Id should be <http://wikibus.org/brochure/1>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+   testRunner.Then("Id should be <https://wikibus.org/brochure/1>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property",
@@ -148,7 +148,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 24
   testRunner.And("data is inserted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 25
-   testRunner.When("getting Brochure <http://wikibus.org/brochure/2>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When("getting Brochure <https://wikibus.org/brochure/2>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 26
    testRunner.Then("Brochure should be null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -178,9 +178,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 33
   testRunner.And("data is inserted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
-   testRunner.When("getting Brochure <http://wikibus.org/brochure/2>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When("getting Brochure <https://wikibus.org/brochure/2>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 35
-   testRunner.Then("Should have image http://wikibus.org/brochure/2/image", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+   testRunner.Then("Should have image https://wikibus.org/brochure/2/image", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -208,9 +208,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 42
   testRunner.And("data is inserted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 43
-   testRunner.When("getting Book <http://wikibus.org/book/407>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When("getting Book <https://wikibus.org/book/407>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 44
-   testRunner.Then("Should have image http://wikibus.org/book/407/image", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+   testRunner.Then("Should have image https://wikibus.org/book/407/image", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -252,7 +252,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 51
   testRunner.And("data is inserted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
-   testRunner.When("getting Brochure <http://wikibus.org/brochure/6>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When("getting Brochure <https://wikibus.org/brochure/6>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property",
@@ -315,7 +315,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 67
   testRunner.And("data is inserted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 68
-   testRunner.When("getting Book <http://wikibus.org/book/407>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When("getting Book <https://wikibus.org/book/407>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "Property",
@@ -386,7 +386,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 86
   testRunner.And("data is inserted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 87
-    testRunner.When("Getting issue <http://wikibus.org/magazine/Bus%20Kurier/issue/13>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("Getting issue <https://wikibus.org/magazine/Bus%20Kurier/issue/13>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 88
     testRunner.Then("Languages should contain pl", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -408,7 +408,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 89
      testRunner.And("Issue should match", ((string)(null)), table12, "And ");
 #line 95
-    testRunner.And("Magazine is <http://wikibus.org/magazine/Bus%20Kurier>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("Magazine is <https://wikibus.org/magazine/Bus%20Kurier>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

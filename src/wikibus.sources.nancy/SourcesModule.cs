@@ -22,7 +22,6 @@ namespace Wikibus.Sources.Nancy
     {
         private const int PageSize = 12;
 
-        private readonly IModelTemplateProvider modelTemplateProvider;
         private readonly IUriTemplateExpander expander;
         private readonly IIriTemplateFactory templateFactory;
 
@@ -36,7 +35,6 @@ namespace Wikibus.Sources.Nancy
             IModelTemplateProvider modelTemplateProvider)
             : base(modelTemplateProvider)
         {
-            this.modelTemplateProvider = modelTemplateProvider;
             this.expander = expander;
             this.expander = expander;
             this.templateFactory = templateFactory;
