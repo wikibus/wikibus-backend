@@ -37,7 +37,7 @@ namespace Wikibus.Purl.Nancy
                 Query = this.Request.Url.Query.TrimStart('?')
             };
 
-            if (uri.Port == 80)
+            if (uri.Port == 80 || uri.Port == 443)
             {
                 var uriNoPort = uri.Uri.GetComponents(UriComponents.AbsoluteUri & ~UriComponents.Port, UriFormat.UriEscaped);
                 return this.Response.AsRedirect(uriNoPort);
